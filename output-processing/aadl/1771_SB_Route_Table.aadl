@@ -1,0 +1,24 @@
+package SB_Route_Table
+public
+	with Core_Types;
+	---------------------------add msg can be sent out---------------
+	feature group RouteOutput
+		features
+			ES_CmdPipe_ES_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			SB_CmdPipe_SB_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			EVS_CmdPipe_EVS_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			TIME_CmdPipe_TIME_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			HS_CmdPipe_HS_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+--			EVS_EVENT_MSG: out data port Core_Types::struct.CFE_SB_Msg_t;
+	end RouteOutput;
+	
+	feature group RouteInput
+		features
+			ES_CmdPipe_ES_Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+			SB_CmdPipe_SB_Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+			EVS_CmdPipe_EVS_Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+			TIME_CmdPipe_TIME_Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+			HS_CmdPipe_HS_Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+	inverse of RouteOutput
+	end RouteInput;
+end SB_Route_Table;

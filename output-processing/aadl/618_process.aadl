@@ -1,0 +1,123 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package process_package
+public
+	with Deployment;
+	with DataView;
+	with interfaceview::IV;
+	with deploymentview::DV;
+	with ocarina_processors_x86;
+	with vt_gui_out_msg_CV_Thread;
+	with vt_gui_gui_polling_gui_CV_Thread;
+	with vt_coffee_get_init_tmpr_CV_Thread;
+	with vt_coffee_get_init_water_CV_Thread;
+	with vt_coffee_for_water_CV_Thread;
+	with vt_coffee_for_water_tmpr_CV_Thread;
+	with vt_coffee_for_coffee_CV_Thread;
+	with vt_coffee_for_ticking_CV_Thread;
+	with vt_coffee_tmr_CV_Thread;
+	with vt_coffee_tmr1_CV_Thread;
+	with vt_coffee_tmr2_CV_Thread;
+	with vt_coffee_tmr3_CV_Thread;
+	with vt_chip_timer_manager_tick_100ms_CV_Thread;
+
+DATA TASTE_Protected
+PROPERTIES
+	Concurrency_Control_Protocol => Protected_Access;
+END TASTE_Protected;
+
+DATA IMPLEMENTATION TASTE_Protected.Object
+PROPERTIES
+	Concurrency_Control_Protocol => Protected_Access;
+END TASTE_Protected.Object;
+
+
+process chip extends deploymentview::DV::node1::chip
+end chip;
+
+process implementation chip.final
+subcomponents
+	gui_protected : data TASTE_Protected.Object;
+	coffee_protected : data TASTE_Protected.Object;
+	chip_timer_manager_protected : data TASTE_Protected.Object;
+	vt_gui_out_msg : thread vt_gui_out_msg_CV_Thread::vt_gui_out_msg_vt_gui_out_msg.others;
+	vt_gui_gui_polling_gui : thread vt_gui_gui_polling_gui_CV_Thread::vt_gui_gui_polling_gui_vt_gui_gui_polling_gui.others;
+	vt_coffee_get_init_tmpr : thread vt_coffee_get_init_tmpr_CV_Thread::vt_coffee_get_init_tmpr_vt_coffee_get_init_tmpr.others;
+	vt_coffee_get_init_water : thread vt_coffee_get_init_water_CV_Thread::vt_coffee_get_init_water_vt_coffee_get_init_water.others;
+	vt_coffee_for_water : thread vt_coffee_for_water_CV_Thread::vt_coffee_for_water_vt_coffee_for_water.others;
+	vt_coffee_for_water_tmpr : thread vt_coffee_for_water_tmpr_CV_Thread::vt_coffee_for_water_tmpr_vt_coffee_for_water_tmpr.others;
+	vt_coffee_for_coffee : thread vt_coffee_for_coffee_CV_Thread::vt_coffee_for_coffee_vt_coffee_for_coffee.others;
+	vt_coffee_for_ticking : thread vt_coffee_for_ticking_CV_Thread::vt_coffee_for_ticking_vt_coffee_for_ticking.others;
+	vt_coffee_tmr : thread vt_coffee_tmr_CV_Thread::vt_coffee_tmr_vt_coffee_tmr.others;
+	vt_coffee_tmr1 : thread vt_coffee_tmr1_CV_Thread::vt_coffee_tmr1_vt_coffee_tmr1.others;
+	vt_coffee_tmr2 : thread vt_coffee_tmr2_CV_Thread::vt_coffee_tmr2_vt_coffee_tmr2.others;
+	vt_coffee_tmr3 : thread vt_coffee_tmr3_CV_Thread::vt_coffee_tmr3_vt_coffee_tmr3.others;
+	vt_chip_timer_manager_tick_100ms : thread vt_chip_timer_manager_tick_100ms_CV_Thread::vt_chip_timer_manager_tick_100ms_vt_chip_timer_manager_tick_100ms.others;
+connections
+	PORT vt_gui_out_msg.OUTPORT_get_init_tmpr_vt -> vt_coffee_get_init_tmpr.INPORT_artificial_get_init_tmpr;
+	PORT vt_gui_out_msg.OUTPORT_get_init_water_vt -> vt_coffee_get_init_water.INPORT_artificial_get_init_water;
+	PORT vt_gui_out_msg.OUTPORT_for_water_vt -> vt_coffee_for_water.INPORT_artificial_for_water;
+	PORT vt_gui_out_msg.OUTPORT_for_water_tmpr_vt -> vt_coffee_for_water_tmpr.INPORT_artificial_for_water_tmpr;
+	PORT vt_gui_out_msg.OUTPORT_for_coffee_vt -> vt_coffee_for_coffee.INPORT_artificial_for_coffee;
+	PORT vt_gui_out_msg.OUTPORT_for_ticking_vt -> vt_coffee_for_ticking.INPORT_artificial_for_ticking;
+	PORT vt_gui_gui_polling_gui.OUTPORT_get_init_tmpr_vt -> vt_coffee_get_init_tmpr.INPORT_artificial_get_init_tmpr;
+	PORT vt_gui_gui_polling_gui.OUTPORT_get_init_water_vt -> vt_coffee_get_init_water.INPORT_artificial_get_init_water;
+	PORT vt_gui_gui_polling_gui.OUTPORT_for_water_vt -> vt_coffee_for_water.INPORT_artificial_for_water;
+	PORT vt_gui_gui_polling_gui.OUTPORT_for_water_tmpr_vt -> vt_coffee_for_water_tmpr.INPORT_artificial_for_water_tmpr;
+	PORT vt_gui_gui_polling_gui.OUTPORT_for_coffee_vt -> vt_coffee_for_coffee.INPORT_artificial_for_coffee;
+	PORT vt_gui_gui_polling_gui.OUTPORT_for_ticking_vt -> vt_coffee_for_ticking.INPORT_artificial_for_ticking;
+	PORT vt_coffee_get_init_tmpr.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_get_init_water.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_for_water.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_for_water_tmpr.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_for_coffee.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_for_ticking.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_tmr.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_tmr1.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_tmr2.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_coffee_tmr3.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_chip_timer_manager_tick_100ms.OUTPORT_coffee_tmr_vt -> vt_coffee_tmr.INPORT_artificial_tmr;
+	PORT vt_chip_timer_manager_tick_100ms.OUTPORT_coffee_tmr1_vt -> vt_coffee_tmr1.INPORT_artificial_tmr1;
+	PORT vt_chip_timer_manager_tick_100ms.OUTPORT_coffee_tmr2_vt -> vt_coffee_tmr2.INPORT_artificial_tmr2;
+	PORT vt_chip_timer_manager_tick_100ms.OUTPORT_coffee_tmr3_vt -> vt_coffee_tmr3.INPORT_artificial_tmr3;
+	vt_gui_out_msg_gui: data access gui_protected -> vt_gui_out_msg.gui_protected;
+	vt_gui_gui_polling_gui_gui: data access gui_protected -> vt_gui_gui_polling_gui.gui_protected;
+	vt_coffee_get_init_tmpr_coffee: data access coffee_protected -> vt_coffee_get_init_tmpr.coffee_protected;
+	vt_coffee_get_init_tmpr_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_get_init_tmpr.chip_timer_manager_protected;
+	vt_coffee_get_init_water_coffee: data access coffee_protected -> vt_coffee_get_init_water.coffee_protected;
+	vt_coffee_get_init_water_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_get_init_water.chip_timer_manager_protected;
+	vt_coffee_for_water_coffee: data access coffee_protected -> vt_coffee_for_water.coffee_protected;
+	vt_coffee_for_water_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_for_water.chip_timer_manager_protected;
+	vt_coffee_for_water_tmpr_coffee: data access coffee_protected -> vt_coffee_for_water_tmpr.coffee_protected;
+	vt_coffee_for_water_tmpr_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_for_water_tmpr.chip_timer_manager_protected;
+	vt_coffee_for_coffee_coffee: data access coffee_protected -> vt_coffee_for_coffee.coffee_protected;
+	vt_coffee_for_coffee_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_for_coffee.chip_timer_manager_protected;
+	vt_coffee_for_ticking_coffee: data access coffee_protected -> vt_coffee_for_ticking.coffee_protected;
+	vt_coffee_for_ticking_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_for_ticking.chip_timer_manager_protected;
+	vt_coffee_tmr_coffee: data access coffee_protected -> vt_coffee_tmr.coffee_protected;
+	vt_coffee_tmr_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_tmr.chip_timer_manager_protected;
+	vt_coffee_tmr1_coffee: data access coffee_protected -> vt_coffee_tmr1.coffee_protected;
+	vt_coffee_tmr1_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_tmr1.chip_timer_manager_protected;
+	vt_coffee_tmr2_coffee: data access coffee_protected -> vt_coffee_tmr2.coffee_protected;
+	vt_coffee_tmr2_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_tmr2.chip_timer_manager_protected;
+	vt_coffee_tmr3_coffee: data access coffee_protected -> vt_coffee_tmr3.coffee_protected;
+	vt_coffee_tmr3_chip_timer_manager: data access chip_timer_manager_protected -> vt_coffee_tmr3.chip_timer_manager_protected;
+	vt_chip_timer_manager_tick_100ms_chip_timer_manager: data access chip_timer_manager_protected -> vt_chip_timer_manager_tick_100ms.chip_timer_manager_protected;
+end chip.final;
+
+system deploymentview
+end deploymentview;
+
+system implementation deploymentview.final
+subcomponents
+  chip: process chip.final;
+  node1_x86_linux_cv : processor ocarina_processors_x86::x86.linux;
+properties
+  Actual_Processor_Binding => (reference (node1_x86_linux_cv)) applies to chip;
+end deploymentview.final;
+end process_package;
+
+-- deploymentview.final

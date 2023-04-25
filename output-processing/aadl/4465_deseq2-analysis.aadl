@@ -1,0 +1,41 @@
+activity deseq2-analysis {
+	on {
+		dataset reference-samples : 'text/tsv' [1,-1];
+		dataset target-samples : 'text/tsv' [1,-1];
+	}
+	with {
+		parameter threshold : REAL [1,1];
+		parameter cutoff : INTEGER [1,1];
+		parameter use-false-discovery-rate : BOOLEAN [1,1];
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+		dataset std-out : 'text/plain' [1,1];
+		dataset std-err : 'text/plain' [1,1];
+	}
+	using executable "geas-deseq2-analysis.R" {
+		redirecting {
+			stdout to std-out;
+			stderr to std-err;
+		}
+		commandLineTemplate [ 
+			dataset reference-samples
+				| PrependListWith '--reference-samples',
+			dataset target-samples
+				| PrependListWith '--target-samples',
+			parameter threshold
+				| PrependListWith '--threshold',
+			parameter cutoff
+				| PrependListWith '--cutoff',
+			dataset output-file
+			    | PrependListWith '--output-file',
+			parameter use-false-discovery-rate
+			    | ToFlag {  true: '--by-false-discovery-rate' }
+		]
+		returns {
+			0 if SUCCEEDED;
+			1 if FAILED 'Input datasets are not correct.';
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

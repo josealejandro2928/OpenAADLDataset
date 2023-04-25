@@ -1,0 +1,98 @@
+package Drones3
+public
+	with DroneSystem;
+	with Hybrid_SynchAADL;
+	with Data_Model;
+
+	system Drones3
+		properties
+			Hybrid_SynchAADL::Synchronous => true;
+	end Drones3;
+	
+	system implementation Drones3.rendezvous
+		subcomponents
+			drone1: system DroneSystem::DroneSystem.rendezvous;
+			drone2: system DroneSystem::DroneSystem.rendezvous;
+			drone3: system DroneSystem::DroneSystem.rendezvous;
+		connections
+			d12x: port drone1.outX -> drone2.inX;
+			d12y: port drone1.outY -> drone2.inY;
+			d23x: port drone2.outX -> drone3.inX;
+			d23y: port drone2.outY -> drone3.inY;
+			d31x: port drone3.outX -> drone1.inX;
+			d31y: port drone3.outY -> drone1.inY;
+		properties
+			Period => 100ms;
+			
+			--- drone1 position
+    		Data_Model::Initial_Value => ("3.8") applies to
+    			drone1.drone.outX,
+    			drone1.outX,
+    			drone1.environment.x;
+    		Data_Model::Initial_Value => ("2.4") applies to
+ 	   			drone1.drone.outY,
+    			drone1.outY,
+    			drone1.environment.y;
+   		
+    		--- drone2 position
+    		Data_Model::Initial_Value => ("4.0") applies to
+    			drone2.drone.outX,
+    			drone2.outX,
+    			drone2.environment.x;
+    		Data_Model::Initial_Value => ("0.9") applies to
+    			drone2.drone.outY,
+    			drone2.outY,
+    			drone2.environment.y;
+    		
+    		--- drone3 position
+    		Data_Model::Initial_Value => ("1.3") applies to
+    			drone3.drone.outX,
+    			drone3.outX,
+    			drone3.environment.x;
+    		Data_Model::Initial_Value => ("9.4") applies to
+    			drone3.drone.outY,
+    			drone3.outY,
+    			drone3.environment.y;
+    		
+    		--- drone1 speed
+    		Data_Model::Initial_Value => ("0.59") applies to
+    			drone1.environment.dotx;
+    		Data_Model::Initial_Value => ("2.3") applies to
+    			drone1.environment.doty;
+    			
+    		--- drone2 speed
+    		Data_Model::Initial_Value => ("3.5") applies to
+    			drone2.environment.dotx;
+    		Data_Model::Initial_Value => ("8.2") applies to
+    			drone2.environment.doty;
+    			
+    		--- drone3 speed
+    		Data_Model::Initial_Value => ("0.2") applies to
+    			drone3.environment.dotx;
+    		Data_Model::Initial_Value => ("0.4") applies to
+    			drone3.environment.doty;
+   
+ 
+     		--- Rendezvous position
+    		Data_Model::Initial_Value => ("15.0") applies to
+    			drone1.drone.droneProc.droneThread.refX,
+    			drone2.drone.droneProc.droneThread.refX,
+    			drone3.drone.droneProc.droneThread.refX;
+    		Data_Model::Initial_Value => ("15.0") applies to
+    			drone1.drone.droneProc.droneThread.refY,
+    			drone2.drone.droneProc.droneThread.refY,
+    			drone3.drone.droneProc.droneThread.refY;
+    			
+			Timing => Delayed applies to 
+				d12x, d12y, d23x, d23y, d31x, d31y;
+				
+			Hybrid_SynchAADL::Max_Clock_Deviation => 1ms;
+			
+			Hybrid_SynchAADL::Sampling_Time => 2ms .. 4ms applies to 
+				drone1.drone, drone2.drone, drone3.drone;
+				
+			Hybrid_SynchAADL::Response_Time => 6ms .. 9ms applies to 
+				drone1.drone, drone2.drone, drone3.drone;
+	end Drones3.rendezvous;
+
+end Drones3;

@@ -1,0 +1,49 @@
+package EVS_Sugar
+public
+	with EVS_Interface;
+	with Component;
+	with Base_Types;
+	-------------------------------Call Output-------------------------------
+	feature group SendEventArgs extends Component::SendEventArgs
+
+	end SendEventArgs;
+	
+	-------------------------------Call Input-------------------------------
+	feature group SendEventCollection extends Component::SendEventCollection
+
+	inverse of SendEventArgs
+	end SendEventCollection;
+	-------------------------------API Output-------------------------------
+	feature group ESAPIOutput
+
+	end ESAPIOutput;
+	
+	feature group EVSAPIOutput extends Component::EVSAPIOutput
+		features
+			SendEventArgs: refined to feature group SendEventArgs;
+	end EVSAPIOutput;
+	-------------------------------API Input-------------------------------
+	feature group ESAPIInput
+
+	inverse of ESAPIOutput
+	end ESAPIInput;
+	
+	feature group EVSAPIInput extends Component::EVSAPIInput
+		features
+			SendEventCollection: refined to feature group SendEventCollection;
+	inverse of EVSAPIOutput
+	end EVSAPIInput;
+	-------------------------------Medium-------------------------------
+	abstract Medium extends Component::Medium
+		features
+			EVSAPI: refined to feature group EVSAPIOutput;
+			ESAPI: refined to feature group ESAPIOutput;
+			
+			EVSAPIIn: refined to feature group EVSAPIInput;
+			ESAPIIn: refined to feature group ESAPIInput;
+	end Medium;
+	-------------------------------Checker-------------------------------
+	abstract Checker extends Component::Checker
+		
+	end Checker;
+end EVS_Sugar;

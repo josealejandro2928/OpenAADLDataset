@@ -1,0 +1,43 @@
+package HardwarePlatform
+public
+	with HardwareParts;
+
+	with SEI;
+
+	system cc_mcu
+		features
+			PCIEBA: provides bus access HardwareParts::PCIEBus;
+		properties
+			SEI::GrossWeight => 2.3kg;
+	end cc_mcu;
+
+	system implementation cc_mcu.single
+		subcomponents
+			my_cpu: processor HardwareParts::PowerPC.single;
+			my_PCI: bus HardwareParts::MemoryBus;
+			my_CANbus: bus HardwareParts::PCIEBus;
+			my_ram: memory HardwareParts::RAM;
+--			my_rom: memory HardwareParts::ROM;
+		connections
+			pciram: bus access my_PCI <-> my_ram.PCIBA;
+--			pcirom: bus access my_PCI <-> my_rom.PCIBA;
+			pcicpu: bus access my_PCI <-> my_cpu.PCIBA;
+			cancpu: bus access my_CANbus <-> my_cpu.CanBA;
+			canext: bus access my_CANbus <-> PCIEBA;
+	end cc_mcu.single;
+
+	system implementation cc_mcu.octacore
+		subcomponents
+			DH_CPU: processor HardwareParts::PowerPC.octacore;
+			my_MemoryBus: bus HardwareParts::MemoryBus;
+			my_PCIEBus: bus HardwareParts::PCIEBus;
+			DH_RAM: memory HardwareParts::RAM;
+--			my_rom: memory HardwareParts::ROM;
+		connections
+			pciram: bus access my_MemoryBus <-> DH_RAM.PCIBA;
+--			pcirom: bus access my_PCI <-> my_rom.PCIBA;
+			pcicpu: bus access my_MemoryBus <-> DH_CPU.PCIBA;
+			cancpu: bus access my_PCIEBus <-> DH_CPU.CanBA;
+			canext: bus access my_PCIEBus <-> PCIEBA;
+	end cc_mcu.octacore;
+end HardwarePlatform;

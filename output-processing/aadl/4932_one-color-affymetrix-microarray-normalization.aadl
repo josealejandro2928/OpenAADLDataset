@@ -1,0 +1,15 @@
+activity affymetrix-one-color-microarray-normalization {
+	on {
+		dataset cel-files : 'text/tsv' [1,-1];
+	}
+	produces {
+		dataset output : 'text/tsv' [1,1];
+	}
+	using executable 'geas-affymetrix-1-color-microarray-norm.R' {
+		commandLineTemplate [
+			dataset cel-files,
+			dataset output
+		]
+	}
+
+}

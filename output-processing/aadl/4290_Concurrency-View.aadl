@@ -1,0 +1,843 @@
+--  TASTE - Warning: This is NOT the real Concurrency view  --
+--  This file was automatically generated and should remain read-only
+--  Open it with TASTE-IV
+--  The only intended use of this file is visualization - not processing.
+
+package generated_cv::IV::ConcurrencyView
+public
+with dataview; 
+with exportedComponent::FV;
+with taste;
+
+  --{ interfaceview obj6480 10 10
+  --TASTE-generated concurrency view
+  --For visualization purposes.
+  --}
+
+  system exportedComponent
+  end exportedComponent;
+
+  system implementation exportedComponent.others
+    subcomponents
+	gui : system interfaceview::IV::PASSIVE_gui.others;
+	compstate : system interfaceview::IV::PASSIVE_compstate.others;
+	chip_taste_api : system interfaceview::IV::PASSIVE_chip_taste_api.others;
+	vt_gui_out_msg : system interfaceview::IV::THREAD_vt_gui_out_msg.others;
+	vt_gui_gui_polling_gui : system interfaceview::IV::THREAD_vt_gui_gui_polling_gui.others;
+	vt_compstate_switch_on : system interfaceview::IV::THREAD_vt_compstate_switch_on.others;
+	vt_compstate_switch_off : system interfaceview::IV::THREAD_vt_compstate_switch_off.others;
+	vt_compstate_restart : system interfaceview::IV::THREAD_vt_compstate_restart.others;
+	vt_compstate_start_recording : system interfaceview::IV::THREAD_vt_compstate_start_recording.others;
+	vt_compstate_pause : system interfaceview::IV::THREAD_vt_compstate_pause.others;
+	vt_compstate_resume : system interfaceview::IV::THREAD_vt_compstate_resume.others;
+	vt_compstate_stop_recording : system interfaceview::IV::THREAD_vt_compstate_stop_recording.others;
+	vt_compstate_fail : system interfaceview::IV::THREAD_vt_compstate_fail.others;
+    connections
+	sporadic_artificial_switch_on : subprogram access THREAD_vt_compstate_switch_on.artificial_switch_on -> PASSIVE_gui.switch_on;
+	sporadic_artificial_switch_off : subprogram access THREAD_vt_compstate_switch_off.artificial_switch_off -> PASSIVE_gui.switch_off;
+	sporadic_artificial_restart : subprogram access THREAD_vt_compstate_restart.artificial_restart -> PASSIVE_gui.restart;
+	sporadic_artificial_start_recording : subprogram access THREAD_vt_compstate_start_recording.artificial_start_recording -> PASSIVE_gui.start_recording;
+	sporadic_artificial_pause : subprogram access THREAD_vt_compstate_pause.artificial_pause -> PASSIVE_gui.pause;
+	sporadic_artificial_resume : subprogram access THREAD_vt_compstate_resume.artificial_resume -> PASSIVE_gui.resume;
+	sporadic_artificial_fail : subprogram access THREAD_vt_compstate_fail.artificial_fail -> PASSIVE_gui.fail;
+	sporadic_artificial_stop_recording : subprogram access THREAD_vt_compstate_stop_recording.artificial_stop_recording -> PASSIVE_gui.stop_recording;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> PASSIVE_compstate.out_msg;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> PASSIVE_compstate.check_queue;
+	protected_out_msg : subprogram access PASSIVE_gui.out_msg -> THREAD_vt_gui_out_msg.out_msg;
+	sporadic_artificial_switch_on : subprogram access THREAD_vt_compstate_switch_on.artificial_switch_on -> THREAD_vt_gui_out_msg.switch_on_vt;
+	sporadic_artificial_switch_off : subprogram access THREAD_vt_compstate_switch_off.artificial_switch_off -> THREAD_vt_gui_out_msg.switch_off_vt;
+	sporadic_artificial_restart : subprogram access THREAD_vt_compstate_restart.artificial_restart -> THREAD_vt_gui_out_msg.restart_vt;
+	sporadic_artificial_start_recording : subprogram access THREAD_vt_compstate_start_recording.artificial_start_recording -> THREAD_vt_gui_out_msg.start_recording_vt;
+	sporadic_artificial_pause : subprogram access THREAD_vt_compstate_pause.artificial_pause -> THREAD_vt_gui_out_msg.pause_vt;
+	sporadic_artificial_resume : subprogram access THREAD_vt_compstate_resume.artificial_resume -> THREAD_vt_gui_out_msg.resume_vt;
+	sporadic_artificial_fail : subprogram access THREAD_vt_compstate_fail.artificial_fail -> THREAD_vt_gui_out_msg.fail_vt;
+	sporadic_artificial_stop_recording : subprogram access THREAD_vt_compstate_stop_recording.artificial_stop_recording -> THREAD_vt_gui_out_msg.stop_recording_vt;
+	protected_gui_polling_gui : subprogram access PASSIVE_gui.gui_polling_gui -> THREAD_vt_gui_gui_polling_gui.gui_polling_gui;
+	sporadic_artificial_switch_on : subprogram access THREAD_vt_compstate_switch_on.artificial_switch_on -> THREAD_vt_gui_gui_polling_gui.switch_on_vt;
+	sporadic_artificial_switch_off : subprogram access THREAD_vt_compstate_switch_off.artificial_switch_off -> THREAD_vt_gui_gui_polling_gui.switch_off_vt;
+	sporadic_artificial_restart : subprogram access THREAD_vt_compstate_restart.artificial_restart -> THREAD_vt_gui_gui_polling_gui.restart_vt;
+	sporadic_artificial_start_recording : subprogram access THREAD_vt_compstate_start_recording.artificial_start_recording -> THREAD_vt_gui_gui_polling_gui.start_recording_vt;
+	sporadic_artificial_pause : subprogram access THREAD_vt_compstate_pause.artificial_pause -> THREAD_vt_gui_gui_polling_gui.pause_vt;
+	sporadic_artificial_resume : subprogram access THREAD_vt_compstate_resume.artificial_resume -> THREAD_vt_gui_gui_polling_gui.resume_vt;
+	sporadic_artificial_fail : subprogram access THREAD_vt_compstate_fail.artificial_fail -> THREAD_vt_gui_gui_polling_gui.fail_vt;
+	sporadic_artificial_stop_recording : subprogram access THREAD_vt_compstate_stop_recording.artificial_stop_recording -> THREAD_vt_gui_gui_polling_gui.stop_recording_vt;
+	protected_switch_on : subprogram access PASSIVE_compstate.switch_on -> THREAD_vt_compstate_switch_on.switch_on;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_switch_on.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_switch_on.check_queue_vt;
+	protected_switch_off : subprogram access PASSIVE_compstate.switch_off -> THREAD_vt_compstate_switch_off.switch_off;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_switch_off.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_switch_off.check_queue_vt;
+	protected_restart : subprogram access PASSIVE_compstate.restart -> THREAD_vt_compstate_restart.restart;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_restart.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_restart.check_queue_vt;
+	protected_start_recording : subprogram access PASSIVE_compstate.start_recording -> THREAD_vt_compstate_start_recording.start_recording;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_start_recording.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_start_recording.check_queue_vt;
+	protected_pause : subprogram access PASSIVE_compstate.pause -> THREAD_vt_compstate_pause.pause;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_pause.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_pause.check_queue_vt;
+	protected_resume : subprogram access PASSIVE_compstate.resume -> THREAD_vt_compstate_resume.resume;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_resume.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_resume.check_queue_vt;
+	protected_stop_recording : subprogram access PASSIVE_compstate.stop_recording -> THREAD_vt_compstate_stop_recording.stop_recording;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_stop_recording.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_stop_recording.check_queue_vt;
+	protected_fail : subprogram access PASSIVE_compstate.fail -> THREAD_vt_compstate_fail.fail;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_compstate_fail.out_msg_vt;
+	unprotected_compstate_has_pending_msg : subprogram access PASSIVE_chip_taste_api.compstate_has_pending_msg -> THREAD_vt_compstate_fail.check_queue_vt;
+  end exportedComponent.others;
+
+  system PASSIVE_gui
+    features
+	out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "200 215 200 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	switch_on : requires subprogram access exportedComponent::fv::artificial_switch_on.others
+	  { taste::Coordinates => "450 215 450 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	switch_off : requires subprogram access exportedComponent::fv::artificial_switch_off.others
+	  { taste::Coordinates => "450 260 450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	restart : requires subprogram access exportedComponent::fv::artificial_restart.others
+	  { taste::Coordinates => "450 305 450 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	start_recording : requires subprogram access exportedComponent::fv::artificial_start_recording.others
+	  { taste::Coordinates => "450 350 450 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	pause : requires subprogram access exportedComponent::fv::artificial_pause.others
+	  { taste::Coordinates => "450 395 450 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	resume : requires subprogram access exportedComponent::fv::artificial_resume.others
+	  { taste::Coordinates => "450 440 450 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	fail : requires subprogram access exportedComponent::fv::artificial_fail.others
+	  { taste::Coordinates => "450 485 450 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	stop_recording : requires subprogram access exportedComponent::fv::artificial_stop_recording.others
+	  { taste::Coordinates => "450 530 450 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "200 260 200 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 200 450 560";
+	taste::instance_name => "gui";
+  end PASSIVE_gui;
+
+  system implementation PASSIVE_gui.others
+    subcomponents
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_on_impl : subprogram exportedComponent::FV::artificial_switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_off_impl : subprogram exportedComponent::FV::artificial_switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	restart_impl : subprogram exportedComponent::FV::artificial_restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	start_recording_impl : subprogram exportedComponent::FV::artificial_start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	pause_impl : subprogram exportedComponent::FV::artificial_pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	resume_impl : subprogram exportedComponent::FV::artificial_resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	fail_impl : subprogram exportedComponent::FV::artificial_fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	stop_recording_impl : subprogram exportedComponent::FV::artificial_stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access switch_on_impl -> switch_on;
+	subprogram access switch_off_impl -> switch_off;
+	subprogram access restart_impl -> restart;
+	subprogram access start_recording_impl -> start_recording;
+	subprogram access pause_impl -> pause;
+	subprogram access resume_impl -> resume;
+	subprogram access fail_impl -> fail;
+	subprogram access stop_recording_impl -> stop_recording;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+  end PASSIVE_gui.others;
+
+  system PASSIVE_compstate
+    features
+	switch_on : provides subprogram access exportedComponent::fv::switch_on.others
+	  { taste::Coordinates => "600 215 600 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	switch_off : provides subprogram access exportedComponent::fv::switch_off.others
+	  { taste::Coordinates => "600 260 600 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	restart : provides subprogram access exportedComponent::fv::restart.others
+	  { taste::Coordinates => "600 305 600 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	start_recording : provides subprogram access exportedComponent::fv::start_recording.others
+	  { taste::Coordinates => "600 350 600 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	pause : provides subprogram access exportedComponent::fv::pause.others
+	  { taste::Coordinates => "600 395 600 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	resume : provides subprogram access exportedComponent::fv::resume.others
+	  { taste::Coordinates => "600 440 600 440";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	stop_recording : provides subprogram access exportedComponent::fv::stop_recording.others
+	  { taste::Coordinates => "600 485 600 485";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	fail : provides subprogram access exportedComponent::fv::fail.others
+	  { taste::Coordinates => "600 530 600 530";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 215 850 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "850 260 850 260";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 200 850 560";
+	taste::instance_name => "compstate";
+  end PASSIVE_compstate;
+
+  system implementation PASSIVE_compstate.others
+    subcomponents
+	switch_on_impl : subprogram exportedComponent::FV::switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_off_impl : subprogram exportedComponent::FV::switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	restart_impl : subprogram exportedComponent::FV::restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	start_recording_impl : subprogram exportedComponent::FV::start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	pause_impl : subprogram exportedComponent::FV::pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	resume_impl : subprogram exportedComponent::FV::resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	stop_recording_impl : subprogram exportedComponent::FV::stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	fail_impl : subprogram exportedComponent::FV::fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access switch_on_impl -> switch_on;
+	subprogram access switch_off_impl -> switch_off;
+	subprogram access restart_impl -> restart;
+	subprogram access start_recording_impl -> start_recording;
+	subprogram access pause_impl -> pause;
+	subprogram access resume_impl -> resume;
+	subprogram access stop_recording_impl -> stop_recording;
+	subprogram access fail_impl -> fail;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_compstate.others;
+
+  system PASSIVE_chip_taste_api
+    features
+	compstate_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1000 215 1000 215";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 200 1250 245";
+	taste::instance_name => "chip_taste_api";
+  end PASSIVE_chip_taste_api;
+
+  system implementation PASSIVE_chip_taste_api.others
+    subcomponents
+	compstate_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access compstate_has_pending_msg_impl -> compstate_has_pending_msg;
+  end PASSIVE_chip_taste_api.others;
+
+  system THREAD_vt_gui_out_msg
+    features
+	artificial_out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "1400 215 1400 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "1650 215 1650 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	switch_on_vt : requires subprogram access exportedComponent::fv::artificial_switch_on.others
+	  { taste::Coordinates => "1650 260 1650 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	switch_off_vt : requires subprogram access exportedComponent::fv::artificial_switch_off.others
+	  { taste::Coordinates => "1650 305 1650 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	restart_vt : requires subprogram access exportedComponent::fv::artificial_restart.others
+	  { taste::Coordinates => "1650 350 1650 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	start_recording_vt : requires subprogram access exportedComponent::fv::artificial_start_recording.others
+	  { taste::Coordinates => "1650 395 1650 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	pause_vt : requires subprogram access exportedComponent::fv::artificial_pause.others
+	  { taste::Coordinates => "1650 440 1650 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	resume_vt : requires subprogram access exportedComponent::fv::artificial_resume.others
+	  { taste::Coordinates => "1650 485 1650 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	fail_vt : requires subprogram access exportedComponent::fv::artificial_fail.others
+	  { taste::Coordinates => "1650 530 1650 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	stop_recording_vt : requires subprogram access exportedComponent::fv::artificial_stop_recording.others
+	  { taste::Coordinates => "1650 575 1650 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 200 1650 605";
+	taste::instance_name => "vt_gui_out_msg";
+  end THREAD_vt_gui_out_msg;
+
+  system implementation THREAD_vt_gui_out_msg.others
+    subcomponents
+	artificial_out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_on_vt_impl : subprogram exportedComponent::FV::artificial_switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_off_vt_impl : subprogram exportedComponent::FV::artificial_switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	restart_vt_impl : subprogram exportedComponent::FV::artificial_restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	start_recording_vt_impl : subprogram exportedComponent::FV::artificial_start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	pause_vt_impl : subprogram exportedComponent::FV::artificial_pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	resume_vt_impl : subprogram exportedComponent::FV::artificial_resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	fail_vt_impl : subprogram exportedComponent::FV::artificial_fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	stop_recording_vt_impl : subprogram exportedComponent::FV::artificial_stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_out_msg_impl -> artificial_out_msg;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access switch_on_vt_impl -> switch_on_vt;
+	subprogram access switch_off_vt_impl -> switch_off_vt;
+	subprogram access restart_vt_impl -> restart_vt;
+	subprogram access start_recording_vt_impl -> start_recording_vt;
+	subprogram access pause_vt_impl -> pause_vt;
+	subprogram access resume_vt_impl -> resume_vt;
+	subprogram access fail_vt_impl -> fail_vt;
+	subprogram access stop_recording_vt_impl -> stop_recording_vt;
+  end THREAD_vt_gui_out_msg.others;
+
+  system THREAD_vt_gui_gui_polling_gui
+    features
+	artificial_gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "1800 215 1800 215";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 40;};
+	gui_polling_gui : requires subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2050 215 2050 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+	switch_on_vt : requires subprogram access exportedComponent::fv::artificial_switch_on.others
+	  { taste::Coordinates => "2050 260 2050 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	switch_off_vt : requires subprogram access exportedComponent::fv::artificial_switch_off.others
+	  { taste::Coordinates => "2050 305 2050 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	restart_vt : requires subprogram access exportedComponent::fv::artificial_restart.others
+	  { taste::Coordinates => "2050 350 2050 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	start_recording_vt : requires subprogram access exportedComponent::fv::artificial_start_recording.others
+	  { taste::Coordinates => "2050 395 2050 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	pause_vt : requires subprogram access exportedComponent::fv::artificial_pause.others
+	  { taste::Coordinates => "2050 440 2050 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	resume_vt : requires subprogram access exportedComponent::fv::artificial_resume.others
+	  { taste::Coordinates => "2050 485 2050 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	fail_vt : requires subprogram access exportedComponent::fv::artificial_fail.others
+	  { taste::Coordinates => "2050 530 2050 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	stop_recording_vt : requires subprogram access exportedComponent::fv::artificial_stop_recording.others
+	  { taste::Coordinates => "2050 575 2050 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 200 2050 605";
+	taste::instance_name => "vt_gui_gui_polling_gui";
+  end THREAD_vt_gui_gui_polling_gui;
+
+  system implementation THREAD_vt_gui_gui_polling_gui.others
+    subcomponents
+	artificial_gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_on_vt_impl : subprogram exportedComponent::FV::artificial_switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_off_vt_impl : subprogram exportedComponent::FV::artificial_switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	restart_vt_impl : subprogram exportedComponent::FV::artificial_restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	start_recording_vt_impl : subprogram exportedComponent::FV::artificial_start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	pause_vt_impl : subprogram exportedComponent::FV::artificial_pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	resume_vt_impl : subprogram exportedComponent::FV::artificial_resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	fail_vt_impl : subprogram exportedComponent::FV::artificial_fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	stop_recording_vt_impl : subprogram exportedComponent::FV::artificial_stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_gui_polling_gui_impl -> artificial_gui_polling_gui;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+	subprogram access switch_on_vt_impl -> switch_on_vt;
+	subprogram access switch_off_vt_impl -> switch_off_vt;
+	subprogram access restart_vt_impl -> restart_vt;
+	subprogram access start_recording_vt_impl -> start_recording_vt;
+	subprogram access pause_vt_impl -> pause_vt;
+	subprogram access resume_vt_impl -> resume_vt;
+	subprogram access fail_vt_impl -> fail_vt;
+	subprogram access stop_recording_vt_impl -> stop_recording_vt;
+  end THREAD_vt_gui_gui_polling_gui.others;
+
+  system THREAD_vt_compstate_switch_on
+    features
+	artificial_switch_on : provides subprogram access exportedComponent::fv::switch_on.others
+	  { taste::Coordinates => "2200 215 2200 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	switch_on : requires subprogram access exportedComponent::fv::switch_on.others
+	  { taste::Coordinates => "2450 215 2450 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2450 260 2450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "2450 305 2450 305";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 200 2450 335";
+	taste::instance_name => "vt_compstate_switch_on";
+  end THREAD_vt_compstate_switch_on;
+
+  system implementation THREAD_vt_compstate_switch_on.others
+    subcomponents
+	artificial_switch_on_impl : subprogram exportedComponent::FV::switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_on_impl : subprogram exportedComponent::FV::switch_on.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_switch_on_impl -> artificial_switch_on;
+	subprogram access switch_on_impl -> switch_on;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_switch_on.others;
+
+  system THREAD_vt_compstate_switch_off
+    features
+	artificial_switch_off : provides subprogram access exportedComponent::fv::switch_off.others
+	  { taste::Coordinates => "200 920 200 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	switch_off : requires subprogram access exportedComponent::fv::switch_off.others
+	  { taste::Coordinates => "450 920 450 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "450 965 450 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "450 1010 450 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 905 450 1040";
+	taste::instance_name => "vt_compstate_switch_off";
+  end THREAD_vt_compstate_switch_off;
+
+  system implementation THREAD_vt_compstate_switch_off.others
+    subcomponents
+	artificial_switch_off_impl : subprogram exportedComponent::FV::switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	switch_off_impl : subprogram exportedComponent::FV::switch_off.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_switch_off_impl -> artificial_switch_off;
+	subprogram access switch_off_impl -> switch_off;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_switch_off.others;
+
+  system THREAD_vt_compstate_restart
+    features
+	artificial_restart : provides subprogram access exportedComponent::fv::restart.others
+	  { taste::Coordinates => "600 920 600 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	restart : requires subprogram access exportedComponent::fv::restart.others
+	  { taste::Coordinates => "850 920 850 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 965 850 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "850 1010 850 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 905 850 1040";
+	taste::instance_name => "vt_compstate_restart";
+  end THREAD_vt_compstate_restart;
+
+  system implementation THREAD_vt_compstate_restart.others
+    subcomponents
+	artificial_restart_impl : subprogram exportedComponent::FV::restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	restart_impl : subprogram exportedComponent::FV::restart.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_restart_impl -> artificial_restart;
+	subprogram access restart_impl -> restart;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_restart.others;
+
+  system THREAD_vt_compstate_start_recording
+    features
+	artificial_start_recording : provides subprogram access exportedComponent::fv::start_recording.others
+	  { taste::Coordinates => "1000 920 1000 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	start_recording : requires subprogram access exportedComponent::fv::start_recording.others
+	  { taste::Coordinates => "1250 920 1250 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1250 965 1250 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "1250 1010 1250 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 905 1250 1040";
+	taste::instance_name => "vt_compstate_start_recording";
+  end THREAD_vt_compstate_start_recording;
+
+  system implementation THREAD_vt_compstate_start_recording.others
+    subcomponents
+	artificial_start_recording_impl : subprogram exportedComponent::FV::start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	start_recording_impl : subprogram exportedComponent::FV::start_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_start_recording_impl -> artificial_start_recording;
+	subprogram access start_recording_impl -> start_recording;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_start_recording.others;
+
+  system THREAD_vt_compstate_pause
+    features
+	artificial_pause : provides subprogram access exportedComponent::fv::pause.others
+	  { taste::Coordinates => "1400 920 1400 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	pause : requires subprogram access exportedComponent::fv::pause.others
+	  { taste::Coordinates => "1650 920 1650 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1650 965 1650 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "1650 1010 1650 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 905 1650 1040";
+	taste::instance_name => "vt_compstate_pause";
+  end THREAD_vt_compstate_pause;
+
+  system implementation THREAD_vt_compstate_pause.others
+    subcomponents
+	artificial_pause_impl : subprogram exportedComponent::FV::pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	pause_impl : subprogram exportedComponent::FV::pause.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_pause_impl -> artificial_pause;
+	subprogram access pause_impl -> pause;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_pause.others;
+
+  system THREAD_vt_compstate_resume
+    features
+	artificial_resume : provides subprogram access exportedComponent::fv::resume.others
+	  { taste::Coordinates => "1800 920 1800 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	resume : requires subprogram access exportedComponent::fv::resume.others
+	  { taste::Coordinates => "2050 920 2050 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2050 965 2050 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "2050 1010 2050 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 905 2050 1040";
+	taste::instance_name => "vt_compstate_resume";
+  end THREAD_vt_compstate_resume;
+
+  system implementation THREAD_vt_compstate_resume.others
+    subcomponents
+	artificial_resume_impl : subprogram exportedComponent::FV::resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	resume_impl : subprogram exportedComponent::FV::resume.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_resume_impl -> artificial_resume;
+	subprogram access resume_impl -> resume;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_resume.others;
+
+  system THREAD_vt_compstate_stop_recording
+    features
+	artificial_stop_recording : provides subprogram access exportedComponent::fv::stop_recording.others
+	  { taste::Coordinates => "2200 920 2200 920";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	stop_recording : requires subprogram access exportedComponent::fv::stop_recording.others
+	  { taste::Coordinates => "2450 920 2450 920";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2450 965 2450 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "2450 1010 2450 1010";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 905 2450 1040";
+	taste::instance_name => "vt_compstate_stop_recording";
+  end THREAD_vt_compstate_stop_recording;
+
+  system implementation THREAD_vt_compstate_stop_recording.others
+    subcomponents
+	artificial_stop_recording_impl : subprogram exportedComponent::FV::stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	stop_recording_impl : subprogram exportedComponent::FV::stop_recording.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_stop_recording_impl -> artificial_stop_recording;
+	subprogram access stop_recording_impl -> stop_recording;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_stop_recording.others;
+
+  system THREAD_vt_compstate_fail
+    features
+	artificial_fail : provides subprogram access exportedComponent::fv::fail.others
+	  { taste::Coordinates => "200 1355 200 1355";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	fail : requires subprogram access exportedComponent::fv::fail.others
+	  { taste::Coordinates => "450 1355 450 1355";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "450 1400 450 1400";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::compstate_has_pending_msg.others
+	  { taste::Coordinates => "450 1445 450 1445";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 1340 450 1475";
+	taste::instance_name => "vt_compstate_fail";
+  end THREAD_vt_compstate_fail;
+
+  system implementation THREAD_vt_compstate_fail.others
+    subcomponents
+	artificial_fail_impl : subprogram exportedComponent::FV::fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	fail_impl : subprogram exportedComponent::FV::fail.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::compstate_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_fail_impl -> artificial_fail;
+	subprogram access fail_impl -> fail;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_compstate_fail.others;
+
+properties
+  taste::coordinates => "0 0 2970 2100";
+
+end generated_cv::IV;
+
+package exportedComponent::FV
+public
+with dataview;
+with taste;
+
+  subprogram out_msg
+  end out_msg;
+
+  subprogram artificial_switch_on
+  end artificial_switch_on;
+
+  subprogram artificial_switch_off
+  end artificial_switch_off;
+
+  subprogram artificial_restart
+  end artificial_restart;
+
+  subprogram artificial_start_recording
+  end artificial_start_recording;
+
+  subprogram artificial_pause
+  end artificial_pause;
+
+  subprogram artificial_resume
+  end artificial_resume;
+
+  subprogram artificial_fail
+  end artificial_fail;
+
+  subprogram artificial_stop_recording
+  end artificial_stop_recording;
+
+  subprogram gui_polling_gui
+  end gui_polling_gui;
+
+  subprogram switch_on
+  end switch_on;
+
+  subprogram switch_off
+  end switch_off;
+
+  subprogram restart
+  end restart;
+
+  subprogram start_recording
+  end start_recording;
+
+  subprogram pause
+  end pause;
+
+  subprogram resume
+  end resume;
+
+  subprogram stop_recording
+  end stop_recording;
+
+  subprogram fail
+  end fail;
+
+  subprogram artificial_out_msg
+  end artificial_out_msg;
+
+  subprogram compstate_has_pending_msg
+  end compstate_has_pending_msg;
+
+  subprogram check_queue
+  end check_queue;
+
+end exportedComponent::FV;

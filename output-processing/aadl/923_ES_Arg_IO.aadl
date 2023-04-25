@@ -1,0 +1,28 @@
+package ES_Arg_IO
+public
+	with ES_Interface;
+	
+	--------all feature groups can add "feature group [type];" corresponding to its data type
+	feature group RegisterAppArgs
+		features
+			a: feature group ES_Interface::P_RegisterApp;
+	end RegisterAppArgs;
+	
+	feature group RestartAppArgs
+		features
+			ES_RestartApp: feature group ES_Interface::P_RestartApp;
+			HS_MonitorApplications_SB: feature group ES_Interface::P_RestartApp;
+--			ES_ScanAppTable_ES: feature group ES_Interface::P_RestartApp;
+	end RestartAppArgs;
+	
+	feature group DeleteAppArgs
+--		features
+--			ES_ScanAppTable_ES: feature group ES_Interface::P_DeleteApp;
+	end DeleteAppArgs;
+	
+	feature group RunLoopArgs
+		features
+			HS: feature group ES_Interface::P_RunLoop;
+	end RunLoopArgs;
+	
+end ES_Arg_IO;

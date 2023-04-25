@@ -1,0 +1,35 @@
+package smart_home_system
+public
+
+with MainControlRouter;
+with RemoteServer;
+with Clients;
+with ZigbeeDevices;
+with IPDevices;
+	
+system smart_home
+end smart_home;
+	
+system implementation smart_home.impl
+	subcomponents
+		MAIN_CONTROL_ROUTER: system MainControlRouter::MainControlRouter.impl;
+		REMOTE_SERVER: system RemoteServer::RemoteServer.impl;
+		CLIENTS: system Clients::Clients.impl;
+		ZIGBEE_DEVICES: device ZigbeeDevices::ZigbeeDevices.impl;
+		IP_DEVICES: device IPDevices::IPDevices.impl;
+		
+	connections
+		c1: port MAIN_CONTROL_ROUTER.out_mcr_rs -> REMOTE_SERVER.in_rs_mcr;
+		c2: port REMOTE_SERVER.out_rs_mcr -> MAIN_CONTROL_ROUTER.in_mcr_rs;
+		c3: port MAIN_CONTROL_ROUTER.out_mcr_clients -> CLIENTS.in_clients_mcr;
+		c4: port CLIENTS.out_clients_mcr -> MAIN_CONTROL_ROUTER.in_mcr_clients;
+        c5: port MAIN_CONTROL_ROUTER.out_mcr_zd -> ZIGBEE_DEVICES.in_zd_mcr;
+		c6: port ZIGBEE_DEVICES.out_zd_mcr -> MAIN_CONTROL_ROUTER.in_mcr_zd;
+        c7: port MAIN_CONTROL_ROUTER.out_mcr_ipd -> IP_DEVICES.in_ipd_mcr;
+		c8: port IP_DEVICES.out_ipd_mcr -> MAIN_CONTROL_ROUTER.in_mcr_ipd;
+		c9: port CLIENTS.out_clients_rs -> REMOTE_SERVER.in_rs_clients;
+		c10: port REMOTE_SERVER.out_rs_clients -> CLIENTS.in_clients_rs;
+		
+end smart_home.impl;
+	
+end smart_home_system;

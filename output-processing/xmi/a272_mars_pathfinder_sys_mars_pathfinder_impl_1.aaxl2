@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="sys_mars_pathfinder_impl_Instance" category="system">
+  <componentInstance name="VME" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-vme.aadl#|::0.5.9.0.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="80">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-vme.aadl#|::0.5.9.0.4.0.7.0.6.2.1::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="160">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-vme.aadl#|::0.5.9.0.4.0.7.0.6.2.2::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="320">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-vme.aadl#|::0.5.9.0.4.0.7.0.6.2.3::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-vme.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.VME"/>
+  </componentInstance>
+  <componentInstance name="bus_1553" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="125">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-mil1553.aadl#|::0.5.9.0.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/buses-mil1553.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.bus_1553"/>
+  </componentInstance>
+  <componentInstance name="radio" category="device">
+    <featureInstance name="emission_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="reception_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="req_access_vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.radio"/>
+  </componentInstance>
+  <componentInstance name="coupler" category="device">
+    <featureInstance name="camera_control" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="emission_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="control_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="reception_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="images_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="measured_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.coupler"/>
+  </componentInstance>
+  <componentInstance name="camera" category="device">
+    <featureInstance name="camera_control">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="images_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="req_access_vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.camera"/>
+  </componentInstance>
+  <componentInstance name="altimeter" category="device">
+    <featureInstance name="measured_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.altimeter"/>
+  </componentInstance>
+  <componentInstance name="accelerometer" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/property_set/data_sheet.aadl#Data_Sheet.UUID"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="http://www.sparkfun.com/products/9265"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/devices-adxl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="X" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="g/s^2"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:RealLiteral"/>
+            <maximum xsi:type="aadl2:RealLiteral" value="9.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/devices-adxl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="Y" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="g/s^2"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:RealLiteral"/>
+            <maximum xsi:type="aadl2:RealLiteral" value="9.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/devices-adxl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="Z" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="g/s^2"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:RealLiteral"/>
+            <maximum xsi:type="aadl2:RealLiteral" value="9.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/unit.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/aadl/devices-adxl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="measured_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.accelerometer"/>
+  </componentInstance>
+  <componentInstance name="meterological" category="device">
+    <featureInstance name="measured_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.meteorological"/>
+  </componentInstance>
+  <componentInstance name="sun_sensors" category="device">
+    <featureInstance name="measured_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.sun_sensors"/>
+  </componentInstance>
+  <componentInstance name="star_analyser" category="device">
+    <featureInstance name="measured_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.star_analyser"/>
+  </componentInstance>
+  <componentInstance name="thrusters" category="device">
+    <featureInstance name="control_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.8"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.thrusters"/>
+  </componentInstance>
+  <componentInstance name="valves" category="device">
+    <featureInstance name="control_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="req_access_1553" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.9"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.valves"/>
+  </componentInstance>
+  <componentInstance name="memories" category="memory">
+    <featureInstance name="req_access_vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.memories"/>
+  </componentInstance>
+  <componentInstance name="prs_PSC" category="process">
+    <featureInstance name="camera_control" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="emission_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="control_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="reception_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="images_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="measured_data" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <componentInstance name="data_rw" category="data">
+      <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.data_rw"/>
+    </componentInstance>
+    <componentInstance name="bus_scheduling" category="thread">
+      <featureInstance name="control_data" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.bus_scheduling"/>
+    </componentInstance>
+    <componentInstance name="data_distribution" category="thread">
+      <featureInstance name="measured_data">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="req_data_rw" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.data_distribution"/>
+    </componentInstance>
+    <componentInstance name="control_task" category="thread">
+      <featureInstance name="req_data_rw" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.control_task"/>
+    </componentInstance>
+    <componentInstance name="radio_task" category="thread">
+      <featureInstance name="reception_data">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="emission_data" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.radio_task"/>
+    </componentInstance>
+    <componentInstance name="camera_task" category="thread">
+      <featureInstance name="images_data">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="camera_control" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.camera_task"/>
+    </componentInstance>
+    <componentInstance name="mesure_task" category="thread">
+      <featureInstance name="req_data_rw" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.mesure_task"/>
+    </componentInstance>
+    <componentInstance name="meteo_task" category="thread">
+      <featureInstance name="req_data_rw" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.meteo_task"/>
+    </componentInstance>
+    <connectionInstance name="data_rw -> data_distribution.req_data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.1" source="//@componentInstance.13/@componentInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.0" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="data_rw -> control_task.req_data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.3/@featureInstance.0" source="//@componentInstance.13/@componentInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.0" destination="//@componentInstance.13/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="data_rw -> mesure_task.req_data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.6/@featureInstance.0" source="//@componentInstance.13/@componentInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.0" destination="//@componentInstance.13/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="data_rw -> meteo_task.req_data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.7/@featureInstance.0" source="//@componentInstance.13/@componentInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.0" destination="//@componentInstance.13/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="data_distribution.req_data_rw -> data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.0" source="//@componentInstance.13/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.13/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="control_task.req_data_rw -> data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.0" source="//@componentInstance.13/@componentInstance.3/@featureInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.13/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="mesure_task.req_data_rw -> data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.0" source="//@componentInstance.13/@componentInstance.6/@featureInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.6/@featureInstance.0" destination="//@componentInstance.13/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="meteo_task.req_data_rw -> data_rw" complete="true" kind="accessConnection" destination="//@componentInstance.13/@componentInstance.0" source="//@componentInstance.13/@componentInstance.7/@featureInstance.0">
+      <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.7/@featureInstance.0" destination="//@componentInstance.13/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#pathfinder_software.prs_PSC.impl"/>
+  </componentInstance>
+  <componentInstance name="rs_6000" category="processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/property_set/processor_properties.aadl#Processor_Properties.Max_Prio_First"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/src/property_set/processor_properties.aadl#/0/@ownedPropertyType.1/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="req_access_vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/instances/mars_pathfinder_sys_mars_pathfinder_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_hardware.aadl#pathfinder_hardware.rs_6000.impl"/>
+  </componentInstance>
+  <connectionInstance name="VME -> camera.req_access_vme" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="VME -> radio.req_access_vme" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="VME -> memories.req_access_vme" complete="true" kind="accessConnection" destination="//@componentInstance.12/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.12/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="VME -> rs_6000.req_access_vme" complete="true" kind="accessConnection" destination="//@componentInstance.14/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.14/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> valves.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.11/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.11/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> thrusters.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.10/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.10/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> sun_sensors.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.8/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> star_analyser.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.9/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.9/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> meterological.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.7/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bus_1553 -> coupler.req_access_1553" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.6" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.3/@featureInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="radio.reception_data -> prs_PSC.radio_task.reception_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.4/@featureInstance.0" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.13/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.3" destination="//@componentInstance.13/@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="radio.req_access_vme -> VME" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="coupler.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.3/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.6" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.images_data -> prs_PSC.camera_task.images_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.5/@featureInstance.0" source="//@componentInstance.4/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.1" destination="//@componentInstance.13/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.4" destination="//@componentInstance.13/@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.req_access_vme -> VME" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.4/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="altimeter.measured_data -> prs_PSC.data_distribution.measured_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0" source="//@componentInstance.5/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.5" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="accelerometer.measured_data -> prs_PSC.data_distribution.measured_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0" source="//@componentInstance.6/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.3" destination="//@componentInstance.13/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.5" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="meterological.measured_data -> prs_PSC.data_distribution.measured_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0" source="//@componentInstance.7/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.5" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="meterological.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.7/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sun_sensors.measured_data -> prs_PSC.data_distribution.measured_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0" source="//@componentInstance.8/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.5" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sun_sensors.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.8/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="star_analyser.measured_data -> prs_PSC.data_distribution.measured_data" complete="true" kind="portConnection" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0" source="//@componentInstance.9/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@featureInstance.5" destination="//@componentInstance.13/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="star_analyser.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.9/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="thrusters.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.10/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.10/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="valves.req_access_1553 -> bus_1553" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.11/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="memories.req_access_vme -> VME" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.12/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.12/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="prs_PSC.bus_scheduling.control_data -> valves.control_data" complete="true" kind="portConnection" destination="//@componentInstance.11/@featureInstance.0" source="//@componentInstance.13/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="prs_PSC.bus_scheduling.control_data -> thrusters.control_data" complete="true" kind="portConnection" destination="//@componentInstance.10/@featureInstance.0" source="//@componentInstance.13/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.13/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.2" destination="//@componentInstance.10/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="prs_PSC.radio_task.emission_data -> radio.emission_data" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.13/@componentInstance.4/@featureInstance.1">
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.13/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="prs_PSC.camera_task.camera_control -> camera.camera_control" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@componentInstance.13/@componentInstance.5/@featureInstance.1">
+    <connectionReference context="//@componentInstance.13" source="//@componentInstance.13/@componentInstance.5/@featureInstance.1" destination="//@componentInstance.13/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/pathfinder_software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="rs_6000.req_access_vme -> VME" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.14/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#mars_pathfinder.sys_mars_pathfinder.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pathfinder_system/mars_pathfinder.aadl#mars_pathfinder.sys_mars_pathfinder.impl"/>
+</instance:SystemInstance>

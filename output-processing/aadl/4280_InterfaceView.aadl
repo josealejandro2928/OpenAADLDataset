@@ -1,0 +1,406 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::compstate;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM RI_switch_on
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_switch_on;
+
+SUBPROGRAM IMPLEMENTATION RI_switch_on.others
+END RI_switch_on.others;
+
+SUBPROGRAM RI_switch_off
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_switch_off;
+
+SUBPROGRAM IMPLEMENTATION RI_switch_off.others
+END RI_switch_off.others;
+
+SUBPROGRAM PI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION PI_out_msg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_out_msg.others;
+
+SUBPROGRAM RI_restart
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_restart;
+
+SUBPROGRAM IMPLEMENTATION RI_restart.others
+END RI_restart.others;
+
+SUBPROGRAM RI_start_recording
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_start_recording;
+
+SUBPROGRAM IMPLEMENTATION RI_start_recording.others
+END RI_start_recording.others;
+
+SUBPROGRAM RI_pause
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_pause;
+
+SUBPROGRAM IMPLEMENTATION RI_pause.others
+END RI_pause.others;
+
+SUBPROGRAM RI_resume
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_resume;
+
+SUBPROGRAM IMPLEMENTATION RI_resume.others
+END RI_resume.others;
+
+SUBPROGRAM RI_fail
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_fail;
+
+SUBPROGRAM IMPLEMENTATION RI_fail.others
+END RI_fail.others;
+
+SUBPROGRAM RI_stop_recording
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_stop_recording;
+
+SUBPROGRAM IMPLEMENTATION RI_stop_recording.others
+END RI_stop_recording.others;
+
+SYSTEM gui
+FEATURES
+  RI_switch_on : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_switch_on.others {
+    Taste::coordinates => "103639 58121";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "switch_on";
+    Taste::labelInheritance => "true";
+  };
+  RI_switch_off : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_switch_off.others {
+    Taste::coordinates => "103639 60740";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "switch_off";
+    Taste::labelInheritance => "true";
+  };
+  PI_out_msg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "103639 49282";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "out_msg";
+  };
+  RI_restart : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_restart.others {
+    Taste::coordinates => "103639 63195";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "restart";
+    Taste::labelInheritance => "true";
+  };
+  RI_start_recording : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_start_recording.others {
+    Taste::coordinates => "103639 75310";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "start_recording";
+    Taste::labelInheritance => "true";
+  };
+  RI_pause : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_pause.others {
+    Taste::coordinates => "103639 78582";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "pause";
+    Taste::labelInheritance => "true";
+  };
+  RI_resume : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_resume.others {
+    Taste::coordinates => "103639 81858";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "resume";
+    Taste::labelInheritance => "true";
+  };
+  RI_fail : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_fail.others {
+    Taste::coordinates => "103639 94135";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "fail";
+    Taste::labelInheritance => "true";
+  };
+  RI_stop_recording : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_stop_recording.others {
+    Taste::coordinates => "103639 85132";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "stop_recording";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::compstate
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_switch_on
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_switch_on;
+
+SUBPROGRAM IMPLEMENTATION PI_switch_on.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_switch_on.others;
+
+SUBPROGRAM PI_switch_off
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_switch_off;
+
+SUBPROGRAM IMPLEMENTATION PI_switch_off.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_switch_off.others;
+
+SUBPROGRAM RI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION RI_out_msg.others
+END RI_out_msg.others;
+
+SUBPROGRAM PI_restart
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_restart;
+
+SUBPROGRAM IMPLEMENTATION PI_restart.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_restart.others;
+
+SUBPROGRAM PI_start_recording
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_start_recording;
+
+SUBPROGRAM IMPLEMENTATION PI_start_recording.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_start_recording.others;
+
+SUBPROGRAM PI_pause
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_pause;
+
+SUBPROGRAM IMPLEMENTATION PI_pause.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_pause.others;
+
+SUBPROGRAM PI_resume
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_resume;
+
+SUBPROGRAM IMPLEMENTATION PI_resume.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_resume.others;
+
+SUBPROGRAM PI_stop_recording
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_stop_recording;
+
+SUBPROGRAM IMPLEMENTATION PI_stop_recording.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_stop_recording.others;
+
+SUBPROGRAM PI_fail
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_fail;
+
+SUBPROGRAM IMPLEMENTATION PI_fail.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_fail.others;
+
+SYSTEM compstate
+FEATURES
+  PI_switch_on : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_switch_on.others {
+    Taste::coordinates => "122795 58120";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "switch_on";
+  };
+  PI_switch_off : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_switch_off.others {
+    Taste::coordinates => "122795 60737";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "switch_off";
+  };
+  RI_out_msg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "122795 49281";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "out_msg";
+    Taste::labelInheritance => "true";
+  };
+  PI_restart : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_restart.others {
+    Taste::coordinates => "122795 63195";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "restart";
+  };
+  PI_start_recording : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_start_recording.others {
+    Taste::coordinates => "122795 75311";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "start_recording";
+  };
+  PI_pause : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_pause.others {
+    Taste::coordinates => "122795 78584";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "pause";
+  };
+  PI_resume : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_resume.others {
+    Taste::coordinates => "122795 81858";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "resume";
+  };
+  PI_stop_recording : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_stop_recording.others {
+    Taste::coordinates => "122795 85131";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "stop_recording";
+  };
+  PI_fail : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::compstate::PI_fail.others {
+    Taste::coordinates => "122795 94135";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "fail";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END compstate;
+
+SYSTEM IMPLEMENTATION compstate.others
+END compstate.others;
+
+END interfaceview::IV::compstate;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::compstate;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "82354 46171 103639 97745";
+  };
+  compstate : SYSTEM interfaceview::IV::compstate::compstate.others {
+    Taste::coordinates => "122795 46662 143916 97745";
+  };
+CONNECTIONS
+  compstate_PI_switch_on_gui_RI_switch_on : SUBPROGRAM ACCESS compstate.PI_switch_on -> gui.RI_switch_on {
+    Taste::coordinates => "103639 58121 113217 58121 113217 58120 122795 58120";
+  };
+  compstate_PI_switch_off_gui_RI_switch_off : SUBPROGRAM ACCESS compstate.PI_switch_off -> gui.RI_switch_off {
+    Taste::coordinates => "103639 60740 113217 60740 113217 60737 122795 60737";
+  };
+  gui_PI_out_msg_compstate_RI_out_msg : SUBPROGRAM ACCESS gui.PI_out_msg -> compstate.RI_out_msg {
+    Taste::coordinates => "122795 49281 113217 49281 113217 49282 103639 49282";
+  };
+  compstate_PI_restart_gui_RI_restart : SUBPROGRAM ACCESS compstate.PI_restart -> gui.RI_restart {
+    Taste::coordinates => "103639 63195 113217 63195 113217 63195 122795 63195";
+  };
+  compstate_PI_start_recording_gui_RI_start_recording : SUBPROGRAM ACCESS compstate.PI_start_recording -> gui.RI_start_recording {
+    Taste::coordinates => "103639 75310 113217 75310 113217 75311 122795 75311";
+  };
+  compstate_PI_pause_gui_RI_pause : SUBPROGRAM ACCESS compstate.PI_pause -> gui.RI_pause {
+    Taste::coordinates => "103639 78582 113217 78582 113217 78584 122795 78584";
+  };
+  compstate_PI_resume_gui_RI_resume : SUBPROGRAM ACCESS compstate.PI_resume -> gui.RI_resume {
+    Taste::coordinates => "103639 81858 113217 81858 113217 81858 122795 81858";
+  };
+  compstate_PI_fail_gui_RI_fail : SUBPROGRAM ACCESS compstate.PI_fail -> gui.RI_fail {
+    Taste::coordinates => "103639 94135 113217 94135 113217 94135 122795 94135";
+  };
+  compstate_PI_stop_recording_gui_RI_stop_recording : SUBPROGRAM ACCESS compstate.PI_stop_recording -> gui.RI_stop_recording {
+    Taste::coordinates => "103639 85132 113217 85132 113217 85131 122795 85131";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

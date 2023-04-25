@@ -1,0 +1,40 @@
+package EO_IR_Sensor
+public
+	with Buses; renames Buses::all;
+	
+	--------------------------------------------------------------------------------------
+	-- An EO/IR sensor that has a video output containing the sensed data, and
+	-- requires a MIL-STD 1553B bus for command, control and status information.
+	--------------------------------------------------------------------------------------
+	device EO_IR
+		features			
+			Ctrl_and_Data: feature group EO_IR_Data_socket;
+			Video_Out : feature group Video_Data_socket;
+			Video_Conn: provides bus access Video;
+			Sensor_CnD_Conn: requires bus access MIL_1553B;
+			Sensor_RF: requires bus access RF;
+	end EO_IR;
+			
+	device implementation EO_IR.impl
+		subcomponents
+			Video_Bus : bus Video;
+		connections
+			--external provides hardware connection
+			phys1: bus access Video_Conn <-> Video_Bus;
+	end EO_IR.impl;
+
+	feature group EO_IR_Data_socket		
+	end EO_IR_Data_socket;
+
+	feature group EO_IR_Data_plug
+		inverse of EO_IR_Data_socket
+	end EO_IR_Data_plug;
+	
+		feature group Video_Data_socket		
+	end Video_Data_socket;
+
+	feature group Video_Data_plug
+		inverse of Video_Data_socket
+	end Video_Data_plug;
+		
+end EO_IR_Sensor;

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="osal_i_Instance" category="system">
+  <componentInstance name="mem" category="memory">
+    <componentInstance name="seg1" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.segment.i"/>
+    </componentInstance>
+    <componentInstance name="seg2" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.segment.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.ram.i"/>
+  </componentInstance>
+  <componentInstance name="sender" category="process">
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#|::0.5.9.9.49.0::18::/6"/>
+  </componentInstance>
+  <componentInstance name="receiver" category="process">
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#|::0.5.9.9.49.1::18::/6"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <componentInstance name="partition_sender" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.partition.common"/>
+    </componentInstance>
+    <componentInstance name="partition_receiver" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.partition.common"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.pok_kernel.i"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.osal.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-osadl11/model.aadl#case_study_osal.osal.i"/>
+</instance:SystemInstance>

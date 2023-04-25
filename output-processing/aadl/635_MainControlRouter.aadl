@@ -1,0 +1,240 @@
+package MainControlRouter
+public
+
+annex EMV2
+{**
+	error types
+	  LateValue: type;
+	  NoValue: type;
+	  AuthorizationError: type;
+	  ThreadFault: type;
+	  InternalError : type;
+	end types;
+	error behavior FailStop
+	  use types ErrorLibrary;
+	  events BadValueEvent: error event;
+	  states 
+	    Running: initial state; 
+	    Failed : state;
+	  transitions
+	    Running -[BadValueEvent]-> Failed;
+	end behavior;
+	error behavior FailDisconnect
+	  use types ErrorLibrary;
+	  events BadAuthorizationEvent: error event;
+	  states 
+	    Running: initial state; 
+	    Disconnect: state;
+	  transitions
+	    Running -[BadAuthorizationEvent]-> Disconnect;
+	end behavior;
+**};
+	
+system MainControlRouter
+	features
+		in_mcr_remote:   in event port;
+		out_mcr_remote:  out event port;
+		in_mcr_zd:       in event port;
+		out_mcr_zd:      out event port;
+		in_mcr_ipd:      in event port;
+		out_mcr_ipd:     out event port;
+end MainControlRouter;
+	
+system implementation MainControlRouter.impl
+	subcomponents
+		ZIGBEE_DEVICE_CONTROLLER: process Zigbee_Device_Controller;
+		IP_DEVICE_CONTROLLER: process IP_Device_Controller;
+		REMOTE_MSG_CONTROL: process Remote_Msg_Control;
+		MAIN_CONTROLLER: process Main_Controller;
+	connections
+		c1: port in_mcr_zd -> ZIGBEE_DEVICE_CONTROLLER.dev_data_receiver;
+		c2: port ZIGBEE_DEVICE_CONTROLLER.dev_data_sender -> out_mcr_zd;
+		c3: port in_mcr_remote -> REMOTE_MSG_CONTROL.app_data_receiver;
+		c4: port REMOTE_MSG_CONTROL.app_data_sender -> out_mcr_remote;
+		c5: port in_mcr_ipd -> IP_DEVICE_CONTROLLER.dev_data_receiver;
+		c6: port IP_DEVICE_CONTROLLER.dev_data_sender -> out_mcr_ipd;
+		c7: port Main_Controller.zdc_data_sender -> Zigbee_Device_Controller.ctr_data_receiver;
+		c8: port Main_Controller.ipdc_data_sender -> IP_Device_Controller.ctr_data_receiver;
+		c9: port Main_Controller.remote_data_sender -> Remote_Msg_Control.ctr_data_receiver;
+		c10: port Zigbee_Device_Controller.ctr_data_sender -> Main_Controller.zdc_data_receiver;
+		c11: port IP_Device_Controller.ctr_data_sender -> Main_Controller.ipdc_data_receiver;
+		c12: port Remote_Msg_Control.ctr_data_sender -> Main_Controller.remote_data_receiver;
+end MainControlRouter.impl;
+
+process Zigbee_Device_Controller
+	features
+		dev_data_receiver:  in event port;
+		dev_data_sender:    out event port;
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end Zigbee_Device_Controller;
+
+process implementation Zigbee_Device_Controller.impl
+	subcomponents
+		DEV_ZDC : thread Dev_ZDC;
+		CTR_ZDC   : thread Ctr_ZDC;
+	connections
+		c1: port dev_data_receiver -> DEV_ZDC.dev_data_receiver;
+		c2: port ctr_data_receiver -> CTR_ZDC.ctr_data_receiver;
+		c3: port DEV_ZDC.dev_data_sender -> dev_data_sender;
+		c4: port CTR_ZDC.ctr_data_sender -> ctr_data_sender;
+end Zigbee_Device_Controller.impl;
+
+thread Dev_ZDC
+	features
+		dev_data_receiver:  in event port;
+		dev_data_sender:    out event port;
+		
+end Dev_ZDC;
+
+thread implementation Dev_ZDC.impl
+annex EMV2 {**
+	use types ErrorLibrary, MainControlRouter;
+	use behavior ErrorLibrary::FailStop;
+	
+	error propagations
+		dev_data_receiver: in propagation {OutOfRange};
+	flows
+		es1: error sink dev_data_receiver{OutOfRange};
+	end propagations;
+	
+	component error behavior
+		transitions
+	    	trs1: Operational -[dev_data_receiver{OutOfRange}]-> FailStop;
+	    	trs2: FailStop -[dev_data_receiver{NoError}]-> Operational;
+	end component;
+**};	
+end Dev_ZDC.impl;
+
+thread Ctr_ZDC
+	features
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end Ctr_ZDC;
+
+process IP_Device_Controller
+	features
+		dev_data_receiver:  in event port;
+		dev_data_sender:    out event port;
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end IP_Device_Controller;
+
+process implementation IP_Device_Controller.impl
+		subcomponents
+		DEV_IPDC : thread Dev_IPDC;
+		CTR_IPDC   : thread Ctr_IPDC;
+	connections
+		c1: port dev_data_receiver -> DEV_IPDC.dev_data_receiver;
+		c2: port ctr_data_receiver -> CTR_IPDC.ctr_data_receiver;
+		c3: port DEV_IPDC.dev_data_sender -> dev_data_sender;
+		c4: port CTR_IPDC.ctr_data_sender -> ctr_data_sender;
+end IP_Device_Controller.impl;
+
+thread Dev_IPDC
+	features
+		dev_data_receiver:  in event port;
+		dev_data_sender:    out event port;
+		
+end Dev_IPDC;
+
+thread Ctr_IPDC
+	features
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end Ctr_IPDC;
+
+process Remote_Msg_Control 
+	features
+		app_data_receiver:  in event port;
+		app_data_sender:    out event port;
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end Remote_Msg_Control;
+
+process implementation Remote_Msg_Control.impl
+	subcomponents
+		APP_RMC   : thread App_RMC;
+		CTL_RMC   : thread Ctr_RMC;
+	connections
+		c1: port app_data_receiver -> APP_RMC.app_data_receiver;
+		c2: port ctr_data_receiver -> CTL_RMC.ctr_data_receiver;
+		c3: port APP_RMC.app_data_sender -> app_data_sender;
+		c4: port CTL_RMC.ctr_data_sender -> ctr_data_sender;
+end Remote_Msg_Control.impl;
+
+thread App_RMC
+	features
+		app_data_receiver:  in event port;
+		app_data_sender:    out event port;
+		
+end App_RMC;
+
+thread implementation App_RMC.impl
+annex EMV2 {**
+	use types ErrorLibrary, MainControlRouter;
+	use behavior MainControlRouter::FailDisconnect;
+	
+	error propagations
+		app_data_receiver: in propagation {AuthorizationError};
+	flows
+		es1: error sink app_data_receiver{AuthorizationError};
+	end propagations;
+	
+	component error behavior
+		transitions
+	    	trs1: Running -[app_data_receiver{AuthorizationError}]-> Disconnect;
+	    	trs2: Disconnect -[app_data_receiver{NoError}]-> Running;
+	end component;
+**};	
+end App_RMC.impl;
+
+thread Ctr_RMC
+	features
+		ctr_data_receiver:  in event port;
+		ctr_data_sender:    out event port;
+end Ctr_RMC;
+
+
+process Main_Controller
+	features
+		zdc_data_receiver:  in event port;
+		zdc_data_sender:    out event port;
+		ipdc_data_receiver:  in event port;
+		ipdc_data_sender:    out event port;
+		remote_data_receiver:  in event port;
+		remote_data_sender:    out event port;
+end Main_Controller;
+
+process implementation Main_Controller.impl
+	subcomponents
+		MSG_RECEIVER :thread Msg_receiver;
+		MSG_SENDER :thread Msg_Sender;
+	connections
+		c1: port zdc_data_receiver -> MSG_RECEIVER.zdc_data_receiver;
+		c2: port ipdc_data_receiver -> MSG_RECEIVER.ipdc_data_receiver;
+		c3: port remote_data_receiver -> MSG_RECEIVER.remote_data_receiver;
+		c4: port Msg_Sender.zdc_data_sender -> zdc_data_sender;
+		c5: port Msg_Sender.ipdc_data_sender -> ipdc_data_sender;
+		c6: port Msg_Sender.remote_data_sender -> remote_data_sender;
+		
+		
+end Main_Controller.impl;
+
+Thread Msg_Receiver
+	features
+		zdc_data_receiver:  in event port;
+		ipdc_data_receiver:  in event port;
+		remote_data_receiver:  in event port;
+end Msg_Receiver;
+
+Thread Msg_Sender
+	features
+		zdc_data_sender:    out event port;
+		ipdc_data_sender:    out event port;
+		remote_data_sender:    out event port;
+end Msg_Sender;
+
+
+end MainControlRouter;
+

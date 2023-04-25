@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="protector_i_Instance" category="system">
+  <componentInstance name="hw" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+  </componentInstance>
+  <componentInstance name="sw" category="process">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <componentInstance name="collision_avoidance_thread" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/DART_DAG_Schedulability/propertysets/Zero_Slack_Scheduling.aadl#Zero_Slack_Scheduling.Criticality"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" value="2">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+            </minimum>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="2">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+            </maximum>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#example15.collision_avoidance"/>
+    </componentInstance>
+    <componentInstance name="waypoint_thread" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="//@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/DART_DAG_Schedulability/propertysets/Zero_Slack_Scheduling.aadl#Zero_Slack_Scheduling.Criticality"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" value="2">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+            </minimum>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="2">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/example-05/aadl/Plugin_Resources/AADL_Project.aadl#/0/@ownedPropertyType.12/@ownedLiteral.3"/>
+            </maximum>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#example15.waypoint_protector"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#example15.process_protector.i"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#example15.protector.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a195/docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/packages/example15.aadl#example15.protector.i"/>
+</instance:SystemInstance>

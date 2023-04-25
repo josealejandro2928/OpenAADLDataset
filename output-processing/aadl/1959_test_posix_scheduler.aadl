@@ -1,0 +1,167 @@
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  30;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  8 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  8 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  2 ms ..  2 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  31;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  7 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  7 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end T2.Impl;
+
+thread fifo1
+end fifo1;
+
+thread implementation fifo1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  4 ms ..  4 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  5 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  20;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  0 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+end fifo1.Impl;
+
+thread fifo2
+end fifo2;
+
+thread implementation fifo2.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  4 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  5;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  0 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+end fifo2.Impl;
+
+thread other1
+end other1;
+
+thread implementation other1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_OTHERS;
+		Cheddar_Properties::Fixed_Priority =>  0;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  0 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+end other1.Impl;
+
+thread rr1
+end rr1;
+
+thread implementation rr1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  3 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_RR;
+		Cheddar_Properties::Fixed_Priority =>  7;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  0 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+end rr1.Impl;
+
+thread rr2
+end rr2;
+
+thread implementation rr2.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  4 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_RR;
+		Cheddar_Properties::Fixed_Priority =>  7;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  0 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+end rr2.Impl;
+
+process ea1
+end ea1;
+
+process implementation ea1.Impl
+	subcomponents
+		instancied_T1 : thread T1.Impl;
+		instancied_T2 : thread T2.Impl;
+		instancied_fifo1 : thread fifo1.Impl;
+		instancied_fifo2 : thread fifo2.Impl;
+		instancied_other1 : thread other1.Impl;
+		instancied_rr1 : thread rr1.Impl;
+		instancied_rr2 : thread rr2.Impl;
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb ;
+end ea1.Impl;
+
+processor cpu1
+end cpu1;
+
+processor implementation cpu1.Impl
+	properties 
+		Scheduling_Protocol => POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  2 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end cpu1.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_cpu1 : processor cpu1.Impl;
+		instancied_ea1 : process ea1.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_cpu1 applies to instancied_ea1;
+end Cheddar.Impl;
+
+
+

@@ -1,0 +1,13 @@
+package TIME_Processor
+public
+	with Generic;
+	with TIME_Arg_IO;
+	with TIME_Base_IO;
+	
+	--------all abstract can add external data corresponding to its require
+	abstract GetTime extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group TIME_Arg_IO::GetTimeArgs;
+			LocalDatas: refined to feature group TIME_Base_IO::SysTimeInput;
+	end GetTime;
+end TIME_Processor;

@@ -1,0 +1,43 @@
+package telemetry
+public 
+
+process telemetry_process
+features
+	input : in data port task_types::shared_data;
+	output : out data port task_types::shared_data;
+end telemetry_process;
+
+thread group implementation telemetry_process.impl
+subcomponents
+  a_data 	         : data task_types::shared_data.impl;
+  data_store 		   : thread task_types::aperiodic;
+  echo_error	      : thread task_types::aperiodic;
+  
+  telemetry_response : thread task_types::sporadic
+  {
+    Compute_Execution_Time => 3190 us;
+    Period => 62500 us;
+    Deadline => 30 ms;
+    Priority => 15;
+   };
+
+connections
+  C1 : port input -> data_store.input;
+  C2 : port input -> echo_error.input;
+  C3 : port data_store.output    -> echo_error.input;
+
+properties
+  Timing => immediate applies to  C1, C2, C3; 
+
+end telecomand_process.impl;
+
+
+end telemetry;
+
+
+
+
+
+
+
+

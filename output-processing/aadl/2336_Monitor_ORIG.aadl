@@ -1,0 +1,181 @@
+package Monitor_ORIG
+public
+with Isolette_Data_Model;
+
+--A.5.2 Monitor Temperature Function
+process Monitor_Temperature
+	features
+  -- ===== INPUTs (monitored variables) ...based in part on Figure A.2 and Table A.5 
+  -- value of current temp (with status flag) from air temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- operator-specific alarm range for temperature
+  lower_alarm_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  upper_alarm_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  
+  -- ===== OUTPUTs (controlled variables)  ...based in part on Figure A.2 and Table A.6
+   -- control signal (on/off) to alarm component 
+  alarm_control : out data port Isolette_Data_Model::On_Off;
+  -- enumerated type describing status/mode of monitor (Init, On/operating, or Failed)
+  monitor_status : out data port Isolette_Data_Model::Status;
+end Monitor_Temperature;
+
+process implementation Monitor_Temperature.impl
+  -- thread to manage the interactions between with operator interface and the rest
+  -- of the monitor process
+
+subcomponents
+  --thread for manage alarm implementation
+  manage_alarm : thread manage_alarm.impl;
+  --thread for monitor interface implementation
+  manage_monitor_interface : thread manage_monitor_interface.impl;
+  --thread for monitor mode implementation
+  manage_monitor_mode : thread manage_monitor_mode.impl;
+	connections
+		
+  -- ==== INPUT INTERFACE values to internal components ====
+  -- send incoming alarm temperature range to monitor interface manager
+  muat : port upper_alarm_tempWstatus -> manage_monitor_interface.upper_alarm_tempWstatus;
+  mlat : port lower_alarm_tempWstatus -> manage_monitor_interface.lower_alarm_tempWstatus;
+  
+  -- send incoming current temperature (with status value)
+  --   ...to interface manager
+  mcti : port current_tempWstatus -> manage_monitor_interface.current_tempWstatus;
+  --   ...to alarm manager (controls alarm)
+  mcta : port current_tempWstatus -> manage_alarm.current_tempWstatus;
+  --   ...to mode manager
+  mctm : port current_tempWstatus -> manage_monitor_mode.current_tempWstatus;
+
+  -- ==== OUTPUT INTERFACE values from internal components ==== 
+  -- send alarm actuation command (on/off) 
+  malrm : port manage_alarm.alarm_control -> alarm_control;
+  -- send status of monitor subsystem  to operator interface
+  mms : port manage_monitor_interface.monitor_status -> monitor_status;
+  
+  -- ==== INTERNAL communication ====
+  -- send validated alarm range from interface manager to alarm manager (controller)
+  maul : port manage_monitor_interface.upper_alarm_temp -> manage_alarm.upper_alarm_temp;
+  mall : port manage_monitor_interface.lower_alarm_temp -> manage_alarm.lower_alarm_temp;
+
+  -- send monitor mode from mode manager 
+  --  ... to interface manager
+  mmmi : port manage_monitor_mode.monitor_mode -> manage_monitor_interface.monitor_mode;
+  --  ... to alarm manager
+  mmma : port manage_monitor_mode.monitor_mode -> manage_alarm.monitor_mode;
+  
+ -- send regulator interface failure to mode manager
+  intff : port manage_monitor_interface.interface_failure -> manage_monitor_mode.interface_failure;
+  end Monitor_Temperature.impl;
+
+-- ===========================================================================================================
+--
+--   M a n a g e    R e g u l a t o r   I n t e r f a c e   T h r e a d
+--
+--  
+-- A.5.2.1 Manage Monitor Interface Function
+-- 
+-- ===========================================================================================================
+
+thread Manage_Monitor_Interface
+	features	
+-- ==== INPUTS ====	(see Figure A.5)
+  --  operator specified alarm range
+  upper_alarm_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  lower_alarm_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- current temperature from temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- current mode of monitor subsystem (init, normal or failed)
+  monitor_mode : in data port Isolette_Data_Model::Monitor_Mode;
+
+  -- ==== OUTPUTS ====	(see Figure A.5)  
+  -- validated ("valid" status confirmed & removed) alarm temperature range from operator interface
+  upper_alarm_temp: out data port Isolette_Data_Model::Temp.impl;
+  lower_alarm_temp: out data port Isolette_Data_Model::Temp.impl;
+  -- overall status of monitor subsystem sent to operator interface
+  monitor_status : out data port Isolette_Data_Model::Status;
+  -- flag indicating improper inputs; sent to determine overall subsystem mode 
+  interface_failure : out data port Isolette_Data_Model::Failure_Flag.impl;
+properties							--properties of monitor interface
+	--Dispatch_Protocol => Timed;				--Dispatch_Protocol?
+	Dispatch_Protocol => Periodic; -- jab switched to periodic
+	Period => Isolette_Properties::ThreadPeriod;
+	
+	Stack_Size => Isolette_Properties::StackSize; 
+end Manage_Monitor_Interface;
+
+thread implementation Manage_Monitor_Interface.impl
+end Manage_Monitor_Interface.impl;
+
+
+-- ===========================================================================================================
+--
+--   M a n a g e    R e g u l a t o r   M o d e   T h r e a d
+--
+--  
+--   A.5.2.2 Manage Regulator Mode Function
+-- 
+-- ===========================================================================================================
+
+--A.5.2.2 Manage Monitor Mode Function
+
+thread Manage_Monitor_Mode
+  features
+  -- ==== INPUTS ========		
+  -- current temperature from temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- status of operator interface interactions
+  interface_failure : in data port Isolette_Data_Model::Failure_Flag.impl;
+  -- in case of internal failure, a flag is raised
+  internal_failure : in data port Isolette_Data_Model::Failure_Flag.impl;
+   
+  -- ==== OUTPUTS ========		
+  -- mode of regulator (Init, Normal, Failed)   
+  monitor_mode : out data port Isolette_Data_Model::Monitor_Mode;
+properties
+	Dispatch_Protocol => Periodic; -- jab switched to Periodic
+	Period => Isolette_Properties::ThreadPeriod;
+	
+	Stack_Size => Isolette_Properties::StackSize; 	
+end Manage_Monitor_Mode;
+
+thread implementation Manage_Monitor_Mode.impl
+end Manage_Monitor_Mode.impl;
+
+
+-- ===========================================================================================================
+--
+--   M a n a g e    A l a r m    T h r e a d
+--
+--  
+--    A.5.2.3 Manage Alarm Function
+-- 
+-- ===========================================================================================================
+
+
+--A.5.2.3 Manage Alarm Function
+--The Manage Alarm Function turns the Alarm Control on when the Current
+--Temperature of the Room falls below or rises above the Alarm Temperature Range.
+thread Manage_Alarm
+  features
+  -- ======== INPUTS =======
+  -- current temperature (from temp sensor)
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- lowest and upper bound of operator specified alarm temperature range
+  lower_alarm_temp : in data port Isolette_Data_Model::Temp.impl;
+  upper_alarm_temp : in data port Isolette_Data_Model::Temp.impl;
+  -- subsystem mode
+  monitor_mode : in data port Isolette_Data_Model::Monitor_Mode;
+  
+  -- ======== OUTPUTS =======
+-- command to turn alarm on/off (actuation command)  
+  alarm_control : out data port Isolette_Data_Model::On_Off;
+properties
+	Dispatch_Protocol => Periodic;
+	Period => Isolette_Properties::ThreadPeriod;
+	
+	Stack_Size => Isolette_Properties::StackSize; 	
+end Manage_Alarm;
+
+thread implementation Manage_Alarm.impl
+end Manage_Alarm.impl;
+
+end Monitor_ORIG;

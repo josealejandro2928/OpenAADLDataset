@@ -1,0 +1,44 @@
+
+
+process ea
+end ea;
+
+process implementation ea.Impl
+   properties
+         Cheddar_Properties::Source_Global_Stack_Size => 1000 kb;
+end ea.Impl;
+
+processor cpu
+end cpu;
+
+processor implementation cpu.Impl
+	properties 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu.Impl;
+
+system s
+end s;
+
+
+system implementation s.Impl
+subcomponents
+	instancied_cpu : processor cpu.Impl;
+	instancied_ea : process ea.Impl;
+properties
+	Actual_Processor_Binding => reference instancied_cpu  applies to instancied_ea;
+end s.Impl;
+
+
+system main
+end main;
+
+system Implementation Main.Impl
+   Subcomponents
+      S1 : system S.Impl;
+      S2 : system S.Impl;
+      S3 : system S.Impl;
+end Main.Impl;
+
+

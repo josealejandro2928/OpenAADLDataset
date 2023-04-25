@@ -1,0 +1,60 @@
+package Drivers
+public
+	with CASE_Model_Transformations;
+	with CMASI;
+	with CASEAgree;
+	with CASE_Properties;
+	with Base_Types;
+
+	thread RadioDriver
+		-- The RadioDriver is the software that enables other SW components to communicate to other systems over RF
+		features
+			recv_data: in event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+			send_data: out event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+			alert: in event data port Base_Types::Boolean;
+
+			AutomationRequest: out event data port CMASI::AutomationRequest.i; --CMASI::AddressAttributedMessage.i;
+			OperatingRegion: out event data port CMASI::OperatingRegion.i; --CMASI::AddressAttributedMessage.i;
+			LineSearchTask: out event data port CMASI::LineSearchTask.i; --CMASI::AddressAttributedMessage.i;
+		properties
+			Dispatch_Protocol => Sporadic;
+			CASE_Properties::Comm_driver => true;
+
+		annex agree {**
+			assume "The radio receives well-formed messages" : CASEAgree::WellformedCASE_RF_Msg(recv_data, CASEAgree::GS_ID, CASEAgree::UAV_ID);
+			guarantee "The radio_send outputs only well formed CASE_RF_Msg.Impl types" : CASEAgree::WellformedCASE_RF_Msg(send_data, CASEAgree::UAV_ID, CASEAgree::GS_ID);
+		**};
+
+	end RadioDriver;
+
+	thread implementation RadioDriver.Impl
+		properties
+			Dispatch_Protocol => Sporadic;
+	end RadioDriver.Impl;
+
+	thread UARTDriver
+		-- The UARTDriver is the software that enables other SW components to communicate to other systems over the serial connection
+		features
+			recv_data: in event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+			MissionCommand: in event data port CMASI::MissionCommand.i;
+
+			send_data: out event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+			AirVehicleState: out event data port CMASI::AirVehicleState.i;
+		properties
+			Dispatch_Protocol => Sporadic;
+		annex agree {**
+			assume Req001_UARTDriver "Assumes recv_data only gets well formed CASE_UART_Msg.Impl types" : 
+								        CASEAgree::WellformedCASE_UART_Msg(recv_data);
+			assume Req002_UARTDriver "The UART shall receive valid mission commands" : CASEAgree::WELL_FORMED_MISSION_COMMAND(MissionCommand);
+			guarantee Req003_UARTDRiver "The send_data outputs only well formed CASE_UART_Msg.Impl types" : 
+						                CASEAgree::WellformedCASE_UART_Msg(send_data);
+			guarantee Req004_UARTDriver "The Waypoint Manager shall recieve well-formed air vehicle state messages" : CASEAgree::WELL_FORMED_AIR_VEHICLE_STATE(AirVehicleState);
+		**};
+	end UARTDriver;
+
+	thread implementation UARTDriver.Impl
+		properties
+			Dispatch_Protocol => Sporadic;
+	end UARTDriver.Impl;
+
+end Drivers;

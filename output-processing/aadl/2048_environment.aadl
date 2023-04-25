@@ -1,0 +1,139 @@
+package environment
+public
+	system environment
+		features
+			env_input: in out data port;
+			env_data_input: in data port;
+			client_port: in out data port;
+			event_in: in event data port;
+--			env_output: out data port;
+	end environment;
+
+	system implementation environment.impl
+		subcomponents
+			temp: system temperature.impl;
+			hum: system humidity.impl;
+		connections
+			environment_impl_new_connection3: port event_in -> temp.temp_event;
+			environment_impl_new_connection4: port event_in -> hum.hum_event;
+			environment_impl_new_connection: port env_data_input -> hum.hum_input;
+			environment_impl_new_connection2: port env_data_input -> temp.temp_input;
+			environment_impl_new_connection5: port env_input -> temp.temp_io;
+			environment_impl_new_connection6: port env_input -> hum.hum_io;
+			client_connection: port temp.client_port -> client_port;
+			client_connection2: port hum.client_port -> client_port;
+	end environment.impl;
+
+		---------------------------------------------------------------------------------------------------------
+	system temperature
+		features
+			temp_io: in out data port;
+			temp_input: in data port;
+			temp_event: in event data port;
+			client_port: in out data port;
+	end temperature;
+
+	system implementation temperature.impl
+		subcomponents
+			subscribe: process temperature_event_process.impl;
+			temp_process: process temperature_process.impl;
+		connections
+			temperature_impl_new_connection: port temp_event -> subscribe.pro_in;
+			temperature_impl_new_connection2: port temp_input -> temp_process.pro_in;
+	end temperature.impl;
+
+	thread temperature_thread
+		features
+			thr_in: in data port;
+--			thr_out: out event data port;
+	end temperature_thread;
+
+	process temperature_process
+		features
+			pro_in: in data port;
+--			pro_out: out event data port;
+	end temperature_process;
+
+	process implementation temperature_process.impl
+		subcomponents
+			data_thread: thread temperature_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> data_thread.thr_in;
+	end temperature_process.impl;
+
+	thread temperature_event_thread
+		features
+			thr_in: in event data port;
+--			thr_out: out event data port;
+	end temperature_event_thread;
+
+	process temperature_event_process
+		features
+			pro_in: in event data port;
+--			pro_out: out event data port;
+	end temperature_event_process;
+
+	process implementation temperature_event_process.impl
+		subcomponents
+			event_thread: thread temperature_event_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> event_thread.thr_in;
+	end temperature_event_process.impl;
+
+		---------------------------------------------------------------------------------------------------------
+	system humidity
+		features
+			hum_io: in out data port;
+			hum_input: in data port;
+			hum_event: in event data port;
+			client_port: in out data port;
+	end humidity;
+
+	system implementation humidity.impl
+		subcomponents
+			subscribe: process humidity_event_process.impl;
+			hum_process: process humidity_process.impl;
+		connections
+			humidity_impl_new_connection: port hum_event -> subscribe.pro_in;
+			humidity_impl_new_connection2: port hum_input -> hum_process.pro_in;
+	end humidity.impl;
+
+	thread humidity_thread
+		features
+			thr_in: in data port;
+--			thr_out: out event data port;
+	end humidity_thread;
+
+	process humidity_process
+		features
+			pro_in: in data port;
+--			pro_out: out event data port;
+	end humidity_process;
+
+	process implementation humidity_process.impl
+		subcomponents
+			data_thread: thread humidity_thread;
+		connections
+			process_impl_new_connection: port pro_in -> data_thread.thr_in;
+	end humidity_process.impl;
+
+	thread humidity_event_thread
+		features
+			thr_in: in event data port;
+--			thr_out: out event data port;
+	end humidity_event_thread;
+
+	process humidity_event_process
+		features
+			pro_in: in event data port;
+--			pro_out: out event data port;
+	end humidity_event_process;
+
+	process implementation humidity_event_process.impl
+		subcomponents
+			event_thread: thread humidity_event_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> event_thread.thr_in;
+	end humidity_event_process.impl;
+---------------------------------------------------------------------------------------------------------
+end environment;

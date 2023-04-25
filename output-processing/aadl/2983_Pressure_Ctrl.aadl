@@ -1,0 +1,31 @@
+package Pressure_Ctrl
+public
+with Base_Types;
+	renames Base_Types::all;
+with Sensors;
+with constants;
+
+	system Pressure_Ctrl
+		features
+			env_pressure: in data port Integer;
+			shutdown : out data port Boolean;
+		
+		annex agree{**
+--			assume "Pressure within reasonable range (psi)." :
+--				(env_pressure > 0) and (env_pressure < 1500);
+--			
+--			guarantee "Shutdown commanded if and only if pressure is high." :
+--				shutdown = (env_pressure > constants::PRESSURE_THRESHOLD);	
+		**};	
+	end Pressure_Ctrl;
+	
+	system implementation Pressure_Ctrl.impl
+		subcomponents
+			pressure_sensor : system Sensors::Pressure_Sensor;
+			
+		connections
+			pressure_to_sensor : port env_pressure -> pressure_sensor.pressure;
+			shutdown_cmd : port pressure_sensor.high_indicator -> shutdown;
+			
+	end Pressure_Ctrl.impl;	
+end Pressure_Ctrl;

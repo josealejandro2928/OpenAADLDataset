@@ -1,0 +1,235 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type deploymentview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE deploymentview::DV::Node1
+PUBLIC
+
+WITH ocarina_buses;
+WITH ocarina_drivers;
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS leon_partition
+END leon_partition;
+
+PROCESS IMPLEMENTATION leon_partition.others
+END leon_partition.others;
+
+DEVICE grspw1tx
+EXTENDS ocarina_drivers::rasta_spacewire
+FEATURES
+  link : REFINED TO REQUIRES BUS ACCESS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "118642 104108";
+  };
+PROPERTIES
+  Taste::Interface_Coordinates => "132778 173866" APPLIES TO link;
+  Deployment::Help => "Write your ASN.1 configuration here";
+  Deployment::Configuration => "{devname ""/dev/grspw0"", nodeaddr 30}";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/spacewire.asn";
+  Deployment::Version => "0.1beta";
+END grspw1tx;
+
+DEVICE IMPLEMENTATION grspw1tx.others
+EXTENDS ocarina_drivers::rasta_spacewire.pohic
+END grspw1tx.others;
+
+DEVICE grspw2rx
+EXTENDS ocarina_drivers::rasta_spacewire
+FEATURES
+  link : REFINED TO REQUIRES BUS ACCESS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "118641 127229";
+  };
+PROPERTIES
+  Taste::Interface_Coordinates => "123451 155106" APPLIES TO link;
+  Deployment::Help => "Write your ASN.1 configuration here";
+  Deployment::Configuration => "{devname ""/dev/grspw1"", nodeaddr 31}";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/spacewire.asn";
+  Deployment::Version => "0.1beta";
+END grspw2rx;
+
+DEVICE IMPLEMENTATION grspw2rx.others
+EXTENDS ocarina_drivers::rasta_spacewire.pohic
+END grspw2rx.others;
+
+END deploymentview::DV::Node1;
+
+PACKAGE deploymentview::DV::Node2
+PUBLIC
+
+WITH ocarina_buses;
+WITH ocarina_drivers;
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS Partition1
+END Partition1;
+
+PROCESS IMPLEMENTATION Partition1.others
+END Partition1.others;
+
+DEVICE grspw1tx
+EXTENDS ocarina_drivers::rasta_spacewire
+FEATURES
+  link : REFINED TO REQUIRES BUS ACCESS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "173867 104373";
+  };
+PROPERTIES
+  Taste::Interface_Coordinates => "157537 155106" APPLIES TO link;
+  Deployment::Help => "Write your ASN.1 configuration here";
+  Deployment::Configuration => "{devname ""/dev/grspw0"", nodeaddr 30}";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/spacewire.asn";
+  Deployment::Version => "0.1beta";
+END grspw1tx;
+
+DEVICE IMPLEMENTATION grspw1tx.others
+EXTENDS ocarina_drivers::rasta_spacewire.pohic
+END grspw1tx.others;
+
+DEVICE grspw2rx
+EXTENDS ocarina_drivers::rasta_spacewire
+FEATURES
+  link : REFINED TO REQUIRES BUS ACCESS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "187343 131589";
+  };
+PROPERTIES
+  Taste::Interface_Coordinates => "186682 173866" APPLIES TO link;
+  Deployment::Help => "Write your ASN.1 configuration here";
+  Deployment::Configuration => "{devname ""/dev/grspw1"", nodeaddr 31}";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/spacewire.asn";
+  Deployment::Version => "0.1beta";
+END grspw2rx;
+
+DEVICE IMPLEMENTATION grspw2rx.others
+EXTENDS ocarina_drivers::rasta_spacewire.pohic
+END grspw2rx.others;
+
+END deploymentview::DV::Node2;
+
+PACKAGE deploymentview::DV
+PUBLIC
+
+WITH interfaceview::IV::nodeA;
+WITH ocarina_processors_leon;
+WITH deploymentview::DV::Node1;
+WITH interfaceview::IV::nodeB;
+WITH deploymentview::DV::Node2;
+WITH ocarina_buses;
+WITH Taste;
+WITH Deployment;
+WITH interfaceview::IV;
+WITH TASTE_DV_Properties;
+SYSTEM Node1
+FEATURES
+  grspw1tx_SPW2 : REQUIRES BUS ACCESS ocarina_buses::spacewire.generic;
+  grspw2rx_spacewire_generic : REQUIRES BUS ACCESS ocarina_buses::spacewire.generic;
+END Node1;
+
+SYSTEM IMPLEMENTATION Node1.others
+SUBCOMPONENTS
+  IV_nodeA : SYSTEM interfaceview::IV::nodeA::nodeA.others {
+    Taste::FunctionName => "nodeA";
+  };
+  leon_partition : PROCESS deploymentview::DV::Node1::leon_partition.others {
+    Taste::coordinates => "98814 75201 119444 86854";
+    Deployment::Port_Number => 0;
+  };
+  leon_rtems : PROCESSOR ocarina_processors_leon::leon.rtems {
+    Taste::coordinates => "96235 71872 122023 88519";
+  };
+  grspw1tx : DEVICE deploymentview::DV::Node1::grspw1tx.others {
+    Taste::coordinates => "99088 95917 118642 109657";
+  };
+  grspw2rx : DEVICE deploymentview::DV::Node1::grspw2rx.others {
+    Taste::coordinates => "98559 119434 118641 132382";
+  };
+CONNECTIONS
+  grspw1tx_SPW2_link : BUS ACCESS grspw1tx_SPW2 -> grspw1tx.link;
+  grspw2rx_spacewire_generic_link : BUS ACCESS grspw2rx_spacewire_generic -> grspw2rx.link;
+PROPERTIES
+  Taste::APLC_Binding => (reference (leon_partition)) APPLIES TO IV_nodeA;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO leon_partition;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO grspw1tx;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO grspw2rx;
+END Node1.others;
+
+SYSTEM Node2
+FEATURES
+  grspw1tx_spacewire_generic : REQUIRES BUS ACCESS ocarina_buses::spacewire.generic;
+  grspw2rx_SPW2 : REQUIRES BUS ACCESS ocarina_buses::spacewire.generic;
+END Node2;
+
+SYSTEM IMPLEMENTATION Node2.others
+SUBCOMPONENTS
+  IV_nodeB : SYSTEM interfaceview::IV::nodeB::nodeB.others {
+    Taste::FunctionName => "nodeB";
+  };
+  Partition1 : PROCESS deploymentview::DV::Node2::Partition1.others {
+    Taste::coordinates => "174168 73425 194969 84042";
+    Deployment::Port_Number => 0;
+  };
+  leon_rtems : PROCESSOR ocarina_processors_leon::leon.rtems {
+    Taste::coordinates => "171568 70392 197569 85559";
+  };
+  grspw1tx : DEVICE deploymentview::DV::Node2::grspw1tx.others {
+    Taste::coordinates => "173867 96974 196062 109922";
+  };
+  grspw2rx : DEVICE deploymentview::DV::Node2::grspw2rx.others {
+    Taste::coordinates => "174395 119170 196591 131589";
+  };
+CONNECTIONS
+  grspw1tx_spacewire_generic_link : BUS ACCESS grspw1tx_spacewire_generic -> grspw1tx.link;
+  grspw2rx_SPW2_link : BUS ACCESS grspw2rx_SPW2 -> grspw2rx.link;
+PROPERTIES
+  Taste::APLC_Binding => (reference (Partition1)) APPLIES TO IV_nodeB;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO Partition1;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO grspw1tx;
+  Actual_Processor_Binding => (reference (leon_rtems)) APPLIES TO grspw2rx;
+END Node2.others;
+
+SYSTEM deploymentview
+END deploymentview;
+
+SYSTEM IMPLEMENTATION deploymentview.others
+SUBCOMPONENTS
+  Node1 : SYSTEM Node1.others {
+    Taste::coordinates => "93011 67116 125247 137666";
+  };
+  Node2 : SYSTEM Node2.others {
+    Taste::coordinates => "168318 66059 200819 137666";
+  };
+  spacewire_generic : BUS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "104637 155106 171224 163826";
+  };
+  SPW2 : BUS ocarina_buses::spacewire.generic {
+    Taste::coordinates => "126040 173866 193420 184172";
+  };
+  interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
+CONNECTIONS
+  Connection2 : BUS ACCESS SPW2 -> Node1.grspw1tx_SPW2 {
+    Taste::coordinates => "118642 104108 132778 104108 132778 173866";
+  };
+  Connection1 : BUS ACCESS spacewire_generic -> Node1.grspw2rx_spacewire_generic {
+    Taste::coordinates => "118641 127229 123451 127229 123451 155106";
+  };
+  Connection3 : BUS ACCESS spacewire_generic -> Node2.grspw1tx_spacewire_generic {
+    Taste::coordinates => "173867 104373 157537 104373 157537 155106";
+  };
+  Connection4 : BUS ACCESS SPW2 -> Node2.grspw2rx_SPW2 {
+    Taste::coordinates => "187343 131589 187343 149821 186682 149821 186682 173866";
+  };
+PROPERTIES
+  Actual_Connection_Binding => (reference (spacewire_generic)) APPLIES TO interfaceview.nodeA_PI_rdata512k_nodeB_RI_rdata512k;
+  Actual_Connection_Binding => (reference (SPW2)) APPLIES TO interfaceview.nodeB_PI_data512k_nodeA_RI_data512k;
+END deploymentview.others;
+
+PROPERTIES
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+  Taste::interfaceView => "InterfaceView.aadl";
+  Taste::HWLibraries => ("../../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
+END deploymentview::DV;
+

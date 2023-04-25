@@ -1,0 +1,386 @@
+package DMPLAnnexGenerationTest
+public
+  with DMPLMission,DMPLSmc,DMPLVerif,Zero_Slack_Scheduling;
+  
+  thread collision_avoidance
+    properties
+      Period => 100 ms; 
+      Compute_Execution_Time => 2 ms .. 2 ms ;
+      Zero_Slack_Scheduling::Criticality =>1;
+    annex dmpl{**
+    @BarrierSync;
+    @PlatformController;
+    thread collision_avoidance {
+      print_state(X,Y,id,x,y,xt,yt);
+      //my_sleep(1);
+      if(state == NEXT) {
+        //compute next point on route
+        if(x == xt && y == yt) return;
+        if(NEXT_XY()) return;
+        state = REQUEST;
+      } else if(state == REQUEST) {
+        //request the lock but only if it is free
+        if(EXISTS_LOWER(idp,lock[xp][yp]@idp != 0)) return;
+        lock[xp][yp] = 1;
+        state = WAITING;
+      } else if(state == WAITING) {
+        //grab the lock if we are the highest 
+        //id node to request or hold the lock
+        if(EXISTS_HIGHER(idp, lock[xp][yp]@idp != 0)) return;
+        state = MOVE;
+      } else if(state == MOVE) {
+        //now we have the lock on (x',y')
+        if(GRID_MOVE(xp,yp,1)) return;
+        lock[x][y] = 0; 
+        x = xp; y = yp;
+        state = NEXT;
+      }
+    }**};
+    end collision_avoidance;
+
+    system node	
+    end node;
+
+    thread waypoint
+    	properties
+    		Period => 100 ms; 
+      		Compute_Execution_Time => 2 ms .. 2 ms ;    
+      		Zero_Slack_Scheduling::Criticality =>2;		
+    end waypoint;
+
+    process uav_process
+    end uav_process;
+
+    process implementation uav_process.i
+    subcomponents
+      collision_avoidance_thread: thread collision_avoidance ;
+      waypoint_thread: thread waypoint;
+    properties
+      Zero_Slack_Scheduling::Criticality => 1 applies to collision_avoidance_thread;
+      Zero_Slack_Scheduling::Criticality => 1 applies to waypoint_thread;
+      Period => 100 ms applies to collision_avoidance_thread; 
+      Compute_Execution_Time => 2 ms .. 2 ms applies to collision_avoidance_thread;
+
+      annex dmpl{**
+      node uav_process_i {
+        //shared variables -- visible across nodes. 
+        global bool lock [X][Y] = {
+          lock[x][y] = 1;
+        };
+      
+        global unsigned char lx = 0,ly = 0; //leader's destination coordinates
+        global bool init = 0; //leader's destination has been initialized
+
+        //private variables -- local to the node.
+        //preserved across rounds
+        local unsigned char state = NEXT; //the state
+
+        //current coordinates
+        local unsigned char input x ~ (0 <= x && x < X), input y ~ (0 <= y && y < Y);
+        local unsigned char xp = x, yp = y; //next coordinates
+        //final coordinates
+        local unsigned char input xt ~ (0 <= xt && xt < X), input yt ~ (0 <= yt && yt < Y);
+      
+        local bool waypointValid = 0; //xt, yt are valid
+        
+        pure int expProp1Func() { return x < 5; }
+        pure int expProp2Func() { return y < 5; }
+        
+        expect expProp1 : at_end => expProp1Func;
+        expect expProp2 : at_end => expProp2Func;
+        
+        pure int coverage()
+        {
+          return (GET_LAT() - GET_LNG()@0) > 0.9;
+        }
+
+        expect expProp3 : at_least 0.5 => coverage;
+        
+        bool NEXT_XY () {
+          if(!waypointValid) return 1;
+          if(xt < 0 || xt >= X || yt < 0 || yt >= Y) return 1;
+          
+          xp = x; yp = y;
+          if(x < xt) xp = x + 1;
+          else if(x > xt) xp = x - 1;
+          else if(y < yt) yp = y + 1;
+          else yp = y - 1;
+          return 0;
+        }
+
+        @InitSim;
+        void StartingPosition ()
+        {
+          GRID_INIT();
+          GRID_PLACE(x, y, 1);
+        }
+          
+        //the safety property checked at the beginning of each round
+        pure bool NoCollisions ()
+        {
+          //-- the main property
+          FORALL_DISTINCT_NODE_PAIR (id1,id2) {
+            if(x@id1 == x@id2 && y@id1 == y@id2) return false;
+          }
+      
+          //-- supporting invariants for inductiveness
+          
+          FORALL_NODE(idp) {
+            /** state has to be between 0 and 4, (x,y), (xf,yf), and (xp,yp)
+            have to be between 0 and X-1,Y-1 */
+            if(!(state@idp >= NEXT && state@idp <= MOVE)) return false;
+            if(!(x@idp >= 0 && x@idp < X)) return false;
+            if(!(y@idp >= 0 && y@idp < Y)) return false;
+            //if(!(xt@idp >= 0 && xt@idp < X)) return false;
+            //if(!(yt@idp >= 0 && yt@idp < Y)) return false;
+            if(!(xp@idp >= 0 && xp@idp < X)) return false;
+            if(!(yp@idp >= 0 && yp@idp < Y)) return false;
+            /** if we are in not in NEXT, then xp,yp != x,y */
+            if(!(state@idp == NEXT || x@idp != xp@idp || y@idp != yp@idp)) return false;
+            /** if we are in NEXT, REQUEST, WAITING or MOVE, we have lock on
+            x,y */
+            if(!((state@idp != NEXT && state@idp != REQUEST && state@idp != WAITING && state@idp != MOVE) ||
+            lock[x@idp][y@idp]@idp)) return false;
+            /** if we are in NEXT, WAITING or MOVE, then we have lock on x,y
+            and xp,yp */
+            if(!((state@idp != NEXT && state@idp != WAITING && state@idp != MOVE) ||
+            (lock[x@idp][y@idp]@idp && lock[xp@idp][yp@idp]@idp))) return false;
+            /** if we are not in NEXT, then x,y and xp,yp are
+            adjacent */
+            if(!(state@idp == NEXT || (((x@idp == xp@idp - 1) || (x@idp == xp@idp + 1)) ^ ((y@idp == yp@idp - 1) || (y@idp == yp@idp + 1))))) return false;
+          }
+      
+          //-- the rest are supporting invariants. you only need them for
+          //-- plain induction. you can skip them (by uncommenting the
+          //-- following return statement) out if you are doing K-induction
+          //-- with K>=3.
+          //return true;
+          
+          FORALL_DISTINCT_NODE_PAIR (id1,id2) {
+            /** if node1 is in MOVE/NEXT and has lower id than node2 which is
+            WAITING then they have different xp,yp */
+            if(!((state@id1 != NEXT && state@id1 != MOVE) || state@id2 != WAITING || id1 >= id2 || xp@id1 != xp@id2 || yp@id1 != yp@id2)) return false;
+            /** if two distinct nodes are in MOVE, they have different
+            (xp,yp) */
+            if(!(state@id1 != MOVE || state@id2 != MOVE ||                        
+            ((xp@id1 != xp@id2 || yp@id1 != yp@id2) &&             
+            (xp@id1 != x@id2 || yp@id1 != y@id2) &&               
+            (x@id1 != xp@id2 || y@id1 != yp@id2) &&               
+            (x@id1 != x@id2 || y@id1 != y@id2)))) return false;
+            /** if node2 in WAITING, and node1 has lower id than node 2, then
+            node1.(x,y) != node2.(xp,yp) */
+            if(!(state@id2 != WAITING || id1 >= id2 || x@id1 != xp@id2 || y@id1 != yp@id2)) return false;
+            /** if node2 in MOVE, then node1.(x,y) != node2.(xp,yp) */
+            if(!((state@id2 != MOVE || x@id1 != xp@id2 || y@id1 != yp@id2) && (state@id1 != 4 || xp@id1 != x@id2 || yp@id1 != y@id2))) return false;
+            /** two distinct nodes have different (x,y) */
+            if(!(x@id1 != x@id2 || y@id1 != y@id2)) return false;
+          }
+      
+          return true;
+        }
+
+        //-- guaranteed properties
+        require NoCollision => NoCollisions;
+      }**};
+    end uav_process.i;
+
+    system implementation node.i
+    subcomponents
+      sw: process uav_process.i;
+      hw: processor;
+    	properties
+		Actual_Processor_Binding => (reference (hw)) applies to sw;
+    end node.i;
+
+    system leader extends node 
+    end leader;
+
+    thread waypoint_leader extends waypoint
+    properties 
+      Period => 100 ms; 
+      Compute_Execution_Time => 2 ms .. 2 ms ;
+
+      annex dmpl{**
+      thread waypoint {
+        waypointValid = 1;
+        ly = yp;
+        lx = xp;
+        init = 1;
+      }**};
+    end waypoint_leader;
+    
+    process process_leader extends uav_process
+    end process_leader;
+
+    process implementation process_leader.i extends uav_process.i
+    subcomponents 
+      waypoint_thread: refined to thread waypoint_leader;
+    end process_leader.i;
+
+    system implementation leader.i extends node.i
+    subcomponents 
+      sw: refined to process process_leader.i;
+    end leader.i;
+
+    thread waypoint_protector extends waypoint
+    properties
+      Period => 100 ms; 
+      annex dmpl {**
+      thread waypoint {
+        if (init@0 == 0) return;
+        waypointValid = 1;
+      
+        if(id == 1) {
+          xt = lx@0 + 1;
+          yt = ly@0 + 1;
+        } else if(id == 2) {
+          xt = lx@0 - 1;
+          yt = ly@0 + 1;
+        } else if(id == 3) {
+          xt = lx@0 - 1;
+          yt = ly@0 - 1;
+        } else if(id == 4) {
+          xt = lx@0 + 1;
+          yt = ly@0 - 1;
+        }
+      }**};
+    end waypoint_protector;
+    
+    process process_protector extends uav_process
+    end process_protector;
+
+    process implementation process_protector.i extends uav_process.i
+    subcomponents 
+      waypoint_thread: refined to thread waypoint_protector;
+    end process_protector.i;
+
+    system protector extends node
+    end protector;
+
+    system implementation protector.i extends node.i
+    subcomponents
+      sw: refined to process process_protector.i;
+    end protector.i;
+
+    system main
+    annex dmpl {**
+    TARGET GNU_CPP,WIN_CPP %%{
+    #define GNU_WIN
+    #include <stdlib.h>
+    #include "madara/utility/Utility.h"
+
+    int roundNum = 0;
+    int xi,yi;
+
+    int my_sleep (int seconds)
+    {
+      madara::utility::sleep (seconds);
+      return 0;
+    }
+    
+    void print_int(int i)
+    {
+      printf("%i\n", i);
+    }
+
+    void print_line(int _X)
+    {
+      printf("-");
+      for(int i = 0;i < _X;++i) printf("--");
+      printf("\n");
+    }
+
+    void print_state(int _X,int _Y,int id_, int x, int y, int xf, int yf)
+    {
+      if(roundNum == 0) {
+        xi = x; yi = y;
+      }
+
+      for(int i = 0;i < 150;++i) printf("\n");
+    
+      printf("round = %d : id = %d\n", ++roundNum, id_);
+      printf("_X = %d _Y = %d\n",_X,_Y);
+      print_line(_X);
+      for(int i = 0;i < _Y;++i) {
+        printf("|");
+        for(int j = 0;j < _X;++j) {
+          //printf("i = %d j = %d\n", i, j);
+          if(j == xf && i == yf) printf("o|");        
+          else if(j == x && i == y) printf("%d|",id_);
+          else printf(" |");
+        }
+        printf("\n");
+        print_line(_X);
+      }
+    }
+    %%}
+
+    //states of each node
+    const NEXT = 1;
+    const REQUEST = 2;
+    const WAITING = 3;
+    const MOVE = 4;
+
+
+    extern void INIT_CONTROLLER(unsigned char x,unsigned char y);
+    extern int my_sleep(int seconds);
+    extern void print_state(int XX,int YY,int my_id, int x, int y, int xf, int yf);
+    extern void print_int(int i);**};	
+    end main;
+
+    -- DMPL command line to generate:
+    -- assume that the generated dmpl has 
+    -- node uav{..}
+    -- dmplc --roles <node name>:<role name>:<number of nodes> ...
+    -- example : dmplc --roles node:leader:1:node:protector:1 
+    system implementation main.i
+    subcomponents
+      leader_node: system leader.i;
+      protector_node: system protector.i[4];
+    properties
+      -- properties needed to simulate mission
+      DMPLMission::Output_Dir => "outdir";
+      DMPLMission::Grid_Size => 10;
+      DMPLMission::Map_Name => "small";
+      DMPLMission::Record_Camera_Pos => "0.0421 -0.2489 11.2217";
+      DMPLMission::Mission_Time => "240";
+      DMPLMission::Expect_Log_Period => "0.2";
+      DMPLMission::Platform => "vrep-uav::::0.1";
+      DMPLMission::Node_Arguments => ("x","1","y","1","xt","8","yt","8") applies to leader_node.sw;
+      DMPLMission::Node_Arguments => ("x","2","y","2","xt","9","yt","9") applies to protector_node[1].sw;
+      DMPLMission::Node_Arguments => ("x","0","y","2","xt","7","yt","9") applies to protector_node[2].sw;
+      DMPLMission::Node_Arguments => ("x","0","y","0","xt","7","yt","7") applies to protector_node[3].sw;
+      DMPLMission::Node_Arguments => ("x","2","y","0","xt","9","yt","7") applies to protector_node[4].sw;
+      -- to generate "echo --node uav_process_i --role $6 --var_<varname> <value> --var_<varname> <value>"
+      -- example with the current property: "echo --node xxx --role xxx --var_x 1 --var_y 2"
+
+      -- properties needed for logical verification
+      DMPLVerif::Expected_Output => "FAILED";
+      DMPLVerif::Grid_Size => 3;
+      DMPLVerif::Property_Name => "NoCollision";
+      DMPLVerif::Verif_Type => "bounded";
+      DMPLVerif::Round_Num => 5;
+
+      -- properties needed for SMC
+      DMPLSmc::Name => "dart-example-02-expect-docker";
+      DMPLSmc::Scenario => "example-02-expect";
+      DMPLSmc::Target_RE => "0.05";
+      DMPLSmc::Description => "This simulation consists of a leader and four protectors.";
+      DMPLSmc::Weight => "4";
+      DMPLSmc::Predicates => ("expProp4.0", "expect property expProp4 for node 0.",
+      "expProp5.0", "expect property expProp5 for node 0");
+      DMPLSmc::Dmpl_Branch => "develop";      
+      DMPLSmc::Dmpl_Dir => "docs/tutorial/dmpl-aadl-annex/DMPLAnnexGenerationTest/DART";
+      DMPLSmc::Input_Dists => ("ix", "iuniform(1,3)", "iy", "iuniform(1,3)",
+      "fx", "iuniform(6,8)", "fy", "iuniform(6,8)", "ox.1", "-1",  "oy.1", "-1",
+      "ox.3", "-1",  "oy.3", "1");
+      DMPLSmc::Sup_Props => ("expProp7.0", "expProp8.0");
+      Zero_Slack_Scheduling::Scheduling_Protocol => ZSRM;
+    end main.i;	
+
+    -- other physical things that can be modeled:
+    -- grid : as --cube-grid <size>
+    -- map  : as --map <map name>
+    -- format would be then
+    -- dmplc --roles <node name>:<role name>:<number of nodes> --cube-grid 10 --map small
+end DMPLAnnexGenerationTest;

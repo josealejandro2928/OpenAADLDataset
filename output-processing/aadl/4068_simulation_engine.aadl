@@ -1,0 +1,75 @@
+
+thread T1_P0
+end T1_P0;
+
+thread implementation T1_P0.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  0;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  10 ms;
+		Period =>  10 ms;
+end T1_P0.Impl;
+
+thread T2_P1
+end T2_P1;
+
+thread implementation T2_P1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  1;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Fixed_Priority =>  5;
+		Deadline  =>  10 ms;
+		Period =>  10 ms;
+end T2_P1.Impl;
+
+thread T3_P1
+end T3_P1;
+
+thread implementation T3_P1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  1;
+		Compute_Execution_Time =>  10 ms ..  10 ms;
+		Cheddar_Properties::Fixed_Priority =>  4;
+		Deadline  =>  20 ms;
+		Period =>  20 ms;
+end T3_P1.Impl;
+
+process process1
+end process1;
+
+process implementation process1.Impl
+	subcomponents
+		instancied_T1_P0 : thread T1_P0.Impl;
+		instancied_T2_P1 : thread T2_P1.Impl;
+		instancied_T3_P1 : thread T3_P1.Impl;
+end process1.Impl;
+
+processor arinc653
+end arinc653;
+
+processor implementation arinc653.Impl
+	properties 
+		Scheduling_Protocol => pipeline_User_Defined_Protocol;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+		Cheddar_Properties::Source_Text => "partition_scheduler.sc";
+end arinc653.Impl;
+
+
+system sim_engine
+end sim_engine;
+
+system implementation sim_engine.Impl
+	subcomponents
+		instancied_arinc653 : processor arinc653.Impl;
+		instancied_process1 : process process1.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_arinc653 applies to instancied_process1;
+		Cheddar_Properties::Source_Text => "jitter.sc,number_of_activations.sc";
+end sim_engine.Impl;
+
+
+

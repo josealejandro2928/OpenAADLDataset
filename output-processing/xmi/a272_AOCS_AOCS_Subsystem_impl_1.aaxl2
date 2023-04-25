@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="AOCS_Subsystem_impl_Instance" category="system">
+  <componentInstance name="DMA" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.DMA"/>
+  </componentInstance>
+  <componentInstance name="obdh" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.OBDH"/>
+  </componentInstance>
+  <componentInstance name="FSS" category="device">
+    <featureInstance name="FSS_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="power_status_FSS">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.FSS"/>
+  </componentInstance>
+  <componentInstance name="CSS" category="device">
+    <featureInstance name="CSS_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="power_status_CSS">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.CSS"/>
+  </componentInstance>
+  <componentInstance name="SPS" category="device">
+    <featureInstance name="SPS_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="power_status_SPS">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.SPS"/>
+  </componentInstance>
+  <componentInstance name="ES" category="device">
+    <featureInstance name="ES_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="power_status_ES">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.ES"/>
+  </componentInstance>
+  <componentInstance name="MGM" category="device">
+    <featureInstance name="MGM_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="power_status_MGM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.MGM"/>
+  </componentInstance>
+  <componentInstance name="GYR" category="device">
+    <featureInstance name="GYR_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="power_status_GYR">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.GYR"/>
+  </componentInstance>
+  <componentInstance name="STR" category="device">
+    <featureInstance name="STR_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/9"/>
+    </featureInstance>
+    <featureInstance name="power_status_STR">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.STR"/>
+  </componentInstance>
+  <componentInstance name="GPS" category="device">
+    <featureInstance name="GPS_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <featureInstance name="power_status_GPS">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.GPS"/>
+  </componentInstance>
+  <componentInstance name="THU" category="device">
+    <featureInstance name="THU_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <featureInstance name="power_status_THU">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.8"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.THU"/>
+  </componentInstance>
+  <componentInstance name="RW" category="device">
+    <featureInstance name="RW_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="power_status_RW">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.9"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.RW"/>
+  </componentInstance>
+  <componentInstance name="MGT" category="device">
+    <featureInstance name="MGT_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/14"/>
+    </featureInstance>
+    <featureInstance name="power_status_MGT">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="reconfiguration">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.10"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.MGT"/>
+  </componentInstance>
+  <componentInstance name="central_computer" category="device">
+    <featureInstance name="telecommand" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/15"/>
+    </featureInstance>
+    <featureInstance name="telemetry">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <featureInstance name="OBDH" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.11"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.Satellite_Central_Computer"/>
+  </componentInstance>
+  <componentInstance name="watchdog" category="device">
+    <featureInstance name="watchdog_event" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="anomaly_detected" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventPort.1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.12"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/hardware_aocs.aadl#hardware_aocs.watchdog"/>
+  </componentInstance>
+  <componentInstance name="main" category="process">
+    <featureInstance name="sensored_attitude">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="sun_direction">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="reference_torque" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="reference_force" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <featureInstance name="telecommand">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/15"/>
+    </featureInstance>
+    <featureInstance name="power_status_FSS" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_CSS" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_SPS" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_ES" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.8"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_MGM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.9"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_GYR" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.10"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_STR" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.11"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_GPS" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.12"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_THU" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.13"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_RW" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.14"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="power_status_MGT" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.15"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="telemetry" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.16"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <featureInstance name="FSS_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.17"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="CSS_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.18"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="SPS_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.19"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="ES_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.20"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="MGM_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.21"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="GYR_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.22"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="STR_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.23"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="GPS_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.24"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="THU_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.25"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="RW_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.26"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="MGT_reconfiguration" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.27"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="torque_command" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.28"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="force_command" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.29"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <featureInstance name="Forcing_Safe_Mode" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Getting_Back_To_Normal_Mode" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="Force_mode_to_SM" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="Force_mode_to_NM" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+    </featureInstance>
+    <featureInstance name="watchdog_event" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+    </featureInstance>
+    <featureInstance name="anomaly_detected" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.5"/>
+    </featureInstance>
+    <featureInstance name="Changing_mode_to_SM" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.6"/>
+    </featureInstance>
+    <featureInstance name="Changing_mode_to_NM" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.7"/>
+    </featureInstance>
+    <componentInstance name="ACF" category="thread">
+      <featureInstance name="nominal_attitude">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <featureInstance name="sensored_attitude">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="sun_direction">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="reference_torque" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Attitude_Control_Function"/>
+    </componentInstance>
+    <componentInstance name="OCF" category="thread" inMode="//@componentInstance.15/@modeInstance.0">
+      <featureInstance name="nominal_orbit">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/19"/>
+      </featureInstance>
+      <featureInstance name="reference_force" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Orbit_Control_Function"/>
+    </componentInstance>
+    <componentInstance name="TCP" category="thread">
+      <featureInstance name="telecommand">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/15"/>
+      </featureInstance>
+      <featureInstance name="nominal_attitude" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <featureInstance name="nominal_orbit" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/19"/>
+      </featureInstance>
+      <featureInstance name="power_status_FSS" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_CSS" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_SPS" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_ES" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_MGM" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_GYR" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_STR" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_GPS" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_TRU" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_RW" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="power_status_MGT" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.13"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="manoeuvre_command" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.14"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/20"/>
+      </featureInstance>
+      <featureInstance name="attitude_window" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.15"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/21"/>
+      </featureInstance>
+      <featureInstance name="check_thresholds" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.16"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/22"/>
+      </featureInstance>
+      <featureInstance name="Force_mode_to_NM" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="Force_mode_to_SM" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Telecommand_Processing"/>
+    </componentInstance>
+    <componentInstance name="TMP" category="thread">
+      <featureInstance name="torque_command">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="force_command" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="sensor_data1">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="sensor_data2">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="sensor_data3">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="sensor_data4">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="sensor_data5">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="sensor_data6">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="sensor_data7">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="sensor_data8">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="telemetry" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Telemetry_Processing"/>
+    </componentInstance>
+    <componentInstance name="FDR" category="thread" inMode="//@componentInstance.15/@modeInstance.0">
+      <featureInstance name="sensored_attitude">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="sun_direction">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="attitude_window">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/21"/>
+      </featureInstance>
+      <featureInstance name="sensor_data1">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="sensor_data2">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="sensor_data3">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="sensor_data4">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="sensor_data5">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="sensor_data6">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="sensor_data7">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="sensor_data8">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="check_thresholds">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/22"/>
+      </featureInstance>
+      <featureInstance name="watchdog_event" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="anomaly_detected" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Failure_Detection_Isolation"/>
+    </componentInstance>
+    <componentInstance name="FR" category="thread" inMode="//@componentInstance.15/@modeInstance.0">
+      <featureInstance name="reset">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/23"/>
+      </featureInstance>
+      <featureInstance name="reconfiguration_command" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/24"/>
+      </featureInstance>
+      <featureInstance name="Changing_mode_to_SM" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="Changing_mode_to_NM" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Failure_Recovery"/>
+    </componentInstance>
+    <componentInstance name="Reconfig" category="thread">
+      <featureInstance name="command">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/24"/>
+      </featureInstance>
+      <featureInstance name="FSS_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="CSS_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="SPS_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="ES_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="MGM_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="GYR_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="STR_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="GPS_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="THU_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="RW_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="MGT_reconfiguration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Reconfigurations"/>
+    </componentInstance>
+    <componentInstance name="ME" category="thread" inMode="//@componentInstance.15/@modeInstance.0">
+      <featureInstance name="command">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/20"/>
+      </featureInstance>
+      <featureInstance name="torque_command" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="force_command" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/instances/aocs_AOCS_Subsystem_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.7"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/software_aocs.aadl#software_aocs.Manoeuvre_Execution"/>
+    </componentInstance>
+    <modeInstance name="mode_NM" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="mode_SM">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMode.1"/>
+    </modeInstance>
+    <modeTransitionInstance name="mode_NM_Forcing_Safe_Mode_mode_SM" destination="//@componentInstance.15/@modeInstance.1" trigger="//@componentInstance.15/@featureInstance.30" source="//@componentInstance.15/@modeInstance.0">
+      <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.0"/>
+    </modeTransitionInstance>
+    <modeTransitionInstance name="mode_SM_Getting_Back_To_Normal_Mode_mode_NM" destination="//@componentInstance.15/@modeInstance.0" trigger="//@componentInstance.15/@featureInstance.31" source="//@componentInstance.15/@modeInstance.1">
+      <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.1"/>
+    </modeTransitionInstance>
+    <connectionInstance name="TCP.nominal_attitude -> ACF.nominal_attitude" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.0/@featureInstance.0" source="//@componentInstance.15/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.15/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="TCP.nominal_orbit -> OCF.nominal_orbit" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.1/@featureInstance.0" source="//@componentInstance.15/@componentInstance.2/@featureInstance.2">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.15/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="TCP.manoeuvre_command -> ME.command" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.7/@featureInstance.0" source="//@componentInstance.15/@componentInstance.2/@featureInstance.14">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.2/@featureInstance.14" destination="//@componentInstance.15/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="TCP.attitude_window -> FDR.attitude_window" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.4/@featureInstance.2" source="//@componentInstance.15/@componentInstance.2/@featureInstance.15">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.2/@featureInstance.15" destination="//@componentInstance.15/@componentInstance.4/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="TCP.check_thresholds -> FDR.check_thresholds" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.4/@featureInstance.11" source="//@componentInstance.15/@componentInstance.2/@featureInstance.16">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.2/@featureInstance.16" destination="//@componentInstance.15/@componentInstance.4/@featureInstance.11">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FR.reconfiguration_command -> Reconfig.command" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.15/@componentInstance.6/@featureInstance.0" source="//@componentInstance.15/@componentInstance.5/@featureInstance.1">
+      <connectionReference context="//@componentInstance.15" source="//@componentInstance.15/@componentInstance.5/@featureInstance.1" destination="//@componentInstance.15/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#AOCS.AOCSprocessing.others"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#AOCS.Leon_Processor"/>
+  </componentInstance>
+  <connectionInstance name="FSS.FSS_data -> main.sun_direction" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.1" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.15/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GYR.GYR_data -> main.sensored_attitude" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.0" source="//@componentInstance.7/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.0" destination="//@componentInstance.15/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="central_computer.telecommand -> main.telecommand" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.4" source="//@componentInstance.13/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.0" destination="//@componentInstance.15/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="watchdog.anomaly_detected -> main.anomaly_detected" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.35" source="//@componentInstance.14/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.1" destination="//@componentInstance.15/@featureInstance.35">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.20"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.reference_torque -> RW.RW_data" complete="true" kind="portConnection" destination="//@componentInstance.11/@featureInstance.0" source="//@componentInstance.15/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.reference_force -> THU.THU_data" complete="true" kind="portConnection" destination="//@componentInstance.10/@featureInstance.0" source="//@componentInstance.15/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.3" destination="//@componentInstance.10/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_FSS -> FSS.power_status_FSS" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.15/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_CSS -> CSS.power_status_CSS" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.1" source="//@componentInstance.15/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.6" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_SPS -> SPS.power_status_SPS" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.1" source="//@componentInstance.15/@featureInstance.7">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.7" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_ES -> ES.power_status_ES" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.1" source="//@componentInstance.15/@featureInstance.8">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.8" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_MGM -> MGM.power_status_MGM" complete="true" kind="portConnection" destination="//@componentInstance.6/@featureInstance.1" source="//@componentInstance.15/@featureInstance.9">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.9" destination="//@componentInstance.6/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_GYR -> GYR.power_status_GYR" complete="true" kind="portConnection" destination="//@componentInstance.7/@featureInstance.1" source="//@componentInstance.15/@featureInstance.10">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.10" destination="//@componentInstance.7/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_STR -> STR.power_status_STR" complete="true" kind="portConnection" destination="//@componentInstance.8/@featureInstance.1" source="//@componentInstance.15/@featureInstance.11">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.11" destination="//@componentInstance.8/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_GPS -> GPS.power_status_GPS" complete="true" kind="portConnection" destination="//@componentInstance.9/@featureInstance.1" source="//@componentInstance.15/@featureInstance.12">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.12" destination="//@componentInstance.9/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_THU -> THU.power_status_THU" complete="true" kind="portConnection" destination="//@componentInstance.10/@featureInstance.1" source="//@componentInstance.15/@featureInstance.13">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.13" destination="//@componentInstance.10/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_RW -> RW.power_status_RW" complete="true" kind="portConnection" destination="//@componentInstance.11/@featureInstance.1" source="//@componentInstance.15/@featureInstance.14">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.14" destination="//@componentInstance.11/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.14"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.power_status_MGT -> MGT.power_status_MGT" complete="true" kind="portConnection" destination="//@componentInstance.12/@featureInstance.1" source="//@componentInstance.15/@featureInstance.15">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.15" destination="//@componentInstance.12/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.15"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.telemetry -> central_computer.telemetry" complete="true" kind="portConnection" destination="//@componentInstance.13/@featureInstance.1" source="//@componentInstance.15/@featureInstance.16">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.16" destination="//@componentInstance.13/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.18"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.FSS_reconfiguration -> FSS.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@componentInstance.15/@featureInstance.17">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.17" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.23"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.CSS_reconfiguration -> CSS.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.2" source="//@componentInstance.15/@featureInstance.18">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.18" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.24"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.SPS_reconfiguration -> SPS.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.2" source="//@componentInstance.15/@featureInstance.19">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.19" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.25"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.ES_reconfiguration -> ES.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.2" source="//@componentInstance.15/@featureInstance.20">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.20" destination="//@componentInstance.5/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.26"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.MGM_reconfiguration -> MGM.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.6/@featureInstance.2" source="//@componentInstance.15/@featureInstance.21">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.21" destination="//@componentInstance.6/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.27"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.GYR_reconfiguration -> GYR.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.7/@featureInstance.2" source="//@componentInstance.15/@featureInstance.22">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.22" destination="//@componentInstance.7/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.28"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.STR_reconfiguration -> STR.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.8/@featureInstance.2" source="//@componentInstance.15/@featureInstance.23">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.23" destination="//@componentInstance.8/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.29"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.GPS_reconfiguration -> GPS.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.9/@featureInstance.2" source="//@componentInstance.15/@featureInstance.24">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.24" destination="//@componentInstance.9/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.30"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.THU_reconfiguration -> THU.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.10/@featureInstance.2" source="//@componentInstance.15/@featureInstance.25">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.25" destination="//@componentInstance.10/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.31"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.RW_reconfiguration -> RW.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.11/@featureInstance.2" source="//@componentInstance.15/@featureInstance.26">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.26" destination="//@componentInstance.11/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.32"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.MGT_reconfiguration -> MGT.reconfiguration" complete="true" kind="portConnection" destination="//@componentInstance.12/@featureInstance.2" source="//@componentInstance.15/@featureInstance.27">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.27" destination="//@componentInstance.12/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.33"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.torque_command -> RW.RW_data" complete="true" kind="portConnection" destination="//@componentInstance.11/@featureInstance.0" source="//@componentInstance.15/@featureInstance.28">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.28" destination="//@componentInstance.11/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.34"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.force_command -> THU.THU_data" complete="true" kind="portConnection" destination="//@componentInstance.10/@featureInstance.0" source="//@componentInstance.15/@featureInstance.29">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.29" destination="//@componentInstance.10/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.35"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.Force_mode_to_SM -> main.Forcing_Safe_Mode" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.30" source="//@componentInstance.15/@featureInstance.32">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.32" destination="//@componentInstance.15/@featureInstance.30">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.16"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.Force_mode_to_NM -> main.Getting_Back_To_Normal_Mode" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.31" source="//@componentInstance.15/@featureInstance.33">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.33" destination="//@componentInstance.15/@featureInstance.31">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.17"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.watchdog_event -> watchdog.watchdog_event" complete="true" kind="portConnection" destination="//@componentInstance.14/@featureInstance.0" source="//@componentInstance.15/@featureInstance.34">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.34" destination="//@componentInstance.14/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.19"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.Changing_mode_to_SM -> main.Forcing_Safe_Mode" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.30" source="//@componentInstance.15/@featureInstance.36">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.36" destination="//@componentInstance.15/@featureInstance.30">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.21"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="main.Changing_mode_to_NM -> main.Getting_Back_To_Normal_Mode" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.31" source="//@componentInstance.15/@featureInstance.37">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.37" destination="//@componentInstance.15/@featureInstance.31">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.22"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#AOCS.AOCS_Subsystem.impl"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.15/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.15/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/aocs/aocs.aadl#AOCS.AOCS_Subsystem.impl"/>
+</instance:SystemInstance>

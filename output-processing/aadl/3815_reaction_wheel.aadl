@@ -1,0 +1,43 @@
+package reaction_wheel
+public 
+
+process reaction_wheels_process
+features
+  input : in data port task_types::shared_data;
+  output : out data port task_types::shared_data;
+end reaction_wheels_process;
+
+
+thread group implementation reaction_wheels_process.impl
+subcomponents
+
+  wheel_command : thread task_types::aperiodic;
+  request_wheel_speed : thread task_types::cyclic  
+  {
+    Compute_Execution_Time => 1430 us; 
+    Period => 200 ms;  
+    Priority => 18;
+    Deadline => 22 ms;  
+    Dispatch_offset => 0 ms; 
+   
+  };
+
+connections 
+   C0 : port input -> request_wheel_speed.input;
+   C1 : port request_wheel_speed.output -> output;
+   C2 : port wheel_command.output -> output;
+properties
+  timing => immediate applies to C0, C1, C2;
+end reaction_wheels_process.impl;
+
+end reaction_wheels;
+
+
+
+
+
+
+
+
+
+

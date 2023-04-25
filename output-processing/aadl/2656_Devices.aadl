@@ -1,0 +1,218 @@
+package Devices
+public
+	with Isolette_Data_Model;
+	with Isolette_Environment;
+	with Isolette_Properties;
+	with CASE_Scheduling;
+	with CASE_Property_Definitions;
+
+--device Detect_Regulator_Failure
+--features
+--  internal_failure : out data port Isolette_Data_Model::Failure_Flag.impl;
+--end Detect_Regulator_Failure;
+--
+--device implementation Detect_Regulator_Failure.impl
+--end detect_regulator_failure.impl;
+--
+--
+----A.5.2.4 Detect Monitor Failure Function
+----this is where error models signal active threads an 
+----internal thermostat monitor failure has been detected
+--device Detect_Monitor_Failure
+--features
+--  internal_failure : out data port Isolette_Data_Model::Failure_Flag.impl;
+--end Detect_Monitor_Failure;
+--
+--device implementation Detect_Monitor_Failure.impl
+--end Detect_Monitor_Failure.impl;
+--
+--device Temperature_Sensor
+--features
+--  air : in data port Isolette_Data_Model::PhysicalTemp.impl;
+--  current_tempWstatus : out data port Isolette_Data_Model::TempWstatus.impl;
+--properties
+--   Dispatch_Protocol => Periodic; -- jab
+--   Period => 1sec; -- jab    
+--end Temperature_Sensor;
+--
+--device implementation Temperature_Sensor.impl
+--end Temperature_Sensor.impl;
+--
+--device Heat_Source
+--features
+--  heat_control : in data port Isolette_Data_Model::On_Off;
+--  heat_out : out data port Isolette_Environment::Heat;
+--properties
+--   Dispatch_Protocol => Periodic; -- jab
+--   Period => 1sec; -- jab  
+--end Heat_Source;
+--
+--device implementation Heat_Source.impl
+--end Heat_Source.impl;
+---------------------------------------------------------------------------
+-- temperature_sensor
+---------------------------------------------------------------------------
+	system Temperature_Sensor_System
+		features
+			air: in data port Isolette_Data_Model::PhysicalTemp.impl;
+			current_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+	end Temperature_Sensor_System;
+
+	system implementation Temperature_Sensor_System.impl
+		subcomponents
+			cpi: process Temperature_Sensor_Process.impl;
+		connections
+			c1: port air -> cpi.air;
+			c2: port cpi.current_TempWstatus -> current_TempWstatus;
+	end Temperature_Sensor_System.impl;
+
+	process Temperature_Sensor_Process
+		features
+			air: in data port Isolette_Data_Model::PhysicalTemp.impl;
+			current_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+	end Temperature_Sensor_Process;
+
+	process implementation Temperature_Sensor_Process.impl
+		subcomponents
+			thermostat: thread Temperature_Sensor.impl;
+		connections
+			c1: port air -> thermostat.air;
+			c2: port thermostat.current_tempWstatus -> current_tempWstatus;
+
+		properties
+			CASE_Scheduling::Domain => Isolette_Properties::Domain_Temperature_Sensor;
+
+	end Temperature_Sensor_Process.impl;
+
+	thread Temperature_Sensor extends CASE_Property_Definitions::Periodic_Thread
+		features
+			air: in data port Isolette_Data_Model::PhysicalTemp.impl;
+			current_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+
+	end Temperature_Sensor;
+
+	thread implementation Temperature_Sensor.impl
+	end Temperature_Sensor.impl;
+
+---------------------------------------------------------------------------
+-- heat source
+---------------------------------------------------------------------------
+	system Heat_Source_System
+		features
+			heat_control: in data port Isolette_Data_Model::On_Off;
+			heat_out: out data port Isolette_Environment::Heat;
+	end Heat_Source_System;
+
+	system implementation Heat_Source_System.impl
+		subcomponents
+			cpi: process Heat_Source_Process.impl;
+		connections
+			c3: port heat_control -> cpi.heat_control;
+			c4: port cpi.heat_out -> heat_out;
+	end Heat_Source_System.impl;
+
+	process Heat_Source_Process
+		features
+			heat_control: in data port Isolette_Data_Model::On_Off;
+			heat_out: out data port Isolette_Environment::Heat;
+	end Heat_Source_Process;
+
+	process implementation Heat_Source_Process.impl
+		subcomponents
+			heat_controller: thread Heat_Source.impl;
+		connections
+			c3: port heat_control -> heat_controller.heat_control;
+			c4: port heat_controller.heat_out -> heat_out;
+
+		properties
+			CASE_Scheduling::Domain => Isolette_Properties::Domain_Heat_Source;
+
+	end Heat_Source_Process.impl;
+
+	thread Heat_Source extends CASE_Property_Definitions::Periodic_Thread
+		features
+			heat_control: in data port Isolette_Data_Model::On_Off;
+			heat_out: out data port Isolette_Environment::Heat;
+
+	end Heat_Source;
+
+	thread implementation Heat_Source.impl
+	end Heat_Source.impl;
+
+---------------------------------------------------------------------------
+-- detect regulator failure
+---------------------------------------------------------------------------	
+	system Detect_Regulator_Failure_System
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+	end Detect_Regulator_Failure_System;
+
+	system implementation Detect_Regulator_Failure_System.impl
+		subcomponents
+			p: process Detect_Regulator_Failure_Process.impl;
+		connections
+			c1: port p.internal_failure -> internal_failure;
+	end Detect_Regulator_Failure_System.impl;
+
+	process Detect_Regulator_Failure_Process
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+	end Detect_Regulator_Failure_Process;
+
+	process implementation Detect_Regulator_Failure_Process.impl
+		subcomponents
+			detect_regulator_failure_thread: thread Detect_Regulator_Failure.impl;
+		connections
+			c1: port detect_regulator_failure_thread.internal_failure -> internal_failure;
+	end Detect_Regulator_Failure_Process.impl;
+
+	thread Detect_Regulator_Failure
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end Detect_Regulator_Failure;
+
+	thread implementation Detect_Regulator_Failure.impl
+	end Detect_Regulator_Failure.impl;
+
+---------------------------------------------------------------------------
+-- detect monitor failure
+---------------------------------------------------------------------------	
+	system Detect_Monitor_Failure_System
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+	end Detect_Monitor_Failure_System;
+
+	system implementation Detect_Monitor_Failure_System.impl
+		subcomponents
+			p: process Detect_Monitor_Failure_Process.impl;
+		connections
+			c1: port p.internal_failure -> internal_failure;
+	end Detect_Monitor_Failure_System.impl;
+
+	process Detect_Monitor_Failure_Process
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+	end Detect_Monitor_Failure_Process;
+
+	process implementation Detect_Monitor_Failure_Process.impl
+		subcomponents
+			monitor_failure_thread: thread Detect_Monitor_Failure.impl;
+		connections
+			c1: port monitor_failure_thread.internal_failure -> internal_failure;
+	end Detect_Monitor_Failure_Process.impl;
+
+	thread Detect_Monitor_Failure
+		features
+			internal_failure: out data port Isolette_Data_Model::Failure_Flag.impl;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end Detect_Monitor_Failure;
+
+	thread implementation Detect_Monitor_Failure.impl
+	end Detect_Monitor_Failure.impl;
+
+end Devices;

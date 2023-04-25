@@ -1,0 +1,12 @@
+
+processor rma_cpu
+end rma_cpu;
+
+
+processor implementation rma_cpu.Impl
+	properties
+                Cheddar_Properties::Scheduler_Quantum => 0 ms; 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;		
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end rma_cpu.Impl;
+

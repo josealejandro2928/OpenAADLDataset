@@ -1,0 +1,63 @@
+package smart_home_system
+public
+
+with MainControlRouter;
+with RemoteServer;
+with Clients;
+with ZigbeeDevices;
+with IPDevices;
+
+annex behavior_annex
+{**
+	states
+		off: initial state;
+		on: state;
+		on_engaged: state;
+		on_not_engaged: state;
+		on_engaged_permanent: state;
+		on_engaged_temporary: state;
+		on_engaged_pace-now: state;
+		on_engaged_por: state; 	-- Power-On Reset state
+	transitions
+		off->[]->on;
+		on->[]->off;
+		on->[]->on_not_engaged;
+		on_not_engaged->[]->on;
+		on_not_engaged->[]->on_engaged;
+		on_engaged->[]->on_not_engaged;
+		on_engaged->[]->on_engaged_permanent;
+		on_engaged->[]->on_engaged_por;
+		on_engaged_por->[]->on_engaged_por;
+		on_engaged_temporary->[]->on_engaged_pace-now;
+		on_engaged_pace-now->[]->on_engaged_permanent;
+		on_engaged_permanent->[]->on_engaged_pace-now;
+**};
+
+
+
+system smart_home
+end smart_home;
+	
+system implementation smart_home.impl
+	subcomponents
+		MAIN_CONTROL_ROUTER: system MainControlRouter::MainControlRouter.impl;
+		REMOTE_SERVER: system RemoteServer::RemoteServer.impl;
+		CLIENTS: system Clients::Clients.impl;
+		ZIGBEE_DEVICES: device ZigbeeDevices::ZigbeeDevices.impl;
+		IP_DEVICES: device IPDevices::IPDevices.impl;
+		
+	connections
+		c1: port MAIN_CONTROL_ROUTER.out_mcr_remote -> REMOTE_SERVER.in_rs_mcr;
+		c2: port REMOTE_SERVER.out_rs_mcr -> MAIN_CONTROL_ROUTER.in_mcr_remote;
+		c3: port MAIN_CONTROL_ROUTER.out_mcr_remote -> CLIENTS.in_clients_mcr;
+		c4: port CLIENTS.out_clients_mcr -> MAIN_CONTROL_ROUTER.in_mcr_remote;
+        c5: port MAIN_CONTROL_ROUTER.out_mcr_zd -> ZIGBEE_DEVICES.Sensing;
+		c6: port ZIGBEE_DEVICES.out_zd_mcr -> MAIN_CONTROL_ROUTER.in_mcr_zd;
+        c7: port MAIN_CONTROL_ROUTER.out_mcr_ipd -> IP_DEVICES.in_ipd_mcr;
+		c8: port IP_DEVICES.out_ipd_mcr -> MAIN_CONTROL_ROUTER.in_mcr_ipd;
+		c9: port CLIENTS.out_clients_rs -> REMOTE_SERVER.in_rs_clients;
+		c10: port REMOTE_SERVER.out_rs_clients -> CLIENTS.in_clients_rs;
+		
+end smart_home.impl;
+	
+end smart_home_system;

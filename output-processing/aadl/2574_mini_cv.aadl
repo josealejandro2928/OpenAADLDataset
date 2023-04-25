@@ -1,0 +1,51 @@
+-- Automatically Generated - For use with AADL2GlueC only - Do NOT modify! --
+
+SUBPROGRAM tick_100ms
+END tick_100ms;
+
+SUBPROGRAM IMPLEMENTATION tick_100ms.C
+PROPERTIES
+	FV_Name => "chip_timer_manager";
+	Source_Language => C;
+END tick_100ms.C;
+
+SUBPROGRAM durationsys_sdltmr
+END durationsys_sdltmr;
+
+SUBPROGRAM IMPLEMENTATION durationsys_sdltmr.C
+PROPERTIES
+	FV_Name => "chip_timer_manager";
+	Source_Language => C;
+END durationsys_sdltmr.C;
+
+SUBPROGRAM durationsys_RESET_sdltmr
+END durationsys_RESET_sdltmr;
+
+SUBPROGRAM IMPLEMENTATION durationsys_RESET_sdltmr.C
+PROPERTIES
+	FV_Name => "chip_timer_manager";
+	Source_Language => C;
+END durationsys_RESET_sdltmr.C;
+
+SUBPROGRAM durationsys_SET_sdltmr
+FEATURES
+	duration:IN PARAMETER DataView::T_UInt32 {encoding=>NATIVE;};
+END durationsys_SET_sdltmr;
+
+SUBPROGRAM IMPLEMENTATION durationsys_SET_sdltmr.C
+PROPERTIES
+	FV_Name => "chip_timer_manager";
+	Source_Language => C;
+END durationsys_SET_sdltmr.C;
+
+SUBPROGRAM check_queue
+FEATURES
+	res:IN PARAMETER DataView::T_Boolean {encoding=>NATIVE;};
+END check_queue;
+
+SUBPROGRAM IMPLEMENTATION check_queue.C
+PROPERTIES
+	FV_Name => "chip_timer_manager";
+	Source_Language => C;
+END check_queue.C;
+

@@ -1,0 +1,32 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package timersys_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD timersys_timersys
+features
+	INPORT_inputmsg : IN EVENT DATA PORT DataView::T_Boolean_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "timersys_wrappers.inputmsg"; };
+	OUTPORT_outputmsg : OUT EVENT DATA PORT DataView::T_Boolean_Buffer.impl;
+END timersys_timersys;
+
+THREAD IMPLEMENTATION timersys_timersys.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "timersys_wrappers.C_Init_timersys";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 0 ms;
+	Stack_Size => 5 KByte;
+	Priority => 10;
+END timersys_timersys.others;
+
+end timersys_CV_Thread;

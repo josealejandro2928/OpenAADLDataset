@@ -1,0 +1,25 @@
+activity genepix-microarray-normalization {
+	on {
+		dataset input-files : 'text/tsv' [1,-1];
+	}
+	with {
+		parameter separator : STRING [1,1] = ["\t"];
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+	}
+	using executable "geas-micro-genepix-norm.R" {
+		commandLineTemplate [ 
+			parameter separator
+				| PrependListWith '--separator',
+			dataset input-files
+			    | PrependListWith '--input-files',
+			dataset output-file
+			    | PrependListWith '--output-file'
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

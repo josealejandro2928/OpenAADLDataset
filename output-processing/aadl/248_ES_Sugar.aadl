@@ -1,0 +1,76 @@
+package ES_Sugar
+public
+	with EVS_Interface;
+	with ES_Interface;
+	with Component;
+	with Base_Types;
+	-------------------------------Call Output-------------------------------
+	feature group SendEventArgs extends Component::SendEventArgs
+		features
+			RestartApp: feature group EVS_Interface::R_SendEvent;
+	end SendEventArgs;
+	
+	feature group RestartAppArgs
+		features
+			RestartApp: feature group ES_Interface::R_RestartApp;
+	end RestartAppArgs;
+	
+	feature group DeleteAppArgs
+
+	end DeleteAppArgs;
+	-------------------------------Call Input-------------------------------
+	feature group SendEventCollection extends Component::SendEventCollection
+		features
+			RestartApp: feature group EVS_Interface::P_SendEvent;
+	inverse of SendEventArgs
+	end SendEventCollection;
+	
+	feature group RestartAppCollection
+		features
+			RestartApp: feature group ES_Interface::P_RestartApp;
+	inverse of RestartAppArgs
+	end RestartAppCollection;
+	
+	feature group DeleteAppCollection
+
+	inverse of DeleteAppArgs
+	end DeleteAppCollection;
+	-------------------------------API Output-------------------------------
+	feature group ESAPIOutput
+		features
+			RestartAppArgs: feature group RestartAppArgs;
+			DeleteAppArgs: feature group DeleteAppArgs;
+	end ESAPIOutput;
+	
+	feature group EVSAPIOutput extends Component::EVSAPIOutput
+		features
+			SendEventArgs: refined to feature group SendEventArgs;
+	end EVSAPIOutput;
+	-------------------------------API Input-------------------------------
+	feature group ESAPIInput
+		features
+			RestartAppCollection: feature group RestartAppCollection;
+			DeleteAppCollection: feature group DeleteAppCollection;
+	inverse of ESAPIOutput
+	end ESAPIInput;
+	
+	feature group EVSAPIInput extends Component::EVSAPIInput
+		features
+			SendEventCollection: refined to feature group SendEventCollection;
+	inverse of EVSAPIOutput
+	end EVSAPIInput;
+	-------------------------------Medium-------------------------------
+	abstract Medium extends Component::Medium
+		features
+			EVSAPI: refined to feature group EVSAPIOutput;
+			ESAPI: refined to feature group ESAPIOutput;
+			
+			EVSAPIIn: refined to feature group EVSAPIInput;
+			ESAPIIn: refined to feature group ESAPIInput;
+	end Medium;
+	-------------------------------Checker-------------------------------
+	abstract Checker extends Component::Checker
+		features
+			RestartAppResult: in data port Base_Types::Integer;
+	end Checker;
+end ES_Sugar;

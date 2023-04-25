@@ -1,0 +1,55 @@
+package dss
+public 
+
+thread group dss_process
+features
+	input : in data port task_types::shared_data;
+	output : in data port task_types::shared_data;
+end dss_process;
+
+thread group implementation dss_process.impl
+subcomponents
+	dss_angle : thread task_types::aperiodic;
+	request_dss_data : thread task_types::cyclic 
+	{   
+    		Compute_Execution_Time => 8210 us;
+    		Period 		    => 200 ms;
+    		Deadline 	 	    => 17 ms;
+    		Priority 		    => 19 ;
+    		Dispatch_Offset => 150  ms;
+		
+
+	};
+	process_dss_data : thread task_types::cyclic
+	{   
+    		Compute_Execution_Time => 5160 us;
+    		Period 		    => 1000 ms;
+    		Deadline 	 	    => 400 ms;
+    		Priority 		    => 6 ;
+    		Dispatch_Offset => 200  ms;
+		
+
+	};
+
+connections
+	
+	C0 : port process_dss_data.output -> dss_angle.input; 
+	C1 : port request_dss_data.output -> output;
+	C2 : port process_dss_data.output -> output;
+	
+properties
+	Timing => immediate applies to C1, C2, C3, C4, C5, C6, C7, B1, B2;
+
+
+
+end dss_process.impl;
+
+end dss;
+
+
+
+
+
+
+
+

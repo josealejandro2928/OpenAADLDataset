@@ -1,0 +1,590 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::atm;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_transaction
+FEATURES
+  amount : IN PARAMETER DataView::Amount {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_transaction;
+
+SUBPROGRAM IMPLEMENTATION PI_transaction.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_transaction.others;
+
+SUBPROGRAM PI_display
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_display;
+
+SUBPROGRAM IMPLEMENTATION PI_display.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_display.others;
+
+SUBPROGRAM PI_eject_card
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_eject_card;
+
+SUBPROGRAM IMPLEMENTATION PI_eject_card.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_eject_card.others;
+
+SUBPROGRAM PI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION PI_out_msg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_out_msg.others;
+
+SUBPROGRAM RI_accept_card
+FEATURES
+  account : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_accept_card;
+
+SUBPROGRAM IMPLEMENTATION RI_accept_card.others
+END RI_accept_card.others;
+
+SUBPROGRAM RI_reject_transaction
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_reject_transaction;
+
+SUBPROGRAM IMPLEMENTATION RI_reject_transaction.others
+END RI_reject_transaction.others;
+
+SUBPROGRAM RI_out_of_service
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_out_of_service;
+
+SUBPROGRAM IMPLEMENTATION RI_out_of_service.others
+END RI_out_of_service.others;
+
+SUBPROGRAM RI_abort_out
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_abort_out;
+
+SUBPROGRAM IMPLEMENTATION RI_abort_out.others
+END RI_abort_out.others;
+
+SUBPROGRAM RI_amount
+FEATURES
+  amount : IN PARAMETER DataView::Amount {
+    Taste::encoding => NATIVE;
+  };
+END RI_amount;
+
+SUBPROGRAM IMPLEMENTATION RI_amount.others
+END RI_amount.others;
+
+SUBPROGRAM RI_other_amount
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_other_amount;
+
+SUBPROGRAM IMPLEMENTATION RI_other_amount.others
+END RI_other_amount.others;
+
+SUBPROGRAM RI_digit
+FEATURES
+  num : IN PARAMETER DataView::Num {
+    Taste::encoding => NATIVE;
+  };
+END RI_digit;
+
+SUBPROGRAM IMPLEMENTATION RI_digit.others
+END RI_digit.others;
+
+SUBPROGRAM RI_ok
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_ok;
+
+SUBPROGRAM IMPLEMENTATION RI_ok.others
+END RI_ok.others;
+
+SUBPROGRAM RI_transaction_succeseeded
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_transaction_succeseeded;
+
+SUBPROGRAM IMPLEMENTATION RI_transaction_succeseeded.others
+END RI_transaction_succeseeded.others;
+
+SYSTEM gui
+FEATURES
+  PI_transaction : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_transaction.others {
+    Taste::coordinates => "98727 51572";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "transaction";
+  };
+  PI_display : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_display.others {
+    Taste::coordinates => "98727 54519";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "display";
+  };
+  PI_eject_card : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_eject_card.others {
+    Taste::coordinates => "98727 58120";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "eject_card";
+  };
+  PI_out_msg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "98727 48136";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "out_msg";
+  };
+  RI_accept_card : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_accept_card.others {
+    Taste::coordinates => "98727 84964";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "accept_card";
+    Taste::labelInheritance => "true";
+  };
+  RI_reject_transaction : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_reject_transaction.others {
+    Taste::coordinates => "98727 88079";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "reject_transaction";
+    Taste::labelInheritance => "true";
+  };
+  RI_out_of_service : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_out_of_service.others {
+    Taste::coordinates => "98727 90860";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "out_of_service";
+    Taste::labelInheritance => "true";
+  };
+  RI_abort_out : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_abort_out.others {
+    Taste::coordinates => "98727 93316";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "abort_out";
+    Taste::labelInheritance => "true";
+  };
+  RI_amount : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_amount.others {
+    Taste::coordinates => "98727 96099";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "amount";
+    Taste::labelInheritance => "true";
+  };
+  RI_other_amount : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_other_amount.others {
+    Taste::coordinates => "98727 98881";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "other_amount";
+    Taste::labelInheritance => "true";
+  };
+  RI_digit : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_digit.others {
+    Taste::coordinates => "98727 101501";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "digit";
+    Taste::labelInheritance => "true";
+  };
+  RI_ok : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_ok.others {
+    Taste::coordinates => "98727 103629";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ok";
+    Taste::labelInheritance => "true";
+  };
+  RI_transaction_succeseeded : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_transaction_succeseeded.others {
+    Taste::coordinates => "98727 82021";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "transaction_succeseeded";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::atm
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_accept_card
+FEATURES
+  account : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_accept_card;
+
+SUBPROGRAM IMPLEMENTATION PI_accept_card.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_accept_card.others;
+
+SUBPROGRAM PI_reject_transaction
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_reject_transaction;
+
+SUBPROGRAM IMPLEMENTATION PI_reject_transaction.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_reject_transaction.others;
+
+SUBPROGRAM PI_out_of_service
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_out_of_service;
+
+SUBPROGRAM IMPLEMENTATION PI_out_of_service.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_out_of_service.others;
+
+SUBPROGRAM PI_abort_out
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_abort_out;
+
+SUBPROGRAM IMPLEMENTATION PI_abort_out.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_abort_out.others;
+
+SUBPROGRAM PI_amount
+FEATURES
+  amount : IN PARAMETER DataView::Amount {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_amount;
+
+SUBPROGRAM IMPLEMENTATION PI_amount.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_amount.others;
+
+SUBPROGRAM PI_other_amount
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_other_amount;
+
+SUBPROGRAM IMPLEMENTATION PI_other_amount.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_other_amount.others;
+
+SUBPROGRAM PI_digit
+FEATURES
+  num : IN PARAMETER DataView::Num {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_digit;
+
+SUBPROGRAM IMPLEMENTATION PI_digit.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_digit.others;
+
+SUBPROGRAM PI_ok
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ok;
+
+SUBPROGRAM IMPLEMENTATION PI_ok.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ok.others;
+
+SUBPROGRAM RI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION RI_out_msg.others
+END RI_out_msg.others;
+
+SUBPROGRAM RI_transaction
+FEATURES
+  amount : IN PARAMETER DataView::Amount {
+    Taste::encoding => NATIVE;
+  };
+END RI_transaction;
+
+SUBPROGRAM IMPLEMENTATION RI_transaction.others
+END RI_transaction.others;
+
+SUBPROGRAM RI_display
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_display;
+
+SUBPROGRAM IMPLEMENTATION RI_display.others
+END RI_display.others;
+
+SUBPROGRAM RI_eject_card
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_eject_card;
+
+SUBPROGRAM IMPLEMENTATION RI_eject_card.others
+END RI_eject_card.others;
+
+SUBPROGRAM PI_transaction_succeseeded
+FEATURES
+  w : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_transaction_succeseeded;
+
+SUBPROGRAM IMPLEMENTATION PI_transaction_succeseeded.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_transaction_succeseeded.others;
+
+SYSTEM atm
+FEATURES
+  PI_accept_card : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_accept_card.others {
+    Taste::coordinates => "116082 84970";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "accept_card";
+  };
+  PI_reject_transaction : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_reject_transaction.others {
+    Taste::coordinates => "116082 88079";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "reject_transaction";
+  };
+  PI_out_of_service : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_out_of_service.others {
+    Taste::coordinates => "116082 90861";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "out_of_service";
+  };
+  PI_abort_out : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_abort_out.others {
+    Taste::coordinates => "116082 93317";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "abort_out";
+  };
+  PI_amount : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_amount.others {
+    Taste::coordinates => "116082 96099";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "amount";
+  };
+  PI_other_amount : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_other_amount.others {
+    Taste::coordinates => "116082 98882";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "other_amount";
+  };
+  PI_digit : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_digit.others {
+    Taste::coordinates => "116082 101501";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "digit";
+  };
+  PI_ok : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_ok.others {
+    Taste::coordinates => "116082 103793";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ok";
+  };
+  RI_out_msg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "116082 48135";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "out_msg";
+    Taste::labelInheritance => "true";
+  };
+  RI_transaction : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_transaction.others {
+    Taste::coordinates => "116082 51573";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "transaction";
+    Taste::labelInheritance => "true";
+  };
+  RI_display : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_display.others {
+    Taste::coordinates => "116082 54520";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "display";
+    Taste::labelInheritance => "true";
+  };
+  RI_eject_card : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_eject_card.others {
+    Taste::coordinates => "116082 58121";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "eject_card";
+    Taste::labelInheritance => "true";
+  };
+  PI_transaction_succeseeded : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::atm::PI_transaction_succeseeded.others {
+    Taste::coordinates => "116082 82018";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "transaction_succeseeded";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END atm;
+
+SYSTEM IMPLEMENTATION atm.others
+END atm.others;
+
+END interfaceview::IV::atm;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::atm;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "77279 43060 98727 110515";
+  };
+  atm : SYSTEM interfaceview::IV::atm::atm.others {
+    Taste::coordinates => "116082 43388 143916 110188";
+  };
+CONNECTIONS
+  gui_PI_transaction_atm_RI_transaction : SUBPROGRAM ACCESS gui.PI_transaction -> atm.RI_transaction {
+    Taste::coordinates => "116082 51573 107404 51573 107404 51572 98727 51572";
+  };
+  gui_PI_display_atm_RI_display : SUBPROGRAM ACCESS gui.PI_display -> atm.RI_display {
+    Taste::coordinates => "116082 54520 107404 54520 107404 54519 98727 54519";
+  };
+  gui_PI_eject_card_atm_RI_eject_card : SUBPROGRAM ACCESS gui.PI_eject_card -> atm.RI_eject_card {
+    Taste::coordinates => "116082 58121 107404 58121 107404 58120 98727 58120";
+  };
+  gui_PI_out_msg_atm_RI_out_msg : SUBPROGRAM ACCESS gui.PI_out_msg -> atm.RI_out_msg {
+    Taste::coordinates => "116082 48135 107404 48135 107404 48136 98727 48136";
+  };
+  atm_PI_accept_card_gui_RI_accept_card : SUBPROGRAM ACCESS atm.PI_accept_card -> gui.RI_accept_card {
+    Taste::coordinates => "98727 84964 107404 84964 107404 84970 116082 84970";
+  };
+  atm_PI_reject_transaction_gui_RI_reject_transaction : SUBPROGRAM ACCESS atm.PI_reject_transaction -> gui.RI_reject_transaction {
+    Taste::coordinates => "98727 88079 107404 88079 107404 88079 116082 88079";
+  };
+  atm_PI_out_of_service_gui_RI_out_of_service : SUBPROGRAM ACCESS atm.PI_out_of_service -> gui.RI_out_of_service {
+    Taste::coordinates => "98727 90860 107404 90860 107404 90861 116082 90861";
+  };
+  atm_PI_abort_out_gui_RI_abort_out : SUBPROGRAM ACCESS atm.PI_abort_out -> gui.RI_abort_out {
+    Taste::coordinates => "98727 93316 107404 93316 107404 93317 116082 93317";
+  };
+  atm_PI_amount_gui_RI_amount : SUBPROGRAM ACCESS atm.PI_amount -> gui.RI_amount {
+    Taste::coordinates => "98727 96099 107404 96099 107404 96099 116082 96099";
+  };
+  atm_PI_other_amount_gui_RI_other_amount : SUBPROGRAM ACCESS atm.PI_other_amount -> gui.RI_other_amount {
+    Taste::coordinates => "98727 98881 107404 98881 107404 98882 116082 98882";
+  };
+  atm_PI_digit_gui_RI_digit : SUBPROGRAM ACCESS atm.PI_digit -> gui.RI_digit {
+    Taste::coordinates => "98727 101501 107404 101501 107404 101501 116082 101501";
+  };
+  atm_PI_ok_gui_RI_ok : SUBPROGRAM ACCESS atm.PI_ok -> gui.RI_ok {
+    Taste::coordinates => "98727 103629 107404 103629 107404 103793 116082 103793";
+  };
+  atm_PI_transaction_succeseeded_gui_RI_transaction_succeseeded : SUBPROGRAM ACCESS atm.PI_transaction_succeseeded -> gui.RI_transaction_succeseeded {
+    Taste::coordinates => "98727 82021 107404 82021 107404 82018 116082 82018";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

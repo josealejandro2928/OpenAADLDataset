@@ -1,0 +1,55 @@
+package SoftwareParts
+public
+	thread scan_cc_inputs
+		features
+			brake_status: in data port;
+			wheel_pulse: in data port;
+			run_cc: out data port;
+		flows
+			scan_cc_inputs_new_flow_spec: flow path wheel_pulse -> run_cc;
+			scan_cc_inputs_new_flow_spec2: flow path brake_status -> run_cc {Latency => 6ms .. 6ms;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 15Ms;
+			Compute_Execution_Time => 5Ms .. 5Ms;
+			Deadline => 4Ms;
+	end scan_cc_inputs;
+
+	thread speed_control_loop
+		features
+			run_cc: in data port;
+			inst_velocity: in data port;
+			desired_speed: out data port;
+		flows
+			speed_control_loop_new_flow_spec: flow path inst_velocity -> desired_speed;
+			speed_control_loop_new_flow_spec2: flow path run_cc -> desired_speed;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 5MS;
+			Compute_Execution_Time => 2Ms .. 2MS;
+	end speed_control_loop;
+
+	thread compute_throttle_setting
+		features
+			desired_speed: in data port;
+			throttle_setting: out data port;
+		flows
+			compute_throttle_setting_new_flow_spec: flow path desired_speed -> throttle_setting;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 5MS;
+			Compute_Execution_Time => 3Ms .. 3MS;
+	end compute_throttle_setting;
+
+	thread compute_velocity
+		features
+			wheel_pulse: in data port;
+			inst_velocity: out data port;
+		flows
+			compute_velocity_new_flow_spec: flow path wheel_pulse -> inst_velocity;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 5MS;
+			Compute_Execution_Time => 3Ms .. 3MS;
+	end compute_velocity;
+end SoftwareParts;

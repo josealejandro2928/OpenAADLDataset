@@ -1,0 +1,40 @@
+activity gene-set-enrichment {
+	on {
+		dataset normalized-gene-expression-file : 'text/tsv' [1,1];
+		dataset gene-set-gmt : 'text/plain' [1,1];
+	}
+	with {
+		parameter reference-conditions : INTEGER [1,-1];
+		parameter target-conditions : INTEGER [1,-1];
+		parameter use-fdr-adjust : BOOLEAN [1,1] = ['false'];
+		parameter experimental-design : STRING [1,1] = ['unpaired'];
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+		dataset less-expression-genes : 'text/tsv' [1,1];
+		dataset greater-expression-genes : 'text/tsv' [1,1];
+	}
+	using executable 'geas-gene-set-enrichment.R' {
+		commandLineTemplate [ 
+			parameter reference-conditions
+				| PrependListWith '--reference-conditions',
+			parameter target-conditions
+				| PrependListWith '--target-conditions',
+			parameter use-fdr-adjust
+			    | ToFlag { true: '--use-fdr-adjust' },
+			parameter experimental-design
+                | PrependListWith '--experimental-design',
+            dataset less-expression-genes
+                | PrependListWith '--less-expression-genes',
+            dataset greater-expression-genes
+                | PrependListWith '--greater-expression-genes',
+			dataset normalized-gene-expression-file,
+			dataset gene-set-gmt,
+			dataset output-file
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}	
+	}
+}

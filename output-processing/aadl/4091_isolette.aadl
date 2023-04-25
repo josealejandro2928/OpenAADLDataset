@@ -1,0 +1,76 @@
+package isolette
+with Data_Types, Power_Properties, Data_Model, Base_Types;
+public
+
+	system Operator_Interface
+		features
+			operator_config : in data port operator_configurations;
+			operator_settings : in out data port operator_configurations;
+			operator_feedbacks : in out data port thermostat_feedbacks;
+	end Operator_Interface;
+	
+	system Thermostat
+		features
+			operator_settings : in out data port operator_configurations;
+			operator_feedbacks : in out data port thermostat_feedbacks;
+			heat_control : out data port heat_control;
+			current_temperature : in our data port current_temperature;
+	end Thermostat;
+	
+	system Heat_Source
+		features
+			current_temperature : in data port current_temperature;
+			heat_control : in data port heat_control;
+			heat : out data port heat;
+	end Heat_Source;
+	
+	system Temperature_Sensor
+		features
+			current_temperature : in out data port current_temperature;
+			heat : in data port heat;
+	end Temperature_Sensor;
+
+	system Air
+		features
+			heat_in : in data port heat.in;
+			heat_out : out data port heat.out;
+	end Air;
+	
+	abstract Nurse
+		features
+			operator_config : out data port operator_configurations;
+	end Nurse;
+	
+	system Isolette
+	end Isolette;
+	
+	system implementation Isolette.with_subcomponents
+		subcomponents
+			nurse : system Nurse;
+			thermostat : system Thermostat;
+			temperature_sensor : system Temperature_Sensor;
+			heat_source : system Heat_Source;
+			operator_interface : system Operator_Interface;
+		connections
+			nurse_interaction_to_oi : port nurse.operator_config -> operator_interface.operator_config;
+			oi_settings_to_thermostat : port operator_interface.operator_settings <-> thermostat.operator_settings;
+			oi_feedbacks_to_thermostat : port operator_interface.operator_feedbacks <-> thermostat.operator_feedbacks;
+			thermostat_heatcontrol_to_heatsource : port thermostat.heat_control -> heat_source.heat_control;
+			thermostat_currenttemp_to_tempsensor : port thermostat.current_temperature -> temperature_sensor.current_temperature;
+			heatsource_currenttemp_to_thermostat : port heat_source.current_temperature -> thermostat.current_temperature;
+			heatsource_heat_to_air : port heat_source.heat -> air.heat.in;
+			air_heat_to_tempsensor : air.heat.out->temperature_sensor.heat;
+			tempsensor_currenttemp_to_thermostat : temperature_sensor.current_temperature -> thermostat.current_temperature;
+			annex Resolute{**
+				prove Isolettereq1() 
+			**};
+	end Isolette.with_subcomponents;
+	
+	annex Resolute{**
+		Temperature_Increment : real = 1.0
+		Isolettereq1()<=
+		**"req1:Temperature rate shall be less than" Temperature_Increment**
+		forall(c:component).true
+		**};
+	
+end isolette;

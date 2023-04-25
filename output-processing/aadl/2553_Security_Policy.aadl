@@ -1,0 +1,178 @@
+package Security_Policy
+public
+	with Base_Types;
+
+-- system Input_Device
+--    features
+--      I: in data port Base_Types::Integer;
+--      O: out data port Base_Types::Integer;
+--  end Input_Device;
+
+process PasswordCheck
+	features
+		Input_Password: in data port Base_Types::Integer;
+		Attempts: out data port Base_types::Integer;
+		Output_Password_Response: out data port Base_Types::Boolean;
+		annex agree{**
+			eq inputVal: int;
+			eq accessOutput:bool;
+			eq noofAttempts:int;
+			eq blocked: bool;
+			guarantee"attempts conveyed": Attempts = noofAttempts;
+			guarantee"blocked after 3 attempts": noofAttempts>3 => blocked;
+  			guarantee"port blocked after 3 attempt": true->  blocked => Output_Password_Response = false;
+  			guarantee"Three attempts are allowed": noofAttempts<=3 => not blocked;
+		**};
+end PasswordCheck;
+
+process implementation PasswordCheck.PasswordCheck_impl
+	annex agree{**
+		assign inputVal = Input_Password;
+  		assign accessOutput = true -> if Agree_Nodes.match(inputVal) then true else false;
+  assign noofAttempts = 0 -> if accessOutput = false then pre(noofAttempts)+1 else 0;
+  assign blocked = false -> if noofAttempts > 3 then true else false;
+  assign Attempts = noofAttempts; 
+  assign Output_Password_Response = accessOutput-> if blocked then false else accessOutput;
+	**};
+	
+end PasswordCheck.PasswordCheck_impl;
+
+process IdentifyAttack
+features
+Process_In: in data port Base_Types::Integer;
+Process_Out: out data port Base_Types::Boolean;
+Process_Response: out data port Base_Types::Integer;
+annex agree{**
+eq request:int;
+eq itsAnAttack:bool;
+eq selectedDefense:int;
+eq typeOfAttack:int;
+guarantee"output conveys attack identification": Process_Out = itsAnAttack;
+guarantee"defense response is conveyed":Process_Response = selectedDefense;
+guarantee"no response when not an attack": itsAnAttack = false => selectedDefense = 0;
+guarantee"response to attack is diverse": itsAnAttack and pre(itsAnAttack) => selectedDefense != pre(selectedDefense);
+**};
+
+end IdentifyAttack;
+process implementation IdentifyAttack.IdentfyAttack_impl
+annex agree{**
+-- The input is assigned to the request variable
+assign request = Process_In;
+--Identify if the request is an attack
+  assign itsAnAttack = false-> if Agree_Nodes.match(request)= true then true else false;
+  --Diagnose what type of attack it is
+  assign typeOfAttack = 2-> if itsAnAttack then Agree_Nodes.findAttackType(request) else 0;
+  --Diversify the defense
+  assign selectedDefense = 0 -> if itsAnAttack then Agree_Nodes.selectDefense(typeOfAttack) else 0;
+  assign Process_Out = false->itsAnAttack;
+  assign Process_Response = 0-> selectedDefense;
+
+**};
+
+end IdentifyAttack.IdentfyAttack_impl;
+
+process AppropriateResponse
+	features
+		Action_In: in data port Base_Types::integer;
+		Access_Enabled: out data port Base_types::boolean;
+		annex agree{**
+		eq action:int;
+		eq timetoRespond:int;
+		eq numberEffected:int;
+		eq access:bool;
+		const disconnectServer:int = 20;
+		const isolateSubnet: int = 30;
+		const logoutUser: int = 40;
+-- Evaluting if the action can achieve the effect in a given time with less users effected
+			guarantee"action achieves effect": Action_In = logoutUser => 
+			Access_Enabled = false and timetoRespond <= 5 and numberEffected < 5;
+			
+-- Evaluting if either of the actions can achieve the effect in a given time with less users 
+-- effected
+			guarantee"does actions achieve effect":Action_In = logoutUser or Action_In = disconnectServer => 
+			Access_Enabled = false and timetoRespond < 3 and numberEffected < 5 ;
+		**};
+		
+end AppropriateResponse;
+
+process implementation AppropriateResponse.AppropriateResponse_impl
+	 annex agree{**
+		
+		assign action = Action_In;
+		assign timetoRespond = Agree_Nodes.delay(action);
+		assign numberEffected = Agree_Nodes.effected(action);
+		assign access = Agree_Nodes.accessResponse(action);
+		assign Access_Enabled = access;
+		
+	**};
+end AppropriateResponse.AppropriateResponse_impl;
+
+  system Server
+  features
+  Password_In: in data port Base_Types::Integer;
+  Password_Response_Out: out data port Base_Types::Boolean;
+  Attempts_Out: out data port Base_Types::Integer;
+  Server_Request_In: in data port Base_Types::Integer;
+  Server_Request_Out: out data port Base_Types::Boolean;
+  Server_Response_Defense: out data port Base_Types::Integer;
+  annex agree{**
+	-- guarantee user is logged out after three attempts
+	guarantee"blocked after 3 attempts": Attempts_Out>3 => Password_Response_Out = false; 
+ 	
+ 	--guarantee response to cyber attack is diverse
+ 	guarantee"response to cyber attack is diverse":  
+  		Server_Request_Out and pre(Server_Request_Out)
+  			=> Server_Response_Defense!= pre(Server_Response_Defense) ;
+  **};
+  
+  end Server;
+  
+  system implementation Server.Server_Impl
+  subcomponents
+  pwdcheck: process PasswordCheck;
+  idAttack: process IdentifyAttack.IdentfyAttack_impl;
+  connections
+  SPI_To_PC: port Password_In -> pwdCheck.Input_Password;
+  PC_To_SO: port pwdCheck.Output_Password_Response -> Password_Response_Out;
+  PC_To_AO: port pwdCheck.Attempts -> Attempts_Out;
+  SRI_To_PI: port Server_Request_In -> idAttack.Process_In;
+  PO_To_SRO: port idAttack.Process_Out-> Server_Request_Out;
+  PR_to_SRD: port idAttack.Process_Response -> Server_Response_Defense;
+  annex agree{**
+ -- initialization of the output ports for the server 
+	assign Server_Request_Out = false-> Server_Request_Out;
+	assign Attempts_Out = 0 -> Attempts_Out;
+  **};
+  end Server.Server_Impl;
+  
+--  system Network
+--  features
+--  Net_In:in data port Base_Types::Integer;
+--  Net_Out: out data port Base_Types::Boolean;
+--  annex agree{**
+--  eq count: int;
+--  guarantee "block user after three false response": Net_Out = true -> 
+--  if count > 3 then false else true;
+--  **};
+--  end Network;
+--  
+--  system implementation Network.Network_impl
+--  subcomponents
+--  Keyboard: system Input_Device;
+--  Server_0: system Server;
+--  
+--  connections
+--  Keyboard_To_Server_0: port Net_In -> Server_0.Server_In;
+--  Server_0_To_Network_Out: port Server_0.Server_Out -> Net_Out;
+----  annex agree{**
+----  assume Server_0.Server_Out = if count>3 then false else true;
+----  eq inputVal : int;
+----  eq outputVal: bool;
+----  eq blocked: bool;
+----  assign inputVal = Server_0.Server_In;
+----  assign outputVal = true -> if inputVal = 11 then true else false;
+----  assign count = 0 -> if outputVal = false then count+1 else 0;
+----  assign blocked = false -> if count = 3 then true else false;
+----  assert Server_0.Server_Out = outputVal-> if blocked then false else outputVal;
+	
+end Security_Policy;

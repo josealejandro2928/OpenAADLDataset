@@ -1,0 +1,63 @@
+package HS_Sugar
+public
+	with EVS_Interface;
+	with ES_Interface;
+	with Component;
+	with Base_Types;
+	-------------------------------Call Output-------------------------------
+	feature group SendEventArgs extends Component::SendEventArgs
+
+	end SendEventArgs;
+	
+	feature group RestartAppArgs
+		features
+			MonitorApplications_SB: feature group ES_Interface::R_RestartApp;
+	end RestartAppArgs;
+	
+	-------------------------------Call Input-------------------------------
+	feature group SendEventCollection extends Component::SendEventCollection
+
+	inverse of SendEventArgs
+	end SendEventCollection;
+	
+	feature group RestartAppCollection
+		features
+			MonitorApplications_SB: feature group ES_Interface::P_RestartApp;
+	inverse of RestartAppArgs
+	end RestartAppCollection;
+	-------------------------------API Output-------------------------------
+	feature group ESAPIOutput
+		features
+			RestartAppArgs: feature group RestartAppArgs;
+	end ESAPIOutput;
+	
+	feature group EVSAPIOutput extends Component::EVSAPIOutput
+		features
+			SendEventArgs: refined to feature group SendEventArgs;
+	end EVSAPIOutput;
+	-------------------------------API Input-------------------------------
+	feature group ESAPIInput
+		features
+			RestartAppCollection: feature group RestartAppCollection;
+	inverse of ESAPIOutput
+	end ESAPIInput;
+	
+	feature group EVSAPIInput extends Component::EVSAPIInput
+		features
+			SendEventCollection: refined to feature group SendEventCollection;
+	inverse of EVSAPIOutput
+	end EVSAPIInput;
+	-------------------------------Medium-------------------------------
+	abstract Medium extends Component::Medium
+		features
+			EVSAPI: refined to feature group EVSAPIOutput;
+			ESAPI: refined to feature group ESAPIOutput;
+			
+			EVSAPIIn: refined to feature group EVSAPIInput;
+			ESAPIIn: refined to feature group ESAPIInput;
+	end Medium;
+	-------------------------------Checker-------------------------------
+	abstract Checker extends Component::Checker
+		
+	end Checker;
+end HS_Sugar;

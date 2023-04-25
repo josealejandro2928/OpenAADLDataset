@@ -1,0 +1,75 @@
+package Nested_Feature_Group_Test
+public
+	with Base_Types;
+
+	data Results
+	end Results;
+
+	data implementation Results.impl
+		subcomponents
+			opA: data Base_Types::Integer_32;
+			opB: data Base_Types::Integer_32;
+			results: data Base_Types::Integer_32;
+	end Results.impl;
+
+	feature group fg_A
+		features
+			nested_B: feature group fg_B;
+			nested_C: feature group fg_C;
+	end fg_A;
+
+	feature group fg_B
+		features
+			param1: out event data port Base_Types::Integer_32;
+			param2: out event data port Base_Types::Integer_32;
+	end fg_B;
+
+	feature group fg_C
+		features
+			result: in event data port Results.impl;
+	end fg_C;
+
+	----------------------------------------------
+	system S
+	end S;
+
+	system implementation S.impl
+		subcomponents
+			p: process P.impl;
+	end S.impl;
+
+	process P
+	end P;
+
+	process implementation P.impl
+		subcomponents
+			prod: thread Producer.impl;
+			calc: thread Calculator.impl;
+		connections
+			c1: feature group prod.fg_A <-> calc.fg_A;
+	end P.impl;
+
+	----------------------------------------------
+	thread Producer
+		features
+			fg_A: feature group fg_A;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end Producer;
+
+	thread implementation Producer.impl
+	end Producer.impl;
+
+	----------------------------------------------
+	thread Calculator
+		features
+			fg_A: feature group inverse of fg_A;
+		properties
+			Dispatch_Protocol => Sporadic;
+
+	end Calculator;
+
+	thread implementation Calculator.impl
+	end Calculator.impl;
+end Nested_Feature_Group_Test;

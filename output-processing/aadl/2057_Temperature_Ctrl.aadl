@@ -1,0 +1,31 @@
+package Temperature_Ctrl
+public
+with Base_Types;
+	renames Base_Types::all;
+with Sensors;
+with constants;
+
+	system Temperature_Ctrl
+		features
+			env_temperature: in data port Integer;
+			shutdown : out data port Boolean;
+		
+		annex agree{**
+			assume "Temperature within reasonable range (C)." :
+				(env_temperature > 0) and (env_temperature < 500);
+				
+			guarantee "Shutdown commanded if and only if temperature is high." :
+				shutdown = (env_temperature > constants::TEMP_THRESHOLD);
+		**};	
+	end Temperature_Ctrl;
+	
+	system implementation Temperature_Ctrl.impl
+		subcomponents
+			temp_sensor : system Sensors::Temp_Sensor;
+			
+		connections
+			temp_to_sensor : port env_temperature -> temp_sensor.temperature;
+			shutdown_cmd : port temp_sensor.high_indicator -> shutdown;
+			
+	end Temperature_Ctrl.impl;		
+end Temperature_Ctrl;

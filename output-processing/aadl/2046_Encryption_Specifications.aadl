@@ -1,0 +1,75 @@
+property set Encryption_Specifications is
+
+	with Security_Type_Specifications;
+	with Keys;
+
+	--
+	-- We can provide predefined algorithm specifications
+	-- in the form of property constants.
+	--
+	-- There is repetition because we cannot extend constants
+	--
+	--AES128: constant Security_Type_Specifications::Encryption_Specification_Type => [
+	--	algorithm_name => AES;
+	--	key_classifier => classifier (Keys::Key128);
+	--];
+	--
+	AES128CBC: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => AES;
+		encryption_mode => CBC; --note that using CBC is discouraged due to common implementation weaknesses
+		padding => fixed;
+		key_classifier => classifier (Keys::Key128);
+	];
+	--
+	AES128CTR: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => AES;
+		encryption_mode => CTR;
+		padding => fixed;
+		key_classifier => classifier (Keys::Key128);
+	];
+--
+	--AES256: constant Security_Type_Specifications::Encryption_Specification_Type => [
+	--	algorithm_name => AES;
+	--	key_classifier => classifier (Keys::Key256);
+	--];
+	--
+	AES256CBC: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => AES;
+		encryption_mode => CBC; --note that using CBC is discouraged due to common implementation weaknesses
+		padding => fixed;
+		key_classifier => classifier (Keys::Key256);
+	];
+	--
+	AES256CTR: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => AES;
+		encryption_mode => CTR;
+		padding => fixed;
+		key_classifier => classifier (Keys::Key256);
+	];
+	--
+	RSA1024: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => RSA;
+		padding => OAEP;
+		key_classifier => classifier (Keys::Key1024);
+	];
+	--
+	RSA2048: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => RSA;
+		padding => OAEP;
+		key_classifier => classifier (Keys::Key2048);
+	];
+	--
+	AES256ECB: constant Security_Type_Specifications::Encryption_Specification_Type => [algorithm_name => AES;
+		encryption_mode => ECB; --note that using ECB is completely insecure
+		padding => fixed;
+		key_classifier => classifier (Keys::key256);
+	];
+
+	ChaCha20: constant Security_Type_Specifications::Encryption_Specification_Type => [
+		algorithm_name => ChaCha20;
+		encryption_mode => CTR;
+		padding => fixed;
+		key_classifier => classifier (Keys::Key256);
+	];
+
+end Encryption_Specifications;

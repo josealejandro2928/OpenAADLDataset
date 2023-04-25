@@ -1,0 +1,499 @@
+--  TASTE - Warning: This is NOT the real Concurrency view  --
+--  This file was automatically generated and should remain read-only
+--  Open it with TASTE-IV
+--  The only intended use of this file is visualization - not processing.
+
+package generated_cv::IV::ConcurrencyView
+public
+with dataview; 
+with exportedComponent::FV;
+with taste;
+
+  --{ interfaceview obj6480 10 10
+  --TASTE-generated concurrency view
+  --For visualization purposes.
+  --}
+
+  system exportedComponent
+  end exportedComponent;
+
+  system implementation exportedComponent.others
+    subcomponents
+	gui : system interfaceview::IV::PASSIVE_gui.others;
+	timersys : system interfaceview::IV::PASSIVE_timersys.others;
+	chip_timer_manager : system interfaceview::IV::PASSIVE_chip_timer_manager.others;
+	chip_taste_api : system interfaceview::IV::PASSIVE_chip_taste_api.others;
+	vt_gui_outputmsg : system interfaceview::IV::THREAD_vt_gui_outputmsg.others;
+	vt_gui_gui_polling_gui : system interfaceview::IV::THREAD_vt_gui_gui_polling_gui.others;
+	vt_timersys_inputmsg : system interfaceview::IV::THREAD_vt_timersys_inputmsg.others;
+	vt_timersys_sdltmr : system interfaceview::IV::THREAD_vt_timersys_sdltmr.others;
+	vt_chip_timer_manager_tick_100ms : system interfaceview::IV::THREAD_vt_chip_timer_manager_tick_100ms.others;
+    connections
+	sporadic_artificial_inputmsg : subprogram access THREAD_vt_timersys_inputmsg.artificial_inputmsg -> PASSIVE_gui.inputmsg;
+	sporadic_artificial_outputmsg : subprogram access THREAD_vt_gui_outputmsg.artificial_outputmsg -> PASSIVE_timersys.outputmsg;
+	protected_timersys_RESET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_RESET_sdltmr -> PASSIVE_timersys.RESET_sdltmr;
+	protected_timersys_SET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_SET_sdltmr -> PASSIVE_timersys.SET_sdltmr;
+	unprotected_timersys_has_pending_msg : subprogram access PASSIVE_chip_taste_api.timersys_has_pending_msg -> PASSIVE_timersys.check_queue;
+	sporadic_artificial_sdltmr : subprogram access THREAD_vt_timersys_sdltmr.artificial_sdltmr -> PASSIVE_chip_timer_manager.timersys_sdltmr;
+	unprotected_chip_timer_manager_has_pending_msg : subprogram access PASSIVE_chip_taste_api.chip_timer_manager_has_pending_msg -> PASSIVE_chip_timer_manager.check_queue;
+	protected_outputmsg : subprogram access PASSIVE_gui.outputmsg -> THREAD_vt_gui_outputmsg.outputmsg;
+	sporadic_artificial_inputmsg : subprogram access THREAD_vt_timersys_inputmsg.artificial_inputmsg -> THREAD_vt_gui_outputmsg.inputmsg_vt;
+	protected_gui_polling_gui : subprogram access PASSIVE_gui.gui_polling_gui -> THREAD_vt_gui_gui_polling_gui.gui_polling_gui;
+	sporadic_artificial_inputmsg : subprogram access THREAD_vt_timersys_inputmsg.artificial_inputmsg -> THREAD_vt_gui_gui_polling_gui.inputmsg_vt;
+	protected_inputmsg : subprogram access PASSIVE_timersys.inputmsg -> THREAD_vt_timersys_inputmsg.inputmsg;
+	sporadic_artificial_outputmsg : subprogram access THREAD_vt_gui_outputmsg.artificial_outputmsg -> THREAD_vt_timersys_inputmsg.outputmsg_vt;
+	protected_timersys_RESET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_RESET_sdltmr -> THREAD_vt_timersys_inputmsg.RESET_sdltmr_vt;
+	protected_timersys_SET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_SET_sdltmr -> THREAD_vt_timersys_inputmsg.SET_sdltmr_vt;
+	unprotected_timersys_has_pending_msg : subprogram access PASSIVE_chip_taste_api.timersys_has_pending_msg -> THREAD_vt_timersys_inputmsg.check_queue_vt;
+	protected_sdltmr : subprogram access PASSIVE_timersys.sdltmr -> THREAD_vt_timersys_sdltmr.sdltmr;
+	sporadic_artificial_outputmsg : subprogram access THREAD_vt_gui_outputmsg.artificial_outputmsg -> THREAD_vt_timersys_sdltmr.outputmsg_vt;
+	protected_timersys_RESET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_RESET_sdltmr -> THREAD_vt_timersys_sdltmr.RESET_sdltmr_vt;
+	protected_timersys_SET_sdltmr : subprogram access PASSIVE_chip_timer_manager.timersys_SET_sdltmr -> THREAD_vt_timersys_sdltmr.SET_sdltmr_vt;
+	unprotected_timersys_has_pending_msg : subprogram access PASSIVE_chip_taste_api.timersys_has_pending_msg -> THREAD_vt_timersys_sdltmr.check_queue_vt;
+	protected_tick_100ms : subprogram access PASSIVE_chip_timer_manager.tick_100ms -> THREAD_vt_chip_timer_manager_tick_100ms.tick_100ms;
+	sporadic_artificial_sdltmr : subprogram access THREAD_vt_timersys_sdltmr.artificial_sdltmr -> THREAD_vt_chip_timer_manager_tick_100ms.timersys_sdltmr_vt;
+	unprotected_chip_timer_manager_has_pending_msg : subprogram access PASSIVE_chip_taste_api.chip_timer_manager_has_pending_msg -> THREAD_vt_chip_timer_manager_tick_100ms.check_queue_vt;
+  end exportedComponent.others;
+
+  system PASSIVE_gui
+    features
+	outputmsg : provides subprogram access exportedComponent::fv::outputmsg.others
+	  { taste::Coordinates => "200 215 200 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	inputmsg : requires subprogram access exportedComponent::fv::artificial_inputmsg.others
+	  { taste::Coordinates => "450 215 450 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "200 260 200 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 200 450 290";
+	taste::instance_name => "gui";
+  end PASSIVE_gui;
+
+  system implementation PASSIVE_gui.others
+    subcomponents
+	outputmsg_impl : subprogram exportedComponent::FV::outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	inputmsg_impl : subprogram exportedComponent::FV::artificial_inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access outputmsg_impl -> outputmsg;
+	subprogram access inputmsg_impl -> inputmsg;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+  end PASSIVE_gui.others;
+
+  system PASSIVE_timersys
+    features
+	inputmsg : provides subprogram access exportedComponent::fv::inputmsg.others
+	  { taste::Coordinates => "600 215 600 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	outputmsg : requires subprogram access exportedComponent::fv::artificial_outputmsg.others
+	  { taste::Coordinates => "850 215 850 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	sdltmr : provides subprogram access exportedComponent::fv::timersys_sdltmr.others
+	  { taste::Coordinates => "600 260 600 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_sdltmr : requires subprogram access exportedComponent::fv::timersys_RESET_sdltmr.others
+	  { taste::Coordinates => "850 260 850 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_sdltmr : requires subprogram access exportedComponent::fv::timersys_SET_sdltmr.others
+	  { taste::Coordinates => "850 305 850 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue : requires subprogram access exportedComponent::fv::timersys_has_pending_msg.others
+	  { taste::Coordinates => "850 350 850 350";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 200 850 380";
+	taste::instance_name => "timersys";
+  end PASSIVE_timersys;
+
+  system implementation PASSIVE_timersys.others
+    subcomponents
+	inputmsg_impl : subprogram exportedComponent::FV::inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	outputmsg_impl : subprogram exportedComponent::FV::artificial_outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	sdltmr_impl : subprogram exportedComponent::FV::timersys_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_sdltmr_impl : subprogram exportedComponent::FV::timersys_RESET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_sdltmr_impl : subprogram exportedComponent::FV::timersys_SET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::timersys_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access inputmsg_impl -> inputmsg;
+	subprogram access outputmsg_impl -> outputmsg;
+	subprogram access sdltmr_impl -> sdltmr;
+	subprogram access RESET_sdltmr_impl -> RESET_sdltmr;
+	subprogram access SET_sdltmr_impl -> SET_sdltmr;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_timersys.others;
+
+  system PASSIVE_chip_timer_manager
+    features
+	tick_100ms : provides subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "1000 215 1000 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	timersys_sdltmr : requires subprogram access exportedComponent::fv::artificial_sdltmr.others
+	  { taste::Coordinates => "1250 215 1250 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	timersys_RESET_sdltmr : provides subprogram access exportedComponent::fv::RESET_sdltmr.others
+	  { taste::Coordinates => "1000 260 1000 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	timersys_SET_sdltmr : provides subprogram access exportedComponent::fv::SET_sdltmr.others
+	  { taste::Coordinates => "1000 305 1000 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue : requires subprogram access exportedComponent::fv::chip_timer_manager_has_pending_msg.others
+	  { taste::Coordinates => "1250 260 1250 260";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 200 1250 335";
+	taste::instance_name => "chip_timer_manager";
+  end PASSIVE_chip_timer_manager;
+
+  system implementation PASSIVE_chip_timer_manager.others
+    subcomponents
+	tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	timersys_sdltmr_impl : subprogram exportedComponent::FV::artificial_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	timersys_RESET_sdltmr_impl : subprogram exportedComponent::FV::RESET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	timersys_SET_sdltmr_impl : subprogram exportedComponent::FV::SET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::chip_timer_manager_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access tick_100ms_impl -> tick_100ms;
+	subprogram access timersys_sdltmr_impl -> timersys_sdltmr;
+	subprogram access timersys_RESET_sdltmr_impl -> timersys_RESET_sdltmr;
+	subprogram access timersys_SET_sdltmr_impl -> timersys_SET_sdltmr;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_chip_timer_manager.others;
+
+  system PASSIVE_chip_taste_api
+    features
+	timersys_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1400 215 1400 215";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+	chip_timer_manager_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1400 260 1400 260";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 200 1650 290";
+	taste::instance_name => "chip_taste_api";
+  end PASSIVE_chip_taste_api;
+
+  system implementation PASSIVE_chip_taste_api.others
+    subcomponents
+	timersys_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+	chip_timer_manager_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access timersys_has_pending_msg_impl -> timersys_has_pending_msg;
+	subprogram access chip_timer_manager_has_pending_msg_impl -> chip_timer_manager_has_pending_msg;
+  end PASSIVE_chip_taste_api.others;
+
+  system THREAD_vt_gui_outputmsg
+    features
+	artificial_outputmsg : provides subprogram access exportedComponent::fv::outputmsg.others
+	  { taste::Coordinates => "1800 215 1800 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	outputmsg : requires subprogram access exportedComponent::fv::outputmsg.others
+	  { taste::Coordinates => "2050 215 2050 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	inputmsg_vt : requires subprogram access exportedComponent::fv::artificial_inputmsg.others
+	  { taste::Coordinates => "2050 260 2050 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 200 2050 290";
+	taste::instance_name => "vt_gui_outputmsg";
+  end THREAD_vt_gui_outputmsg;
+
+  system implementation THREAD_vt_gui_outputmsg.others
+    subcomponents
+	artificial_outputmsg_impl : subprogram exportedComponent::FV::outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	outputmsg_impl : subprogram exportedComponent::FV::outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	inputmsg_vt_impl : subprogram exportedComponent::FV::artificial_inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_outputmsg_impl -> artificial_outputmsg;
+	subprogram access outputmsg_impl -> outputmsg;
+	subprogram access inputmsg_vt_impl -> inputmsg_vt;
+  end THREAD_vt_gui_outputmsg.others;
+
+  system THREAD_vt_gui_gui_polling_gui
+    features
+	artificial_gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2200 215 2200 215";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 40;};
+	gui_polling_gui : requires subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2450 215 2450 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+	inputmsg_vt : requires subprogram access exportedComponent::fv::artificial_inputmsg.others
+	  { taste::Coordinates => "2450 260 2450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 200 2450 290";
+	taste::instance_name => "vt_gui_gui_polling_gui";
+  end THREAD_vt_gui_gui_polling_gui;
+
+  system implementation THREAD_vt_gui_gui_polling_gui.others
+    subcomponents
+	artificial_gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	inputmsg_vt_impl : subprogram exportedComponent::FV::artificial_inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_gui_polling_gui_impl -> artificial_gui_polling_gui;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+	subprogram access inputmsg_vt_impl -> inputmsg_vt;
+  end THREAD_vt_gui_gui_polling_gui.others;
+
+  system THREAD_vt_timersys_inputmsg
+    features
+	artificial_inputmsg : provides subprogram access exportedComponent::fv::inputmsg.others
+	  { taste::Coordinates => "200 695 200 695";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	inputmsg : requires subprogram access exportedComponent::fv::inputmsg.others
+	  { taste::Coordinates => "450 695 450 695";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	outputmsg_vt : requires subprogram access exportedComponent::fv::artificial_outputmsg.others
+	  { taste::Coordinates => "450 740 450 740";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_sdltmr_vt : requires subprogram access exportedComponent::fv::timersys_RESET_sdltmr.others
+	  { taste::Coordinates => "450 785 450 785";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_sdltmr_vt : requires subprogram access exportedComponent::fv::timersys_SET_sdltmr.others
+	  { taste::Coordinates => "450 830 450 830";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::timersys_has_pending_msg.others
+	  { taste::Coordinates => "450 875 450 875";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 680 450 905";
+	taste::instance_name => "vt_timersys_inputmsg";
+  end THREAD_vt_timersys_inputmsg;
+
+  system implementation THREAD_vt_timersys_inputmsg.others
+    subcomponents
+	artificial_inputmsg_impl : subprogram exportedComponent::FV::inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	inputmsg_impl : subprogram exportedComponent::FV::inputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	outputmsg_vt_impl : subprogram exportedComponent::FV::artificial_outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_sdltmr_vt_impl : subprogram exportedComponent::FV::timersys_RESET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_sdltmr_vt_impl : subprogram exportedComponent::FV::timersys_SET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::timersys_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_inputmsg_impl -> artificial_inputmsg;
+	subprogram access inputmsg_impl -> inputmsg;
+	subprogram access outputmsg_vt_impl -> outputmsg_vt;
+	subprogram access RESET_sdltmr_vt_impl -> RESET_sdltmr_vt;
+	subprogram access SET_sdltmr_vt_impl -> SET_sdltmr_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_timersys_inputmsg.others;
+
+  system THREAD_vt_timersys_sdltmr
+    features
+	artificial_sdltmr : provides subprogram access exportedComponent::fv::sdltmr.others
+	  { taste::Coordinates => "600 695 600 695";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	sdltmr : requires subprogram access exportedComponent::fv::sdltmr.others
+	  { taste::Coordinates => "850 695 850 695";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	outputmsg_vt : requires subprogram access exportedComponent::fv::artificial_outputmsg.others
+	  { taste::Coordinates => "850 740 850 740";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_sdltmr_vt : requires subprogram access exportedComponent::fv::timersys_RESET_sdltmr.others
+	  { taste::Coordinates => "850 785 850 785";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_sdltmr_vt : requires subprogram access exportedComponent::fv::timersys_SET_sdltmr.others
+	  { taste::Coordinates => "850 830 850 830";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::timersys_has_pending_msg.others
+	  { taste::Coordinates => "850 875 850 875";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 680 850 905";
+	taste::instance_name => "vt_timersys_sdltmr";
+  end THREAD_vt_timersys_sdltmr;
+
+  system implementation THREAD_vt_timersys_sdltmr.others
+    subcomponents
+	artificial_sdltmr_impl : subprogram exportedComponent::FV::sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	sdltmr_impl : subprogram exportedComponent::FV::sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	outputmsg_vt_impl : subprogram exportedComponent::FV::artificial_outputmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_sdltmr_vt_impl : subprogram exportedComponent::FV::timersys_RESET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_sdltmr_vt_impl : subprogram exportedComponent::FV::timersys_SET_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::timersys_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_sdltmr_impl -> artificial_sdltmr;
+	subprogram access sdltmr_impl -> sdltmr;
+	subprogram access outputmsg_vt_impl -> outputmsg_vt;
+	subprogram access RESET_sdltmr_vt_impl -> RESET_sdltmr_vt;
+	subprogram access SET_sdltmr_vt_impl -> SET_sdltmr_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_timersys_sdltmr.others;
+
+  system THREAD_vt_chip_timer_manager_tick_100ms
+    features
+	artificial_tick_100ms : provides subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "1000 695 1000 695";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 100;};
+	tick_100ms : requires subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "1250 695 1250 695";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	timersys_sdltmr_vt : requires subprogram access exportedComponent::fv::artificial_sdltmr.others
+	  { taste::Coordinates => "1250 740 1250 740";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::chip_timer_manager_has_pending_msg.others
+	  { taste::Coordinates => "1250 785 1250 785";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 680 1250 815";
+	taste::instance_name => "vt_chip_timer_manager_tick_100ms";
+  end THREAD_vt_chip_timer_manager_tick_100ms;
+
+  system implementation THREAD_vt_chip_timer_manager_tick_100ms.others
+    subcomponents
+	artificial_tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	timersys_sdltmr_vt_impl : subprogram exportedComponent::FV::artificial_sdltmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::chip_timer_manager_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tick_100ms_impl -> artificial_tick_100ms;
+	subprogram access tick_100ms_impl -> tick_100ms;
+	subprogram access timersys_sdltmr_vt_impl -> timersys_sdltmr_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_chip_timer_manager_tick_100ms.others;
+
+properties
+  taste::coordinates => "0 0 2970 2100";
+
+end generated_cv::IV;
+
+package exportedComponent::FV
+public
+with dataview;
+with taste;
+
+  subprogram outputmsg
+  end outputmsg;
+
+  subprogram artificial_inputmsg
+  end artificial_inputmsg;
+
+  subprogram gui_polling_gui
+  end gui_polling_gui;
+
+  subprogram inputmsg
+  end inputmsg;
+
+  subprogram artificial_outputmsg
+  end artificial_outputmsg;
+
+  subprogram timersys_sdltmr
+  end timersys_sdltmr;
+
+  subprogram timersys_RESET_sdltmr
+  end timersys_RESET_sdltmr;
+
+  subprogram timersys_SET_sdltmr
+  end timersys_SET_sdltmr;
+
+  subprogram timersys_has_pending_msg
+  end timersys_has_pending_msg;
+
+  subprogram tick_100ms
+  end tick_100ms;
+
+  subprogram artificial_sdltmr
+  end artificial_sdltmr;
+
+  subprogram RESET_sdltmr
+  end RESET_sdltmr;
+
+  subprogram SET_sdltmr
+  end SET_sdltmr;
+
+  subprogram chip_timer_manager_has_pending_msg
+  end chip_timer_manager_has_pending_msg;
+
+  subprogram check_queue
+  end check_queue;
+
+  subprogram sdltmr
+  end sdltmr;
+
+end exportedComponent::FV;

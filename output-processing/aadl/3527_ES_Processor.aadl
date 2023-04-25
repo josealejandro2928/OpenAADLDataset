@@ -1,0 +1,36 @@
+package ES_Processor
+public
+	with Generic;
+	with ES_Arg_IO;
+	with ES_Result_IO;
+	
+	--------all abstract can add external data corresponding to its require
+	
+	abstract RegisterApp extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group ES_Arg_IO::RegisterAppArgs;
+			Results: refined to feature group ES_Result_IO::RegisterAppOutput;
+			LocalDatas: refined to feature group ES_Result_IO::Input;
+	end RegisterApp;
+	
+	abstract RestartApp extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group ES_Arg_IO::RestartAppArgs;
+			Results: refined to feature group ES_Result_IO::RestartAppOutput;
+			LocalDatas: refined to feature group ES_Result_IO::Input;
+	end RestartApp;
+	
+	abstract DeleteApp extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group ES_Arg_IO::DeleteAppArgs;
+			Results: refined to feature group ES_Result_IO::DeleteAppOutput;
+			LocalDatas: refined to feature group ES_Result_IO::Input;
+	end DeleteApp;
+	
+	abstract RunLoop extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group ES_Arg_IO::RunLoopArgs;
+			Results: refined to feature group ES_Result_IO::RunLoopOutput;
+			LocalDatas: refined to feature group ES_Result_IO::Input;
+	end RunLoop;
+end ES_Processor;

@@ -1,0 +1,96 @@
+package gateway
+public
+	system gateway
+		features
+			server_port: in out data port;
+			sensor_input: in data port;
+			gate_output: out data port;
+			client_port: in out data port;
+			device_event_in: in event data port;
+			device_event_out: out event data port;
+	end gateway;
+	
+	system implementation gateway.impl
+		subcomponents
+			rf: system radio_frequency.impl;
+			bb: system broadband;
+		connections
+			gateway_impl_new_connection4: port sensor_input -> rf.radio_stream;
+			gateway_impl_new_connection2: port device_event_in -> rf.radio_event_in;
+			gateway_impl_new_connection5: port rf.radio_event_out -> device_event_out;
+			gateway_impl_new_connection6: port rf.radio_ouput -> gate_output;
+			gateway_impl_new_connection: port server_port -> rf.radio_input;
+			gateway_impl_new_connection3: port rf.client_port -> client_port;
+	end gateway.impl;
+	
+	system radio_frequency
+		features
+			radio_input: in out data port;
+			radio_stream: in data port;
+			radio_ouput: out data port;
+			client_port: in out data port;
+			radio_event_in: in event data port;
+			radio_event_out: out event data port;
+--			radio_output: out data port;		
+	end radio_frequency;
+	
+	
+	system implementation radio_frequency.impl
+		subcomponents
+			publish_subscribe: process event_process.impl;
+			radio: process radio_process.impl;
+		connections
+			radio_frequency_impl_new_connection2: port publish_subscribe.pro_out -> radio_event_out;
+			radio_frequency_impl_new_connection: port radio_event_in -> publish_subscribe.pro_in;
+			radio_frequency_impl_new_connection3: port radio_stream -> radio.pro_in;
+			radio_frequency_impl_new_connection4: port radio.pro_out -> radio_ouput;
+	end radio_frequency.impl;
+	
+	system broadband
+		features
+			ip_input: in out data port;
+--			ip_output: out data port;		
+	end broadband;
+	
+	
+	thread event_thread
+		features
+			thr_in: in event data port;
+			thr_out: out event data port;
+	end event_thread;
+	
+	process event_process
+		features
+			pro_in: in event data port;
+			pro_out: out event data port;
+	end event_process;
+	
+	process implementation event_process.impl
+		subcomponents
+			event_thread: thread event_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> event_thread.thr_in;
+			event_process_impl_new_connection2: port event_thread.thr_out -> pro_out;
+	end event_process.impl;
+	
+	process radio_process
+		features
+			pro_in: in data port;
+			pro_out: out data port;
+	end radio_process;
+	
+	process implementation radio_process.impl
+		subcomponents
+			thr: thread radio_thread;
+		connections
+			radio_process_impl_new_connection: port pro_in -> thr.thr_in;
+			radio_process_impl_new_connection2: port thr.thr_out -> pro_out;
+	end radio_process.impl;
+	 
+	thread radio_thread
+		features
+			thr_in: in data port;
+			thr_out: out data port;
+	end radio_thread;
+	
+end gateway;

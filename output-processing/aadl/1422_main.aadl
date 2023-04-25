@@ -1,0 +1,158 @@
+package pacemaker_arch
+public
+
+system pacemaker
+end pacemaker;
+
+system implementation pacemaker.impl
+	subcomponents
+		PULSE_GENERATOR: system Pulse_Generator;
+		    ATRIAL_LEAD: device Atrial_Lead;
+		 VENTRICLE_LEAD: device Ventricle_Lead;
+		 DEVICE_CONTROLLER_MONITOR: system Device_Controller_Monitor.impl;
+		  
+	connections
+		c1: port VENTRICLE_LEAD.Ventricel_Sense -> PULSE_GENERATOR.V_sense;
+		c2: port PULSE_GENERATOR.V_pulse -> VENTRICLE_LEAD.Ventricle_Pace;
+		c3: port ATRIAL_LEAD. Atrial_Sense -> PULSE_GENERATOR.A_sense;
+		c4: port PULSE_GENERATOR.A_pulse -> ATRIAL_LEAD.Atrial_Pace;
+		c5: port DEVICE_CONTROLLER_MONITOR. Configuration -> PULSE_GENERATOR.Configuration;
+		c6: port PULSE_GENERATOR.Monitoring -> DEVICE_CONTROLLER_MONITOR.Monitoring;
+	properties
+	 Actual_Processor_Binding => ( reference(DEVICE_CONTROLLER_MONITOR.Pacemaker_HW_Platform) ) applies to DEVICE_CONTROLLER_MONITOR.Pacemaker_SW;
+	
+end pacemaker.impl;
+
+system Pulse_Generator
+	features
+		V_sense: in event port;
+		V_pulse: out event port;
+		A_sense: in event port;
+		A_pulse: out event port;
+		Configuration: in event port;
+		   Monitoring: out event port;
+		
+end Pulse_Generator;
+
+system implementation Pulse_Generator.impl
+	subcomponents
+		ACCELEROMETER: device Acelerometer;
+		      BATTERY: device Battery;
+	connections
+		cx1: port BATTERY.Status -> ACCELEROMETER. Battery_Level;
+		cx2: port V_sense -> ACCELEROMETER.Sensing_Rate;
+		cx3: port A_sense -> ACCELEROMETER.Sensing_Rate;
+		cx4: port ACCELEROMETER.Pacing_Rate -> V_pulse;
+		cx5: port ACCELEROMETER.Pacing_Rate -> A_pulse;
+		cx6: port Configuration -> ACCELEROMETER. Cofig_Rate;
+		cx7: port ACCELEROMETER.Measuring_Rate -> Monitoring;
+end Pulse_Generator.impl;
+
+device Atrial_Lead
+	features
+		Atrial_Sense: out event port;
+		 Atrial_Pace: in event port;
+		
+end Atrial_Lead;
+
+device implementation Atrial_Lead.impl
+end Atrial_Lead.impl;
+
+device Ventricle_Lead
+	features
+		Ventricel_Sense: out event port;
+		Ventricle_Pace: in event port;
+end Ventricle_Lead;
+
+device implementation Ventricle_Lead.impl
+end Ventricle_Lead.impl;
+
+system Device_Controller_Monitor
+	features
+		Configuration: out event  port;
+		   Monitoring: in event port;
+end Device_Controller_Monitor;
+
+system implementation Device_Controller_Monitor.impl
+	subcomponents
+		PACEMAKER_SW: process Pacemaker_SW;
+		PACEMAKER_HW_PLATFORM: processor Pacemaker_HW_Platform;
+	connections
+		cnn1: port Monitoring -> PACEMAKER_SW.Measuring_Sensing;
+		cnn2: port PACEMAKER_SW.Configuring_Pacing -> Configuration;
+end Device_Controller_Monitor.impl;
+
+process Pacemaker_SW
+	features
+		Measuring_Sensing: in event port;
+		Configuring_Pacing: out event port;
+end Pacemaker_SW;
+
+process implementation Pacemaker_SW.impl
+	subcomponents
+		DDD_MODE: thread DDD_Mode;
+		AAI_MODE: thread AAI_Mode;
+		CONTROL_MODE: thread Control_Mode;
+	connections
+		ct1: port Measuring_Sensing -> DDD_MODE.Sensing_DDD;
+		ct2: port Measuring_Sensing -> AAI_MODE.Sensing_AAI;
+		ct3: port DDD_MODE.Pacing_DDD -> Configuring_Pacing;
+		ct4: port AAI_MODE.Pacing_AAI -> Configuring_Pacing;
+		ct5: port DDD_MODE.SW_ERR -> CONTROL_MODE. DDD_SW_ERR;
+		ct6: port CONTROL_MODE.AAI_SW_ERR -> AAI_MODE.SW_ERR;
+end Pacemaker_SW.impl;
+
+processor Pacemaker_HW_Platform
+end Pacemaker_HW_Platform;
+
+processor implementation Pacemaker_HW_Platform.impl
+end Pacemaker_HW_Platform.impl;
+
+device Acelerometer
+	features
+		Sensing_Rate: in event port;
+		Pacing_Rate: out event port;
+		Battery_Level: in event port;
+		Cofig_Rate : in event port;
+		Measuring_Rate: out event port;
+end Acelerometer;
+
+device Battery
+	features
+		Status: out event port;
+end Battery;
+
+thread DDD_Mode
+	features
+		Sensing_DDD: in event port;
+		Pacing_DDD: out event port;
+		SW_ERR: out event port;
+end DDD_Mode;
+
+thread implementation DDD_Mode.impl
+end DDD_Mode.impl;
+	
+thread AAI_Mode
+	features
+		Sensing_AAI: in event port;
+		Pacing_AAI: out event port;
+		SW_ERR: in event port;
+end AAI_Mode;
+
+thread implementation AAI_Mode.impl
+end AAI_Mode.impl;
+
+thread Control_Mode
+	features
+		DDD_SW_ERR: in event port;
+		AAI_SW_ERR: out event port;
+	modes
+		DDD : initial mode;
+		AAI: mode;
+		DDD -[DDD_SW_ERR]-> AAI;
+end Control_Mode;
+	
+	
+	
+	
+end pacemaker_arch;

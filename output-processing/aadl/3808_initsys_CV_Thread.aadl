@@ -1,0 +1,32 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package initsys_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD initsys_initsys
+features
+	INPORT_inmsg : IN EVENT DATA PORT DataView::MyString_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_initsys_inmsg"; };
+	OUTPORT_outmsg : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+END initsys_initsys;
+
+THREAD IMPLEMENTATION initsys_initsys.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_initsys";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END initsys_initsys.others;
+
+end initsys_CV_Thread;

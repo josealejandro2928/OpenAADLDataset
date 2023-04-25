@@ -1,0 +1,30 @@
+package Stakeholder
+public
+	with Requirements;--with CloudComponent;
+	
+	system APSCommunication
+		features
+			InternetAccess: in out data port;
+		flows
+			RequestAccesstoCloud: flow source InternetAccess;
+			ReceiveManagementInformation: flow sink InternetAccess;
+	end APSCommunication;
+	
+		system implementation APSCommunication.impl
+			subcomponents
+				this_APSStakeholder: system APSStakeholder
+				{
+					Requirements::RequiredFuntions => 'Internet Access; Web Browser; Secure Access'; 
+				};					
+			connections
+				StakeholdertoCloudLink: port this_APSStakeholder.DataPort -> InternetAccess;
+				CloudLinktoStakeholder: port InternetAccess -> this_APSStakeholder.DataPort;
+		end APSCommunication.impl;
+		
+	system APSStakeholder
+		features
+			DataPort:  in out data port;
+	end APSStakeholder;
+
+	
+end Stakeholder;

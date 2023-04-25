@@ -1,0 +1,75 @@
+
+system sporadics
+end sporadics;
+
+system implementation sporadics.Impl
+	subcomponents
+		cpu0 : processor sporadic.Impl;
+		proc0 : process a_process.Impl;
+	properties
+		Actual_Processor_Binding => reference cpu0 applies to proc0;
+end sporadics.Impl;
+
+
+processor sporadic
+end sporadic;
+
+processor implementation sporadic.Impl
+	properties 
+		Scheduling_Protocol => pipeline_User_Defined_Protocol;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+		Cheddar_Properties::Source_Text => "sporadic.sc";
+end sporadic.Impl;
+
+
+
+
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => User_Defined;
+		Cheddar_Properties::Source_Text => "sporadic_activation";
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  100 ms;
+		Period =>  5 ms;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => User_Defined;
+		Cheddar_Properties::Source_Text => "sporadic_activation";
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  100 ms;
+		Period =>  5 ms;
+end T2.Impl;
+
+thread T3
+end T3;
+
+thread implementation T3.Impl
+	properties
+		Dispatch_Protocol => User_Defined;
+		Cheddar_Properties::Source_Text => "random_activation";
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  100 ms;
+		Period =>  0 ms;
+end T3.Impl;
+
+process a_process
+end a_process;
+
+process implementation a_process.Impl
+	subcomponents
+		instancied_T1 : thread T1.Impl;
+		instancied_T2 : thread T2.Impl;
+		instancied_T3 : thread T3.Impl;
+end a_process.Impl;

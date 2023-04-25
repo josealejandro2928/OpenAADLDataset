@@ -1,0 +1,319 @@
+-- Isolette.aadl
+--
+-- =====================================================================================================================
+--
+--   I s o l e t t e     P a c k a g e 
+-- 
+--
+--   Top-level system specification including
+--
+--      - thermostat + temp sensor and heater hardware components
+--      - system boundary capturing interactions with the environment
+--
+-- =====================================================================================================================
+ 
+-- authors Brian Larson and John Hatcliff 
+
+
+package Isolette
+  public
+	with Monitor; -- subcomponent of the Room thermostat that monitors turns heat source on/off
+	-- as necessary to maintain desired temperature
+	with Regulate; -- physical entities in Room system including temperature sensor and heat source
+	with Devices; -- entities used to monitor environment external to Room including infant, nurse, air 
+	with Isolette_Environment; -- import type definitions used in Isolette
+	with Isolette_Data_Model;
+	with Isolette_Properties;
+	with CASE_Scheduling;
+	with CASE_Property_Definitions;
+
+-- =====================================================================================================================
+--
+--   I s o l e t t e     S y s t e m 
+-- 
+--
+--   Top-level system 
+--
+-- =====================================================================================================================
+-- -----------------------------------------------------------------------------
+--   I s o l e t t e     S y s t e m    B o u n d a r y
+--
+--     boundary capturing interactions between the Isolette and environment
+-- 
+-- -----------------------------------------------------------------------------
+	processor Isolette_Processor extends CASE_Property_Definitions::Domain_Processor
+	end Isolette_Processor;
+
+	processor implementation Isolette_Processor.impl
+			--properties
+			--	CASE_Scheduling::Schedule_Source_Text => "behavior_code/kernel/domain_schedule.c";
+	end Isolette_Processor.impl;
+
+--@description top-level system component representing the Isolette
+	system isolette
+		features
+			-- models (abstractly) warming of air inside of Isolette enclosure
+			heat_out: out data port Isolette_Environment::Heat;
+			-- models (abstractly) commands given by the operator to Isolette operator interface
+			operator_commands: in data port Isolette_Environment::Interface_Interaction;
+			-- models (abstractly) visual information presented to the operator on Isolette operator interface
+			operator_visual_information: out data port Isolette_Environment::Interface_Interaction;
+			-- models (abstraction) audio information presented to the operator on Isolette operator interface
+			operator_alarm: out data port Isolette_Environment::Interface_Interaction;
+			-- models (abstractly) the sensing of the physical air temperature
+			air_temperature: in data port Isolette_Data_Model::PhysicalTemp.impl;
+	end isolette;
+
+-- -----------------------------------------------------------------------------
+--
+--   I s o l e t t e     S y s t e m    I m p l e m e n t a t i o n 
+-- 
+--
+--   Top-level system structure capturing 
+--   thermostat + temp sensor and heater hardware components
+--
+-- -----------------------------------------------------------------------------
+	system implementation isolette.single_sensor
+-- internal architecture of Isolette -- see Figure A.1
+--
+--  Note that in contrast to the "boundary" implied by Figure A.1, we have not chosen to model the
+--  notion of "Air" as "inside" the system boundary.  Our rationale is that we are only including
+--  in the system boundary the components that the manufacturer is responsible for and that will
+--  be addressed in quality management and the primary risk management activities.
+--
+		subcomponents
+			thermostat: system thermostat_single_sensor.impl;
+			operator_interface: system operator_interface.impl;
+
+			--temperature_sensor : device Devices::Temperature_Sensor.impl;
+			temperature_sensor: system Devices::Temperature_Sensor_System.impl;
+			--heat_source : device Devices::heat_source.impl;
+			heat_source: system Devices::Heat_Source_System.impl;
+
+			isolette_processor: processor Isolette_Processor.impl;
+
+		connections
+			-- ==== INPUT interface to internal components ==== 	    
+			-- commands from operator flow into the operator interface
+			oioc: port operator_commands -> operator_interface.operator_commands;
+			-- the environment air temperature (abstract/physical) flows into the temp sensor
+			a2ts: port air_temperature -> temperature_sensor.air;
+
+			-- ==== OUTPUT interface values from internal components ==== 
+			-- information (audio and visual) flows from the operator interface to the operator
+			oiovi: port operator_interface.operator_visual_information -> operator_visual_information;
+			oioa: port operator_interface.operator_alarm -> operator_alarm;
+
+			-- heat source's (abstract) output is increase in physical air temperature
+			hs: port heat_source.heat_out -> heat_out;
+
+			-- ==== INTERNAL communication ==== 
+			-- sensor sends sensed current temperature to thermostat  
+			ct: port temperature_sensor.current_tempWstatus -> thermostat.current_tempWstatus;
+
+			-- thermostat controls turns the heat source off and on  
+			hc: port thermostat.heat_control -> heat_source.heat_control;
+
+			-- operator interface communicates desired temperature to thermostat
+			ldt: port operator_interface.lower_desired_tempWstatus -> thermostat.lower_desired_tempWstatus;
+			udt: port operator_interface.upper_desired_tempWstatus -> thermostat.upper_desired_tempWstatus;
+
+			-- operator interface communicates alarm temperature to thermostat
+			lat: port operator_interface.lower_alarm_tempWstatus -> thermostat.lower_alarm_tempWstatus;
+			uat: port operator_interface.upper_alarm_tempWstatus -> thermostat.upper_alarm_tempWstatus;
+
+			-- thermostat communicates regulator status to display on operator interface
+			rs: port thermostat.regulator_status -> operator_interface.regulator_status;
+			-- thermostat communicates monitor status to display on operator interface
+			ms: port thermostat.monitor_status -> operator_interface.monitor_status;
+			-- thermostat communicates current sensed temperature to display on operator interface
+			dt: port thermostat.display_temperature -> operator_interface.display_temperature;
+			-- thermostat communicates alarm information to display on operator interface
+			al: port thermostat.alarm_control -> operator_interface.alarm_control;
+
+		properties
+			Actual_Processor_Binding => (reference (isolette_processor)) applies to 
+			  thermostat, operator_interface, temperature_sensor, heat_source;
+
+	end isolette.single_sensor;
+
+-- =====================================================================================================================
+--
+--   T h e r m o s t a t 
+-- 
+--   See Section A-5 and Figure A-2
+--
+-- =====================================================================================================================
+-- -----------------------------------------------------------------------------
+--    T h e r m o s t a t    I n t e r f a c e
+-- -----------------------------------------------------------------------------
+	system thermostat_single_sensor
+-- See Figure A-2 for overall architecture and Tables A-4, A-5, and A-6 for data descriptions	
+		features
+			-- ======== INPUTS =======
+			-- receive current temperature (with status info) from temp sensor
+			current_tempWstatus: in data port Isolette_Data_Model::TempWstatus.impl;
+			-- receive desired temperature range (with status info) from operator interface
+			lower_desired_tempWstatus: in data port Isolette_Data_Model::TempWstatus.impl;
+			upper_desired_tempWstatus: in data port Isolette_Data_Model::TempWstatus.impl;
+			-- receive alarm temperature range (with status info) from operator interface
+			lower_alarm_tempWstatus: in data port Isolette_Data_Model::TempWstatus.impl;
+			upper_alarm_tempWstatus: in data port Isolette_Data_Model::TempWstatus.impl;
+
+			-- ======== OUTPUTS =========
+			-- send heat control command to heat source 
+			heat_control: out data port Isolette_Data_Model::On_Off;
+			-- send information to operator interface
+			regulator_status: out data port Isolette_Data_Model::Status;
+			monitor_status: out data port Isolette_Data_Model::Status;
+			display_temperature: out data port Isolette_Data_Model::Temp.impl;
+			alarm_control: out data port Isolette_Data_Model::On_Off;
+	end thermostat_single_sensor;
+
+-- -----------------------------------------------------------------------------
+--    T h e r m o s t a t    I m p l e m e n t a t i o n
+-- -----------------------------------------------------------------------------
+--single-temperature sensor thermostat system component implementation
+	system implementation thermostat_single_sensor.impl
+		subcomponents
+			regulate_temperature: system Regulate::Regulate_Temperature.Impl;
+			monitor_temperature: system Monitor::Monitor_Temperature.Impl;
+		--detect_regulator_fail: device Devices::detect_regulator_failure.impl;
+		--detect_regulator_fail: system Devices::Detect_Regulator_Failure_System.impl;
+		--detect_monitor_fail: device Devices::detect_monitor_failure.impl;
+		--detect_monitor_fail: system Devices::Detect_Monitor_Failure_System.impl;
+		connections
+			-- ==== INPUT interface to internal components ====
+			-- current temperature from temp sensor 	
+			tctm: port current_tempWstatus -> monitor_temperature.current_tempWstatus;
+			tctr: port current_tempWstatus -> regulate_temperature.current_tempWstatus;
+			-- desired temperature range
+			tudt: port upper_desired_tempWstatus -> regulate_temperature.upper_desired_tempWstatus;
+			tldt: port lower_desired_tempWstatus -> regulate_temperature.lower_desired_tempWstatus;
+			-- alarm temperature range
+			tuat: port upper_alarm_tempWstatus -> monitor_temperature.upper_alarm_tempWstatus;
+			tlat: port lower_alarm_tempWstatus -> monitor_temperature.lower_alarm_tempWstatus;
+
+			-- ==== OUTPUT interface from internal components ==== 	
+			-- display temperature
+			tdt: port regulate_temperature.displayed_temp -> display_temperature;
+			-- subsystem status
+			trs: port regulate_temperature.regulator_status -> regulator_status;
+			tms: port monitor_temperature.monitor_status -> monitor_status;
+			-- alarm control
+			ta: port monitor_temperature.alarm_control -> alarm_control;
+			-- heat control
+			thc: port regulate_temperature.heat_control -> heat_control;
+
+	-- ==== INTERNAL CONNECTIONS ====
+	-- no internal connections.  This reflects the fact that the regulate temperature
+	-- and monitor temperature are independent functions. 
+	end thermostat_single_sensor.impl;
+
+-- =====================================================================================================================
+--
+--   O p e r a t o r     I n t e r f a c e
+-- 
+--   See Section A-5 and Figure A-2
+--
+-- =====================================================================================================================
+-- -----------------------------------------------------------------------------
+--    O p e r a t o r    I n t e r f a c e    I n t e r f a c e
+-- -----------------------------------------------------------------------------
+--@description operator interface system component type
+	system operator_interface
+		features
+			-- ======== INPUT from Operator to Operator Interface =======		
+			operator_commands: in data port Isolette_Environment::Interface_Interaction;
+			-- ======== OUTPUT from Operator Interface to Operator  =======	
+			-- models (abstractly) visual information presented to the operator on Isolette operator interface
+			operator_visual_information: out data port Isolette_Environment::Interface_Interaction;
+			-- models (abstraction) audio information presented to the operator on Isolette operator interface
+			operator_alarm: out data port Isolette_Environment::Interface_Interaction;
+			-- models (abstractly) the sensing of the physical air temperature
+			-- ==== INPUTS from thermostat to operator interface 
+			regulator_status: in data port Isolette_Data_Model::Status;
+			monitor_status: in data port Isolette_Data_Model::Status;
+			display_temperature: in data port Isolette_Data_Model::Temp.impl;
+			alarm_control: in data port Isolette_Data_Model::On_Off;
+
+			-- ==== OUTPUTS from operator interface to thermostat 
+			lower_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			lower_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+	end operator_interface;
+
+	system implementation operator_interface.impl
+		subcomponents
+			oip: process operator_interface_process.impl;
+
+		connections
+			c1: port regulator_status -> oip.regulator_status;
+			c2: port monitor_status -> oip.monitor_status;
+			c3: port display_temperature -> oip.display_temperature;
+			c4: port alarm_control -> oip.alarm_control;
+
+			c5: port oip.lower_desired_tempWstatus -> lower_desired_tempWstatus;
+			c6: port oip.upper_desired_tempWstatus -> upper_desired_tempWstatus;
+			c7: port oip.lower_alarm_tempWstatus -> lower_alarm_tempWstatus;
+			c8: port oip.upper_alarm_tempWstatus -> upper_alarm_tempWstatus;
+
+	end operator_interface.impl;
+
+	process operator_interface_process
+		features
+			-- ==== INPUTS from thermostat to operator interface
+			regulator_status: in data port Isolette_Data_Model::Status;
+			monitor_status: in data port Isolette_Data_Model::Status;
+			display_temperature: in data port Isolette_Data_Model::Temp.impl;
+			alarm_control: in data port Isolette_Data_Model::On_Off;
+
+			-- ==== OUTPUTS from operator interface to thermostat 
+			lower_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			lower_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+	end operator_interface_process;
+
+	process implementation operator_interface_process.impl
+		subcomponents
+			oit: thread operator_interface_thread.impl;
+
+		connections
+			c1: port regulator_status -> oit.regulator_status;
+			c2: port monitor_status -> oit.monitor_status;
+			c3: port display_temperature -> oit.display_temperature;
+			c4: port alarm_control -> oit.alarm_control;
+
+			c5: port oit.lower_desired_tempWstatus -> lower_desired_tempWstatus;
+			c6: port oit.upper_desired_tempWstatus -> upper_desired_tempWstatus;
+			c7: port oit.lower_alarm_tempWstatus -> lower_alarm_tempWstatus;
+			c8: port oit.upper_alarm_tempWstatus -> upper_alarm_tempWstatus;
+
+		properties
+			CASE_Scheduling::Domain => Isolette_Properties::Domain_Operator_Interface;
+
+	end operator_interface_process.impl;
+
+	thread operator_interface_thread extends CASE_Property_Definitions::Periodic_Thread
+		features
+			-- ==== INPUTS from thermostat to operator interface
+			regulator_status: in data port Isolette_Data_Model::Status;
+			monitor_status: in data port Isolette_Data_Model::Status;
+			display_temperature: in data port Isolette_Data_Model::Temp.impl;
+			alarm_control: in data port Isolette_Data_Model::On_Off;
+
+			-- ==== OUTPUTS from operator interface to thermostat 
+			lower_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_desired_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			lower_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+			upper_alarm_tempWstatus: out data port Isolette_Data_Model::TempWstatus.impl;
+
+	end operator_interface_thread;
+
+	thread implementation operator_interface_thread.impl
+	end operator_interface_thread.impl;
+
+end Isolette;
+

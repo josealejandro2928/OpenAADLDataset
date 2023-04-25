@@ -1,0 +1,79 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type deploymentview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE deploymentview::DV::Node1
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS x86_partition
+END x86_partition;
+
+PROCESS IMPLEMENTATION x86_partition.others
+END x86_partition.others;
+
+END deploymentview::DV::Node1;
+
+PACKAGE deploymentview::DV
+PUBLIC
+
+WITH interfaceview::IV::Watchdog;
+WITH interfaceview::IV::dummy_producer;
+WITH interfaceview::IV::dummy_consumer;
+WITH ocarina_processors_x86;
+WITH deploymentview::DV::Node1;
+WITH Taste;
+WITH Deployment;
+WITH interfaceview::IV;
+WITH TASTE_DV_Properties;
+SYSTEM Node1
+END Node1;
+
+SYSTEM IMPLEMENTATION Node1.others
+SUBCOMPONENTS
+  IV_Watchdog : SYSTEM interfaceview::IV::Watchdog::Watchdog.others {
+    Taste::FunctionName => "Watchdog";
+  };
+  IV_dummy_producer : SYSTEM interfaceview::IV::dummy_producer::dummy_producer.others {
+    Taste::FunctionName => "dummy_producer";
+  };
+  IV_dummy_consumer : SYSTEM interfaceview::IV::dummy_consumer::dummy_consumer.others {
+    Taste::FunctionName => "dummy_consumer";
+  };
+  x86_partition : PROCESS deploymentview::DV::Node1::x86_partition.others {
+    Taste::coordinates => "119269 91528 157710 121100";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "114464 83079 162515 125325";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_Watchdog;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dummy_producer;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dummy_consumer;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO x86_partition;
+END Node1.others;
+
+SYSTEM deploymentview
+END deploymentview;
+
+SYSTEM IMPLEMENTATION deploymentview.others
+SUBCOMPONENTS
+  Node1 : SYSTEM Node1.others {
+    Taste::coordinates => "108458 71009 168521 131360";
+  };
+  interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
+END deploymentview.others;
+
+PROPERTIES
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+  Taste::interfaceView => "mc_watchdog_iv.aadl";
+  Taste::HWLibraries => ("../../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
+END deploymentview::DV;
+

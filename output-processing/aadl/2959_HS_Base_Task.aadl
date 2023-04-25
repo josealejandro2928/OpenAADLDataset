@@ -1,0 +1,19 @@
+package HS_Base_Task
+public
+	with Component;
+	with ES_Base_IO;
+	with ES_Interface;
+	
+	feature group RestartAppArgs
+		features
+			SB: feature group ES_Interface::R_RestartApp;
+	end RestartAppArgs;
+	
+	
+	abstract MonitorApplications extends Component::Task
+		features
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+			
+			RestartApp: feature group RestartAppArgs;
+	end MonitorApplications;
+end HS_Base_Task;

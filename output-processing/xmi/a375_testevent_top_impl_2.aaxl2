@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="top_impl_Instance" category="system">
+  <componentInstance name="testevent" category="process">
+    <componentInstance name="src" category="thread">
+      <featureInstance name="e" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.emitter.impl"/>
+    </componentInstance>
+    <componentInstance name="snk" category="thread">
+      <featureInstance name="s" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.consumer.impl"/>
+    </componentInstance>
+    <connectionInstance name="src.e -> snk.s" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.top_process.impl"/>
+  </componentInstance>
+  <componentInstance name="proc" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.proc.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.top.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/testevent_MultQueue/testevent.aadl#testevent.top.impl"/>
+</instance:SystemInstance>

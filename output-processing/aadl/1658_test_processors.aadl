@@ -1,0 +1,78 @@
+
+processor cpu1
+end cpu1;
+
+processor implementation cpu1.Impl
+	properties 
+		Scheduling_Protocol => EARLIEST_DEADLINE_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu1.Impl;
+
+processor cpu2
+end cpu2;
+
+processor implementation cpu2.Impl
+	properties 
+		Scheduling_Protocol => LEAST_LAXITY_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu2.Impl;
+
+processor cpu3
+end cpu3;
+
+processor implementation cpu3.Impl
+	properties 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu3.Impl;
+
+processor cpu4
+end cpu4;
+
+processor implementation cpu4.Impl
+	properties 
+		Scheduling_Protocol => DEADLINE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => false;
+end cpu4.Impl;
+
+processor cpu5
+end cpu5;
+
+processor implementation cpu5.Impl
+	properties 
+		Scheduling_Protocol => Posix_1003_Highest_Priority_First_Protocol;
+		Cheddar_Properties::Scheduler_Quantum =>  5 ms;
+		Cheddar_Properties::Preemptive_Scheduler => false;
+end cpu5.Impl;
+
+processor cpu6
+end cpu6;
+
+processor implementation cpu6.Impl
+	properties 
+		Scheduling_Protocol => pipeline_User_Defined_Protocol;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => false;
+		Cheddar-Properties::Source_Text => "rm.sc";
+end cpu6.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_cpu1 : processor cpu1.Impl;
+		instancied_cpu2 : processor cpu2.Impl;
+		instancied_cpu3 : processor cpu3.Impl;
+		instancied_cpu4 : processor cpu4.Impl;
+		instancied_cpu5 : processor cpu5.Impl;
+		instancied_cpu6 : processor cpu6.Impl;
+end Cheddar.Impl;
+
+
+

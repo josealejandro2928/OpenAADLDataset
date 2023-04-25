@@ -1,0 +1,43 @@
+package sensors
+public 
+	with ires;
+	with dss;
+	with yaw_gyro;
+	with task_types;
+
+thread group sensor_process
+features
+	input : in data port task_types::shared_data;
+	output : out data port task_types::shared_data;
+end sensor_process;
+
+thread group implementation sensor_process.impl
+subcomponents 
+	ires_t : Thread group  ires::ires_process.impl;
+	yaw_gyro_t: Thread group  yaw_gyro::gyro_process.impl;
+	dss_t: Thread group  dss::dss_process.impl;
+	t_attitude: thread task_types::aperiodic 
+	{
+		Compute_Execution_Time => 520 us;
+ 		Priority => 16;		
+	};
+
+connections
+
+	C0 : port input -> yaw_gyro_t.input;
+	C1 : port yaw_gyro_t.output -> dss_t.input;
+	C2 : port yaw_gyro_t.output -> t_attitude.input;
+	C3 : port ires_t.output -> t_attitude.input;
+	C4 : port dss_t.output -> output;
+	C5 : port ires_t.output -> output;	
+	
+end sensor_process.impl;
+
+end sensors;
+
+
+
+
+
+
+

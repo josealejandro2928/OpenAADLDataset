@@ -1,0 +1,65 @@
+package SB_Service
+public
+	with SB_Processor;
+	with SB_Result_IO;
+	with SB_Base_IO;
+	with SB_Arg_IO;
+	with SB_Route_Table;
+
+	abstract Service
+		features
+			CreatePipeArgs: feature group SB_Arg_IO::CreatePipeArgs;
+			DeletePipeArgs: feature group SB_Arg_IO::DeletePipeArgs;
+			SubscribeArgs: feature group SB_Arg_IO::SubscribeArgs;
+			UnsubscribeArgs: feature group SB_Arg_IO::UnsubscribeArgs;
+			SendMsgArgs: feature group SB_Arg_IO::SendMsgArgs;
+			
+			OutMsgs: feature group SB_Route_Table::RouteOutput;
+--			RcvMsg: feature group SB_Interface::P_RcvMsg;
+	end Service;
+
+	abstract implementation Service.impl
+		subcomponents
+			CreatePipe: abstract SB_Processor::CreatePipe;
+			DeletePipe: abstract SB_Processor::DeletePipe;
+			Subscribe: abstract SB_Processor::Subscribe;
+			Unsubscribe: abstract SB_Processor::Unsubscribe;
+			SendMsg: abstract SB_Processor::SendMsg;
+			
+			ShareData: abstract ShareData;
+		connections
+			CreatePipeArg: feature group CreatePipeArgs <-> CreatePipe.Args;
+			CreatePipeLocalData: feature group ShareData.OldPipeData -> CreatePipe.LocalDatas;
+			CreatePipeResult: feature group CreatePipe.Results -> ShareData.CreatePipeResult;
+			
+			DeletePipeArg: feature group DeletePipeArgs <-> DeletePipe.Args;
+			DeletePipeLocalData: feature group ShareData.OldPipeData -> DeletePipe.LocalDatas;
+			DeletePipeResult: feature group DeletePipe.Results -> ShareData.DeletePipeResult;
+			
+			SubscribeArg: feature group SubscribeArgs <-> Subscribe.Args;
+			SubscribeLocalData: feature group ShareData.OldRouteData -> Subscribe.LocalDatas;
+			SubscribeResult: feature group Subscribe.Results -> ShareData.SubscribeResult;
+			
+			UnsubscribeArg: feature group UnsubscribeArgs <-> Unsubscribe.Args;
+			UnsubscribeLocalData: feature group ShareData.OldRouteData -> Unsubscribe.LocalDatas;
+			UnsubscribeResult: feature group Unsubscribe.Results -> ShareData.UnsubscribeResult;
+			
+			SendMsgArg: feature group SendMsgArgs <-> SendMsg.Args;
+			SendMsgLocalData: feature group ShareData.OldRouteData -> SendMsg.LocalDatas;
+--			SendMsgResult: feature group SendMsg.Results -> ShareData.SendMsgResult;
+			SendMsgOutMsg: feature group SendMsg.OutMsgs -> OutMsgs;
+	end Service.impl;
+
+----------------ShareData can add processor result
+	abstract ShareData
+		features
+			OldPipeData: feature group SB_Base_IO::PipeOutput;
+			OldRouteData: feature group SB_Base_IO::RouteOutput;
+			CreatePipeResult: feature group SB_Result_IO::CreatePipeResult;
+			DeletePipeResult: feature group SB_Result_IO::DeletePipeResult;
+			SubscribeResult: feature group SB_Result_IO::SubscribeResult;
+			UnsubscribeResult: feature group SB_Result_IO::UnsubscribeResult;
+			SendMsgResult: feature group SB_Result_IO::SendMsgResult;
+	end ShareData;
+
+end SB_Service;

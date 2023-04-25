@@ -1,0 +1,55 @@
+package block_side_by_side::devices
+
+
+public
+
+with block_side_by_side::icd;
+--with emv2;
+--with arp4761;
+ 
+-----------------------------------
+--  Camera and Object Detection  --
+-----------------------------------
+   
+device color_sencer
+features
+	brightness_value : out data port block_side_by_side::icd::color_sencer;
+flows
+	f0 : flow source brightness_value;
+properties 
+	Period => 200ms;
+	compute_execution_time => 20 ms .. 50 ms;
+end color_sencer;
+
+device tacho_counter
+features
+	tacho_count : out data port block_side_by_side::icd::tacho_counter;
+flows
+	f0 : flow source tacho_count;
+properties 
+	Period => 200ms;
+	compute_execution_time => 20 ms .. 50 ms;
+end tacho_counter;
+
+device connected_PC
+features
+	block_NO : out data port block_side_by_side::icd::block_NO;
+flows
+	f0 : flow source block_NO;
+properties 
+	Period => 200ms;
+	compute_execution_time => 20 ms .. 50 ms;
+end connected_PC;
+
+
+device motor
+features
+	power : in data port block_side_by_side::icd::motor_power;
+flows
+	f0 : flow sink power;
+properties 
+	Period => 200ms;
+	compute_execution_time => 20 ms .. 50 ms;
+end motor;
+
+end block_side_by_side::devices;

@@ -1,0 +1,158 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::durationSys;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_outputmsg
+FEATURES
+  outmsg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_outputmsg;
+
+SUBPROGRAM IMPLEMENTATION PI_outputmsg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_outputmsg.others;
+
+SUBPROGRAM RI_inputmsg
+FEATURES
+  inmsg : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_inputmsg;
+
+SUBPROGRAM IMPLEMENTATION RI_inputmsg.others
+END RI_inputmsg.others;
+
+SYSTEM gui
+FEATURES
+  PI_outputmsg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_outputmsg.others {
+    Taste::coordinates => "118374 68597";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "outputmsg";
+  };
+  RI_inputmsg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::durationSys::PI_inputmsg.others {
+    Taste::coordinates => "118374 50263";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "inputmsg";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::durationSys
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_inputmsg
+FEATURES
+  inmsg : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_inputmsg;
+
+SUBPROGRAM IMPLEMENTATION PI_inputmsg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_inputmsg.others;
+
+SUBPROGRAM RI_outputmsg
+FEATURES
+  outmsg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_outputmsg;
+
+SUBPROGRAM IMPLEMENTATION RI_outputmsg.others
+END RI_outputmsg.others;
+
+SYSTEM durationSys
+FEATURES
+  PI_inputmsg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::durationSys::PI_inputmsg.others {
+    Taste::coordinates => "142114 50591";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "inputmsg";
+  };
+  RI_outputmsg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_outputmsg.others {
+    Taste::coordinates => "142114 68598";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "outputmsg";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END durationSys;
+
+SYSTEM IMPLEMENTATION durationSys.others
+SUBCOMPONENTS
+  sdltmr : DATA DataView::Timer {
+    Taste::FS_Default_Value => "0";
+  };
+END durationSys.others;
+
+END interfaceview::IV::durationSys;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::durationSys;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "79734 47644 118374 71876";
+  };
+  durationSys : SYSTEM interfaceview::IV::durationSys::durationSys.others {
+    Taste::coordinates => "142114 47808 180426 71548";
+  };
+CONNECTIONS
+  gui_PI_outputmsg_durationSys_RI_outputmsg : SUBPROGRAM ACCESS gui.PI_outputmsg -> durationSys.RI_outputmsg {
+    Taste::coordinates => "142114 68598 130326 68598 130326 68597 118374 68597";
+  };
+  durationSys_PI_inputmsg_gui_RI_inputmsg : SUBPROGRAM ACCESS durationSys.PI_inputmsg -> gui.RI_inputmsg {
+    Taste::coordinates => "118374 50263 130244 50263 130244 50591 142114 50591";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

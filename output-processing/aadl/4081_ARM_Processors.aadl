@@ -1,0 +1,69 @@
+package ARM_Processors
+public
+	with Memories;
+	with Processor_Properties;
+	
+  	virtual processor logical
+	end logical;
+
+	virtual processor implementation logical.core
+		properties
+			Priority_Range => 1 .. 255;
+			Scheduling_Protocol => (RMS);
+	end logical.core;
+
+	processor ARM  
+		features
+			RAM_Bus : requires bus access Memories::Memory_Bus;
+	end ARM;
+	
+	------------------------------------------------------------------------
+	-- Generic ARM implementation that is silent as to the number of cores.
+	------------------------------------------------------------------------
+	processor implementation ARM.Generic
+		subcomponents
+			L1_Cache: memory Memories::Cache_Memory {Memory_Size => 32 Kbyte;};
+			L2_Cache: memory Memories::Cache_Memory {Memory_Size => 2 Mbyte;};
+			Core0: virtual processor logical.core {Processor_Properties::Core_Id => 0;};
+			
+		properties
+			Processor_Properties::Processor_Family => ARM;
+			Processor_Properties::Endianess => Little_Endian;
+			Processor_Properties::Word_Length => 32 bits;
+			Processor_Properties::Processor_Frequency => 2 GHz;
+	end ARM.Generic;
+	
+	-----------------------------------------------------------------------
+	-- Define a representation of the Cortex A15 and A7 quad core CPUs.
+	-----------------------------------------------------------------------
+	processor implementation ARM.A15
+		subcomponents
+			L1_Cache: memory Memories::Cache_Memory {Memory_Size => 32 Kbyte;};
+			L2_Cache: memory Memories::Cache_Memory {Memory_Size => 2 Mbyte;};
+			Core0: virtual processor logical.core {Processor_Properties::Core_Id => 0;};
+			Core1: virtual processor logical.core {Processor_Properties::Core_Id => 1;};
+			Core2: virtual processor logical.core {Processor_Properties::Core_Id => 2;};
+			Core3: virtual processor logical.core {Processor_Properties::Core_Id => 3;};
+		properties
+			Processor_Properties::Processor_Family => ARM;
+			Processor_Properties::Endianess => Little_Endian;
+			Processor_Properties::Word_Length => 32 bits;
+			Processor_Properties::Processor_Frequency => 2000 MHz;
+	end ARM.A15;
+
+	processor implementation ARM.A7
+		subcomponents
+			L1_Cache: memory Memories::Cache_Memory {Memory_Size => 32 Kbyte;};
+			L2_Cache: memory Memories::Cache_Memory {Memory_Size => 512 Kbyte;};
+			Core0: virtual processor logical.core {Processor_Properties::Core_Id => 0;};
+			Core1: virtual processor logical.core {Processor_Properties::Core_Id => 1;};
+			Core2: virtual processor logical.core {Processor_Properties::Core_Id => 2;};
+			Core3: virtual processor logical.core {Processor_Properties::Core_Id => 3;};
+		properties
+			Processor_Properties::Processor_Family => ARM;
+			Processor_Properties::Endianess => Little_Endian;
+			Processor_Properties::Word_Length => 32 bits;
+			Processor_Properties::Processor_Frequency => 1400 MHz;
+	end ARM.A7;
+	
+end ARM_Processors;

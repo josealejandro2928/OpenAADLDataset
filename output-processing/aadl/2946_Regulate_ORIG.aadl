@@ -1,0 +1,810 @@
+package Regulate_ORIG
+public
+with Isolette_Data_Model, Isolette_Properties;
+
+-- ===========================================================================================================
+--
+--   R e g u l a t e    T e m p e r a t u r e    P r o c e s s
+--
+-- @description process that holds threads that regulate air temperature
+-- A.5.1 REGULATE TEMPERATURE FUNCTION
+-- 
+-- ===========================================================================================================
+process Regulate_Temperature
+  features
+  -- ===== INPUTs (monitored variables) ...based in part on Figure A.2 and Table A.5 
+  --  desired temperature range from operator interface 		
+  lower_desired_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  upper_desired_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  --  actual temperature from temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+     
+  -- ===== OUTPUTs (controlled variables)  ...based in part on Figure A.2 and Table A.6
+  -- status of regulate temperature function as reported to operator interface
+  regulator_status : out data port Isolette_Data_Model::Status;
+  -- value of current temperature to display on operator interface
+  displayed_temp : out data port Isolette_Data_Model::Temp.impl;
+  -- actuation command to heater
+  heat_control : out data port Isolette_Data_Model::On_Off;
+  
+  annex ACL
+    {**
+    	
+     computational_model -- this determines how time is treated in contracts for this component
+        hyperperiod 
+           -- probably would need reference to scheduling constraints, maybe something like this
+           with manage_regulator_interface < manage_regulator_mode < manage_heat_source 
+           -- or we need the ability to talk about the particular temporal relationships in some other way. 
+           -- Need to do a literature search on a "scheduling calculus"
+        
+      flows
+      	-- Note: do we want to specify dependences on or changes to local state ala SPARK?
+      	-- for example, we might want to reference regulator_mode (which could be presented as a spec/ghost variable)
+      	-- then refined to an actual data representation in the implementation.
+      	regulate_temperature_function: 
+      	  (lower_desired_tempWstatus, upper_desired_tempWstatus, current_tempWstatus)
+      	  -fun-> 
+      	  (regulator_status, heat_control);
+      	display_temperature_function:
+      	  current_tempWstatus // FIXME: this does not take into account control aspects (e.g., status problems)
+      	  -fun-> 
+      	  displayed_temp;
+      
+      contracts
+        -- Simple integration constraints (do we want a separate keywork for this notion?)
+        -- Use syntax similar to AGREE for port assertions (use of assume key word is different)
+        assume for current_tempWstatus  -- The "for XXX" is optional. It's redundant, but highlights the port.
+          "current temp within bounds"  : 
+               current_temp_range(current_tempWstatus.value) 
+          traceTo <SomeReqSpecReq>; -- Table A-3 in FAA REMH
+        assume for lower_desired_tempWstatus
+          "lower desired temp within bounds" :
+                lower_desired_temp_range(lower_desired_tempWstatus.value)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+        assume for upper_desired_tempWstatus
+          "upper desired temp within bounds" :
+                upper_desired_temp_range(upper_desired_tempWstatus.value)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+        assume for lower_desired_tempWstatus and upper_desired_tempWstatus
+           "lower desired does not exceed upper desired"
+           -- illustrate direct incorporate of constraints
+           lower_desired_tempWstatus.value <= upper_desired_tempWstatus.value;
+           -- illustrate omitting "traceTo"
+        guarantee for displayed_temp
+           "displayed temp in range"
+           displayed_temp_range(temp: Temp);
+        
+        -- Functional/Relational constraints
+        -- specifying full functional behavior is complicated, delay this for now.
+        -- Just illustrate a few simple relational predicates
+        guarantee
+           -- Note: This notation takes into account the notation of computation. In particular,
+           -- for a periodic computational model, 
+           -- references to the output ports indicate the values of those ports at 
+           -- the end of hyper-period.  Similarly for updates to exposed state.
+           -- The semantics for time is very conjectured now.  Need to work out the details,
+           -- but the issue is popping up immediately.
+           "bad status values lead to failure in normal mode"
+            (regulator_mode@begin == Regulator_Mode.Init)   
+            -- using Slang syntax here for enumerated
+            -- refer to regulator mode at the beginning of hyper-period  
+            and not all_temp_status_valid()
+            ) implies  (regulator_status == Status.Failed -- using Slang syntax here
+            	    and regulator_mode@end == Regulator_Mode.Failed)
+       
+         -- The following are requirements that the REMH allocates to the Manage Heat Source
+         -- thread but would be bubble up and get exposed here (slightly altered to refer to the
+         -- abstract notion of mode here).  We should think about it it is 
+         -- possible to avoid stating them twice -- perhaps by defining a logical predicate     
+           // REQ-MHS-1: If the Regulator Mode is INIT, the Heat Control shall be
+           // set to Off.
+
+    -- // REQ-MHS-2: If the Regulator Mode is NORMAL and the Current Temperature is less than
+    -- // the Lower Desired Temperature, the Heat Control shall be set to On.
+        guarantee
+           "turn heat on"
+            regulator_mode@end = Regulator_Mode.Normal and 
+            (current_tempWstatus.value < lower_desired_tempWstatus.value)
+            implies heat_control == On_Off.On;
+           
+    -- // REQ-MHS-3: If the Regulator Mode is NORMAL and the Current Temperature is greater than
+    -- // the Upper Desired Temperature, the Heat Control shall be set to Off.
+        guarantee
+           "turn heat off"
+            regulator_mode@end = Regulator_Mode.Normal and 
+            (current_tempWstatus.value < lower_desired_tempWstatus.value)
+            implies heat_control == On_Off.Off;
+            
+    -- // REQ-MHS-4: If the Regulator Mode is NORMAL and the Current
+    -- // Temperature is greater than or equal to the Lower Desired Temperature
+    -- // and less than or equal to the Upper Desired Temperature, the value of
+    -- // the Heat Control shall not be changed.
+    -- Note: The "shall not be changed" means that we need to be able to refer to the 
+    -- value of the output port in the previous hyperperiod.  Or we need to introduce
+    -- a ghost variable or true local state to hold the value of the previous heater command
+    -- and we must be able to refer to the value of that state/variable in the previous hyper-period
+       --- **** TBD ****
+
+    // REQ-MHS-5: If the Regulator Mode is FAILED, the Heat Control shall be
+    // set to Off.
+       --- **** TBD ****
+          
+      state -- (possibly abstracted) notions of state that apply to this component
+            -- based on SPARK notion of abstracted state.  This information needs to 
+            -- be exposed to state functional/relational contracts and invariants
+         regulator_mode_spec: Isolette_Data_Model.Regulator_Mode;
+            -- TODO: need to be able to reference a type.  We could allow abstract types
+            -- with refinement rules (similar to SPARK but typed).  In the refinement,
+            -- we would also need to indicate where this state lives (in the Regulate subsystem
+            -- it lives in the Manage_Regulator_Mode component).
+            -- The Manage_Regulator_Mode also has a spec variable for the mode representing it's 
+            -- view of the mode.  I believe that something should be done at the Regulate component
+            -- level as part of the "integration" reasoning to relate the mode spec var (including
+            -- time perspective) of the Regulate component to the mode spec var of the 
+            -- Manage_Regulator_Mode component.
+    
+         
+      invariants
+      
+      defs // propositional and first order predicates
+         -- these would probably be in a library somewhere associated with the system data
+         -- model or the subsystem/process data model. Alternately, we should allow
+         -- such predicates to be attached to types.
+         -- Many such predicates need to be shared between Alisa and Slang 
+         -- see Table A-3 in FAA REMH
+         current_temp_range(temp: Temp) = temp >= 68.0 and temp <= 105.0
+         -- see Table A-5 in FAA          
+         lower_desired_temp_range(temp: Temp) = temp >= 97.0 and temp <= 99.0;
+         upper_desired_temp_range(temp: Temp) = temp >= 98.0 and temp <= 100.0;
+         -- see Table A-5 in FAA 
+         lower_alarm_temp_range(temp: Temp) = temp >= 93.0 and temp <= 98.0;
+         upper_alarm_temp_range(temp: Temp) = temp >= 98.0 and temp <= 103.0;
+         -- see Table A-6 in FAA REMH
+         displayed_temp_range(temp: Temp) = temp >= 68.0 and temp <= 105.00;
+            
+         // helper predicates for this component.  These would be defined here or in a predicate file for this component.
+         all_temp_status_valid() = (current_tempWstatus.status == ValueStatus.Valid and 
+            	                      lower_desired_tempWstatus.status == ValueStatus.Valid and 
+            	                      upper_desired_tempWstatus.status == ValueStatus.Valid)
+         //            	                      
+         regulator_status(interface_failure, internal_failure, current_tempWstatus) =  -- need to add types to parameters
+            (!(interface_failure or internal_failure)
+             and (current_tempWstatus.status == Isolette_Data_Model.ValueStatus.Valid))
+    **};
+end Regulate_Temperature;
+ 
+--@description process implementation that holds threads that regulate air temperature
+process implementation Regulate_Temperature.impl
+subcomponents
+--thread to manage the interactions between with operator interface and the rest of the regulator process
+  manage_regulator_interface : thread Manage_Regulator_Interface.impl;
+-- thread to manage the heat source.  Receives the desired range, current determine, and determines whether or not to
+--send an on/off command to the heat source
+  manage_heat_source : thread manage_heat_source.impl;
+--thread to manage the regular mode. Based inputs describing the failure status of the interface, subsystem internals,
+--and temperature  status,  determines the mode of the regulator process (i.e., if the mode is Init, Normal, or Failed modes)
+  manage_regulator_mode : thread manage_regulator_mode.impl;
+
+connections
+  -- ==== INPUT INTERFACE values to internal components ==== 		
+  -- send incoming desired temperature range to regulator interface manager
+  rudt : port upper_desired_tempWstatus -> manage_regulator_interface.upper_desired_tempWstatus;
+  rldt : port lower_desired_tempWstatus -> manage_regulator_interface.lower_desired_tempWstatus;
+
+  -- send incoming current temperature (with status value)
+  --   ...to interface manager
+  rcti : port current_tempWstatus -> manage_regulator_interface.current_tempWstatus;   
+  --   ...and to heat source manager
+  rcth : port current_tempWstatus -> manage_heat_source.current_tempWstatus;
+  --   ...and to mode manager
+  rctm : port current_tempWstatus -> manage_regulator_mode.current_tempWstatus;
+   
+  -- ==== OUTPUT INTERFACE values from internal components ==== 
+  -- output temperature to display on operator interface
+  rdt : port manage_regulator_interface.displayed_temp -> displayed_temp;  
+  -- output regulator subsystem status to operator interface  
+  rrs : port manage_regulator_interface.regulator_status -> regulator_status;
+  -- output on/off command to heat source
+  rhc : port manage_heat_source.heat_control -> heat_control;
+  
+  -- ==== INTERNAL communication ====
+-- send validated desired temperature from interface manager to heat source manager
+  mudt : port manage_regulator_interface.upper_desired_temp -> manage_heat_source.upper_desired_temp;
+  mldt : port manage_regulator_interface.lower_desired_temp -> manage_heat_source.lower_desired_temp;
+  
+-- send regulator mode from mode manager 
+--  ... to interface manager
+  rrmi : port manage_regulator_mode.regulator_mode -> manage_regulator_interface.regulator_mode;
+--  ... and to heat source manager
+  rrmh : port manage_regulator_mode.regulator_mode -> manage_heat_source.regulator_mode;
+
+-- send regulator interface failure to mode manager
+  rif : port manage_regulator_interface.interface_failure -> manage_regulator_mode.interface_failure;
+end Regulate_Temperature.impl;
+
+
+-- ===========================================================================================================
+--
+--   M a n a g e    R e g u l a t o r   I n t e r f a c e   T h r e a d
+--
+--  
+-- A.5.1.1 Manage Regulator Interface Function
+-- 
+-- ===========================================================================================================
+
+thread Manage_Regulator_Interface
+  features
+  -- ==== INPUTS ====	(see Figure A.3)
+  --  desired temperature from operator interface
+  upper_desired_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  lower_desired_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- current temperature from temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- current mode of regulator subsystem
+  regulator_mode : in data port Isolette_Data_Model::Regulator_Mode;
+  
+  -- ==== OUTPUTS ====	(see Figure A.3)
+  -- validated ("valid" status confirmed) desired temperature range from operator interface
+  upper_desired_temp: out data port Isolette_Data_Model::Temp.impl;
+  lower_desired_temp: out data port Isolette_Data_Model::Temp.impl;
+  -- current temperature to display on operator interface
+  displayed_temp : out data port Isolette_Data_Model::Temp.impl;
+  -- overall status of regulator subsystem sent to operator interface
+  regulator_status : out data port Isolette_Data_Model::Status;
+  -- flag indicating improper inputs; sent to determine overall subsystem mode 
+  interface_failure : out data port Isolette_Data_Model::Failure_Flag.impl;
+  
+  flows
+	  -- JMH would like the following syntax (stuff in comment) with the name being optional 
+	  -- manage_heat_source_function: flow path current_tempWstatus, lower_desired_temp, upper_desired_temp -> regulator_mode;	
+	  
+	  -- desired temps function
+	  mri_dt1: flow path upper_desired_tempWstatus -> upper_desired_temp;	
+	  -- these two flows are independent 
+	  mri_dt2: flow path lower_desired_tempWstatus -> lower_desired_temp;
+	  
+	  -- displayed temp function
+	  -- data dependence
+      mri_dspt1: flow path current_tempWstatus -> displayed_temp;
+      -- control dependence
+      mri_dspt2: flow path regulator_mode -> displayed_temp;
+      -- uncaptured at the moment is the notion (from reqs) that if
+      -- regulator mode is init or failed, then the display_temp is
+      -- unspecified.
+      
+      -- regulator status function 	
+	  mri_rs: flow path regulator_mode -> regulator_status;
+	  
+	  -- interface failure function 	
+	  mri_if1: flow path upper_desired_tempWstatus -> interface_failure;
+      mri_if2: flow path lower_desired_tempWstatus -> interface_failure;
+       
+ properties
+--the data type for this project is set to periodic interval
+	--Dispatch_Protocol => Timed;
+	Dispatch_Protocol => Periodic;
+	Period => Isolette_Properties::ThreadPeriod;
+	
+	Stack_Size => Isolette_Properties::StackSize; 
+end Manage_Regulator_Interface;
+
+thread implementation Manage_Regulator_Interface.impl
+	      
+	annex ACL
+    {**
+    	
+     computational_model -- this determines how time is treated in contracts for this component
+        periodic;
+        
+      flows
+      	-- Note: do we want to specify dependences on or changes to local state ala SPARK?
+      
+	  validate_desired_temps_function: 
+	     flow path (upper_desired_tempWstatus, lower_desired_tempWstatus) 
+	                  =fun=> (upper_desired_tempWstatus, lower_desired_tempWstatus);	
+	  -- the pairing and "=>" symbol above indicate that these two flow are pairwise independent
+	  
+	  
+	  -- displayed temp function
+	  display_temp_function: flow path current_tempWstatus [d], regulator_mode [c] -fun-> displayed_temp;
+	  -- the notation above (optional "[d]" and "[c]" ) indicates whether or not there is a 
+	  -- data or control dependence on the inputs
+      -- uncaptured at the moment is the notion (from reqs) that if
+      -- regulator mode is init or failed, then the display_temp is
+      -- unspecified.
+      
+      -- regulator status function 	
+	  regulator_status_function: flow path regulator_mode -fun-> regulator_status;
+	  
+	  -- interface failure function 	
+	  interface_failure_function: flow path upper_desired_tempWstatus, lower_desired_tempWstatus -fun-> interface_failure;
+      
+       
+      contracts
+        -- ======  I n t e g r a t i o n   D a t a    C o n s t r a i n t s =====
+        -- Simple integration constraints (do we want a separate keywork for this notion?)
+        -- These properties are like invariants on ports.  They always hold regardless of temporal issues.
+        -- And they should probably hold regardless of what entry point is used.
+        -- Use syntax similar to AGREE for port assertions (extend to include notion of "for xxx" and "traceTo")
+        assume for current_tempWstatus  -- The "for XXX" is optional. It's redundant, but highlights the port.
+          "current temp within bounds"  : 
+               Isolette_Data_Model.current_temp_range(current_tempWstatus.value) 
+          traceTo <SomeReqSpecReq>; -- Table A-3 in FAA REMH
+               -- PF-Q
+        assume for lower_desired_tempWstatus
+          "lower desired temp within bounds" :
+               Isolette_Data_Model.lower_desired_temp_range(lower_desired_tempWstatus.value)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+               -- PF-Q
+        assume for upper_desired_tempWstatus
+          "upper desired temp within bounds" :
+               Isolette_Data_Model.upper_desired_temp_range(upper_desired_tempWstatus.value)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+               -- PF-Q
+        assume for lower_desired_tempWstatus and upper_desired_tempWstatus
+           "lower desired does not exceed upper desired"
+           -- illustrate direct incorporate of constraints
+           lower_desired_tempWstatus.value <= upper_desired_tempWstatus.value;
+           -- illustrate omitting "traceTo"
+        
+        guarantee for lower_desired_temp:
+           "lower desired temp within bounds" :
+               Isolette_Data_Model.lower_desired_temp_range(lower_desired_temp);
+        
+        guarantee for upper_desired_temp:
+           "upper desired temp within bounds" :
+               Isolette_Data_Model.upper_desired_temp_range(upper_desired_temp);
+        
+        guarantee for lower_desired_temp and upper_desired_temp
+           "lower desired does not exceed upper desired"
+           -- illustrate direct incorporate of constraints
+           lower_desired_temp <= upper_desired_temp;
+           
+        guarantee for display_temp:
+           "display temperature within bounds" :
+            Isolette_Data_Model.displayed_temp_range(display_temp);
+
+   
+    
+   
+    // == Desired Range ===
+    //
+    // REQ-MRI-8: If the Regulator Interface Failure is False,
+    // the Desired Range shall be set to the Desired Temperature Range.
+    //
+    // REQ-MRI-9: If the Regulator Interface Failure is True,
+    // the Desired Range is UNSPECIFIED.
+              
+        -- ======  I n i t     C o n s t r a i n t s =====
+    -- // REQ-MRI-1: If the Regulator Mode is INIT,
+    -- //   the Regulator Status shall be set to Init.
+        guarantee init for regulator_status:
+           "Regulator Status is initially INIT"
+            regulator_status == Isolette_Data_Model::Status.Init; -- status output port is initialized to Init
+
+        -- Even though this is not specified in FAA REMH requirements, every output port needs to be initialized.
+        -- This is not something that can be enforced at the AADL, other than saying that the initial
+        -- value of a port satisfies the integration invariant.
+        -- At the Slang level, we should have a implicit VC that in the init entry point, every out port 
+        -- is given an initial value.
+        -- 
+        -- initialization is enforced for
+        -- 
+        --   upper_desired_temp
+        --   lower_desired_temp
+        --   displayed_temp
+        --   regulator_status
+        --   interface_failure 
+ 
+        -- The above approach will lead to the following requirement being satisfied.
+ 
+        -- // REQ-MRI-5:
+        -- //  If the Regulator Mode is not NORMAL,
+        -- //  the value of the Display Temperature is UNSPECIFIED.
+        -- //
+ 
+        -- ======  C o m p u t e     C o n s t r a i n t s =====
+        -- Note: This notation takes into account the notation of computation. In particular,
+        -- for a periodic computational model, 
+        -- references to the output ports indicate the values of those ports at 
+        -- the end of the **period** (as declared in the computational mode above).  
+        -- Similarly for updates to exposed state.
+        -- The semantics for time is very conjectured now.  Need to work out the details,
+        -- but the issue is popping up immediately.
+        
+        --  == Regulator Status ==
+        --
+        -- // REQ-MRI-1: If the Regulator Mode is INIT,
+        -- //   the Regulator Status shall be set to Init.
+        -- // REQ-MRI-2: If the Regulator Mode is NORMAL,
+        -- //   the Regulator Status shall be set to On.
+        -- // REQ-MRI-3: If the Regulator Mode is FAILED,
+        -- //   the Regulator Status shall be set to Failed.
+        -- 
+        -- Note we may want to use some sort of contract notation here
+        -- to indicate an exhaustive coverage of the regulator mode.
+        guarantee compute for regulator_status:
+           "Reg. Status. Initialization"
+            (regulator_mode = Isolette_Data_Model::Regulator_Mode.Init
+              implies regulator_status == Isolette_Data_Model::Status.Init);
+        guarantee compute for regulator_status:
+           "Reg. Status Normal/On"
+            (regulator_mode = Isolette_Data_Model::Regulator_Mode.Normal
+              implies regulator_status == Isolette_Data_Model::Status.On);
+        guarantee compute for regulator_status:
+           "Reg. Status Failed"
+            (regulator_mode = Isolette_Data_Model::Regulator_Mode.Failed
+              implies regulator_status == Isolette_Data_Model::Status.Failed);
+             
+        -- // == Display Temperature ==
+        -- 
+        -- //
+        -- // REQ-MRI-4: If the Regulator Mode is NORMAL, the
+        -- //  Display Temperature shall be set to the value of the
+        -- //  Current Temperature rounded to the nearest integer.
+        -- //
+        
+        guarantee compute for display_temp:
+           "Normal Display Temperature"
+            regulator_mode = Isolette_Data_Model::Regulator_Mode.Normal
+              implies display_temp == ROUND(current_tempWstatus.value);
+        -- assuming some function "ROUND"
+        
+        -- // REQ-MRI-5:
+        -- //  If the Regulator Mode is not NORMAL,
+        -- //  the value of the Display Temperature is UNSPECIFIED.
+        -- //
+ 
+        -- I assume that there is nothing to do to satisfy the requirement above.
+        
+        -- // == Regulator Interface Failure ==
+        -- //
+        -- // REQ-MRI-6: If the Status attribute of the Lower Desired Temperature
+        -- // or the Upper Desired Temperature is Invalid,
+        -- // the Regulator Interface Failure shall be set to True.
+        -- //
+        -- // REQ-MRI-7: If the Status attribute of the Lower Desired Temperature
+        -- // and the Upper Desired Temperature is Valid,
+        -- // the Regulator Interface Failure shall be set to False.
+        -- //
+            
+        guarantee compute for regulate_interface_failure:
+           "Regulate Interface Failure"
+           ((!(upper_desired_tempWstatus.status == Isolette_Data_Model.ValueStatus.Valid) or 
+            !(lower_desired_tempWstatus.status == Isolette_Data_Model.ValueStatus.Valid)) 
+              implies regulate_interface_failure = true
+            upper_desired_tempWstatus.status = regulator_mode = Isolette_Data_Model::Regulator_Mode.Normal
+              implies regulate_interface_failure == true) and
+           ((upper_desired_tempWstatus.status == Isolette_Data_Model.ValueStatus.Valid and 
+            lower_desired_tempWstatus.status == Isolette_Data_Model.ValueStatus.Valid) 
+              implies regulate_interface_failure = false);
+            
+        -- // == Desired Range ===
+        -- //
+        -- // REQ-MRI-8: If the Regulator Interface Failure is False,
+        -- // the Desired Range shall be set to the Desired Temperature Range.
+        -- //
+       
+           guarantee compute for upper_desired_temp:
+           "Set valid upper desired temperature range"
+           regulate_interface_failure == false
+           implies upper_desired_temp = upper_desired_tempWstatus.value;
+           
+           guarantee compute for lower_desired_temp:
+           "Set valid lower desired temperature range"
+           regulate_interface_failure == false
+           implies lower_desired_temp = lower_desired_tempWstatus.value;
+          
+           -- // REQ-MRI-9: If the Regulator Interface Failure is True,
+           -- // the Desired Range is UNSPECIFIED.
+           
+           -- Nothing to say for this one
+        
+      state 
+         -- no exposed state for this component
+         
+      invariants
+         -- no invariants
+      
+      defs 
+         -- no defs
+
+    **};
+
+end Manage_Regulator_Interface.impl;
+
+-- ===========================================================================================================
+--
+--   M a n a g e    R e g u l a t o r   M o d e   T h r e a d
+--
+--  
+--   A.5.1.2 Manage Regulator Mode Function
+-- 
+-- ===========================================================================================================
+
+thread Manage_Regulator_Mode
+  features
+  -- ==== INPUTS ========		
+  -- current temperature from temp sensor
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+  -- status of operator interface interactions
+  interface_failure : in data port Isolette_Data_Model::Failure_Flag.impl;
+  -- internal status of regulator
+  internal_failure : in data port Isolette_Data_Model::Failure_Flag.impl;
+  
+  -- ==== OUTPUTS ========		
+  -- mode of regulator (Init, Normal, Failed)
+  regulator_mode : out data port Isolette_Data_Model::Regulator_Mode;
+
+properties
+--the time protocol is set to periodic for this project
+	--Dispatch_Protocol => Timed;
+	Dispatch_Protocol => Periodic;
+	Period => Isolette_Properties::ThreadPeriod;
+	
+	Stack_Size => Isolette_Properties::StackSize;  
+
+end Manage_Regulator_Mode;
+
+thread implementation Manage_Regulator_Mode.impl
+annex ACL
+    {**
+    	
+     computational_model -- this determines how time is treated in contracts for this component
+        periodic;
+        
+      flows
+      	-- Note: do we want to specify dependences on or changes to local state ala SPARK?
+      	-- for example, we might want to reference regulator_mode (which could be presented as a spec/ghost variable)
+      	-- then refined to an actual data representation in the implementation.
+      	manage_regulator_mode_function: 
+      	  (current_tempWstatus, interface_failure, internal_failure)
+      	  -fun- Regulator.regulator_mode_spec ->  
+      	  -- this component modifies the mode spec variable declared for the encapsulating component.
+      	  -- This could be accounted for in a "modifies" notation as I have suggested above with its placement
+      	  -- in the middle of the arrow.  Or it could be presented in the flow outputs in the line below.    
+      	  regulator_mode;
+       
+      contracts
+        -- ======  I n t e g r a t i o n   D a t a    C o n s t r a i n t s =====
+        -- Simple integration constraints (do we want a separate keywork for this notion?)
+        -- These properties are like invariants on ports.  They always hold regardless of temporal issues.
+        -- Use syntax similar to AGREE for port assertions (extend to include notion of "for xxx" and "traceTo")
+        assume for current_tempWstatus  -- The "for XXX" is optional. It's redundant, but highlights the port.
+          "current temp within bounds"  : 
+               Isolette_Data_Model.current_temp_range(current_tempWstatus.value) 
+          traceTo <SomeReqSpecReq>; -- Table A-3 in FAA REMH
+               -- PF-Q where do I trace to in Alisa material
+       
+        -- ======  I n i t     C o n s t r a i n t s =====
+         -- // REQ-MRM-1: Upon the first dispatch of the thread, the regulator mode is Init.
+        init -- this could be "init guarantee" or "guarantee init" keyword
+           "Init is initial mode"
+            regulator_mode = Regulator_Mode.Init and -- output port is initialized to Init
+            Regulate.regulate_mode_spec = Regulator_Mode.Init; -- Regulate component spec var is set to Init                       
+            
+ 
+        -- ======  C o m p u t e     C o n s t r a i n t s =====
+        -- Note: This notation takes into account the notation of computation. In particular,
+        -- for a periodic computational model, 
+        -- references to the output ports indicate the values of those ports at 
+        -- the end of the **period** (as declared in the computational mode above).  
+        
+        -- // REQ-MRM-2: If the current regulator mode is Init, then
+        -- //   the regulator mode is set to NORMAL iff the regulator status is valid (see Table A-10), i.e.,
+        -- //     if  NOT (Regulator Interface Failure OR Regulator Internal Failure)
+        -- //         AND Current Temperature.Status = Valid
+        guarantee
+           "transition from Init to Normal"
+            Regulate.regulate_mode_spec^(current-1) == Regulator_Mode.Init and 
+            Regulate.regulator_status(interface_failure, internal_failure, current_tempWstatus)
+            implies (Regulate.regulate_mode_spec^(current) == Regulator_Mode.Normal and  -- constrain mode spec variable 
+                     regulator_mode == Regulator_Mode.Normal)                            -- constraint output port
+                     
+        -- // REQ-MRM-3: If the current regulator mode is Init, then
+        -- //     the regulator mode is set to Failed iff the time during
+        -- //     which the thread has been in Init mode exceeds the
+        -- //     Regulator Init Timeout value
+        -- guarantee
+           -- "transition from Init to Failed"
+           -- TODO: this requirement omitted from now.
+           -- There are several ways to approach this
+           --  (1) have a physical time value as exposed state and update that state each time the 
+           --      thread completes yet still in init mode.
+           --  (2) count the number of invocations of the thread while in init mode.  Then in a separate
+           --      calculation, associate the number of invocations to a physical time based on the thread's
+           --      period
+            
+        -- // REQ-MRM-4: If the current regulator mode is Normal, then
+        -- //     the regulator mode is set to Failed iff
+        -- //     the regulator status is false, i.e.,
+        -- //       if  (Regulator Interface Failure OR Regulator Internal Failure)
+        -- //           OR NOT(Current Temperature.Status = Valid)
+        guarantee
+           "transition from Normal to Failed"
+            Regulate.regulate_mode_spec^(current-1) == Regulator_Mode.Normal and 
+            !Regulate.regulator_status(interface_failure, internal_failure, current_tempWstatus)
+            implies (Regulate.regulate_mode_spec^(current) == Regulator_Mode.Failed and  -- constrain mode spec variable 
+                     regulator_mode == Regulator_Mode.Failed);                           -- constraint output port
+            -- in the above, the "current" is an implicitly universally quantified over the period count
+            -- We could just say "old", but I think it is very likely that we need the power of the period
+            -- count anyway to refer to the timing relationships between threads.
+            -- BLESS has a simple version of this, but other literature needs to be investigated.
+            -- Check the BLESS syntax.  We may not even need to say "current".  It may be the case that ^-1 is 
+            -- sufficient.
+            
+      state 
+          regulator_mode_spec: Isolette_Data_Model.Regulator_Mode;
+         
+      invariants
+         -- no invariants
+      
+      defs 
+         -- no defs
+
+    **};
+
+end Manage_Regulator_Mode.impl;
+
+-- ===========================================================================================================
+--
+--   M a n a g e    H e a t    S o u r c e     T h r e a d
+--
+--  
+--    A.5.1.3 Manage Heat Source Function
+-- 
+-- ===========================================================================================================
+
+thread Manage_Heat_Source
+features
+-- ======== INPUTS =======
+-- current temperature (from temp sensor)
+  current_tempWstatus : in data port Isolette_Data_Model::TempWstatus.impl;
+-- lowest and upper bound of desired temperature range
+  lower_desired_temp : in data port Isolette_Data_Model::Temp.impl;
+  upper_desired_temp : in data port Isolette_Data_Model::Temp.impl;
+-- subsystem mode 
+  regulator_mode : in data port Isolette_Data_Model::Regulator_Mode;
+    
+-- ======== OUTPUTS =======
+-- command to turn heater on/off (actuation command)
+  heat_control : out data port Isolette_Data_Model::On_Off;
+  
+
+  
+	flows
+	  -- JMH would like the following syntax (stuff in comment) with the name being optional 
+	  -- manage_heat_source_function: flow path current_tempWstatus, lower_desired_temp, upper_desired_temp -> regulator_mode;	
+	  
+	  mhs_fp1: flow path current_tempWstatus -> heat_control;	
+	  mhs_fp2: flow path lower_desired_temp -> heat_control;	
+	  mhs_fp3: flow path upper_desired_temp -> heat_control;
+      mhs_fp4: flow path regulator_mode -> heat_control;		  	
+	
+	properties
+  Dispatch_Protocol => Periodic;
+  Period => Isolette_Properties::ThreadPeriod;
+  
+	Stack_Size => Isolette_Properties::StackSize; 
+end Manage_Heat_Source;
+
+thread implementation Manage_Heat_Source.impl
+  annex ACL
+    {**
+    	
+     computational_model -- this determines how time is treated in contracts for this component
+        periodic;
+        
+      flows
+      	-- Note: do we want to specify dependences on or changes to local state ala SPARK?
+      	-- for example, we might want to reference regulator_mode (which could be presented as a spec/ghost variable)
+      	-- then refined to an actual data representation in the implementation.
+      	manage_heat_source_function: 
+      	  (current_tempWstatus, lower_desired_temp, upper_desired_temp)
+      	  -fun-> 
+      	  heat_control;
+       
+      contracts
+        -- ======  I n t e g r a t i o n   D a t a    C o n s t r a i n t s =====
+        -- Simple integration constraints (do we want a separate keywork for this notion?)
+        -- These properties are like invariants on ports.  They always hold regardless of temporal issues.
+        -- Use syntax similar to AGREE for port assertions (extend to include notion of "for xxx" and "traceTo")
+        assume for current_tempWstatus  -- The "for XXX" is optional. It's redundant, but highlights the port.
+          "current temp within bounds"  : 
+               Isolette_Data_Model.current_temp_range(current_tempWstatus.value) 
+          traceTo <SomeReqSpecReq>; -- Table A-3 in FAA REMH
+               -- PF-Q
+        assume for lower_desired_temp
+          "lower desired temp within bounds" :
+               Isolette_Data_Model.lower_desired_temp_range(lower_desired_temp)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+               -- PF-Q
+        assume for upper_desired_temp
+          "upper desired temp within bounds" :
+               Isolette_Data_Model.upper_desired_temp_range(upper_desired_temp)
+          traceTo <SomeReqSpecReq>; -- Table A-5 in FAA REMH
+               -- PF-Q
+        assume for lower_desired_temp and upper_desired_temp
+           "lower desired does not exceed upper desired"
+           -- illustrate direct incorporate of constraints
+           lower_desired_temp <= upper_desired_temp;
+           -- illustrate omitting "traceTo"
+        
+        -- ======  I n i t     C o n s t r a i n t s =====
+        -- // REQ-MHS-1: If the Regulator Mode is INIT, the Heat Control shall be
+        -- // set to Off.
+        guarantee init -- this could be "init guarantee" or "guarantee init" keyword
+           "Heat source is initially off"
+            heat_control == On_Off.Off; -- heat_control output port is initialized to Off
+            
+        -- ======  C o m p u t e     C o n s t r a i n t s =====
+        -- Note: This notation takes into account the notation of computation. In particular,
+        -- for a periodic computational model, 
+        -- references to the output ports indicate the values of those ports at 
+        -- the end of the **period** (as declared in the computational mode above).  
+        -- Similarly for updates to exposed state.
+        -- The semantics for time is very conjectured now.  Need to work out the details,
+        -- but the issue is popping up immediately.
+        -- // REQ-MHS-1: If the Regulator Mode is INIT, the Heat Control shall be
+        -- // set to Off.
+        guarantee compute-- this could be "compute" keyword
+           "heat off when initializing"
+            regulator_mode = Regulator_Mode.Init
+            implies heat_control == On_Off.Off;
+
+        -- // REQ-MHS-2: If the Regulator Mode is NORMAL and the Current Temperature is less than
+        -- // the Lower Desired Temperature, the Heat Control shall be set to On.
+        guarantee
+           "turn heat on"
+            regulator_mode = Regulator_Mode.Normal and 
+            (current_tempWstatus.value < lower_desired_temp)
+            implies heat_control == On_Off.On;
+           
+        -- // REQ-MHS-3: If the Regulator Mode is NORMAL and the Current Temperature is greater than
+        -- // the Upper Desired Temperature, the Heat Control shall be set to Off.
+        guarantee // Peter says add label: req-mhs-3
+           "turn heat off"
+            regulator_mode@end = Regulator_Mode.Normal and   -- why did I have "@end"
+            (current_tempWstatus.value > upper_desired_temp)  
+            implies heat_control == On_Off.Off;
+            
+        -- // REQ-MHS-4: If the Regulator Mode is NORMAL and the Current
+        -- // Temperature is greater than or equal to the Lower Desired Temperature
+        -- // and less than or equal to the Upper Desired Temperature, the value of
+        -- // the Heat Control shall not be changed.
+        -- Note: The "shall not be changed" means that we need to be able to refer to the 
+        -- value of the output port in the previous hyperperiod.  Or we need to introduce
+        -- a ghost variable or true local state to hold the value of the previous heater command
+        -- and we must be able to refer to the value of that state/variable in the previous hyper-period
+        guarantee
+           "don't change heat"
+            regulator_mode@end = Regulator_Mode.Normal and 
+            (current_tempWstatus.value >= lower_desired_temp and 
+             current_tempWstatus.value <= upper_desired_temp)
+            implies heat_control^current == heat_control^(current-1);
+            -- in the above, the "current" is an implicitly universally quantified over the period count
+            -- We could just say "old", but I think it is very likely that we need the power of the period
+            -- count anyway to refer to the timing relationships between threads.
+            -- BLESS has a simple version of this, but other literature needs to be investigated
+
+        // REQ-MHS-5: If the Regulator Mode is FAILED, the Heat Control shall be
+        // set to Off.
+        guarantee
+           "heat off when failed"
+            regulator_mode = Regulator_Mode.Failed
+            implies heat_control == On_Off.Off
+            
+      state 
+         -- no exposed state for this component
+         
+      invariants
+         -- no invariants
+      
+      defs 
+         -- no defs
+
+    **};
+
+end Manage_Heat_Source.impl;
+
+end Regulate_ORIG;

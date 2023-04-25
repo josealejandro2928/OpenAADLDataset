@@ -1,0 +1,35 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package process_package
+public
+	with Deployment;
+	with DataView;
+	with interfaceview::IV;
+	with deploymentview::DV;
+	with ocarina_processors_leon;
+	with function1_CV_Thread;
+
+process leon_partition extends deploymentview::DV::node1::leon_partition
+end leon_partition;
+
+process implementation leon_partition.final
+subcomponents
+	function1 : thread function1_CV_Thread::function1_function1.others;
+end leon_partition.final;
+
+system deploymentview
+end deploymentview;
+
+system implementation deploymentview.final
+subcomponents
+  leon_partition: process leon_partition.final;
+  node1_leon_rtems_cv : processor ocarina_processors_leon::leon.rtems;
+properties
+  Actual_Processor_Binding => (reference (node1_leon_rtems_cv)) applies to leon_partition;
+end deploymentview.final;
+end process_package;
+
+-- deploymentview.final

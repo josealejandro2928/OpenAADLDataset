@@ -1,0 +1,14 @@
+activity agilent-one-color-microarray-normalization {
+    on {
+        dataset raw-files : "text/tsv" [1,-1];
+    }
+    produces {
+        dataset output : "text/tsv" [1,1];
+    }
+    using executable "geas-agilent-1-color-microarray-norm.R" {
+        commandLineTemplate [
+            dataset raw-files,
+            dataset output
+        ]
+    }
+}

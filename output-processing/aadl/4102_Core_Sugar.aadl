@@ -1,0 +1,22 @@
+package Core_Sugar
+public
+	with SB_Interface;
+
+	feature group MsgInput
+		features
+			a: feature group SB_Interface::P_SendMsg;
+	end MsgInput;
+
+	feature group MsgOutput
+		features
+			a: feature group SB_Interface::R_SendMsg;
+	inverse of MsgInput
+	end MsgOutput;
+	
+--------------------transform connection between component and subcomponent to subcomponent and subcomponent
+	abstract Medium
+		features
+			MsgInput: feature group MsgInput;
+			MsgOutput: feature group MsgOutput;
+	end Medium;
+end Core_Sugar;

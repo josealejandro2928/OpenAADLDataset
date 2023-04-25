@@ -1,0 +1,77 @@
+package Vehicle_Management_Computer
+public
+	with Buses; renames Buses::all;
+	with Single_Board_Computer;
+	with Zeroize_UxAS;
+	
+	--------------------------------------------------------------------------------------------------------
+	-- VMC defined by the methods it communicates with devices aboard the UAV (serial, USB, etc.),
+	-- and the data it communicates with each.
+	--------------------------------------------------------------------------------------------------------
+	system VMC
+		features
+			Engine_IO : feature group;
+			AP_IO : feature group;
+			EO_IR_IO : feature group;
+			EO_IR_Video : feature group;
+			Controller_IO : feature group;
+	end VMC;
+	
+	---------------------------------------------------------------------------------------------------------
+	-- In future refinements the implementation of the VMC could include processing elements (e.g. hardware)
+	-- and software elements (threads and processes).
+	---------------------------------------------------------------------------------------------------------
+	system implementation VMC.impl
+		subcomponents
+			SBC: system Single_Board_Computer::ODROID.XU4;
+			SW: process Zeroize_UxAS::Waterways.Zeroize;
+			Ethernet :  bus  Ethernet.impl;
+			Serial_1 :  bus  Serial;
+			Serial_2 :  bus  Serial;
+			USB_1    :  bus  USB.Two;
+			USB_2    :  bus  USB.Three;
+			M1553B   :  bus  MIL_1553B;			
+			
+		connections
+			ba1: bus access Serial_1 <-> SBC.Serial_1;
+			ba2: bus access Serial_2 <-> SBC.Serial_2;
+			ba3: bus access USB_1 <-> SBC.USB2_0;
+			ba4: bus access Ethernet <-> SBC.Ethernet;
+		properties
+			Allowed_Processor_Binding => (reference (SBC.A7), reference (SBC.A15)) applies to SW;
+			Allowed_Memory_Binding => (reference (SBC.A15), reference (SBC.A7)) applies to SW;
+			
+            Actual_Connection_Binding => (reference (Serial_1)) applies to Engine_IO;
+            Actual_Connection_Binding => (reference (Serial_2)) applies to AP_IO;
+            Actual_Connection_Binding => (reference (Ethernet)) applies to Controller_IO;
+            Actual_Connection_Binding => (reference (M1553B)) applies to EO_IR_IO;
+	end VMC.impl;
+	
+	system implementation VMC.impl2
+		subcomponents
+			SBC : system Single_Board_Computer::ODROID.Simple;
+			SW  : process Zeroize_UxAS::Waterways.Zeroize;
+			
+			Ethernet :  bus  Ethernet.impl;
+			Serial_1 :  bus  Serial;
+			Serial_2 :  bus  Serial;
+			USB_1    :  bus  USB.Two;
+			USB_2    :  bus  USB.Three;
+			M1553B   :  bus  MIL_1553B;			
+		connections			
+			ba1 : bus access USB_1 <-> SBC.USB2_0; 
+			ba2 : bus access Serial_1 <-> SBC.Serial_1;
+			ba3 : bus access Serial_2 <-> SBC.Serial_2;
+			ba4 : bus access Ethernet <-> SBC.Ethernet;	
+		properties	
+			Actual_Processor_Binding  => (reference (SBC.ARM_CPU)) applies to SW;
+            Actual_Memory_Binding => (reference (SBC.ARM_CPU)) applies to SW;
+
+            Actual_Connection_Binding => (reference (Serial_1)) applies to Engine_IO;
+            Actual_Connection_Binding => (reference (Serial_2)) applies to AP_IO;
+            Actual_Connection_Binding => (reference (Ethernet)) applies to Controller_IO;
+            Actual_Connection_Binding => (reference (M1553B)) applies to EO_IR_IO;
+            Actual_Connection_Binding => (reference (Ethernet)) applies to EO_IR_Video;
+		end VMC.impl2;
+	
+end Vehicle_Management_Computer;

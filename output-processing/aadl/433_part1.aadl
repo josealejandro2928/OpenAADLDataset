@@ -1,0 +1,58 @@
+
+system rma
+end rma;
+
+system implementation rma.Impl
+	subcomponents
+		cpu0  : processor rma_cpu.Impl;
+		proc0 : process a_process.Impl;
+	properties
+		Actual_Processor_Binding => reference cpu0 applies to proc0;
+end rma.Impl;
+
+
+process a_process
+end a_process;
+
+process implementation a_process.Impl
+	subcomponents
+		instancied_T1 : thread T1.Impl;
+		instancied_T2 : thread T2.Impl;
+		instancied_T3 : thread T3.Impl;
+end a_process.Impl;
+
+
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  3 ms ..  7 ms;
+		Deadline  =>  29 ms;
+		Period =>  29 ms;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Deadline  =>  5 ms;
+		Period =>  5 ms;
+end T2.Impl;
+
+thread T3
+end T3;
+
+thread implementation T3.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  2 ms;
+		Deadline  =>  10 ms;
+		Period =>  10 ms;
+end T3.Impl;
+

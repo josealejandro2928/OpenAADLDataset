@@ -1,0 +1,44 @@
+package EVS_Base_IO
+public
+	with Core_Types;
+	with Base_Types;
+	--------all feature groups can add "in|out data port [type];" corresponding to its direction and data type
+------------------------------Filter---------------------------------
+	feature group FilterOutput
+		features
+			ES_CC1_ERR: out data port Core_Types::struct.EVS_BinFilter_t;
+			ES_RESTART_APP_ERR: out data port Core_Types::struct.EVS_BinFilter_t;
+			SB_BAD_CMD_CODE: out data port Core_Types::struct.EVS_BinFilter_t;
+			EVS_ERR_MSGID: out data port Core_Types::struct.EVS_BinFilter_t;
+			TIME_CC_ERR: out data port Core_Types::struct.EVS_BinFilter_t;
+	end FilterOutput;
+
+	feature group FilterInput
+		features
+			ES_CC1_ERR: in data port Core_Types::struct.EVS_BinFilter_t;
+			ES_RESTART_APP_ERR: in data port Core_Types::struct.EVS_BinFilter_t;
+			SB_BAD_CMD_CODE: in data port Core_Types::struct.EVS_BinFilter_t;
+			EVS_ERR_MSGID: in data port Core_Types::struct.EVS_BinFilter_t;
+			TIME_CC_ERR: in data port Core_Types::struct.EVS_BinFilter_t;
+	inverse of FilterOutput
+	end FilterInput;
+	
+	feature group FilterReturnValue
+		features
+			ES_CC1_ERR: out data port Base_Types::Integer;
+			ES_RESTART_APP_ERR: out data port Base_Types::Integer;
+			SB_BAD_CMD_CODE: out data port Base_Types::Integer;
+			EVS_ERR_MSGID: out data port Base_Types::Integer;
+			TIME_CC_ERR: out data port Base_Types::Integer;
+	end FilterReturnValue;
+
+	feature group FilterEvaluteValue
+		features
+			ES_CC1_ERR: in data port Base_Types::Integer;
+			ES_RESTART_APP_ERR: in data port Base_Types::Integer;
+			SB_BAD_CMD_CODE: in data port Base_Types::Integer;
+			EVS_ERR_MSGID: in data port Base_Types::Integer;
+			TIME_CC_ERR: in data port Base_Types::Integer;
+	inverse of FilterReturnValue
+	end FilterEvaluteValue;	
+end EVS_Base_IO;

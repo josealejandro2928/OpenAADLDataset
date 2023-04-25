@@ -1,0 +1,39 @@
+package test
+public
+	device GPS
+		features
+			GPS_new_feature: out data port;
+	end GPS;
+
+	process Map
+		features
+			Map_new_feature: in data port;
+	end Map;
+
+	thread new_classifier
+		features
+			new_classifier_new_feature: in data port;
+	end new_classifier;
+
+	thread new_classifier2
+		features
+			new_classifier2_new_feature: out data port;
+	end new_classifier2;
+
+	process new_classifier3
+		features
+			new_classifier3_new_feature: out data port;
+			new_classifier3_new_feature2: out data port;
+	end new_classifier3;
+
+	process asd
+		features
+			asd_new_feature: in data port;
+	end asd;
+
+	process implementation asd.asd
+	end asd.asd;
+
+	process implementation new_classifier3.qwe
+	end new_classifier3.qwe;
+end test;

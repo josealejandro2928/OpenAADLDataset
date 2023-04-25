@@ -1,0 +1,33 @@
+activity nucleotide-local-alignment {
+	on {
+		dataset query-sequence : 'chemical/seq-na-fasta' [1,1];
+	}
+	with {
+		parameter queried-database : STRING [1,1];
+	}
+	produces {
+		dataset result : 'text/plain' [1,1];
+	}
+	using executable 'blastn' {
+		commandLineTemplate [
+			parameter 'queried-database'
+				| PrependListWith '-db'
+				,
+			dataset 'query-sequence'
+				| PrependListWith '-query'
+				,
+			dataset 'result'
+				| PrependListWith '-out'
+		]
+		returns {
+			0 if SUCCEEDED;
+			1 if FAILED 'Error in query sequence(s) or BLAST options';
+			2 if FAILED 'Error in BLAST database';
+			3 if FAILED 'Error in BLAST engine';
+			4 if FAILED 'Out of memory';
+			5 if FAILED 'Network error connecting to NCBI to fetch sequence data';
+			6 if FAILED 'Error creating output files';
+			255 if FAILED 'Unknown error';
+		}
+	}
+}

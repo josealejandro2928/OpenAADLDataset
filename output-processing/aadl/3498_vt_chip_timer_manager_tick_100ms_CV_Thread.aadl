@@ -1,0 +1,30 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_chip_timer_manager_tick_100ms_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_chip_timer_manager_tick_100ms_vt_chip_timer_manager_tick_100ms
+features
+	OUTPORT_durationsys_sdltmr_vt : OUT EVENT PORT;
+	chip_timer_manager_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_chip_timer_manager_tick_100ms_vt_chip_timer_manager_tick_100ms;
+
+THREAD IMPLEMENTATION vt_chip_timer_manager_tick_100ms_vt_chip_timer_manager_tick_100ms.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_chip_timer_manager";
+	Compute_Entrypoint_Source_Text => "po_hi_c_vt_chip_timer_manager_tick_100ms_artificial_tick_100ms";
+	Dispatch_Protocol => Periodic;
+	Period            => 100 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 1 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 5;
+END vt_chip_timer_manager_tick_100ms_vt_chip_timer_manager_tick_100ms.others;
+
+end vt_chip_timer_manager_tick_100ms_CV_Thread;

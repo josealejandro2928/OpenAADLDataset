@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="fcs_impl_Instance" category="system">
+  <componentInstance name="i2c" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.I2C_bus"/>
+  </componentInstance>
+  <componentInstance name="operator" category="device">
+    <featureInstance name="pos_c" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="i2c" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="f1" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.Operator"/>
+  </componentInstance>
+  <componentInstance name="GPS" category="device">
+    <featureInstance name="position" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="i2c" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.GPS"/>
+  </componentInstance>
+  <componentInstance name="IMU" category="device">
+    <featureInstance name="angle" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="acc" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="i2c" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.IMU"/>
+  </componentInstance>
+  <componentInstance name="platform" category="device">
+    <featureInstance name="order">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="i2c" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="f1" source="//@componentInstance.4/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.Platform"/>
+  </componentInstance>
+  <componentInstance name="node_a" category="process">
+    <featureInstance name="pos_c">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="order" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="angle">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="position">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="acc">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <componentInstance name="FF" category="thread">
+      <featureInstance name="angle">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="angle_o" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.FF"/>
+    </componentInstance>
+    <componentInstance name="NL" category="thread">
+      <featureInstance name="pos_c">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="pos_o">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="acc_c" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.NL"/>
+    </componentInstance>
+    <componentInstance name="NF" category="thread">
+      <featureInstance name="pos_i">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="pos_o" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.NF"/>
+    </componentInstance>
+    <componentInstance name="PL" category="thread">
+      <featureInstance name="acc_c">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="acc_o">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="angle_c" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.PL"/>
+    </componentInstance>
+    <componentInstance name="PF" category="thread">
+      <featureInstance name="acc_i">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="acc_o" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.PF"/>
+    </componentInstance>
+    <componentInstance name="FL" category="thread">
+      <featureInstance name="angle_c">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="angle_o">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="order" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.FL"/>
+    </componentInstance>
+    <componentInstance name="AP" category="thread">
+      <featureInstance name="position">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="acc">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="acc_i" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="pos_i" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedThreadSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.AP"/>
+    </componentInstance>
+    <flowSpecification name="f1" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <connectionInstance name="FF.angle_o -> FL.angle_o" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.1" source="//@componentInstance.5/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="NL.acc_c -> PL.acc_c" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.0" source="//@componentInstance.5/@componentInstance.1/@featureInstance.2">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="NF.pos_o -> NL.pos_o" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.1" source="//@componentInstance.5/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PL.angle_c -> FL.angle_c" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.0" source="//@componentInstance.5/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PF.acc_o -> PL.acc_o" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.1" source="//@componentInstance.5/@componentInstance.4/@featureInstance.1">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AP.acc_i -> PF.acc_i" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.4/@featureInstance.0" source="//@componentInstance.5/@componentInstance.6/@featureInstance.2">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.6/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AP.pos_i -> NF.pos_i" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.2/@featureInstance.0" source="//@componentInstance.5/@componentInstance.6/@featureInstance.3">
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.6/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.node_a.impl"/>
+  </componentInstance>
+  <componentInstance name="cpu_rm" category="processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#Processor_Properties.Max_Prio_First"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#/0/@ownedPropertyType.1/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/aadl/processors/processors.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="i2c" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/instances/fcs_fcs_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.cpu"/>
+  </componentInstance>
+  <connectionInstance name="i2c -> GPS.i2c" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i2c -> IMU.i2c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i2c -> platform.i2c" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i2c -> cpu_rm.i2c" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="operator.pos_c -> node_a.NL.pos_c" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GPS.position -> node_a.AP.position" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.0" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="IMU.angle -> node_a.FF.angle" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="IMU.acc -> node_a.AP.acc" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.1" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.5/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="node_a.FL.order -> platform.order" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@componentInstance.5/@componentInstance.5/@featureInstance.2">
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.2" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.fcs.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/fcs/fcs.aadl#Flight_Control_System.fcs.impl"/>
+</instance:SystemInstance>

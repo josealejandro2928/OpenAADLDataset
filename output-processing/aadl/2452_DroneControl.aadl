@@ -1,0 +1,138 @@
+ package DroneControl
+public
+        with Base_Types;
+        with DroneSpec;
+        
+        system DroneControl
+                features
+                        currX: in data port Base_Types::Float;
+                        currY: in data port Base_Types::Float;
+                
+                        inX: in data port Base_Types::Float;
+                        inY: in data port Base_Types::Float;
+                        
+                        outX : out data port Base_Types::Float;
+                        outY : out data port Base_Types::Float;
+                
+                        velX : out data port Base_Types::Float;
+                        velY : out data port Base_Types::Float;
+        end DroneControl;
+        system implementation DroneControl.rendezvous
+                subcomponents
+                        droneProc: process DroneControlProc.rendezvous;
+                connections
+                        C1: port currX -> droneProc.currX;
+                        C2: port currY -> droneProc.currY;
+                        C3: port inX -> droneProc.inX;
+                        C4: port inY -> droneProc.inY;
+                        C5: port droneProc.velX -> velX;
+                        C6: port droneProc.velY -> velY;
+                        C7: port droneProc.outX -> outX;
+                        C8: port droneProc.outY -> outY;
+        end DroneControl.rendezvous;
+        process DroneControlProc
+                features
+                        currX: in data port Base_Types::Float;
+                        currY: in data port Base_Types::Float;
+                
+                        inX: in data port Base_Types::Float;
+                        inY: in data port Base_Types::Float;
+                        
+                        outX : out data port Base_Types::Float;
+                        outY : out data port Base_Types::Float;
+                
+                        velX : out data port Base_Types::Float;
+                        velY : out data port Base_Types::Float;
+        end DroneControlProc;
+        process implementation DroneControlProc.rendezvous
+                subcomponents
+                        droneThread: thread DroneControlThread.rendezvous;
+                connections
+                        C1: port currX -> droneThread.currX;
+                        C2: port currY -> droneThread.currY;
+                        C3: port inX -> droneThread.inX;
+                        C4: port inY -> droneThread.inY;
+                        C5: port droneThread.velX -> velX;
+                        C6: port droneThread.velY -> velY;
+                        C7: port droneThread.outX -> outX;
+                        C8: port droneThread.outY -> outY;
+        end DroneControlProc.rendezvous;
+        thread DroneControlThread
+                features
+                        currX: in data port Base_Types::Float;
+                        currY: in data port Base_Types::Float;
+                
+                        inX: in data port Base_Types::Float;
+                        inY: in data port Base_Types::Float;
+                        
+                        outX : out data port Base_Types::Float;
+                        outY : out data port Base_Types::Float;
+                
+                        velX : out data port Base_Types::Float;
+                        velY : out data port Base_Types::Float;
+                properties
+                        Dispatch_Protocol => Periodic;
+        end DroneControlThread;
+        
+        thread implementation DroneControlThread.rendezvous
+                subcomponents
+                        refX : data Base_Types::Float;
+                        refY : data Base_Types::Float;
+                annex behavior_specification {**
+          			variables
+                        nx, ny : Base_Types::Float;
+					states
+                        init : initial complete state;
+                        exec, output : state;
+                	transitions
+                        init -[on dispatch]-> exec;
+                        exec -[abs(currX - inX) < 0.3 and abs(currY - inY) < 0.3]-> output {
+                               velX := 0;
+                               velY := 0
+                        };
+                        exec -[otherwise]-> output {
+                                nx := - #DroneSpec::alpha * (currX - refX) - #DroneSpec::A * (currX - inX);
+                                ny := - #DroneSpec::alpha * (currY - refY) - #DroneSpec::A * (currY - inY);
+                                if (nx > 11)
+                                        velX := 13
+                                elsif (nx > 7)
+                                        velX := 9
+                                elsif (nx > 3)
+                                        velX := 2
+                                elsif (nx > -1)
+                                        velX := 0
+                                elsif (nx > -3)
+                                        velX := -2
+                                elsif (nx > -7)
+                                        velX := -5
+                                elsif (nx > -11)
+                                        velX := -9
+                                else
+                                        velX := -13
+                                end if;
+                                if (ny > 11)
+                                        velY := 13
+                                elsif (ny > 7)
+                                        velY := 9
+                                elsif (ny > 3)
+                                        velY := 2
+                                elsif (ny > -1)
+                                        velY := 0
+                                elsif (ny > -3)
+                                        velY := -2
+                                elsif (ny > -7)
+                                        velY := -5
+                                elsif (ny > -11)
+                                        velY := -9
+                                else
+                                        velY := -13
+                                end if
+                        };
+                        
+                        output -[ ]-> init {
+                                outX := currX;
+                                outY := currY
+                        };
+        			**};
+        end DroneControlThread.rendezvous;
+end DroneControl;

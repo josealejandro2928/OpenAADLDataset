@@ -1,0 +1,36 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_atm_abort_out_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_atm_abort_out_vt_atm_abort_out
+features
+	INPORT_artificial_abort_out : IN EVENT DATA PORT DataView::MyString_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_atm_abort_out_artificial_abort_out"; };
+	OUTPORT_out_msg_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	OUTPORT_transaction_vt : OUT EVENT DATA PORT DataView::Amount_Buffer.impl;
+	OUTPORT_display_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	OUTPORT_eject_card_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	atm_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_atm_abort_out_vt_atm_abort_out;
+
+THREAD IMPLEMENTATION vt_atm_abort_out_vt_atm_abort_out.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_atm";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END vt_atm_abort_out_vt_atm_abort_out.others;
+
+end vt_atm_abort_out_CV_Thread;

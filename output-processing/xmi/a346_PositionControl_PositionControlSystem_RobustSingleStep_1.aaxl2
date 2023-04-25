@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="PositionControlSystem_RobustSingleStep_Instance" category="system">
+  <featureInstance name="PositionSetpoint" category="eventDataPort">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="step"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/UnitsTypesAssertions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Integer_Range"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral"/>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="250"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/UnitsTypesAssertions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/instances/PositionControl_PositionControlSystem_RobustSingleStep_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <componentInstance name="c" category="system">
+    <featureInstance name="ActuatorCommand" category="subprogramAccess">
+      <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/Control.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedSubprogramAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/instances/PositionControl_PositionControlSystem_RobustSingleStep_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="PositionSetpoint" category="eventDataPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="step"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/UnitsTypesAssertions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Integer_Range"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="250"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/UnitsTypesAssertions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/Control.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/instances/PositionControl_PositionControlSystem_RobustSingleStep_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/Control.aadl#Control.Controller"/>
+  </componentInstance>
+  <componentInstance name="a" category="system">
+    <featureInstance name="ActuatorCommand" category="subprogramAccess" direction="out">
+      <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/Act.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedSubprogramAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/instances/PositionControl_PositionControlSystem_RobustSingleStep_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/Act.aadl#Act.Actuator"/>
+  </componentInstance>
+  <connectionInstance name="PositionSetpoint -> c.PositionSetpoint" kind="portConnection" destination="//@componentInstance.0/@featureInstance.1" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="c.ActuatorCommand -> a.ActuatorCommand" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#PositionControl.PositionControlSystem.RobustSingleStep"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/Stepper/packages/PositionControl.aadl#PositionControl.PositionControlSystem.RobustSingleStep"/>
+</instance:SystemInstance>

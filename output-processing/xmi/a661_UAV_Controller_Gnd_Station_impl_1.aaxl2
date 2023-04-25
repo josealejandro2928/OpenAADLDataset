@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Gnd_Station_impl_Instance" category="system">
+  <featureInstance name="UAV_Operator_IF" category="featureGroup" direction="in out">
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+  </featureInstance>
+  <featureInstance name="Configuration_Data" category="featureGroup" direction="in out">
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.1"/>
+  </featureInstance>
+  <featureInstance name="SD_Card_Conn" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/5"/>
+  </featureInstance>
+  <featureInstance name="Wireless_Conn" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <componentInstance name="Internal_network" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Property Sets/Bus_Properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="10">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Buses/Buses.aadl#|::0.5.9.9.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Buses/Buses.aadl#|::0.5.9.9.4.0.7.0.6.2.1::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Buses/Buses.aadl#|::0.5.9.9.4.0.7.0.6.2.2::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Buses/Buses.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Buses/Buses.aadl#Buses.Ethernet"/>
+  </componentInstance>
+  <componentInstance name="Wireless_Radio" category="device">
+    <featureInstance name="GS_IO" category="featureGroup" direction="in out">
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/WiFi_Datalink.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="MC_IO" category="featureGroup" direction="in out">
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/WiFi_Datalink.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.1"/>
+    </featureInstance>
+    <featureInstance name="Wired_Link_Conn" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/WiFi_Datalink.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="Wireless_Link_Conn" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/WiFi_Datalink.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/WiFi_Datalink.aadl#WiFi_Datalink.WiFi_Radio"/>
+  </componentInstance>
+  <componentInstance name="Datalink_with_UAV" category="device">
+    <featureInstance name="TCDL_Data" category="featureGroup" direction="in out">
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/Tactical_Common_Data_Link.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="Video_In" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/Tactical_Common_Data_Link.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Link" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/Tactical_Common_Data_Link.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAV/UAV Subsystems/Radios/Tactical_Common_Data_Link.aadl#Tactical_Common_Data_Link.TCDL"/>
+  </componentInstance>
+  <componentInstance name="SD_Card" category="memory">
+    <featureInstance name="Flash_Data_Bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Memory/Memories.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/instances/UAV_Controller_Gnd_Station_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/Hardware/Memory/Memories.aadl#Memories.Flash_Memory.eMMC"/>
+  </componentInstance>
+  <componentInstance name="GS_Computers" category="system">
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#UAV_Controller.Ground_Computers"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#UAV_Controller.Gnd_Station.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/TA6_UAV_Exemplar/AADL Models/UAS/UAV_Controller.aadl#UAV_Controller.Gnd_Station.impl"/>
+</instance:SystemInstance>

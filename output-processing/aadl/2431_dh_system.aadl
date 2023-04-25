@@ -1,0 +1,98 @@
+package dh_system
+public
+	with user_interface;
+
+	with business_logic;
+
+	with database;
+
+	with devices;
+
+	with backup_recovery;
+
+	with schedule;
+
+	with command;
+
+	with accounts;
+
+	with environment;
+
+	with gateway;
+
+	with data_access;
+
+	with HardwareParts;
+
+	with HardwarePlatform;
+
+	system digital_home
+		properties
+			Reference_Processor => classifier (HardwareParts::PowerPC.octacore);
+	end digital_home;
+
+	system implementation digital_home.impl
+		subcomponents
+			gui: system user_interface::gui;
+			bl: system business_logic::business_logic.impl;
+			dl: system database::data_layer.impl;
+			dev: system devices::devices_layer.impl;
+			br: system backup_recovery::backup_recovery.impl;
+			schedule: system schedule::schedule.impl;
+			cmd: system command::command.impl;
+			account: system accounts::accounts.impl;
+			env: system environment::environment.impl;
+			gateway: system gateway::gateway.impl;
+			da: system data_access::data_access;
+			ecu: system HardwarePlatform::cc_mcu.octacore;
+		connections
+			digital_home_impl_new_connection5: port dev.dl_output -> gateway.device_event_in;
+			digital_home_impl_new_connection6: port gateway.client_port -> dev.dl_input;
+			digital_home_impl_new_connection7: port dev.dl_stream -> gateway.sensor_input;
+			digital_home_impl_new_connection19: port gateway.device_event_out -> env.event_in;
+			digital_home_impl_new_connection20: port gateway.gate_output -> env.env_data_input;
+			digital_home_impl_new_connection3: port bl.cmd_input -> cmd.command_input;
+			digital_home_impl_new_connection9: port bl.schedule_input -> schedule.schedule_input;
+			digital_home_impl_new_connection10: port bl.env_input -> env.env_input;
+			digital_home_impl_new_connection11: port bl.account_input -> account.account_input;
+			digital_home_impl_new_connection12: port bl.br_input -> br.backup_input;
+			digital_home_impl_new_connection13: port env.client_port -> dl.dl_input;
+			digital_home_impl_new_connection14: port schedule.client_port -> dl.dl_input;
+			digital_home_impl_new_connection15: port cmd.client_port -> dl.dl_input;
+			digital_home_impl_new_connection16: port account.client_port -> dl.dl_input;
+			digital_home_impl_new_connection17: port br.client_port -> dl.dl_input;
+			digital_home_impl_new_connection: port dl.gateway_client -> gateway.server_port;
+			digital_home_impl_new_connection2: port dl.data_access_client -> da.data_input;
+			digital_home_impl_new_connection4: port gui.user_input -> bl.bl_input;
+		properties
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to br.backup;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to br.restore;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to dev.sensor_controller.poll_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to dev.sensor_controller.publish_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to dev.sensor_controller.configure;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to dev.alarm_controller.publish_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to dev.alarm_controller.configure_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to env.temp.subscribe;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to env.temp.temp_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to env.hum.subscribe;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to env.hum.hum_process;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to gateway.rf.publish_subscribe;
+			Actual_Memory_Binding => (reference (ecu.DH_RAM)) applies to gateway.rf.radio;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to gateway.rf.radio.thr;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to gateway.rf.publish_subscribe.event_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to env.temp.subscribe.event_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to env.temp.temp_process.data_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to env.hum.subscribe.event_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to env.hum.hum_process.data_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to dev.alarm_controller.publish_process.event_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to dev.sensor_controller.publish_process.event_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to dev.sensor_controller.poll_process.poll_thread;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.restore.recovery_read;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.restore.recovery_decompress;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.restore.recovery_write;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.backup.backup_read;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.backup.backup_compress;
+			Actual_Processor_Binding => (reference (ecu.DH_CPU)) applies to br.backup.backup_write;	
+	end digital_home.impl;
+	
+end dh_system;

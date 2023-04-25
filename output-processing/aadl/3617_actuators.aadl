@@ -1,0 +1,56 @@
+package actuators
+public 
+
+
+process actuators_process
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+end actuators_process;
+
+
+
+
+
+thread group actuators_process
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+end actuators_process;
+
+thread group implementation actuators_process.impl
+subcomponents
+  p_reaction_wheels : thread group reaction_wheel::reaction_wheels_process.impl;
+  t_thruster		  : thread task_types::aperiodic;
+  t_command_actuators : thread task_types::cyclic
+ 
+  {
+    Compute_Execution_Time => 2130 us; 
+    Period => 200 ms;   
+    Priority => 20;
+    Deadline => 14 ms;  
+    Dispatch_offset => 50 ms;
+    
+  };
+
+connections 
+  
+  C0 : port input -> t_thruster.input;
+  C1 : port t_command_actuators.output -> t_thruster.input;
+  C2 : port t_command_actuators.output -> p_reaction_wheels.input;
+  C3 : port p_reaction_wheels.output -> output;
+
+properties
+  timing => immediate applies to C0, C1, C2 , C3;
+end actuators_process.impl;
+
+end actuators;
+
+
+
+
+
+
+
+
+

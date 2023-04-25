@@ -1,0 +1,34 @@
+package accounts
+public
+	system accounts
+		features
+			account_input: in out data port;
+--			account_output: out data port;
+			client_port: in out data port;
+	end accounts;
+
+	system implementation accounts.impl
+		subcomponents
+			us: device user_settings;
+			auth: device authorization;
+		connections
+			accounts_impl_new_connection: port us.settings_input -> account_input;
+			accounts_impl_new_connection2: port auth.auth_input -> account_input;
+			client_connection: port us.client_port -> client_port;
+			client_connection2: port auth.client_port -> client_port;
+	end accounts.impl;
+
+	device user_settings
+		features
+			settings_input: in out data port;
+--			settings_output: out data port;
+			client_port: in out data port;
+	end user_settings;
+
+	device authorization
+		features
+			auth_input: in out data port;
+--			auth_output: out data port;
+			client_port: in out data port;
+	end authorization;
+end accounts;

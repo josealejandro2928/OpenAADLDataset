@@ -1,0 +1,146 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::initsys;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_outmsg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_outmsg;
+
+SUBPROGRAM IMPLEMENTATION PI_outmsg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_outmsg.others;
+
+SUBPROGRAM RI_inmsg
+FEATURES
+  whatever : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_inmsg;
+
+SUBPROGRAM IMPLEMENTATION RI_inmsg.others
+END RI_inmsg.others;
+
+SYSTEM gui
+FEATURES
+  PI_outmsg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_outmsg.others {
+    Taste::coordinates => "97254 50919";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "outmsg";
+  };
+  RI_inmsg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::initsys::PI_inmsg.others {
+    Taste::coordinates => "97254 60905";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "inmsg";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::initsys
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM RI_outmsg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_outmsg;
+
+SUBPROGRAM IMPLEMENTATION RI_outmsg.others
+END RI_outmsg.others;
+
+SUBPROGRAM PI_inmsg
+FEATURES
+  whatever : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_inmsg;
+
+SUBPROGRAM IMPLEMENTATION PI_inmsg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_inmsg.others;
+
+SYSTEM initsys
+FEATURES
+  RI_outmsg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_outmsg.others {
+    Taste::coordinates => "114117 50920";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "outmsg";
+    Taste::labelInheritance => "true";
+  };
+  PI_inmsg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::initsys::PI_inmsg.others {
+    Taste::coordinates => "114117 60905";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "inmsg";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END initsys;
+
+SYSTEM IMPLEMENTATION initsys.others
+END initsys.others;
+
+END interfaceview::IV::initsys;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::initsys;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "77770 46826 97254 64999";
+  };
+  initsys : SYSTEM interfaceview::IV::initsys::initsys.others {
+    Taste::coordinates => "114117 47154 133765 65164";
+  };
+CONNECTIONS
+  gui_PI_outmsg_initsys_RI_outmsg : SUBPROGRAM ACCESS gui.PI_outmsg -> initsys.RI_outmsg {
+    Taste::coordinates => "114117 50920 107486 50920 107486 50919 97254 50919";
+  };
+  initsys_PI_inmsg_gui_RI_inmsg : SUBPROGRAM ACCESS initsys.PI_inmsg -> gui.RI_inmsg {
+    Taste::coordinates => "97254 60905 105685 60905 105685 60905 114117 60905";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

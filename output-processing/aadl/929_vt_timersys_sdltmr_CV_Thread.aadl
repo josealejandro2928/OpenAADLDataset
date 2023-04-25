@@ -1,0 +1,34 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_timersys_sdltmr_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_timersys_sdltmr_vt_timersys_sdltmr
+features
+	INPORT_artificial_sdltmr : IN EVENT PORT
+		{ Compute_Execution_Time => 10 ms .. 10 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_timersys_sdltmr_artificial_sdltmr"; };
+	OUTPORT_outputmsg_vt : OUT EVENT DATA PORT DataView::T_Boolean_Buffer.impl;
+	timersys_protected : requires data access process_package::TASTE_Protected.Object;
+	chip_timer_manager_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_timersys_sdltmr_vt_timersys_sdltmr;
+
+THREAD IMPLEMENTATION vt_timersys_sdltmr_vt_timersys_sdltmr.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_timersys";
+	Dispatch_Protocol => Sporadic;
+	Period            => 100 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 10 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 5;
+END vt_timersys_sdltmr_vt_timersys_sdltmr.others;
+
+end vt_timersys_sdltmr_CV_Thread;

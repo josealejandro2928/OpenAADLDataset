@@ -1,0 +1,68 @@
+package block_side_by_side::integration
+
+public
+
+with block_side_by_side::devices;
+with block_side_by_side::software;
+
+system integration 
+end integration;
+
+system implementation integration.generic
+subcomponents
+-- input devices
+	color_sencer : device block_side_by_side::devices::color_sencer;
+	tacho_counter : device block_side_by_side::devices::tacho_counter;
+	block_position : device block_side_by_side::devices::connected_PC;
+	
+-- software
+	line_tracer : process block_side_by_side::software::line_tracer;--ライントレースの制御
+	route_driver : process block_side_by_side::software::route_driver;--ルート決定
+	direct_controller : process block_side_by_side::software::direct_controller;--直接モータ制御
+	scenario_driver : process block_side_by_side::software::scenario_driver;--ルートをモータの働きに変換
+	
+-- output
+	--arm_motor : device block_side_by_side::devices::motor;
+	Rmotor : device block_side_by_side::devices::motor;
+	Lmotor : device block_side_by_side::devices::motor;
+	
+connections
+-- obstacle camera to image acquisition
+   c000 : port color_sencer.brightness_value -> line_tracer.brightness_value;
+   c010 : port block_position.block_NO -> route_driver.block_NO;
+   c020 : port tacho_counter.tacho_count -> direct_controller.tacho_count;
+   c030 : port route_driver.route -> scenario_driver.route;
+   c040 : port scenario_driver.scenario -> direct_controller.scenario;
+   c050 : port line_tracer.powerR -> Rmotor.power;
+   c060 : port line_tracer.powerL -> Lmotor.power;
+   c070 : port direct_controller.powerR -> Rmotor.power;
+   c080 : port direct_controller.powerL -> Lmotor.power;
+   --c090 : port direct_controller.picture -> arm_motor.picture;
+   
+ flows
+    -- 
+	f0 : end to end flow 	color_sencer.f0 -> c000 ->
+							line_tracer.f0 -> c060 ->
+							Lmotor.f0;
+	f1 : end to end flow 	color_sencer.f0 -> c000 ->
+							line_tracer.f1 -> c050 ->
+							Rmotor.f0;
+	f2 : end to end flow 	block_position.f0 -> c010 ->
+							route_driver.f0 -> c030 ->
+							scenario_driver.f0 -> c040 ->
+							direct_controller.f0 -> c080 ->
+							Lmotor.f0;
+	f3 : end to end flow 	block_position.f0 -> c010 ->
+							route_driver.f0 -> c030 ->
+							scenario_driver.f0 -> c040 ->
+							direct_controller.f1 -> c070 ->
+							Rmotor.f0;
+	f4 : end to end flow 	tacho_counter.f0 -> c020 ->
+							direct_controller.f2 -> c080 ->
+							Lmotor.f0;
+	f5 : end to end flow 	tacho_counter.f0 -> c020 ->
+							direct_controller.f3 -> c070 ->
+							Rmotor.f0;
+   
+end integration.generic;
+end block_side_by_side::integration;

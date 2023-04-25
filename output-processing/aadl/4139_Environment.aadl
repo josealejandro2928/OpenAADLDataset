@@ -1,0 +1,33 @@
+package Environment
+public
+	with Hybrid_SynchAADL;	
+	with Base_Types;
+	
+system Environment
+	features
+		currX : out data port Base_Types::Float;
+		currY : out data port Base_Types::Float;
+				
+		velX : in data port Base_Types::Float;
+		velY : in data port Base_Types::Float;
+	properties
+		Hybrid_SynchAADL::isEnvironment => true;
+end Environment;
+
+system implementation Environment.rendezvous
+	subcomponents
+		x : data Base_Types::Float;
+		y : data Base_Types::Float; 
+		dotx : data Base_Types::Float;
+		doty : data Base_Types::Float;
+	connections
+		C1: port velX -> dotx;
+		C2: port velY -> doty;
+		C3: port x -> currX;
+		C4: port y -> currY;		
+	properties
+		Hybrid_SynchAADL::ContinuousDynamics =>
+		 "x(t) = ((0.01) * dotx * t) + x(0); y(t) = ((0.01) * doty * t) + y(0);";
+end Environment.rendezvous;
+
+end Environment;

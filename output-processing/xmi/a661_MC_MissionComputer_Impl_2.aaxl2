@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="MissionComputer_Impl_Instance" category="system">
+  <featureInstance name="FC_UART" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/4"/>
+  </featureInstance>
+  <featureInstance name="RFA" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="radio_recv" category="eventDataPort">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="radio_send" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.1"/>
+  </featureInstance>
+  <featureInstance name="fc_uart_recv" category="eventDataPort">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.2"/>
+  </featureInstance>
+  <featureInstance name="fc_uart_send" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.3"/>
+  </featureInstance>
+  <componentInstance name="BUS_HW" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.MC_Bus.Impl"/>
+  </componentInstance>
+  <componentInstance name="RADIO_HW" category="device">
+    <featureInstance name="recv_data_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="recv_data_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="send_data_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="send_data_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+    </featureInstance>
+    <featureInstance name="MCA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="RFA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.Radio.Impl"/>
+  </componentInstance>
+  <componentInstance name="FC_UART_HW" category="device">
+    <featureInstance name="recv_data_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="recv_data_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="send_data_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="send_data_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+    </featureInstance>
+    <featureInstance name="MCA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="UART" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.UART.Impl"/>
+  </componentInstance>
+  <componentInstance name="MEM_HW" category="memory">
+    <featureInstance name="MCA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.MC_Mem.Impl"/>
+  </componentInstance>
+  <componentInstance name="PROC_HW" category="processor">
+    <featureInstance name="MCA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.MC_Proc.Impl"/>
+  </componentInstance>
+  <componentInstance name="PROC_SW" category="system">
+    <featureInstance name="radio_recv" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.44/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="radio_send" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.44/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="uart_recv" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.44/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="uart_send" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.44/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <componentInstance name="FC_UART" category="process">
+      <featureInstance name="recv_data" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="MissionCommand" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="send_data" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="AirVehicleState_WPM" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="AirVehicleState_UXAS" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <componentInstance name="UARTDriver" category="thread">
+        <featureInstance name="recv_data" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="MissionCommand" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="send_data" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="AirVehicleState" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/UAV/Drivers.aadl#Drivers.UARTDriver.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.UARTDriver.Impl"/>
+    </componentInstance>
+    <componentInstance name="RADIO" category="process">
+      <featureInstance name="trusted_ids" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="recv_data" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="send_data" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="AutomationRequest" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="OperatingRegion" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="LineSearchTask" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <componentInstance name="RadioDriver_Attestation" category="thread">
+        <featureInstance name="trusted_ids" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="recv_data" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="send_data" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="AutomationRequest" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.RadioDriver_Attestation_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.RadioDriver_Attestation.Impl"/>
+    </componentInstance>
+    <componentInstance name="FlyZones" category="process">
+      <featureInstance name="keep_in_zones" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.30/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="keep_out_zones" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.30/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <componentInstance name="FlyZonesDatabase" category="thread">
+        <featureInstance name="keep_in_zones" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="keep_out_zones" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.FlyZonesDatabase_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.FlyZonesDatabase.Impl"/>
+    </componentInstance>
+    <componentInstance name="UXAS" category="process">
+      <featureInstance name="AutomationRequest" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="AirVehicleState" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="OperatingRegion" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="LineSearchTask" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="AutomationResponse_MON_GEO" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="AutomationResponse_MON_REQ" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedEventDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <componentInstance name="UxAS" category="thread">
+        <featureInstance name="AutomationRequest" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <featureInstance name="AirVehicleState" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/11"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+        </featureInstance>
+        <featureInstance name="AutomationResponse_MON_GEO" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="AutomationResponse_MON_REQ" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.UxAS_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.UxAS.Impl"/>
+    </componentInstance>
+    <componentInstance name="WPM" category="process">
+      <featureInstance name="AutomationResponse" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.38/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="AirVehicleState" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.38/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="MissionCommand" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.38/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="ReturnHome" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.38/@ownedEventPort.0"/>
+      </featureInstance>
+      <componentInstance name="WaypointPlanManagerService" category="thread">
+        <featureInstance name="AutomationResponse" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="AirVehicleState" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="MissionCommand" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="ReturnHome" category="eventPort">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventPort.0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.39/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.WaypointPlanManagerService_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.WaypointPlanManagerService.Impl"/>
+    </componentInstance>
+    <componentInstance name="AM_Gate" category="process">
+      <featureInstance name="trusted_ids">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="AutomationRequest_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="AutomationRequest_out_UXAS" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="AutomationRequest_out_MON_REQ" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="OperatingRegion_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="OperatingRegion_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="LineSearchTask_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="LineSearchTask_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <componentInstance name="CASE_AttestationGate" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.2"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Spec"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="CASE_AttestationGate_policy"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="trusted_ids">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="AutomationRequest_in" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="AutomationRequest_out_UXAS" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <featureInstance name="AutomationRequest_out_MON_REQ" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion_in" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/11"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask_in" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.6"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_AttestationGate_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_AttestationGate.Impl"/>
+    </componentInstance>
+    <componentInstance name="FLT_LST" category="process">
+      <featureInstance name="filter_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="filter_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <componentInstance name="CASE_Filter_LST" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Spec"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="Req_Filter_LST"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="filter_in" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+        </featureInstance>
+        <featureInstance name="filter_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/12"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Filter_LST_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Filter_LST.Impl"/>
+    </componentInstance>
+    <componentInstance name="MON_REQ" category="process">
+      <featureInstance name="observed" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="reference_1" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="alert" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/14"/>
+      </featureInstance>
+      <componentInstance name="CASE_Monitor_Req" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.2"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Spec"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="Req002_ReqRespMonitorEvent"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Monitor_Latched"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="observed" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="reference_1" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <featureInstance name="alert" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/14"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Monitor_Req_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.7"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Monitor_Req.Impl"/>
+    </componentInstance>
+    <componentInstance name="MON_GEO" category="process">
+      <featureInstance name="keep_in_zones">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="keep_out_zones">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="observed" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="output" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="alert" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedEventPort.0"/>
+      </featureInstance>
+      <componentInstance name="CASE_Monitor_Geo" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.2"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Spec"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="GeofenceMonitor_alert_event"/>
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="GeofenceMonitor_output_event"/>
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="GeofenceMonitor_output_data"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Monitor_Latched"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="keep_in_zones">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="keep_out_zones">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="observed" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="output" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/instances/MC_MissionComputer_Impl_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="alert" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedEventPort.0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Monitor_Geo_thr.Impl"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessSubcomponent.8"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.CASE_Monitor_Geo.Impl"/>
+    </componentInstance>
+    <componentInstance name="proc" category="processor">
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.proc.Impl"/>
+    </componentInstance>
+    <connectionInstance name="RADIO.RadioDriver_Attestation.trusted_ids -> AM_Gate.CASE_AttestationGate.trusted_ids" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.13"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="RADIO.RadioDriver_Attestation.AutomationRequest -> AM_Gate.CASE_AttestationGate.AutomationRequest_in" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.3">
+      <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.6"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="RADIO.RadioDriver_Attestation.OperatingRegion -> AM_Gate.CASE_AttestationGate.OperatingRegion_in" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.4" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="RADIO.RadioDriver_Attestation.LineSearchTask -> AM_Gate.CASE_AttestationGate.LineSearchTask_in" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.6" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.5">
+      <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.6" destination="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FlyZones.FlyZonesDatabase.keep_in_zones -> MON_GEO.CASE_Monitor_Geo.keep_in_zones" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.5/@componentInstance.2" source="//@componentInstance.5/@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.8/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.14"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.8" source="//@componentInstance.5/@componentInstance.8/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FlyZones.FlyZonesDatabase.keep_out_zones -> MON_GEO.CASE_Monitor_Geo.keep_out_zones" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.1" source="//@componentInstance.5/@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.5/@componentInstance.2" source="//@componentInstance.5/@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.8/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.15"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.8" source="//@componentInstance.5/@componentInstance.8/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="UXAS.UxAS.AutomationResponse_MON_GEO -> MON_GEO.CASE_Monitor_Geo.observed" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.2" source="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="//@componentInstance.5/@componentInstance.3" source="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.8/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.16"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.8" source="//@componentInstance.5/@componentInstance.8/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="UXAS.UxAS.AutomationResponse_MON_REQ -> MON_REQ.CASE_Monitor_Req.observed" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.7/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.5">
+      <connectionReference context="//@componentInstance.5/@componentInstance.3" source="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.3/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.19"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.7" source="//@componentInstance.5/@componentInstance.7/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.7/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="WPM.WaypointPlanManagerService.MissionCommand -> FC_UART.UARTDriver.MissionCommand" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.1" source="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.5/@componentInstance.4" source="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.4/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.39/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.20"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.0" source="//@componentInstance.5/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AM_Gate.CASE_AttestationGate.AutomationRequest_out_UXAS -> UXAS.UxAS.AutomationRequest" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.9"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.3" source="//@componentInstance.5/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AM_Gate.CASE_AttestationGate.AutomationRequest_out_MON_REQ -> MON_REQ.CASE_Monitor_Req.reference_1" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.7/@componentInstance.0/@featureInstance.1" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.3">
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.7/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.18"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.7" source="//@componentInstance.5/@componentInstance.7/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.7/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AM_Gate.CASE_AttestationGate.OperatingRegion_out -> UXAS.UxAS.OperatingRegion" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.2" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.5">
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.5" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.10"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.3" source="//@componentInstance.5/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="AM_Gate.CASE_AttestationGate.LineSearchTask_out -> FLT_LST.CASE_Filter_LST.filter_in" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.6/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.7">
+      <connectionReference context="//@componentInstance.5/@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@componentInstance.0/@featureInstance.7" destination="//@componentInstance.5/@componentInstance.5/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.5/@featureInstance.7" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.11"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.6" source="//@componentInstance.5/@componentInstance.6/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.6/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FLT_LST.CASE_Filter_LST.filter_out -> UXAS.UxAS.LineSearchTask" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.3" source="//@componentInstance.5/@componentInstance.6/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.5/@componentInstance.6" source="//@componentInstance.5/@componentInstance.6/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.6/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.6/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.3/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.12"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.3" source="//@componentInstance.5/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.3/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MON_GEO.CASE_Monitor_Geo.output -> WPM.WaypointPlanManagerService.AutomationResponse" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.3">
+      <connectionReference context="//@componentInstance.5/@componentInstance.8" source="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.8/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.8/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.21"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.4" source="//@componentInstance.5/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.39/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MON_GEO.CASE_Monitor_Geo.alert -> WPM.WaypointPlanManagerService.ReturnHome" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.3" source="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="//@componentInstance.5/@componentInstance.8" source="//@componentInstance.5/@componentInstance.8/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.8/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.8/@featureInstance.4" destination="//@componentInstance.5/@componentInstance.4/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.17"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.5/@componentInstance.4" source="//@componentInstance.5/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.5/@componentInstance.4/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.39/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#SW.SW.Impl"/>
+  </componentInstance>
+  <componentInstance name="VM_Radio" category="virtual processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="Linux"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedVirtualProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.CASE_Virtual_Machine.Radio"/>
+  </componentInstance>
+  <componentInstance name="VM_UxAS" category="virtual processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform/CASE/CASE_Properties.aadl#CASE_Properties.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="Linux"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedVirtualProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.CASE_Virtual_Machine.UxAS"/>
+  </componentInstance>
+  <connectionInstance name="FC_UART -> FC_UART_HW.UART" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.5" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.2/@featureInstance.5" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RFA -> RADIO_HW.RFA" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.5" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.5" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="radio_recv -> RADIO_HW.recv_data_in" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fc_uart_recv -> FC_UART_HW.recv_data_in" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@featureInstance.4">
+    <connectionReference context="/" source="//@featureInstance.4" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BUS_HW -> RADIO_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.4" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.4" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BUS_HW -> FC_UART_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.4" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.4" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BUS_HW -> PROC_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.4/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BUS_HW -> MEM_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RADIO_HW.recv_data_out -> PROC_SW.RADIO.RadioDriver_Attestation.recv_data" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.1" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RADIO_HW.send_data_out -> radio_send" kind="portConnection" destination="//@featureInstance.3" source="//@componentInstance.1/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.3" destination="//@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RADIO_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.1/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.4" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RADIO_HW.RFA -> RFA" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.1/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.5" destination="//@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FC_UART_HW.recv_data_out -> PROC_SW.FC_UART.UARTDriver.recv_data" complete="true" kind="portConnection" destination="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.0" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.5/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5/@componentInstance.0" source="//@componentInstance.5/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FC_UART_HW.send_data_out -> fc_uart_send" kind="portConnection" destination="//@featureInstance.5" source="//@componentInstance.2/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.3" destination="//@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FC_UART_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.4" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FC_UART_HW.UART -> FC_UART" kind="accessConnection" destination="//@featureInstance.0" source="//@componentInstance.2/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.5" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MEM_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.3/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PROC_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PROC_SW.FC_UART.UARTDriver.send_data -> FC_UART_HW.send_data_in" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.2">
+    <connectionReference context="//@componentInstance.5/@componentInstance.0" source="//@componentInstance.5/@componentInstance.0/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.5/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PROC_SW.RADIO.RadioDriver_Attestation.send_data -> RADIO_HW.send_data_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.2" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.2">
+    <connectionReference context="//@componentInstance.5/@componentInstance.1" source="//@componentInstance.5/@componentInstance.1/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.5/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.5" source="//@componentInstance.5/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.MissionComputer.Impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a661/Phase-2-UAV-Experimental-Platform-June/UAV/MC.aadl#MC.MissionComputer.Impl"/>
+</instance:SystemInstance>

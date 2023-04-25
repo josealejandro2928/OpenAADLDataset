@@ -1,0 +1,13 @@
+package EVS_Route_Table
+public
+	with SB_Interface;
+---------------------------add event can be sent out---------------
+	feature group RouteOutput
+		features
+			ES_CC1_ERR: feature group SB_Interface::R_SendMsg;
+			ES_RESTART_APP_ERR: feature group SB_Interface::R_SendMsg;
+			SB_BAD_CMD_CODE: feature group SB_Interface::R_SendMsg;
+			EVS_ERR_MSGID: feature group SB_Interface::R_SendMsg;
+			TIME_CC_ERR: feature group SB_Interface::R_SendMsg;
+	end RouteOutput;
+end EVS_Route_Table;

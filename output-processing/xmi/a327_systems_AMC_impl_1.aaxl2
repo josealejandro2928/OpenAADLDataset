@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="AMC_impl_Instance" category="system">
+  <featureInstance name="AMC_AGVs" category="featureGroup" direction="in out">
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureGroup.0"/>
+  </featureInstance>
+  <featureInstance name="AMC_AAVs" category="featureGroup" direction="in out">
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureGroup.1"/>
+  </featureInstance>
+  <featureInstance name="AMC_AACs" category="featureGroup" direction="in out">
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureGroup.2"/>
+  </featureInstance>
+  <featureInstance name="require_agv" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/instances/systems_AMC_impl_Instance.aaxl2#/"/>
+  </featureInstance>
+  <featureInstance name="commands_in">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="enable_in" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventPort.0"/>
+  </featureInstance>
+  <featureInstance name="display_out" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+  </featureInstance>
+  <componentInstance name="new_subcomponent" category="system">
+    <featureInstance name="Mission_data">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="Vehicle_state">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="Navigation_info">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#AMC_subsystems.Input_AGVs.impl"/>
+  </componentInstance>
+  <componentInstance name="new_subcomponent2" category="system">
+    <featureInstance name="Mission_Data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="Mission_Control" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/AMC_subsystems.aadl#AMC_subsystems.Output_AGVs.impl"/>
+  </componentInstance>
+  <flowSpecification name="mission_sources" destination="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="results" source="//@featureInstance.0" destination="//@featureInstance.6">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <connectionInstance name="AMC_AGVs -> new_subcomponent.Navigation_info" kind="featureGroupConnection" destination="//@componentInstance.0/@featureInstance.2" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="AMC_AGVs -> new_subcomponent.Vehicle_state" kind="featureGroupConnection" destination="//@componentInstance.0/@featureInstance.1" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="AMC_AGVs -> new_subcomponent.Mission_data" kind="featureGroupConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="new_subcomponent2.Mission_Data -> AMC_AGVs" kind="featureGroupConnection" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="new_subcomponent2.Mission_Control -> AMC_AGVs" kind="featureGroupConnection" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#systems.AMC.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a327/ARS/packages/systems.aadl#systems.AMC.impl"/>
+</instance:SystemInstance>

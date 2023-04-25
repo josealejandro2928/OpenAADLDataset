@@ -1,0 +1,312 @@
+package AGV_subsystems
+public
+with processes;
+with processors;
+with memories;
+with buses;
+with SEI;
+	system mission_processing
+	features
+		radar_in : in data port;
+		GPS_in : in data port;
+		mission_data_amc : in data port;
+		battery_in : in data port;
+		mission_results_amc : out data port;
+		vehicle_state_amc : out data port;
+		motor_feedback : in data port;
+		mission_data_arr : out data port;
+		mission_results_arr : in data port;
+		vehicle_state_arr : in data port;
+		door_feedback : in data port;
+		weight_in : in data port;
+		camera_in : in data port;
+		microphone_in : in data port;
+		data_out_disk : out data port;
+		battery_backup : in data port;
+		mission_control_amc : in event port;
+		motor_signal : out event port;
+		mission_control_arr : out event port;
+		door_signal : out event port;
+		connection_state : in event port;
+		data_bus : requires bus access;
+		media_bus : requires bus access;
+		power_bus : requires bus access;
+	flows
+		mission_control : flow path mission_control_amc -> mission_control_arr;
+		mission_data : flow path mission_data_amc -> mission_data_arr;
+		new_flow_spec3 : flow path mission_results_arr -> mission_results_amc;
+		new_flow_spec4 : flow path vehicle_state_arr -> vehicle_state_amc;
+		radar_sink : flow sink radar_in;
+		new_flow_spec6 : flow sink GPS_in;
+		new_flow_spec7 : flow sink battery_in;
+		new_flow_spec8 : flow source motor_signal;
+		new_flow_spec9 : flow sink motor_feedback;
+		new_flow_spec10 : flow sink weight_in;
+		new_flow_spec11 : flow source door_signal;
+		new_flow_spec12 : flow sink door_feedback;
+		battery_backup_status : flow sink battery_backup;
+		weight_loaded_in : flow sink weight_in; 
+		camera_source : flow sink camera_in; 
+		microphone_source : flow sink microphone_in;
+		new_flow_spec : flow source data_out_disk;
+		new_flow_spec2 : flow sink connection_state;
+	end mission_processing;
+
+	system implementation mission_processing.impl
+	subcomponents
+		battery_handler : process processes::battery_handler.impl;
+	
+		GPS_handler : process processes::sensor_handler.GPS;
+		radar_handler : process processes::sensor_handler.radar;
+		mission_handler : process processes::mission_handler.impl;
+
+		mission_splitter : process processes::mission_splitter.impl;
+		mission_result_mixer : process processes::mission_result_mixer.impl;
+		door_handler : process processes::actuator_handler.door;
+		weight_handler : process processes::sensor_handler.weight;
+		media_handler : process processes::media_handler.impl;
+		system_controller : process processes::system_controller.impl;
+		mission_result_handler : process processes::mission_result_handler.impl;
+		navigation : process processes::navigation.impl;
+		status_handler : process processes::state_result_handler.impl;
+		disk_handler : process processes::disk_handler.impl;
+		motor_handler : process processes::actuator_handler.motor;
+		mission_controler : process processes::mission_controller_agv.impl;
+		CPU : processor processors::system_processor.agv;
+		encoder : processor processors::H264_encoder.agv;
+		state_result_mixer : process processes::state_result_mixer.impl;
+		system_memory : memory memories::system_memory.agv;
+		media_memory : memory memories::media_memory.agv;
+		space_hoder : data;
+	connections
+		new_connection : port radar_in -> radar_handler.sensor_data;
+		new_connection2 : port GPS_in -> GPS_handler.sensor_data;
+		new_connection3 : port weight_in -> weight_handler.sensor_data;
+		new_connection4 : port battery_in -> battery_handler.main_in;
+		new_connection5 : port battery_backup -> battery_handler.backup_in;
+		new_connection6 : port mission_data_amc -> mission_handler.mission_data_in;
+		new_connection7 : port mission_control_amc -> mission_handler.mission_control_in;
+		new_connection8 : port camera_in -> media_handler.vedio_in;
+		new_connection9 : port microphone_in -> media_handler.audio_in;
+		new_connection10 : port vehicle_state_arr -> state_result_mixer.arr_results;
+		new_connection11 : port mission_results_arr -> mission_result_mixer.arr_results;
+		new_connection12 : port motor_handler.actuator_signal -> motor_signal;
+		new_connection13 : port motor_feedback -> motor_handler.actuator_feedback;
+		new_connection14 : port state_result_mixer.results -> vehicle_state_amc;
+		new_connection15 : port disk_handler.data_out -> data_out_disk;
+		new_connection16 : port status_handler.state_result_out -> state_result_mixer.agv_results;
+		new_connection17 : port system_controller.state_result_out -> status_handler.state_result_in;
+		new_connection18 : port system_controller.local_recording -> disk_handler.local_recording;
+		new_connection19 : port system_controller.streaming_states -> mission_result_handler.streaming_states;
+		new_connection20 : port mission_handler.mission_data_out -> mission_controler.mission_data;
+		new_connection21 : port mission_handler.mission_control_out -> mission_controler.mission_control;
+		new_connection22 : port mission_handler.mission_data_out -> mission_splitter.mission_data_in;
+		new_connection23 : port mission_handler.mission_control_out -> mission_splitter.mission_control_in;
+		new_connection24 : port media_handler.media_out -> mission_result_handler.media_streaming_in;
+		new_connection25 : port mission_controler.mission_result -> mission_result_handler.text_results_in;
+		new_connection26 : port mission_controler.cmd_door -> door_handler.cmd;
+		new_connection27 : port door_handler.feedback -> mission_controler.door_feedback;
+		new_connection28 : port mission_splitter.mission_data_out -> mission_data_arr;
+		new_connection29 : port mission_splitter.mission_control_out -> mission_control_arr;
+		new_connection30 : port mission_result_handler.mission_results -> mission_result_mixer.agv_results;
+		new_connection31 : port media_handler.media_out -> disk_handler.media_in;
+		new_connection32 : port navigation.motor_cmd -> motor_handler.cmd;
+		new_connection33 : port motor_handler.feedback -> navigation.motor_feedback;
+		new_connection34 : port GPS_handler.data_out -> system_controller.GPS_in;
+		new_connection35 : port radar_handler.data_out -> navigation.radar_in;
+		new_connection36 : port GPS_handler.data_out -> navigation.GPS_in;
+		new_connection37 : port weight_handler.data_out -> system_controller.weight_in;
+		new_connection38 : port battery_handler.info_out -> system_controller.battery_in;
+		new_connection39 : port mission_handler.mission_data_out -> navigation.mission_position;
+		new_connection40 : port navigation.nav_feedback -> mission_controler.navigation_feedback;
+		new_connection41 : port mission_controler.navigation_control -> navigation.nav_control;
+		new_connection42 : port door_handler.actuator_signal -> door_signal;
+		new_connection43 : port door_feedback -> door_handler.actuator_feedback;
+		new_connection44 : port mission_result_mixer.results -> mission_results_amc;
+		new_connection45 : port disk_handler.local_recording -> system_controller.local_recording;
+		new_connection46 : port mission_result_handler.streaming_states -> system_controller.streaming_states;
+		new_connection47 : port connection_state -> mission_result_handler.connection_state;
+	  properties
+	SEI::RAMCapacity => 256.0 MByte applies to system_memory;
+	SEI::RAMCapacity => 512.0 MByte applies to media_memory;
+	SEI::MIPSCapacity => 30.0 MIPS applies to encoder;
+	SEI::MIPSCapacity => 30.0 MIPS applies to CPU;
+	
+	
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_controler;
+   	Actual_Processor_Binding =>  (reference (CPU)) applies to battery_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to GPS_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to navigation;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to motor_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to door_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to weight_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to radar_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to system_controller;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to status_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to disk_handler;
+   	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_splitter;
+   	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_result_mixer;
+   	Actual_Processor_Binding =>  (reference (CPU)) applies to state_result_mixer;
+
+	Actual_Processor_Binding =>  (reference (encoder)) applies to media_handler;
+	Actual_Processor_Binding =>  (reference (encoder)) applies to mission_result_handler;
+
+
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_controler.navigation;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to battery_handler.battery;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to GPS_handler.sensor_GPS;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to weight_handler.weight;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to navigation.calculate;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to navigation.drive;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to motor_handler.motor_cmd;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to motor_handler.motor_feedback;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to door_handler.door_cmd;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to door_handler.door_feedback;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to radar_handler.radar;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_handler.receive;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_handler.queue_management;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_handler.forward;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to system_controller.decision;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to system_controller.result;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to disk_handler.disk_handler;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_splitter.mission_splitter;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to mission_result_mixer.mission_result_mixer;
+	Actual_Processor_Binding =>  (reference (CPU)) applies to state_result_mixer.state_result_mixer;
+	
+	Actual_Processor_Binding =>  (reference (encoder)) applies to media_handler.media;
+	Actual_Processor_Binding =>  (reference (encoder)) applies to mission_result_handler.mission_result_handler;
+	
+	
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_controler.navigation;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to battery_handler.battery;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to GPS_handler.sensor_GPS;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to weight_handler.weight;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to navigation.calculate;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to navigation.drive;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to motor_handler.motor_cmd;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to motor_handler.motor_feedback;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to door_handler.door_cmd;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to door_handler.door_feedback;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to radar_handler.radar;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_handler.receive;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_handler.queue_management;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_handler.forward;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to system_controller.decision;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to system_controller.result;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to disk_handler.disk_handler;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_splitter.mission_splitter;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to mission_result_mixer.mission_result_mixer;
+	Reference_Processor => classifier (processors::system_processor.agv) applies to state_result_mixer.state_result_mixer;
+	
+   	Reference_Processor => classifier (processors::H264_encoder.agv) applies to media_handler.media;
+   	Reference_Processor => classifier (processors::H264_encoder.agv) applies to mission_result_handler.mission_result_handler;
+
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to mission_controler;
+    Actual_Memory_Binding =>  (reference (system_memory)) applies to battery_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to GPS_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to navigation;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to motor_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to door_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to weight_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to radar_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to mission_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to system_controller;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to status_handler;
+   	Actual_Memory_Binding =>  (reference (system_memory)) applies to disk_handler;
+    Actual_Memory_Binding =>  (reference (system_memory)) applies to mission_splitter;
+    Actual_Memory_Binding =>  (reference (system_memory)) applies to mission_result_mixer;
+    Actual_Memory_Binding =>  (reference (system_memory)) applies to state_result_mixer;
+	
+   	Actual_Memory_Binding =>  (reference (media_memory)) applies to media_handler;
+   	Actual_Memory_Binding =>  (reference (media_memory)) applies to mission_result_handler;
+   	
+
+	SEI::MIPSBudget => 2.0 MIPS applies to mission_controler.navigation;
+	SEI::MIPSBudget => 0.1 MIPS applies to battery_handler.battery;
+	SEI::MIPSBudget => 0.1 MIPS applies to GPS_handler.sensor_GPS;
+	SEI::MIPSBudget => 0.1 MIPS applies to weight_handler.weight;
+	SEI::MIPSBudget => 1.0 MIPS applies to navigation.calculate;
+	SEI::MIPSBudget => 1.0 MIPS applies to navigation.drive;
+	SEI::MIPSBudget => 0.5 MIPS applies to motor_handler.motor_cmd;
+	SEI::MIPSBudget => 0.5 MIPS applies to motor_handler.motor_feedback;
+	SEI::MIPSBudget => 0.5 MIPS applies to door_handler.door_cmd;
+	SEI::MIPSBudget => 0.5 MIPS applies to door_handler.door_feedback;
+	SEI::MIPSBudget => 0.1 MIPS applies to radar_handler.radar;
+	SEI::MIPSBudget => 0.1 MIPS applies to mission_handler.receive;
+	SEI::MIPSBudget => 0.5 MIPS applies to mission_handler.queue_management;
+	SEI::MIPSBudget => 0.2 MIPS applies to mission_handler.forward;
+	SEI::MIPSBudget => 2.0 MIPS applies to system_controller.decision;
+	SEI::MIPSBudget => 1.0 MIPS applies to system_controller.result;
+	SEI::MIPSBudget => 0.5 MIPS applies to disk_handler.disk_handler;
+	SEI::MIPSBudget => 5.0 MIPS applies to media_handler.media;
+	SEI::MIPSBudget => 1.0 MIPS applies to mission_result_handler.mission_result_handler;
+	SEI::MIPSBudget => 1.0 MIPS applies to mission_splitter.mission_splitter;
+	SEI::MIPSBudget => 1.0 MIPS applies to mission_result_mixer.mission_result_mixer;
+	SEI::MIPSBudget => 1.0 MIPS applies to state_result_mixer.state_result_mixer;
+
+
+   	Compute_Execution_Time => 2 ms .. 2 ms applies to mission_controler.navigation;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to battery_handler.battery;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to GPS_handler.sensor_GPS;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to weight_handler.weight;
+   	Compute_Execution_Time => 2 ms .. 2 ms applies to navigation.calculate;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to navigation.drive;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to motor_handler.motor_cmd;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to motor_handler.motor_feedback;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to door_handler.door_cmd;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to door_handler.door_feedback;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to radar_handler.radar;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to mission_handler.receive;
+   	Compute_Execution_Time => 2 ms .. 2 ms applies to mission_handler.queue_management;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to mission_handler.forward;
+   	Compute_Execution_Time => 2 ms .. 2 ms applies to system_controller.decision;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to system_controller.result;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to disk_handler.disk_handler;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to mission_splitter.mission_splitter;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to mission_result_mixer.mission_result_mixer;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to state_result_mixer.state_result_mixer;
+   	Compute_Execution_Time => 2 ms .. 2 ms applies to media_handler.media;
+   	Compute_Execution_Time => 1 ms .. 1 ms applies to mission_result_handler.mission_result_handler;
+   	
+   	
+   	Period => 10 ms applies to mission_controler;
+    Period => 10 ms applies to battery_handler;
+	Period => 10 ms applies to GPS_handler;
+	Period => 10 ms applies to navigation;
+	Period => 10 ms applies to motor_handler;
+	Period => 10 ms applies to door_handler;
+	Period => 10 ms applies to weight_handler;
+	Period => 10 ms applies to radar_handler;
+	Period => 10 ms applies to mission_handler;
+	Period => 10 ms applies to system_controller;
+	Period => 10 ms applies to status_handler;
+	Period => 10 ms applies to disk_handler;
+    Period => 10 ms applies to mission_splitter;
+    Period => 10 ms applies to mission_result_mixer;
+    Period => 10 ms applies to state_result_mixer;
+    Period => 10 ms applies to media_handler;
+    Period => 10 ms applies to mission_result_handler;
+    
+    
+ 	SEI::RAMBudget =>  10.0 MByte applies to mission_controler;
+   	SEI::RAMBudget =>  0.5 MByte applies to battery_handler;
+   	SEI::RAMBudget =>  0.5 MByte applies to GPS_handler;
+	SEI::RAMBudget =>  0.5 MByte applies to weight_handler;
+   	SEI::RAMBudget =>  5.0 MByte applies to navigation;
+   	SEI::RAMBudget =>  0.5 MByte applies to motor_handler;
+   	SEI::RAMBudget =>  0.5 MByte applies to door_handler;
+   	SEI::RAMBudget =>  0.5 MByte applies to radar_handler;
+   	SEI::RAMBudget =>  3.0 MByte applies to mission_handler;
+   	SEI::RAMBudget =>  10.0 MByte applies to system_controller;
+   	SEI::RAMBudget =>  5.0 MByte applies to status_handler;
+   	SEI::RAMBudget =>  2.0 MByte applies to disk_handler;
+   	SEI::RAMBudget =>  50.0 MByte applies to media_handler;
+   	SEI::RAMBudget =>  20.0 MByte applies to mission_result_handler;
+	SEI::RAMBudget =>  20.0 MByte applies to mission_splitter;
+	SEI::RAMBudget =>  20.0 MByte applies to mission_result_mixer;
+	SEI::RAMBudget =>  20.0 MByte applies to state_result_mixer;
+    
+	end mission_processing.impl;
+
+end AGV_subsystems;

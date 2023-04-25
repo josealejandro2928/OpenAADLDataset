@@ -1,0 +1,59 @@
+package block_side_by_side::software
+
+public
+
+
+with block_side_by_side::icd; 
+--with sei;
+--with speed_regulation::platform;
+
+-------------------------
+--  Image Acquisition  --
+-------------------------
+
+process line_tracer
+features
+	brightness_value  : in data port block_side_by_side::icd::color_sencer;
+	powerR			  : out data port block_side_by_side::icd::motor_power;
+	powerL			  : out data port block_side_by_side::icd::motor_power;
+flows
+	f0 : flow path brightness_value -> powerL;
+	f1 : flow path brightness_value -> powerR;
+
+end line_tracer;
+
+process route_driver
+features
+	block_NO  : in data port block_side_by_side::icd::block_NO;
+	route	  : out data port block_side_by_side::icd::route;
+flows
+	f0 : flow path block_NO -> route;
+
+end route_driver;
+
+
+process scenario_driver
+features
+	route  		: in data port block_side_by_side::icd::route;
+	scenario	: out data port block_side_by_side::icd::scenario;
+flows
+	f0 : flow path route -> scenario;
+
+end scenario_driver;
+
+
+process direct_controller
+features
+	scenario	: in data port block_side_by_side::icd::scenario;
+	tacho_count : in data port block_side_by_side::icd::tacho_counter;
+	powerR		: out data port block_side_by_side::icd::motor_power;
+	powerL		: out data port block_side_by_side::icd::motor_power;
+flows
+	f0 : flow path scenario -> powerL;
+	f1 : flow path scenario -> powerR;
+	f2 : flow path tacho_count -> powerL;
+	f3 : flow path tacho_count -> powerR;
+
+end direct_controller;
+
+end block_side_by_side::software;

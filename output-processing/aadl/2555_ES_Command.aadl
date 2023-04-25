@@ -1,0 +1,22 @@
+package ES_Command
+public
+	with Component;
+	with Generic;
+	with Core_Types;
+	with Base_Types;
+	with EVS_Interface;
+	with ES_Interface;
+	
+	abstract CommandRouter extends Component::CommandRouter
+		features
+			RestartApp: out data port Core_Types::struct.CFE_SB_Msg_t;
+	end CommandRouter;
+	
+	abstract RestartAppProcessor extends Generic::CommandProcessor
+		features
+			Result: refined to out data port Base_Types::Integer;
+			Command: refined to in data port Core_Types::struct.CFE_SB_Msg_t;
+			SendEvent: feature group EVS_Interface::R_SendEvent;
+			RestartApp: feature group ES_Interface::R_RestartApp;
+	end RestartAppProcessor;
+end ES_Command;

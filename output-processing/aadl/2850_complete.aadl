@@ -1,0 +1,20 @@
+package complete
+public
+with devices;
+with systems;
+	system complete
+	end complete;
+
+	system implementation complete.impl
+	subcomponents
+		ARS : system systems::ARS.impl;
+		ResultDisplay : device devices::Display.impl;
+		CommandsInput : device devices::DataInput.keyboard;
+		EnableSwitch : device devices::Switch.enable;
+	connections
+		results : port ARS.display_out -> ResultDisplay.display_in;
+		commands : port CommandsInput.data_out -> ARS.commands_in;
+		enable : port EnableSwitch.enable_out -> ARS.enable_in;
+	end complete.impl;
+
+end complete;

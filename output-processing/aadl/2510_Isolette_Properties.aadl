@@ -1,0 +1,39 @@
+property set Isolette_Properties is
+	with isolette;
+
+  	Temperature_Increase_Rate: Isolette_Properties::Temperature_Change_Type applies to ( processor, memory, system, bus, device, abstract );
+  	Temperature_Decrease_Rate: Isolette_Properties::Temperature_Change_Type applies to ( processor, memory, system, bus, device, abstract );
+  	Temperature_Change_Type: type aadlreal units Isolette_Properties::Temperature_Change_Rate_Units;
+  	Temperature_Tolerance: aadlreal units Isolette_Properties::Temperature_Units applies to ( subprogram, data );
+  	Temperature_Increment: aadlreal units Isolette_Properties::Temperature_Units applies to ( data );
+  	
+  	--@description The time an operator will tolerate between an operator request or a change in the Thermostat state and the visible response.
+  	--@rationale A trade study has shown that this lag should be no more than 0.5 second.
+	Max_Operator_Response_Time: constant aadlreal units Time_Units => 0.5 sec;
+
+  	--@description The maximum allowed tolerance for setting the Display Temperature controlled variable.
+	Allowed_Display_Temp_Tolerance: constant aadlreal units Isolette_Properties::Temperature_Units => 0.6 Fahrenheit;
+
+  	--@description The time allowed for initialization of the Regulate Temperature Function before declaring failure.
+  	--@rationale A trade study has shown that users become impatient if the Thermostat requires more than one second to initialize.
+	Regulator_Init_Timeout: constant aadlreal units Time_Units => 1.0 sec;
+
+  	--@description The time allowed for initialization of the Monitor Temperature Function before declaring failure.
+  	--@rationale A trade study has shown that users become impatient if the Thermostat requires more than one second to initialize.
+	Monitor_Initialization_Timeout: constant aadlreal units Time_Units => 1.0 sec;
+
+  	--@description The maximum time by which the Heat Source must be turned on or off to ensure acceptable operation of the Isolette system.
+  	--@rationale Since a closed Isolette will warm or cool at a maximum rate of 1°F per minute (EA-IS1 and EA-IS2), turning the Heat Source on or off within 6 seconds ensures that the Current Temperature will not have changed by more than 0.1°F, the required accuracy and resolution of the Temperature Sensor (EA-TS2).
+	Allowed_Heat_Source_Latency: constant aadlreal units Time_Units => 6.0 sec;
+
+  	Temperature_Change_Rate_Units: type units ( Fdeg_Minute );
+  	Temperature_Units: type units ( Fahrenheit ); -- Affine conversion not possible, Celcius => Fahrenheit * 0.5555 );
+  	Thermal_Resistivity : aadlreal units Isolette_Properties::Thermal_Resistivity_Units applies to ( system );
+  	Thermal_Resistivity_Units: type units (hr_foot_Fahrenheit_per_BTU);
+  
+  	Failure_Probability: Isolette_Properties::Rate_Type applies to ( all );
+
+  	-- Rate Property Types
+  	Rate_Type: type aadlreal units Isolette_Properties::Rate_Units;
+  	Rate_Units: type units ( percent, abs => percent * 100 );
+end Isolette_Properties;

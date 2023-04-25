@@ -1,0 +1,46 @@
+package Keys
+public
+	with Security;
+
+	data Key128
+		properties
+			Security::Key_Length => 128 bits;
+	end Key128;
+
+	data Key256
+		properties
+			Security::Key_Length => 256 bits;
+	end Key256;
+
+	data key512
+		properties
+			Security::Key_Length => 512 bits;
+	end key512;
+
+	data Key1024
+		properties
+			Security::Key_Length => 1024 bits;
+	end Key1024;
+
+	data Key2048
+		properties
+			Security::Key_Length => 2048 bits;
+	end Key2048;
+
+	-- Inintialization Vectors
+	data InitVector64
+		properties
+			Security::block_Size => 64 bits;
+	end InitVector64;
+
+	data InitVector128
+		properties
+			Security::block_Size => 128 bits;
+	end InitVector128;
+
+	data InitVector256
+		properties
+			Security::block_Size => 256 bits;
+	end InitVector256;
+
+end Keys;

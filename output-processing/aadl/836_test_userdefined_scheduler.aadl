@@ -1,0 +1,106 @@
+
+thread T1_P0
+end T1_P0;
+
+thread implementation T1_P0.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  0;
+		Cheddar_Properties::Context_Switch_Overhead =>  0 ms ;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  10 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end T1_P0.Impl;
+
+thread T3_P1
+end T3_P1;
+
+thread implementation T3_P1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  1;
+		Cheddar_Properties::Context_Switch_Overhead =>  0 ms ;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  10 ms ..  10 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  4;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  20 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  20 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end T3_P1.Impl;
+
+thread T2_P1
+end T2_P1;
+
+thread implementation T2_P1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		User_Defined_Cheddar_Properties::task_partition =>  1;
+		Cheddar_Properties::Context_Switch_Overhead =>  0 ms ;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  5;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  10 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end T2_P1.Impl;
+
+process ea1
+end ea1;
+
+process implementation ea1.Impl
+	subcomponents
+		instancied_T1_P0 : thread T1_P0.Impl;
+		instancied_T3_P1 : thread T3_P1.Impl;
+		instancied_T2_P1 : thread T2_P1.Impl;
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb ;
+end ea1.Impl;
+
+processor arinc653
+end arinc653;
+
+processor implementation arinc653.Impl
+	properties 
+		Scheduling_Protocol => PIPELINE_USER_DEFINED_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+		Cheddar_Properties::Automaton_Name => "";
+		Cheddar_Properties::Source_Text => "arinc.sc";
+end arinc653.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_arinc653 : processor arinc653.Impl;
+		instancied_ea1 : process ea1.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_arinc653 applies to instancied_ea1;
+		Cheddar_Properties::Source_Text => "arinc_event_analyzer.sc";
+end Cheddar.Impl;
+
+
+

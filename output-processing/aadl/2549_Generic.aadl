@@ -1,0 +1,49 @@
+package Generic
+public
+	--agree supports component: thread, thread group, process, data, processor, device, system, abstract
+	
+	with Base_Types;
+-----------------------------Function-----------------------------
+	feature group Provide_Generic_Function_API
+		features
+			Call: in event data port Base_Types::Boolean;
+			Result: out event data port Base_Types::Unsigned_32;
+	end Provide_Generic_Function_API;
+
+	feature group Require_Generic_Function_API
+		features
+			Call: out event data port Base_Types::Boolean;
+			Result: in event data port Base_Types::Unsigned_32;
+	inverse of Provide_Generic_Function_API
+	end Require_Generic_Function_API;
+	
+-----------------------------ServiceData-----------------------------
+	feature group ShareDataInput
+		features
+			Input: feature group;
+			EvaluteValue: feature group;
+	end ShareDataInput;
+	
+	feature group ServiceProcessorOutput
+		features
+			Output: feature group;
+			ReturnValue: feature group;
+	inverse of ShareDataInput
+	end ServiceProcessorOutput;
+	
+	abstract CommandProcessor
+		features
+			Command: in data port;
+			Result: out data port;
+			LocalDatas: feature group;
+--    		DefaultExternalDatas: feature group;
+	end CommandProcessor;
+	
+	abstract FunctionProcessor
+		features
+			Args: feature group;
+    		Results: feature group;
+    		LocalDatas: feature group;
+--    		DefaultExternalDatas: feature group;
+	end FunctionProcessor;
+end Generic;

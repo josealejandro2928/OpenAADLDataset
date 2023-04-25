@@ -1,0 +1,147 @@
+package isolette_heat_source
+public
+	with isolette, Data_Model, Data_Types;
+	
+	--- data models for heat source ---
+	
+	data heat_on_off
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ( "On", "Off" );
+	end heat_on_off;
+	
+	data heat
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Float;
+			Data_Model::Real_Range => 68.0 .. 105.0;
+	end heat;
+	
+	system Heat_Source
+		features
+			heat_on_off : in data port heat_on_off;
+			--heat_on_off : in data port Base_Types::Boolean;
+			heat : out data port heat;
+			current_temperature : in data port current_temperature;
+		flows
+			heat_source_current_temperature : flow source current_temperature;
+			heat_source_sink: flow sink heat_on_off;
+		properties
+			Power_Properties::Power_Static_Tot => 300.0 W .. 310.0 W;
+			
+		annex agree {**
+				guarantee "Cannot turn on and off heat at the same time" : 
+							not (heat=true and heat=false);
+				guarantee "When heat control is on and current temperature does not exceed the range, heater must be truned on" : not (heat=true and heat=false);
+				guarantee "Current temperature does not exceed the range" : not (heat=true and heat=false);
+			**};
+	end Heat_Source;
+	
+	system implementation Heat_Source.with_devices
+		subcomponents
+			this_heat_source : device Roof_heat_Source;
+			this_configuration_checker : process Configuration_Checker.impl;
+			this_bus : bus Checker_heat_Source_Conn.impl;
+			this_processor : processor MainProcessor.impl;
+		connections 
+			heat_conn : port this_heat_source.heat_source -> heat;
+			heat_on_off_conn : port heat_on_off -> this_configuration_checker.heat_on_off;
+			heat_configuration_conn : port this_configuration_checker.heat_configuration -> this_heat_source.heat_configuration;
+			current_temperature_conn : feature group current_temperature <-> this_configuration_checker.current_temperature;
+			bus_heat_source : bus access this_bus -> this_heat_source.bus_access;
+			---bus_configuration_checker : bus access this_bus -> this_configuration_checker.bus_access;
+			bus_processor : bus access this_bus -> this_processor.bus_access;
+		annex agree {**
+				eq heat_request : bool = true;
+				--assert (heat = heat_request);
+			**};
+		annex Resolute{**
+			prove heatControl_On()
+		**};
+	end Heat_Source.with_devices;
+	
+	annex Resolute{**
+			heatControl_On()<=
+			**"heat shall be On"**
+			forall(c:component).true=>heatRange(c)
+				
+			heatRange(com:component)<=
+			**"shall be within 68.0 to 105.0"**
+			forall(c:component).true
+		**};
+	--- processors and bus ---
+	
+	processor MainProcessor
+		features
+			bus_access : requires bus access Checker_heat_Source_Conn;
+	end MainProcessor;
+	
+	processor implementation MainProcessor.impl
+		subcomponents
+			this_ram : memory RAM;
+	end MainProcessor.impl;
+	
+	Memory RAM
+	end RAM;
+	
+	bus Checker_Heat_Source_Conn
+	end Checker_Heat_Source_Conn;
+	
+	bus implementation Checker_Heat_Source_Conn.impl
+	end Checker_Heat_Source_Conn.impl;
+	
+	--- roof heat source --- 
+	
+	device Roof_Heat_Source
+		features
+			heat_configuration : in data port heat_Configuration;
+			heat_source : out data port heat;
+			bus_access : requires bus access Checker_heat_Source_Conn;
+	end Roof_Heat_Source;
+	
+	device implementation Roof_Heat_Source.impl
+	end Roof_Heat_Source.impl;
+	
+	--- configuration checker ---
+	
+	process Configuration_Checker
+		features 
+			current_temperature : feature group inverse of current_temperature;
+			heat_on_off : in data port heat_on_off;
+			heat_configuration : out data port heat_Configuration; 
+			--- bus_access : requires bus access Checker_heat_Source_Conn;
+		flows
+			heat_source_sink: flow sink heat_on_off;
+	end Configuration_Checker;
+	
+	process implementation Configuration_Checker.impl	
+		subcomponents 
+			this_checker : thread Checker.impl;
+			this_controller : thread heat_on_offler;
+		connections 
+			current_temperature_config_checker_conn : feature group current_temperature <-> this_checker.current_temperature;
+			heat_on_off_config_checker_conn : port heat_on_off -> this_checker.heat_on_off;
+			checker_heat_on_offler_conn : port this_checker.heat_on_offler -> this_controller.heat_on_offler;
+			heat_on_offler_config_checker_conn : port this_controller.heat_configuration -> heat_configuration;
+	end Configuration_Checker.impl;
+	
+	thread Checker
+		features 
+			current_temperature : feature group inverse of current_temperature;
+			heat_on_off : in data port heat_on_off;
+			heat_on_offler : out data port heat_on_off;
+	end Checker;
+	
+	thread implementation Checker.impl
+	end Checker.impl;
+	
+	thread heat_on_offler
+		features 
+			heat_on_offler : in data port heat_on_off;
+			heat_configuration : out data port heat_Configuration; 
+	end heat_on_offler;
+	
+	thread implementation heat_on_offler.impl
+	end heat_on_offler.impl;
+	
+end isolette_heat_source;

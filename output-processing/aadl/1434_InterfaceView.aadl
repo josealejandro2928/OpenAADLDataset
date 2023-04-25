@@ -1,0 +1,69 @@
+---------------------------------------------------
+-- AADL2.2
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::Simple_C_Function
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_cyclic_operation
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_cyclic_operation;
+
+SUBPROGRAM IMPLEMENTATION PI_cyclic_operation.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 2000 ms;
+END PI_cyclic_operation.others;
+
+SYSTEM Simple_C_Function
+FEATURES
+  PI_cyclic_operation : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Simple_C_Function::PI_cyclic_operation.others {
+    Taste::coordinates => "1009 658";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 2000 ms;
+    Taste::Deadline => 2000 ms;
+    Taste::InterfaceName => "cyclic_operation";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => enabled;
+END Simple_C_Function;
+
+SYSTEM IMPLEMENTATION Simple_C_Function.others
+END Simple_C_Function.others;
+
+END interfaceview::IV::Simple_C_Function;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::Simple_C_Function;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  Simple_C_Function : SYSTEM interfaceview::IV::Simple_C_Function::Simple_C_Function.others {
+    Taste::coordinates => "1009 506 1673 1195";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 2970 2100";
+  Taste::version => "2.4";
+END interfaceview::IV;
+

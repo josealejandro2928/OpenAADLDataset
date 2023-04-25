@@ -1,0 +1,214 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::Watchdog
+PUBLIC
+
+WITH interfaceview::IV::dummy_consumer;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_purge
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_purge;
+
+SUBPROGRAM IMPLEMENTATION PI_purge.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_purge.others;
+
+SUBPROGRAM PI_test_cmd
+FEATURES
+  cmd_val : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_test_cmd;
+
+SUBPROGRAM IMPLEMENTATION PI_test_cmd.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_test_cmd.others;
+
+SUBPROGRAM RI_mot_cmd
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+END RI_mot_cmd;
+
+SUBPROGRAM IMPLEMENTATION RI_mot_cmd.others
+END RI_mot_cmd.others;
+
+SYSTEM Watchdog
+FEATURES
+  PI_purge : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Watchdog::PI_purge.others {
+    Taste::coordinates => "131353 55309";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 80 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "purge";
+  };
+  PI_test_cmd : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Watchdog::PI_test_cmd.others {
+    Taste::coordinates => "103993 79789";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "test_cmd";
+  };
+  RI_mot_cmd : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dummy_consumer::PI_mo_cmd.others {
+    Taste::coordinates => "171546 63807";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "mot_cmd";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("watchdog.zip");
+END Watchdog;
+
+SYSTEM IMPLEMENTATION Watchdog.others
+END Watchdog.others;
+
+END interfaceview::IV::Watchdog;
+
+PACKAGE interfaceview::IV::dummy_producer
+PUBLIC
+
+WITH interfaceview::IV::Watchdog;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_test_cmd
+FEATURES
+  cmd_val : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+END RI_test_cmd;
+
+SUBPROGRAM IMPLEMENTATION RI_test_cmd.others
+END RI_test_cmd.others;
+
+SYSTEM dummy_producer
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dummy_producer::PI_trigger.others {
+    Taste::coordinates => "83539 59919";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_test_cmd : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Watchdog::PI_test_cmd.others {
+    Taste::coordinates => "90454 68848";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "test_cmd";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END dummy_producer;
+
+SYSTEM IMPLEMENTATION dummy_producer.others
+END dummy_producer.others;
+
+END interfaceview::IV::dummy_producer;
+
+PACKAGE interfaceview::IV::dummy_consumer
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_mo_cmd
+FEATURES
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 5;
+END PI_mo_cmd;
+
+SUBPROGRAM IMPLEMENTATION PI_mo_cmd.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 30 ms;
+END PI_mo_cmd.others;
+
+SYSTEM dummy_consumer
+FEATURES
+  PI_mo_cmd : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dummy_consumer::PI_mo_cmd.others {
+    Taste::coordinates => "188110 56317";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 50 ms;
+    Taste::InterfaceName => "mo_cmd";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END dummy_consumer;
+
+SYSTEM IMPLEMENTATION dummy_consumer.others
+END dummy_consumer.others;
+
+END interfaceview::IV::dummy_consumer;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::Watchdog;
+WITH interfaceview::IV::dummy_producer;
+WITH interfaceview::IV::dummy_consumer;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("mc_watchdog_dv.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  Watchdog : SYSTEM interfaceview::IV::Watchdog::Watchdog.others {
+    Taste::coordinates => "103993 55309 171546 89446";
+  };
+  dummy_producer : SYSTEM interfaceview::IV::dummy_producer::dummy_producer.others {
+    Taste::coordinates => "77779 59919 90454 71009";
+  };
+  dummy_consumer : SYSTEM interfaceview::IV::dummy_consumer::dummy_consumer.others {
+    Taste::coordinates => "188110 53437 216917 71153";
+  };
+CONNECTIONS
+  Watchdog_PI_test_cmd_dummy_producer_RI_test_cmd : SUBPROGRAM ACCESS Watchdog.PI_test_cmd -> dummy_producer.RI_test_cmd {
+    Taste::coordinates => "90454 68848 97223 68848 97223 79789 103993 79789";
+  };
+  dummy_consumer_PI_mo_cmd_Watchdog_RI_mot_cmd : SUBPROGRAM ACCESS dummy_consumer.PI_mo_cmd -> Watchdog.RI_mot_cmd {
+    Taste::coordinates => "171546 63807 179828 63807 179828 56317 188110 56317";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("mc_watchdog_dv.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

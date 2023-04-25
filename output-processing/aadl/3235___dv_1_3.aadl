@@ -1,0 +1,73 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type deploymentview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE deploymentview::DV::Node1
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS chip
+END chip;
+
+PROCESS IMPLEMENTATION chip.others
+END chip.others;
+
+END deploymentview::DV::Node1;
+
+PACKAGE deploymentview::DV
+PUBLIC
+
+WITH interfaceview::IV;
+WITH ocarina_processors_x86;
+WITH deploymentview::DV::Node1;
+WITH Taste;
+WITH Deployment;
+WITH interfaceview::IV;
+WITH TASTE_DV_Properties;
+SYSTEM Node1
+END Node1;
+
+SYSTEM IMPLEMENTATION Node1.others
+SUBCOMPONENTS
+  IV_gui : SYSTEM interfaceview::IV::gui.others {
+    Taste::FunctionName => "gui";
+  };
+  IV_guard_2 : SYSTEM interfaceview::IV::guard_2.others {
+    Taste::FunctionName => "guard_2";
+  };
+  chip : PROCESS deploymentview::DV::Node1::chip.others {
+    Taste::coordinates => "90249 62730 129963 88482";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "85285 55372 134927 92161";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (chip)) APPLIES TO IV_gui;
+  Taste::APLC_Binding => (reference (chip)) APPLIES TO IV_guard_2;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO chip;
+END Node1.others;
+
+SYSTEM deploymentview
+END deploymentview;
+
+SYSTEM IMPLEMENTATION deploymentview.others
+SUBCOMPONENTS
+  Node1 : SYSTEM Node1.others {
+    Taste::coordinates => "79080 44861 141132 97417";
+  };
+  interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
+END deploymentview.others;
+
+PROPERTIES
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "1.3";
+  Taste::interfaceView => "InterfaceView.aadl";
+  Taste::HWLibraries => ("");
+END deploymentview::DV;
+

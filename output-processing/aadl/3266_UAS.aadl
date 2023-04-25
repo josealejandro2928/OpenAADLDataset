@@ -1,0 +1,63 @@
+package UAS
+
+public
+	with UAV_Controller;
+	with UAV;
+	with Buses;
+	with SW_Protocols;
+	with CASE_Properties;
+
+	------------------------------------------------------------------------------------------------------
+	-- Define an exemplar UAS consisting of a ground station communication with a two UAVs via
+	-- a wireless (WiFi) data link. There are two different types of UAVs in this UAS: one with
+	-- a EO/IR sensor and one without.
+	------------------------------------------------------------------------------------------------------
+	system UAS
+	end UAS;
+
+	system implementation UAS.TA6
+		subcomponents
+			Gnd_Station : system UAV_Controller::Gnd_Station.impl;
+			UAV_400 : system UAV::UAV.TA6_Type1;
+			UAV_500 : system UAV::UAV.TA6_Type2;
+			Wireless_Link: bus Buses::WiFi;
+			Wireless_Protocol: virtual bus SW_Protocols::Zyre.i;
+			
+		connections
+			--features connections
+			c1 : feature group UAV_400.Control_Interface <-> Gnd_Station.UAV_Operator_IF;
+			c2 : feature group UAV_500.Control_Interface <-> Gnd_Station.UAV_Operator_IF;
+			c8 : feature group UAV_400.Configuration_IF <-> Gnd_Station.Configuration_Data;
+			c9 : feature group UAV_500.Configuration_IF <-> Gnd_Station.Configuration_Data;
+			
+			--physical connections
+			c3 : bus access Gnd_Station.SD_Card_Conn <-> UAV_400.USB_Link;
+			c4 : bus access Gnd_Station.SD_Card_Conn <-> UAV_500.USB_Link;
+			c5 : bus access Gnd_Station.Wireless_Conn <-> Wireless_Link;
+			c6 : bus access UAV_500.Wireless_Link <-> Wireless_Link;
+			c7 : bus access UAV_400.Wireless_Link <-> Wireless_Link;
+			
+		properties
+			Actual_Connection_Binding => (reference(Wireless_Protocol)) applies to c1, c2;
+			Actual_Connection_Binding => (reference(Wireless_Link)) applies to Wireless_Protocol, UAV_400.Wireless_Link, UAV_500.Wireless_Link; 
+
+			CASE_Properties::ASSET_NAME => "Comm Relay UAV" applies to UAV_400;
+			CASE_Properties::PROTECTION_LEVEL => NOMINAL applies to UAV_400;
+			CASE_Properties::PROTECTION_TYPE => INFOSEC applies to UAV_400;
+			
+			CASE_Properties::ASSET_NAME => "Surveil UAV" applies to UAV_500;
+			CASE_Properties::PROTECTION_LEVEL => NOMINAL applies to UAV_500;
+			CASE_Properties::PROTECTION_TYPE => INFOSEC applies to UAV_500;
+
+			--The physical security boundary is defined by the wireless between the ground station and UAVs,
+			--a USB to accept configuration data, and the RF from the sensor in UAV_500
+			CASE_Properties::MACHINE_BOUNDARY => true applies to UAV_400.Wireless_Link, UAV_500.Wireless_Link, 
+				Gnd_Station.Wireless_Conn, UAV_400.USB_Link, UAV_500.USB_Link, Gnd_Station.SD_Card_Conn, UAV_500.Sensor_RF;
+			--Subsystems protect themselves where differences in trusted source(s) are exposed
+			--in this case what feature is exposed by the physical security boundary 
+			CASE_Properties::TRUST_BOUNDARY => true applies to UAV_400.Control_Interface, UAV_500.Control_Interface, 
+				Gnd_Station.UAV_Operator_IF, UAV_400.Configuration_IF, UAV_500.Configuration_IF, Gnd_Station.Configuration_Data;
+			
+	end UAS.TA6;
+
+end UAS;

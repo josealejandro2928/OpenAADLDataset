@@ -1,0 +1,82 @@
+package regulate_temperature
+public
+	with isolette, Data_Model;
+	with Base_Types, Data_Types;
+	with EMV2;
+	
+	system Regulate_Temperature
+		features
+			current_temp : in data port current_temperature;
+			current_temp_status : in data port current_temperature_status;
+			heat_control : out data port heat_control;
+			regulator_status : out data port regulatro_status;
+			display_temp : out data port display_temperature;
+			lower_desired_temp : in data port lower_desired_temperature;
+			upper_desired_temp : in data port upper_desired_temperature;
+			lower_desired_range : in data port lower_desired_range;
+			upper_desired_range : in data port upper_desired_range;
+	end Regulate_Temperature;
+	
+	thread Manage_Regulator_Interface
+		features
+			lower_desired_temp : in data port lower_desired_temperature;
+			upper_desired_temp : in data port upper_desired_temperature;
+	  		current_temperature : in data port current_temperature;
+	  		regulate_mode : in data port monitor_mode;
+	  		regulate_status : out data port status;
+			lower_desired_range : in data port lower_desired_range;
+			upper_desired_range : in data port upper_desired_range;
+			regulate_failure : out data port Regulate_Failure;
+		annex agree {**
+			assume "Lower Desired Temperature must be greater than 96 and less than 101 буF" : lower_desired_temp>=96 and lower_desired_range<=101;
+			guarantee "The difference between two Desired Temperatures must be less or equal to 5 буF" : upper_desired_temp-lower_desired_range<=5;
+			assume "Upper Desired Temperature must be greater than 97 and less than 102 буF" : upper_desired_temp>=99 and upper_desired_range<=103;
+			guarantee "The difference between two Upper Alarm Temperatures must be less or equal to 4 буF" : upper_desired_range-upper_desired_temp<=4;
+			guarantee "Current Temperature must be greater than 68 and less that 105 буF" : current_temperature.value>68 or current_temperature.value<=105;
+			--guarantee "The status of monitor interface is not failure" : monitor_interface_failure = true;
+			**};
+	end Manage_Regulator_Interface;
+	
+	thread implementation Manage_Regulator_Interface.impl
+		connections 
+			regulate_temp_to_manage_reg_interface : port current_temp -> this_mri.current_temperature;
+			this_mri_regulator_status_to_regulate_temp : port regulate_status -> Regulate_Temperature.regulator_status;
+			this_mri_display_temp_to_regulate_temp : port current_temperature -> Regulate_Temperature.display_temp;
+			regulate_temp_lower_to_this_mri_desired_temp_range : port Regulate_Temperature.lower_desired_range -> this_mri.lower_desired_range;
+			regulate_temp_upper_to_this_mri_desired_temp_range : port Regulate_Temperature.upper_desired_range -> this_mri.upper_desired_range;
+			this_mrm_mode_to_this_mri : port this_mrm.regulate_mode -> this_mri.regulate_mode;
+			this_mri_interface_failure_to_this_mrm : port this_mri.regulate_failure -> this_mrm.regulate_failure;
+		annex EMV2 {**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+			use types Regulate_Temp_Error_Lib;
+			error propagations
+				 lower_desired_temp : in propagation {LateData, DesiredTempLower};
+				 upper_desired_temp : in propagation {LateData, DesiredTempUpper};
+				 current_temperature.value : in propagation {LateData, CurrentTempValueError};
+				 regulate_mode : in propagation {LateData, RegulateInternalFailure};
+				 regulate_status : out propagation {NoData, StatusError};
+				 lower_desired_range : out propagation {NoData, DesiredTempRangeLower};
+				 upper_desired_range : out propagation {NoData, DesiredTempRangeUpper};
+				 regulate_interface_failure : out propagation {NoData, RegulateInterfaceFailure};
+			flows 
+				ef0 : error path lower_desired_temp{DesiredTempLower} -> lower_desired_range{DesiredTempRangeLower};
+				ef1 : error path upper_desired_temp{DesiredTempUpper} -> upper_desired_range{DesiredTempRangeUpper};
+				ef2 : error path current_temperature.value{CurrentTempValueError} -> monitor_status{StatusError};
+				ef3 : error path regulate_mode{LateData} -> regulate_status{StatusError};
+				ef4 : error path regulate_mode{LateData} -> regulate_interface_failure{RegulateInterfaceFailure};
+			end propagations;
+			
+			properties
+				EMV2::Severity => ARP4761::Hazardous applies to ef0, ef1, ef3, ef4;
+				EMV2::Severity => ARP4761::Major applies to ef2;
+				EMV2::hazards =>
+				([
+					crossreference => "N/A";
+					failure => "Late Values";
+					phases => ("all");
+					description => "Late delivery.";
+					comment => "";
+				]) applies to ef0, ef1, ef3, ef4;
+				**};
+	end Manage_Regulator_Interface.impl;
+	
+end regulate_temperature;

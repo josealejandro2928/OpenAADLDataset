@@ -1,0 +1,456 @@
+package processes
+public
+with buses;
+with threads;
+with datas;
+with SEI;
+	process sensor_handler
+	features
+		sensor_data : in data port;
+		data_out : out data port;
+		data_bus_require : requires data access;
+	
+	flows
+		new_flow_spec : flow path sensor_data -> data_out;
+	end sensor_handler;
+	process implementation sensor_handler.GPS
+	subcomponents
+		sensor_GPS : thread threads::sensor_GPS.impl;
+connections
+	new_connection : port sensor_data -> sensor_GPS.data_in;
+	new_connection2 : port sensor_GPS.data_out -> data_out;
+end sensor_handler.GPS;
+
+	process implementation sensor_handler.radar
+	subcomponents
+		radar : thread threads::sensor_radar.impl;
+connections
+	new_connection : port sensor_data -> radar.data_in;
+	new_connection2 : port radar.data_out -> data_out;
+end sensor_handler.radar;
+	
+   process mission_result_mixer
+	features
+		arr_results : in data port;
+		agv_results : in data port;
+		results : out data port;
+
+	flows
+		new_flow_spec : flow path arr_results -> results;
+		new_flow_spec2 : flow path agv_results -> results;
+	end mission_result_mixer;
+
+	process implementation mission_result_mixer.impl
+	subcomponents
+		mission_result_mixer : thread threads::mission_result_mixer.impl;
+	end mission_result_mixer.impl;
+	
+   process state_result_mixer
+	features
+		arr_results : in data port;
+		agv_results : in data port;
+		results : out data port;
+		
+		
+	flows
+		new_flow_spec : flow path arr_results -> results;
+		new_flow_spec2 : flow path agv_results -> results;
+	end state_result_mixer;
+
+	process implementation state_result_mixer.impl
+	subcomponents
+		state_result_mixer : thread threads::state_result_mixer.impl;
+	end state_result_mixer.impl;
+
+	process mission_splitter
+	features
+		mission_data_in : in data port;
+		mission_data_out : out data port;
+		mission_control_out : out event port;
+		mission_control_in : in event port;
+		
+	
+	flows
+		new_flow_spec : flow path mission_data_in -> mission_data_out;
+		new_flow_spec2 : flow path mission_control_in -> mission_control_out;
+	end mission_splitter;
+	
+	process implementation mission_splitter.impl
+	subcomponents
+		mission_splitter : thread threads::mission_splitter.impl;
+	end mission_splitter.impl;
+	
+	process battery_handler
+	features
+		main_in : in data port;
+		backup_in : in data port;
+		info_out : out data port;
+		
+		
+	flows
+		new_flow_spec : flow path main_in -> info_out;
+		new_flow_spec2 : flow path backup_in -> info_out;
+	end battery_handler;
+	
+	process implementation battery_handler.impl
+	subcomponents
+		battery : thread threads::battery_dual.impl;
+connections
+	new_connection : port main_in -> battery.main_in;
+	new_connection2 : port backup_in -> battery.backup_in;
+	new_connection3 : port battery.info_out -> info_out;
+end battery_handler.impl;
+	
+	process media_handler
+	features
+		vedio_in : in data port;
+		audio_in : in data port;
+		media_out: out data port;
+		
+	flows
+		new_flow_spec : flow path vedio_in -> media_out;
+		new_flow_spec2 : flow path audio_in -> media_out;
+	end media_handler;
+	
+	process implementation media_handler.impl
+		subcomponents
+		media : thread threads::media.impl;
+connections
+	new_connection : port vedio_in -> media.video;
+	new_connection2 : port audio_in -> media.audio;
+	new_connection3 : port media.media_out -> media_out;
+end media_handler.impl;
+	
+	process mission_handler
+	features
+		mission_data_in : in data port;
+		mission_data_out : out data port;
+		mission_control_in : in event port;
+		mission_control_out : out event port;
+		
+	
+	flows
+		new_flow_spec : flow path mission_data_in -> mission_data_out;
+		new_flow_spec2 : flow path mission_control_in -> mission_control_out;
+	end mission_handler;
+
+	process implementation mission_handler.impl
+	subcomponents
+			mission_queue : data datas::mission_queue;
+		receive : thread threads::mission_receive.impl;
+		queue_management : thread threads::mission_queue_management.impl;
+		forward : thread threads::mission_forward.impl;
+connections
+
+	new_connection5 : port mission_data_in -> receive.mission_data_in;
+	new_connection6 : port mission_control_in -> receive.mission_control_in;
+	new_connection7 : port forward.mission_data_out -> mission_data_out;
+	new_connection8 : port forward.mission_control_out -> mission_control_out;
+	new_connection : port receive.queue -> queue_management.queue;
+	new_connection2 : port queue_management.queue -> forward.queue;
+	new_connection3 : data access receive.mission_queue -> mission_queue;
+	new_connection4 : data access mission_queue -> forward.mission_queue;
+	new_connection9 : data access mission_queue <-> queue_management.mission_queue;
+end mission_handler.impl;
+
+	process actuator_handler
+	features
+		actuator_feedback : in data port;
+		actuator_signal : out event port;
+	cmd : in event data port;
+	feedback : out event data port;
+	
+	
+flows
+	new_flow_spec : flow path cmd -> actuator_signal;
+		new_flow_spec2 : flow path actuator_feedback -> feedback;
+	end actuator_handler;
+
+	process implementation actuator_handler.door
+	subcomponents
+		door_cmd : thread threads::actuator_door_command.impl;
+		door_feedback : thread threads::actuator_door_feedback.impl;
+		
+connections
+	new_connection : port cmd -> door_cmd.cmd_in;
+	new_connection2 : port door_cmd.signal_out -> actuator_signal;
+	new_connection3 : port actuator_feedback -> door_feedback.actuator_feedback;
+	new_connection4 : port door_feedback.feedback -> feedback;
+	
+	end actuator_handler.door;
+
+	process implementation actuator_handler.motor
+	subcomponents
+		motor_cmd : thread threads::actuator_motor_command.impl;
+		motor_feedback : thread threads::actuator_motor_feedback.impl;
+		
+connections
+	new_connection : port cmd -> motor_cmd.cmd_in;
+	new_connection2 : port motor_cmd.signal_out -> actuator_signal;
+	new_connection3 : port actuator_feedback -> motor_feedback.actuator_feedback;
+	new_connection4 : port motor_feedback.feedback -> feedback;
+	end actuator_handler.motor;
+	
+	process implementation actuator_handler.arm
+	subcomponents
+		arm_cmd : thread threads::actuator_arm_command.impl;
+		arm_feedback : thread threads::actuator_arm_feedback.impl;
+		
+connections
+	new_connection : port cmd -> arm_cmd.cmd_in;
+	new_connection2 : port arm_cmd.signal_out -> actuator_signal;
+	new_connection3 : port actuator_feedback -> arm_feedback.actuator_feedback;
+	new_connection4 : port arm_feedback.feedback -> feedback;
+
+	end actuator_handler.arm;
+
+	process navigation
+	features
+		GPS_in : in data port;
+		radar_in : in data port;
+		mission_position : in data port;
+		nav_control : in event port;
+		nav_feedback : out event data port;
+		motor_cmd : out event data port;
+		motor_feedback : in event data port;
+		
+		
+flows
+	new_flow_spec : flow path GPS_in -> motor_cmd;
+		new_flow_spec2 : flow path radar_in -> motor_cmd;
+		new_flow_spec3 : flow path mission_position -> motor_cmd;
+		new_flow_spec4 : flow sink nav_control;
+		new_flow_spec5 : flow source nav_feedback;
+	new_flow_spec6 : flow sink motor_feedback;
+end navigation;
+
+	process implementation navigation.impl
+	subcomponents
+		calculate : thread threads::navigation_calculate.impl;
+		drive : thread threads::navigation_drive.impl;
+connections
+	new_connection : port GPS_in -> calculate.GPS_in;
+	new_connection2 : port radar_in -> calculate.radar_in;
+	new_connection3 : port mission_position -> calculate.mission_position;
+	new_connection4 : port nav_control -> calculate.nav_control;
+	new_connection5 : port motor_feedback -> calculate.motor_feedback;
+	new_connection6 : port calculate.nav_feedback -> nav_feedback;
+	new_connection7 : port calculate.speed -> drive.speed;
+	new_connection8 : port calculate.direction -> drive.direction;
+	new_connection9 : port drive.motor_cmd -> motor_cmd;
+	new_connection10 : port drive.nav_feedback -> nav_feedback;
+	new_connection11 : port nav_control -> drive.nav_control;
+end navigation.impl;
+
+	process mission_controller_agv
+	features
+		mission_data : in data port;
+		mission_result : out data port;
+		mission_control : in event port;
+		navigation_control : out event port;
+		door_feedback : in event port;
+		navigation_feedback : in event data port;
+		cmd_door : out event data port;
+		
+	
+	flows
+		new_flow_spec : flow sink mission_control;
+		new_fow_spec2 : flow sink mission_data;
+	new_flow_spec2 : flow sink navigation_feedback;
+	new_flow_spec3 : flow source mission_result;
+		new_flow_spec4 : flow source cmd_door;
+		new_flow_spec5 : flow source navigation_control;
+		new_flow_spec6 : flow sink door_feedback;
+	end mission_controller_agv;
+
+	process implementation mission_controller_agv.impl
+	subcomponents
+		navigation : thread threads::control_navigation.impl;
+	end mission_controller_agv.impl;
+	
+	process mission_controller_arr
+	features
+		mission_data : in data port;
+		mission_result : out data port;
+		mission_cotrol : in event port;
+		navigation_control : out event port;
+		identification_control : out event port;
+		operation_control : out event port;
+		navigation_feedback : in event data port;
+		identification_feedback : in event data port;
+		operation_feedback : in event data port;
+		
+	
+	flows
+		new_flow_spec : flow sink mission_cotrol;
+		new_flow_spec2 : flow sink mission_data;
+	new_flow_spec3 : flow sink navigation_feedback;
+	new_flow_spec4 : flow sink identification_feedback;
+	new_flow_spec5 : flow sink operation_feedback;
+	new_flow_spec6 : flow source mission_result;
+	new_flow_spec7 : flow source operation_control;
+	new_flow_spec8 : flow source identification_control;
+	new_flow_spec9 : flow source navigation_control;
+end mission_controller_arr;
+	
+	process implementation mission_controller_arr.impl
+	subcomponents
+		identification : thread threads::control_identification.impl;
+		navigation : thread threads::control_navigation.impl;
+		operation : thread threads::control_operation.impl;
+connections
+	new_connection : port mission_data -> navigation.mission_data;
+	new_connection2 : port mission_cotrol -> navigation.mission_cotrol;
+	new_connection3 : port mission_data -> identification.mission_data;
+	new_connection4 : port mission_cotrol -> identification.mission_cotrol;
+	new_connection5 : port mission_data -> operation.mission_data;
+	new_connection6 : port mission_cotrol -> operation.mission_cotrol;
+	new_connection7 : port navigation_feedback -> navigation.navigation_feedback;
+	new_connection8 : port navigation.navigation_control -> navigation_control;
+	new_connection9 : port identification_feedback -> identification.identification_feedback;
+	new_connection10 : port identification.identification_control -> identification_control;
+	new_connection11 : port operation_feedback -> operation.operation_feedback;
+	new_connection12 : port operation.operation_control -> operation_control;
+	new_connection13 : port navigation.mission_result -> mission_result;
+	new_connection14 : port identification.mission_result -> mission_result;
+	new_connection15 : port operation.mission_result -> mission_result;
+	end mission_controller_arr.impl;
+
+	process mission_result_handler
+	features
+		mission_results : out data port;
+	text_results_in : in data port;
+	media_streaming_in : in data port;
+		streaming_states : in out event port;
+		connection_state : in event port;
+		
+	flows
+		new_flow_spec : flow path text_results_in -> mission_results;
+	new_flow_spec2 : flow path media_streaming_in -> mission_results;
+	new_flow_spec3 : flow source streaming_states;
+	new_flow_spec4 : flow sink streaming_states;
+	new_flow_spec5 : flow sink connection_state;
+end mission_result_handler;
+
+	process implementation mission_result_handler.impl
+		subcomponents
+		mission_result_handler : thread threads::mission_result_handler.impl;
+	end mission_result_handler.impl;
+
+	process state_result_handler
+	features
+		state_result_in : in data port;
+		state_result_out : out data port;
+flows
+	new_flow_spec : flow path state_result_in -> state_result_out;
+end state_result_handler;
+
+	process implementation state_result_handler.impl
+		subcomponents
+		state_result_handler : thread threads::state_result_handler.impl;
+	end state_result_handler.impl;
+
+	process disk_handler
+	features
+		media_in : in data port;
+	data_out : out data port;
+	local_recording : in out event port;
+	
+	
+	flows
+		new_flow_spec : flow path media_in -> data_out;
+		new_flow_spec2 : flow sink local_recording;
+		new_flow_spec3 : flow source local_recording;
+	end disk_handler;
+
+	process implementation disk_handler.impl
+	subcomponents
+	disk_handler : thread threads::disk_handler.impl;
+	end disk_handler.impl;
+
+	process system_controller
+	features
+		battery_in : in data port;
+		GPS_in : in data port;
+		weight_in : in data port;
+		state_result_out : out data port;
+	local_recording : in out event port;
+	streaming_states : in out event port;
+		
+	
+flows
+	new_flow_spec : flow source state_result_out;
+	new_flow_spec2 : flow sink battery_in;
+	new_flow_spec3 : flow sink GPS_in;
+	new_flow_spec4 : flow sink weight_in;
+	new_flow_spec5 : flow sink streaming_states;
+	new_flow_spec7 : flow sink local_recording;
+	new_flow_spec8 : flow source streaming_states;
+	new_flow_spec9 : flow source local_recording;
+end system_controller;
+
+	process implementation system_controller.impl
+	subcomponents
+		decision : thread threads::state_record_decision.impl;
+		result : thread threads::state_compile.impl;
+connections
+	new_connection : port battery_in -> result.battery_in;
+	new_connection2 : port GPS_in -> result.GPS_in;
+	new_connection3 : port weight_in -> result.weight_in;
+	new_connection4 : port result.state_result -> state_result_out;
+	new_connection5 : port streaming_states -> decision.local_recording;
+		new_connection6 : port local_recording -> decision.streaming_states;
+		new_connection7 : port decision.streaming_states -> local_recording;
+		new_connection8 : port decision.local_recording -> streaming_states;
+	end system_controller.impl;
+
+	process implementation sensor_handler.weight
+subcomponents
+	weight : thread threads::sensor_weight.impl;
+connections
+	new_connection : port sensor_data -> weight.data_in;
+	new_connection2 : port weight.data_out -> data_out;
+end sensor_handler.weight;
+	
+	process target_identification
+	features
+	media_in : in data port;
+	mission_in : in data port;
+	identification_control : in event port;
+	identification_feedback : out event data port;
+flows
+	new_flow_spec : flow sink media_in;
+		new_flow_spec3 : flow sink identification_control;
+		new_flow_spec4 : flow source identification_feedback;
+	new_flow_spec2 : flow sink mission_in;
+end target_identification;
+
+	process implementation target_identification.impl
+	subcomponents
+	target_identification : thread threads::target_identification.impl;
+	end target_identification.impl;
+	
+	process target_operation
+	features
+	mission_data_in : in data port;
+		operation_control : in event port;
+		arm_feedback : in event data port;
+		arm_cmd : out event data port;
+		operation_feedback : out event data port;
+		
+	
+	flows
+		new_flow_spec : flow sink mission_data_in;
+	new_flow_spec2 : flow sink arm_feedback;
+	new_flow_spec3 : flow source arm_cmd;
+	new_flow_spec4 : flow source operation_feedback;
+	new_flow_spec5 : flow sink operation_control;
+end target_operation;
+
+	process implementation target_operation.impl
+	subcomponents
+	target_operation : thread threads::target_operation.impl;
+	end target_operation.impl;
+	
+	
+end processes;

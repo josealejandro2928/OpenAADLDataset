@@ -1,0 +1,20 @@
+property set Zero_Slack_Scheduling is
+   Criticality : inherit aadlinteger applies to (virtual processor, thread);
+   Zero_Slack_Instant : inherit time applies to (thread);
+   Utility: inherit aadlreal applies to (thread, process, virtual processor);
+   Supported_Scheduling_Protocols: type enumeration (ZSRM, ZSQRAM, ZSDAG,ZSPipeline); 
+   Scheduling_Protocol: inherit Zero_Slack_Scheduling::Supported_Scheduling_Protocols
+		applies to (virtual processor, processor, system);
+   Synchronized_Flows: list of reference (flow) applies to (flow);
+   Suspensions: list of record (
+   	From_Port: reference (port);
+   	To_Port: reference (port);
+   	Minimum_Delay : Time;
+   	Maximum_Delay : Time;
+   	)  applies to (thread);
+   	SubDeadlines : list of record(
+   		From_Flow: reference (flow);
+   		To_Flow: reference (flow);
+   		Deadline : Time;
+   	) applies to (all);
+end Zero_Slack_Scheduling;

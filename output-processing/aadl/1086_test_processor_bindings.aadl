@@ -1,0 +1,80 @@
+
+process ea1
+end ea1;
+
+process implementation ea1.Impl
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  1 kb;
+		Cheddar_Properties::Source_Global_Data_Size =>  4 kb;
+		Cheddar_Properties::Source_Global_Heap_Size =>  2 kb;
+		Cheddar_Properties::Source_Global_Stack_Size =>  3 kb;
+end ea1.Impl;
+
+process ea2
+end ea2;
+
+process implementation ea2.Impl
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  1 kb;
+		Cheddar_Properties::Source_Global_Data_Size =>  4 kb;
+		Cheddar_Properties::Source_Global_Heap_Size =>  2 kb;
+		Cheddar_Properties::Source_Global_Stack_Size =>  3 kb;
+end ea2.Impl;
+
+process ea22
+end ea22;
+
+process implementation ea22.Impl
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  1 kb;
+		Cheddar_Properties::Source_Global_Data_Size =>  4 kb;
+		Cheddar_Properties::Source_Global_Heap_Size =>  2 kb;
+		Cheddar_Properties::Source_Global_Stack_Size =>  3 kb;
+end ea22.Impl;
+
+process ea3
+end ea3;
+
+process implementation ea3.Impl
+	properties
+		Actual_Processor_Binding => "instancied_cpu1";
+end ea3.Impl;
+
+processor cpu1
+end cpu1;
+
+processor implementation cpu1.Impl
+	properties 
+		Scheduling_Protocol => EARLIEST_DEADLINE_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu1.Impl;
+
+processor cpu2
+end cpu2;
+
+processor implementation cpu2.Impl
+	properties 
+		Scheduling_Protocol => LEAST_LAXITY_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpu2.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_cpu1 : processor cpu1.Impl;
+		instancied_cpu2 : processor cpu2.Impl;
+		instancied_ea1 : process ea1.Impl;
+		instancied_ea2 : process ea2.Impl;
+		instancied_ea22 : process ea22.Impl;
+		instancied_ea3 : process ea3.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_cpu1 applies to instancied_ea1;
+		Actual_Processor_Binding => reference instancied_cpu2 applies to instancied_ea2;
+		Actual_Processor_Binding => reference instancied_cpu2 applies to instancied_ea22;
+end Cheddar.Impl;
+

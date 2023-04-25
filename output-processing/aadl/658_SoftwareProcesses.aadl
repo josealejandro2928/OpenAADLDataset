@@ -1,0 +1,84 @@
+package SoftwareProcesses
+public
+	with SoftwareParts;
+
+	process scanCCInputProcess
+		features
+			cc_wrs: in data port;
+			cc_bp: in data port;
+			cc_run: out data port;
+		flows
+			scanCCInputProcess_new_flow_spec: flow path cc_wrs -> cc_run;
+			scanCCInputProcess_new_flow_spec2: flow path cc_bp -> cc_run;
+	end scanCCInputProcess;
+	
+	process implementation scanCCInputProcess.impl
+		subcomponents
+			scan_cc_ports: thread SoftwareParts::scan_cc_inputs;
+		connections
+			scanCCInputProcess_impl_new_connection: port cc_wrs -> scan_cc_ports.wheel_pulse;
+			scanCCInputProcess_impl_new_connection2: port cc_bp -> scan_cc_ports.brake_status;
+			scanCCInputProcess_impl_new_connection3: port scan_cc_ports.run_cc -> cc_run;
+		flows
+			scanCCInputProcess_new_flow_spec2: flow path cc_bp -> scanCCInputProcess_impl_new_connection2 -> scan_cc_ports.scan_cc_inputs_new_flow_spec2 -> scanCCInputProcess_impl_new_connection3 -> cc_run;
+	end scanCCInputProcess.impl;
+
+	process computeVelocityProcess
+		features
+			cc_wrs: in data port;
+			cc_inst_velocity: out data port;
+		flows
+			computeVelocityProcess_new_flow_spec: flow path cc_wrs -> cc_inst_velocity;
+	end computeVelocityProcess;
+
+process implementation computeVelocityProcess.impl
+		subcomponents
+			compute_velocity: thread SoftwareParts::compute_velocity;
+		connections
+			computeVelocityProcess_impl_new_connection: port cc_wrs -> compute_velocity.wheel_pulse;
+			computeVelocityProcess_impl_new_connection2: port compute_velocity.inst_velocity -> cc_inst_velocity;
+		flows
+			computeVelocityProcess_new_flow_spec: flow path cc_wrs -> computeVelocityProcess_impl_new_connection -> compute_velocity.compute_velocity_new_flow_spec -> computeVelocityProcess_impl_new_connection2 -> cc_inst_velocity;
+	end computeVelocityProcess.impl;
+
+	process speedControlLoopProcess
+		features
+			cc_run_cc: in data port;
+			cc_inst_velocity: in data port;
+			cc_desired_speed: out data port;
+		flows
+			speedControlLoopProcess_new_flow_spec: flow path cc_inst_velocity -> cc_desired_speed;
+			speedControlLoopProcess_new_flow_spec2: flow path cc_run_cc -> cc_desired_speed;
+	end speedControlLoopProcess;
+	
+	process implementation speedControlLoopProcess.impl
+		subcomponents
+			speed_control_loop: thread SoftwareParts::speed_control_loop;
+		connections
+			speedControlLoopProcess_impl_new_connection: port cc_inst_velocity -> speed_control_loop.inst_velocity;
+			speedControlLoopProcess_impl_new_connection2: port cc_run_cc -> speed_control_loop.run_cc;
+			speedControlLoopProcess_impl_new_connection3: port speed_control_loop.desired_speed -> cc_desired_speed;
+		flows
+			speedControlLoopProcess_new_flow_spec: flow path cc_inst_velocity -> speedControlLoopProcess_impl_new_connection -> speed_control_loop.speed_control_loop_new_flow_spec -> speedControlLoopProcess_impl_new_connection3 -> cc_desired_speed;
+			speedControlLoopProcess_new_flow_spec2: flow path cc_run_cc -> speedControlLoopProcess_impl_new_connection2 -> speed_control_loop.speed_control_loop_new_flow_spec2 -> speedControlLoopProcess_impl_new_connection3 -> cc_desired_speed;
+	end speedControlLoopProcess.impl;
+	
+	process computeThrottleSettingProcess
+		features
+			cc_desired_speed: in data port;
+			cc_throttle_setting: out data port;
+		flows
+			computeThrottleSettingProcess_new_flow_spec: flow path cc_desired_speed -> cc_throttle_setting;
+	end computeThrottleSettingProcess;
+
+		
+	process implementation computeThrottleSettingProcess.impl
+		subcomponents
+			compute_throttle_setting: thread SoftwareParts::compute_throttle_setting;
+		connections
+			computeThrottleSettingProcess_impl_new_connection: port cc_desired_speed -> compute_throttle_setting.desired_speed;
+			computeThrottleSettingProcess_impl_new_connection2: port compute_throttle_setting.throttle_setting -> cc_throttle_setting;
+		flows
+			computeThrottleSettingProcess_new_flow_spec: flow path cc_desired_speed -> computeThrottleSettingProcess_impl_new_connection -> compute_throttle_setting.compute_throttle_setting_new_flow_spec -> computeThrottleSettingProcess_impl_new_connection2 -> cc_throttle_setting;
+	end computeThrottleSettingProcess.impl;
+end SoftwareProcesses;

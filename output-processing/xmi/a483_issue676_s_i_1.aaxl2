@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="s_i_Instance" category="system">
+  <componentInstance name="a">
+    <featureInstance name="da" category="dataAccess">
+      <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataAccess.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#issue676.aType"/>
+  </componentInstance>
+  <componentInstance name="d" category="data">
+    <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataSubcomponent.0"/>
+    <index>0</index>
+  </componentInstance>
+  <connectionInstance name="a.da -> d" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="d -> a.da" complete="true" kind="accessConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#issue676.s.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue676/issue676.aadl#issue676.s.i"/>
+</instance:SystemInstance>

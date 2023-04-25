@@ -1,0 +1,76 @@
+package SB_Base_IO
+public
+	with Core_Types;
+	with Base_Types;
+	
+	--------all feature groups can add "in|out data port [type];" corresponding to its direction and data type
+------------------------------Pipe---------------------------------
+	feature group PipeOutput
+		features
+			ES_CmdPipe: out data port Core_Types::struct.CFE_SB_PipeD_t;
+			SB_CmdPipe: out data port Core_Types::struct.CFE_SB_PipeD_t;
+			EVS_CmdPipe: out data port Core_Types::struct.CFE_SB_PipeD_t;
+			TIME_CmdPipe: out data port Core_Types::struct.CFE_SB_PipeD_t;
+	end PipeOutput;
+
+	feature group PipeInput
+		features
+			ES_CmdPipe: in data port Core_Types::struct.CFE_SB_PipeD_t;
+			SB_CmdPipe: in data port Core_Types::struct.CFE_SB_PipeD_t;
+			EVS_CmdPipe: in data port Core_Types::struct.CFE_SB_PipeD_t;
+			TIME_CmdPipe: in data port Core_Types::struct.CFE_SB_PipeD_t;
+	inverse of PipeOutput
+	end PipeInput;
+	
+	feature group PipeReturnValue
+		features
+			ES_CmdPipe: out data port Base_Types::Integer;
+			SB_CmdPipe: out data port Base_Types::Integer;
+			EVS_CmdPipe: out data port Base_Types::Integer;
+			TIME_CmdPipe: out data port Base_Types::Integer;
+	end PipeReturnValue;
+
+	feature group PipeEvaluteValue
+		features
+			ES_CmdPipe: in data port Base_Types::Integer;
+			SB_CmdPipe: in data port Base_Types::Integer;
+			EVS_CmdPipe: in data port Base_Types::Integer;
+			TIME_CmdPipe: in data port Base_Types::Integer;
+	inverse of PipeReturnValue
+	end PipeEvaluteValue;
+	
+------------------------------Route---------------------------------
+	feature group RouteOutput
+		features
+			ES_CmdPipe_ES_Command: out data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			SB_CmdPipe_SB_Command: out data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			EVS_CmdPipe_EVS_Command: out data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			TIME_CmdPipe_TIME_Command: out data port Core_Types::struct.CFE_SB_RouteEntry_t;
+	end RouteOutput;
+
+	feature group RouteInput
+		features
+			ES_CmdPipe_ES_Command: in data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			SB_CmdPipe_SB_Command: in data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			EVS_CmdPipe_EVS_Command: in data port Core_Types::struct.CFE_SB_RouteEntry_t;
+			TIME_CmdPipe_TIME_Command: in data port Core_Types::struct.CFE_SB_RouteEntry_t;
+	inverse of RouteOutput
+	end RouteInput;
+	
+	feature group RouteReturnValue
+		features
+			ES_CmdPipe_ES_Command: out data port Base_Types::Integer;
+			SB_CmdPipe_SB_Command: out data port Base_Types::Integer;
+			EVS_CmdPipe_EVS_Command: out data port Base_Types::Integer;
+			TIME_CmdPipe_TIME_Command: out data port Base_Types::Integer;
+	end RouteReturnValue;
+
+	feature group RouteEvaluteValue
+		features
+			ES_CmdPipe_ES_Command: in data port Base_Types::Integer;
+			SB_CmdPipe_SB_Command: in data port Base_Types::Integer;
+			EVS_CmdPipe_EVS_Command: in data port Base_Types::Integer;
+			TIME_CmdPipe_TIME_Command: in data port Base_Types::Integer;
+	inverse of RouteReturnValue
+	end RouteEvaluteValue;
+end SB_Base_IO;

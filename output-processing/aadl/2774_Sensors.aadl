@@ -1,0 +1,49 @@
+package Sensors
+public
+with Base_Types; 
+	renames Base_Types::all;
+with constants;
+	renames constants::all;
+	
+	system Radiation_Sensor
+		features
+			radiation: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+		annex agree{**
+			assume "Radiation within reasonable range (mSv)." :
+				(radiation > 0) and (radiation < 1000);
+			
+			guarantee "Radiation is above threshold iff emit high indication.":
+				high_indicator = (radiation > constants::RADIATION_THRESHOLD);	
+		**};
+	end Radiation_Sensor;
+	
+	system Temp_Sensor
+		features
+			temperature: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+		annex agree{**
+			assume "Temperature within reasonable range (C)." :
+				(temperature > 0) and (temperature < 500);
+			
+			guarantee "Temperature is above threshold iff emit high indication.":
+				high_indicator = (temperature > constants::TEMP_THRESHOLD);	
+		**};
+	end Temp_Sensor;
+	
+	system Pressure_Sensor
+		features
+			pressure: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+		annex agree{**
+			assume "Pressure within reasonable range (psi)." :
+				(pressure > 0) and (pressure < 1500);
+			
+			guarantee "Pressure is above threshold iff emit high indication.":
+				high_indicator = (pressure > constants::PRESSURE_THRESHOLD);	
+		**};
+	end Pressure_Sensor;
+end Sensors;

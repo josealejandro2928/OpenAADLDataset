@@ -1,0 +1,32 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package producer_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD producer_producer
+features
+	OUTPORT_data4M : OUT EVENT DATA PORT DataView::MyData4M_Buffer.impl;
+	OUTPORT_dat2M : OUT EVENT DATA PORT DataView::MyData2M_Buffer.impl;
+	OUTPORT_data512k : OUT EVENT DATA PORT DataView::MyData512k_Buffer.impl;
+	OUTPORT_data16k : OUT EVENT DATA PORT DataView::MyData16k_Buffer.impl;
+END producer_producer;
+
+THREAD IMPLEMENTATION producer_producer.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "producer_wrappers.C_Init_producer";
+	Compute_Entrypoint_Source_Text => "producer_wrappers.trigger";
+	Dispatch_Protocol => Periodic;
+	Period            => 1000 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 5 ms;
+	Source_Stack_Size => 50 KByte;
+	Priority => 9;
+END producer_producer.others;
+
+end producer_CV_Thread;

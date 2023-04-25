@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Root_impl_Instance" category="system">
+  <componentInstance name="MyP" category="process">
+    <componentInstance name="MyT1" category="thread group">
+      <featureInstance name="shared_subg" category="subprogramGroupAccess" direction="out">
+        <feature xsi:type="aadl2:SubprogramGroupAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSubprogramGroupAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/instances/JustSubprogramGroup_tg_Root_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <componentInstance name="SubG" category="subprogram group">
+        <subcomponent xsi:type="aadl2:SubprogramGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedSubprogramGroupSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:SubprogramGroupType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.SubGroup"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ThreadGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadGroupSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadGroupImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.T1.impl"/>
+    </componentInstance>
+    <componentInstance name="MyT2" category="thread group">
+      <featureInstance name="ext_subg" category="subprogramGroupAccess">
+        <feature xsi:type="aadl2:SubprogramGroupAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSubprogramGroupAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/instances/JustSubprogramGroup_tg_Root_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadGroupSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadGroupImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.T2.impl"/>
+    </componentInstance>
+    <connectionInstance name="MyT1.SubG -> MyT2.ext_subg" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MyT2.ext_subg -> MyT1.SubG" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.p1.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.Root.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustSubprogramGroup_tg.aadl#JustSubprogramGroup_tg.Root.impl"/>
+</instance:SystemInstance>

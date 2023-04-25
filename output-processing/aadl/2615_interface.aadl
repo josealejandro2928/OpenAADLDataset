@@ -1,0 +1,41 @@
+package interface
+public 
+
+process telecomand_process
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+end telecomand_process;
+
+thread group implementation telecomand_process.impl
+subcomponents
+  
+  telemetry_task  : thread group telemetry::telemetry_process.impl;
+  telecomand : thread task_types::sporadic
+  {
+    Compute_Execution_Time => 2500 us;
+    Period 			=> 187 ms;
+    Deadline 			=> 187 ms;
+    Priority 			=> 4 ;
+    
+   };
+
+connections
+  C0 : port input -> telecomand.input;
+  C1 : port telecomand.output -> output;
+
+properties
+  Timing => immediate applies to C0, C1; 
+
+end telecomand_process.impl;
+
+
+end interface;
+
+
+
+
+
+
+
+

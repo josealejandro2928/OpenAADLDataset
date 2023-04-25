@@ -1,0 +1,34 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_coffee_tmr3_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_coffee_tmr3_vt_coffee_tmr3
+features
+	INPORT_artificial_tmr3 : IN EVENT PORT
+		{ Compute_Execution_Time => 10 ms .. 10 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_coffee_tmr3_artificial_tmr3"; };
+	OUTPORT_out_msg_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	coffee_protected : requires data access process_package::TASTE_Protected.Object;
+	chip_timer_manager_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_coffee_tmr3_vt_coffee_tmr3;
+
+THREAD IMPLEMENTATION vt_coffee_tmr3_vt_coffee_tmr3.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_coffee";
+	Dispatch_Protocol => Sporadic;
+	Period            => 100 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 10 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 5;
+END vt_coffee_tmr3_vt_coffee_tmr3.others;
+
+end vt_coffee_tmr3_CV_Thread;

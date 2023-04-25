@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="NavigationSystem_Backup_impl_Instance" category="system">
+  <featureInstance name="MainDataPort" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="MainDataPort2" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.1"/>
+  </featureInstance>
+  <featureInstance name="BackupDataPort" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.2"/>
+  </featureInstance>
+  <featureInstance name="BackupDataPort2" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.3"/>
+  </featureInstance>
+  <componentInstance name="this_RTK_UHF_Backup" category="system">
+    <featureInstance name="DataOut" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.127/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="PositionCorrectionData">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.127/@ownedDataPort.1"/>
+    </featureInstance>
+    <flowSpecification name="RTK_UHFFlow" destination="//@componentInstance.0/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.127/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.RTK_UHF"/>
+  </componentInstance>
+  <componentInstance name="this_GNSSReceiver2" category="system">
+    <featureInstance name="DataPort" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.126/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="Incoming">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.126/@ownedDataPort.1"/>
+    </featureInstance>
+    <flowSpecification name="GNSSFlow" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.126/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="GNSSSignal" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.126/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSSReceiver"/>
+  </componentInstance>
+  <componentInstance name="this_GNSS_IMU_Backup" category="system">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/Requirements.aadl#Requirements.RequiredFuntions"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="'Secure Access; Redundant LAN Access; GNSS Receiver Interfacing; RTK_UHF Interfacing'"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="RTK_UHF_DataIn">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="GNSSSignalIn">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="eth1" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="eth2" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.3"/>
+    </featureInstance>
+    <flowSpecification name="GNSSInformation_Primary" destination="//@componentInstance.2/@featureInstance.2">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="GNSSInformation_Secondary" destination="//@componentInstance.2/@featureInstance.3">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <flowSpecification name="GNSSFlow" source="//@componentInstance.2/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.2"/>
+    </flowSpecification>
+    <flowSpecification name="RTK_UHFFlow" source="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.3"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSS_IMU_Backup"/>
+  </componentInstance>
+  <flowSpecification name="NavigationData_Backup_Primary" destination="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="NavigationData_Backup_Secondary" destination="//@featureInstance.2">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <endToEndFlow name="RTK_UHFFlow" flowElement="//@componentInstance.0/@flowSpecification.0 //@connectionInstance.2 //@componentInstance.2/@flowSpecification.3">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <endToEndFlow name="GNSSFlow" flowElement="//@componentInstance.1/@flowSpecification.0 //@connectionInstance.3 //@componentInstance.2/@flowSpecification.2">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedEndToEndFlow.1"/>
+  </endToEndFlow>
+  <connectionInstance name="MainDataPort -> this_GNSS_IMU_Backup.eth1" kind="portConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BackupDataPort -> this_GNSS_IMU_Backup.eth2" kind="portConnection" destination="//@componentInstance.2/@featureInstance.3" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="this_RTK_UHF_Backup.DataOut -> this_GNSS_IMU_Backup.RTK_UHF_DataIn" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="this_GNSSReceiver2.DataPort -> this_GNSS_IMU_Backup.GNSSSignalIn" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="this_GNSS_IMU_Backup.eth1 -> MainDataPort" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.2/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="this_GNSS_IMU_Backup.eth2 -> BackupDataPort" kind="portConnection" destination="//@featureInstance.2" source="//@componentInstance.2/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.3" destination="//@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.NavigationSystem_Backup.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.NavigationSystem_Backup.impl"/>
+</instance:SystemInstance>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="GNSS_IMU_Backup_impl_Instance" category="system">
+  <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+    <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/Requirements.aadl#Requirements.RequiredFuntions"/>
+    <ownedValue>
+      <ownedValue xsi:type="aadl2:StringLiteral" value="'Secure Access; Redundant LAN Access; GNSS Receiver Interfacing; RTK_UHF Interfacing'"/>
+    </ownedValue>
+    <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedPropertyAssociation.0"/>
+  </ownedPropertyAssociation>
+  <featureInstance name="RTK_UHF_DataIn">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="GNSSSignalIn">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.1"/>
+  </featureInstance>
+  <featureInstance name="eth1" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.2"/>
+  </featureInstance>
+  <featureInstance name="eth2" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedDataPort.3"/>
+  </featureInstance>
+  <componentInstance name="GNSS_Security" category="process">
+    <featureInstance name="DataPort" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.43/@ownedDataPort.0"/>
+    </featureInstance>
+    <componentInstance name="GNSS_IDS" category="thread">
+      <featureInstance name="DataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.45/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.44/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSS_IDS"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.42/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSS_Security.with_threads"/>
+  </componentInstance>
+  <flowSpecification name="GNSSInformation_Primary" destination="//@featureInstance.2">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="GNSSInformation_Secondary" destination="//@featureInstance.3">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <flowSpecification name="GNSSFlow" source="//@featureInstance.1">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.2"/>
+  </flowSpecification>
+  <flowSpecification name="RTK_UHFFlow" source="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.41/@ownedFlowSpecification.3"/>
+  </flowSpecification>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSS_IMU_Backup.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.GNSS_IMU_Backup.impl"/>
+</instance:SystemInstance>

@@ -1,0 +1,76 @@
+package controller
+public 
+	with task_types;
+	with actuators;
+	with sensor;
+
+
+thread bus_ip
+features
+  input : in data port task_types::shared_data;
+  output : requires bus access task_types::serial_bus;
+properties
+  dispatch_Protocol => sporadic;
+  compute_Execution_Time => 580 us;
+  period 			=> 580 us;
+  Priority => 24;
+end bus_ip;
+
+
+thread group controller_process
+features
+	input : in data port task_types::shared_data;
+	output : out data port task_types::shared_data;
+end controller_process;
+
+thread group implementation controller_process.impl
+subcomponents
+	t_actuator 	  : Thread group  actuators::actuators_process.impl;
+	t_sensor   	  : Thread group  sensors::sensor_process.impl;
+	t_bus_serial 	: thread bus_ip;
+	initialisation : thread task_types::aperiodic;
+	equipment_status : thread task_types::aperiodic;
+	serial_bus : bus task_types::serial_bus_ip;
+	
+	t_control : thread task_types::cyclic
+  	{
+    	 Compute_Execution_Time => 52900 us;
+    	 Period          => 200 ms;
+    	 Deadline        => 200 ms;
+    	 Priority        => 8;  
+    	 dispatch_offset => 50 ms;
+  	};
+	
+	
+	
+
+connections 
+	
+	C0 : port input -> initialisation.input;
+	C1 : port input -> t_sensor.input;
+	C2 : port t_control.output -> equipment_status.input;
+	C3 : port t_control.output -> t_actuator.input;
+	C4 : port t_control.output -> initialisation.input;
+	C5 : port t_control.output -> t_sensor.input;
+	C6 : port t_actuator.output -> t_bus_serial.input;
+	C7 : port t_actuator.output -> equipment_status.input;
+	C8 : port t_actuator.output -> initialisation.input;
+	C9 : port t_sensor.output -> t_bus_serial.input;
+	C10: port t_sensor.output -> initialisation.input;
+	B1 : access t_bus_serial.output -> serial_bus.input; 
+
+properties 
+ 	Timing => immediate applies to C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, B1;
+
+
+end controller_process.impl;
+
+
+end controller;
+
+
+
+
+
+
+

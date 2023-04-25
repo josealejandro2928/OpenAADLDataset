@@ -1,0 +1,50 @@
+package ires
+public
+
+thread group ires_process
+features
+	input : in data port task_types::shared_data;
+	output: out data port task_types::shared_data;
+end ires_porcess ;
+
+thread group implementation ires_process.impl
+subcomponents
+	request_data: thread task_types::sporadic
+	{
+	 compute_Execution_time => 1430 us;
+	 period 			=> 100 ms;
+	 deadline			=> 24 ms;
+	 priority			=> 17;
+	 
+	};
+	process_data: thread task_types::sporadic
+	{
+	 compute_Execution_time => 8210 us;
+	 period 			=> 100 ms;
+	 deadline			=> 50 ms;
+	 priority			=> 14;
+	 dispatch_offset			=> 50 ms;
+	 
+	};
+	
+connections
+   C1 : port input-> request_data.input;
+   C2 : port input -> process_data.input;
+   C3 : port request_data.output -> output;
+   C4 : port process_data.output -> output;
+
+properties 
+  Timing => immediate applies to C0, C1, C2, C3, C4;
+
+end ires_process.impl;
+
+end ires;
+
+
+
+
+
+
+
+
+

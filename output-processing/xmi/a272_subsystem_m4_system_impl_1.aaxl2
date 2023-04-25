@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="m4_system_impl_Instance" category="system">
+  <featureInstance name="afdx_access" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="ph_query1" category="eventDataPort">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <featureInstance name="ph_answer1" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <componentInstance name="mainmemory" category="memory">
+    <componentInstance name="mem_ndb" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#fms_hardware.memchunk"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#fms_hardware.mainmemory.m4"/>
+  </componentInstance>
+  <componentInstance name="ndb" category="process">
+    <featureInstance name="query1_apex" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="answer1_apex" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="NDB" category="thread">
+      <featureInstance name="th_query1" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="th_answer1" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/instances/subsystem_m4_system_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <flowSpecification name="request_computation" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#m4_software.th_NDB"/>
+    </componentInstance>
+    <flowSpecification name="fromQueryToAnswer" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#m4_software.prs_NDB.impl"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <componentInstance name="partition_NDB" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#fms_hardware.partition_runtime"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/fms_hardware.aadl#fms_hardware.arinckernel.m4"/>
+  </componentInstance>
+  <flowSpecification name="query_m4_answer" source="//@featureInstance.1" destination="//@featureInstance.2">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="query_sink" source="//@featureInstance.1">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <flowSpecification name="answer_src" destination="//@featureInstance.2">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.2"/>
+  </flowSpecification>
+  <connectionInstance name="ph_query1 -> ndb.NDB.th_query1" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="ndb.NDB.th_answer1 -> ph_answer1" kind="portConnection" destination="//@featureInstance.2" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/m4_software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#subsystem.m4_system.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/fms/subsystem.aadl#subsystem.m4_system.impl"/>
+</instance:SystemInstance>

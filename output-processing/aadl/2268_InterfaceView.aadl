@@ -1,0 +1,146 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::parallel;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION PI_out_msg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_out_msg.others;
+
+SUBPROGRAM RI_in_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_in_msg;
+
+SUBPROGRAM IMPLEMENTATION RI_in_msg.others
+END RI_in_msg.others;
+
+SYSTEM gui
+FEATURES
+  PI_out_msg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "99382 47317";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "out_msg";
+  };
+  RI_in_msg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::parallel::PI_in_msg.others {
+    Taste::coordinates => "99382 63687";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "in_msg";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::parallel
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_in_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_in_msg;
+
+SUBPROGRAM IMPLEMENTATION PI_in_msg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_in_msg.others;
+
+SUBPROGRAM RI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION RI_out_msg.others
+END RI_out_msg.others;
+
+SYSTEM parallel
+FEATURES
+  PI_in_msg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::parallel::PI_in_msg.others {
+    Taste::coordinates => "119193 63687";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "in_msg";
+  };
+  RI_out_msg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "119193 47316";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "out_msg";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END parallel;
+
+SYSTEM IMPLEMENTATION parallel.others
+END parallel.others;
+
+END interfaceview::IV::parallel;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::parallel;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "77606 42896 99382 66964";
+  };
+  parallel : SYSTEM interfaceview::IV::parallel::parallel.others {
+    Taste::coordinates => "119193 43060 144079 66637";
+  };
+CONNECTIONS
+  gui_PI_out_msg_parallel_RI_out_msg : SUBPROGRAM ACCESS gui.PI_out_msg -> parallel.RI_out_msg {
+    Taste::coordinates => "119193 47316 109287 47316 109287 47317 99382 47317";
+  };
+  parallel_PI_in_msg_gui_RI_in_msg : SUBPROGRAM ACCESS parallel.PI_in_msg -> gui.RI_in_msg {
+    Taste::coordinates => "99382 63687 109287 63687 109287 63687 119193 63687";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

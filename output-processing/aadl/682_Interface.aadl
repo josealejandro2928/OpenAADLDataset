@@ -1,0 +1,69 @@
+package Interface
+public
+	with ES_Interface;
+	with EVS_Interface;
+	with SB_Interface;
+	with TIME_Interface;
+---------------------------------ES Interface------------------------------------
+	feature group ES_Provide
+		features
+			RegisterApp: feature group ES_Interface::P_RegisterApp;
+			RestartApp: feature group ES_Interface::P_RestartApp;
+			DeleteApp: feature group ES_Interface::P_DeleteApp;
+	end ES_Provide;
+	
+	feature group ES_Require
+		features
+			RegisterApp: feature group ES_Interface::R_RegisterApp;
+			RestartApp: feature group ES_Interface::R_RestartApp;
+			DeleteApp: feature group ES_Interface::R_DeleteApp;
+	inverse of ES_Provide
+	end ES_Require;
+---------------------------------EVS Interface-----------------------------------
+	feature group EVS_Provide
+		features
+			Register: feature group EVS_Interface::P_Register;
+			Unregister: feature group EVS_Interface::P_Unregister;
+			SendEvent: feature group EVS_Interface::P_SendEvent;
+	end EVS_Provide;
+	
+	feature group EVS_Require
+		features
+			Register: feature group EVS_Interface::R_Register;
+			Unregister: feature group EVS_Interface::R_Unregister;
+			SendEvent: feature group EVS_Interface::R_SendEvent;
+	inverse of EVS_Provide
+	end EVS_Require;
+---------------------------------SB Interface------------------------------------
+	feature group SB_Provide
+		features
+			CreatePipe: feature group SB_Interface::P_CreatePipe;
+			DeletePipe: feature group SB_Interface::P_DeletePipe;
+			Subscribe: feature group SB_Interface::P_Subscribe;
+			Unsubscribe: feature group SB_Interface::P_Unsubscribe;
+			SendMsg: feature group SB_Interface::P_SendMsg;
+			RcvMsg: feature group SB_Interface::P_RcvMsg;
+	end SB_Provide;
+	
+	feature group SB_Require
+		features
+			CreatePipe: feature group SB_Interface::R_CreatePipe;
+			DeletePipe: feature group SB_Interface::R_DeletePipe;
+			Subscribe: feature group SB_Interface::R_Subscribe;
+			Unsubscribe: feature group SB_Interface::R_Unsubscribe;
+			SendMsg: feature group SB_Interface::R_SendMsg;
+			RcvMsg: feature group SB_Interface::R_RcvMsg;
+	inverse of SB_Provide
+	end SB_Require;
+--------------------------------TIME Interface-----------------------------------
+	feature group TIME_Provide
+		features
+			GetTime: feature group TIME_Interface::P_GetTime;
+	end TIME_Provide;
+	
+	feature group TIME_Require
+		features
+			GetTime: feature group TIME_Interface::R_GetTime;
+	inverse of TIME_Provide
+	end TIME_Require;
+end Interface;

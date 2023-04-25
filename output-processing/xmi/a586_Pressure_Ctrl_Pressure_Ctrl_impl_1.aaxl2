@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Pressure_Ctrl_impl_Instance" category="system">
+  <featureInstance name="env_pressure">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/instances/Pressure_Ctrl_Pressure_Ctrl_impl_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <featureInstance name="shutdown" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/instances/Pressure_Ctrl_Pressure_Ctrl_impl_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <componentInstance name="pressure_sensor" category="system">
+    <featureInstance name="pressure">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemo/packages/Sensors.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/instances/Pressure_Ctrl_Pressure_Ctrl_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="high_indicator" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemo/packages/Sensors.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/instances/Pressure_Ctrl_Pressure_Ctrl_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemo/packages/Sensors.aadl#Sensors.Pressure_Sensor"/>
+  </componentInstance>
+  <connectionInstance name="env_pressure -> pressure_sensor.pressure" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pressure_sensor.high_indicator -> shutdown" kind="portConnection" destination="//@featureInstance.1" source="//@componentInstance.0/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.1" destination="//@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#Pressure_Ctrl.Pressure_Ctrl.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a586/examples/demoExamples/SensorSystemDemoComplete/packages/Pressure_Ctrl.aadl#Pressure_Ctrl.Pressure_Ctrl.impl"/>
+</instance:SystemInstance>

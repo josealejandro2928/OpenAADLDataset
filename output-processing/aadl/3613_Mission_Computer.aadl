@@ -1,0 +1,47 @@
+package Mission_Computer
+public
+	with ARM_Processors;
+	with Buses; renames Buses::all;
+
+    --------------------------------------------------------------------------------------------------------------------
+	-- Define a basic representation of a vehicle management computer that interfaces with an engine, autopilot (AP), 
+	-- EO/IR sensor, and a ground station (GS).
+	-------------------------------------------------------------------------------------------------------------------- 
+	system VMC
+		features
+			Configuration_IF: feature group;
+
+			Serial_1_Conn: provides bus access Serial;
+			Serial_2_Conn:  provides bus access Serial;
+			Ethernet_Conn: provides bus access Ethernet;
+			USB_1_Conn: provides bus access USB.Two;
+			USB_2_Conn:  provides bus access USB.Three;
+			M1553B_Conn:  provides bus access MIL_1553B;
+			Video_Conn: requires bus access Video;						
+	end VMC;
+	
+    ------------------------------------------------------------------------------
+	-- VMC implementation with buses, a processor and the UxAS software instance.
+	------------------------------------------------------------------------------ 
+	system implementation VMC.impl
+		subcomponents
+			Processor_1: processor ARM_Processors::Arm.Generic;
+			Ethernet: bus Ethernet;
+			Serial_1: bus Serial;
+			Serial_2: bus Serial;
+			USB_1: bus USB.Two;
+			USB_2: bus USB.Three;
+			M1553B: bus MIL_1553B;
+	
+		connections
+			--external provides hardware connections
+			phys1: bus access Serial_1 <-> Serial_1_Conn;
+			phys2: bus access Serial_2 <-> Serial_2_Conn;
+			phys3: bus access Ethernet <-> Ethernet_Conn;
+			phys4: bus access USB_1 <-> USB_1_Conn; 
+			phys5: bus access USB_2 <-> USB_2_Conn;
+			phys6: bus access M1553B <-> M1553B_Conn;  
+			
+	end VMC.impl;
+	
+end Mission_Computer;

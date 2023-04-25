@@ -1,0 +1,229 @@
+1	PACKAGE Pacemaker_Pkg
+2	PUBLIC
+3	WITH Data_Model;
+4	WITH Behavior_Properties;
+5	
+6	-- This simplified Pacemaker model has been developed to demonstrate the modelling
+7	--  capabilities of the Stood for AADL tool and the simulation features of the
+8	--  AADL Inspector tool.
+9	-- The formal specification of the behavior of the pacemaker are expressed
+10	--  in BLESS, whereas the "executable" implementation that is provided here
+11	--  uses the AADL Behavior Annex.
+12	-- The design documentation and the AADL source code are both automaticallly
+13	--  generated from the Stood model.
+14	
+15	SYSTEM Pacemaker
+16	END Pacemaker;
+17	
+18	-- The PACEMAKER system consists of three major components:
+19	-- * Device (also called the pulse generator or PG)
+20	-- * Device Controller-Monitor (DCM) and associated software
+21	-- * Leads
+22	SYSTEM IMPLEMENTATION Pacemaker.others
+23	SUBCOMPONENTS
+24	  PG : DEVICE PulseGenerator;
+25	  DCM : SYSTEM DeviceControllerMonitor.others;
+26	CONNECTIONS
+27	  cnx_0 : PORT PG.VentricleSense -> DCM.VentricleSense;
+28	  cnx_1 : PORT PG.AtriumSense -> DCM.AtriumSense;
+29	  cnx_2 : PORT DCM.VentriclePulse -> PG.VentriclePulse;
+30	  cnx_3 : PORT DCM.AtriumPulse -> PG.AtriumPulse;
+31	PROPERTIES
+32	  Actual_Processor_Binding => ( reference(DCM.HWPlatform) ) applies to DCM.PacemakerSW;
+33	END Pacemaker.others;
+34	
+35	-- The device monitors and regulates a patient's heart rate.
+36	-- The device detects and provides therapy for bradycardia conditions.
+37	-- The device provides programmable, single- and dual-chamber, rate-adaptive
+38	--  pacing, both permanent and temporary.
+39	-- In adaptive rate modes, an accelerometer is used to measure physical activity
+40	--  resulting in a sensor indicated rate for pacing the heart.
+41	-- The device is programmed and interrogated via bi-directional telemetry from
+42	--  the Device Controller-Monitor (DCM).
+43	-- This allows the physician to change the operating mode or parameters of
+44	--  the device non-invasively after implantation.
+45	
+46	DEVICE PulseGenerator
+47	FEATURES
+48	  VentricleSense : OUT EVENT PORT;
+49	  VentriclePulse : IN EVENT PORT;
+50	  AtriumSense : OUT EVENT PORT;
+51	  AtriumPulse : IN EVENT PORT;
+52	END PulseGenerator;
+53	
+54	-- The Device Controller-Monitor (DCM) is the primary implant, pre-discharge
+55	--  EP support, and follow-up device for the PACEMAKER system.
+56	-- The DCM is capable of being used both in the OR, physician's o±ce, and the
+57	--  EP lab.
+58	-- The DCM communicates with the PG using a communication protocol and supporting
+59	--  hardware.
+60	-- The DCM consists of the following:
+61	-- * A hardware platform
+62	-- * A pacemaker application software
+63	
+64	SYSTEM DeviceControllerMonitor
+65	FEATURES
+66	  VentricleSense : IN EVENT PORT;
+67	  VentriclePulse : OUT EVENT PORT;
+68	  AtriumSense : IN EVENT PORT;
+69	  AtriumPulse : OUT EVENT PORT;
+70	END DeviceControllerMonitor;
+71	
+72	-- The hardware platform is represented by a processor
+73	-- The pacemaker application software is represented by a process
+74	-- An Actual Processor Binding property allocates the sotware application to
+75	--  the processor
+76	SYSTEM IMPLEMENTATION DeviceControllerMonitor.others
+77	SUBCOMPONENTS
+78	  PacemakerSW : PROCESS PacemakerSW.others;
+79	  HWPlatform : PROCESSOR HWPlatform;
+80	CONNECTIONS
+81	  cnx_0 : PORT VentricleSense -> PacemakerSW.s;
+82	  cnx_1 : PORT PacemakerSW.p -> VentriclePulse;
+83	END DeviceControllerMonitor.others;
+84	
+85	-- The pacemaker software implements the bradycardia operating modes.
+86	-- In this version, only the VVI mode is supported:
+87	-- * the Ventricular chamber is sensed.
+88	-- * the Ventricular chamber is paced.
+89	-- * a sensnse Inhibits a pending pace.
+90	
+91	PROCESS PacemakerSW
+92	FEATURES
+93	  s : IN EVENT PORT;
+94	  p : OUT EVENT PORT;
+95	  n : OUT EVENT PORT;
+96	END PacemakerSW;
+97	
+98	-- The Pacemaker Software behavior can be tested as follows (in VVI mode):
+99	-- * Test 1)  No sensing.
+100	-- The thread will put out an event on the "p" port every 1000 ms.
+101	-- * Test 2)  Normal rhythm.
+102	-- Put an event on the "s" port every 900 ms.  The thread will put an event
+103	--  out the "n" port each dispatch.
+104	-- * Test 3)  Ignore sense in VRP.
+105	-- Wait 1000 ms for the first pace; 200 ms later put an event on the "s" port.
+106	--   The next pace will occur at 2000 ms.
+107	-- *Test 4)  Pace after sense.
+108	-- Wait 1000 ms for the first pace; 200 ms later put an event on the "s" port,
+109	--  which will be ignored.
+110	-- At 1400 ms put out another event on the "s" port.  Expect the next pace
+111	--  at 2400 ms.
+112	PROCESS IMPLEMENTATION PacemakerSW.others
+113	SUBCOMPONENTS
+114	  VRPTimeout : THREAD DualOrTimer
+115	    { Dispatch_Protocol => Timed;
+116	      Priority => 10;
+117	      Period => 30 ms; };
+118	  LRLTimeout : THREAD DualOrTimer
+119	    { Dispatch_Protocol => Timed;
+120	      Priority => 9;
+121	      Period => 100 ms; };
+122	  VVIMode : THREAD VVIMode.others;
+123	CONNECTIONS
+124	  cnx_0 : PORT s -> VVIMode.s;
+125	  cnx_1 : PORT VVIMode.p -> p;
+126	  cnx_2 : PORT VVIMode.n -> n;
+127	  cnx_3 : PORT VRPTimeout.output -> VVIMode.vrp_timeout;
+128	  cnx_4 : PORT LRLTimeout.output -> VVIMode.lrl_timeout;
+129	  cnx_5 : PORT VVIMode.p -> VRPTimeout.input2;
+130	  cnx_6 : PORT VVIMode.n -> VRPTimeout.input1;
+131	  cnx_7 : PORT VVIMode.p -> LRLTimeout.input2;
+132	  cnx_8 : PORT VVIMode.n -> LRLTimeout.input1;
+133	END PacemakerSW.others;
+134	
+135	-- The VRPTimeout thread sends an event 300ms after the last normal beat (n)
+136	--  or forced pace (p)
+137	-- For the purpose of the simulation, this value has been divided by 10.
+138	
+139	THREAD DualOrTimer
+140	FEATURES
+141	  input1 : IN EVENT PORT;
+142	  input2 : IN EVENT PORT;
+143	  output : OUT EVENT PORT;
+144	  -- The thread can be dispatched on receipt of one of its input ports or after
+145	  --  a fixed amount of time since the last dispatch (timeout).
+146	  -- The timeout delay is given by the Period property.
+147	  -- No explicit action is required when the thread is dispatched by an input
+148	  --  port (implicit action is that it sets the timer).
+149	  -- A send output action is performed only in the case the thread is dispatched
+150	  --  by the timeout event.
+151	ANNEX Behavior_Specification {**
+152	  STATES
+153	    s1 : INITIAL COMPLETE FINAL STATE;
+154	  TRANSITIONS
+155	    t1 : s1 -[ ON DISPATCH input1 ]-> s1;
+156	    t2 : s1 -[ ON DISPATCH input2 ]-> s1;
+157	    t3 : s1 -[ ON DISPATCH TIMEOUT ]-> s1 { output! };
+158	**};
+159	END DualOrTimer;
+160	
+161	-- The VVIMode thread reacts to sense signal and generates pulse signals.
+162	-- The expected behavior is:
+163	-- * when the heart is beating fast enough, do nothing.
+164	-- * when the heart has not had a beat for 1000 ms (lrl), cause a pace
+165	-- * if the sense comes too soon after a beat, <300 ms (vrp), ignore it.
+166	
+167	THREAD VVIMode
+168	FEATURES
+169	  s : IN EVENT PORT;
+170	  p : OUT EVENT PORT;
+171	  n : OUT EVENT PORT;
+172	  lrl_timeout : IN EVENT PORT;
+173	  vrp_timeout : IN EVENT PORT;
+174	END VVIMode;
+175	
+176	-- The VVIMode component can be triggered by its input event ports:
+177	-- * s: signals a normal heart beat that has been detected by the Pulse Generator
+178	--  device.
+179	-- * vrp_timeout: signals that the last beat occured more than 300ms ago
+180	-- * lrl_timeout: signals that the last beat occured more than 1000ms ago
+181	-- It is implemented by a thread with Aperiodic Dispatch Protocol and a Behavior
+182	--  Annex subclause.
+183	-- A data subcomponent is used to store the VRP state of the thread across
+184	--  the successive dispatches.
+185	THREAD IMPLEMENTATION VVIMode.others
+186	SUBCOMPONENTS
+187	  vrp : DATA int;
+188	PROPERTIES
+189	  Dispatch_Protocol => Aperiodic;
+190	  Priority => 5;
+191	  -- When the thread is dispatched by the vrp_timeout event, the action is to
+192	  --  set the vrp data subcomponent value to 0 (out of the Ventricular Refractory
+193	  --  Period).
+194	  -- When the thread is dispatched by the s (sense) event, if the vrp value
+195	  --  is 1 (in the Ventricular Refractory Period), ignore it; otherwise generate
+196	  --  a n event (normal heart beat), and set the vrp value to 1.
+197	  -- When the thread is dispatched by a lrl_timeout event, generate a p event
+198	  --  (pace) and set the vrp value to 1.
+199	ANNEX Behavior_Specification {**
+200	  STATES
+201	    s1 : INITIAL COMPLETE FINAL STATE;
+202	  TRANSITIONS
+203	    t0 : s1 -[ ON DISPATCH vrp_timeout ]-> s1
+204	      { vrp := 0 };
+205	    t1 : s1 -[ ON DISPATCH s ]-> s1
+206	      { if (vrp = 0) n!; vrp := 1 end if };
+207	    t2 : s1 -[ ON DISPATCH lrl_timeout ]-> s1
+208	      { p!; vrp := 1 };
+209	**};
+210	END VVIMode.others;
+211	
+212	-- This data subcomponent stores the Ventricular Refractory Period (VRP) state.
+213	-- Its value is 1 during the VRP and 0 otherwise.
+214	-- It is initialized to 1.
+215	
+216	DATA int
+217	PROPERTIES
+218	  Data_Model::Initial_Value => ("1");
+219	END int;
+220	
+221	-- The HWPlatform component represents the execution platform of the Pacemaker
+222	--  software.
+223	
+224	PROCESSOR HWPlatform
+225	PROPERTIES
+226	  Scheduling_Protocol => (HPF);
+227	END HWPlatform;
+228	
+229	END Pacemaker_Pkg;

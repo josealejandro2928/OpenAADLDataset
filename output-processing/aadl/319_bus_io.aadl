@@ -1,0 +1,64 @@
+package bus_io
+public 
+
+
+Thread group  receive_from_bus
+features
+	input : in data port task_types::shared_data;
+	output : in data port task_types::shared_data;
+end receive_from_bus;
+
+Thread group  bus_fifo_ip
+features
+  input : in data port task_types::shared_data;
+  output : requires bus access task_types::serial_bus;
+properties
+  dispatch_Protocol => sporadic;
+  compute_Execution_Time => 60 us;
+  period 			=> 60 us;
+  Priority => 36;
+end bus_fifo_ip;
+
+
+Thread group implementation receive_from_bus.impl
+subcomponents
+	a_data : data task_types::shared_data;
+	t_bus_fifo : thread bus_fifo_ip;
+	bus_fifo : bus task_types::bus_ip_fifo;
+	bus_interrupt : thread task_types::sporadic 
+	 {
+		Compute_Execution_Time => 180 us; 
+    		Period => 960 us;  
+    		Priority => 62;
+    		Deadline => 630 us;  
+    		
+	 };
+	read_bus_ip : thread task_types::cyclic
+	{
+		Compute_Execution_Time => 1760 us; 
+    		Period => 10 ms;  
+    		Priority => 23;
+    		Deadline => 10 ms;  
+    		Dispatch_offset => 0 ms;  
+		
+	};
+connections
+	C0 : port a_data -> input;
+	C1 : port input -> read_bus_ip.input;
+	C2 : port input -> bus_interrupt.input;
+	C3 : port read_bus_ip.output -> t_bus_fifo.input;
+	C4 : port bus_interrupt.output -> t_bus_fifo.input;
+	C6 : port read_bus_ip.output -> output;
+	
+
+	B1 : access t_bus_fifo.output -> bus_fifo.input;
+	
+
+properties
+	Timing => immediate applies to C0, C1, C2, C3, C4, C5, C6, B1;
+
+end receive_from_bus.impl;
+
+
+end bus_io;
+

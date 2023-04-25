@@ -1,0 +1,514 @@
+package RCC
+-- RCC: Remote Control Center
+public
+	with Requirements; --with APS, CloudComponent, SSS, TIS, Ship, Mobile5GNetwork;
+
+	system APSCommunication
+		features
+			InternetAccess: in out data port;
+			APSCommunication: in out data port;
+			AISCommunication: in out data port;
+				--SSSCommunication: in out data port;
+				--flows
+				--NavigationData_APS_to_RCC: flow sink APSCommunication;
+				--SafetyData_APS_to_RCC: flow sink APSCommunication;
+				--MachinaryData_APS_to_RCC: flow sink APSCommunication;
+				--PowerData_APS_to_RCC: flow sink APSCommunication;
+		flows
+			NavigationData_APS_to_RCC: flow sink APSCommunication;
+			SafetyData_APS_to_RCC: flow sink APSCommunication;
+			MachinaryData_APS_to_RCC: flow sink APSCommunication;
+			PowerData_APS_to_RCC: flow sink APSCommunication;
+			AISCommunication_Ship_to_RCC: flow sink AISCommunication;
+			AISCommunication_TIS_to_RCC: flow sink AISCommunication;
+			AISCommunication_APS_to_RCC: flow sink AISCommunication;
+			AISCommunication_RCC_to_Ship: flow source AISCommunication;
+			AISCommunication_RCC_to_TIS: flow source AISCommunication;
+			AISCommunication_RCC_to_APS: flow source AISCommunication;
+			CloudService_from_RCC: flow source InternetAccess;
+			CloudService_to_RCC: flow sink InternetAccess;
+			NavigationData_APS_to_Cloud_to_RCC: flow sink InternetAccess;
+			SafetyData_APS_to_Cloud_to_RCC: flow sink InternetAccess;
+			MachinaryData_APS_to_Cloud_to_RCC: flow sink InternetAccess;
+			PowerData_APS_to_Cloud_to_RCC: flow sink InternetAccess;
+	--ReceiveShoreSensorData_RCC: flow sink  SSSCommunication;
+	end APSCommunication;
+
+	system implementation APSCommunication.impl
+		subcomponents
+			NetworkAndSystemManagement: system NetworkAndSystemManagement.impl;
+			IS3MS: system IS3MS.impl;
+			IDS: system IDS.impl;
+			this_DPJoystic1: device DPJoystic1;
+					--this_DPJoystic2: device DPJoystic2;
+			this_InternetModule: system InternetModule {
+				Requirements::RequiredFuntions => 'Wireless Communication; Internet Access; 5G; Secure Communication; IP Routing; Redundant LAN access; Navigation/Power/Safety/Machinery/ShoreSensors/Other Data Transmission; Control Commands Reception; ASC update Transmission';
+			};
+			this_RCCAPSModule: system RCCAPSModule {
+				Requirements::RequiredFuntions => 'Wireless Point-to-Point Communication; Secure Communication; IP Routing; Redundant LAN access; Navigation/Power/Safety/Machinery/ShoreSensors/Other Data Reception; Control Commands Transmission; ASC update Transmission';
+			};
+			this_TrafficModule: system TrafficModule {
+				-- This includes location advertisement by the RCC and recipient of traffic messages from other ships, TIS, and APS;
+				Requirements::RequiredFuntions => 'Wireless Communication; Traffic Management';
+			};
+					--this_ShoreSensorModule: system ShoreSensorModule {
+					--Requirements::RequiredFuntions => 'Wireless Communication; Secure Communication; IP Routing; Redundant LAN access; Managed Network Device';
+					--};
+			this_ControlComputer_Main: system ControlComputer_Main.impl {
+				Requirements::RequiredFuntions => 'Receive Navigation/Power/Safety/Machinery/ShoreSensors/Other Data; Transmit Control Commands; Transmit ASC update';
+			};
+					--this_ControlComputer_Backup: system ControlComputer_Backup.impl {
+					--Requirements::RequiredFuntions => 'Receive Navigation/Power/Safety/Machinery/ShoreSensors/Other Data; Transmit Control Commands; Transmit ASC update';
+					--};
+					--	this_Switch_Main_CommDevices: system Switch_Main_CommDevices
+					--	{
+					--	Requirements::RequiredFuntions => 'Packet Switching; Failover Redundancy; Secure Access; Managed Network Device; Minimum Ethernet interfaces 8';
+					--	};			
+					--this_Switch_Backup_CommDevices: system Switch_Backup_CommDevices
+					--{
+					--Requirements::RequiredFuntions => 'Packet Switching; Failover Redundancy; Secure Access; Managed Network Device; Minimum Ethernet interfaces 8';
+					--};
+			PrimaryWANLoadBalancer: system WANLoadBalancer {
+				-- Possible device: Cisco RV345
+				Requirements::RequiredFuntions => 'Secure Communication; Load Balancing; Redundant LAN access; Failover Redundancy;';
+			};
+			SecondaryWANLoadBalancer: system WANLoadBalancer;
+		connections
+			Mobile5GToRCC: port InternetAccess <-> this_InternetModule.UplinkDownlinkPort;
+			DirectAPStoRCCDataLink: port APSCommunication <-> this_RCCAPSModule.WirelessPort;
+			ShiptoRCCConn: port AISCommunication <-> this_TrafficModule.DataPort;
+					--RCCtoSSSLink: port this_ShoreSensorModule.WirelessPort <-> SSSCommunication;
+					--APSCommunication_impl_new_connection: port this_ShoreSensorModule.eth1 <-> this_Switch_Backup_CommDevices.eth1;
+					--APSCommunication_impl_new_connection2: port this_RCCAPSModule.eth1 <-> this_Switch_Backup_CommDevices.eth2;
+					--APSCommunication_impl_new_connection3: port this_RCCAPSModule.eth2 <-> this_Switch_Main_CommDevices.eth2;
+					--APSCommunication_impl_new_connection4: port this_InternetModule.eth1 <-> this_Switch_Backup_CommDevices.eth3;
+					--APSCommunication_impl_new_connection5: port this_InternetModule.eth2 <-> this_Switch_Main_CommDevices.eth3;
+					--APSCommunication_impl_new_connection8: port this_ControlComputer_Main.eth2 <-> this_Switch_Main_CommDevices.eth5;
+					--APSCommunication_impl_new_connection11: port this_ControlComputer_Main.eth1 <-> this_Switch_Backup_CommDevices.eth5;
+					--APSCommunication_impl_new_connection12: port this_ControlComputer_Backup.eth2 <-> this_Switch_Main_CommDevices.eth6;
+					--APSCommunication_impl_new_connection13: port this_ControlComputer_Backup.eth1 <-> this_Switch_Backup_CommDevices.eth6;
+					--APSCommunication_impl_new_connection10: port this_DPJoystic1.SignalPort -> this_ControlComputer_Main.SignalPort;
+					--APSCommunication_impl_new_connection14: port this_DPJoystic2.SignalPort -> this_ControlComputer_Backup.SignalPort;
+					--APSCommunication_impl_new_connection6: port this_ShoreSensorModule.eth2 <-> this_Switch_Main_CommDevices.eth1;
+					--APSCommunication_impl_new_connection9: port this_Switch_Backup_CommDevices.RedundancyPort <-> this_Switch_Main_CommDevices.RedundancyPort;
+			APSCommunication_impl_new_connection: port this_TrafficModule.NavDataPort <-> PrimaryWANLoadBalancer.eth7;
+			APSCommunication_impl_new_connection2: port this_InternetModule.eth1 <-> PrimaryWANLoadBalancer.PrimaryWAN;
+			APSCommunication_impl_new_connection3: port this_InternetModule.eth2 <-> SecondaryWANLoadBalancer.PrimaryWAN;
+			APSCommunication_impl_new_connection4: port this_RCCAPSModule.eth1 <-> PrimaryWANLoadBalancer.SecondaryWAN;
+			APSCommunication_impl_new_connection5: port this_RCCAPSModule.eth2 <-> SecondaryWANLoadBalancer.SecondaryWAN;
+			APSCommunication_impl_new_connection6: port PrimaryWANLoadBalancer.eth1 <-> this_ControlComputer_Main.eth1;
+			APSCommunication_impl_new_connection7: port this_ControlComputer_Main.eth2 <-> SecondaryWANLoadBalancer.eth1;
+					--APSCommunication_impl_new_connection8: port PrimaryWANLoadBalancer.eth2 <-> this_ControlComputer_Backup.eth1;
+					--APSCommunication_impl_new_connection9: port SecondaryWANLoadBalancer.eth2 <-> this_ControlComputer_Backup.eth2;
+			APSCommunication_impl_new_connection11: port IDS.eth1 <-> PrimaryWANLoadBalancer.eth6;
+			APSCommunication_impl_new_connection12: port IDS.eth2 <-> SecondaryWANLoadBalancer.eth6;
+			APSCommunication_impl_new_connection13: port SecondaryWANLoadBalancer.RedundancyPort <-> PrimaryWANLoadBalancer.RedundancyPort;
+			APSCommunication_impl_new_connection15: port NetworkAndSystemManagement.eth1 <-> PrimaryWANLoadBalancer.eth3;
+			APSCommunication_impl_new_connection16: port NetworkAndSystemManagement.eth2 <-> SecondaryWANLoadBalancer.eth3;
+			APSCommunication_impl_new_connection17: port IS3MS.et1 <-> PrimaryWANLoadBalancer.eth4;
+			APSCommunication_impl_new_connection18: port IS3MS.et2 <-> SecondaryWANLoadBalancer.eth4;
+			APSCommunication_impl_new_connection8: port this_DPJoystic1.SignalPort -> this_ControlComputer_Main.SignalPort;
+		modes
+			RemoteMonitoring: initial mode;
+			StatusInvestigationAndASCUpdate: mode;
+			RemoteOperation: mode;
+			Intervention: mode;
+			ShipRecovery: mode;
+	end APSCommunication.impl;
+
+	process RASC
+	-- RASC: Remote Autonomous Ship Controller	
+	end RASC;
+
+	system IDS
+		-- IDS: Intrusion Detection System
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+	end IDS;
+
+	system implementation IDS.impl
+	end IDS.impl;
+
+	system WANLoadBalancer
+		features
+			PrimaryWAN: in out data port;
+			SecondaryWAN: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+	end WANLoadBalancer;
+
+	system InternetModule
+		features
+			UplinkDownlinkPort: in out data port;
+			ManagementPort: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+		flows
+				--InitiateCloudAccess: flow source UplinkDownlinkPort;
+				--ReceiveCloudAccess: flow sink UplinkDownlinkPort;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path UplinkDownlinkPort -> eth1;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path UplinkDownlinkPort -> eth2;
+	end InternetModule;
+
+	system RCCAPSModule
+		features
+			ControlPort: in out data port {Required_Connection => false;};
+			eth1: in out data port {Required_Connection => true;};
+			eth2: in out data port;
+			WirelessPort: in out data port;
+		flows
+			RemoteRCCCommandsFlow_Main_Primary: flow path WirelessPort -> eth1;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path WirelessPort -> eth2;
+	end RCCAPSModule;
+
+	system TrafficModule
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port; -- Through a VHF antenna 
+			NavDataPort: out data port;
+		flows
+			LocalAISFlow: flow source NavDataPort;
+			AISManagementFlow: flow sink ControlPort;
+			ReceiveRemoteAISFlow: flow sink DataPort;
+			TransmitLocalAISFlow: flow source DataPort;
+	end TrafficModule;
+
+	system ShoreSensorModule
+		features
+			ControlPort: in out data port;
+			WirelessPort: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+		flows
+			SSSFlow_Primary: flow path WirelessPort -> eth1;
+			SSSFlow_Secondary: flow path WirelessPort -> eth2;
+	end ShoreSensorModule;
+
+	system ControlComputer_Main
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			SignalPort: in data port;
+		flows
+			ControlCommandsFlow_Main: flow source eth2;
+			ControlCommandsFlow_Backup: flow source eth1;
+			APSNavigationFlow_Main: flow sink eth2;
+			APSNavigationFlow_Backup: flow sink eth1;
+			ManualRemoteControlFlow: flow sink SignalPort;
+	end ControlComputer_Main;
+
+	system implementation ControlComputer_Main.impl
+		subcomponents
+			ASC_Process: process ASC_Process.with_threads;
+			NICTeaming: process NICTeaming;
+		connections
+			COLAVandSSITAW_impl_new_connection: port eth2 <-> NICTeaming.Veth1;
+			COLAVandSSITAW_impl_new_connection2: port eth1 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection3: port NICTeaming.Teamedeth <-> ASC_Process.Dataport;
+	end ControlComputer_Main.impl;
+
+	system ControlComputer_Backup
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			SignalPort: in data port;
+		flows
+			ControlCommandsFlow_Main: flow source eth2;
+			ControlCommandsFlow_Backup: flow source eth1;
+			APSNavigationFlow_Main: flow sink eth2;
+			APSNavigationFlow_Backup: flow sink eth1;
+			ManualRemoteControlFlow: flow sink SignalPort;
+	end ControlComputer_Backup;
+
+	system implementation ControlComputer_Backup.impl
+		subcomponents
+			ASC_Process: process ASC_Process.with_threads;
+			NICTeaming: process NICTeaming;
+		connections
+			COLAVandSSITAW_impl_new_connection: port eth2 <-> NICTeaming.Veth1;
+			COLAVandSSITAW_impl_new_connection2: port eth1 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection3: port NICTeaming.Teamedeth <-> ASC_Process.Dataport;
+	end ControlComputer_Backup.impl;
+
+	device DPJoystic1
+		features
+			SignalPort: out data port;
+		flows
+			ManualRemoteControlFlow: flow source SignalPort;
+	end DPJoystic1;
+
+	device DPJoystic2
+		features
+			SignalPort: out data port;
+		flows
+			ManualRemoteControlFlow: flow source SignalPort;
+	end DPJoystic2;
+
+	system Switch_Main_CommDevices
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+		flows
+			SSSFlow_Primary: flow path eth1 -> eth5;
+			SSSFlow_Secondary: flow path eth1 -> eth6;
+			AISFlow_Primary: flow path eth4 -> eth5;
+			AISFlow_Secondary: flow path eth4 -> eth6;
+			RemoteRCCCommandsFlow_Main_Primary: flow path eth5 -> eth2;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path eth5 -> eth3;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path eth6 -> eth2;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path eth6 -> eth3;
+			APSNavigationFlow_Main_Primary: flow path eth2 -> eth5;
+			APSNavigationFlow_Main_Secondary: flow path eth2 -> eth6;
+			APSNavigationFlow_Backup_Primary: flow path eth3 -> eth5;
+			APSNavigationFlow_Backup_Secondary: flow path eth3 -> eth6;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+	end Switch_Main_CommDevices;
+
+	system Switch_Backup_CommDevices
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+		flows
+			SSSFlow_Primary: flow path eth1 -> eth5;
+			SSSFlow_Secondary: flow path eth1 -> eth6;
+					--AISFlow_Primary: flow path eth4 -> eth5;
+					--AISFlow_Secondary: flow path eth4 -> eth6;			
+			RemoteRCCCommandsFlow_Main_Primary: flow path eth5 -> eth2;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path eth5 -> eth3;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path eth6 -> eth2;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path eth6 -> eth3;
+			APSNavigationFlow_Main_Primary: flow path eth2 -> eth5;
+			APSNavigationFlow_Main_Secondary: flow path eth2 -> eth6;
+			APSNavigationFlow_Backup_Primary: flow path eth3 -> eth5;
+			APSNavigationFlow_Backup_Secondary: flow path eth3 -> eth6;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+	end Switch_Backup_CommDevices;
+
+	process NICTeaming
+		--NICTeaming: Network Interface Card Teaming
+		features
+			Veth1: in out data port;
+			Veth2: in out data port;
+			Teamedeth: in out data port;
+	end NICTeaming;
+
+	process ASC_Process
+		features
+			Dataport: in out data port;
+			EmergencyDataPort: in out data port;
+	--Switch_to_AutonomousExecution: out event port;
+	--Switch_to_AutonomousControl: out event port;
+	--Switch_to_FailToSafe: out event port;
+	--Switch_to_RemoteControl: out event port;
+	end ASC_Process;
+
+	process implementation ASC_Process.with_threads
+		subcomponents
+			ASC_IDS: thread ASC_IDS;
+			ASC_Discover: thread ASC_Discover;
+			ASC_CDA: thread ASC_CDA;
+			ASC_CP: thread ASC_CP;
+			ASC_CAM: thread ASC_CAM;
+			ASC_MV: thread ASC_MV;
+			ASC_SS: thread ASC_SS;
+			ASC_VM: thread ASC_VM;
+			ASC_DK: thread ASC_DK;
+	end ASC_Process.with_threads;
+
+	thread ASC_IDS
+		features
+			DataPort: out data port;
+	end ASC_IDS;
+
+	thread ASC_Discover
+		features
+			MainDataPort: in out data port;
+	end ASC_Discover;
+
+	thread ASC_CDA
+		-- CDA: Collision Detection and Avoidance
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_CDA;
+
+	thread ASC_CP
+		-- CP: Contingency Planning 
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_CP;
+
+	thread ASC_CAM
+		-- CAM: Central Alarm Management 
+		features
+			MainDataPort: in out data port;
+	end ASC_CAM;
+
+	thread ASC_MV
+		-- MV: Maneuvering  
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_MV;
+
+	thread ASC_SS
+		-- SS: Safe Speed 
+		features
+			MainDataPort: in out data port;
+	end ASC_SS;
+
+	thread ASC_VM
+		-- VM: Voyage Management 
+		features
+			MainDataPort: in out data port;
+	end ASC_VM;
+
+	thread ASC_DK
+		-- DK: Docking  
+		features
+			MainDataPort: in out data port;
+	end ASC_DK;
+
+	system NetworkAndSystemManagement
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+	end NetworkAndSystemManagement;
+
+	system implementation NetworkAndSystemManagement.impl
+		subcomponents
+			NICTeaming: process NICTeaming;
+			UAM: process UAM;
+			ConnectivityManager_Process: process ConnectivityManager_Process.with_threads;
+			DigitalLogbook: process DigitalLogbook;
+		connections
+			ConnectivityManager_impl_new_connection: port ConnectivityManager_Process.DataPort <-> NICTeaming.Teamedeth;
+			ConnectivityManager_impl_new_connection2: port UAM.DataPort <-> NICTeaming.Teamedeth;
+			ConnectivityManager_impl_new_connection3: port eth1 <-> NICTeaming.Veth1;
+			ConnectivityManager_impl_new_connection4: port eth2 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection4: port NICTeaming.Teamedeth <-> DigitalLogbook.Dataport;
+			NetworkAndSystemManagement_impl_new_connection: port DigitalLogbook.Dataport <-> NICTeaming.Teamedeth;
+	end NetworkAndSystemManagement.impl;
+
+	process UAM
+		-- UAM: UserAccessmanagement
+		features
+			DataPort: in out data port;
+	end UAM;
+
+	process ConnectivityManager_Process
+		features
+			DataPort: in out data port;
+	end ConnectivityManager_Process;
+
+	process implementation ConnectivityManager_Process.with_threads
+		subcomponents
+			NI: thread NI;
+			TPC: thread TPC;
+			TRC: thread TRC;
+			QoSC: thread QoSC;
+			NMT: thread NMT;
+			NSU: thread NSU;
+			NSM: thread NSM;
+			NSC: thread NSC;
+			NDBC: thread NDBC;
+	end ConnectivityManager_Process.with_threads;
+
+		--==== ConnectivityManager threads ====
+	thread NI
+	--NI: Network Initializer
+	end NI;
+
+	thread TPC
+	-- TPC: Traffic Prioritization Controller		 
+	end TPC;
+
+	thread TRC
+	-- TRC: Traffic Redirection Controller (Forced and Selective) by operator or due to loss of online connectivity	 
+	end TRC;
+
+	thread QoSC
+	-- QoSC: Quality of Service Controller	
+	end QoSC;
+
+	thread NMT
+	-- NMT: Network Monitor and Troubleshooter (Self or Ordered)	
+	end NMT;
+
+	thread NSU
+	-- NSU: Network Software Updater	
+	end NSU;
+
+	thread NSM
+	-- NSM: Network Segmentation Manager
+	end NSM;
+
+	thread NSC
+	-- NSC: Network Security Coordinator (Coordinates with the IS3MS) 	
+	end NSC;
+
+	thread NDBC
+	-- NDBC: Network Device Backup Controller	
+	end NDBC;
+
+		--==== ConnectivityManager threads ====
+	system IS3MS
+		-- IS3MS: Integrated Ship Safety and Security Management System
+		features
+			et1: in out data port;
+			et2: in out data port;
+	end IS3MS;
+
+	system implementation IS3MS.impl
+		subcomponents
+			NICTeaming: process NICTeaming;
+			SIEM: process SIEM;
+		connections
+			IS3MS_impl_new_connection: port NICTeaming.Veth1 <-> et1;
+			IS3MS_impl_new_connection2: port NICTeaming.Veth2 <-> et2;
+			IS3MS_impl_new_connection3: port NICTeaming.Teamedeth <-> SIEM.DataPort;
+	end IS3MS.impl;
+
+	process SIEM
+		features
+			DataPort: in out data port;
+	end SIEM;
+
+	process DigitalLogbook
+		features
+			Dataport: in out data port;
+	end DigitalLogbook;
+end RCC;

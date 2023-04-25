@@ -1,0 +1,31 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_consumer_data512k_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_consumer_data512k_vt_consumer_data512k
+features
+	INPORT_artificial_data512k : IN EVENT DATA PORT DataView::MyData512k_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 5 ms;
+		  Queue_Size => 2;
+		  Compute_Entrypoint_Source_Text => "vt_consumer_data512k_wrappers.artificial_data512k"; };
+END vt_consumer_data512k_vt_consumer_data512k;
+
+THREAD IMPLEMENTATION vt_consumer_data512k_vt_consumer_data512k.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "consumer_wrappers.C_Init_consumer";
+	Dispatch_Protocol => Sporadic;
+	Period            => 100 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 5 ms;
+	Source_Stack_Size => 50 KByte;
+	Priority => 5;
+END vt_consumer_data512k_vt_consumer_data512k.others;
+
+end vt_consumer_data512k_CV_Thread;

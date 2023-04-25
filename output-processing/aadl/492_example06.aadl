@@ -1,0 +1,496 @@
+-- Copyright (c) 2015 Carnegie Mellon University. All Rights Reserved.
+--
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions
+-- are met:
+--
+-- 1. Redistributions of source code must retain the above copyright
+-- notice, this list of conditions and the following acknowledgments
+-- and disclaimers.
+--
+-- 2. Redistributions in binary form must reproduce the above
+-- copyright notice, this list of conditions and the following
+-- disclaimer in the documentation and/or other materials provided
+-- with the distribution.
+--
+-- 3. The names "Carnegie Mellon University," "SEI" and/or "Software
+-- Engineering Institute" shall not be used to endorse or promote
+-- products derived from this software without prior written
+-- permission. For written permission, please contact
+-- permission@sei.cmu.edu.
+--
+-- 4. Products derived from this software may not be called "SEI" nor
+-- may "SEI" appear in their names without prior written permission of
+-- permission@sei.cmu.edu.
+--
+-- 5. Redistributions of any form whatsoever must retain the following
+-- acknowledgment:
+--
+-- This material is based upon work funded and supported by the
+-- Department of Defense under Contract No. FA8721-05-C-0003 with
+-- Carnegie Mellon University for the operation of the Software
+-- Engineering Institute, a federally funded research and development
+-- center.
+--
+-- Any opinions, findings and conclusions or recommendations expressed
+-- in this material are those of the author(s) and do not necessarily
+-- reflect the views of the United States Department of Defense.
+--
+-- NO WARRANTY. THIS CARNEGIE MELLON UNIVERSITY AND SOFTWARE
+-- ENGINEERING INSTITUTE MATERIAL IS FURNISHED ON AN "AS-IS"
+-- BASIS. CARNEGIE MELLON UNIVERSITY MAKES NO WARRANTIES OF ANY KIND,
+-- EITHER EXPRESSED OR IMPLIED, AS TO ANY MATTER INCLUDING, BUT NOT
+-- LIMITED TO, WARRANTY OF FITNESS FOR PURPOSE OR MERCHANTABILITY,
+-- EXCLUSIVITY, OR RESULTS OBTAINED FROM USE OF THE MATERIAL. CARNEGIE
+-- MELLON UNIVERSITY DOES NOT MAKE ANY WARRANTY OF ANY KIND WITH
+-- RESPECT TO FREEDOM FROM PATENT, TRADEMARK, OR COPYRIGHT
+-- INFRINGEMENT.
+--
+-- This material has been approved for public release and unlimited
+-- distribution.
+--
+-- DM-0002494
+
+-- the AADL description of a DART system implementing a coordinated
+-- protection algorithm. the system consists of 5 nodes located on a
+-- 2-dimensional grid divided into a matrix of cells. node 0 is the
+-- leader. it is surrounded by nodes 1-4 to provide coverage. the
+-- leader moves from a specified initial coordinate to final
+-- coordinate. the protectors move with it, trying to keep it as
+-- surrounded as possible. nodes coordinate to avoid collision.
+
+-- the system must satisfy the following two requirements: (a)
+-- guaranteed - no collision; (b) best effort - level of coverage
+-- provided to the leader.
+
+package example05
+public
+
+-- import property sets
+with Zero_Slack_Scheduling;
+
+-----------------------------------------------------------------------
+-- begin datatype stuff
+-----------------------------------------------------------------------
+
+-- a (X,Y) pair denoting a cell coordinate
+data coordinate
+end coordinate;
+
+-- index to access an element in a multi-dimensional array
+data element_index
+end element_index;
+
+-- a lock
+data lock_type
+end lock_type;
+
+-- declaration of array of locks
+data locks_array_type	
+end locks_array_type;
+
+-- implementation of array of locks
+data implementation locks_array_type.i
+subcomponents
+  locks: data lock_type[5];
+end locks_array_type.i;	
+
+-- declaration of lock update
+data lock_update_type
+end lock_update_type;
+
+-- implementation of lock update
+data implementation lock_update_type.i
+subcomponents
+  lock: data lock_type;
+  index: data element_index;		
+end lock_update_type.i;
+
+-- initialized node
+data initialized_node_type
+end initialized_node_type;	
+
+-- declaration of initialized node update type
+data initialized_node_update_type
+end initialized_node_update_type;
+
+-- implementation of initialized node update type
+data implementation initialized_node_update_type.i
+subcomponents
+  initialized_node: data initialized_node_type;
+  index: data element_index;
+end initialized_node_update_type.i;
+
+-- declaration of distributed data store
+data distributed_data_store
+end distributed_data_store;
+
+-- implementation of distributed data store
+data implementation distributed_data_store.i
+subcomponents
+  locks: data locks_array_type.i;
+  destination: data coordinate[1];
+  initalized_nodes: data initialized_node_type[5];
+end distributed_data_store.i;
+
+-----------------------------------------------------------------------
+-- end datatype stuff
+-----------------------------------------------------------------------
+
+-- a DART node declaration. we model it as an AADL system. this will
+-- be extended to declarge the leader and protector nodes.
+system dart_node
+end dart_node;
+
+-- the hardware on a node
+processor drone_cpu
+end drone_cpu;
+
+-- the MADARA receiver thread declaration
+thread madara_receiver_thread
+features
+  leader_destination_update: in event data port coordinate;
+  lock_update_in: in event data port lock_update_type.i;
+  init_update: in event data port initialized_node_update_type.i;
+  distributed_variables: out data port distributed_data_store.i;
+end madara_receiver_thread;
+
+-- we need a process to encapsulate the MADARA thread. this is the
+-- declaration of that process.
+process madara_comm_agent
+features
+  leader_destination_update: in event data port coordinate;
+  distributed_variables: out data port distributed_data_store.i;		
+  lock_update_in: in event data port lock_update_type.i;
+end madara_comm_agent;
+
+-- implementation of process encapsulating the MADARA receiver thread.
+process implementation madara_comm_agent.i
+subcomponents
+  madara_thread: thread madara_receiver_thread;
+connections
+  c1: port madara_thread.distributed_variables -> distributed_variables;
+  c2: port leader_destination_update -> madara_thread.leader_destination_update;
+  c3: port lock_update_in -> madara_thread.lock_update_in;
+properties
+  -- This are 'sample' parameters. We need to get the real ones.
+  Period => 100 ms applies to madara_thread;
+  Zero_Slack_Scheduling::Criticality => 1 applies to madara_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to madara_thread;
+end madara_comm_agent.i;
+
+-- a DART node implementation. this will be extended to implement the
+-- leader and protector nodes. since each node has a MADARA receive
+-- thread, we include it already at this level.
+system implementation dart_node.i
+subcomponents
+  madara_sw: process madara_comm_agent.i;
+  hw: processor drone_cpu;
+properties
+  Actual_Processor_Binding => (reference (hw)) applies to madara_sw; 
+end dart_node.i;
+
+-----------------------------------------------------------------------
+-- begin protector node stuff
+-----------------------------------------------------------------------
+
+-- a protector node declaration
+system protector extends dart_node
+features
+  leader_destination_update: in event data port coordinate;
+  locks: out event data port lock_update_type.i;
+  lock_update_in: in event data port lock_update_type.i;
+  lock_update_out: out event data port lock_update_type.i;
+end protector;
+
+-- a subprogram encapsulating the job function called periodically by
+-- a protector's next-waypoint thread
+subprogram protector_subprogram_waypoint
+features
+  nodeid: in parameter;
+  target_coordinate: out parameter coordinate;
+  leader_destination: in parameter coordinate;
+properties
+  Source_Name => "WAYPOINT";
+end protector_subprogram_waypoint;
+
+-- a protector's next-waypoint thread declaration
+thread protector_waypoint
+features
+  target_coordinate: out data port coordinate;
+  distributed_variables: in data port distributed_data_store.i;
+end protector_waypoint;
+
+-- a protector's next-waypoint thread implementation
+thread implementation protector_waypoint.i
+-- the job function called periodically by the thread
+calls main:{
+  c: subprogram protector_subprogram_waypoint;
+  };
+connections
+  c1: parameter c.target_coordinate -> target_coordinate;
+  c2: parameter distributed_variables.destination -> c.leader_destination;
+properties
+  Activate_Entrypoint_Source_Text => "example-05.dmpl";
+end protector_waypoint.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- a protector's collision-avoidance thread
+subprogram protector_subprogram_collision_avoidance
+features
+  nodeid: in parameter;
+  target_coordinate: in parameter coordinate;
+  lock_update: out parameter lock_update_type.i;
+  locks: in parameter locks_array_type.i;
+properties
+  Source_Name => "COLLISION_AVOIDANCE";
+end protector_subprogram_collision_avoidance;
+
+-- a protector's collision-avoidance thread declaration
+thread protector_collision_avoidance
+features
+  target_coordinate: in data port coordinate;
+  lock_update: out data port lock_update_type.i;
+  distributed_variables: in data port distributed_data_store.i;
+end protector_collision_avoidance;
+
+-- a protector's collision-avoidance thread implementation
+thread implementation protector_collision_avoidance.i
+-- the job function called periodically by the thread
+calls main:  {
+  c: subprogram protector_subprogram_collision_avoidance;
+  };
+connections
+  c1: parameter target_coordinate -> c.target_coordinate;
+  c2: parameter c.lock_update -> lock_update;
+  c3: parameter distributed_variables.locks -> c.locks;
+properties
+  Activate_Entrypoint_Source_Text =>"example-05.dmpl";
+end protector_collision_avoidance.i;
+
+-- a protector process declaration
+process protector_process
+features
+  distributed_variables: in data port distributed_data_store.i;
+  lock_update: out data port lock_update_type.i;
+end protector_process;
+
+-- a protector process implementation. consists of two threads. one
+-- thread is responsible for computing the next waypoint
+-- coordinate. the other thread executes a collision avoidance
+-- protocol.
+process implementation protector_process.i
+subcomponents
+  waypoint_thread: thread protector_waypoint.i;
+  collision_avoidance_thread: thread protector_collision_avoidance.i;
+connections
+  c1: port waypoint_thread.target_coordinate -> collision_avoidance_thread.target_coordinate;
+  c2: port distributed_variables -> waypoint_thread.distributed_variables;
+  c3: port collision_avoidance_thread.lock_update -> lock_update;
+properties
+  Period => 100 ms applies to waypoint_thread;
+  Zero_Slack_Scheduling::Criticality => 1 applies to waypoint_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to waypoint_thread;
+  Period => 200 ms applies to collision_avoidance_thread;
+  Zero_Slack_Scheduling::Criticality => 2 applies to collision_avoidance_thread;
+  Compute_Execution_Time => 15000 us .. 30000 us applies to collision_avoidance_thread;		
+end protector_process.i;
+
+-- a protector node implementation.
+system implementation protector.i extends dart_node.i
+subcomponents
+  protector_sw: process protector_process.i;
+connections
+  c1: port madara_sw.distributed_variables -> protector_sw.distributed_variables;
+  c2: port leader_destination_update -> madara_sw.leader_destination_update;
+  c3: port protector_sw.lock_update -> lock_update_out;
+  c4: port lock_update_in -> madara_sw.lock_update_in;
+properties
+  Actual_Processor_Binding => (reference (hw)) applies to protector_sw; 
+end protector.i;
+
+-----------------------------------------------------------------------
+-- end protector node stuff
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+-- begin leader node stuff
+-----------------------------------------------------------------------
+
+-- the leader node declaration
+system leader extends dart_node
+features
+  formation : out event data port;
+  leader_destination: out event data port coordinate;
+  lock_update_out: out event data port lock_update_type.i;
+  lock_update_in: in event data port lock_update_type.i;
+end leader;
+
+-- a subprogram encapsulating the job function called periodically by
+-- the leader's adaptation manager thread
+subprogram leader_subprogram_adaptation_manager
+features
+  nodeid: in parameter;
+  formation: out parameter;
+properties
+  Source_Name => "ADAPTATION_MANAGER";
+end leader_subprogram_adaptation_manager;
+
+-- the leader's adaptation manager thread declaration
+thread leader_adaptation_manager
+features
+  formation: out data port;
+end leader_adaptation_manager;
+
+-- the leader's next-waypoint thread implementation
+thread implementation leader_adaptation_manager.i
+-- the job function called periodically by the thread
+calls main:  {
+  c: subprogram leader_subprogram_adaptation_manager;
+  };
+connections
+  c1: parameter c.formation -> formation;
+properties
+  Activate_Entrypoint_Source_Text =>"example-05.dmpl";
+end leader_adaptation_manager.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- the leader's next-waypoint thread
+subprogram leader_subprogram_waypoint
+features
+  nodeid: in parameter;
+  leader_destination: out parameter coordinate;
+properties
+  Source_Name => "WAYPOINT";
+end leader_subprogram_waypoint;
+
+-- the leader's next-waypoint thread declaration
+thread leader_waypoint
+features
+  leader_destination: out data port coordinate;
+end leader_waypoint;
+
+-- the leader's next-waypoint thread implementation
+thread implementation leader_waypoint.i
+-- the job function called periodically by the thread
+calls main:  {
+  c: subprogram leader_subprogram_waypoint;
+  };
+connections
+  c1: parameter c.leader_destination -> leader_destination;
+properties
+  Activate_Entrypoint_Source_Text =>"example-05.dmpl";
+end leader_waypoint.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- the leader's collision-avoidance thread
+subprogram leader_subprogram_collision_avoidance
+features
+  nodeid: in parameter;
+  target_coordinate: in parameter coordinate;
+  lock_update_out: out parameter lock_update_type.i;
+  locks: in parameter locks_array_type.i;
+properties
+  Source_Name => "COLLISION_AVOIDANCE";
+end leader_subprogram_collision_avoidance;
+
+-- the leader's collision-avoidance thread declaration
+thread leader_collision_avoidance
+features 
+  target_coordinate: in data port coordinate;
+  lock_update_out: out data port lock_update_type.i;
+  --distributed_variables: in data port distributed_data_store.i;
+end leader_collision_avoidance;
+
+-- the leader's collision-avoidance thread implementation
+thread implementation leader_collision_avoidance.i
+-- the job function called periodically by the thread
+calls main:  {
+  c: subprogram leader_subprogram_collision_avoidance;
+  };
+connections
+  c1: parameter target_coordinate -> c.target_coordinate;
+  c2: parameter c.lock_update_out -> lock_update_out;
+  --c3: parameter distributed_variables.locks -> c.locks;
+properties
+  Activate_Entrypoint_Source_Text =>"example-05.dmpl";
+end leader_collision_avoidance.i;
+
+-- the leader process declaration
+process leader_process
+features 
+  leader_destination: out data port coordinate;
+  formation: out data port;
+  lock_update_out: out event data port lock_update_type.i;
+  --distributed_variables: in data port distributed_data_store.i;
+end leader_process;
+
+-- the leader process implementation. consists of two threads. one
+-- thread is responsible for computing the next waypoint
+-- coordinate. the other thread executes a collision avoidance
+-- protocol.
+process implementation leader_process.i
+subcomponents
+  adaptation_manager_thread: thread leader_adaptation_manager.i;
+  waypoint_thread: thread leader_waypoint.i;
+  collision_avoidance_thread: thread leader_collision_avoidance.i;
+connections
+  c1: port adaptation_manager_thread.formation -> formation;
+  c2: port waypoint_thread.leader_destination -> leader_destination;
+  --c3: port distributed_variables -> collision_avoidance_thread.distributed_variables;
+  c4: port collision_avoidance_thread.lock_update_out -> lock_update_out;
+properties
+  Period => 1000 ms applies to adaptation_manager_thread;
+  Zero_Slack_Scheduling::Criticality => 1 applies to adaptation_manager_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to adaptation_manager_thread;
+  Period => 100 ms applies to waypoint_thread;
+  Zero_Slack_Scheduling::Criticality => 2 applies to waypoint_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to waypoint_thread;
+  Period => 200 ms applies to collision_avoidance_thread;
+  Zero_Slack_Scheduling::Criticality => 3 applies to collision_avoidance_thread;
+  Compute_Execution_Time => 15000 us .. 30000 us applies to collision_avoidance_thread;		
+end leader_process.i;
+
+-- the leader node implementation.
+system implementation leader.i extends dart_node.i
+subcomponents
+  -- the software in the leader consists of a single process
+  leader_sw: process leader_process.i;
+connections
+  c1: port leader_sw.formation -> formation;
+  c2: port leader_sw.leader_destination -> leader_destination;
+  c3: port leader_sw.lock_update_out -> lock_update_out;
+  c4: port lock_update_in -> madara_sw.lock_update_in;
+  --c5: port madara_sw.distributed_variables -> leader_sw.distributed_variables;
+properties
+  Actual_Processor_Binding => (reference (hw)) applies to leader_sw; 
+end leader.i;
+
+-----------------------------------------------------------------------
+-- end leader node stuff
+-----------------------------------------------------------------------
+
+-- the system declaration	
+system swarm_protection
+end swarm_protection;
+
+-- the system implementation
+system implementation swarm_protection.i
+subcomponents
+  -- the system contains one leader and 4 protector nodes
+  the_leader: system leader.i[1];
+  protectors : system protector.i[4];
+connections
+  c1: port the_leader.leader_destination -> protectors.leader_destination_update {Connection_Pattern => ((All_to_All));};
+  c2: port the_leader.lock_update_out -> protectors.lock_update_in {Connection_Pattern => ((All_to_All));};
+  c3: port protectors.lock_update_out -> the_leader.lock_update_in {Connection_Pattern => ((All_to_All));};
+  c4: port protectors.lock_update_out -> protectors.lock_update_in {Connection_Pattern => ((All_to_All));};
+  
+  -- This is an example of how to assign properties to specific
+  -- elements of the 'protector' array or the leader
+  --
+  -- properties
+  --   Period => 100 ms  applies to protectors[1].protector_sw.waypoint_thread;
+end swarm_protection.i;
+
+end example05;

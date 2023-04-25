@@ -1,0 +1,91 @@
+package ReconfigStudy::Dependencies
+public
+	with ReconfigStudy::threads;
+
+	with ReconfigStudy::ProcessSystem;
+
+	with ReconfigStudy::Devices;
+
+	system Dependencies
+	end Dependencies;
+
+	system implementation Dependencies.Sys
+		subcomponents
+			Va_Control_1: process ReconfigStudy::ProcessSystem::VaControl.Proc;
+			Vz_Control_1: process ReconfigStudy::ProcessSystem::pVz_control_T.Proc;
+			Va_Control_2: process ReconfigStudy::ProcessSystem::VaControl.Proc;
+			Vz_Control_2: process ReconfigStudy::ProcessSystem::pVz_control_T.Proc;
+			Altitude_Hold_T: process ReconfigStudy::ProcessSystem::pAltitude_Hold_T.Proc;
+			FlightControlMgr: process ReconfigStudy::ProcessSystem::pFlightControlMgr.Proc;
+			FuelConsumptionMgr: process ReconfigStudy::ProcessSystem::pFuelConsumptionMgr.Proc;
+			AutoPilot: process ReconfigStudy::ProcessSystem::pAutoPilot.Proc;
+			AutoPilotMonitor: process ReconfigStudy::ProcessSystem::pAutoPilotMonitor.Proc;
+			Guidance: process ReconfigStudy::ProcessSystem::pGuidance.Proc;
+			RouteCtrl: process ReconfigStudy::ProcessSystem::pRouteCtrl.Proc;
+			Charts: process ReconfigStudy::ProcessSystem::pCharts.Proc;
+			MapServer: process ReconfigStudy::ProcessSystem::pMapServer.Proc;
+			DisplayMgr: process ReconfigStudy::ProcessSystem::pDisplayMgr.Proc;
+			SystemInputHandler: process ReconfigStudy::ProcessSystem::pSystemInputHandler.Proc;
+			FlightStickHandler: process ReconfigStudy::ProcessSystem::pFlightStickHandler.Proc;
+			FuelQUantity: process ReconfigStudy::ProcessSystem::pFuelQUantity.Proc;
+			EngineMonitor: process ReconfigStudy::ProcessSystem::pEngineMonitor.Proc;
+			RouteCtrlPanelHandler: process ReconfigStudy::ProcessSystem::pRouteCtrlPanelHandler.Proc;
+			Va_Filter_T: process ReconfigStudy::ProcessSystem::pVa_Filter_T.Proc;
+			H_Filter_T: process ReconfigStudy::ProcessSystem::pH_Filter_T.Proc;
+			Az_Filter_T: process ReconfigStudy::ProcessSystem::pAz_Filter_T.Proc;
+			Vz_Filter_T: process ReconfigStudy::ProcessSystem::pVz_Filter_T.Proc;
+			Q_Filter_T: process ReconfigStudy::ProcessSystem::pQ_Filter_T.Proc;
+			ActuatorEngineControl: process ReconfigStudy::ProcessSystem::pActuatorXControl.Proc;
+			ActuatorElevatorControl: process ReconfigStudy::ProcessSystem::pActuatorXControl.Proc;
+			Display1: process ReconfigStudy::ProcessSystem::pDisplayXServer.Proc;
+			Display2: process ReconfigStudy::ProcessSystem::pDisplayXServer.Proc;
+			Display3: process ReconfigStudy::ProcessSystem::pDisplayXServer.Proc;
+			Display4: process ReconfigStudy::ProcessSystem::pDisplayXServer.Proc;
+			GPS: device ReconfigStudy::Devices::GPS.dev;
+			VOR: device ReconfigStudy::Devices::VOR.dev;
+		connections
+			c0: port FuelQuantity.FuelData -> DisplayMgr.FuelData;
+			c1: port Guidance.ETA -> DisplayMgr.ETA;
+			c2: port Guidance.Localizer -> DisplayMgr.Localizer;
+			c3: port GPS.AC_Position -> Guidance.ACPosition;
+			c4: port GPS.AC_Position -> MapServer.ACPosition;
+			c5: port GPS.AC_Position -> RouteCtrl.ACPosition;
+			c6: port RouteCtrl.DestinationPosition -> Guidance.DestinationPosition;
+			c7: port VOR.VOR -> Guidance.VOR;
+			c8: port RouteCtrlPanelHandler.FlightPlanSelection -> RouteCtrl.FlightPlanSelection;
+			c9: port RouteCtrl.FlightPlanList -> RouteCtrlPanelHandler.FlightPlanList;
+			c10: port AutoPilot.VelocityHold -> Va_Control_1.Va_c;
+			c12: port AutoPilot.VelocityHold -> Va_Control_2.Va_c;
+			Complete_Sys_new_connection: port AutoPilot.AltitudeHold -> Altitude_Hold_T.H_c;
+			Complete_Sys_new_connection2: port Altitude_Hold_T.Output -> Vz_Control_1.Vz_c;
+			Complete_Sys_new_connection3: port Altitude_Hold_T.Output -> Vz_Control_2.Vz_c;
+			Complete_Sys_new_connection4: port DisplayMgr.Display2Commands -> Display2.A661In;
+			Complete_Sys_new_connection5: port DisplayMgr.Display4Commands -> Display4.A661In;
+			Complete_Sys_new_connection6: port DisplayMgr.Display1Commands -> Display1.A661In;
+			Complete_Sys_new_connection7: port DisplayMgr.Display3Commands -> Display3.A661In;
+					--Complete_Sys_new_connection8: port FuelQUantity.FuelData -> FuelConsumptionMgr.FuelQty;
+					--Complete_Sys_new_connection9: port FuelQUantity.FuelFlow -> FuelConsumptionMgr.FuelFlow;
+			Complete_Sys_new_connection10: port MapServer.Arinc661Commands -> DisplayMgr.MapArinc661Commands;
+			Complete_Sys_new_connection11: port Vz_Control_1.Output -> FlightControlMgr.Vz1;
+			Complete_Sys_new_connection12: port Vz_Control_2.Output -> FlightControlMgr.Vz2;
+			Complete_Sys_new_connection13: port Va_Control_1.Output -> FlightControlMgr.Va1;
+			Complete_Sys_new_connection14: port Va_Control_2.Output -> FlightControlMgr.Va2;
+			Complete_Sys_new_connection15: port FuelConsumptionMgr.FuelAdjustment -> FlightControlMgr.VaAdjustment;
+			Complete_Sys_new_connection16: port Charts.selectedChart -> DisplayMgr.chart;
+			Complete_Sys_new_connection8: port H_Filter_T.Output -> Altitude_Hold_T.H_f;
+			Complete_Sys_new_connection9: port Q_Filter_T.Output -> Vz_Control_1.Q_f;
+			Complete_Sys_new_connection17: port Q_Filter_T.Output -> Vz_Control_2.Q_f;
+			Complete_Sys_new_connection18: port Va_Filter_T.Output -> FuelConsumptionMgr.Va;
+			Complete_Sys_new_connection19: port Va_Filter_T.Output -> Va_Control_1.Va_f;
+			Complete_Sys_new_connection20: port Va_Filter_T.Output -> Va_Control_2.Va_f;
+			Complete_Sys_new_connection21: port Vz_Filter_T.Output -> Va_Control_2.Vz_f;
+			Complete_Sys_new_connection22: port Vz_Filter_T.Output -> Va_Control_1.Vz_f;
+			Complete_Sys_new_connection23: port Vz_Filter_T.Output -> Vz_Control_1.Vz_f;
+			Complete_Sys_new_connection24: port Q_Filter_T.Output -> Va_Control_1.Q_f;
+			Complete_Sys_new_connection25: port Q_Filter_T.Output -> Va_Control_2.Q_f;
+			Complete_Sys_new_connection26: port Az_Filter_T.Output -> Vz_Control_2.Az_f;
+			Complete_Sys_new_connection27: port Az_Filter_T.Output -> Vz_Control_1.Az_f;
+			Complete_Sys_new_connection28: port Vz_Filter_T.Output -> Vz_Control_2.Vz_f;
+			Complete_Sys_new_connection29: port SystemInputHandler.SystemInputs -> DisplayMgr.SystemInput;
+	end Dependencies.Sys;
+end ReconfigStudy::Dependencies;

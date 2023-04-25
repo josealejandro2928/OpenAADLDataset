@@ -1,0 +1,13 @@
+property set Power_Properties is
+
+  -- Static Power
+  Power_Static: Power_Properties::Power_Consumption_Range_Type applies to (processor, memory, system, bus, device);
+  Power_Static_Subcompo: Power_Properties::Power_Consumption_Range_Type applies to (processor, memory, system, bus, device);
+  Power_Static_Tot: Power_Properties::Power_Consumption_Range_Type applies to (processor, memory, system, bus, device);
+
+    -- Power Property Types
+  Power_Consumption_Range_Type: type range of Power_Properties::Power_Consumption_Type;
+  Power_Consumption_Type: type aadlreal  units Power_Properties::Power_Units;
+  Power_Units: type units (pW, nW => pW * 1000, uW => nW * 1000, mW => uW * 1000, W => mW * 1000, KW => W * 1000);
+
+end Power_Properties;

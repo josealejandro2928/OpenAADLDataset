@@ -1,0 +1,73 @@
+package CloudComponent
+public
+	with Requirements;--with APS,RCC, Stakeholder,Mobile5GNetwork;
+	
+	system APSCommunication
+		features
+			--APSCommunication: in out data port;
+			--RCCCommunication: in out data port;
+			StakeholderCommunication: in out data port;
+			InternetAccess: in out data port;
+			--InternetAccess_RCC: in out data port;
+		flows
+			NavigationData_APS_to_Cloud: flow sink InternetAccess;
+			SafetyData_APS_to_Cloud: flow sink InternetAccess;
+			MachinaryData_APS_to_Cloud: flow sink InternetAccess;
+			PowerData_APS_to_Cloud: flow sink InternetAccess;
+			
+			NavigationData_Cloud_to_RCC: flow source InternetAccess;
+			SafetyData_Cloud_to_RCC: flow source InternetAccess;
+			MachinaryData_Cloud_to_RCC: flow source InternetAccess;
+			PowerData_Cloud_to_RCC: flow source InternetAccess;			
+			
+			RequestAccesstoCloud_from_stackholder: flow sink StakeholderCommunication;
+			TransmitManagementInformation: flow source StakeholderCommunication;				
+	end APSCommunication;
+	
+		system implementation APSCommunication.impl
+			subcomponents
+				this_CommunicationHubServer: system CommunicationHubServer.impl
+				{
+					Requirements::RequiredFuntions => 'Internet Access; APS and RCC Authentication and Association; Facilitate Stakeholder Communication; Online Data Backup'; 
+				};				
+			connections
+				Mobile5GtoCloudLink_APS: port InternetAccess <->  this_CommunicationHubServer.DataPort; 
+				StakeholdertoCloudLink: port StakeholderCommunication <-> this_CommunicationHubServer.DataPort;						
+		end APSCommunication.impl;
+	
+	process APSMonitor
+		features
+			MonitorPort: in out data port;
+	end APSMonitor;
+	
+		process implementation APSMonitor.impl 
+		end APSMonitor.impl;
+	
+	process APSControl
+		features
+			ControlPort: in out data port;
+	end APSControl;
+	
+		process implementation APSControl.impl
+		end APSControl.impl;
+		
+	system CommunicationHubServer -- 
+		features
+			DataPort: in out data port; -- Port 443 (HTTPS)
+		flows
+			InitiateCloudAccess: flow sink DataPort;
+			ReceiveCloudAccess: flow source DataPort;
+	end CommunicationHubServer;
+	
+		system implementation CommunicationHubServer.impl
+		end CommunicationHubServer.impl;
+	
+	process TrafficForwarder
+		features 
+			IncomingPort: in data port;
+			OutgoingPort: out data port;
+		flows
+			ForwardTraffic: flow path IncomingPort -> OutgoingPort;
+	end TrafficForwarder;
+	
+end CloudCOmponent;

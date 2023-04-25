@@ -1,0 +1,27 @@
+activity gene-chart-report {
+	with {
+		parameter email : STRING [1,1] {
+			constraints [ constraint isEmail ];
+		};
+		parameter count : INTEGER [1,1] = ['1'];
+		parameter threshold : REAL [1,1] = ['2.0'];
+		parameter gene-ids : STRING [1,-1];
+		parameter categories-in-result : STRING [1,-1];
+		parameter gene-identifier-type : STRING [1,1];
+	}
+	produces {
+		dataset output : 'text/tsv' [1,1];
+	}
+	using executable "geas-david-chart-report.py" {
+		commandLineTemplate [ 
+			parameter email,
+			parameter gene-ids | Join ',',
+			parameter gene-identifier-type,
+			parameter categories-in-result | Join ',',
+			parameter threshold,
+			parameter count,
+			dataset output
+		]
+
+	}
+}

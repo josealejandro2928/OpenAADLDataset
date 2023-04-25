@@ -1,0 +1,1907 @@
+package APS
+--	APS: Autonomous Passenger Ship
+public
+	with AddedCommunicationProperties, Requirements; --ECT,RCC,SSS,Ship,TIS,CloudComponent, Mobile5GNetwork,
+
+	-- %%%%%%%%%%%%%%%%%%%%%%	General Comments	%%%%%%%%%%%%%%%%%%%%%%
+	--
+	--	* All Control Ports are assumed and defined as "in out" same as the console port in Cisco devices. 
+	-- %%%%%%%%%%%%%%%%%%%%%%	Systems Section	%%%%%%%%%%%%%%%%%%%%%% 
+	system APSCommunication
+		features
+			InternetAccess: in out data port;
+			AISCommunication: in out data port;
+			RCCCommunication: in out data port;
+			RadioCommunication: in out data port;
+					--	SSSCommunication: in out data port;
+			UHFPositionCorrection: in data port;
+			MobileCommunication: out event port;
+			GNSSSignal: in data port;
+		flows
+			NavigationData_APS_to_RCC: flow source RCCCommunication;
+			NavigationData_APS_to_Cloud: flow source InternetAccess;
+			SafetyData_APS_to_RCC: flow source RCCCommunication;
+			SafetyData_APS_to_Cloud: flow source InternetAccess;
+			MachinaryData_APS_to_RCC: flow source RCCCommunication;
+			MachinaryData_APS_to_Cloud: flow source InternetAccess;
+			PowerData_APS_to_RCC: flow source RCCCommunication;
+			PowerData_APS_to_Cloud: flow source InternetAccess;
+					--ReceiveShoreSensorData_APS: flow sink SSSCommunication;
+			AISCommunication_Ship_to_APS: flow sink AISCommunication;
+			AISCommunication_TIS_to_APS: flow sink AISCommunication;
+			AISCommunication_RCC_to_APS: flow sink AISCommunication;
+			AISCommunication_APS_to_RCC: flow source AISCommunication;
+			AISCommunication_APS_to_Ship: flow source AISCommunication;
+			AISCommunication_APS_to_TIS: flow source AISCommunication;
+			ReceiveEmergencyCommands_from_ECT: flow sink RadioCommunication;
+			Internal_EmergencyNavigationData_APS_to_ECT: flow sink RadioCommunication;
+			Internal_EmergencySafetyData_APS_to_ECT: flow sink RadioCommunication;
+			Internal_EmergencyMachinaryData_APS_to_ECT: flow sink RadioCommunication;
+			Internal_EmergencyPowerData_APS_to_ECT: flow sink RadioCommunication;
+			EmergencyNavigationData_APS_to_ECT: flow source RadioCommunication;
+			EmergencySafetyData_APS_to_ECT: flow source RadioCommunication;
+			EmergencyMachinaryData_APS_to_ECT: flow source RadioCommunication;
+			EmergencyPowerData_APS_to_ECT: flow source RadioCommunication;
+			TransmitEmergencySignal_to_ECT: flow source MobileCommunication;
+	end APSCommunication;
+
+	system implementation APSCommunication.impl
+		subcomponents
+				-- Local devices
+			this_InternetModule: system InternetModule;
+			this_RCCAPSModule: system RCCAPSModule;
+			this_TrafficModule: system TrafficModule;
+					--this_ShoreSensorModule: system ShoreSensorModule {
+					--Requirements::RequiredFuntions => 'Wireless Communication; Secure Communication; IP Routing; Redundant LAN access; Managed Network Device';
+					--};
+			EmergencyControlModule: system EmergencyControlModule;
+			this_Switch_Main_CoreCommunication: system Switch_Main_CoreCommunication;
+			this_Switch_Backup_CoreCommunication: system Switch_Backup_CoreCommunication;
+					--this_Switch_Main_CommDevices: system Switch_Main_CommDevices {
+					--Requirements::RequiredFuntions => 'Packet Switching; Failover Redundancy; Secure Access; Managed Network Device; Minimum Ethernet interfaces 8';
+					--};
+					--this_Switch_Backup_CommDevices: system Switch_Backup_CommDevices {
+					--Requirements::RequiredFuntions => 'Packet Switching; Failover Redundancy; Secure Access; Managed Network Device; Minimum Ethernet interfaces 8';
+					--};
+			PrimaryWANLoadBalancer: system WANLoadBalancer;
+			SecondaryWANLoadBalancer: system WANLoadBalancer;
+			this_ASC: system ASC.impl;
+					-- %%%%% Internal Systems %%%%%
+			this_MachinerySystem: system MachinerySystem.impl;
+			this_NavigationSystem: system NavigationSystem.impl_withRedundancy2;
+					--this_NavigationSystem_Backup: system NavigationSystem_Backup.impl_withRedundancy;
+			this_SafetySystem: system SafetySystem.impl;
+			this_BMS: system BMS.impl;
+			this_EmergencyButtonTransmitter: system EmergencyButtonTransmitter.impl;
+			IDS1: system IDS.impl;
+			IDS2: system IDS.impl;
+		connections
+				-- %%%%% External Connections %%%%% 
+				-- XXXXX ECT Links XXXXX
+			ECTtoAPS_Emergency_Control: port RadioCommunication <-> EmergencyControlModule.WirelessPort;
+					-- Works that might be relevant (check patent status)
+					-- https://patents.google.com/patent/US8538370B2/en
+					-- https://patents.google.com/patent/US8588733B2/en	
+					-- https://patents.google.com/patent/US6711399B1/en
+					-- Security System and Method for Transport Applications: An Innovative Solution based on a Safe Communication Channel
+			TransferEmergencySignal: port this_EmergencyButtonTransmitter.EmergencySignal -> MobileCommunication;
+					-- XXXXX Other Ships Links XXXXX
+			APStoShip: port this_TrafficModule.DataPort <-> AISCommunication;
+					-- XXXXX TIS Links XXXXX
+			APStoTIS: port this_TrafficModule.DataPort <-> AISCommunication;
+					-- XXXXX Cloud Component Links XXXXX
+			APStoMobile5GLink: port this_InternetModule.UplinkDownlinkPort <-> InternetAccess;
+					-- XXXXX RCC Links XXXXX
+			APS_RCCLink: port this_RCCAPSModule.WirelessPort <-> RCCCommunication;
+					-- XXXXX SSS Links XXXXX	
+					--APS_SSSLink: port this_ShoreSensorModule.WirelessPort <-> SSSCommunication;
+					-- %%%%% Internal Connections %%%%%
+					-- XXXXX Communication Devices Network XXXXX
+					-- Main Links
+			Main_InternetToBalancer: port this_InternetModule.eth1 <-> PrimaryWANLoadBalancer.PrimaryWAN;
+			Main_RCCtoBalancer: port this_RCCAPSModule.eth1 <-> PrimaryWANLoadBalancer.SecondaryWAN;
+					-- Different interface due to Traffic module special system design (AIS)
+					--TrafficModuleToCommDevicesSwitch: port this_TrafficModule.NavDataPort -> this_Switch_Main_CommDevices.eth3;
+					--Main_ShoreToCommDevicesSwitch: port this_ShoreSensorModule.eth1 <-> this_Switch_Main_CommDevices.eth4;
+					--Main_CommDevicesToASC: port this_Switch_Main_CommDevices.eth7 <-> this_ASC.Main_DataPort1;
+					-- Backup Links
+			Backup_InternetToBalancer: port this_InternetModule.eth2 <-> SecondaryWANLoadBalancer.PrimaryWAN;
+			Backup_RCCtoBalancer: port this_RCCAPSModule.eth2 <-> SecondaryWANLoadBalancer.SecondaryWAN;
+			Main_CoreToNavigation: port this_Switch_Main_CoreCommunication.eth3 <-> this_NavigationSystem.MainDataPort1;
+			Main_CoreToNavigation2: port this_Switch_Main_CoreCommunication.eth9 <-> this_NavigationSystem.MainDataPort2;
+					--Main_CoreToNavigation_Backup: port this_Switch_Main_CoreCommunication.eth8 <-> this_NavigationSystem_Backup.MainDataPort;
+			Main_CoreToMachinery: port this_Switch_Main_CoreCommunication.eth5 <-> this_MachinerySystem.MainDataPort1;
+			Main_CoreToMachinery2: port this_Switch_Main_CoreCommunication.eth4 <-> this_MachinerySystem.MainDataPort2;
+			Main_CoreToSafety: port this_Switch_Main_CoreCommunication.eth6 <-> this_SafetySystem.MainDataPort;
+			Main_CoreToBMS: port this_Switch_Main_CoreCommunication.eth7 <-> this_BMS.MainDataPort;
+			Backup_CoreToNavigation: port this_Switch_Backup_CoreCommunication.eth3 <-> this_NavigationSystem.BackupDataPort1;
+			Backup_CoreToNavigation2: port this_Switch_Backup_CoreCommunication.eth9 <-> this_NavigationSystem.BackupDataPort2;
+					--Backup_CoreToNavigation_Backup: port this_Switch_Backup_CoreCommunication.eth8 <-> this_NavigationSystem_Backup.BackupDataPort;
+			Backup_CoreToMachinery: port this_Switch_Backup_CoreCommunication.eth4 <-> this_MachinerySystem.BackupDataPort1;
+			Backup_CoreToMachinery2: port this_Switch_Backup_CoreCommunication.eth7 <-> this_MachinerySystem.BackupDataPort2;
+			Backup_CoreToSafety: port this_Switch_Backup_CoreCommunication.eth5 <-> this_SafetySystem.BackupDataPort;
+			Backup_CoreToBMS: port this_Switch_Backup_CoreCommunication.eth6 <-> this_BMS.BackupDataPort;
+					-- Redundancy links
+			MainToBackup_Core: port this_Switch_Main_CoreCommunication.RedundancyPort <-> this_Switch_Backup_CoreCommunication.RedundancyPort;
+			ASCToEmergencyModule: port this_ASC.EC <-> EmergencyControlModule.eth1;
+					--APSCommunication_impl_new_connection5: port this_ASC.Backup_DataPort2 <-> this_Switch_Backup_CommDevices.eth8;
+					--APSCommunication_impl_new_connection: port PrimaryWANLoadBalancer.eth1 -> this_Switch_Main_CommDevices.eth1;
+					--APSCommunication_impl_new_connection2: port PrimaryWANLoadBalancer.eth2 -> this_Switch_Backup_CommDevices.eth1;
+					--APSCommunication_impl_new_connection4: port SecondaryWANLoadBalancer.eth1 -> this_Switch_Main_CommDevices.eth2;
+					--APSCommunication_impl_new_connection6: port SecondaryWANLoadBalancer.eth2 -> this_Switch_Backup_CommDevices.eth2;
+			APSCommunication_impl_new_connection: port this_TrafficModule.NavDataPort -> PrimaryWANLoadBalancer.eth8;
+			APSCommunication_impl_new_connection2: port PrimaryWANLoadBalancer.eth1 <-> this_ASC.COLAVandSSITAW_Main1;
+			APSCommunication_impl_new_connection4: port SecondaryWANLoadBalancer.eth1 <-> this_ASC.COLAVandSSITAW_Main2;
+			APSCommunication_impl_new_connection6: port this_NavigationSystem.MainDataPort3 <-> this_Switch_Main_CoreCommunication.eth10;
+			APSCommunication_impl_new_connection7: port this_NavigationSystem.MainDataPort4 <-> this_Switch_Main_CoreCommunication.eth11;
+			APSCommunication_impl_new_connection8: port this_NavigationSystem.BackupDataPort3 <-> this_Switch_Backup_CoreCommunication.eth10;
+			APSCommunication_impl_new_connection9: port this_NavigationSystem.BackupDataPort4 <-> this_Switch_Backup_CoreCommunication.eth11;
+			APSCommunication_impl_new_connection10: port UHFPositionCorrection -> this_NavigationSystem.PositionCorrectionPort;
+					--flows
+					--NavigationFlow_Main_Primary: end to end flow this_NavigationSystem.NavigationData_Sesors_Main -> Main_CoreToNavigation -> this_Switch_Main_CoreCommunication.NavigationFlow_Main_Primary -> Main_CoreToASC -> this_ASC.IncomingNavigationData_Main_Primary;
+					--NavigationFlow_Main_Secondary: end to end flow this_NavigationSystem.NavigationData_Sesors_Main -> Main_CoreToNavigation -> this_Switch_Main_CoreCommunication.NavigationFlow_Main_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingNavigationData_Main_Secondary;
+					--NavigationFlow2_Main_Primary: end to end flow this_NavigationSystem.NavigationData_GNSS_Main -> Main_CoreToNavigation2 -> this_Switch_Main_CoreCommunication.NavigationFlow2_Main_Primary -> Main_CoreToASC -> this_ASC.IncomingNavigationData_Main_Primary;
+					--NavigationFlow2_Main_Secondary: end to end flow this_NavigationSystem.NavigationData_GNSS_Main -> Main_CoreToNavigation2 -> this_Switch_Main_CoreCommunication.NavigationFlow2_Main_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingNavigationData_Main_Secondary;
+					--NavigationFlow_Backup_Primary: end to end flow this_NavigationSystem_Backup.NavigationData_Backup_Primary -> Main_CoreToNavigation_Backup -> this_Switch_Main_CoreCommunication.NavigationFlow_Backup_Primary -> Main_CoreToASC -> this_ASC.IncomingNavigationData_Main_Primary;
+					--NavigationFlow_Backup_Secondary: end to end flow this_NavigationSystem_Backup.NavigationData_Backup_Primary -> Main_CoreToNavigation_Backup -> this_Switch_Main_CoreCommunication.NavigationFlow_Backup_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingNavigationData_Main_Secondary;
+					--MachinaryFlow_Main_Primary: end to end flow this_MachinerySystem.MachineryData_Main_Primary -> Main_CoreToMachinery -> this_Switch_Main_CoreCommunication.MachinaryFlow_Main_Primary -> Main_CoreToASC -> this_ASC.IncomingSafetyData_Main_Primary;
+					--MachinaryFlow_Main_Secondary: end to end flow this_MachinerySystem.MachineryData_Main_Primary -> Main_CoreToMachinery -> this_Switch_Main_CoreCommunication.MachinaryFlow_Main_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingMachinaryData_Main_Secondary;
+					--MachinaryFlow_Backup_Primary: end to end flow this_MachinerySystem.MachineryData_Main_Secondary -> Main_CoreToMachinery2 -> this_Switch_Main_CoreCommunication.MachinaryFlow_Backup_Primary -> Main_CoreToASC -> this_ASC.IncomingMachinaryData_Main_Primary;
+					--MachinaryFlow_Backup_Secondary: end to end flow this_MachinerySystem.MachineryData_Main_Secondary -> Main_CoreToMachinery2 -> this_Switch_Main_CoreCommunication.MachinaryFlow_Backup_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingMachinaryData_Main_Secondary;
+					--SafetyFlow_Main_Primary: end to end flow this_SafetySystem.SafetyData_Main -> Main_CoreToSafety -> this_Switch_Main_CoreCommunication.SafetyFlow_Main_Primary -> Main_CoreToASC -> this_ASC.IncomingSafetyData_Main_Primary;
+					--SafetyFlow_Main_Secondary: end to end flow this_SafetySystem.SafetyData_Main -> Main_CoreToSafety -> this_Switch_Main_CoreCommunication.SafetyFlow_Main_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingSafetyData_Main_Secondary;
+					--BMSFlow_Main_Primary: end to end flow this_BMS.PowerData_Main -> Main_CoreToBMS -> this_Switch_Main_CoreCommunication.BMSFlow_Main_Primary -> Main_CoreToASC -> this_ASC.IncomingPowerData_APS_Main_Primary;
+					--BMSFlow_Main_Secondary: end to end flow this_BMS.PowerData_Main -> Main_CoreToBMS -> this_Switch_Main_CoreCommunication.BMSFlow_Main_Secondary -> Main_CoreToASC2 -> this_ASC.IncomingPowerData_APS_Main_Secondary;
+					--Backup_NavigationFlow_Main_Primary: end to end flow this_NavigationSystem.NavigationData_Sesors_Backup -> Backup_CoreToNavigation -> this_Switch_Backup_CoreCommunication.NavigationFlow_Main_Primary -> Backup_CoreToASC -> this_ASC.IncomingNavigationData_Backup_Primary;
+					--Backup_NavigationFlow_Main_Secondary: end to end flow this_NavigationSystem.NavigationData_Sesors_Backup -> Backup_CoreToNavigation -> this_Switch_Backup_CoreCommunication.NavigationFlow_Main_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingNavigationData_Backup_Secondary;
+					--Backup_NavigationFlow2_Main_Primary: end to end flow this_NavigationSystem.NavigationData_GNSS_Backup -> Backup_CoreToNavigation2 -> this_Switch_Backup_CoreCommunication.NavigationFlow2_Main_Primary -> Backup_CoreToASC -> this_ASC.IncomingNavigationData_Backup_Primary;
+					--Backup_NavigationFlow2_Main_Secondary: end to end flow this_NavigationSystem.NavigationData_GNSS_Backup -> Backup_CoreToNavigation2 -> this_Switch_Backup_CoreCommunication.NavigationFlow2_Main_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingNavigationData_Backup_Secondary;
+					--Backup_NavigationFlow_Backup_Primary: end to end flow this_NavigationSystem_Backup.NavigationData_Backup_Secondary -> Backup_CoreToNavigation_Backup -> this_Switch_Backup_CoreCommunication.NavigationFlow_Backup_Primary -> Backup_CoreToASC -> this_ASC.IncomingNavigationData_Backup_Primary;
+					--Backup_NavigationFlow_Backup_Secondary: end to end flow this_NavigationSystem_Backup.NavigationData_Backup_Secondary -> Backup_CoreToNavigation_Backup -> this_Switch_Backup_CoreCommunication.NavigationFlow_Backup_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingNavigationData_Backup_Secondary;
+					--Backup_MachinaryFlow_Main_Primary: end to end flow this_MachinerySystem.MachineryData_Backup_Primary -> Backup_CoreToMachinery -> this_Switch_Backup_CoreCommunication.MachinaryFlow_Main_Primary -> Backup_CoreToASC -> this_ASC.IncomingMachinaryData_Backup_Primary;
+					--Backup_MachinaryFlow_Main_Secondary: end to end flow this_MachinerySystem.MachineryData_Backup_Primary -> Backup_CoreToMachinery -> this_Switch_Backup_CoreCommunication.MachinaryFlow_Main_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingMachinaryData_Backup_Secondary;
+					--Backup_MachinaryFlow_Backup_Primary: end to end flow this_MachinerySystem.MachineryData_Backup_Secondary -> Backup_CoreToMachinery2 -> this_Switch_Backup_CoreCommunication.MachinaryFlow_Backup_Primary -> Backup_CoreToASC -> this_ASC.IncomingMachinaryData_Backup_Primary;
+					--Backup_MachinaryFlow_Backup_Secondary: end to end flow this_MachinerySystem.MachineryData_Backup_Secondary -> Backup_CoreToMachinery2 -> this_Switch_Backup_CoreCommunication.MachinaryFlow_Backup_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingMachinaryData_Backup_Secondary;
+					--Backup_SafetyFlow_Main_Primary: end to end flow this_SafetySystem.SafetyData_Backup -> Backup_CoreToSafety -> this_Switch_Backup_CoreCommunication.SafetyFlow_Main_Primary -> Backup_CoreToASC -> this_ASC.IncomingSafetyData_Backup_Primary;
+					--Backup_SafetyFlow_Main_Secondary: end to end flow this_SafetySystem.SafetyData_Backup -> Backup_CoreToSafety -> this_Switch_Backup_CoreCommunication.SafetyFlow_Main_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingSafetyData_Backup_Secondary;
+					--Backup_BMSFlow_Main_Primary: end to end flow this_BMS.PowerData_Backup -> Backup_CoreToBMS -> this_Switch_Backup_CoreCommunication.BMSFlow_Main_Primary -> Backup_CoreToASC -> this_ASC.IncomingPowerData_APS_Backup_Primary;
+					--Backup_BMSFlow_Main_Secondary: end to end flow this_BMS.PowerData_Backup -> Backup_CoreToBMS -> this_Switch_Backup_CoreCommunication.BMSFlow_Main_Secondary -> Backup_CoreToASC2 -> this_ASC.IncomingPowerData_APS_Backup_Secondary;
+					--EmergencyNavigationData_APS_to_ECT: end to end flow this_ASC.EmergencyNavigationData_APS_to_ECT -> ASCToEmergencyModule -> EmergencyControlModule.EmergencyNavigationFlow -> ECTtoAPS_Emergency_Control ->  Internal_EmergencyNavigationData_APS_to_ECT;																																																																																						
+			APSCommunication_impl_new_connection11: port PrimaryWANLoadBalancer.eth3 <-> this_Switch_Main_CoreCommunication.eth1;
+			APSCommunication_impl_new_connection12: port PrimaryWANLoadBalancer.eth4 <-> this_Switch_Backup_CoreCommunication.eth1;
+			APSCommunication_impl_new_connection13: port this_Switch_Main_CoreCommunication.eth2 <-> SecondaryWANLoadBalancer.eth3;
+			APSCommunication_impl_new_connection14: port this_Switch_Backup_CoreCommunication.eth2 <-> SecondaryWANLoadBalancer.eth4;
+			APSCommunication_impl_new_connection15: port this_ASC.NSM_Main1 <-> PrimaryWANLoadBalancer.eth5;
+			APSCommunication_impl_new_connection16: port this_ASC.NSM_Main2 <-> SecondaryWANLoadBalancer.eth5;
+			APSCommunication_impl_new_connection17: port this_ASC.IS3MS_Main1 <-> PrimaryWANLoadBalancer.eth6;
+			APSCommunication_impl_new_connection18: port this_ASC.IS3MS_Main2 <-> SecondaryWANLoadBalancer.eth6;
+			APSCommunication_impl_new_connection19: port SecondaryWANLoadBalancer.RedundancyPort <-> PrimaryWANLoadBalancer.RedundancyPort;
+			APSCommunication_impl_new_connection20: port IDS1.eth1 <-> PrimaryWANLoadBalancer.eth7;
+			APSCommunication_impl_new_connection21: port SecondaryWANLoadBalancer.eth8 <-> IDS1.eth2;
+			APSCommunication_impl_new_connection22: port IDS2.eth1 <-> this_Switch_Main_CoreCommunication.eth8;
+			APSCommunication_impl_new_connection23: port IDS2.eth2 <-> this_Switch_Backup_CoreCommunication.eth8;
+			APSCommunication_impl_new_connection3: port this_ASC.COLAVandSSITAW_Backup1 <-> this_Switch_Main_CoreCommunication.eth20;
+			APSCommunication_impl_new_connection5: port this_ASC.COLAVandSSITAW_Backup2 <-> this_Switch_Backup_CoreCommunication.eth20;
+			APSCommunication_impl_new_connection24: port this_ASC.NSM_Backup1 <-> this_Switch_Main_CoreCommunication.eth19;
+			APSCommunication_impl_new_connection25: port this_ASC.NSM_Backup2 <-> this_Switch_Backup_CoreCommunication.eth19;
+			APSCommunication_impl_new_connection26: port this_ASC.IS3MS_Backup1 <-> this_Switch_Main_CoreCommunication.eth18;
+			APSCommunication_impl_new_connection27: port this_ASC.IS3MS_Backup2 <-> this_Switch_Backup_CoreCommunication.eth18;
+			APSCommunication_impl_new_connection28: port GNSSSignal -> this_NavigationSystem.GNSSSignal;
+		modes
+				-- Communication modes as suggested by MUNIN in D4.3
+			AutonomousExecution: initial mode;
+			AutonomousControl: mode;
+			RemoteControl: mode;
+			FailToSafe: mode;
+	end APSCommunication.impl;
+
+	system IDS
+		-- IDS: Intrusion Detection System
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+	end IDS;
+
+	system implementation IDS.impl
+	end IDS.impl;
+
+	system ASC
+		-- ASC: Autonomous Ship Controller	
+		features
+			COLAVandSSITAW_Main1: in out data port;
+			COLAVandSSITAW_Main2: in out data port;
+			COLAVandSSITAW_Backup1: in out data port;
+			COLAVandSSITAW_Backup2: in out data port;
+			EC: in out data port;
+			NSM_Main1: in out data port;
+			NSM_Main2: in out data port;
+			NSM_Backup1: in out data port;
+			NSM_Backup2: in out data port;
+			IS3MS_Main1: in out data port;
+			IS3MS_Main2: in out data port;
+			IS3MS_Backup1: in out data port;
+			IS3MS_Backup2: in out data port;			
+		flows
+				--IncomingNavigationData_Main_Primary: flow sink Main_CorePort1;
+				--IncomingNavigationData_Main_Secondary: flow sink Main_CorePort2;
+				--IncomingNavigationData_Backup_Primary: flow sink Backup_CorePort1;
+				--IncomingNavigationData_Backup_Secondary: flow sink Backup_CorePort2;
+				--IncomingSafetyData_Main_Primary: flow sink Main_CorePort1;
+				--IncomingSafetyData_Main_Secondary: flow sink Main_CorePort2;
+				--IncomingSafetyData_Backup_Primary: flow sink Backup_CorePort1;
+				--IncomingSafetyData_Backup_Secondary: flow sink Backup_CorePort2;
+				--IncomingMachinaryData_Main_Primary: flow sink Main_CorePort1;
+				--IncomingMachinaryData_Main_Secondary: flow sink Main_CorePort2;
+				--IncomingMachinaryData_Backup_Primary: flow sink Backup_CorePort1;
+				--IncomingMachinaryData_Backup_Secondary: flow sink Backup_CorePort2;
+				--IncomingPowerData_APS_Main_Primary: flow sink Main_CorePort1;
+				--IncomingPowerData_APS_Main_Secondary: flow sink Main_CorePort2;
+				--IncomingPowerData_APS_Backup_Primary: flow sink Backup_CorePort1;
+				--IncomingPowerData_APS_Backup_Secondary: flow sink Backup_CorePort2;
+			EmergencyNavigationData_APS_to_ECT: flow source EC;
+			EmergencySafetyData_APS_to_ECT: flow source EC;
+			EmergencyMachinaryData_APS_to_ECT: flow source EC;
+			EmergencyPowerData_APS_to_ECT: flow source EC;
+			ReceiveEmergencyCommands_from_ECT: flow sink EC;
+	end ASC;
+
+	system implementation ASC.impl
+		-- Can follow the guidance provided by MUNIN D4.5 (Section 3.3) 
+		subcomponents
+			ASC_Main: system ASC_Main.impl;
+			ASC_Backup: system ASC_Backup.impl;
+				--this_COLAVandSSITAW: system COLAVandSSITAW.impl;
+				--this_COLAVandSSITAW_Backup: system COLAVandSSITAW_Backup.impl;
+				--NetworkAndSystemManagement: system NetworkAndSystemManagement.impl;
+				--IS3MS: system IS3MS.impl;
+		connections
+			ASC_impl_new_connection: port ASC_Main.COLAVandSSITAW_Main_Primary <-> COLAVandSSITAW_Main1;
+			ASC_impl_new_connection2: port COLAVandSSITAW_Main2 <-> ASC_Main.COLAVandSSITAW_Main_Secondary;
+			ASC_impl_new_connection3: port NSM_Main1 <-> ASC_Main.NetworkAndSystemManagement_Main_Primary;
+			ASC_impl_new_connection4: port NSM_Main2 <-> ASC_Main.NetworkAndSystemManagement_Main_Secondary;
+			ASC_impl_new_connection5: port IS3MS_Main1 <-> ASC_Main.IS3MS_Main_Primar;
+			ASC_impl_new_connection6: port ASC_Main.IS3MS_Main_Secondary <-> IS3MS_Main2;
+			ASC_impl_new_connection7: port COLAVandSSITAW_Backup1 <-> ASC_Backup.COLAVandSSITAW_Backup_Primary;
+			ASC_impl_new_connection8: port COLAVandSSITAW_Backup2 <-> ASC_Backup.COLAVandSSITAW_Backup_Secondary;
+			ASC_impl_new_connection9: port NSM_Backup1 <-> ASC_Backup.NetworkAndSystemManagement_Backup_Primary;
+			ASC_impl_new_connection10: port ASC_Backup.NetworkAndSystemManagement_Backup_Secondary <-> NSM_Backup2;
+			ASC_impl_new_connection11: port IS3MS_Backup1 <-> ASC_Backup.IS3MS_Backup_Primar;
+			ASC_impl_new_connection12: port IS3MS_Backup2 <-> ASC_Backup.IS3MS_Backup_Secondary;
+			ASC_impl_new_connection13: port ASC_Backup.EmergencyControlPort <-> EC;
+	end ASC.impl;
+	
+	system ASC_Main
+		features
+			COLAVandSSITAW_Main_Primary: in out data port;
+			COLAVandSSITAW_Main_Secondary: in out data port;
+			NetworkAndSystemManagement_Main_Primary: in out data port;
+			NetworkAndSystemManagement_Main_Secondary: in out data port;
+			IS3MS_Main_Primar: in out data port;
+			IS3MS_Main_Secondary: in out data port;		
+	end ASC_Main;
+	
+	system implementation ASC_Main.impl
+		subcomponents 
+			COLAVandSSITAW_Main: system COLAVandSSITAW.impl;
+			NetworkAndSystemManagement_Main: system NetworkAndSystemManagement.impl;
+			IS3MS_Main: system IS3MS.impl;
+		connections
+			ASC_impl_new_connection3: port COLAVandSSITAW_Main_Primary <-> COLAVandSSITAW_Main.eth1;
+			ASC_impl_new_connection4: port COLAVandSSITAW_Main_Secondary <-> COLAVandSSITAW_Main.eth2;
+			ASC_impl_new_connection: port NetworkAndSystemManagement_Main.eth1 <-> NetworkAndSystemManagement_Main_Primary;
+			ASC_impl_new_connection2: port NetworkAndSystemManagement_Main.eth2 <-> NetworkAndSystemManagement_Main_Secondary;
+			ASC_impl_new_connection5: port IS3MS_Main.et1 <-> IS3MS_Main_Primar;
+			ASC_impl_new_connection6: port IS3MS_Main.et2 <-> IS3MS_Main_Secondary;			
+	end ASC_Main.impl;
+	
+	system ASC_Backup
+		features
+			COLAVandSSITAW_Backup_Primary: in out data port;
+			COLAVandSSITAW_Backup_Secondary: in out data port;
+			NetworkAndSystemManagement_Backup_Primary: in out data port;
+			NetworkAndSystemManagement_Backup_Secondary: in out data port;
+			IS3MS_Backup_Primar: in out data port;
+			IS3MS_Backup_Secondary: in out data port;
+			EmergencyControlPort: in out data port;
+	end ASC_Backup;	
+
+			
+	system implementation ASC_Backup.impl
+		subcomponents
+			COLAVandSSITAW_Backup: system COLAVandSSITAW_Backup.impl;
+			NetworkAndSystemManagement_Backup: system NetworkAndSystemManagement.impl;
+			IS3MS_Backup: system IS3MS.impl;
+		connections
+			ASC_impl_new_connection3: port COLAVandSSITAW_Backup_Primary <-> COLAVandSSITAW_Backup.eth1;
+			ASC_impl_new_connection4: port COLAVandSSITAW_Backup_Secondary <-> COLAVandSSITAW_Backup.eth2;
+			ASC_impl_new_connection: port NetworkAndSystemManagement_Backup.eth1 <-> NetworkAndSystemManagement_Backup_Primary;
+			ASC_impl_new_connection2: port NetworkAndSystemManagement_Backup.eth2 <-> NetworkAndSystemManagement_Backup_Secondary;
+			ASC_impl_new_connection5: port IS3MS_Backup.et1 <-> IS3MS_Backup_Primar;
+			ASC_impl_new_connection6: port IS3MS_Backup.et2 <-> IS3MS_Backup_Secondary;				
+			ASC_impl_new_connection10: port EmergencyControlPort <-> COLAVandSSITAW_Backup.EmergencyPort;					
+	end ASC_Backup.impl;
+	
+
+
+	system Connection_5G
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Connection_5G;
+
+	system Emergency_Connection_5G
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Emergency_Connection_5G;
+
+	system Connection_WiFi
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Connection_WiFi;
+
+	system Connection_MBR
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Connection_MBR;
+
+	system DockingSystem
+	end DockingSystem;
+
+	system implementation DockingSystem.impl
+	end DockingSystem.impl;
+
+	system PMS
+	--PMS: Passenger Management SystemNavigationSystemSGW
+	end PMS;
+
+	system implementation PMS.impl
+	end PMS.impl;
+
+	system MachinerySystem
+		features
+			MainDataPort1: in out data port; -- Logical Port
+			MainDataPort2: in out data port; -- Logical Port
+			BackupDataPort1: in out data port; -- Logical Port			
+			BackupDataPort2: in out data port; -- Logical Port
+		flows
+			MachineryData_Main_Primary: flow source MainDataPort1;
+			MachineryData_Main_Secondary: flow source MainDataPort2;
+			MachineryData_Backup_Primary: flow source BackupDataPort1;
+			MachineryData_Backup_Secondary: flow source BackupDataPort2;
+	end MachinerySystem;
+
+	system implementation MachinerySystem.impl
+		subcomponents
+			this_IOCard1: device IOCard;
+			this_IOCard2: device IOCard;
+			this_AzimuthThruster1: device AzimuthThruster;
+			this_AzimuthThruster2: device AzimuthThruster;
+			this_AzimuthThruster3: device AzimuthThruster;
+			this_AzimuthThruster4: device AzimuthThruster;
+		connections
+			IOCard1MaintoMainCoreSwitch: port this_IOCard1.eth1 <-> MainDataPort1;
+			IOCard1BackuptoBackupCoreSwitch: port this_IOCard1.eth2 <-> BackupDataPort1;
+			BackupCoreSwitchtoIOCard2Backup: port BackupDataPort2 <-> this_IOCard2.eth2;
+			IOCard2MaintoMainCoreSwitch: port this_IOCard2.eth1 <-> MainDataPort2;
+			IOCard2BackuptoBackupCoreSwitch: port this_IOCard2.eth2 -> BackupDataPort2;
+			MachinerySystem_impl_new_connection: port this_IOCard1.SignalPort1 -> this_AzimuthThruster1.SignalPort;
+			MachinerySystem_impl_new_connection2: port this_IOCard1.SignalPort2 -> this_AzimuthThruster2.SignalPort;
+			MachinerySystem_impl_new_connection3: port this_IOCard2.SignalPort1 -> this_AzimuthThruster3.SignalPort;
+			MachinerySystem_impl_new_connection4: port this_IOCard2.SignalPort2 -> this_AzimuthThruster4.SignalPort;
+	end MachinerySystem.impl;
+
+	system PortableOperatingComputer1
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			SignalPort: in data port;
+	end PortableOperatingComputer1;
+
+	system PortableOperatingComputer2
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			SignalPort: in data port;
+			EmergencyPort: in out data port;
+	end PortableOperatingComputer2;
+
+	system SafetySystem
+		features
+			MainDataPort: in out data port; -- Logical Port
+			BackupDataPort: in out data port; -- Logical Port
+		flows
+			SafetyData_Main: flow source MainDataPort;
+			SafetyData_Backup: flow source BackupDataPort;
+	end SafetySystem;
+
+	system implementation SafetySystem.impl
+		subcomponents
+			this_GeneralIOModule1: device GeneralIOModule1;
+			this_UserPanel1: device UserPanel1;
+			this_Alarm1: device Alarm1;
+			this_Lantern1: device Lantern1;
+			this_AnchorDrop1: device AnchorDrop1;
+			this_Horn1: device Horn1;
+		connections
+			UserPanel1toGeneralIOModule1: port this_UserPanel1.Output -> this_GeneralIOModule1.Input1;
+			GeneralIOModule1toAnchorDrop1: port this_GeneralIOModule1.Output1 -> this_AnchorDrop1.Input;
+			GeneralIOModule1toHorn1: port this_GeneralIOModule1.Output2 -> this_Horn1.Input;
+			GeneralIOModule1toAlarm1: port this_GeneralIOModule1.Output3 -> this_Alarm1.Input;
+			GeneralIOModule1toLantern1: port this_GeneralIOModule1.Output4 -> this_Lantern1.Input;
+			GeneralIOModule1toCoreSwitchMainPort: port this_GeneralIOModule1.eth1 -> MainDataPort;
+			CoreSwitchMainPorttoGeneralIOModule1: port MainDataPort <-> this_GeneralIOModule1.eth1;
+			CoreSwitchBackupPorttoGeneralIOModule1: port BackupDataPort <-> this_GeneralIOModule1.eth2;
+			GeneralIOModule1toCoreSwitchBackupPort: port this_GeneralIOModule1.eth2 -> BackupDataPort;
+	end SafetySystem.impl;
+
+	system BMS
+		--Battery Management System
+		features
+			MainDataPort: in out data port; -- Logical Port
+			BackupDataPort: in out data port; -- Logical Port
+		flows
+			PowerData_Main: flow source MainDataPort;
+			PowerData_Backup: flow source BackupDataPort;
+	end BMS;
+
+	system implementation BMS.impl
+	end BMS.impl;
+
+	system AuxiliarySystem
+	end AuxiliarySystem;
+
+	system implementation AuxiliarySystem.impl
+	end AuxiliarySystem.impl;
+
+	system LogBook
+	end LogBook;
+
+	system implementation LogBook.impl
+	end LogBook.impl;
+
+	system PowMS
+	--PowMS: Power Management System
+	end PowMS;
+
+	system implementation PowMS.impl
+	end PowMS.impl;
+
+	system NavigationSystem
+		features
+			MainDataPort1: in out data port; -- Logical Port
+			MainDataPort2: in out data port; -- Logical Port
+			MainDataPort3: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+			MainDataPort4: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+			BackupDataPort1: in out data port; -- Logical Port		
+			BackupDataPort2: in out data port; -- Logical Port
+			BackupDataPort3: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+			BackupDataPort4: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+			PositionCorrectionPort: in data port;
+			GNSSSignal: in data port;
+		flows
+			NavigationData_Sesors_Main: flow source MainDataPort1;
+			NavigationData_Sesors_Backup: flow source BackupDataPort1;
+			NavigationData_GNSS_Main: flow source MainDataPort2;
+			NavigationData_GNSS_Backup: flow source BackupDataPort2;
+	end NavigationSystem;
+
+	system implementation NavigationSystem.impl
+		subcomponents
+				--this_NavigationSystemSGW: process NavigationSystemSGW;
+				-- In PLANB the COLAVandSSITAW computer is considered part of the navigation system, 
+				-- it is connected between the sensor switch and the core switches. 			 
+				--(PLANB)this_COLAVandSSITAW: system COLAVandSSITAW;		
+				--this_DomeCamera2: device DomeCamera2; Contact Egil regarding this connection (what does it mean a radio link to remote operator)				
+			this_Lidar1: device Lidar;
+			this_Lidar2: device Lidar;
+			this_Lidar3: device Lidar;
+			this_Lidar4: device Lidar;
+			this_Radar1: device Radar;
+			this_Radar2: device Radar;
+			this_Radar3: device Radar;
+			this_Radar4: device Radar;
+			this_Radar5: device Radar;
+			this_EO1: device EO;
+			this_EO2: device EO;
+			this_EO3: device EO;
+			this_EO4: device EO;
+			this_EO5: device EO;
+			this_DomeCamera1: device DomeCamera;
+			this_IRCamera1: device IRCamera;
+			this_SenseorSwitch: system SenseorSwitch;
+			this_SPU1: device SPU_Top;
+			this_SPU2: device SPU_Hull;
+			this_SPU3: device SPU_Hull;
+			this_SPU4: device SPU_Hull;
+			this_SPU5: device SPU_Hull;
+			this_GNSS_IMU_Main: system GNSS_IMU_Main;
+			this_RTK_UHF: system RTK_UHF;
+			this_GNSSReceiver1: system GNSSReceiver;
+		connections
+			NavigationSystem_impl_new_connection5: port this_SPU1.eth5 <-> this_SenseorSwitch.eth1;
+			NavigationSystem_impl_new_connection9: port this_SPU2.eth5 <-> this_SenseorSwitch.eth2;
+			NavigationSystem_impl_new_connection13: port this_SPU3.eth5 <-> this_SenseorSwitch.eth3;
+			NavigationSystem_impl_new_connection17: port this_SPU4.eth5 <-> this_SenseorSwitch.eth4;
+			NavigationSystem_impl_new_connection18: port this_EO5.DataPort <-> this_SPU5.eth1;
+			NavigationSystem_impl_new_connection19: port this_Lidar4.DataPort <-> this_SPU5.eth2;
+			NavigationSystem_impl_new_connection21: port this_SPU5.eth5 <-> this_SenseorSwitch.eth5;
+			NavigationSystem_impl_new_connection23: port this_GNSSReceiver1.DataPort -> this_GNSS_IMU_Main.GNSSSignalIn;
+			NavigationSystem_impl_new_connection24: port this_RTK_UHF.DataOut -> this_GNSS_IMU_Main.RTK_UHF_DataIn;
+			NavigationSystem_impl_new_connection26: port MainDataPort2 <-> this_GNSS_IMU_Main.eth1;
+			NavigationSystem_impl_new_connection30: port BackupDataPort2 <-> this_GNSS_IMU_Main.eth2;
+			NavigationSystem_impl_new_connection27: port MainDataPort1 <-> this_SenseorSwitch.eth8;
+			NavigationSystem_impl_new_connection31: port BackupDataPort1 <-> this_SenseorSwitch.eth7;
+			NavigationSystem_impl_new_connection37: port this_SPU1.eth4 <-> this_Radar1.DataPort;
+			NavigationSystem_impl_new_connection38: port this_SPU1.eth3 <-> this_IRCamera1.DataPort;
+			NavigationSystem_impl_new_connection39: port this_SPU1.eth1 <-> this_DomeCamera1.DataPort;
+			NavigationSystem_impl_new_connection40: port this_SPU1.eth2 <-> this_EO1.DataPort;
+			NavigationSystem_impl_new_connection41: port this_SPU2.eth1 <-> this_EO2.DataPort;
+			NavigationSystem_impl_new_connection42: port this_SPU2.eth2 <-> this_Lidar1.DataPort;
+			NavigationSystem_impl_new_connection43: port this_SPU2.eth3 <-> this_Radar2.DataPort;
+			NavigationSystem_impl_new_connection44: port this_SPU3.eth1 <-> this_EO3.DataPort;
+			NavigationSystem_impl_new_connection45: port this_SPU3.eth2 <-> this_Lidar2.DataPort;
+			NavigationSystem_impl_new_connection46: port this_SPU3.eth3 <-> this_Radar3.DataPort;
+			NavigationSystem_impl_new_connection47: port this_SPU4.eth1 <-> this_EO4.DataPort;
+			NavigationSystem_impl_new_connection48: port this_SPU4.eth2 <-> this_Lidar3.DataPort;
+			NavigationSystem_impl_new_connection49: port this_SPU4.eth3 <-> this_Radar4.DataPort;
+			NavigationSystem_impl_new_connection52: port this_SPU5.eth3 <-> this_Radar5.DataPort;
+		flows
+			RTK_UHFFlow: end to end flow this_RTK_UHF.RTK_UHFFlow -> NavigationSystem_impl_new_connection24 -> this_GNSS_IMU_Main.RTK_UHFFlow;
+			GNSSFlow: end to end flow this_GNSSReceiver1.GNSSFlow -> NavigationSystem_impl_new_connection23 -> this_GNSS_IMU_Main.GNSSFlow;
+	end NavigationSystem.impl;
+
+	system implementation NavigationSystem.impl_withRedundancy
+		subcomponents
+				--this_NavigationSystemSGW: process NavigationSystemSGW;
+				-- In PLANB the COLAVandSSITAW computer is considered part of the navigation system, 
+				-- it is connected between the sensor switch and the core switches. 			 
+				--(PLANB)this_COLAVandSSITAW: system COLAVandSSITAW;		
+				--this_DomeCamera2: device DomeCamera2; Contact Egil regarding this connection (what does it mean a radio link to remote operator)				
+			this_Lidar1: device Lidar;
+			this_Lidar2: device Lidar;
+			this_Lidar3: device Lidar;
+			this_Lidar4: device Lidar;
+			this_Radar1: device Radar;
+			this_Radar2: device Radar;
+			this_Radar3: device Radar;
+			this_Radar4: device Radar;
+			this_Radar5: device Radar;
+			this_EO1: device EO;
+			this_EO2: device EO;
+			this_EO3: device EO;
+			this_EO4: device EO;
+			this_EO5: device EO;
+			this_DomeCamera1: device DomeCamera;
+			this_IRCamera1: device IRCamera;
+			this_SenseorSwitch: system SenseorSwitch;
+			this_SenseorSwitch_Backup: system SenseorSwitch;
+			this_SPU1: device SPU_Top;
+			this_SPU2: device SPU_Hull;
+			this_SPU3: device SPU_Hull;
+			this_SPU4: device SPU_Hull;
+			this_SPU5: device SPU_Hull;
+			this_GNSS_IMU_Main: system GNSS_IMU_Main;
+			this_RTK_UHF: system RTK_UHF;
+			this_GNSSReceiver1: system GNSSReceiver;
+		connections
+			NavigationSystem_impl_new_connection5: port this_SPU1.eth5 <-> this_SenseorSwitch.eth1;
+			NavigationSystem_impl_new_connection9: port this_SPU2.eth5 <-> this_SenseorSwitch.eth2;
+			NavigationSystem_impl_new_connection13: port this_SPU3.eth5 <-> this_SenseorSwitch.eth3;
+			NavigationSystem_impl_new_connection17: port this_SPU4.eth5 <-> this_SenseorSwitch_Backup.eth1;
+			NavigationSystem_impl_new_connection18: port this_EO5.DataPort <-> this_SPU5.eth1;
+			NavigationSystem_impl_new_connection19: port this_Lidar4.DataPort <-> this_SPU5.eth2;
+			NavigationSystem_impl_new_connection21: port this_SPU5.eth5 <-> this_SenseorSwitch_Backup.eth2;
+			NavigationSystem_impl_new_connection23: port this_GNSSReceiver1.DataPort -> this_GNSS_IMU_Main.GNSSSignalIn;
+			NavigationSystem_impl_new_connection24: port this_RTK_UHF.DataOut -> this_GNSS_IMU_Main.RTK_UHF_DataIn;
+			NavigationSystem_impl_new_connection26: port MainDataPort2 <-> this_GNSS_IMU_Main.eth1;
+			NavigationSystem_impl_new_connection30: port BackupDataPort2 <-> this_GNSS_IMU_Main.eth2;
+			NavigationSystem_impl_new_connection27: port MainDataPort1 <-> this_SenseorSwitch.eth8;
+			NavigationSystem_impl_new_connection31: port BackupDataPort1 <-> this_SenseorSwitch.eth7;
+			NavigationSystem_impl_new_connection37: port this_SPU1.eth4 <-> this_Radar1.DataPort;
+			NavigationSystem_impl_new_connection38: port this_SPU1.eth3 <-> this_IRCamera1.DataPort;
+			NavigationSystem_impl_new_connection39: port this_SPU1.eth1 <-> this_DomeCamera1.DataPort;
+			NavigationSystem_impl_new_connection40: port this_SPU1.eth2 <-> this_EO1.DataPort;
+			NavigationSystem_impl_new_connection41: port this_SPU2.eth1 <-> this_EO2.DataPort;
+			NavigationSystem_impl_new_connection42: port this_SPU2.eth2 <-> this_Lidar1.DataPort;
+			NavigationSystem_impl_new_connection43: port this_SPU2.eth3 <-> this_Radar2.DataPort;
+			NavigationSystem_impl_new_connection44: port this_SPU3.eth1 <-> this_EO3.DataPort;
+			NavigationSystem_impl_new_connection45: port this_SPU3.eth2 <-> this_Lidar2.DataPort;
+			NavigationSystem_impl_new_connection46: port this_SPU3.eth3 <-> this_Radar3.DataPort;
+			NavigationSystem_impl_new_connection47: port this_SPU4.eth1 <-> this_EO4.DataPort;
+			NavigationSystem_impl_new_connection48: port this_SPU4.eth2 <-> this_Lidar3.DataPort;
+			NavigationSystem_impl_new_connection49: port this_SPU4.eth3 <-> this_Radar4.DataPort;
+			NavigationSystem_impl_new_connection52: port this_SPU5.eth3 <-> this_Radar5.DataPort;
+			NavigationSystem_impl_withRedundancy_new_connection: port this_SenseorSwitch_Backup.eth7 -> MainDataPort3;
+			NavigationSystem_impl_withRedundancy_new_connection2: port this_SenseorSwitch_Backup.eth8 -> BackupDataPort3;
+		flows
+			RTK_UHFFlow: end to end flow this_RTK_UHF.RTK_UHFFlow -> NavigationSystem_impl_new_connection24 -> this_GNSS_IMU_Main.RTK_UHFFlow;
+			GNSSFlow: end to end flow this_GNSSReceiver1.GNSSFlow -> NavigationSystem_impl_new_connection23 -> this_GNSS_IMU_Main.GNSSFlow;
+	end NavigationSystem.impl_withRedundancy;
+
+	system implementation NavigationSystem.impl_withRedundancy2
+		subcomponents
+				--this_NavigationSystemSGW: process NavigationSystemSGW;
+				-- In PLANB the COLAVandSSITAW computer is considered part of the navigation system, 
+				-- it is connected between the sensor switch and the core switches. 			 
+				--(PLANB)this_COLAVandSSITAW: system COLAVandSSITAW;		
+				--this_DomeCamera2: device DomeCamera2; Contact Egil regarding this connection (what does it mean a radio link to remote operator)				
+			this_Lidar1: device Lidar;
+			this_Lidar2: device Lidar;
+			this_Radar1: device Radar;
+			this_Radar2: device Radar;
+			this_Radar3: device Radar;
+			this_EO1: device EO;
+			this_EO2: device EO;
+			this_EO3: device EO;
+			this_DomeCamera1: device DomeCamera;
+			this_IRCamera1: device IRCamera;
+			this_SenseorSwitch: system SenseorSwitch;
+			this_SPU1: device SPU_Top;
+			this_SPU2: device SPU_Hull;
+			this_SPU3: device SPU_Hull;
+			this_GNSS_IMU_Main: system GNSS_IMU_Main.impl;
+			this_RTK_UHF: system RTK_UHF;
+			this_GNSSReceiver1: system GNSSReceiver;
+			this_SenseorSwitch_Backup: system SenseorSwitch;
+			this_GNSSReceiver2: system GNSSReceiver;
+			this_GNSS_IMU_Backup: system GNSS_IMU_Backup.impl;
+			this_Radar5: device Radar;
+			this_SPU5: device SPU_Hull;
+			this_SPU4: device SPU_Hull;
+			this_EO4: device EO;
+			this_Lidar4: device Lidar;
+			this_Lidar3: device Lidar;
+			this_EO5: device EO;
+			this_Radar4: device Radar;
+		connections
+			NavigationSystem_impl_new_connection5: port this_SPU1.eth5 <-> this_SenseorSwitch.eth1;
+			NavigationSystem_impl_new_connection9: port this_SPU2.eth5 <-> this_SenseorSwitch.eth2;
+			NavigationSystem_impl_new_connection13: port this_SPU3.eth5 <-> this_SenseorSwitch.eth3;
+			NavigationSystem_impl_new_connection23: port this_GNSSReceiver1.DataPort -> this_GNSS_IMU_Main.GNSSSignalIn;
+			NavigationSystem_impl_new_connection24: port this_RTK_UHF.DataOut -> this_GNSS_IMU_Main.RTK_UHF_DataIn;
+			NavigationSystem_impl_new_connection26: port MainDataPort2 <-> this_GNSS_IMU_Main.eth1;
+			NavigationSystem_impl_new_connection30: port BackupDataPort2 <-> this_GNSS_IMU_Main.eth2;
+			NavigationSystem_impl_new_connection27: port MainDataPort1 <-> this_SenseorSwitch.eth8;
+			NavigationSystem_impl_new_connection31: port BackupDataPort1 <-> this_SenseorSwitch.eth7;
+			NavigationSystem_impl_new_connection37: port this_SPU1.eth4 <-> this_Radar1.DataPort;
+			NavigationSystem_impl_new_connection38: port this_SPU1.eth3 <-> this_IRCamera1.DataPort;
+			NavigationSystem_impl_new_connection39: port this_SPU1.eth1 <-> this_DomeCamera1.DataPort;
+			NavigationSystem_impl_new_connection40: port this_SPU1.eth2 <-> this_EO1.DataPort;
+			NavigationSystem_impl_new_connection41: port this_SPU2.eth1 <-> this_EO2.DataPort;
+			NavigationSystem_impl_new_connection42: port this_SPU2.eth2 <-> this_Lidar1.DataPort;
+			NavigationSystem_impl_new_connection43: port this_SPU2.eth3 <-> this_Radar2.DataPort;
+			NavigationSystem_impl_new_connection44: port this_SPU3.eth1 <-> this_EO3.DataPort;
+			NavigationSystem_impl_new_connection45: port this_SPU3.eth2 <-> this_Lidar2.DataPort;
+			NavigationSystem_impl_new_connection46: port this_SPU3.eth3 <-> this_Radar3.DataPort;
+			NavigationSystem_impl_withRedundancy2_new_connection2: port this_GNSSReceiver2.DataPort -> this_GNSS_IMU_Backup.GNSSSignalIn;
+			NavigationSystem_impl_withRedundancy2_new_connection: port this_RTK_UHF.DataOut -> this_GNSS_IMU_Backup.RTK_UHF_DataIn;
+			NavigationSystem_impl_withRedundancy2_new_connection3: port this_SenseorSwitch_Backup.eth7 -> MainDataPort3;
+			NavigationSystem_impl_withRedundancy2_new_connection4: port this_SenseorSwitch_Backup.eth8 -> BackupDataPort3;
+			NavigationSystem_impl_withRedundancy2_new_connection5: port this_GNSS_IMU_Backup.eth2 -> MainDataPort4;
+			NavigationSystem_impl_withRedundancy2_new_connection6: port BackupDataPort4 -> this_GNSS_IMU_Backup.eth1;
+			NavigationSystem_impl_withRedundancy2_new_connection7: port this_SPU4.eth5 -> this_SenseorSwitch_Backup.eth1;
+			NavigationSystem_impl_withRedundancy2_new_connection8: port this_SPU5.eth5 -> this_SenseorSwitch_Backup.eth2;
+			NavigationSystem_impl_withRedundancy2_new_connection9: port this_SPU1.eth6 -> this_SenseorSwitch_Backup.eth4;
+			NavigationSystem_impl_withRedundancy2_new_connection10: port this_SPU2.eth6 -> this_SenseorSwitch_Backup.eth5;
+			NavigationSystem_impl_withRedundancy2_new_connection11: port this_SPU3.eth6 -> this_SenseorSwitch_Backup.eth6;
+			NavigationSystem_impl_withRedundancy2_new_connection12: port this_SPU4.eth6 -> this_SenseorSwitch.eth4;
+			NavigationSystem_impl_withRedundancy2_new_connection13: port this_SPU5.eth6 -> this_SenseorSwitch.eth5;
+			NavigationSystem_impl_withRedundancy2_new_connection14: port this_EO4.DataPort -> this_SPU4.eth1;
+			NavigationSystem_impl_withRedundancy2_new_connection15: port this_Lidar3.DataPort -> this_SPU4.eth2;
+			NavigationSystem_impl_withRedundancy2_new_connection16: port this_Radar4.DataPort -> this_SPU4.eth3;
+			NavigationSystem_impl_withRedundancy2_new_connection17: port this_EO5.DataPort -> this_SPU5.eth1;
+			NavigationSystem_impl_withRedundancy2_new_connection18: port this_Lidar4.DataPort -> this_SPU5.eth2;
+			NavigationSystem_impl_withRedundancy2_new_connection19: port this_Radar5.DataPort -> this_SPU5.eth3;
+			NavigationSystem_impl_withRedundancy2_new_connection20: port PositionCorrectionPort -> this_RTK_UHF.PositionCorrectionData;
+			NavigationSystem_impl_withRedundancy2_new_connection21: port GNSSSignal -> this_GNSSReceiver1.Incoming;
+			NavigationSystem_impl_withRedundancy2_new_connection22: port GNSSSignal -> this_GNSSReceiver2.Incoming;
+		flows
+			RTK_UHFFlow: end to end flow this_RTK_UHF.RTK_UHFFlow -> NavigationSystem_impl_new_connection24 -> this_GNSS_IMU_Main.RTK_UHFFlow;
+			GNSSFlow: end to end flow this_GNSSReceiver1.GNSSFlow -> NavigationSystem_impl_new_connection23 -> this_GNSS_IMU_Main.GNSSFlow;
+	end NavigationSystem.impl_withRedundancy2;
+
+	system NavigationSystem_Backup
+		features
+			MainDataPort: in out data port; -- Logical Port
+			MainDataPort2: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+			BackupDataPort: in out data port; -- Logical Port			
+			BackupDataPort2: in out data port; -- Logical Port (for NavigationSystem alternative implementation)
+		flows
+			NavigationData_Backup_Primary: flow source MainDataPort;
+			NavigationData_Backup_Secondary: flow source BackupDataPort;
+	end NavigationSystem_Backup;
+
+	system implementation NavigationSystem_Backup.impl
+		subcomponents
+			this_RTK_UHF_Backup: system RTK_UHF;
+			this_GNSSReceiver2: system GNSSReceiver;
+			this_GNSS_IMU_Backup: system GNSS_IMU_Backup;
+		connections
+			NavigationSystem_Backup_impl_new_connection: port this_RTK_UHF_Backup.DataOut -> this_GNSS_IMU_Backup.RTK_UHF_DataIn;
+			NavigationSystem_Backup_impl_new_connection2: port this_GNSSReceiver2.DataPort -> this_GNSS_IMU_Backup.GNSSSignalIn;
+			NavigationSystem_Backup_impl_new_connection4: port MainDataPort <-> this_GNSS_IMU_Backup.eth1;
+			NavigationSystem_Backup_impl_new_connection6: port BackupDataPort <-> this_GNSS_IMU_Backup.eth2;
+		flows
+			RTK_UHFFlow: end to end flow this_RTK_UHF_Backup.RTK_UHFFlow -> NavigationSystem_Backup_impl_new_connection -> this_GNSS_IMU_Backup.RTK_UHFFlow;
+			GNSSFlow: end to end flow this_GNSSReceiver2.GNSSFlow -> NavigationSystem_Backup_impl_new_connection2 -> this_GNSS_IMU_Backup.GNSSFlow;
+	end NavigationSystem_Backup.impl;
+
+	system implementation NavigationSystem_Backup.impl_withRedundancy
+		subcomponents
+			this_RTK_UHF: system RTK_UHF;
+			this_GNSSReceiver2: system GNSSReceiver;
+			this_GNSS_IMU_Backup: system GNSS_IMU_Backup;
+			this_SenseorSwitch_Backup: system SenseorSwitch;
+			this_Lidar3: device Lidar;
+			this_Radar4: device Radar;
+			this_EO4: device EO;
+			this_Radar5: device Radar;
+			this_Lidar4: device Lidar;
+			this_EO5: device EO;
+			this_SPU5: device SPU_Hull;
+			this_SPU4: device SPU_Hull;
+		connections
+			NavigationSystem_Backup_impl_new_connection: port this_RTK_UHF.DataOut -> this_GNSS_IMU_Backup.RTK_UHF_DataIn;
+			NavigationSystem_Backup_impl_new_connection2: port this_GNSSReceiver2.DataPort -> this_GNSS_IMU_Backup.GNSSSignalIn;
+			NavigationSystem_Backup_impl_new_connection4: port MainDataPort <-> this_GNSS_IMU_Backup.eth1;
+			NavigationSystem_Backup_impl_new_connection6: port BackupDataPort <-> this_GNSS_IMU_Backup.eth2;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection: port this_SenseorSwitch_Backup.eth7 -> MainDataPort2;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection2: port BackupDataPort2 -> this_SenseorSwitch_Backup.eth8;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection3: port this_SenseorSwitch_Backup.eth1 -> this_SPU4.eth5;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection4: port this_SPU5.eth5 -> this_SenseorSwitch_Backup.eth2;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection5: port this_Lidar3.DataPort -> this_SPU4.eth2;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection6: port this_Radar4.DataPort -> this_SPU4.eth3;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection7: port this_EO4.DataPort -> this_SPU4.eth1;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection8: port this_Radar5.DataPort -> this_SPU5.eth3;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection9: port this_Lidar4.DataPort -> this_SPU5.eth2;
+			NavigationSystem_Backup_impl_withRedundancy_new_connection10: port this_EO5.DataPort -> this_SPU5.eth1;
+		flows
+			RTK_UHFFlow: end to end flow this_RTK_UHF.RTK_UHFFlow -> NavigationSystem_Backup_impl_new_connection -> this_GNSS_IMU_Backup.RTK_UHFFlow;
+			GNSSFlow: end to end flow this_GNSSReceiver2.GNSSFlow -> NavigationSystem_Backup_impl_new_connection2 -> this_GNSS_IMU_Backup.GNSSFlow;
+	end NavigationSystem_Backup.impl_withRedundancy;
+
+	system GNSS_IMU_Main
+		features
+			RTK_UHF_DataIn: in data port;
+			GNSSSignalIn: in data port;
+			eth1: in out data port;
+			eth2: in out data port;
+		flows
+			GNSSInformation_Primary: flow source eth1;
+			GNSSInformation_Secondary: flow source eth2;
+			GNSSFlow: flow sink GNSSSignalIn;
+			RTK_UHFFlow: flow sink RTK_UHF_DataIn;
+		properties
+			Requirements::RequiredFuntions => 'Secure Access; Redundant LAN Access; GNSS Receiver Interfacing; RTK_UHF Interfacing';
+	end GNSS_IMU_Main;
+
+	system implementation GNSS_IMU_Main.impl
+		subcomponents
+			GNSS_Security: process GNSS_Security.with_threads;
+	end GNSS_IMU_Main.impl;
+
+	system GNSS_IMU_Backup
+		features
+			RTK_UHF_DataIn: in data port;
+			GNSSSignalIn: in data port;
+			eth1: in out data port;
+			eth2: in out data port;
+		flows
+			GNSSInformation_Primary: flow source eth1;
+			GNSSInformation_Secondary: flow source eth2;
+			GNSSFlow: flow sink GNSSSignalIn;
+			RTK_UHFFlow: flow sink RTK_UHF_DataIn;
+		properties
+			Requirements::RequiredFuntions => "'Secure Access; Redundant LAN Access; GNSS Receiver Interfacing; RTK_UHF Interfacing'";
+	end GNSS_IMU_Backup;
+
+	system implementation GNSS_IMU_Backup.impl
+		subcomponents
+			GNSS_Security: process GNSS_Security.with_threads;
+	end GNSS_IMU_Backup.impl;
+
+	process GNSS_Security
+		features
+			DataPort: in out data port;
+	end GNSS_Security;
+
+	process implementation GNSS_Security.with_threads
+		subcomponents
+			GNSS_IDS: thread GNSS_IDS;
+	end GNSS_Security.with_threads;
+
+	thread GNSS_IDS
+		features
+			DataPort: in out data port;
+	end GNSS_IDS;
+
+	system ExternalSystems
+	end ExternalSystems;
+
+	system NetworkAndSystemManagement
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+	end NetworkAndSystemManagement;
+
+	system implementation NetworkAndSystemManagement.impl
+		subcomponents
+			NICTeaming: process NICTeaming;
+			UAM: process UAM;
+			ConnectivityManager_Process: process ConnectivityManager_Process.with_threads;
+			DigitalLogbook: process DigitalLogbook;
+		connections
+			ConnectivityManager_impl_new_connection: port ConnectivityManager_Process.DataPort <-> NICTeaming.Teamedeth;
+			ConnectivityManager_impl_new_connection2: port UAM.DataPort <-> NICTeaming.Teamedeth;
+			ConnectivityManager_impl_new_connection3: port eth1 <-> NICTeaming.Veth1;
+			ConnectivityManager_impl_new_connection4: port eth2 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection4: port NICTeaming.Teamedeth <-> DigitalLogbook.Dataport;
+			NetworkAndSystemManagement_impl_new_connection: port DigitalLogbook.Dataport <-> NICTeaming.Teamedeth;
+	end NetworkAndSystemManagement.impl;
+
+	process UAM
+		-- UAM: UserAccessmanagement
+		features
+			DataPort: in out data port;
+	end UAM;
+
+	process ConnectivityManager_Process
+		features
+			DataPort: in out data port;
+	end ConnectivityManager_Process;
+
+	process implementation ConnectivityManager_Process.with_threads
+		subcomponents
+			NI: thread NI;
+			TPC: thread TPC;
+			TRC: thread TRC;
+			QoSC: thread QoSC;
+			NMT: thread NMT;
+			NSU: thread NSU;
+			NSM: thread NSM;
+			NSC: thread NSC;
+			NDBC: thread NDBC;
+	end ConnectivityManager_Process.with_threads;
+
+		--==== ConnectivityManager threads ====
+	thread NI
+	--NI: Network Initializer
+	end NI;
+
+	thread TPC
+	-- TPC: Traffic Prioritization Controller		 
+	end TPC;
+
+	thread TRC
+	-- TRC: Traffic Redirection Controller (Forced and Selective) by operator or due to loss of online connectivity	 
+	end TRC;
+
+	thread QoSC
+	-- QoSC: Quality of Service Controller	
+	end QoSC;
+
+	thread NMT
+	-- NMT: Network Monitor and Troubleshooter (Self or Ordered)	
+	end NMT;
+
+	thread NSU
+	-- NSU: Network Software Updater	
+	end NSU;
+
+	thread NSM
+	-- NSM: Network Segmentation Manager
+	end NSM;
+
+	thread NSC
+	-- NSC: Network Security Coordinator (Coordinates with the IS3MS) 	
+	end NSC;
+
+	thread NDBC
+	-- NDBC: Network Device Backup Controller	
+	end NDBC;
+
+		--==== ConnectivityManager threads ====
+	system IS3MS
+		-- IS3MS: Integrated Ship Safety and Security Management System
+		features
+			et1: in out data port;
+			et2: in out data port;
+	end IS3MS;
+
+	system implementation IS3MS.impl
+		subcomponents
+			NICTeaming: process NICTeaming;
+			SIEM: process SIEM;
+		connections
+			IS3MS_impl_new_connection: port NICTeaming.Veth1 <-> et1;
+			IS3MS_impl_new_connection2: port NICTeaming.Veth2 <-> et2;
+			IS3MS_impl_new_connection3: port NICTeaming.Teamedeth <-> SIEM.DataPort;
+	end IS3MS.impl;
+
+	process SIEM
+		features
+			DataPort: in out data port;
+	end SIEM;
+
+	system COLAVandSSITAW --
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+				--eth3: in out data port;
+				--eth4: in out data port;
+		flows
+			RemoteControlCommandsFlow_Main: flow sink eth1;
+			RemoteControlCommandsFlow_Backup: flow sink eth2;
+					--ControlCommandsFlow_Main: flow source eth3;
+					--ControlCommandsFlow_Backup: flow source eth4;
+			APSNavigationFlow_Main_Primary: flow source eth1;
+			APSNavigationFlow_Main_Secondary: flow source eth2;
+				--NavigationFlow_Primary: flow sink eth3;
+				--NavigationFlow2_Primary: flow sink eth3;
+				--NavigationFlow_Backup: flow sink eth4;
+				--MachinaryFlow_Primary: flow sink eth3;
+				--MachinaryFlow_Backup: flow sink eth4;
+				--SafetyFlow_Primary: flow sink eth3;
+				--BMSFlow: flow sink eth3;
+		properties
+			Requirements::RequiredFuntions => 'Receive Navigation/Power/Safety/Machinery/ShoreSensors/Other Data; Transmit Navigation/Power/Safety/Machinery/ShoreSensors/Other Data to RCC; Transmit Control Commands; Receive Control Commands from RCC';
+			Requirements::RequiredSecurity => 'User Access Management; Anti-virus Protection; Firewall';
+	end COLAVandSSITAW;
+
+	system implementation COLAVandSSITAW.impl
+		subcomponents
+			ASC_Process: process ASC_Process.with_threads;
+			NICTeaming: process NICTeaming;
+		connections
+			COLAVandSSITAW_impl_new_connection: port eth2 <-> NICTeaming.Veth1;
+			COLAVandSSITAW_impl_new_connection2: port eth1 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection3: port NICTeaming.Teamedeth <-> ASC_Process.Dataport;
+		modes
+			AutonomousExecution: initial mode;
+			AutonomousControl: mode;
+			RemoteControl: mode;
+			FailToSafe: mode;
+	--AutonomousExecution -[ASC_Process.Switch_to_AutonomousControl]-> AutonomousControl;
+	--AutonomousExecution -[ASC_Process.Switch_to_RemoteControl]-> RemoteControl;
+	--AutonomousExecution -[ASC_Process.Switch_to_FailToSafe]-> FailToSafe;
+	--AutonomousControl -[ASC_Process.Switch_to_AutonomousExecution]-> AutonomousExecution;
+	--AutonomousControl -[ASC_Process.Switch_to_RemoteControl]-> RemoteControl;
+	--AutonomousControl -[ASC_Process.Switch_to_FailToSafe]-> FailToSafe;
+	--RemoteControl -[ASC_Process.Switch_to_AutonomousExecution]-> AutonomousExecution;
+	--RemoteControl -[ASC_Process.Switch_to_AutonomousControl]-> AutonomousControl;
+	--RemoteControl -[ASC_Process.Switch_to_FailToSafe]-> FailToSafe;
+	--FailToSafe -[ASC_Process.Switch_to_RemoteControl]-> RemoteControl;
+	end COLAVandSSITAW.impl;
+
+	process DigitalLogbook
+		features
+			Dataport: in out data port;
+	end DigitalLogbook;
+
+	process NICTeaming
+		--NICTeaming: Network Interface Card Teaming
+		features
+			Veth1: in out data port;
+			Veth2: in out data port;
+			Teamedeth: in out data port;
+	end NICTeaming;
+
+		--process ControlSystemIntrusionDetection
+		-- This process can be replaced in case of external system if equivalent configurations are available .	
+		--features
+		--IncomingDataPort: in data port;
+		--OutgoingDataPort: out data port;
+		--end ControlSystemIntrusionDetection;
+		--process implementation ControlSystemIntrusionDetection.with_threads	
+		--end ControlSystemIntrusionDetection.with_threads;
+	process ASC_Process
+		features
+			Dataport: in out data port;
+			EmergencyDataPort: in out data port;
+	--Switch_to_AutonomousExecution: out event port;
+	--Switch_to_AutonomousControl: out event port;
+	--Switch_to_FailToSafe: out event port;
+	--Switch_to_RemoteControl: out event port;
+	end ASC_Process;
+
+	process implementation ASC_Process.with_threads
+		subcomponents
+			ASC_IDS: thread ASC_IDS;
+			ASC_Discover: thread ASC_Discover;
+			ASC_CDA: thread ASC_CDA;
+			ASC_CP: thread ASC_CP;
+			ASC_CAM: thread ASC_CAM;
+			ASC_MV: thread ASC_MV;
+			ASC_SS: thread ASC_SS;
+			ASC_VM: thread ASC_VM;
+			ASC_DK: thread ASC_DK;
+	end ASC_Process.with_threads;
+
+	thread ASC_IDS
+		features
+			DataPort: out data port;
+	end ASC_IDS;
+
+	thread ASC_Discover
+		features
+			MainDataPort: in out data port;
+	end ASC_Discover;
+
+	thread ASC_CDA
+		-- CDA: Collision Detection and Avoidance
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_CDA;
+
+	thread ASC_CP
+		-- CP: Contingency Planning 
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_CP;
+
+	thread ASC_CAM
+		-- CAM: Central Alarm Management 
+		features
+			MainDataPort: in out data port;
+	end ASC_CAM;
+
+	thread ASC_MV
+		-- MV: Maneuvering  
+		features
+			MainDataPort: in out data port;
+			BackupDataPort: in out data port;
+	end ASC_MV;
+
+	thread ASC_SS
+		-- SS: Safe Speed 
+		features
+			MainDataPort: in out data port;
+	end ASC_SS;
+
+	thread ASC_VM
+		-- VM: Voyage Management 
+		features
+			MainDataPort: in out data port;
+	end ASC_VM;
+
+	thread ASC_DK
+		-- DK: Docking  
+		features
+			MainDataPort: in out data port;
+	end ASC_DK;
+
+	system COLAVandSSITAW_Backup
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+					--eth3: in out data port;
+					--eth4: in out data port;
+			EmergencyPort: in out data port;
+		flows
+			RemoteControlCommandsFlow_Main: flow sink eth1;
+			RemoteControlCommandsFlow_Backup: flow sink eth2;
+					--ControlCommandsFlow_Main: flow source eth3;
+					--ControlCommandsFlow_Backup: flow source eth4;
+			APSNavigationFlow_Backup_Primary: flow source eth1;
+			APSNavigationFlow_Backup_Secondary: flow source eth2;
+					--NavigationFlow_Primary: flow sink eth3;
+					--NavigationFlow2_Primary: flow sink eth3;
+					--NavigationFlow_Backup: flow sink eth4;
+					--MachinaryFlow_Primary: flow sink eth3;
+					--MachinaryFlow_Backup: flow sink eth4;
+					--SafetyFlow_Primary: flow sink eth3;
+					--BMSFlow: flow sink eth3;
+			EmergencyNavigationFlow: flow source EmergencyPort;
+			EmergencyControlFlow: flow sink EmergencyPort;
+		properties
+			Requirements::RequiredFuntions => 'Receive Navigation/Power/Safety/Machinery/ShoreSensors/Other Data; Transmit Navigation/Power/Safety/Machinery/ShoreSensors/Other Data to RCC; Transmit Control Commands; Receive Control Commands from RCC; Transmit Navigation/Power/Safety/Machinery/ShoreSensors/Other Data to ECT; Transmit Control Commands; Receive Control Commands from ECT';
+			Requirements::RequiredSecurity => 'User Access Management; Anti-virus Protection; Firewall';
+	end COLAVandSSITAW_Backup;
+
+	system implementation COLAVandSSITAW_Backup.impl
+		subcomponents
+			ASC_Process: process ASC_Process.with_threads;
+					--ControlSystemIntrusionDetection: process ControlSystemIntrusionDetection.with_threads	;
+					--ASC_DigitalLogbook: process ASC_DigitalLogbook;
+			NICTeaming: process NICTeaming;
+		connections
+			COLAVandSSITAW_impl_new_connection: port eth2 <-> NICTeaming.Veth1;
+			COLAVandSSITAW_impl_new_connection2: port eth1 <-> NICTeaming.Veth2;
+			COLAVandSSITAW_impl_new_connection3: port NICTeaming.Teamedeth <-> ASC_Process.Dataport;
+					--COLAVandSSITAW_impl_new_connection4: port NICTeaming.Teamedeth <-> ASC_DigitalLogbook.Dataport;
+			ControlComputer_Backup_impl_new_connection: port EmergencyPort <-> ASC_Process.EmergencyDataPort;
+		modes
+			AutonomousExecution: initial mode;
+			AutonomousControl: mode;
+			RemoteControl: mode;
+			FailToSafe: mode;
+	end COLAVandSSITAW_Backup.impl;
+
+		-- %%%%%%%%%%%%%%%%%%%%%%	Systems Section	%%%%%%%%%%%%%%%%%%%%%%
+		-- %%%%%%%%%%%%%%%%%%%%%%	Processes Section	%%%%%%%%%%%%%%%%%%%%%%		
+	process ASCSW
+		-- ASC Software
+		features
+			DataPort: in out data port;
+	end ASCSW;
+
+	process implementation ASCSW.with_threads
+	end ASCSW.with_threads;
+
+	process APSNetworkManager
+		-- Provides FCAPS (fault, configuration, accounting, performance, security)	
+		features
+			ConfigurationPort: in out data port;
+			Main_DataPort: in out data port;
+			Backup_DataPort: in out data port;
+	end APSNetworkManager;
+
+	process implementation APSNetworkManager.with_threads
+	end APSNetworkManager.with_threads;
+
+	process APSCommunicationSGW
+	end APSCommunicationSGW;
+
+	process implementation APSCommunicationSGW.with_threads
+	end APSCommunicationSGW.with_threads;
+
+	process DockingSystemSGW
+	end DockingSystemSGW;
+
+	process implementation DockingSystemSGW.with_threads
+	end DockingSystemSGW.with_threads;
+
+	process PMSSGW
+	end PMSSGW;
+
+	process implementation PMSSGW.with_threads
+	end PMSSGW.with_threads;
+
+	process MachinerySystemSGW
+	end MachinerySystemSGW;
+
+	process implementation MachinerySystemSGW.with_threads
+	end MachinerySystemSGW.with_threads;
+
+	process SafetySystemSGW
+	end SafetySystemSGW;
+
+	process implementation SafetySystemSGW.with_threads
+	end SafetySystemSGW.with_threads;
+
+	process AuxiliarySystemSGW
+	end AuxiliarySystemSGW;
+
+	process implementation AuxiliarySystemSGW.with_threads
+	end AuxiliarySystemSGW.with_threads;
+
+	process LogBookSGW
+	end LogBookSGW;
+
+	process implementation LogBookSGW.with_threads
+	end LogBookSGW.with_threads;
+
+	process PowMSSGW
+	end PowMSSGW;
+
+	process implementation PowMSSGW.with_threads
+	end PowMSSGW.with_threads;
+
+	process NavigationSystemSGW
+	end NavigationSystemSGW;
+
+	process implementation NavigationSystemSGW.with_threads
+	end NavigationSystemSGW.with_threads;
+
+	process ShoreSensorModuleController
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+	end ShoreSensorModuleController;
+
+	process implementation ShoreSensorModuleController.with_threads
+	end ShoreSensorModuleController.with_threads;
+
+	process EPBPushed
+		features
+			EmergencySignalOut: out data port;
+			EPBin: in event port;
+	end EPBPushed;
+
+	process implementation EPBPushed.with_threads
+	end EPBPushed.with_threads;
+
+		-- %%%%%%%%%%%%%%%%%%%%%%	Processes Section	%%%%%%%%%%%%%%%%%%%%%%	
+		-- %%%%%%%%%%%%%%%%%%%%%%	Devices and Modules Section	%%%%%%%%%%%%%%%%%%%%%%
+	system WANLoadBalancer
+		features
+			PrimaryWAN: in out data port;
+			SecondaryWAN: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+		properties
+				-- Possible device: Cisco RV345
+			Requirements::RequiredFuntions => 'VPN; QoS; Load Balancing; Policy Based Routing; Redundant LAN access; Failover Redundancy; Backup support; Remote Management';
+			Requirements::RequiredSecurity => 'Secure Communication; User Access Management';
+	end WANLoadBalancer;
+
+	system implementation WANLoadBalancer.impl
+	end WANLoadBalancer.impl;
+
+	process LoadBalancer
+		features
+			WLAN1: in out data port;
+			WLAN2: in out data port;
+	end LoadBalancer;
+
+	process Firewall
+		features
+			Inbound: in out data port;
+			Outbound: in out data port;
+	end Firewall;
+
+	process InterVLANRouting
+		features
+			VLAN1: in out data port;
+			VLAN2: in out data port;
+			VLAN3: in out data port;
+			VLAN4: in out data port;
+			VLAN5: in out data port;
+			VLAN6: in out data port;
+			VLAN7: in out data port;
+			VLAN8: in out data port;
+	end InterVLANRouting;
+
+	system InternetModule
+		features
+			UplinkDownlinkPort: in out data port;
+			ManagementPort: in out data port;
+			eth1: in out data port;
+			eth2: in out data port; -- {Required_Connection => false;};
+				--eth3: in out data port {Required_Connection => false;};
+				--eth4: in out data port {Required_Connection => false;};
+		flows
+				--InitiateCloudAccess: flow source UplinkDownlinkPort;
+				--ReceiveCloudAccess: flow sink UplinkDownlinkPort;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path UplinkDownlinkPort -> eth1;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path UplinkDownlinkPort -> eth2;
+		properties
+			Requirements::RequiredFuntions => 'Wireless Communication; Internet Access; 5G; IP Routing; Redundant LAN access; Backup support; Navigation/Power/Safety/Machinery/ShoreSensors/Other Data Transmission; Control Commands Reception; Transmit ASC update; Remote Management';
+			Requirements::RequiredSecurity => 'Secure Communication; User Access Management';
+	end InternetModule;
+
+	system RCCAPSModule
+		features
+			ControlPort: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+			WirelessPort: in out data port;
+		flows
+			RemoteRCCCommandsFlow_Main_Primary: flow path WirelessPort -> eth1;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path WirelessPort -> eth2;
+		properties
+			Requirements::RequiredFuntions => 'Wireless Point-to-Point Communication; IP Routing; Redundant LAN access; Backup support; Navigation/Power/Safety/Machinery/ShoreSensors/Other Data Transmission; Control Commands Reception; Transmit ASC update; Remote Management';
+			Requirements::RequiredSecurity => 'Secure Communication; User Access Management';
+	end RCCAPSModule;
+
+	system TrafficModule
+		-- Traffic Module candidate is AIS
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port {
+				AddedCommunicationProperties::Link_Technology => VHF;
+			}; -- Through a VHF antenna 
+			NavDataPort: out data port;
+				--WiFiPort: in out data port;
+				--properties
+				--AddedCommunicationProperties::Component_Cost => 2500.0 USD .. 5000.0 USD;
+			GNSSSignal: in data port;	
+		flows
+			LocalAISFlow: flow source NavDataPort;
+			AISManagementFlow: flow sink ControlPort;
+			ReceiveRemoteAISFlow: flow sink DataPort;
+			TransmitLocalAISFlow: flow source DataPort;
+		properties
+				-- This includes location advertisement by the APS and recipient of traffic messages from other ships, TIS, and RCC;
+			Requirements::RequiredFuntions => 'Wireless Communication; Traffic Management; Remote Management';
+	end TrafficModule;
+
+	system ShoreSensorModule
+		features
+			ControlPort: in out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+			WirelessPort: in out data port;
+		flows
+			SSSFlow_Primary: flow path WirelessPort -> eth1;
+			SSSFlow_Secondary: flow path WirelessPort -> eth2;
+	end ShoreSensorModule;
+
+	system EmergencyControlModule
+		features
+			ControlPort: in out data port;
+					--DataInPort: in data port {Required_Connection => false;};
+					--DataOutPort: out data port {Required_Connection => false;};
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			WirelessPort: in out data port;
+		flows
+			EmergencyNavigationFlow: flow path eth1 -> WirelessPort;
+		properties
+			Requirements::RequiredFuntions => 'Wireless Communication; Secure Communication; Emergency Navigation/Machinery Data Transmission; Emergency Control Commands Reception';
+	end EmergencyControlModule;
+
+	system EmergencyButtonTransmitter --EmergencyButtonTransmitter.TransmitEmergencyButtonFlow
+		features
+			EmergencySignal: in out event port;
+		flows
+			TransmitEmergencyButtonFlow: flow source EmergencySignal;
+			ReceiveEmergencyButtonFlow: flow sink EmergencySignal;
+	end EmergencyButtonTransmitter;
+
+	system implementation EmergencyButtonTransmitter.impl
+		subcomponents
+			this_EPB: device EPB {
+				Requirements::RequiredFuntions => 'Convenient Placement; Convenient Triggering';
+			};
+			this_EmergencyCommunicationModule: system EmergencyCommunicationModule {
+				Requirements::RequiredFuntions => 'Mobile Communication Access; Always-on; Outgoing only; EPB interfacing';
+				Requirements::MatchingAPSRequirement => 'C-X-2';
+			};
+		connections
+			ButtonPushComm: port this_EPB.ButtonPressed -> this_EmergencyCommunicationModule.EmergencySignalIn;
+			SendEmergencySignal: port this_EmergencyCommunicationModule.EmergencySignalOut -> EmergencySignal;
+	--flows
+	--EmergencyButtonFlow: end to end flow this_EPB.EmergencyButtonFlow -> ButtonPushComm	-> this_EmergencyCommunicationModule.EmergencyButtonFlow -> SendEmergencySignal -> ReceiveEmergencyButtonFlow;
+	end EmergencyButtonTransmitter.impl;
+
+	device EPB
+		--EPB: Emergency Push Button	
+		features
+			ButtonPressed: out event port;
+		flows
+			EmergencyButtonFlow: flow source ButtonPressed;
+	end EPB;
+
+	system EmergencyCommunicationModule
+		features
+			EmergencySignalIn: in event port;
+			EmergencySignalOut: out event port;
+		flows
+			EmergencyButtonFlow: flow path EmergencySignalIn -> EmergencySignalOut;
+	end EmergencyCommunicationModule;
+
+	device Lidar
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			LidarFlow: flow source DataPort;
+	end Lidar;
+
+	device Radar
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			RadarFlow: flow source DataPort;
+	end Radar;
+
+	device EO -- Supposed to be 5 
+	--Electro-Optical/Infra-Red) systems
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			E0Flow: flow source DataPort;
+	end EO;
+
+	device IRCamera
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			IRCamerFlow: flow source DataPort;
+	end IRCamera;
+
+	device DomeCamera
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			DomeCameraFlow: flow source DataPort;
+	end DomeCamera;
+
+	system GNSSReceiver
+		features
+			DataPort: out data port;
+			Incoming: in data port;
+		flows
+			GNSSFlow: flow source DataPort;
+			GNSSSignal: flow path Incoming -> DataPort;
+	end GNSSReceiver;
+
+	system RTK_UHF
+		features
+			DataOut: out data port; -- Position Correction (RTK correction)
+			PositionCorrectionData: in data port;
+		flows
+			RTK_UHFFlow: flow source DataOut; -- Serial
+	end RTK_UHF;
+
+	device VideoCam1
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+		flows
+			VideoFlow: flow source DataPort;
+	end VideoCam1;
+
+	device Microphone1
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+	end Microphone1;
+
+	device implementation Microphone1.impl
+	end Microphone1.impl;
+
+	device WeatherSensor
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+	end WeatherSensor;
+
+	device implementation WeatherSensor.impl
+	end WeatherSensor.impl;
+
+	device IOCard -- TC1 in the Marine Technology system proposal document
+		features
+			SignalPort1: out data port;
+			SignalPort2: out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+		flows
+			Thruster1Flow_Primary: flow path eth1 -> SignalPort1;
+			Thruster2Flow_Primary: flow path eth1 -> SignalPort2;
+			Thruster1Flow_Secondary: flow path eth2 -> SignalPort1;
+			Thruster2Flow_Secondary: flow path eth2 -> SignalPort2;
+		properties
+			Requirements::RequiredFuntions => 'Redundant LAN Access; Thruster Interfacing; Secure Access';
+	end IOCard;
+
+	device AzimuthThruster
+		features
+			SignalPort: in data port;
+		flows
+			Thruster1Flow: flow sink SignalPort;
+	end AzimuthThruster;
+
+	device DPJoystic
+		features
+			SignalPort: out data port;
+	end DPJoystic;
+
+	system Switch_Main_CommDevices
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+		flows
+			SSSFlow_Primary: flow path eth4 -> eth7;
+			SSSFlow_Secondary: flow path eth4 -> eth8;
+			AISFlow_Primary: flow path eth3 -> eth7;
+			AISFlow_Secondary: flow path eth3 -> eth8;
+			RemoteRCCCommandsFlow_Main_Primary: flow path eth2 -> eth7;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path eth2 -> eth8;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path eth1 -> eth7;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path eth1 -> eth8;
+			APSNavigationFlow_Main_Primary: flow path eth7 -> eth2;
+			APSNavigationFlow_Main_Secondary: flow path eth7 -> eth1;
+			APSNavigationFlow_Backup_Primary: flow path eth8 -> eth2;
+			APSNavigationFlow_Backup_Secondary: flow path eth8 -> eth1;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+	end Switch_Main_CommDevices;
+
+	system Switch_Backup_CommDevices
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			RedundancyPort: in out data port;
+		flows
+			SSSFlow_Primary: flow path eth4 -> eth7;
+			SSSFlow_Secondary: flow path eth4 -> eth8;
+			AISFlow_Primary: flow path eth3 -> eth7;
+			AISFlow_Secondary: flow path eth3 -> eth8;
+			RemoteRCCCommandsFlow_Main_Primary: flow path eth2 -> eth7;
+			RemoteRCCCommandsFlow_Main_Secondary: flow path eth2 -> eth8;
+			RemoteRCCCommandsFlow_Backup_Primary: flow path eth1 -> eth7;
+			RemoteRCCCommandsFlow_Backup_Secondary: flow path eth1 -> eth8;
+			APSNavigationFlow_Main_Primary: flow path eth7 -> eth2;
+			APSNavigationFlow_Main_Secondary: flow path eth7 -> eth1;
+			APSNavigationFlow_Backup_Primary: flow path eth8 -> eth2;
+			APSNavigationFlow_Backup_Secondary: flow path eth8 -> eth1;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+	end Switch_Backup_CommDevices;
+
+	system Switch_Main_CoreCommunication
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			eth9: in out data port;
+			eth10: in out data port;
+			eth11: in out data port;
+			eth12: in out data port;
+			eth13: in out data port;
+			eth14: in out data port;
+			eth15: in out data port;
+			eth16: in out data port;
+			eth17: in out data port;
+			eth18: in out data port;
+			eth19: in out data port;
+			eth20: in out data port;						
+			RedundancyPort: in out data port;
+		flows
+			NavigationFlow_Main_Primary: flow path eth3 -> eth1;
+			NavigationFlow_Main_Secondary: flow path eth3 -> eth2;
+			NavigationFlow2_Main_Primary: flow path eth9 -> eth1;
+			NavigationFlow2_Main_Secondary: flow path eth9 -> eth2;
+			NavigationFlow3_Main_Primary: flow path eth10 -> eth1;
+			NavigationFlow3_Main_Secondary: flow path eth10 -> eth2;
+			NavigationFlow4_Main_Primary: flow path eth11 -> eth1;
+			NavigationFlow4_Main_Secondary: flow path eth11 -> eth2;
+					--NavigationFlow_Backup_Primary: flow path eth8 -> eth1;
+					--NavigationFlow_Backup_Secondary: flow path eth8 -> eth2;
+			MachinaryFlow_Main_Primary: flow path eth5 -> eth1;
+			MachinaryFlow_Main_Secondary: flow path eth5 -> eth2;
+			MachinaryFlow_Backup_Primary: flow path eth4 -> eth1;
+			MachinaryFlow_Backup_Secondary: flow path eth4 -> eth2;
+			SafetyFlow_Main_Primary: flow path eth6 -> eth1;
+			SafetyFlow_Main_Secondary: flow path eth6 -> eth2;
+			BMSFlow_Main_Primary: flow path eth7 -> eth1;
+			BMSFlow_Main_Secondary: flow path eth7 -> eth2;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+		properties
+			Requirements::RequiredFuntions => 'VLANs; Inter-VLAN Routing; Packet Switching; Failover Redundancy; Managed Network Device; Minimum Ethernet interfaces 12; Backup support; Remote Management';
+			Requirements::RequiredSecurity => 'Secure Communication; User Access Management';
+	end Switch_Main_CoreCommunication;
+
+	system Switch_Backup_CoreCommunication
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+			eth9: in out data port;
+			eth10: in out data port;
+			eth11: in out data port;
+			eth12: in out data port;
+			eth13: in out data port;
+			eth14: in out data port;
+			eth15: in out data port;
+			eth16: in out data port;
+			eth17: in out data port;
+			eth18: in out data port;
+			eth19: in out data port;
+			eth20: in out data port;				
+			RedundancyPort: in out data port;
+		flows
+			NavigationFlow_Main_Primary: flow path eth3 -> eth1;
+			NavigationFlow_Main_Secondary: flow path eth3 -> eth2;
+			NavigationFlow2_Main_Primary: flow path eth9 -> eth1;
+			NavigationFlow2_Main_Secondary: flow path eth9 -> eth2;
+			NavigationFlow3_Main_Primary: flow path eth10 -> eth1;
+			NavigationFlow3_Main_Secondary: flow path eth10 -> eth2;
+			NavigationFlow4_Main_Primary: flow path eth11 -> eth1;
+			NavigationFlow4_Main_Secondary: flow path eth11 -> eth2;
+					--NavigationFlow_Backup_Primary: flow path eth8 -> eth1;
+					--NavigationFlow_Backup_Secondary: flow path eth8 -> eth2;
+			MachinaryFlow_Main_Primary: flow path eth4 -> eth1;
+			MachinaryFlow_Main_Secondary: flow path eth4 -> eth2;
+			MachinaryFlow_Backup_Primary: flow path eth7 -> eth1;
+			MachinaryFlow_Backup_Secondary: flow path eth7 -> eth2;
+			SafetyFlow_Main_Primary: flow path eth5 -> eth1;
+			SafetyFlow_Main_Secondary: flow path eth5 -> eth2;
+			BMSFlow_Main_Primary: flow path eth6 -> eth1;
+			BMSFlow_Main_Secondary: flow path eth6 -> eth2;
+			SwitchRedundancy_MaintoBackup: flow source RedundancyPort;
+			SwitchRedundancy_BackuptoMain: flow sink RedundancyPort;
+		properties
+			Requirements::RequiredFuntions => 'VLANs; Inter-VLAN Routing; Packet Switching; Failover Redundancy; Managed Network Device; Minimum Ethernet interfaces 12; Backup support; Remote Management';
+			Requirements::RequiredSecurity => 'Secure Communication; User Access Management';
+	end Switch_Backup_CoreCommunication;
+
+	device Switch_Navigation
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_Navigation;
+
+	device Switch_Machinery
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_Machinery;
+
+	device Switch_Auxiliary
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_Auxiliary;
+
+	device Switch_Safety
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_Safety;
+
+	device Switch_RedundantControl
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_RedundantControl;
+
+	device Switch_External
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_External;
+
+	device Switch_Other
+		--Must be transformed into VLAN in a unified switch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+	end Switch_Other;
+
+	system SenseorSwitch
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+			eth7: in out data port;
+			eth8: in out data port;
+		flows
+			SPU1Flow: flow path eth1 -> eth8;
+			SPU2Flow: flow path eth2 -> eth8;
+			SPU3Flow: flow path eth3 -> eth8;
+			SPU4Flow: flow path eth4 -> eth8;
+			SPU5Flow: flow path eth5 -> eth8;
+			SPU6Flow: flow path eth6 -> eth8;
+			SPU1Flow_Backup: flow path eth1 -> eth7;
+			SPU2Flow_Backup: flow path eth2 -> eth7;
+			SPU3Flow_Backup: flow path eth3 -> eth7;
+			SPU4Flow_Backup: flow path eth4 -> eth7;
+			SPU5Flow_Backup: flow path eth5 -> eth7;
+			SPU6Flow_Backup: flow path eth6 -> eth7;
+		properties
+			Requirements::RequiredFuntions => "'Packet Switching; Secure Access; Managed Network Device; Redundant LAN Access; Minimum Ethernet interfaces 8'";
+	end SenseorSwitch;
+
+	device SPU_Top
+		--SPU: Sensor Processing Unit like:
+		-- 1. MicroAutoBox Embedded SPU or 
+		-- 2. Rittal CMC III (https://www.rittal.com/com-en/content/en/webspecial/CMCIII.jsp)
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+		flows
+			RadarFlow: flow path eth4 -> eth5;
+			IRCameraFlow: flow path eth3 -> eth5;
+			DomeCameraFlow: flow path eth1 -> eth5;
+			EOFlow: flow path eth2 -> eth5;
+			RadarFlow2: flow path eth4 -> eth6;
+			IRCameraFlow2: flow path eth3 -> eth6;
+			DomeCameraFlow2: flow path eth1 -> eth6;
+			EOFlow2: flow path eth2 -> eth6;
+		properties
+			Requirements::RequiredFuntions => 'Sensor Interfacing; Secure Access; LAN Access; Transmit Processed Sensor Data; Minimum Sensor interfaces 4';
+	end SPU_Top;
+
+	device SPU_Hull
+		--SPU: Sensor Processing Unit
+		features
+			eth1: in out data port;
+			eth2: in out data port;
+			eth3: in out data port;
+			eth4: in out data port;
+			eth5: in out data port;
+			eth6: in out data port;
+		flows
+			EOFlow: flow path eth1 -> eth5;
+			LidarFlow: flow path eth2 -> eth5;
+			RadarFlow: flow path eth3 -> eth5;
+			EOFlow2: flow path eth1 -> eth6;
+			LidarFlow2: flow path eth2 -> eth6;
+			RadarFlow2: flow path eth3 -> eth6;
+		properties
+			Requirements::RequiredFuntions => 'Sensor Interfacing; Secure Access; LAN Access; Transmit Processed Sensor Data; Minimum Sensor interfaces 4';
+	end SPU_Hull;
+
+	device AP_Traffic
+		-- Access Point supporting traffic Module
+		features
+			WiFiPort: in out data port;
+			eth1: in out data port;
+	end AP_Traffic;
+
+	device AP_PassengerInternet
+		features
+			WiFiPort: in out data port;
+			eth1: in out data port;
+	end AP_PassengerInternet;
+
+	device GeneralIOModule1
+		features
+			Input1: in data port;
+			Output1: out data port;
+			Output2: out data port;
+			Output3: out data port;
+			Output4: out data port;
+			eth1: in out data port;
+			eth2: in out data port;
+		flows
+			ControlAnchorUP: flow path Input1 -> Output1; -- UP: user panel
+			ControlHornUP: flow path Input1 -> Output2;
+			ControlAlarmUP: flow path Input1 -> Output3;
+			ControlLanternUP: flow path Input1 -> Output4;
+			ControlAnchor: flow path eth1 -> Output1;
+			ControlHorn: flow path eth1 -> Output2;
+			ControlAlarm: flow path eth1 -> Output3;
+			ControlLantern: flow path eth1 -> Output4;
+		properties
+			Requirements::RequiredFuntions => 'Interfacing of Non-IP devices; Redundant LAN Access; Secure Access';
+	end GeneralIOModule1;
+
+	device UserPanel1
+		features
+			Output: out data port;
+		flows
+			ControlFlow: flow source Output;
+		properties
+			Requirements::RequiredFuntions => 'Secure Access';
+	end UserPanel1;
+
+	device AnchorDrop1
+		features
+			Input: in data port;
+		flows
+			AnchoFlow: flow sink Input;
+	end AnchorDrop1;
+
+	device Horn1
+		features
+			Input: in data port;
+		flows
+			HornFlow: flow sink Input;
+	end Horn1;
+
+	device Alarm1
+		features
+			Input: in data port;
+		flows
+			AlarmFlow: flow sink Input;
+	end Alarm1;
+
+	device Lantern1
+		features
+			Input: in data port;
+		flows
+			LanternFlow: flow sink Input;
+	end Lantern1;
+
+		-- %%%%%%%%%%%%%%%%%%%%%%	Devices and Modules Section	%%%%%%%%%%%%%%%%%%%%%%	
+	memory LogBookDB
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+	end LogBookDB;
+end APS;

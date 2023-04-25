@@ -1,0 +1,446 @@
+package BuildingControl_BA
+public
+	with Base_Types, Data_Model;
+
+	--------------------------------------------------------------------------------
+	-- Subprogram definitions
+	--
+	-- Currently these will be implemented as Slang-Extensions.  That is, the 
+	-- developer will need to manually provide Slang/C implementations rather 
+	-- than adding behavior via BA/Bless
+	--------------------------------------------------------------------------------
+	-- Returns the currently sensed physical temperature
+	-- @param theTemp return value
+	subprogram thermostateInterface
+		features
+			theTemp: out parameter Temperature.i;
+	end thermostateInterface;
+
+	-- Accepts a fan command and returns whether the command could be fulfilled
+	-- @param command the fan command
+	-- @param retValue return value
+	subprogram fanInterface
+		features
+			command: in parameter FanCmdEnum;
+			retValue: out parameter FanAckEnum;
+	end fanInterface;
+
+	-- returns an initial set point
+	-- @param retValue the return value
+	subprogram setInitialSetPoint
+		features
+			retValue: out parameter BuildingControl_BA::SetPoint.i;
+	end setInitialSetPoint;
+
+	--------------------------------------------------------------------------------
+	system BuildingControlDemo
+	end BuildingControlDemo;
+
+	system implementation BuildingControlDemo.i
+		subcomponents
+			tcp: process TempControlProcess.i;
+	end BuildingControlDemo.i;
+
+	process TempControlProcess
+	end TempControlProcess;
+
+	process implementation TempControlProcess.i
+		subcomponents
+			tempSensor: thread TempSensor.i;
+			tempControl: thread TempControl.i;
+			fan: thread Fan.i;
+			operatorInterface: thread OperatorInterface.i;
+			alarmManager: thread AlarmManager.i;
+		connections
+			ct: port tempSensor.currentTemp -> tempControl.currentTemp;
+			fc: port tempControl.fanCmd -> fan.fanCmd;
+			fa: port fan.fanAck -> tempControl.fanAck;
+			c2: port tempSensor.currentTemp -> operatorInterface.currentTemp;
+			c3: port operatorInterface.setPoint -> tempControl.setPoint;
+			c4: port operatorInterface.setPoint -> alarmManager.setPoint;
+			c5: port operatorInterface.clearAlarm -> alarmManager.clearAlarm;
+			c6: port alarmManager.alarm -> operatorInterface.alarm;
+			c7: port tempSensor.currentTemp -> alarmManager.currentTemp;
+	end TempControlProcess.i;
+
+	--------------------------------------------------------------------
+	-- Thread Sensor
+	--------------------------------------------------------------------
+	thread TempSensor
+		features
+			currentTemp: out event data port Temperature.i;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end TempSensor;
+
+	thread implementation TempSensor.i
+		subcomponents
+			getDeviceTemperature: subprogram thermostateInterface;
+			
+		annex behavior_specification {**
+			variables temp : BuildingControl_BA::Temperature.i;
+			states
+				start : initial state;
+				run : complete state;
+			transitions
+				go: start -[]-> run; -- no outgoing 'pure' data ports so nothing to do during init
+
+				operate: run -[ on dispatch ]-> run 
+				{
+					getDeviceTemperature!(temp); -- get temp from physical sensor (subprograms currently implemented as slang extensions)
+					currentTemp!(temp) -- send sensed temp out on the currentTemp event data port
+				};
+		**};
+				
+		annex gumbo {**
+			computational_model
+				periodic
+			contracts
+				assume for currentTemp
+				"assume title" :
+				IMPLEMENT_PRED_RULE tracesTo <SOME_TEXT>
+				
+				guarantee "a guarantee title": currentTemp implies currentTemp
+
+		**};
+
+		annex BLESS {**
+      invariant <<true>>
+      states
+        start : initial state;
+        run : complete state;
+      transitions
+        go: start -[ ]-> run {};
+        operate: run -[ on dispatch]-> run
+        {
+          declare
+          temp : BuildingControl_BA::Temperature.i;
+          {  
+            temp := this::getDeviceTemperature();
+            currentTemp!(temp)
+          }
+        };
+    **};
+	end TempSensor.i;
+
+	--------------------------------------------------------------------
+	-- Thread Fan
+	--------------------------------------------------------------------
+	thread Fan
+		features
+			fanCmd: in event data port FanCmdEnum;
+			fanAck: out event data port FanAckEnum;
+		properties
+			Dispatch_Protocol => Sporadic;
+			Period => 1 sec;
+	end Fan;
+
+	thread implementation Fan.i
+		subcomponents
+			fanComm: subprogram fanInterface;
+		
+		annex gumbo {**
+			computational_model
+				periodic
+			flows
+				flow1: fanCmd -fun-> fanAck
+			contracts
+				assume
+				"basic assume" :
+				impl_pred_rule_just_ids_for_now
+				 
+				assume for fanCmd
+				"full assume example" :
+				IMPLEMENT_PRED_RULE tracesTo <SOME_REF>
+				
+				guarantee "a guarantee title": fanCmd implies fanAck
+		**};
+
+		annex behavior_specification {**
+				variables
+					result: BuildingControl_BA::FanAckEnum;
+				states
+					start: initial state;
+					run: complete state;
+				transitions
+					go: start -[]-> run; -- no outgoing 'pure' data port so nothing to do during init
+					
+					operate: run -[ on dispatch fanCmd ]-> run
+					{
+				  		fanComm!(fanCmd, result); -- fanComm will be implemented as a slang extension
+				  		fanAck!(result)
+					};
+				**};
+
+		annex BLESS {**
+      invariant <<true>>
+      variables
+        result: buildingcontrol::FanAck;  
+
+      states
+        start : initial state;
+        run : complete state;
+      transitions
+        go: start -[ ]-> run {};
+        operate: run -[ on dispatch fanCmd]-> run
+        {            
+          result := this::fanComm(command : fanCmd);
+          
+          fanAck!(result)
+        };
+    **};
+	end Fan.i;
+
+	--------------------------------------------------------------------
+	-- Thread TempControl
+	--------------------------------------------------------------------
+	thread TempControl
+		features
+			currentTemp: in event data port Temperature.i;
+			fanAck: in event data port FanAckEnum;
+			setPoint: in data port SetPoint.i;
+			fanCmd: out event data port FanCmdEnum;
+		properties
+			Dispatch_Protocol => Sporadic;
+			Period => 1 sec;
+	end TempControl;
+
+	thread implementation TempControl.i
+		subcomponents
+			setInitSetPoint: subprogram setInitialSetPoint;
+		
+		annex gumbo {**
+			computational_model
+			    -- hmm... before adding the 'scope_HyperperiodComputationalModel_constraints' scope rule,
+			    -- setPoint was resolving to the SetPoint data component
+				hyperperiod with currentTemp < fanAck < setPoint
+				
+			flows
+				tempControlFlow1: currentTemp, setPoint -fun-> fanCmd
+		**};
+				
+		annex behavior_specification {**
+			variables
+				lastCurrentTemp: BuildingControl_BA::Temperature.i;
+				lastSetPoint: BuildingControl_BA::SetPoint.i;
+			states
+				start : initial state;
+				run : complete state;
+				checkTemp : state;
+				waiting : complete state;
+			transitions
+				go: start -[]-> run 
+				{ 
+					-- equivalent to lastSetPoint = setInitSetPoint();
+					setInitSetPoint!(lastSetPoint)
+				};
+
+				operate: run -[ on dispatch currentTemp ]-> checkTemp
+				{ 
+					lastCurrentTemp := currentTemp;
+					
+					-- setPoint is a data port so fetch it's current value before doing the following
+					-- comparisons
+					
+					lastSetPoint := setPoint
+				};
+
+				-- TODO: The following trans conditions assume the previous assignment occurs
+				--       before the cond exprs are evaluated
+
+				sendOff: checkTemp -[ lastCurrentTemp.degree < lastSetPoint.low.degree ]-> waiting
+				{ fanCmd!(FanCmdEnum#Enumerators.Off) };
+
+				sendOn: checkTemp -[ lastCurrentTemp.degree > lastSetPoint.high.degree ]-> waiting 
+				{ fanCmd!(FanCmdEnum#Enumerators.Onn) };
+
+				-- TODO: is the guard needed (i.e. do BA/Bless allow multiple satisfiable trans to be taken
+				--       per dispatch, if not then which is/are enabled?)
+				tempOk: checkTemp -[ ((lastCurrentTemp.degree <= lastSetPoint.high.degree) and 
+									(lastCurrentTemp.degree >= lastSetPoint.low.degree)) ]-> run;
+
+				getack: waiting -[ on dispatch fanAck ]-> run; -- TODO: perhaps do something with the acknowledgment?		
+		**};
+		
+		annex BLESS {**
+      invariant <<true>>
+      variables
+        lastCurrentTemp: buildingcontrol::Temperature.i;
+        lastSetPoint: buildingcontrol::SetPoint.i;
+      states
+        start : initial state;
+        run : complete state;
+        checkTemp : state;
+        waiting : complete state;
+      transitions
+        go: start -[ ]-> run 
+          { };
+
+        operate: run -[ on dispatch currentTemp ]-> checkTemp 
+          { lastCurrentTemp := currentTemp;
+          	lastSetPoint := setPoint
+          };
+
+        sendOff: checkTemp -[ currentTemp.degree < lastSetPoint.low.degree ]-> waiting 
+          { fanCmd!("FanCmd#Enumerators.Off") };
+
+        sendOn: checkTemp -[ currentTemp.degree > lastSetPoint.high.degree ]-> waiting 
+          { fanCmd!("FanCmd#Enumerators.On") };
+
+        tempOk: checkTemp -[ ((currentTemp.degree <= lastSetPoint.high.degree) and 
+	            	          (currentTemp.degree >= lastSetPoint.low.degree)) ]-> run
+          { };
+
+        getack: waiting -[ on dispatch fanAck ]-> run
+          { lastCurrentTemp := currentTemp;
+          	lastSetPoint := setPoint
+          };
+    **};
+	end TempControl.i;
+
+	--------------------------------------------------------------------
+	-- Thread OperatorInterface
+	--
+	-- No BA/Bless annotation so developer must manually add 
+	-- Slang/C implementations
+	--------------------------------------------------------------------
+	thread OperatorInterface
+		features
+			setPoint: out event data port SetPoint.i;
+			currentTemp: in event data port Temperature.i;
+			alarm: in event data port AlarmEnum;
+			clearAlarm: out event port;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end OperatorInterface;
+
+	thread implementation OperatorInterface.i
+	end OperatorInterface.i;
+
+	--------------------------------------------------------------------
+	-- Thread AlarmManager
+	--------------------------------------------------------------------
+	thread AlarmManager
+		features
+			setPoint: in data port SetPoint.i;
+			currentTemp: in event data port Temperature.i;
+			alarm: out event data port AlarmEnum;
+			clearAlarm: in event port;
+		properties
+			Dispatch_Protocol => Sporadic;
+			Period => 1 sec;
+	end AlarmManager;
+
+	thread implementation AlarmManager.i
+		subcomponents
+			setInitSetPoint: subprogram setInitialSetPoint;
+
+		annex behavior_specification {**
+			variables
+				lastCurrentTemp: Temperature.i;
+				lastSetPoint: SetPoint.i;
+			states
+				start : initial state;
+				normal : complete state;
+				checkAlarm: state; -- execution state
+				alarming : complete state;
+			transitions
+				go: start -[]-> normal 
+				{
+				    -- lastSetPoint := setInitSetPoint();
+					setInitSetPoint!(lastSetPoint)
+				};
+				
+				operate: normal -[ on dispatch currentTemp ]-> checkAlarm 
+				{ 
+					lastCurrentTemp := currentTemp;
+					
+					lastSetPoint := setPoint 
+				};
+				
+				raiseAlarm: checkAlarm -[ (lastCurrentTemp.degree < lastSetPoint.low.degree) or
+											(lastCurrentTemp.degree > lastSetPoint.high.degree) ]-> alarming
+				{ alarm!(AlarmEnum#Enumerators.TempOutOfRange) };
+				
+				inRange: checkAlarm -[ (lastCurrentTemp.degree >= lastSetPoint.low.degree) and
+										(lastCurrentTemp.degree <= lastSetPoint.high.degree) ]-> normal;
+										
+				reset: alarming -[ on dispatch clearAlarm ]-> normal
+				{ alarm!(AlarmEnum#Enumerators.NoAlarm) };			
+		**};
+
+		annex BLESS {**
+      invariant <<true>>
+      states
+        start : initial state;
+        normal : complete state;
+        checkAlarm: state; -- execution state
+        alarming : complete state;
+      transitions
+        go: start -[ ]-> normal 
+          { }; 
+        
+        operate: normal -[ on dispatch currentTemp ]-> checkAlarm 
+          { };
+        
+        raiseAlarm: checkAlarm -[ (currentTemp.degree < setPoint.low.degree) or
+        	                      (currentTemp.degree > setPoint.high.degree)  ]-> alarming 
+          { alarm!("Alarm#Enumerators.TempOutOfRange") };
+          
+        inRange: checkAlarm -[ (currentTemp.degree >= setPoint.low.degree) and
+        	                   (currentTemp.degree <= setPoint.high.degree) ]-> normal
+          { };
+
+        reset: alarming -[ on dispatch clearAlarm ]-> normal
+          { alarm!("Alarm#Enumerators.NoAlarm") };
+    **};
+	end AlarmManager.i;
+
+	--------------------------------------------------------------------
+	-- Data Type Definitions
+	--------------------------------------------------------------------
+	data Temperature
+	end Temperature;
+
+	data implementation Temperature.i
+		subcomponents
+			degree: data Base_Types::Float_32;
+			unit: data TempUnit;
+	end Temperature.i;
+
+	data SetPoint
+	end SetPoint;
+
+	data implementation SetPoint.i
+		subcomponents
+			low: data Temperature.i;
+			high: data Temperature.i;
+	end SetPoint.i;
+
+	data TempUnit
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Fahrenheit", "Celsius", "Kelvin");
+	end TempUnit;
+
+	data FanAckEnum
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Ok", "Error");
+	end FanAckEnum;
+
+	data FanCmdEnum
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Onn", "Off");
+	end FanCmdEnum;
+
+	data AlarmEnum
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("TempOutOfRange", "NoAlarm");
+	end AlarmEnum;
+
+end BuildingControl_BA;

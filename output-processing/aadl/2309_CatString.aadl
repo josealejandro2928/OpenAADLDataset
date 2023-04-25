@@ -1,0 +1,27 @@
+/**
+ * AADL-Macro examples
+ * common module
+ *
+ * $1 : [IN]  text input file
+ * $2 : [STR] added string
+ * $3 : [OUT] text output file
+ */
+@header{
+package ssac.aadl.macro.examples;
+}@
+
+program CatString {
+  println("CatString file:\"" + $1 + "\" + str:\"" + $2 + "\"");
+  // read string from text file
+  var src:String <<- txtFile($1);
+
+  // get added string
+  var str:String = $2;
+
+  // cat string
+  var dst:String = src + str;
+
+  // save result string
+  dst ->> txtFile($3);
+  println("CatString save to file:\"" + $3 + "\"");
+}

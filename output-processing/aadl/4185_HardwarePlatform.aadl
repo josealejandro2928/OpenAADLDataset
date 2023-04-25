@@ -1,0 +1,52 @@
+package HardwarePlatform
+public
+	with HardwareParts;
+
+	with SEI;
+
+	system cc_mcu
+		features
+			CanBA: provides bus access HardwareParts::CANBus;
+	end cc_mcu;
+
+	system implementation cc_mcu.impl
+		subcomponents
+			cpu: processor HardwareParts::PowerPC;
+			CANbus: bus HardwareParts::CANBus;
+			ram: memory HardwareParts::RAM;
+	end cc_mcu.impl;
+
+	system implementation cc_mcu.single
+		subcomponents
+			can_bus: bus HardwareParts::CANBus;
+			pci_bus: bus HardwareParts::PCIBus;
+			ram: memory HardwareParts::RAM;
+			rom: memory HardwareParts::ROM;
+			power_pc: processor HardwareParts::PowerPC.single;
+		connections
+			ram_pci: bus access ram.PCIba <-> pci_bus;
+			rom_pci: bus access rom.PCIba <-> pci_bus;
+			power_pci: bus access power_pc.PCIBA <-> pci_bus;
+			power_can: bus access power_pc.CanBA <-> can_bus;
+			CanBA_out: bus access CanBA <-> can_bus;
+		properties
+			SEI::GrossWeight => 2.3kg;
+	end cc_mcu.single;
+
+	system implementation cc_mcu.dual
+		subcomponents
+			can_bus: bus HardwareParts::CANBus;
+			pci_bus: bus HardwareParts::PCIBus;
+			ram: memory HardwareParts::RAM;
+			rom: memory HardwareParts::ROM;
+			power_pc: processor HardwareParts::PowerPC.dual;
+		connections
+			ram_pci: bus access ram.PCIba <-> pci_bus;
+			rom_pci: bus access rom.PCIba <-> pci_bus;
+			power_pci: bus access power_pc.PCIBA <-> pci_bus;
+			power_can: bus access power_pc.CanBA <-> can_bus;
+			CanBA_out: bus access CanBA <-> can_bus;
+		properties
+			SEI::GrossWeight => 2.3kg;
+	end cc_mcu.dual;
+end HardwarePlatform;

@@ -1,0 +1,31 @@
+activity two-color-microarray-t-test {
+	on {
+		dataset input-file : 'text/tsv' [1,1];
+	}
+	with {
+		parameter cutoff : REAL [1,1] {
+		  remark 'Cutoff (log2-based) for filtering the fold change.';
+		};
+		parameter correction-method : STRING [1,1];
+		parameter p-value : REAL [1,1] = ['0.05'];
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+	}
+	using executable 'geas-two-color-microarray-t-test.R' {
+		commandLineTemplate [ 
+			parameter cutoff
+				| PrependListWith '--cutoff',
+			parameter correction-method
+				| PrependListWith '--correction-method',
+			parameter p-value
+				| PrependListWith '--significance-level',
+			dataset input-file,
+			dataset output-file
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

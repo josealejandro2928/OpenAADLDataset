@@ -1,0 +1,23 @@
+package CASEAsyncAgree
+public
+
+	with CASE_Model_Transformations;
+	renames CASE_Model_Transformations::all;
+	renames Base_Types::all;
+
+	with CMASI;
+	with Data_Model;
+	with Base_Types;
+
+	annex agree {**	
+		-- Counter starts with init + incr, reset to init
+		node Counter (init: int, incr: int, reset: bool)	
+		returns (count: int);
+		let
+			count = if reset then init
+					else init-> (pre(count) + incr);
+		tel;
+	**};
+
+end CASEAsyncAgree;
+

@@ -1,0 +1,25 @@
+package Propulsion
+public
+	with Buses;
+	
+	-----------------------------------------------------------------------------------------------------
+	-- Simplified representation of an engine system on a UAV. Communication between the engine and the
+	-- application software is via a serial bus.
+	-----------------------------------------------------------------------------------------------------
+	device Engine
+		features
+			Engine_IO : feature group Engine_Data_socket;
+			Serial_Conn: requires bus access Buses::Serial;
+	end Engine;
+
+    device implementation Engine.impl
+    end Engine.impl;
+    	
+	feature group Engine_Data_socket 		
+	end Engine_Data_socket;
+	
+	feature group Engine_Data_plug
+		inverse of Engine_Data_socket 		
+	end Engine_Data_plug;
+        
+ end Propulsion;

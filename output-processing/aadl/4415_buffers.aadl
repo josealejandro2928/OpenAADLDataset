@@ -1,0 +1,66 @@
+thread Producer
+ Features
+   Data_Source : out event data port;
+end Producer;
+
+thread implementation Producer.Impl
+       properties
+		Dispatch_Protocol=>periodic;
+		Period=> 20 ms;
+		Compute_Execution_time =>  0 ms ..  3 ms;
+		Deadline  =>  20 ms;
+		Cheddar_Properties::Fixed_Priority => 2;
+end Producer.Impl;
+
+
+thread Consumer
+ features
+   Data_Sink : in event data port;
+end Consumer;
+thread implementation Consumer.Impl
+      properties
+	  	Dispatch_Protocol=>periodic;
+            	Period=> 10 ms;
+		Compute_Execution_time =>  0 ms ..  1 ms;
+		Deadline  =>  10 ms;
+		Cheddar_Properties::Fixed_Priority => 1;
+end Consumer.Impl;
+
+processor cpurm
+end cpurm;
+
+processor implementation cpurm.Impl
+	properties 
+		Scheduling_Protocol => Posix_1003_Highest_Priority_First_Protocol;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end cpurm.Impl;
+
+
+
+process p0
+end p0;
+
+process implementation p0.Impl
+ subcomponents
+   Producer1 : thread Producer.Impl;
+   Producer2 : thread Producer.Impl;
+   Consumer1 : thread Consumer.Impl;
+connections
+   event data  port Producer1.Data_Source -> Consumer1.Data_Sink;
+   event data  port Producer2.Data_Source -> Consumer1.Data_Sink;
+end p0.Impl;
+
+
+system s0 
+end s0;
+
+system implementation s0.Impl
+  subcomponents
+            p0 : Process P0.Impl;
+            cpu_rm : processor cpurm.Impl;
+  properties
+	    Actual_Processor_Binding => reference cpu_rm applies to p0;
+end s0.Impl;
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="src2_i_Instance" category="system">
+  <featureInstance name="f2" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+  </featureInstance>
+  <componentInstance name="sub1" category="system">
+    <featureInstance name="f1" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#sc3.src1.i"/>
+  </componentInstance>
+  <connectionInstance name="sub1.f1 -> f2" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue1447/TestPS.aadl#TestPS.myProp"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="10001">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#|::0.5.9.3.34.0.4.0.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureConnection.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#sc3.src2.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/Issue665/sc3.aadl#sc3.src2.i"/>
+</instance:SystemInstance>

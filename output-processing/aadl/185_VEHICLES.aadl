@@ -1,0 +1,261 @@
+--------------------------------------------------------
+-- Message definitions for ground and surface vehicles.
+--------------------------------------------------------
+package VEHICLES
+public
+	with CMASI; renames CMASI::all;
+	with Common_Data; renames Common_Data::all;
+	with Base_Types; renames Base_Types::all;
+	
+	--Provides information regarding a vehicle's configuration items.
+	data GroundVehicleConfiguration --extends CMASI::EntityConfiguration		
+	end GroundVehicleConfiguration;
+	
+	data implementation GroundVehicleConfiguration.i --extends CMASI::EntityConfiguration.i
+		subcomponents
+			--A unique id for this entity
+	        ID: data Integer;--Integer_64;
+	        --the team or "side" that an entity belongs to. This can be a name of
+	        --a country, a "friend" or "foe" designation, or a team name (e.g. "red
+	        --team").
+--	        Affiliation: data String;
+	        --The type of this entity. The content of this field is dependent on
+	        --the session. The value of this field is not specifically defined, so
+	        --it is up to the simulation/session components to define a type system.
+	        --For a common entity definition, see MIL STD 2525 or use DIS
+	        --enumerations.
+--	        EntityType: data String;
+	        --An optional text string for the vehicle. This is not necessarily
+	        --unique, and is included for information only. ID should be used to
+	        --uniquely identify entities.
+--	        Label: data String;
+	        --The speed that is typically commanded for this entity
+	        NominalSpeed: data Float;--Float_32;
+	        --The altitude that is typically commanded for this entity
+	        NominalAltitude: data Float;--Float_32;
+	        --Altitude type for nominal altitude
+	        NominalAltitudeType: data AltitudeType.i;
+	        --A list of all payload configurations for this vehicle. Examples of
+	        --payloads include: gimbaled sensors, SAR radars (not yet supported),
+	        --air-launched UAVs (not yet supported), and weapons (not yet
+	        --supported).
+	        PayloadConfigurationList: data PayloadConfigurationArray;
+	        --A list that maps keys to values for the inclusion of extra, custom
+	        --information about this entity
+	        Info: data KeyValuePairArray;
+        --Valid operational road network. UGV adheres to positions defined in
+        --this graph. Indicated by previously sent GraphRegion's ID
+        RoadGraphID: data int64.i;
+        --The minimum speed that should be commanded for this vehicle
+        MinimumSpeed: data real32.i;
+        --The maximum speed that should be commanded for this vehicle
+        MaximumSpeed: data real32.i;
+        --The consumption rate of available energy at nominal speed, expressed
+        --in terms of the percentage of maximum capacity used per second.
+        EnergyRate: data real32.i;
+	end GroundVehicleConfiguration.i;
+
+	--Provides basic state information regarding entity position, orientation, and velocity.	
+	data GroundVehicleState --extends CMASI::EntityState		
+	end GroundVehicleState;
+	
+	data implementation GroundVehicleState.i --extends CMASI::EntityState.i
+		subcomponents
+			--A unique ID for this entity. IDs should be greater than zero
+	        ID: data Integer;--Integer_64;
+	        --Velocity in the body x-direction (postive out nose)
+	        u: data Float;--Float_32;
+	        --Velocity in the body y-direction (positive out right wing)
+	        v: data Float;--Float_32;
+	        --Velocity in the body z-direction (positve downward)
+	        w: data Float;--Float_32;
+	        --Acceleration in the body x-direction (postive out nose)
+	        udot: data Float;--Float_32;
+	        --Acceleration in the body y-direction (positive out right wing)
+	        vdot: data Float;--Float_32;
+	        --Acceleration in the body z-direction (positve downward)
+	        wdot: data Float;--Float_32;
+	        --Angle between true North and the projection of the body x-axis in
+	        --the North-East plane.
+	        Heading: data Float;--Float_32;
+	        --Pitch of vehicle around body y-axis (positive upwards)
+	        Pitch: data Float;--Float_32;
+	        --Roll angle of the vehicle around body x-axis (positive right wing
+	        --down)
+	        Roll: data Float;--Float_32;
+	        --roll-rate of vehicle (angular velocity around body x-axis). Positive
+	        --right-wing down.
+	        p: data Float;--Float_32;
+	        --pitch rate of the vehicle (angular velocity around body y-axis).
+	        --Positive nose-up.
+	        q: data Float;--Float_32;
+	        --yaw rate of the vehicle (angular velocity around body z-axis).
+	        --Positive nose right.
+	        r: data Float;--Float_32;
+	        --Course/Groundtrack angle of the entity referenced to true North
+	        Course: data Float;--Float_32;
+	        --Current entity ground speed
+	        Groundspeed: data Float;--Float_32;
+	        --The perceived entity location
+	        Location: data Location3D.i;
+	        --The available energy remaining, expressed in terms of the percentage
+	        --of maximum capacity
+	        EnergyAvailable: data Float;--Float_32;
+	        --The consumption rate of available energy, expressed in terms of the
+	        --percentage of maximum capacity used per second.
+	        ActualEnergyRate: data Float;--Float_32;
+	        --A list of states for any onboard payloads
+	        PayloadStateList: data PayloadStateArray;
+	        --The ID of the current waypoint. Only valid if the vehicle is in
+	        --waypoint following mode.
+	        CurrentWaypoint: data Integer;--Integer_64;
+	        --Current command (VehicleActionCommand or MissionCommand) being
+	        --executed. A value of zero denotes no command being executed, or that a
+	        --command without an set identifier (CommandID) is being executed.
+	        CurrentCommand: data Integer;--Integer_64;
+	        --The current mode for this vehicle.
+	        FIXMEMode: data NavigationMode.i;
+	        --Tasks that this entity is currently executing. An empty list
+	        --indicates no associated tasks. The task number should coincide with
+	        --the task number in the task request. For instance, if a waypoint is
+	        --associated with a search task, then the task number associated with
+	        --that search should be included in this list.
+	        AssociatedTasks: data Int64Array;
+	        --time stamp of this data. Time datum is defined by the application,
+	        --but unless otherwise specified is milliseconds since 1 Jan 1970
+	        Time: data Integer;--Integer_64;
+	        --A list that maps keys to values for the inclusion of extra, custom
+	        --information about this entity
+        Info: data KeyValuePairArray;
+	end GroundVehicleState.i;
+	
+	-- Provides information regarding a vehicle's configuration items.
+	data SurfaceVehicleConfiguration --extends CMASI::EntityConfiguration		
+	end SurfaceVehicleConfiguration;
+	
+	data implementation SurfaceVehicleConfiguration.i --extends CMASI::EntityConfiguration.i
+		subcomponents
+			--A unique id for this entity
+	        ID: data Integer;--Integer_64;
+	        --the team or "side" that an entity belongs to. This can be a name of
+	        --a country, a "friend" or "foe" designation, or a team name (e.g. "red
+	        --team").
+--	        Affiliation: data String;
+	        --The type of this entity. The content of this field is dependent on
+	        --the session. The value of this field is not specifically defined, so
+	        --it is up to the simulation/session components to define a type system.
+	        --For a common entity definition, see MIL STD 2525 or use DIS
+	        --enumerations.
+--	        EntityType: data String;
+	        --An optional text string for the vehicle. This is not necessarily
+	        --unique, and is included for information only. ID should be used to
+	        --uniquely identify entities.
+--	        Label: data String;
+	        --The speed that is typically commanded for this entity
+	        NominalSpeed: data Float;--Float_32;
+	        --The altitude that is typically commanded for this entity
+	        NominalAltitude: data Float;--Float_32;
+	        --Altitude type for nominal altitude
+	        NominalAltitudeType: data AltitudeType.i;
+	        --A list of all payload configurations for this vehicle. Examples of
+	        --payloads include: gimbaled sensors, SAR radars (not yet supported),
+	        --air-launched UAVs (not yet supported), and weapons (not yet
+	        --supported).
+	        PayloadConfigurationList: data PayloadConfigurationArray;
+	        --A list that maps keys to values for the inclusion of extra, custom
+	        --information about this entity
+	        Info: data KeyValuePairArray;
+        --Valid operational water zone (by ID). USV adheres to this area
+        WaterArea: data int64.i;
+        --The minimum speed that should be commanded for this vehicle
+        MinimumSpeed: data real32.i;
+        --The maximum speed that should be commanded for this vehicle
+        MaximumSpeed: data real32.i;
+        --The consumption rate of available energy at nominal speed, expressed
+        --in terms of the percentage of maximum capacity used per second.
+        EnergyRate: data real32.i;
+        --The maximum angle that this vehicle will bank
+        MaxBankAngle: data real32.i;
+        --The maximum angular rate that this vehicle will bank
+        MaxBankRate: data real32.i;
+	end SurfaceVehicleConfiguration.i;
+	
+	-- Provides basic state information regarding entity position, orientation, and velocity.
+	data SurfaceVehicleState --extends CMASI::EntityState		
+	end SurfaceVehicleState;
+	
+	data implementation SurfaceVehicleState.i --extends CMASI::EntityState.i
+		subcomponents
+			--A unique ID for this entity. IDs should be greater than zero
+	        ID: data Integer;--Integer_64;
+	        --Velocity in the body x-direction (postive out nose)
+	        u: data Float;--Float_32;
+	        --Velocity in the body y-direction (positive out right wing)
+	        v: data Float;--Float_32;
+	        --Velocity in the body z-direction (positve downward)
+	        w: data Float;--Float_32;
+	        --Acceleration in the body x-direction (postive out nose)
+	        udot: data Float;--Float_32;
+	        --Acceleration in the body y-direction (positive out right wing)
+	        vdot: data Float;--Float_32;
+	        --Acceleration in the body z-direction (positve downward)
+	        wdot: data Float;--Float_32;
+	        --Angle between true North and the projection of the body x-axis in
+	        --the North-East plane.
+	        Heading: data Float;--Float_32;
+	        --Pitch of vehicle around body y-axis (positive upwards)
+	        Pitch: data Float;--Float_32;
+	        --Roll angle of the vehicle around body x-axis (positive right wing
+	        --down)
+	        Roll: data Float;--Float_32;
+	        --roll-rate of vehicle (angular velocity around body x-axis). Positive
+	        --right-wing down.
+	        p: data Float;--Float_32;
+	        --pitch rate of the vehicle (angular velocity around body y-axis).
+	        --Positive nose-up.
+	        q: data Float;--Float_32;
+	        --yaw rate of the vehicle (angular velocity around body z-axis).
+	        --Positive nose right.
+	        r: data Float;--Float_32;
+	        --Course/Groundtrack angle of the entity referenced to true North
+	        Course: data Float;--Float_32;
+	        --Current entity ground speed
+	        Groundspeed: data Float;--Float_32;
+	        --The perceived entity location
+	        Location: data Location3D.i;
+	        --The available energy remaining, expressed in terms of the percentage
+	        --of maximum capacity
+	        EnergyAvailable: data Float;--Float_32;
+	        --The consumption rate of available energy, expressed in terms of the
+	        --percentage of maximum capacity used per second.
+	        ActualEnergyRate: data Float;--Float_32;
+	        --A list of states for any onboard payloads
+	        PayloadStateList: data PayloadStateArray;
+	        --The ID of the current waypoint. Only valid if the vehicle is in
+	        --waypoint following mode.
+	        CurrentWaypoint: data Integer;--Integer_64;
+	        --Current command (VehicleActionCommand or MissionCommand) being
+	        --executed. A value of zero denotes no command being executed, or that a
+	        --command without an set identifier (CommandID) is being executed.
+	        CurrentCommand: data Integer;--Integer_64;
+	        --The current mode for this vehicle.
+	        FIXMEMode: data NavigationMode.i;
+	        --Tasks that this entity is currently executing. An empty list
+	        --indicates no associated tasks. The task number should coincide with
+	        --the task number in the task request. For instance, if a waypoint is
+	        --associated with a search task, then the task number associated with
+	        --that search should be included in this list.
+	        AssociatedTasks: data Int64Array;
+	        --time stamp of this data. Time datum is defined by the application,
+	        --but unless otherwise specified is milliseconds since 1 Jan 1970
+	        Time: data Integer;--Integer_64;
+	        --A list that maps keys to values for the inclusion of extra, custom
+	        --information about this entity
+        Info: data KeyValuePairArray;
+        --Current bank angle of the surface vehicle
+        BankAngle: data real32.i;
+        --Forward speed of the vehicle relative to the mass of water
+        Speed: data real32.i;
+	end SurfaceVehicleState.i;
+	
+end VEHICLES;

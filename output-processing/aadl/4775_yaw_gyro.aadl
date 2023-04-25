@@ -1,0 +1,54 @@
+package yaw_gyro
+public 
+
+
+thread group gyro_process
+features
+	input : in data port task_types::shared_data;
+	output : in data port task_types::shared_data;
+end gyro_process;
+	
+
+thread group implementation gyro_process.impl
+subcomponents 
+	a_data		 : data	   task_types::shared_data;
+	calibrate_gyro : thread task_types::cyclic 
+	{	
+    	 Compute_Execution_Time => 6910 us;
+    	 Period 		        => 1000 ms;
+    	 Deadline 	 	        => 900 ms;
+    	 Priority 		        => 5 ;
+    	 Dispatch_Offset 			=> 200  ms;
+	 
+	};
+	read_yaw_gyro : thread task_types::sporadic 
+	{	
+    	 Compute_Execution_Time => 6910 us;
+    	 Period 		        => 1000 ms;
+    	 Deadline 	 	        => 900 ms;
+    	 Priority 		        => 5 ;
+    	 Dispatch_Offset 			=> 200  ms;
+	 
+	};
+	gyro_stat_imp : thread task_types::aperiodic ;
+
+
+connections
+	C0 : port a_data -> read_yaw_gyro.input;
+	C1 : port a_data -> calibrate_gyro.output;
+	C2 : port read_yaw_gyro.output -> gyro_stat_imp.input; 
+	C5 : port read_yaw_gyro.output -> output;
+	C4 : port calibrate_gyro.output -> gyro_stat_imp.input;
+	C5 : port calibrate_gyro.output -> output;
+properties
+  Timing => immediate applies to C1, C2, C3, C4, C5;
+end gyro_process.impl;
+end yaw_gyro;
+
+
+
+
+
+
+
+

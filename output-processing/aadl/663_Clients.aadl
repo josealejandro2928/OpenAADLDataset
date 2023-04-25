@@ -1,0 +1,54 @@
+package Clients
+public
+	
+system Clients
+	features
+		in_clients_mcr:  in event port;
+		out_clients_mcr: out event port;
+		in_clients_rs:   in event port;
+		out_clients_rs:  out event port;
+end Clients;
+	
+system implementation Clients.impl
+	subcomponents
+		CLIENT_CONTROL_UNIT : process Clients_Control_Unit;
+	connections
+		c1: port CLIENT_CONTROL_UNIT.ccu_data_sender -> out_clients_mcr;
+		c2: port CLIENT_CONTROL_UNIT.ccu_data_sender -> out_clients_rs;
+		c3: port in_clients_mcr -> CLIENT_CONTROL_UNIT.ccu_data_receiver;
+		c4: port in_clients_rs -> CLIENT_CONTROL_UNIT.ccu_data_receiver;
+	annex Resolute {**
+		prove allComponentsConnected(this)
+	**};
+end Clients.impl;
+
+
+process Clients_Control_Unit
+	features
+		ccu_data_receiver:  in event port;
+		ccu_data_sender:    out event port;
+end Clients_Control_Unit;
+
+process implementation Clients_Control_Unit.impl
+	subcomponents
+		RECEIVER : thread Receiver;
+		SENDER : thread Sender;
+connections
+		c1: port ccu_data_receiver -> RECEIVER.thread_data_receiver;
+		c2: port SENDER.thread_data_sender -> ccu_data_sender;
+		c3: port RECEIVER.thread_data_sender -> SENDER.thread_data_receiver;
+end Clients_Control_Unit.impl;
+
+thread Receiver
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Receiver;
+	
+thread Sender
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Sender;
+
+end Clients;

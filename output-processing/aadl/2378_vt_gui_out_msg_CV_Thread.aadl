@@ -1,0 +1,33 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_gui_out_msg_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_gui_out_msg_vt_gui_out_msg
+features
+	INPORT_artificial_out_msg : IN EVENT DATA PORT DataView::MyString_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_gui_out_msg_artificial_out_msg"; };
+	OUTPORT_e_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	gui_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_gui_out_msg_vt_gui_out_msg;
+
+THREAD IMPLEMENTATION vt_gui_out_msg_vt_gui_out_msg.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_gui";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 0 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END vt_gui_out_msg_vt_gui_out_msg.others;
+
+end vt_gui_out_msg_CV_Thread;

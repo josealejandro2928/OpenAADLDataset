@@ -1,0 +1,146 @@
+
+thread a
+end a;
+
+thread implementation a.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  12 ms;
+end a.Impl;
+
+thread b
+end b;
+
+thread implementation b.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  10 ms;
+end b.Impl;
+
+thread c
+end c;
+
+thread implementation c.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  20 ms;
+end c.Impl;
+
+thread d
+end d;
+
+thread implementation d.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  15 ms;
+end d.Impl;
+
+thread e
+end e;
+
+thread implementation e.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  25 ms;
+end e.Impl;
+
+thread f
+end f;
+
+thread implementation f.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  4 ms ..  4 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  37 ms;
+end f.Impl;
+
+thread g
+end g;
+
+thread implementation g.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  20 ms;
+end g.Impl;
+
+thread h
+end h;
+
+thread implementation h.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  40 ms;
+end h.Impl;
+
+process ea0
+end ea0;
+
+process implementation ea0.Impl
+	subcomponents
+		instancied_a : thread a.Impl;
+		instancied_b : thread b.Impl;
+		instancied_c : thread c.Impl;
+		instancied_d : thread d.Impl;
+		instancied_e : thread e.Impl;
+		instancied_f : thread f.Impl;
+		instancied_g : thread g.Impl;
+		instancied_h : thread h.Impl;
+end ea0.Impl;
+
+processor edf0
+	features
+		bus_connected : requires bus access ;
+end edf0;
+
+processor implementation edf0.Impl
+	properties 
+		Scheduling_Protocol => EARLIEST_DEADLINE_FIRST_PROTOCOL;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end edf0.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_edf0 : processor edf0.Impl;
+		instancied_ea0 : process ea0.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_edf0 applies to instancied_ea0;
+		Cheddar_Properties::Task_Precedencies => (
+			"instancied_ea0.instancied_a", "instancied_ea0.instancied_c",
+			"instancied_ea0.instancied_c", "instancied_ea0.instancied_e",
+			"instancied_ea0.instancied_e", "instancied_ea0.instancied_f",
+			"instancied_ea0.instancied_f", "instancied_ea0.instancied_h",
+			"instancied_ea0.instancied_b", "instancied_ea0.instancied_d",
+			"instancied_ea0.instancied_d", "instancied_ea0.instancied_e",
+			"instancied_ea0.instancied_e", "instancied_ea0.instancied_g",
+			"instancied_ea0.instancied_g", "instancied_ea0.instancied_h");
+end Cheddar.Impl;
+
+
+

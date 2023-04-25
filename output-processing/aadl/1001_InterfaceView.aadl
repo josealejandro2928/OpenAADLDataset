@@ -1,0 +1,549 @@
+---------------------------------------------------
+-- AADL2.2
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::Mother
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM RI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION RI_DoSomething.others
+END RI_DoSomething.others;
+
+SYSTEM Mother
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Mother::PI_Pulse.others {
+    Taste::coordinates => "107714 52439";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 500 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  RI_DoSomething : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Mother::RI_DoSomething.others {
+    Taste::coordinates => "91651 65510";
+    Taste::RCMoperationKind => protected;
+    Taste::InterfaceName => "DoSomething";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+  Taste::is_Component_Type => true;
+END Mother;
+
+SYSTEM IMPLEMENTATION Mother.others
+END Mother.others;
+
+END interfaceview::IV::Mother;
+
+PACKAGE interfaceview::IV::Worker
+PUBLIC
+
+WITH interfaceview::IV::Daugther;
+WITH interfaceview::IV::Twin;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION PI_DoSomething.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_DoSomething.others;
+
+SUBPROGRAM PI_pong
+PROPERTIES
+  Taste::Associated_Queue_Size => 2;
+END PI_pong;
+
+SUBPROGRAM IMPLEMENTATION PI_pong.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_pong.others;
+
+SUBPROGRAM RI_ping_daughter
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_ping_daughter;
+
+SUBPROGRAM IMPLEMENTATION RI_ping_daughter.others
+END RI_ping_daughter.others;
+
+SUBPROGRAM RI_ping_twin
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_ping_twin;
+
+SUBPROGRAM IMPLEMENTATION RI_ping_twin.others
+END RI_ping_twin.others;
+
+SYSTEM Worker
+FEATURES
+  PI_DoSomething : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_DoSomething.others {
+    Taste::coordinates => "154169 98581";
+    Taste::RCMoperationKind => protected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "DoSomething";
+  };
+  PI_pong : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_pong.others {
+    Taste::coordinates => "180508 92281";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "pong";
+  };
+  RI_ping_daughter : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Daugther::PI_ping.others {
+    Taste::coordinates => "160049 92281";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ping_daughter";
+    Taste::labelInheritance => "true";
+  };
+  RI_ping_twin : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Twin::PI_ping.others {
+    Taste::coordinates => "172445 118422";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ping_twin";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Worker;
+
+SYSTEM IMPLEMENTATION Worker.others
+END Worker.others;
+
+END interfaceview::IV::Worker;
+
+PACKAGE interfaceview::IV::Son
+PUBLIC
+
+WITH interfaceview::IV::Worker;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM RI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION RI_DoSomething.others
+END RI_DoSomething.others;
+
+SYSTEM Son
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Son::PI_Pulse.others {
+    Taste::coordinates => "105981 88816";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 500 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  RI_DoSomething : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_DoSomething.others {
+    Taste::coordinates => "120942 98544";
+    Taste::RCMoperationKind => protected;
+    Taste::InterfaceName => "DoSomething";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+  Taste::is_Instance_Of => "interfaceview::IV::Mother::Mother.others";
+  Taste::is_Instance_Of2 => classifier(interfaceview::IV::Mother::Mother.others);
+END Son;
+
+SYSTEM IMPLEMENTATION Son.others
+END Son.others;
+
+END interfaceview::IV::Son;
+
+PACKAGE interfaceview::IV::Father
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM PI_ping
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ping;
+
+SUBPROGRAM IMPLEMENTATION PI_ping.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ping.others;
+
+SUBPROGRAM RI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION RI_DoSomething.others
+END RI_DoSomething.others;
+
+SUBPROGRAM RI_pong
+END RI_pong;
+
+SUBPROGRAM IMPLEMENTATION RI_pong.others
+END RI_pong.others;
+
+SYSTEM Father
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Father::PI_Pulse.others {
+    Taste::coordinates => "147083 52282";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  PI_ping : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Father::PI_ping.others {
+    Taste::coordinates => "162515 65608";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ping";
+  };
+  RI_DoSomething : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Father::RI_DoSomething.others {
+    Taste::coordinates => "131020 65353";
+    Taste::RCMoperationKind => protected;
+    Taste::InterfaceName => "DoSomething";
+    Taste::labelInheritance => "false";
+  };
+  RI_pong : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Father::RI_pong.others {
+    Taste::coordinates => "162515 59964";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "pong";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Taste::is_Component_Type => true;
+END Father;
+
+SYSTEM IMPLEMENTATION Father.others
+END Father.others;
+
+END interfaceview::IV::Father;
+
+PACKAGE interfaceview::IV::Daugther
+PUBLIC
+
+WITH interfaceview::IV::Worker;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM PI_ping
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ping;
+
+SUBPROGRAM IMPLEMENTATION PI_ping.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ping.others;
+
+SUBPROGRAM RI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION RI_DoSomething.others
+END RI_DoSomething.others;
+
+SUBPROGRAM RI_pong
+END RI_pong;
+
+SUBPROGRAM IMPLEMENTATION RI_pong.others
+END RI_pong.others;
+
+SYSTEM Daugther
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Daugther::PI_Pulse.others {
+    Taste::coordinates => "135587 75747";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  PI_ping : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Daugther::PI_ping.others {
+    Taste::coordinates => "151650 83863.0";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ping";
+  };
+  RI_DoSomething : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_DoSomething.others {
+    Taste::coordinates => "132595 86298";
+    Taste::RCMoperationKind => protected;
+    Taste::InterfaceName => "DoSomething";
+    Taste::labelInheritance => "false";
+  };
+  RI_pong : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_pong.others {
+    Taste::coordinates => "151650 80426.0";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "pong";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Taste::is_Instance_Of => "interfaceview::IV::Father::Father.others";
+  Taste::is_Instance_Of2 => classifier(interfaceview::IV::Father::Father.others);
+END Daugther;
+
+SYSTEM IMPLEMENTATION Daugther.others
+END Daugther.others;
+
+END interfaceview::IV::Daugther;
+
+PACKAGE interfaceview::IV::Twin
+PUBLIC
+
+WITH interfaceview::IV::Worker;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM PI_ping
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ping;
+
+SUBPROGRAM IMPLEMENTATION PI_ping.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ping.others;
+
+SUBPROGRAM RI_DoSomething
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+  b : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_DoSomething;
+
+SUBPROGRAM IMPLEMENTATION RI_DoSomething.others
+END RI_DoSomething.others;
+
+SUBPROGRAM RI_pong
+END RI_pong;
+
+SUBPROGRAM IMPLEMENTATION RI_pong.others
+END RI_pong.others;
+
+SYSTEM Twin
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Twin::PI_Pulse.others {
+    Taste::coordinates => "116987 111581";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  PI_ping : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Twin::PI_ping.others {
+    Taste::coordinates => "129976 121738";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ping";
+  };
+  RI_DoSomething : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_DoSomething.others {
+    Taste::coordinates => "129976 113528";
+    Taste::RCMoperationKind => protected;
+    Taste::InterfaceName => "DoSomething";
+    Taste::labelInheritance => "false";
+  };
+  RI_pong : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Worker::PI_pong.others {
+    Taste::coordinates => "129976 124278";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "pong";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Taste::is_Instance_Of => "interfaceview::IV::Father::Father.others";
+  Taste::is_Instance_Of2 => classifier(interfaceview::IV::Father::Father.others);
+END Twin;
+
+SYSTEM IMPLEMENTATION Twin.others
+END Twin.others;
+
+END interfaceview::IV::Twin;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::Mother;
+WITH interfaceview::IV::Worker;
+WITH interfaceview::IV::Son;
+WITH interfaceview::IV::Father;
+WITH interfaceview::IV::Daugther;
+WITH interfaceview::IV::Twin;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  Mother : SYSTEM interfaceview::IV::Mother::Mother.others {
+    Taste::coordinates => "91651 52439 124879 69604";
+  };
+  Worker : SYSTEM interfaceview::IV::Worker::Worker.others {
+    Taste::coordinates => "154169 92281 191963 118422";
+  };
+  Son : SYSTEM interfaceview::IV::Son::Son.others {
+    Taste::coordinates => "90864 88816 120942 101572";
+  };
+  Father : SYSTEM interfaceview::IV::Father::Father.others {
+    Taste::coordinates => "131020 52282 162515 69604";
+  };
+  Daugther : SYSTEM interfaceview::IV::Daugther::Daugther.others {
+    Taste::coordinates => "112911 75747 151650 86298";
+  };
+  Twin : SYSTEM interfaceview::IV::Twin::Twin.others {
+    Taste::coordinates => "103468 111581 129976 126160";
+  };
+CONNECTIONS
+  Worker_PI_DoSomething_Son_RI_DoSomething : SUBPROGRAM ACCESS Worker.PI_DoSomething -> Son.RI_DoSomething {
+    Taste::coordinates => "120942 98544 142201 98544 142201 98581 154169 98581";
+  };
+  Worker_PI_DoSomething_Daugther_RI_DoSomething : SUBPROGRAM ACCESS Worker.PI_DoSomething -> Daugther.RI_DoSomething {
+    Taste::coordinates => "132595 86298 132595 98581 154169 98581";
+  };
+  Worker_PI_DoSomething_Twin_RI_DoSomething : SUBPROGRAM ACCESS Worker.PI_DoSomething -> Twin.RI_DoSomething {
+    Taste::coordinates => "129976 113528 142072 113528 142072 98581 154169 98581";
+  };
+  Worker_PI_pong_Daugther_RI_pong : SUBPROGRAM ACCESS Worker.PI_pong -> Daugther.RI_pong {
+    Taste::coordinates => "151650 80426 180508 80426 180508 92281";
+  };
+  Worker_PI_pong_Twin_RI_pong : SUBPROGRAM ACCESS Worker.PI_pong -> Twin.RI_pong {
+    Taste::coordinates => "129976 124278 197177 124278 197177 88893 180508 88893 180508 92281";
+  };
+  Daugther_PI_ping_Worker_RI_ping_daughter : SUBPROGRAM ACCESS Daugther.PI_ping -> Worker.RI_ping_daughter {
+    Taste::coordinates => "160049 92281 160049 83863.0 151650 83863.0";
+  };
+  Twin_PI_ping_Worker_RI_ping_twin : SUBPROGRAM ACCESS Twin.PI_ping -> Worker.RI_ping_twin {
+    Taste::coordinates => "172445 118422 172445 121738 129976 121738";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.3";
+END interfaceview::IV;
+

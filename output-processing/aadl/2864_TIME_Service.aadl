@@ -1,0 +1,29 @@
+package TIME_Service
+public
+	with TIME_Base_IO;
+	with TIME_Arg_IO;
+	with TIME_Processor;
+	
+	abstract Service
+		features
+			GetTimeArgs: feature group TIME_Arg_IO::GetTimeArgs;
+	end Service;
+
+	abstract implementation Service.impl
+		subcomponents
+			GetTime: abstract TIME_Processor::GetTime;
+			
+			ShareData: abstract ShareData;
+		connections
+			GetTimeArg: feature group GetTimeArgs <-> GetTime.Args;
+			GetTimeLocalData: feature group ShareData.OldSysTimeData -> GetTime.LocalDatas;
+	end Service.impl;
+	
+	----------------ShareData can add processor result
+	abstract ShareData
+		features
+			OldSysTimeData: feature group TIME_Base_IO::SysTimeOutput;
+			OldReferenceData: feature group TIME_Base_IO::ReferenceOutput;
+	end ShareData;
+
+end TIME_Service;

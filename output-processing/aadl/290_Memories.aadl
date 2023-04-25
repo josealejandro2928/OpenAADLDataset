@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------------------------
+-- This package defines types of memory that may be available to an embedded processing platform.
+--------------------------------------------------------------------------------------------------
+package Memories
+
+public
+	bus Memory_Bus
+	end Memory_Bus;
+
+	-------------------------------------------------------------------------------------------------------------------------
+    -- RAM memory is volatile memory used during runtime. The contents of RAM are lost when power is removed. RAM is
+    -- used by the application software during execution. On embedded platforms, the executable software is often loaded
+    -- into RAM from Flash at power-up. This is done because executing out of RAM is much faster than executing out of Flash.
+    -- RAM is considered to local to the processor board.
+	-------------------------------------------------------------------------------------------------------------------------
+	memory RAM
+		features
+			RAM_Data_Bus : requires bus access Memory_Bus;
+	end RAM;
+	
+	----------------------------------------------------------------------------------------------------------------------
+	-- Flash memory is programmable non-volatile memory. Flash memory is typically used to store the executable software
+	-- (object code) and constant data. Modifying the contents of flash memory usually occurs in a special programming
+	-- or data loading mode of operation. Flash memory is considered to local to the processor board.
+	----------------------------------------------------------------------------------------------------------------------
+	memory Flash_Memory
+		features
+			Flash_Data_Bus : requires bus access Memory_Bus;
+	end Flash_Memory;
+
+	memory implementation Flash_Memory.eMMC
+	end Flash_Memory.eMMC;
+
+	---------------------------------------------------------------------------------------------------------------------------
+	-- Non-volatile memory (NVM) is memory is read/write memory that is accessible by the executable software. NVM is retained
+	-- when power is removed. NVM is used to store information defined/processed/calculated by the application software that
+	-- is desired to be retained thru power cycles. NVM is considered to local to the processor board.
+	---------------------------------------------------------------------------------------------------------------------------
+	memory Non_Volatile_Memory
+		features
+			NVM_Data_Bus : requires bus access Memory_Bus;
+	end Non_Volatile_Memory;
+	
+	---------------------------------------------------------------------------------------------------------------------------
+	-- Mass storage memory is a high capacity memory device that is read/write memory accessible by the executable software. 
+	-- Mass storage memory is external to the processing board and most typically a separate hardware item.
+	---------------------------------------------------------------------------------------------------------------------------
+	memory Mass_Storage_Memory
+		features
+			Mass_Storage_Data_Bus : requires bus access Memory_Bus;
+	end Mass_Storage_Memory;
+
+	-------------------------------------------------------------------------------
+	-- Cache memory is local to the processor. As such, no memory bus is required.
+	-------------------------------------------------------------------------------
+	memory Cache_Memory
+		
+	end Cache_Memory;
+	
+end Memories;

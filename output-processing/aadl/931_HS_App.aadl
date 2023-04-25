@@ -1,0 +1,30 @@
+package HS_App
+public
+	with Component;
+	with ES_Base_IO;
+	with HS_Base_Task;
+	with HS_Sugar;
+	
+	thread HSAPP extends Component::AppComponent
+		features
+			EVSAPI: refined to feature group HS_Sugar::EVSAPIOutput;
+			ESAPI: refined to feature group HS_Sugar::ESAPIOutput;
+			
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+	end HSAPP;
+	
+	thread implementation HSAPP.impl extends Component::AppComponent.default
+		subcomponents
+			Medium: refined to abstract HS_Sugar::Medium;
+			Checker: refined to abstract HS_Sugar::Checker;
+			MonitorApplications: abstract HS_Base_Task::MonitorApplications;
+		connections
+			CheckerResult: port Checker.Result -> MonitorApplications.Execution;
+			
+			----------------Task data needed
+			MonitorApplications_AppRecord: feature group AppRecord -> MonitorApplications.AppRecord;
+			
+			----------------Medium processor api call collecttion connection			
+			MonitorApplications_RestartApp: feature group MonitorApplications.RestartApp.SB <-> Medium.ESAPIIn.RestartAppCollection.MonitorApplications_SB;
+	end HSAPP.impl;
+end HS_App;

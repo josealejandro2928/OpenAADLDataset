@@ -1,0 +1,221 @@
+--  TASTE - Warning: This is NOT the real Concurrency view  --
+--  This file was automatically generated and should remain read-only
+--  Open it with TASTE-IV
+--  The only intended use of this file is visualization - not processing.
+
+package generated_cv::IV::ConcurrencyView
+public
+with dataview; 
+with exportedComponent::FV;
+with taste;
+
+  --{ interfaceview obj6480 10 10
+  --TASTE-generated concurrency view
+  --For visualization purposes.
+  --}
+
+  system exportedComponent
+  end exportedComponent;
+
+  system implementation exportedComponent.others
+    subcomponents
+	gui : system interfaceview::IV::PASSIVE_gui.others;
+	initsys : system interfaceview::IV::THREAD_initsys.others;
+	chip_taste_api : system interfaceview::IV::PASSIVE_chip_taste_api.others;
+	vt_gui_outmsg : system interfaceview::IV::THREAD_vt_gui_outmsg.others;
+	vt_gui_gui_polling_gui : system interfaceview::IV::THREAD_vt_gui_gui_polling_gui.others;
+    connections
+	sporadic_inmsg : subprogram access THREAD_initsys.inmsg -> PASSIVE_gui.inmsg;
+	sporadic_artificial_outmsg : subprogram access THREAD_vt_gui_outmsg.artificial_outmsg -> THREAD_initsys.outmsg;
+	unprotected_initsys_has_pending_msg : subprogram access PASSIVE_chip_taste_api.initsys_has_pending_msg -> THREAD_initsys.check_queue;
+	protected_outmsg : subprogram access PASSIVE_gui.outmsg -> THREAD_vt_gui_outmsg.outmsg;
+	sporadic_inmsg : subprogram access THREAD_initsys.inmsg -> THREAD_vt_gui_outmsg.inmsg_vt;
+	protected_gui_polling_gui : subprogram access PASSIVE_gui.gui_polling_gui -> THREAD_vt_gui_gui_polling_gui.gui_polling_gui;
+	sporadic_inmsg : subprogram access THREAD_initsys.inmsg -> THREAD_vt_gui_gui_polling_gui.inmsg_vt;
+  end exportedComponent.others;
+
+  system PASSIVE_gui
+    features
+	outmsg : provides subprogram access exportedComponent::fv::outmsg.others
+	  { taste::Coordinates => "200 215 200 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	inmsg : requires subprogram access exportedComponent::fv::inmsg.others
+	  { taste::Coordinates => "450 215 450 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "200 260 200 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 200 450 290";
+	taste::instance_name => "gui";
+  end PASSIVE_gui;
+
+  system implementation PASSIVE_gui.others
+    subcomponents
+	outmsg_impl : subprogram exportedComponent::FV::outmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	inmsg_impl : subprogram exportedComponent::FV::inmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access outmsg_impl -> outmsg;
+	subprogram access inmsg_impl -> inmsg;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+  end PASSIVE_gui.others;
+
+  system THREAD_initsys
+    features
+	inmsg : provides subprogram access exportedComponent::fv::inmsg.others
+	  { taste::Coordinates => "600 215 600 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	outmsg : requires subprogram access exportedComponent::fv::artificial_outmsg.others
+	  { taste::Coordinates => "850 215 850 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue : requires subprogram access exportedComponent::fv::initsys_has_pending_msg.others
+	  { taste::Coordinates => "850 260 850 260";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 200 850 290";
+	taste::instance_name => "initsys";
+  end THREAD_initsys;
+
+  system implementation THREAD_initsys.others
+    subcomponents
+	inmsg_impl : subprogram exportedComponent::FV::inmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	outmsg_impl : subprogram exportedComponent::FV::artificial_outmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::initsys_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access inmsg_impl -> inmsg;
+	subprogram access outmsg_impl -> outmsg;
+	subprogram access check_queue_impl -> check_queue;
+  end THREAD_initsys.others;
+
+  system PASSIVE_chip_taste_api
+    features
+	initsys_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1000 215 1000 215";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 200 1250 245";
+	taste::instance_name => "chip_taste_api";
+  end PASSIVE_chip_taste_api;
+
+  system implementation PASSIVE_chip_taste_api.others
+    subcomponents
+	initsys_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access initsys_has_pending_msg_impl -> initsys_has_pending_msg;
+  end PASSIVE_chip_taste_api.others;
+
+  system THREAD_vt_gui_outmsg
+    features
+	artificial_outmsg : provides subprogram access exportedComponent::fv::outmsg.others
+	  { taste::Coordinates => "1400 215 1400 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	outmsg : requires subprogram access exportedComponent::fv::outmsg.others
+	  { taste::Coordinates => "1650 215 1650 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	inmsg_vt : requires subprogram access exportedComponent::fv::inmsg.others
+	  { taste::Coordinates => "1650 260 1650 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 200 1650 290";
+	taste::instance_name => "vt_gui_outmsg";
+  end THREAD_vt_gui_outmsg;
+
+  system implementation THREAD_vt_gui_outmsg.others
+    subcomponents
+	artificial_outmsg_impl : subprogram exportedComponent::FV::outmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	outmsg_impl : subprogram exportedComponent::FV::outmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+	inmsg_vt_impl : subprogram exportedComponent::FV::inmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_outmsg_impl -> artificial_outmsg;
+	subprogram access outmsg_impl -> outmsg;
+	subprogram access inmsg_vt_impl -> inmsg_vt;
+  end THREAD_vt_gui_outmsg.others;
+
+  system THREAD_vt_gui_gui_polling_gui
+    features
+	artificial_gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "1800 215 1800 215";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 40;};
+	gui_polling_gui : requires subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2050 215 2050 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+	inmsg_vt : requires subprogram access exportedComponent::fv::inmsg.others
+	  { taste::Coordinates => "2050 260 2050 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 200 2050 290";
+	taste::instance_name => "vt_gui_gui_polling_gui";
+  end THREAD_vt_gui_gui_polling_gui;
+
+  system implementation THREAD_vt_gui_gui_polling_gui.others
+    subcomponents
+	artificial_gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	inmsg_vt_impl : subprogram exportedComponent::FV::inmsg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_gui_polling_gui_impl -> artificial_gui_polling_gui;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+	subprogram access inmsg_vt_impl -> inmsg_vt;
+  end THREAD_vt_gui_gui_polling_gui.others;
+
+properties
+  taste::coordinates => "0 0 2970 2100";
+
+end generated_cv::IV;
+
+package exportedComponent::FV
+public
+with dataview;
+with taste;
+
+  subprogram outmsg
+  end outmsg;
+
+  subprogram inmsg
+  end inmsg;
+
+  subprogram gui_polling_gui
+  end gui_polling_gui;
+
+  subprogram artificial_outmsg
+  end artificial_outmsg;
+
+  subprogram initsys_has_pending_msg
+  end initsys_has_pending_msg;
+
+  subprogram check_queue
+  end check_queue;
+
+end exportedComponent::FV;

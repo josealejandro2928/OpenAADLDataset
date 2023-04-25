@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="s_i2_Instance" category="system">
+  <featureInstance name="e" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+  </featureInstance>
+  <componentInstance name="sub">
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAbstractSubcomponent.0"/>
+    <index>0</index>
+  </componentInstance>
+  <componentInstance name="sub" category="system">
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+  </componentInstance>
+  <modeInstance name="m1" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="m2">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+  </modeInstance>
+  <modeTransitionInstance name="m1_e_m2" destination="//@modeInstance.1" trigger="//@featureInstance.0" source="//@modeInstance.0">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.0"/>
+  </modeTransitionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#issue1841.s.i2"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1841/issue1841.aadl#issue1841.s.i2"/>
+</instance:SystemInstance>

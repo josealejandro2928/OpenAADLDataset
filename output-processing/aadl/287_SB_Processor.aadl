@@ -1,0 +1,47 @@
+package SB_Processor
+public
+	with Generic;
+	with SB_Arg_IO;
+	with SB_Result_IO;
+	with SB_Base_IO;
+	with SB_Route_Table;
+	
+	--------all abstract can add external data corresponding to its require
+
+	abstract CreatePipe extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group SB_Arg_IO::CreatePipeArgs;
+			Results: refined to feature group SB_Result_IO::CreatePipeOutput;
+			LocalDatas: refined to feature group SB_Base_IO::PipeInput;
+	end CreatePipe;
+	
+	abstract DeletePipe extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group SB_Arg_IO::DeletePipeArgs;
+			Results: refined to feature group SB_Result_IO::DeletePipeOutput;
+			LocalDatas: refined to feature group SB_Base_IO::PipeInput;
+	end DeletePipe;
+	
+	abstract Subscribe extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group SB_Arg_IO::SubscribeArgs;
+			Results: refined to feature group SB_Result_IO::SubscribeOutput;
+			LocalDatas: refined to feature group SB_Base_IO::RouteInput;
+	end Subscribe;
+	
+	abstract Unsubscribe extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group SB_Arg_IO::UnsubscribeArgs;
+			Results: refined to feature group SB_Result_IO::UnsubscribeOutput;
+			LocalDatas: refined to feature group SB_Base_IO::RouteInput;
+	end Unsubscribe;
+	
+	abstract SendMsg extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group SB_Arg_IO::SendMsgArgs;
+--			Results: refined to feature group SB_Result_IO::SendMsgOutput;
+			LocalDatas: refined to feature group SB_Base_IO::RouteInput;
+			OutMsgs: feature group SB_Route_Table::RouteOutput;
+	end SendMsg;
+	
+end SB_Processor;

@@ -1,0 +1,85 @@
+--------------------------------------------------------------------------------------
+-- Define basic data types that are used in defining fields in higher level messages.
+--------------------------------------------------------------------------------------
+package Common_Data
+public
+--	with Base_Types;
+	with Data_Model;
+
+	data string --extends Base_Types::Integer
+		properties
+			Data_Model::Data_Representation => Integer;
+	end string;
+
+	data implementation string.i
+	end string.i;
+
+	data real64 --extends Base_Types::Float_64
+		properties
+    Data_Model::Data_Representation => Float;
+    Data_Model::IEEE754_Precision => Double; 
+    Data_Size => 8 Bytes; 
+	end real64;
+
+	data implementation real64.i
+	end real64.i;
+
+	data real32 --extends Base_Types::Float_32
+		properties
+    Data_Model::Data_Representation => Float;
+    Data_Model::IEEE754_Precision => Simple; 
+    Data_Size => 4 Bytes;
+	end real32;
+
+	data implementation real32.i
+	end real32.i;
+
+	data int64 --extends Base_Types::Integer_64
+		properties
+    Data_Model::Data_Representation => Integer;
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 8 Bytes;
+	end int64;
+
+	data implementation int64.i
+	end int64.i;
+
+	data int32 --extends Base_Types::Integer_32
+		properties
+    Data_Model::Data_Representation => Integer;
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 4 Bytes;
+	end int32;
+
+	data implementation int32.i
+	end int32.i;
+
+	data uint32 --extends Base_Types::Unsigned_32
+		properties
+    Data_Model::Data_Representation => Integer;
+		Data_Model::Number_Representation => Unsigned;
+    Data_Size => 4 Bytes;
+	end uint32;
+
+	data implementation uint32.i
+	end uint32.i;
+
+	data byte --extends Base_Types::Integer_8
+		properties
+    Data_Model::Data_Representation => Integer;
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 1 Bytes;
+	end byte;
+
+	data implementation byte.i
+	end byte.i;
+
+	data bool --extends Base_Types::Boolean
+		properties 
+    Data_Model::Data_Representation => Boolean;
+	end bool;
+
+	data implementation bool.i
+	end bool.i;
+	
+end Common_Data;

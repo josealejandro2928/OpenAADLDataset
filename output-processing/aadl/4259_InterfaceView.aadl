@@ -1,0 +1,363 @@
+---------------------------------------------------
+-- AADL2.2
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::Controller
+PUBLIC
+
+WITH interfaceview::IV::Lift_Model;
+WITH interfaceview::IV::User;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_Pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Pulse.others;
+
+SUBPROGRAM PI_Floor_Command
+FEATURES
+  button : IN PARAMETER DataView::Floor_button {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Floor_Command;
+
+SUBPROGRAM IMPLEMENTATION PI_Floor_Command.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Floor_Command.others;
+
+SUBPROGRAM PI_Cabin_Command
+FEATURES
+  button : IN PARAMETER DataView::Cabin_button {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Cabin_Command;
+
+SUBPROGRAM IMPLEMENTATION PI_Cabin_Command.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Cabin_Command.others;
+
+SUBPROGRAM PI_Manual_Control
+FEATURES
+  cmd : IN PARAMETER DataView::Lift_control {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Manual_Control;
+
+SUBPROGRAM IMPLEMENTATION PI_Manual_Control.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Manual_Control.others;
+
+SUBPROGRAM PI_Start_Controller
+FEATURES
+  start_param : IN PARAMETER DataView::Start_condition {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Start_Controller;
+
+SUBPROGRAM IMPLEMENTATION PI_Start_Controller.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Start_Controller.others;
+
+SUBPROGRAM RI_Operate_lift
+FEATURES
+  lift_command : IN PARAMETER DataView::Lift_control {
+    Taste::encoding => NATIVE;
+  };
+  lift_sensors : OUT PARAMETER DataView::Lift_sensor {
+    Taste::encoding => NATIVE;
+  };
+END RI_Operate_lift;
+
+SUBPROGRAM IMPLEMENTATION RI_Operate_lift.others
+END RI_Operate_lift.others;
+
+SUBPROGRAM RI_Housekeeping
+FEATURES
+  housekeeping : IN PARAMETER DataView::Status {
+    Taste::encoding => UPER;
+  };
+END RI_Housekeeping;
+
+SUBPROGRAM IMPLEMENTATION RI_Housekeeping.others
+END RI_Housekeeping.others;
+
+SYSTEM Controller
+FEATURES
+  PI_Pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Pulse.others {
+    Taste::coordinates => "1783 671";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 50 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Pulse";
+  };
+  PI_Floor_Command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Floor_Command.others {
+    Taste::coordinates => "1519 816";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Floor_Command";
+  };
+  PI_Cabin_Command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Cabin_Command.others {
+    Taste::coordinates => "1519 917";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Cabin_Command";
+  };
+  PI_Manual_Control : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Manual_Control.others {
+    Taste::coordinates => "1519 1017";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Manual_Control";
+  };
+  PI_Start_Controller : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Start_Controller.others {
+    Taste::coordinates => "1519 1467";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Start_Controller";
+  };
+  RI_Operate_lift : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Lift_Model::PI_Operate_lift.others {
+    Taste::coordinates => "2027 859";
+    Taste::RCMoperationKind => unprotected;
+    Taste::InterfaceName => "Operate_lift";
+    Taste::labelInheritance => "true";
+  };
+  RI_Housekeeping : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::User::PI_Housekeeping.others {
+    Taste::coordinates => "1519 1247";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "Housekeeping";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => enabled;
+END Controller;
+
+SYSTEM IMPLEMENTATION Controller.others
+END Controller.others;
+
+END interfaceview::IV::Controller;
+
+PACKAGE interfaceview::IV::Lift_Model
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Operate_lift
+FEATURES
+  lift_command : IN PARAMETER DataView::Lift_control {
+    Taste::encoding => NATIVE;
+  };
+  lift_sensors : OUT PARAMETER DataView::Lift_sensor {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Operate_lift;
+
+SUBPROGRAM IMPLEMENTATION PI_Operate_lift.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Operate_lift.others;
+
+SYSTEM Lift_Model
+FEATURES
+  PI_Operate_lift : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Lift_Model::PI_Operate_lift.others {
+    Taste::coordinates => "2306 859";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Operate_lift";
+  };
+PROPERTIES
+  Source_Language => (Simulink);
+  Taste::Active_Interfaces => enabled;
+END Lift_Model;
+
+SYSTEM IMPLEMENTATION Lift_Model.others
+END Lift_Model.others;
+
+END interfaceview::IV::Lift_Model;
+
+PACKAGE interfaceview::IV::User
+PUBLIC
+
+WITH interfaceview::IV::Controller;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Housekeeping
+FEATURES
+  housekeeping : IN PARAMETER DataView::Status {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Housekeeping;
+
+SUBPROGRAM IMPLEMENTATION PI_Housekeeping.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Housekeeping.others;
+
+SUBPROGRAM RI_Floor_Command
+FEATURES
+  button : IN PARAMETER DataView::Floor_button {
+    Taste::encoding => NATIVE;
+  };
+END RI_Floor_Command;
+
+SUBPROGRAM IMPLEMENTATION RI_Floor_Command.others
+END RI_Floor_Command.others;
+
+SUBPROGRAM RI_Cabin_Command
+FEATURES
+  button : IN PARAMETER DataView::Cabin_button {
+    Taste::encoding => NATIVE;
+  };
+END RI_Cabin_Command;
+
+SUBPROGRAM IMPLEMENTATION RI_Cabin_Command.others
+END RI_Cabin_Command.others;
+
+SUBPROGRAM RI_Manual_Control
+FEATURES
+  cmd : IN PARAMETER DataView::Lift_control {
+    Taste::encoding => NATIVE;
+  };
+END RI_Manual_Control;
+
+SUBPROGRAM IMPLEMENTATION RI_Manual_Control.others
+END RI_Manual_Control.others;
+
+SUBPROGRAM RI_Start_Controller
+FEATURES
+  start_param : IN PARAMETER DataView::Start_condition {
+    Taste::encoding => NATIVE;
+  };
+END RI_Start_Controller;
+
+SUBPROGRAM IMPLEMENTATION RI_Start_Controller.others
+END RI_Start_Controller.others;
+
+SYSTEM User
+FEATURES
+  PI_Housekeeping : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::User::PI_Housekeeping.others {
+    Taste::coordinates => "907 1251";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Housekeeping";
+  };
+  RI_Floor_Command : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Floor_Command.others {
+    Taste::coordinates => "907 816";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "Floor_Command";
+    Taste::labelInheritance => "true";
+  };
+  RI_Cabin_Command : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Cabin_Command.others {
+    Taste::coordinates => "907 917";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "Cabin_Command";
+    Taste::labelInheritance => "true";
+  };
+  RI_Manual_Control : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Manual_Control.others {
+    Taste::coordinates => "907 1017";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "Manual_Control";
+    Taste::labelInheritance => "true";
+  };
+  RI_Start_Controller : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Controller::PI_Start_Controller.others {
+    Taste::coordinates => "907 1467";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "Start_Controller";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => enabled;
+END User;
+
+SYSTEM IMPLEMENTATION User.others
+END User.others;
+
+END interfaceview::IV::User;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::Controller;
+WITH interfaceview::IV::Lift_Model;
+WITH interfaceview::IV::User;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  Controller : SYSTEM interfaceview::IV::Controller::Controller.others {
+    Taste::coordinates => "1519 671 2027 1599";
+  };
+  Lift_Model : SYSTEM interfaceview::IV::Lift_Model::Lift_Model.others {
+    Taste::coordinates => "2306 728 2835 931";
+  };
+  User : SYSTEM interfaceview::IV::User::User.others {
+    Taste::coordinates => "261 606 907 1587";
+  };
+CONNECTIONS
+  Controller_PI_Floor_Command_User_RI_Floor_Command : SUBPROGRAM ACCESS Controller.PI_Floor_Command -> User.RI_Floor_Command {
+    Taste::coordinates => "907 816 1207 816 1207 816 1519 816";
+  };
+  Controller_PI_Cabin_Command_User_RI_Cabin_Command : SUBPROGRAM ACCESS Controller.PI_Cabin_Command -> User.RI_Cabin_Command {
+    Taste::coordinates => "907 917 1207 917 1207 917 1519 917";
+  };
+  Controller_PI_Manual_Control_User_RI_Manual_Control : SUBPROGRAM ACCESS Controller.PI_Manual_Control -> User.RI_Manual_Control {
+    Taste::coordinates => "907 1017 1207 1017 1207 1017 1519 1017";
+  };
+  Controller_PI_Start_Controller_User_RI_Start_Controller : SUBPROGRAM ACCESS Controller.PI_Start_Controller -> User.RI_Start_Controller {
+    Taste::coordinates => "907 1467 1207 1467 1207 1467 1519 1467";
+  };
+  Lift_Model_PI_Operate_lift_Controller_RI_Operate_lift : SUBPROGRAM ACCESS Lift_Model.PI_Operate_lift -> Controller.RI_Operate_lift {
+    Taste::coordinates => "2027 859 2166 859 2166 859 2306 859";
+  };
+  User_PI_Housekeeping_Controller_RI_Housekeeping : SUBPROGRAM ACCESS User.PI_Housekeeping -> Controller.RI_Housekeeping {
+    Taste::coordinates => "1519 1247 1213 1247 1213 1251 907 1251";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 2970 2100";
+  Taste::version => "2.2";
+END interfaceview::IV;
+

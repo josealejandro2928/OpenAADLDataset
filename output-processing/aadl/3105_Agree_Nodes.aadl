@@ -1,0 +1,226 @@
+package Agree_Nodes
+public
+annex agree{**
+
+ node match(inputValue:int) returns(b:bool);
+ let 
+ 	b = if inputValue = 11 then true else false;
+ tel;
+ 
+node findAttackType(requestPattern:int) returns(attackType:int);
+let
+	attackType = if requestPattern = 11 then 12
+	else 12;
+	
+tel;
+
+node selectDefense(typeOfAttack:int) returns(defense:int);
+
+let
+	defense = if typeOfAttack = 12 and pre(defense) != 13 then 13
+	else if typeOfAttack = 12 and pre(defense) != 23 then 23
+	else if typeOfAttack = 12 and pre(defense) != 33 then 33
+	else if typeOfAttack = 12 and pre(defense) != 43 then 43
+	else 53;
+tel;
+
+node accessResponse(response:int) returns(access:bool);
+ let 
+ 	access = if response = 20 then false 
+ 	else if response = 30 then false 
+ 	else if response = 40 then false 
+ 	else true;
+ tel;
+
+node delay(response:int) returns(t:int);
+ let 
+ 	t = if response = 20 then 2 
+ 	else if response = 30 then 4
+ 	else if response = 40 then 5
+ 	else 10;
+ tel;
+ 
+ node effected(response:int) returns(t:int);
+ let 
+ 	t = if response = 20 then 100 
+ 	else if response = 30 then 60 
+ 	else if response = 40 then 1 
+ 	else 0;
+ tel;
+	
+  ---------------------------------------------------------------------------------------------------
+  -- Step returns current step of execution
+  ---------------------------------------------------------------------------------------------------
+  node Step() returns (n: int);
+    let
+      n = 0 -> pre(n) + 1;
+      
+     lemma "Step positive" : n >= 0;
+    tel;
+ 
+
+  ---------------------------------------------------------------------------------------------------
+  -- Latches p
+  ---------------------------------------------------------------------------------------------------
+  node Latch(p: bool) returns (r: bool);
+    let
+      r = p -> p or pre(r);
+    tel;
+    
+  -----------------------------------------------------------------------------------------------
+  -- Converts a Boolean to an integer
+  ---------------------------------------------------------------------------------------------------
+  node b2i(b: bool) returns (i: int);
+    let i = if b then 1 else 0; tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns a stream true for the first n elements
+  ---------------------------------------------------------------------------------------------------
+  node tF(n: int) returns (r: bool);
+    var
+      c: int;
+    let
+      c = 1 -> (pre(c) + 1);
+      r = (c <= n);
+      
+       lemma "tF counter positive" : c > 0;
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns a stream true for the first n steps of clock clk
+  ---------------------------------------------------------------------------------------------------
+  node ctF(n: int, clk: bool) returns (r: bool);
+    var
+      c: int;
+    let
+      c =  b2i(clk) -> pre(c) + b2i(clk);
+      r = (c <= n);
+      
+       lemma "ctF counter positive" : c >= 0;
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns a stream false for the first n elements
+  ---------------------------------------------------------------------------------------------------
+  node fT(n: int) returns (r: bool);
+    var
+      c: int;
+    let
+      c = 1 -> (pre(c) + 1);
+      r = (c > n);
+      
+      lemma "fT counter positve" : c > 0;
+    tel;
+  
+  ---------------------------------------------------------------------------------------------------
+  -- Returns a stream false for the first n steps of clock clk
+  ---------------------------------------------------------------------------------------------------
+  node cfT(n: int, clk: bool) returns (r: bool);
+    var
+      c: int;
+    let
+      c =  b2i(clk) -> pre(c) + b2i(clk);
+      r = (c > n);
+      
+       lemma "cfT counter positive" : c >= 0;
+    tel;
+       
+  ---------------------------------------------------------------------------------------------------
+  -- Returns number of steps p has been true
+  ---------------------------------------------------------------------------------------------------
+  node Duration(p: bool) returns (r: int);
+    let
+      -- Counts the number of instants since p was last false
+      r = if p then (1 -> pre(r) + 1) else 0;
+      
+      lemma "value_posnat" : r >= 0;
+ 
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns number of steps since p has been true - zero if p never true
+  ---------------------------------------------------------------------------------------------------
+  node Since(p: bool) returns (r: int);
+    let
+      r = b2i(p) ->  if p then 1 else  if pre(r) = 0 then 0 else pre(r) + 1;
+      
+      lemma "value posnat" : r >= 0;
+      lemma "zero till true" : not Latch(p) => (r = 0);
+ 
+    tel;
+       
+  ---------------------------------------------------------------------------------------------------
+  -- Returns whether P has been true within the last n steps
+  ---------------------------------------------------------------------------------------------------
+  node Within(p: bool, n: int) returns (r: bool);
+    let
+      r = Since(p) > 0 and Since(p) <= n;
+    tel;
+       
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true if p is true for at least min and at most max Ssteps
+  ---------------------------------------------------------------------------------------------------
+  node Bounded(p: bool, min: int, max: int) returns (r: bool);
+    let
+      r = true -> (True_At_Least(p, min) and True_At_Most(p, max));
+    tel;
+     
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true if p is always true for at least n steps 
+  ---------------------------------------------------------------------------------------------------
+  node True_At_Least(p: bool, n: int) returns (r: bool);
+    var
+      c: int;
+    let
+      -- Counts the number of steps p has been true
+      c = b2i(p) -> if p then pre(c) + 1 else 0;
+                           
+      r = true -> ((pre(c) > 0 and pre(c) < n) => p);
+      
+      lemma "value_posnat" : c >= 0;
+ 
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true if p is true for at most n steps 
+  ---------------------------------------------------------------------------------------------------
+  node True_At_Most(p: bool, n: int) returns (r: bool);
+    var
+      c: int;
+    let
+      -- Counts the number of steps p has been true
+      c = b2i(p) -> if p then pre(c) + 1 else 0;
+                           
+      r = true -> ((pre(c) = n) => not p);
+      
+      lemma "value_posnat" : c >= 0;
+ 
+    tel;  
+      
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true on rising edge of p
+  ---------------------------------------------------------------------------------------------------
+  node Rise(p: bool) returns (r: bool);
+    let
+      r = false -> not pre(p) and p;
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true on falling edge of p
+  ---------------------------------------------------------------------------------------------------
+  node Fall(p: bool) returns (r: bool);
+    let
+      r = false -> pre(p) and not p;
+    tel;
+    
+  ---------------------------------------------------------------------------------------------------
+  -- Returns true when p changes
+  ---------------------------------------------------------------------------------------------------
+  node Changed(p: bool) returns (r: bool);
+    let
+      r = false -> p != pre(p);
+    tel;
+      
+**};
+	
+end Agree_Nodes;

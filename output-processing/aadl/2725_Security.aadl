@@ -1,0 +1,171 @@
+property set Security is
+
+	with Security_Type_Specifications;
+
+------------------------------------------------------------------
+--             Security Classifications
+------------------------------------------------------------------
+--
+-- These properties declare security clearances, security levels, and security caveats.
+-- 
+-- The levels associated with the classifications and caveats are defined in the
+-- property set Security_Type_Specifications. The Security_Type_Specifications property set 
+-- can be edited such that you can alter the default values.
+--
+	-- Security Clearances
+	--
+	-- The security clearance properties include a primary 
+	-- security classification (e.g. Top Secret, Secret, Confidential)
+	-- and an optional supplemental security statement. 
+	-- Clearance properties are used to classify accessing entities (i.e. security 'subjects').
+--
+	Security_Clearance: inherit Security_Type_Specifications::level_type => Security_Type_Specifications::minimum_level applies to (
+		system, device, processor, virtual processor, thread, thread group, subprogram, subprogram group, process,
+		abstract);
+	--
+	Security_Clearance_Supplement: inherit aadlstring applies to (system, device, processor, virtual processor, thread,
+		thread group, subprogram, subprogram group, process, abstract);
+	--
+	-- The secondary security clearance is provided in the event of multiple clearances 
+	-- (e.g. a clearance from two different agencies.) The secondary clearance also has a 
+	-- primary security classification and an optional supplemental security statement.
+	--
+	-- No assumption is made about the relationship between the Security_Clearance property 
+	-- and the Secondary_Security_Clearance property.
+	--
+	Secondary_Security_Clearance: inherit Security_Type_Specifications::level_type => Security_Type_Specifications::minimum_level applies to (
+		system, device, processor, virtual processor, thread, thread group, subprogram, subprogram group, process,
+		abstract);
+	--	
+	Secondary_Security_Clearance_Supplement: inherit aadlstring applies to (system, device, processor,
+		virtual processor, thread, thread group, subprogram, subprogram group, process, abstract);
+------------------------------------------
+-- Information Security Levels
+	--
+	-- The information security level properties include a primary 
+	-- data security classification (e.g. Top Secret, Secret, Confidential)
+	-- and a caveat data security statement (e.g. control markings). 
+	-- Information security properties are used to classify information and data (i.e. security 'objects').
+	--
+	Information_Security_Level: inherit Security_Type_Specifications::level_type => Security_Type_Specifications::minimum_level applies to (
+		classifier, subcomponent, feature, flow);
+	--
+	-- The Information security caveats property is an enumeration.
+	-- The values included in the declaration of the caveats represent a partial listing. 
+	-- The values can be changed or extended to meet specific project or organizational requirements.
+	-- When the  security level and caveat classification are "Top Secret" and "//NOFORN/RELIDO" 
+	-- this specifies the concatenated classification "TOP SECRET//NOFORN/RELIDO"
+	--
+	Information_Security_Caveats: inherit list of Security_Type_Specifications::caveat_type => () applies to (
+		classifier, subcomponent, feature, flow);
+------------------------------------------
+	--  Security Levels
+	--
+	-- For models which do not need to differentiate between security subjects (i.e. accessing entities) and
+	-- security objects (information), the Level and Level_Caveats properties can be used.
+	--
+	--
+	Level: inherit Security_Type_Specifications::level_type => Security_Type_Specifications::minimum_level applies to (
+		classifier, subcomponent, feature, flow);
+	-- 	
+	Level_Caveats: inherit list of Security_Type_Specifications::caveat_type => () applies to (classifier, subcomponent,
+		feature, flow);
+
+------------------------------------------
+	-- Trusted component
+	--
+	-- We use trusted to mean a component/system that is relied upon to a specified extent 
+	-- to enforce a specified security policy and that has been verified to some level to warrant that trust.
+	-- For example the trusted components of MILS [Rushby] "trusted components ...
+	--  depend only on very simple environments that can be provided with strong assurance."
+	--
+	-- [Rushby] Rushby, J. Separation and Integration in MILS (The MILS Constitution), 
+	-- Computer Science Laboratory, SRI International, Menlo Park CA 94025 USA. 
+	-- https://pdfs.semanticscholar.org/0398/5ca22524e10f6fab9dd966c61c4ab3de7f74.pdf 
+	--
+	Trusted: aadlboolean applies to (system, process, thread, thread group, subprogram, subprogram group,
+		processor, virtual processor, bus, virtual bus, device, abstract);
+	--
+	-- A downgrading flow path is one where the security level of some or all of the  data passing 
+	-- through the input port of the flow path is of a higher security level than that of the 
+	-- data passing through the output port of the flow path.
+	--
+	Downgrading: aadlboolean => false applies to (flow);
+	--
+	-- An upgrading flow path is one where the security level of some or all of the  data passing 
+	-- through the input port of the flow path is of a lower security level than that of the 
+	-- data passing through the output port of the flow path.
+	--
+	Upgrading: aadlboolean => false applies to (flow);
+	--
+------------------------------------------------------------------------
+--                   Security Protection Properties	
+------------------------------------------------------------------------
+-- The Data_Security property specifies the general form of data protection.
+--
+	Data_Security: Security_Type_Specifications::data_security_types applies to (data, port, abstract, system, bus,
+		memory, device, processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--
+-- The Data_Security_Specification property specifies the details of the data protection. 
+-- It specifies all or some of the capabilities to ensure data confidentiality, integrity, authenticity, and non-repudiation.
+--
+	Data_Security_Specification: list of Security_Type_Specifications::Security_Specification_Type applies to (data,
+		port, abstract, system, bus, memory, device, processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--
+------------------------------------------
+	-- security keys 
+-------------------------------------------
+	Key_Instances: type record (
+		private_key: Security::Key_Instance;
+		public_key: Security::Key_Instance;
+		single_key: Security::Key_Instance;
+	);
+-- 
+	Encryption_Keys: list of Security::Key_Instances applies to (data, port, abstract, system, bus, memory, device,
+		processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--	
+	Encrytion_Key_Classifiers: list of Security::Key_Classifier applies to (data, port, abstract, system, bus, memory,
+		device, processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--
+	Authentication_Keys: list of Security::Key_Instances applies to (data, port, abstract, system, bus, memory, device,
+		processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--
+	Authentication_Key_Classifiers: list of Security::Key_Classifier applies to (data, port, abstract, system, bus,
+		memory, device, processor,
+		virtual processor, virtual bus, connection, process, thread, flow);
+--
+	Key_Classifier: type classifier (data);
+	Key_Instance: type reference (data);
+	Key_Length: Size applies to (data);
+	Block_Size: Size applies to (data);
+--
+	Text_Type: enumeration (plainText, cipherText) applies to (data);
+	Crypto_Period: Time applies to (data); -- The Crypto Period is the time span that a cryptographic key is authorized for use
+--
+	Key_Distribition_Method: enumeration (public_broadcast_channel, public_one_to_one_channel, encrypted_channel,
+		authenticated_channel,
+		encrypted_and_authenticated_channel, QKD, direct_physical_exchange, courier) applies to (all);
+--
+-- The Subject Authentication property declares that a subject (component instance) can participate or participates in authentication as specified, 
+-- including authentication negotiations employing the specified authentication protocol, or that the component (e.g. a bus or virtual bus) supports the 
+-- authentication specified. 
+--
+--
+	Subject_Authentication: Security_Type_Specifications::Subject_Authentication_Type applies to (abstract, system,
+		process, thread, device, processor, virtual processor, connection, bus, virtual bus,
+		flow);
+
+-------------------------------------------
+	-- secure end-to-end flows
+-------------------------------------------
+	-- The Secure_Flow property specifies that the data in an end-to-end flow
+	-- is not altered by any element along the flow.
+	--
+	Secure_Flow: aadlboolean applies to (flow);
+--
+end Security;

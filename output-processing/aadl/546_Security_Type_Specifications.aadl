@@ -1,0 +1,69 @@
+property set Security_Type_Specifications is
+
+	with Security;
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+	-- This property set is editable. 
+	-- A principal objective of these editable property sets is  
+	-- to enable the modification of enumerated values. 
+	-- For example, a user might edit the level_type
+	-- to have High, Medium, and Low values rather than the values 
+	-- assigned in this property set.
+------------------------------------------------------------------
+------------------------------------------------------------------
+-- When modifying the enumeration values in the level_type declarations below, you must sequence the listing 
+-- from left to right preceding from the highest to lowest level. Otherwise, the automated checking 
+-- tools will not function properly.
+--
+-- Security Classification Properties type declarations
+	level_type: type enumeration (TopSecret, Secret, Confidential, Unclassified);
+
+	minimum_level: constant Security_Type_Specifications::level_type => Unclassified;
+
+	caveat_type: type enumeration (FOUO, NOFORN, IMCON, RELIDO, CUI, PROPIN, ORCON, REL_TO, Display_Only, FISA, EXIDS,
+		NODIS, SBU, SBU_NF);
+
+-- Security Enforcement Properties type declarations
+	data_security_types: type enumeration (no_protection, encryption, authentication, authenticated_encryption, TLS);
+--	
+	Security_Specification_Type: type record (
+		encryption: Security_Type_Specifications::Encryption_Specification_Type;
+		authentication: Security_Type_Specifications::Data_Authentication_Type;
+		authenticated_encryption_form: enumeration (GCM, CBC_MAC, encrypt_then_MAC, MAC_then_encrypt, encrypt_and_MAC,
+			signcryption);
+	);
+
+	Encryption_Specification_Type: type record (
+		algorithm_name: enumeration (OTP, DES, TripleDES, AES, Blowfish, TwoFish, RSA, ECC, ChaCha20, Salsa20);
+		encryption_mode: enumeration (ECB, CBC, CFB, CTR, GCM);
+		padding: enumeration (no_padding, fixed, OAEP);
+		key_classifier: Security::Key_Classifier;
+	);
+
+	Data_Authentication_Type: type record (
+		authentication_algorithm: enumeration (RSA, ElGamal, DSA, ECC, ECDSA, AES_CBC_MAC, AES_GCM,
+			HMAC_SHA1, HMAC_SHA3, AES_CMAC, AES_OMAC, AES_UMAC, Poly1305_AES, ChaCha20_Poly1305, Salsa20_Poly1305);
+		authentication_key_type: list of Security::Key_Classifier;
+		cipher_algorithm: Security_Type_Specifications::Encryption_Specification_Type;
+		hash_algorithm: enumeration (MD5, SHA1, SHA2, SHA3, RIPEMD, Whirlpool, BLAKE, BLAKE2);
+		hash_length: Size;
+	);
+
+	--	
+	-- Subject Authentication -------
+	--
+	-- The Subject Authentication property is of type Subject_Authentication_Tyoe. It declares that a subject 
+	-- can participate or participates in authentication as specified, 
+	-- including authentication negotiations employing the specified authentication protocol 
+	-- or that the component (e.g. a bus or virtual bus) supports the authentication specified.  
+	--
+	Subject_Authentication_Type: type record (
+		description: aadlstring;
+		authentication_access_type: aadlstring;
+		two_and_multi_layered_factors: list of aadlstring;
+		authentication_protocol: aadlstring;
+		authentication_role: enumeration (no_authentication, authenticator, accessor, provider, requirer, mutual);
+	);
+
+end Security_Type_Specifications;

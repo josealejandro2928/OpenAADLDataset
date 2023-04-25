@@ -1,0 +1,39 @@
+package block_side_by_side::icd
+
+public
+	
+with base_types;
+
+with Data_Model;
+
+data color_sencer extends base_types::Float 
+properties
+	data_size => 12 Bytes;
+	data_model::data_representation => array;
+end color_sencer;
+
+data tacho_counter extends base_types::Integer_32
+	
+end tacho_counter;
+
+data block_NO extends base_types::Integer_32
+	
+end block_NO;
+
+data motor_power extends base_types::Integer_32
+	
+end motor_power;
+
+data route
+properties
+	data_size => 4 KByte;
+	data_model::data_representation => array;
+end route;
+
+data scenario
+properties
+	data_size => 17 KByte;
+	data_model::data_representation => array;
+end scenario;
+
+end block_side_by_side::icd;

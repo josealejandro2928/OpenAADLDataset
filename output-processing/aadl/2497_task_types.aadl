@@ -1,0 +1,93 @@
+package task_types
+public
+---------------
+-- data -------
+---------------
+data shared_data
+end  shared_data;
+
+data implementation shared_data.impl
+end shared_data.impl;
+
+
+---------------
+-- Bus--------
+---------------
+bus bus_ip_fifo
+features 
+	input : provides bus access bus_ip_fifo;
+properties
+	Compute_Execution_Time => 60 us;
+ 	Priority => 36;
+    	Concurrency_Control_Protocol => Priority_Ceiling;
+	period => 60 us;
+
+end bus_ip_fifo;
+
+bus serial_bus
+features 
+	input : provides bus access serial_bus;
+properties
+	Compute_Execution_Time => 395 us;
+ 	Priority => 22;
+    	Concurrency_Control_Protocol => Priority_Ceiling;
+	period => 395 us;
+
+end serial_bus;
+
+bus serial_bus_ip
+features 
+	input : provides bus access serial_bus;
+properties
+	Compute_Execution_Time => 580 us;
+ 	Priority => 24;
+    	Concurrency_Control_Protocol => Priority_Ceiling;
+	period => 580 us;
+
+end serial_bus_ip;
+
+------------------
+-- Types of tasks 
+------------------
+
+thread cyclic
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+properties
+  	Dispatch_protocol => periodic;
+end cyclic;
+
+thread sporadic
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+properties
+  	Dispatch_Protocol => sporadic;
+end sporadic;
+
+thread aperiodic
+features
+	input : in data port task_types::shared_data;
+ 	output : out data port task_types::shared_data;
+properties
+	period 		  => 139 ms;
+  	Dispatch_Protocol => sporadic;
+end sporadic;
+
+
+
+end task_types;
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+package Monitor_Temp_Error_Lib
+public
+annex EMV2 {**
+	error types
+		MonitorInterfaceFailure : type extends ErrorLibrary::ServiceOmission;
+		MonitorInternalFailure : type extends ErrorLibrary::ServiceOmission;
+		AlarmControlLate : type extends ErrorLibrary::LateDelivery;
+		AlarmCOntrolDelay : type extends ErrorLibrary::DelayedService;
+		CurrentTempOutOfRange : type extends ErrorLibrary::OutofRange;
+		AlarmRange : type extends ErrorLibrary::OutofRange;
+		AlarmTempLower : type extends ErrorLibrary::OutofBounds;
+		AlarmTempUpper: type extends ErrorLibrary::OutofBounds;
+		CurrentTempValueError : type extends ErrorLibrary::SubtleValueError;
+		AlarmRangeValueError : type extends ErrorLibrary::SubtleValueError;
+		AlarmTempLowerValueError : type extends ErrorLibrary::SubtleValueError;
+		AlarmTempUpperValueError : type extends ErrorLibrary::SubtleValueError;
+		StatusError : type extends ErrorLibrary::BadValue;
+		NoData : type extends ErrorLibrary::ValueError;
+		LateData : type extends ErrorLibrary::LateDelivery;
+	end types;
+	**};
+	
+	
+	
+end Monitor_Temp_Error_Lib;

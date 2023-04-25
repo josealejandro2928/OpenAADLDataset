@@ -1,0 +1,70 @@
+package Buses
+public
+	with Bus_Properties;
+	
+	-------------------------------------------------------
+	-- A generic WiFI link to/from the UAV.
+	-------------------------------------------------------
+	bus WiFi
+	end WiFi;
+	
+	-------------------------------------------------------
+	-- A secure (encrypted link) to/from the UAV. 
+	-------------------------------------------------------
+	bus Secure_Link
+	end Secure_Link;
+	
+	-------------------------------------------------------
+	-- A generic serial bus.
+	-------------------------------------------------------
+	bus Serial		
+		properties
+			Bus_Properties::Available_Bandwidth => (9_600 Bytesps, 19_200 Bytesps, 38_400 Bytesps, 57_600 Bytesps,
+						115_200 Bytesps);
+	end Serial;
+	
+	bus implementation Serial.impl
+	end Serial.impl;
+	
+	-------------------------------------------------------
+	-- USB 2.0 and 3.0 buses
+	-------------------------------------------------------
+	bus USB
+	end USB;
+
+	bus implementation USB.Two
+		properties
+			Bus_Properties::Available_Bandwidth => (60 Bytesps);
+	end USB.Two;
+
+	bus implementation USB.Three
+		properties
+			Bus_Properties::Available_Bandwidth => (625 MBytesps);		
+	end USB.Three;
+	
+	-----------------
+	-- MIL-STD 1553B 
+	-----------------
+	bus MIL_1553B	
+	end MIL_1553B;
+	
+	--------------
+	-- Video Bus
+	--------------
+	bus Video
+	end Video;
+	
+	bus Ethernet
+		properties
+			Bus_Properties::Available_Bandwidth => (10 MBytesps, 100 MBytesps, 1 GBytesps);
+	end Ethernet;
+
+	bus implementation Ethernet.impl
+	end Ethernet.impl;
+	
+	-------------------------------------------------------
+	-- A generic RF bus.
+	-------------------------------------------------------
+	bus RF
+	end RF;
+end Buses;

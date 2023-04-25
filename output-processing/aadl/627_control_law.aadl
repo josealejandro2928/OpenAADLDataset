@@ -1,0 +1,37 @@
+package control_law
+public 
+
+thread group control_law_process
+features 
+  input : in data port task_types::shared_data;
+  output : out data port task_types::shared_data;
+end control_law_process;
+
+thread group implementation control_law_process.impl
+ subcomponents
+
+  t_control_law: thread task_types::cyclic
+  {
+    Compute_Execution_Time => 52900 us;
+    Period          => 200 ms;
+    Deadline        => 200 ms;
+    Priority        => 8;  
+    dispatch_offset => 50 ms;
+  };
+
+connections
+  C1 : port t_control_law.output -> output;
+properties
+  timing => immediate applies to C1;
+end control_law_process.impl;
+
+end control_law;
+
+
+
+
+
+
+
+
+

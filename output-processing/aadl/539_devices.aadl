@@ -1,0 +1,170 @@
+package devices
+public
+with SEI;
+with buses;
+	device Display
+	features
+		display_in : in event data port;
+	flows
+		new_flow_spec : flow sink display_in;
+	end Display;
+
+	device implementation Display.impl
+	end Display.impl;
+
+	device DataInput
+	features
+		data_out : out data port;
+	flows
+		new_flow_spec : flow source data_out;
+	end DataInput;
+
+	device implementation DataInput.keyboard
+	end DataInput.keyboard;
+
+	device Switch
+	features
+		enable_out : out event port;
+	flows
+		new_flow_spec : flow source enable_out;
+	end Switch;
+
+	device implementation Switch.enable
+	end Switch.enable;
+
+	device GPS
+	features
+		position_info : out data port;
+		power_bus : requires bus access buses::power_bus;
+		data_bus : requires bus access buses::device_bus;
+		
+	flows
+		new_flow_spec : flow source position_info;
+	end GPS;
+
+	device implementation GPS.impl
+	end GPS.impl;
+
+	device Sensor
+	features
+		data_out : out data port;
+		data_bus : requires bus access buses::device_bus;
+		power_bus : requires bus access buses::power_bus;
+		
+	flows
+		new_flow_spec : flow source data_out;
+	end Sensor;
+	
+	device Media
+	features
+		data_out : out data port;
+		data_bus : requires bus access buses::media_bus;
+		power_bus : requires bus access buses::power_bus;
+		
+	flows
+		new_flow_spec : flow source data_out;
+	end Media;
+
+	device implementation Media.camera
+	end Media.camera;
+
+	device implementation Media.microphone
+	end Media.microphone;
+
+	device Controller
+	features
+		feedback_out : out data port;
+		control_in : in event port;
+		
+		data_bus_require : requires bus access buses::device_bus;
+		power_bus : requires bus access buses::power_bus;
+	flows
+		new_flow_spec : flow sink control_in;
+		new_flow_spec2 : flow source feedback_out;
+	end Controller;
+
+	device implementation Controller.motor
+	end Controller.motor;
+
+	device implementation Controller.arm
+	end Controller.arm;
+
+	device Battery
+	features
+		battery_info : out data port;
+		data_bus : requires bus access buses::device_bus;
+	flows
+		new_flow_spec : flow source battery_info;
+	end Battery;
+
+	device implementation Battery.impl
+	end Battery.impl;
+
+	device implementation Sensor.radar
+	end Sensor.radar;
+
+	device Transceiver_collect
+	features
+		vehicle_state_amc : in data port;
+		mission_results_amc : in data port;
+		mission_data_amc : out data port;
+		mission_control_acm : out event port;
+		input_output : feature group;
+		connection_states : out event port;
+		
+		data_bus_require : requires bus access buses::device_bus;
+		media_bus_require : requires bus access buses::media_bus;
+		power_bus : requires bus access buses::power_bus;
+
+	flows
+		new_flow_spec : flow path vehicle_state_amc -> input_output;
+		new_flow_spec2 : flow path mission_results_amc -> input_output;
+		new_flow_spec3 : flow path input_output -> mission_control_acm;
+		new_flow_spec4 : flow path input_output -> mission_data_amc;
+		new_flow_spec5 : flow source connection_states;
+	end Transceiver_collect;
+	device implementation Transceiver_collect.impl
+	end Transceiver_collect.impl;
+
+	device Transceiver_assign
+	features
+		mission_data_arr : in data port;
+		mission_results_arr : out data port;
+		vehicle_state_arr : out data port;
+		mission_control_arr : in event port;
+		input_output : feature group;
+		media_bus_require : requires bus access buses::media_bus;
+		data_bus_require : requires bus access buses::device_bus;
+		power_bus : requires bus access buses::power_bus;
+	flows
+		new_flow_spec : flow path mission_data_arr -> input_output;
+		new_flow_spec2 : flow path mission_control_arr -> input_output;
+		new_flow_spec3 : flow path input_output -> mission_results_arr;
+		new_flow_spec4 : flow path input_output -> vehicle_state_arr;
+	end Transceiver_assign;
+
+	device implementation Transceiver_assign.impl
+	end Transceiver_assign.impl;
+
+	device implementation Battery.backup
+	
+	end Battery.backup;
+
+	device implementation Controller.door
+	
+	end Controller.door;
+
+	device implementation Sensor.weight
+	
+	end Sensor.weight;
+
+	device Disk
+	features
+		data_in : in data port;
+		power_bus : requires bus access buses::power_bus;
+		data_bus : requires bus access buses::media_bus;
+	end Disk;
+	device implementation Disk.impl
+	end Disk.impl;
+
+end devices;

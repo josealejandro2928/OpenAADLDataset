@@ -1,0 +1,696 @@
+package ReconfigStudy::Threads
+
+public
+	with Base_Types;
+	with DataTypes;
+	with ARINC653;
+	
+  ------------------
+  -- Va_control_T --
+  ------------------
+
+  thread Va_control_T
+  features
+    Va_f   : in  data port Base_Types::Float;
+    Vz_f   : in  data port Base_Types::Float;
+    Q_f    : in  data port Base_Types::Float;
+    Va_c   : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+    
+  end Va_control_T;
+
+  thread implementation Va_control_T.Impl
+  end Va_control_T.Impl;
+  
+
+
+ 
+   ------------------
+  -- Vz_control_T --
+  ------------------
+
+  thread Vz_control_T
+  features
+    Vz_f   : in  data port Base_Types::Float;
+    Vz_c   : in  data port Base_Types::Float;
+    Q_f    : in  data port Base_Types::Float;
+    Az_f   : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+	Dispatch_Protocol => Periodic;
+	Period            => 20 ms; -- 50 Hz    
+	Compute_Execution_Time => 50us .. 100 us;
+	Deadline => 20ms;
+	ARINC653::DAL => LEVEL_A;
+	ARINC653::Time_Capacity => 100us;
+	ARINC653::Deadline_Type => hard;    
+	Stack_Size => 20 KByte;
+	Code_Size => 100 KByte;
+	Data_Size => 1 KByte;
+  end Vz_control_T;
+
+  thread implementation Vz_control_T.Impl
+  end Vz_control_T.Impl;
+
+    ---------------------
+  -- Altitude_Hold_T --
+  ---------------------
+
+  thread Altitude_Hold_T
+  features
+    H_f    : in  data port Base_Types::Float;
+    H_c    : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Altitude_Hold_T;
+
+  thread implementation Altitude_Hold_T.Impl
+  end Altitude_Hold_T.Impl;
+
+
+
+  
+  -----------------
+  -- Va_Filter_T --
+  -----------------
+
+  thread Va_Filter_T
+  features
+    Va     : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Va_Filter_T;
+
+  thread implementation Va_Filter_T.Impl
+  end Va_Filter_T.Impl;
+
+  
+
+  ----------------
+  -- H_Filter_T --
+  ----------------
+
+  thread H_Filter_T
+  features
+    H      : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end H_Filter_T;
+
+  thread implementation H_Filter_T.Impl
+  end H_Filter_T.Impl;
+
+
+
+  -----------------
+  -- Az_Filter_T --
+  -----------------
+
+  thread Az_Filter_T
+  features
+    Az     : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Az_Filter_T;
+
+  thread implementation Az_Filter_T.Impl
+  end Az_Filter_T.Impl;
+
+  
+
+  -----------------
+  -- Vz_Filter_T --
+  -----------------
+
+  thread Vz_Filter_T
+  features
+    Vz     : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Vz_Filter_T;
+
+  thread implementation Vz_Filter_T.Impl
+  end Vz_Filter_T.Impl;
+
+  
+
+  ----------------
+  -- Q_Filter_T --
+  ----------------
+
+  thread Q_Filter_T
+  features
+    Q     : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Q_Filter_T;
+
+  thread implementation Q_Filter_T.Impl
+  end Q_Filter_T.Impl;
+
+  
+  --------------------------------------------------------------------------------
+  ------------------
+  -- FlightControlMgr --
+  ------------------
+
+  thread FlightControlMgr
+  features
+    Vz1   : in  data port Base_Types::Float;    
+    Vz2   : in  data port Base_Types::Float;
+    Va1   : in  data port Base_Types::Float;    
+    Va2   : in  data port Base_Types::Float;
+    VaAdjustment : in  data port Base_Types::Float; 
+    Vz_out : out data port Base_Types::Float;
+    Va_out : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end FlightControlMgr;
+
+  thread implementation FlightControlMgr.Impl
+  end FlightControlMgr.Impl;
+  
+  ------------------
+  -- FuelConsumptionMgr --
+  ------------------
+
+  thread FuelConsumptionMgr
+  features
+    Va   : in  data port Base_Types::Float;
+    FuelData : in data port DataTypes::FuelDataType;
+    FuelAdjustment : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end FuelConsumptionMgr;
+
+  thread implementation FuelConsumptionMgr.Impl
+  end FuelConsumptionMgr.Impl;
+  
+  ------------------
+  -- AutoPilot --
+  ------------------
+
+  thread AutoPilot
+  features
+    settingsIn   : in  data port DataTypes::APSettings;    
+    AltitudeHold : out data port Base_Types::Float;
+    VelocityHold : out data port Base_Types::Float;    
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end AutoPilot;
+
+  thread implementation AutoPilot.Impl
+  end AutoPilot.Impl;
+  
+  ------------------
+  -- AutoPilotMonitor --
+  ------------------
+
+  thread AutoPilotMonitor
+  features
+    settingsIn   : in data port DataTypes::APSettings;    
+    AltitudeHold : in data port Base_Types::Float;
+    VelocityHold : in data port Base_Types::Float;
+    APEngaged : out data port Base_Types::Boolean;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end AutoPilotMonitor;
+
+  thread implementation AutoPilotMonitor.Impl
+  end AutoPilotMonitor.Impl;
+
+  ------------------
+  -- Guidance --
+  ------------------
+
+  thread Guidance
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    DestinationPosition : in  data port DataTypes::geoposition;
+    VOR : in data port DataTypes::VORData;    
+    ETA : out data port DataTypes::DateTime;
+    Localizer : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end Guidance;
+
+  thread implementation Guidance.Impl
+  end Guidance.Impl;
+  
+------------------
+  -- RouteCtrlPanelHandler --
+  ------------------
+
+  thread RouteCtrlPanelHandler
+  features
+    PanelRouteCtrl   : in  data port DataTypes::PanelInputsType;
+    FlightPlanList : in event data port DataTypes::FPList; 
+    FlightPlanSelection   : out  event data port Base_Types::Integer ;
+    
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 1 KByte;
+    Code_Size => 10 KByte;
+    Data_Size => 1 KByte;
+  end RouteCtrlPanelHandler;
+
+  thread implementation RouteCtrlPanelHandler.Impl
+  end RouteCtrlPanelHandler.Impl;
+
+
+
+  ------------------
+  -- RouteCtrl --
+  ------------------
+
+  thread RouteCtrl
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    FlightPlanSelection   : in  event data port Base_Types::Integer ;
+    FlightPlanList : out event data port DataTypes::FPList;    
+    DestinationPosition : out  data port DataTypes::geoposition;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end RouteCtrl;
+
+  thread implementation RouteCtrl.Impl
+  end RouteCtrl.Impl;
+
+  ------------------
+  -- Charts --
+  ------------------
+
+  thread Charts
+  	features
+  	ChartSelection   : in  event data port Base_Types::Integer;
+    ChartsList : out event data port DataTypes::ChartsList;
+    selectedChart : out event data port DataTypes::ImageFormat;
+  properties
+    Dispatch_Protocol => Sporadic;
+    Period            => 100 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 5 ms;
+    Deadline => 1sec;
+    ARINC653::DAL => LEVEL_D;
+    --ARINC653::Time_Capacity => 1sec;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 128 MByte;
+  end Charts;
+
+  thread implementation Charts.Impl
+  end Charts.Impl;
+  
+  ------------------
+  -- MapServer --
+  ------------------
+
+  thread MapServer
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    MapElementList : in event data port DataTypes::MapElementList;    
+    Arinc661Commands : out data port DataTypes::A661Commands;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 100 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 2ms;
+    Deadline => 200ms;
+    ARINC653::DAL => LEVEL_C;
+    ARINC653::Time_Capacity => 200ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 100 KByte;
+    Code_Size => 256 KByte;
+    Data_Size => 512 MByte;
+  end MapServer;
+
+  thread implementation MapServer.Impl
+  end MapServer.Impl;
+
+  ------------------
+  -- DisplayMgr --
+  ------------------
+
+  thread DisplayMgr
+  features
+    MapArinc661Commands   : in  data port DataTypes::A661Commands;
+    chart : in event data port DataTypes::ImageFormat;
+    ETA : in data port DataTypes::DateTime;
+    Localizer : in data port Base_Types::Float;
+    EngineData : in data port DataTypes::EngineDataType;
+    FuelData : in data port DataTypes::FuelDataType;
+    SystemInput : in event data port DataTypes::SystemInputType;
+    Display1Commands : out data port DataTypes::A661Commands;
+    Display2Commands : out data port DataTypes::A661Commands;
+    Display3Commands : out data port DataTypes::A661Commands;
+    Display4Commands : out data port DataTypes::A661Commands;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 7 ms;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 60 KByte;
+    Code_Size => 200 KByte;
+    Data_Size => 5 KByte;
+  end DisplayMgr;
+
+  thread implementation DisplayMgr.Impl
+  end DisplayMgr.Impl;
+  
+  ------------------
+  -- SystemInputHandler --
+  ------------------
+
+  thread SystemInputHandler
+  features
+    Panel1   : in  data port DataTypes::PanelInputsType;
+    Panel2   : in  data port DataTypes::PanelInputsType;
+    Panel3   : in  data port DataTypes::PanelInputsType;
+    Panel4   : in  data port DataTypes::PanelInputsType;
+    Panel5   : in  data port DataTypes::PanelInputsType;    
+    SystemInputs : out data port  DataTypes::SystemInputType;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 300 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 20 KByte;
+    Data_Size => 1 KByte;
+  end SystemInputHandler;
+
+  thread implementation SystemInputHandler.Impl
+  end SystemInputHandler.Impl;
+
+  ------------------
+  -- FlightStickHandler --
+  ------------------
+
+  thread FlightStickHandler
+  features
+    AnalogPitch   : in  data port Base_Types::Float;    
+    AnalogRoll   : in  data port Base_Types::Float;
+    AnalogYaw   : in  data port Base_Types::Float;
+    FlightStickData : out data port DataTypes::FlightStickType;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 150 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 10 KByte;
+    Code_Size => 80 KByte;
+    Data_Size => 1 KByte;
+  end FlightStickHandler;
+
+  thread implementation FlightStickHandler.Impl
+  end FlightStickHandler.Impl;
+  
+  ------------------
+  -- FuelMonitor --
+  ------------------
+
+  thread FuelQuantity
+  features
+    FuelLevelSensors   : in  data port DataTypes::SensorsArray;
+    FuelData : out data port DataTypes::FuelDataType;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 50 ms; --     
+    Compute_Execution_Time => 50us .. 800 us;
+    --Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 50ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 70 KByte;
+    Data_Size => 1 KByte;
+  end FuelQuantity;
+
+  thread implementation FuelQuantity.Impl
+  end FuelQuantity.Impl;
+
+  ------------------
+  -- EngineMonitor --
+  ------------------
+
+  thread EngineMonitor
+  	features
+  	AnalogSensors : in data port DataTypes::SensorsArray;
+  	EngineData : out data port DataTypes::EngineDataType;	
+            
+    
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 100us;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 100 KByte;
+    Data_Size => 1 KByte;
+  end EngineMonitor;
+
+  thread implementation EngineMonitor.Impl
+  end EngineMonitor.Impl;
+  
+  ------------------
+  -- DisplayXServer --
+  ------------------
+
+  thread DisplayXServer
+  features
+    A661In  : in  data port DataTypes::A661Commands;    
+    ButtonsOut : out data port DataTypes::PanelInputsType;
+    HealthStatus : out data port DataTypes::HealthStatusType;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 15 ms;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 20 KByte;
+    Code_Size => 200 KByte;
+    Data_Size => 1 KByte;
+  end DisplayXServer;
+
+  thread implementation DisplayXServer.Impl
+  end DisplayXServer.Impl;  
+  
+
+  ------------------
+  -- ActuatorXControl --
+  ------------------
+
+  thread ActuatorXControl
+  features
+    dataIn   : in  data port Base_Types::Float;    
+    HealthStatus : out data port DataTypes::HealthStatusType;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 2 KByte;
+    Code_Size => 10 KByte;
+    Data_Size => 1 KByte;
+  end ActuatorXControl;
+
+  thread implementation ActuatorXControl.Impl
+  end ActuatorXControl.Impl;  
+  
+  
+  ------------------
+  -- ActuatorXControl --
+  ------------------
+
+  thread SensorHandler
+  features
+    sensorDataIn   : in  data port DataTypes::SensorData;    
+    dataOut : out data port Base_Types::Float;
+
+  properties
+    Dispatch_Protocol => Periodic;
+    Period            => 20 ms; -- 50 Hz    
+    Compute_Execution_Time => 50us .. 100 us;
+    Deadline => 20ms;
+    ARINC653::DAL => LEVEL_A;
+    ARINC653::Time_Capacity => 20ms;
+    ARINC653::Deadline_Type => hard;    
+    Stack_Size => 2 KByte;
+    Code_Size => 10 KByte;
+    Data_Size => 1 KByte;
+  end SensorHandler;
+
+  thread implementation SensorHandler.Impl
+  end SensorHandler.Impl;  
+
+  
+end ReconfigStudy::Threads;

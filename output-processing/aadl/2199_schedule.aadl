@@ -1,0 +1,34 @@
+package schedule
+public
+	system schedule
+		features
+			schedule_input: in out data port;
+--			schedule_output: out data port;
+			client_port: in out data port;
+	end schedule;
+
+	system implementation schedule.impl
+		subcomponents
+			mp: device monthly_plan;
+			cc: device conflict_checker;
+		connections
+			schedule_impl_new_connection: port cc.conflict_input -> schedule_input;
+			schedule_impl_new_connection2: port mp.plan_input -> schedule_input;
+			client_connection: port mp.client_port -> client_port;
+			client_connection2: port cc.client_port -> client_port;
+	end schedule.impl;
+
+	device monthly_plan
+		features
+			plan_input: in out data port;
+--			plan_output: out data port;
+			client_port: in out data port;
+	end monthly_plan;
+
+	device conflict_checker
+		features
+			conflict_input: in out data port;
+--			conflict_output: out data port;
+			client_port: in out data port;
+	end conflict_checker;
+end schedule;

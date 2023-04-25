@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Root_impl_Instance" category="system">
+  <componentInstance name="MyS" category="system">
+    <componentInstance name="myS1" category="processor">
+      <featureInstance name="shared_bus" category="busAccess" direction="out">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/instances/JustVBus_processor_Root_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <componentInstance name="myBus" category="virtual bus">
+        <subcomponent xsi:type="aadl2:VirtualBusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedVirtualBusSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:VirtualBusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.B"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.s1.impl"/>
+    </componentInstance>
+    <componentInstance name="myS2" category="processor">
+      <featureInstance name="ext_bus" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/instances/JustVBus_processor_Root_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.s2.impl"/>
+    </componentInstance>
+    <connectionInstance name="myS1.myBus -> myS2.ext_bus" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="myS2.ext_bus -> myS1.myBus" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.MySystem.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.Root.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.core.tests/models/Issue2032/JustVBus_processor.aadl#JustVBus_processor.Root.impl"/>
+</instance:SystemInstance>

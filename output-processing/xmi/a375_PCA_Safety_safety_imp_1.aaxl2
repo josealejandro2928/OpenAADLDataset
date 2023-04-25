@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="safety_imp_Instance" category="system">
+  <featureInstance name="alrm" category="featureGroup" direction="in out">
+    <featureInstance name="Alarm_Signal" category="eventDataPort" direction="in out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="Immediate" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Prompt" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="Delayed" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="Malfunction" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+    </featureInstance>
+    <featureInstance name="Reset_Alarm" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.4"/>
+    </featureInstance>
+    <featureInstance name="Alarm_Type" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Pump_Overheated,Defective_Battery,Low_Battery,&#xD;&#xA;      POST_Failure,RAM_Failure,ROM_failure,CPU_Failure,Thread_Monitor_Failure,&#xD;&#xA;      Air_In_Line,Upstream_Occlusion,Downstream_Occlusion,Empty_Reservoir,&#xD;&#xA;      Basal_Overinfusion,Bolus_Overinfusion,Square_Bolus_Overinfusion,No_Alarm)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="Warning_Type" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Over_Max_Drug_Per_Hour,Soft_Limit,&#xD;&#xA; --     Below_VTBI_Soft_Limit,Above_VTBI_Soft_Limit,       &#xD;&#xA; --     Below_Basal_Rate_Soft_Limit,Above_Basal_Rate_Soft_Limit,&#xD;&#xA;      Low_Reservoir,Priming_Failure,&#xD;&#xA;      Basal_Underinfusion,Bolus_Underinfusion,Square_Bolus_Underinfusion,&#xD;&#xA;      Input_Needed,Long_Pause,Drug_Not_In_Library,Hard_Limit_Violated,Voltage_OOR,&#xD;&#xA;      Priming_Failure,No_Warning)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+  </featureInstance>
+  <featureInstance name="i_bus" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/3"/>
+  </featureInstance>
+  <featureInstance name="p_bus" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/4"/>
+  </featureInstance>
+  <featureInstance name="To_Adaptor" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/11"/>
+  </featureInstance>
+  <featureInstance name="System_Status">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Stopped,Priming,Paused,Bolus,Basal,KVO,Square_Bolus)"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/9"/>
+  </featureInstance>
+  <featureInstance name="Infusion_Flow_Rate">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+  </featureInstance>
+  <featureInstance name="Upstream_Flow_Rate">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+  </featureInstance>
+  <featureInstance name="Downstream_Flow_Rate">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+  </featureInstance>
+  <featureInstance name="Stop_Pump_Completely" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+  </featureInstance>
+  <featureInstance name="Pump_At_KVO_Rate" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+  </featureInstance>
+  <featureInstance name="POST_Done" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+  </featureInstance>
+  <featureInstance name="POST_Fail" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+  </featureInstance>
+  <featureInstance name="HW_Detected_Failure" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+  </featureInstance>
+  <featureInstance name="Over_Max_Drug_Per_Hour" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.5"/>
+  </featureInstance>
+  <featureInstance name="Hard_Limit_Violated" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.6"/>
+  </featureInstance>
+  <featureInstance name="Drug_Not_In_Library" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.7"/>
+  </featureInstance>
+  <featureInstance name="Security_Fault" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.8"/>
+  </featureInstance>
+  <featureInstance name="Empty_Reservoir" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.9"/>
+  </featureInstance>
+  <featureInstance name="Low_Reservoir" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.10"/>
+  </featureInstance>
+  <featureInstance name="Defective_Battery" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.11"/>
+  </featureInstance>
+  <featureInstance name="Low_Battery_Warning" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.12"/>
+  </featureInstance>
+  <featureInstance name="Voltage_OOR" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.13"/>
+  </featureInstance>
+  <featureInstance name="Bubble" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.14"/>
+  </featureInstance>
+  <featureInstance name="Pump_Too_Hot" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.15"/>
+  </featureInstance>
+  <featureInstance name="Prime_Failure" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.16"/>
+  </featureInstance>
+  <featureInstance name="Upstream_Occlusion" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.17"/>
+  </featureInstance>
+  <featureInstance name="Downstream_Occlusion" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.18"/>
+  </featureInstance>
+  <featureInstance name="CP_Reset_Alarm" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.19"/>
+  </featureInstance>
+  <featureInstance name="Get_Fault_Log" category="eventPort">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;The_Fault_Log'=FAULT_LOG>>"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.20/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.20"/>
+  </featureInstance>
+  <featureInstance name="Alarm" category="eventDataPort" direction="out">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Pump_Overheated,Defective_Battery,Low_Battery,&#xD;&#xA;      POST_Failure,RAM_Failure,ROM_failure,CPU_Failure,Thread_Monitor_Failure,&#xD;&#xA;      Air_In_Line,Upstream_Occlusion,Downstream_Occlusion,Empty_Reservoir,&#xD;&#xA;      Basal_Overinfusion,Bolus_Overinfusion,Square_Bolus_Overinfusion,No_Alarm)"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/6"/>
+  </featureInstance>
+  <featureInstance name="Warning" category="eventDataPort" direction="out">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Over_Max_Drug_Per_Hour,Soft_Limit,&#xD;&#xA; --     Below_VTBI_Soft_Limit,Above_VTBI_Soft_Limit,       &#xD;&#xA; --     Below_Basal_Rate_Soft_Limit,Above_Basal_Rate_Soft_Limit,&#xD;&#xA;      Low_Reservoir,Priming_Failure,&#xD;&#xA;      Basal_Underinfusion,Bolus_Underinfusion,Square_Bolus_Underinfusion,&#xD;&#xA;      Input_Needed,Long_Pause,Drug_Not_In_Library,Hard_Limit_Violated,Voltage_OOR,&#xD;&#xA;      Priming_Failure,No_Warning)"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/7"/>
+  </featureInstance>
+  <featureInstance name="The_Fault_Log" category="eventDataPort" direction="out">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=FAULT_LOG>>"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="array [#PCA_Properties::Fault_Log_Size] of PCA_Types::Fault_Record"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <componentInstance name="s_bus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.Safety_Bus"/>
+  </componentInstance>
+  <componentInstance name="error_detect" category="device">
+    <featureInstance name="Software_Stop_Pump" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Stop_Pump_Completely" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="POST_Failure" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="POST_Done" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+    </featureInstance>
+    <featureInstance name="RAM_Failure" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.4"/>
+    </featureInstance>
+    <featureInstance name="ROM_failure" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.5"/>
+    </featureInstance>
+    <featureInstance name="CPU_Failure" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.6"/>
+    </featureInstance>
+    <featureInstance name="Thread_Monitor_Failure" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.7"/>
+    </featureInstance>
+    <featureInstance name="HW_Detected_Failure" category="eventPort" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists t:BLESS_Types::Time in t&lt;=now&#xD;&#xA;         that (POST_Failure or RAM_Failure or ROM_failure or CPU_Failure or Thread_Monitor_Failure)@t>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.8"/>
+    </featureInstance>
+    <featureInstance name="s_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.error_detector.imp"/>
+  </componentInstance>
+  <componentInstance name="fault_log" category="device">
+    <featureInstance name="Log_Fault" category="eventDataPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="record (alarm:Alarm_Type; warning:Warning_Type; occurrence_time:BLESS_Types::Time;)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="The_Log" category="eventDataPort" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=FAULT_LOG>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="array [#PCA_Properties::Fault_Log_Size] of PCA_Types::Fault_Record"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Get_Log" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="POST_Failure" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists j:integer in 0 ..(#PCA_Properties::Fault_Log_Size-1) &#xD;&#xA;         that log[j].alarm=POST_Failure and log[j].occurrence_time=now>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="RAM_Failure" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists j:integer in 0 ..(#PCA_Properties::Fault_Log_Size-1) &#xD;&#xA;         that log[j].alarm=RAM_Failure and log[j].occurrence_time=now>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="ROM_Failure" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists j:integer in 0 ..(#PCA_Properties::Fault_Log_Size-1) &#xD;&#xA;         that log[j].alarm=ROM_failure and log[j].occurrence_time=now>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.3/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.3"/>
+    </featureInstance>
+    <featureInstance name="CPU_Failure" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists j:integer in 0 ..(#PCA_Properties::Fault_Log_Size-1) &#xD;&#xA;         that log[j].alarm=CPU_Failure and log[j].occurrence_time=now>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.4"/>
+    </featureInstance>
+    <featureInstance name="Thread_Monitor_Failure" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists j:integer in 0 ..(#PCA_Properties::Fault_Log_Size-1) &#xD;&#xA;         that log[j].alarm=Thread_Monitor_Failure and log[j].occurrence_time=now>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.5/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.5"/>
+    </featureInstance>
+    <featureInstance name="Voltage_OOR" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.6"/>
+    </featureInstance>
+    <featureInstance name="i_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="p_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="s_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.fault_logger.imp"/>
+  </componentInstance>
+  <componentInstance name="led" category="device">
+    <featureInstance name="Light" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;Light iff( exists t:BLESS_Types::Time in t&lt;=now&#xD;&#xA;         that (POST_Failure or RAM_Failure or ROM_failure or CPU_Failure or Thread_Monitor_Failure)@t)>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="Illuminate" category="eventPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;exists t:BLESS_Types::Time in t&lt;=now&#xD;&#xA;         that (POST_Failure or RAM_Failure or ROM_failure or CPU_Failure or Thread_Monitor_Failure)@t>>"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="s_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.failure_led.imp"/>
+  </componentInstance>
+  <componentInstance name="alarm_process" category="process">
+    <featureInstance name="alrm" category="featureGroup" direction="in out">
+      <featureInstance name="Alarm_Signal" category="eventDataPort" direction="in out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="Immediate" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="Prompt" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="Delayed" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="Malfunction" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="Reset_Alarm" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/ice-device/aadl/packages/ICE.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="Alarm_Type" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Pump_Overheated,Defective_Battery,Low_Battery,&#xD;&#xA;      POST_Failure,RAM_Failure,ROM_failure,CPU_Failure,Thread_Monitor_Failure,&#xD;&#xA;      Air_In_Line,Upstream_Occlusion,Downstream_Occlusion,Empty_Reservoir,&#xD;&#xA;      Basal_Overinfusion,Bolus_Overinfusion,Square_Bolus_Overinfusion,No_Alarm)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="Warning_Type" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Over_Max_Drug_Per_Hour,Soft_Limit,&#xD;&#xA; --     Below_VTBI_Soft_Limit,Above_VTBI_Soft_Limit,       &#xD;&#xA; --     Below_Basal_Rate_Soft_Limit,Above_Basal_Rate_Soft_Limit,&#xD;&#xA;      Low_Reservoir,Priming_Failure,&#xD;&#xA;      Basal_Underinfusion,Bolus_Underinfusion,Square_Bolus_Underinfusion,&#xD;&#xA;      Input_Needed,Long_Pause,Drug_Not_In_Library,Hard_Limit_Violated,Voltage_OOR,&#xD;&#xA;      Priming_Failure,No_Warning)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="System_Status">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Stopped,Priming,Paused,Bolus,Basal,KVO,Square_Bolus)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/9"/>
+    </featureInstance>
+    <featureInstance name="Infusion_Flow_Rate">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <featureInstance name="Upstream_Flow_Rate">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <featureInstance name="Downstream_Flow_Rate">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <featureInstance name="Alarm" category="eventDataPort" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Pump_Overheated,Defective_Battery,Low_Battery,&#xD;&#xA;      POST_Failure,RAM_Failure,ROM_failure,CPU_Failure,Thread_Monitor_Failure,&#xD;&#xA;      Air_In_Line,Upstream_Occlusion,Downstream_Occlusion,Empty_Reservoir,&#xD;&#xA;      Basal_Overinfusion,Bolus_Overinfusion,Square_Bolus_Overinfusion,No_Alarm)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="Warning" category="eventDataPort" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Over_Max_Drug_Per_Hour,Soft_Limit,&#xD;&#xA; --     Below_VTBI_Soft_Limit,Above_VTBI_Soft_Limit,       &#xD;&#xA; --     Below_Basal_Rate_Soft_Limit,Above_Basal_Rate_Soft_Limit,&#xD;&#xA;      Low_Reservoir,Priming_Failure,&#xD;&#xA;      Basal_Underinfusion,Bolus_Underinfusion,Square_Bolus_Underinfusion,&#xD;&#xA;      Input_Needed,Long_Pause,Drug_Not_In_Library,Hard_Limit_Violated,Voltage_OOR,&#xD;&#xA;      Priming_Failure,No_Warning)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="Log_Fault" category="eventDataPort" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="record (alarm:Alarm_Type; warning:Warning_Type; occurrence_time:BLESS_Types::Time;)"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="Stop_Pump_Completely" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Pump_At_KVO_Rate" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="Over_Max_Drug_Per_Hour" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="Hard_Limit_Violated" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+    </featureInstance>
+    <featureInstance name="Prime_Failure" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+    </featureInstance>
+    <featureInstance name="Bubble" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.5"/>
+    </featureInstance>
+    <featureInstance name="Upstream_Occlusion" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.6"/>
+    </featureInstance>
+    <featureInstance name="Downstream_Occlusion" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.7"/>
+    </featureInstance>
+    <featureInstance name="Empty_Reservoir" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.8"/>
+    </featureInstance>
+    <featureInstance name="Low_Reservoir" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.9"/>
+    </featureInstance>
+    <featureInstance name="Pump_Hot" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.10"/>
+    </featureInstance>
+    <featureInstance name="Drug_Not_In_Library" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.11"/>
+    </featureInstance>
+    <featureInstance name="Defective_Battery" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.12"/>
+    </featureInstance>
+    <featureInstance name="Low_Battery_Warning" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.13"/>
+    </featureInstance>
+    <featureInstance name="Voltage_OOR" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.14"/>
+    </featureInstance>
+    <featureInstance name="CP_Reset_Alarm" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.15"/>
+    </featureInstance>
+    <featureInstance name="Security_Fault" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.16"/>
+    </featureInstance>
+    <componentInstance name="alarm_thr" category="thread">
+      <featureInstance name="Alarm" category="eventDataPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=ALARM_TYPE()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Pump_Overheated,Defective_Battery,Low_Battery,&#xD;&#xA;      POST_Failure,RAM_Failure,ROM_failure,CPU_Failure,Thread_Monitor_Failure,&#xD;&#xA;      Air_In_Line,Upstream_Occlusion,Downstream_Occlusion,Empty_Reservoir,&#xD;&#xA;      Basal_Overinfusion,Bolus_Overinfusion,Square_Bolus_Overinfusion,No_Alarm)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="Warning" category="eventDataPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=WARNING_TYPE()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Over_Max_Drug_Per_Hour,Soft_Limit,&#xD;&#xA; --     Below_VTBI_Soft_Limit,Above_VTBI_Soft_Limit,       &#xD;&#xA; --     Below_Basal_Rate_Soft_Limit,Above_Basal_Rate_Soft_Limit,&#xD;&#xA;      Low_Reservoir,Priming_Failure,&#xD;&#xA;      Basal_Underinfusion,Bolus_Underinfusion,Square_Bolus_Underinfusion,&#xD;&#xA;      Input_Needed,Long_Pause,Drug_Not_In_Library,Hard_Limit_Violated,Voltage_OOR,&#xD;&#xA;      Priming_Failure,No_Warning)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="ICE_Alarm_Signal" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="Log_Fault" category="eventDataPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=(alarm=>currentAlarm;warning=>currentWarning;occurrence_time=>now;)>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="record (alarm:Alarm_Type; warning:Warning_Type; occurrence_time:BLESS_Types::Time;)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="ICE_Immediate" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="ICE_Prompt" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="ICE_Delayed" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="ICE_Malfunction" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="ICE_Reset_Alarm" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="Stop_Pump_Completely" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;STOP_PUMP()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.5"/>
+      </featureInstance>
+      <featureInstance name="Pump_At_KVO_Rate" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;PUMP_KVO()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.6/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.6"/>
+      </featureInstance>
+      <featureInstance name="Max_Dose_Warning" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;MAX_DOSE_WARNING>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.7/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.7"/>
+      </featureInstance>
+      <featureInstance name="Hard_Limit_Violation" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;HARD_LIMIT_VIOLATED>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.8"/>
+      </featureInstance>
+      <featureInstance name="Empty_Res" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;EMPTY_RESERVOIR>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.9/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.9"/>
+      </featureInstance>
+      <featureInstance name="Low_Res" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;LOW_RESERVOIR>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.10/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.10"/>
+      </featureInstance>
+      <featureInstance name="Pump_Hot" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;PUMP_OVERHEATED>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.11/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.11"/>
+      </featureInstance>
+      <featureInstance name="Upstream_Occlusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;UPSTREAM_OCCLUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.12/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.12"/>
+      </featureInstance>
+      <featureInstance name="Downstream_Occlusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;DOWNSTREAM_OCCLUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.13/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.13"/>
+      </featureInstance>
+      <featureInstance name="Bubble" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.14"/>
+      </featureInstance>
+      <featureInstance name="Prime_Failure" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;PRIME_FAIL>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.15/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.15"/>
+      </featureInstance>
+      <featureInstance name="CP_Reset_Alarm" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;NO_ALARM and NO_WARNING>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.16/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.16"/>
+      </featureInstance>
+      <featureInstance name="Drug_Not_In_Library" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;DRUG_NOT_IN_LIBRARY>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.17/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.17"/>
+      </featureInstance>
+      <featureInstance name="Defective_Btty" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;DEFECTIVE_BATTERY>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.18/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.18"/>
+      </featureInstance>
+      <featureInstance name="Low_Battery_Warning" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;LOW_BATTERY>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.19/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.19"/>
+      </featureInstance>
+      <featureInstance name="Voltage_OOR" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;VOLTAGE_OOR>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.20/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.20"/>
+      </featureInstance>
+      <featureInstance name="Basal_Overinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BASAL_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.21/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.21"/>
+      </featureInstance>
+      <featureInstance name="Bolus_Overinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BOLUS_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.22/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.22"/>
+      </featureInstance>
+      <featureInstance name="Square_Bolus_Overinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;SQUARE_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.23/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.23"/>
+      </featureInstance>
+      <featureInstance name="Basal_Underinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BASAL_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.24/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.24"/>
+      </featureInstance>
+      <featureInstance name="Bolus_Underinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BOLUS_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.25/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.25"/>
+      </featureInstance>
+      <featureInstance name="Square_Bolus_Underinfusion" category="eventPort">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;SQUARE_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.26/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.26"/>
+      </featureInstance>
+      <featureInstance name="Security_Fault" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.27"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#PCA_Alarm.alarm_thread.imp"/>
+    </componentInstance>
+    <componentInstance name="flow_rate" category="thread">
+      <featureInstance name="System_Status">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="enumeration (Stopped,Priming,Paused,Bolus,Basal,KVO,Square_Bolus)"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="Infusion_Flow_Rate">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="Upstream_Flow_Rate">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="Downstream_Flow_Rate">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="integer"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="ml/hr"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="Basal_Overinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BASAL_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="Bolus_Overinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BOLUS_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="Square_Bolus_Overinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;SQUARE_OVERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="Basal_Underinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BASAL_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.3/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="Bolus_Underinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;BOLUS_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.4/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="Square_Bolus_Underinfusion" category="eventPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/BLESS_Resources/property_sets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;SQUARE_UNDERINFUSION>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.5"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#PCA_Alarm.Flow_Rate_Checker.imp"/>
+    </componentInstance>
+    <connectionInstance name="flow_rate.Basal_Overinfusion -> alarm_thr.Basal_Overinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.25" source="//@componentInstance.4/@componentInstance.1/@featureInstance.4">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.25">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.30"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="flow_rate.Bolus_Overinfusion -> alarm_thr.Bolus_Overinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.26" source="//@componentInstance.4/@componentInstance.1/@featureInstance.5">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.26">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.31"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="flow_rate.Square_Bolus_Overinfusion -> alarm_thr.Square_Bolus_Overinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.27" source="//@componentInstance.4/@componentInstance.1/@featureInstance.6">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.6" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.27">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.32"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="flow_rate.Basal_Underinfusion -> alarm_thr.Basal_Underinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.28" source="//@componentInstance.4/@componentInstance.1/@featureInstance.7">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.7" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.28">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.33"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="flow_rate.Bolus_Underinfusion -> alarm_thr.Bolus_Underinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.29" source="//@componentInstance.4/@componentInstance.1/@featureInstance.8">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.8" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.29">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.34"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="flow_rate.Square_Bolus_Underinfusion -> alarm_thr.Square_Bolus_Underinfusion" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.30" source="//@componentInstance.4/@componentInstance.1/@featureInstance.9">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.9" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.30">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.35"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#PCA_Alarm.alarm_process.imp"/>
+  </componentInstance>
+  <componentInstance name="safety_core" category="processor">
+    <featureInstance name="i_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="s_bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="to_adaptor" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/instances/PCA_Safety_safety_imp_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.Safety_Core"/>
+  </componentInstance>
+  <connectionInstance name="alrm.Reset_Alarm -> alarm_process.alarm_thr.ICE_Reset_Alarm" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.8" source="//@featureInstance.0/@featureInstance.5">
+    <connectionReference context="/" source="//@featureInstance.0/@featureInstance.5" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.5">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.0/@featureInstance.5" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alrm.Alarm_Signal -> alarm_process.alarm_thr.ICE_Alarm_Signal" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2" source="//@featureInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.0/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i_bus -> fault_log.i_bus" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.9" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.2/@featureInstance.9">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i_bus -> safety_core.i_bus" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="p_bus -> fault_log.p_bus" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.10" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.2/@featureInstance.10">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="To_Adaptor -> safety_core.to_adaptor" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.2" source="//@featureInstance.3">
+    <connectionReference context="/" source="//@featureInstance.3" destination="//@componentInstance.5/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="System_Status -> alarm_process.flow_rate.System_Status" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0" source="//@featureInstance.4">
+    <connectionReference context="/" source="//@featureInstance.4" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.21"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.26"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Infusion_Flow_Rate -> alarm_process.flow_rate.Infusion_Flow_Rate" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.1" source="//@featureInstance.5">
+    <connectionReference context="/" source="//@featureInstance.5" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.22"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.27"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Upstream_Flow_Rate -> alarm_process.flow_rate.Upstream_Flow_Rate" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.2" source="//@featureInstance.6">
+    <connectionReference context="/" source="//@featureInstance.6" destination="//@componentInstance.4/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.23"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.3" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.28"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Downstream_Flow_Rate -> alarm_process.flow_rate.Downstream_Flow_Rate" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.3" source="//@featureInstance.7">
+    <connectionReference context="/" source="//@featureInstance.7" destination="//@componentInstance.4/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.24"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.4" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.29"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Over_Max_Drug_Per_Hour -> alarm_process.alarm_thr.Max_Dose_Warning" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.11" source="//@featureInstance.13">
+    <connectionReference context="/" source="//@featureInstance.13" destination="//@componentInstance.4/@featureInstance.10">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.10" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.11">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Hard_Limit_Violated -> alarm_process.alarm_thr.Hard_Limit_Violation" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.12" source="//@featureInstance.14">
+    <connectionReference context="/" source="//@featureInstance.14" destination="//@componentInstance.4/@featureInstance.11">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.11" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.12">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Drug_Not_In_Library -> alarm_process.alarm_thr.Drug_Not_In_Library" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.21" source="//@featureInstance.15">
+    <connectionReference context="/" source="//@featureInstance.15" destination="//@componentInstance.4/@featureInstance.19">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.19" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.21">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.18"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Security_Fault -> alarm_process.alarm_thr.Security_Fault" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.31" source="//@featureInstance.16">
+    <connectionReference context="/" source="//@featureInstance.16" destination="//@componentInstance.4/@featureInstance.24">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.24" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.31">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.37"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Empty_Reservoir -> alarm_process.alarm_thr.Empty_Res" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.13" source="//@featureInstance.17">
+    <connectionReference context="/" source="//@featureInstance.17" destination="//@componentInstance.4/@featureInstance.16">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.16" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.13">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Low_Reservoir -> alarm_process.alarm_thr.Low_Res" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.14" source="//@featureInstance.18">
+    <connectionReference context="/" source="//@featureInstance.18" destination="//@componentInstance.4/@featureInstance.17">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.17" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.14">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Defective_Battery -> alarm_process.alarm_thr.Defective_Btty" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.22" source="//@featureInstance.19">
+    <connectionReference context="/" source="//@featureInstance.19" destination="//@componentInstance.4/@featureInstance.20">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.20" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.22">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.22"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Low_Battery_Warning -> alarm_process.alarm_thr.Low_Battery_Warning" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.23" source="//@featureInstance.20">
+    <connectionReference context="/" source="//@featureInstance.20" destination="//@componentInstance.4/@featureInstance.21">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.21" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.23">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.23"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Voltage_OOR -> fault_log.Voltage_OOR" kind="portConnection" destination="//@componentInstance.2/@featureInstance.8" source="//@featureInstance.21">
+    <connectionReference context="/" source="//@featureInstance.21" destination="//@componentInstance.2/@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Voltage_OOR -> alarm_process.alarm_thr.Voltage_OOR" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.24" source="//@featureInstance.21">
+    <connectionReference context="/" source="//@featureInstance.21" destination="//@componentInstance.4/@featureInstance.22">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.22" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.24">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.24"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Bubble -> alarm_process.alarm_thr.Bubble" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.18" source="//@featureInstance.22">
+    <connectionReference context="/" source="//@featureInstance.22" destination="//@componentInstance.4/@featureInstance.13">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.13" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.18">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.21"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Pump_Too_Hot -> alarm_process.alarm_thr.Pump_Hot" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.15" source="//@featureInstance.23">
+    <connectionReference context="/" source="//@featureInstance.23" destination="//@componentInstance.4/@featureInstance.18">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.18" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.15">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Prime_Failure -> alarm_process.alarm_thr.Prime_Failure" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.19" source="//@featureInstance.24">
+    <connectionReference context="/" source="//@featureInstance.24" destination="//@componentInstance.4/@featureInstance.12">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.18"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.12" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.19">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Upstream_Occlusion -> alarm_process.alarm_thr.Upstream_Occlusion" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.16" source="//@featureInstance.25">
+    <connectionReference context="/" source="//@featureInstance.25" destination="//@componentInstance.4/@featureInstance.14">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.19"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.14" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.16">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.19"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Downstream_Occlusion -> alarm_process.alarm_thr.Downstream_Occlusion" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.17" source="//@featureInstance.26">
+    <connectionReference context="/" source="//@featureInstance.26" destination="//@componentInstance.4/@featureInstance.15">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.20"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.15" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.17">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.20"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="CP_Reset_Alarm -> alarm_process.alarm_thr.CP_Reset_Alarm" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.20" source="//@featureInstance.27">
+    <connectionReference context="/" source="//@featureInstance.27" destination="//@componentInstance.4/@featureInstance.23">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.33"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.23" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.20">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.36"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Get_Fault_Log -> fault_log.Get_Log" kind="portConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@featureInstance.28">
+    <connectionReference context="/" source="//@featureInstance.28" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.35"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="s_bus -> fault_log.s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.11" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.11">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="s_bus -> led.s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="s_bus -> safety_core.s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.Stop_Pump_Completely -> Stop_Pump_Completely" kind="portConnection" destination="//@featureInstance.8" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.POST_Failure -> fault_log.POST_Failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.3" source="//@componentInstance.1/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.26"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.POST_Failure -> POST_Fail" kind="portConnection" destination="//@featureInstance.11" source="//@componentInstance.1/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.2" destination="//@featureInstance.11">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.27"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.POST_Done -> POST_Done" kind="portConnection" destination="//@featureInstance.10" source="//@componentInstance.1/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.3" destination="//@featureInstance.10">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.28"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.RAM_Failure -> fault_log.RAM_Failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.4" source="//@componentInstance.1/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.4" destination="//@componentInstance.2/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.29"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.ROM_failure -> fault_log.ROM_Failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.5" source="//@componentInstance.1/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.30"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.CPU_Failure -> fault_log.CPU_Failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.6" source="//@componentInstance.1/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.6" destination="//@componentInstance.2/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.31"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.Thread_Monitor_Failure -> fault_log.Thread_Monitor_Failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.7" source="//@componentInstance.1/@featureInstance.7">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.7" destination="//@componentInstance.2/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.32"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.HW_Detected_Failure -> HW_Detected_Failure" kind="portConnection" destination="//@featureInstance.12" source="//@componentInstance.1/@featureInstance.8">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.8" destination="//@featureInstance.12">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.HW_Detected_Failure -> led.Illuminate" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.1" source="//@componentInstance.1/@featureInstance.8">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.8" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.34"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="error_detect.s_bus -> s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.1/@featureInstance.9">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.9" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fault_log.The_Log -> The_Fault_Log" kind="portConnection" destination="//@featureInstance.31" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@featureInstance.31">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.36"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fault_log.i_bus -> i_bus" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.2/@featureInstance.9">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.9" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fault_log.p_bus -> p_bus" kind="accessConnection" destination="//@featureInstance.2" source="//@componentInstance.2/@featureInstance.10">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.10" destination="//@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fault_log.s_bus -> s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.11">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.11" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="led.s_bus -> s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.3/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Alarm -> Alarm" kind="portConnection" destination="//@featureInstance.29" source="//@componentInstance.4/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.5" destination="//@featureInstance.29">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Alarm -> alrm.Alarm_Type" kind="portConnection" destination="//@featureInstance.0/@featureInstance.6" source="//@componentInstance.4/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.6" destination="//@featureInstance.0/@featureInstance.6" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Warning -> Warning" kind="portConnection" destination="//@featureInstance.30" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.4/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.6" destination="//@featureInstance.30">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Warning -> alrm.Warning_Type" kind="portConnection" destination="//@featureInstance.0/@featureInstance.7" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.7" destination="//@featureInstance.0/@featureInstance.7" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Log_Fault -> fault_log.Log_Fault" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.4/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.25"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.7" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.25"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.ICE_Immediate -> alrm.Immediate" kind="portConnection" destination="//@featureInstance.0/@featureInstance.1" source="//@componentInstance.4/@componentInstance.0/@featureInstance.4">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.1" destination="//@featureInstance.0/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.ICE_Prompt -> alrm.Prompt" kind="portConnection" destination="//@featureInstance.0/@featureInstance.2" source="//@componentInstance.4/@componentInstance.0/@featureInstance.5">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.2" destination="//@featureInstance.0/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.ICE_Delayed -> alrm.Delayed" kind="portConnection" destination="//@featureInstance.0/@featureInstance.3" source="//@componentInstance.4/@componentInstance.0/@featureInstance.6">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.6" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.3" destination="//@featureInstance.0/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.ICE_Malfunction -> alrm.Malfunction" kind="portConnection" destination="//@featureInstance.0/@featureInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.7">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.7" destination="//@componentInstance.4/@featureInstance.0/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0/@featureInstance.4" destination="//@featureInstance.0/@featureInstance.4" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Stop_Pump_Completely -> error_detect.Software_Stop_Pump" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.4/@componentInstance.0/@featureInstance.9">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.9" destination="//@componentInstance.4/@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.8" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="alarm_process.alarm_thr.Pump_At_KVO_Rate -> Pump_At_KVO_Rate" kind="portConnection" destination="//@featureInstance.9" source="//@componentInstance.4/@componentInstance.0/@featureInstance.10">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.10" destination="//@componentInstance.4/@featureInstance.9">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.9" destination="//@featureInstance.9">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="safety_core.i_bus -> i_bus" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.5/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.0" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="safety_core.s_bus -> s_bus" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.5/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="safety_core.to_adaptor -> To_Adaptor" kind="accessConnection" destination="//@featureInstance.3" source="//@componentInstance.5/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.2" destination="//@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.safety.imp"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/pca-pump/pca/aadl/packages/PCA_Safety.aadl#PCA_Safety.safety.imp"/>
+</instance:SystemInstance>

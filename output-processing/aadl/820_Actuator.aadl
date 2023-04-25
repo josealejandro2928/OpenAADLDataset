@@ -1,0 +1,29 @@
+package Actuator
+public
+	with SEI;
+
+	device BrakePedal
+		features
+			bp_cc: out data port;
+		flows
+			bp_source: flow source bp_cc
+			{
+				Latency => 7ms .. 7ms;
+			};
+		properties
+			SEI::NetWeight => 0.25kg;
+	end BrakePedal;
+	
+	device CarActuator
+		features
+			act_cc: in data port;
+		flows
+			act_sink: flow sink act_cc
+			{
+				Latency => 15ms .. 15ms;
+			};
+		properties
+			SEI::NetWeight => 2.0kg;
+	end CarActuator;
+		
+end Actuator;

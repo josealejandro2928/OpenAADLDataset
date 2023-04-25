@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_impl_Instance" category="system">
+  <componentInstance name="proc" category="process">
+    <componentInstance name="group1" category="thread group" inMode="//@componentInstance.0/@modeInstance.0 //@componentInstance.0/@modeInstance.1">
+      <componentInstance name="thread1" category="thread" inMode="//@componentInstance.0/@componentInstance.0/@modeInstance.0 //@componentInstance.0/@componentInstance.0/@modeInstance.1">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time"/>
+          <ownedValue inMode="//@systemOperationMode.0">
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" value="200">
+                <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </minimum>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="200">
+                <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </maximum>
+            </ownedValue>
+          </ownedValue>
+          <ownedValue inMode="//@systemOperationMode.1">
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" value="300">
+                <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </minimum>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="300">
+                <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </maximum>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <modeInstance name="LO" initial="true" derived="true" parent="//@componentInstance.0/@componentInstance.0/@modeInstance.0">
+          <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedMode.0"/>
+        </modeInstance>
+        <modeInstance name="HI" derived="true" parent="//@componentInstance.0/@componentInstance.0/@modeInstance.1">
+          <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedMode.1"/>
+        </modeInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#Issue1616.thread1.impl"/>
+      </componentInstance>
+      <modeInstance name="LO" initial="true" derived="true" parent="//@componentInstance.0/@modeInstance.0">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="HI" derived="true" parent="//@componentInstance.0/@modeInstance.1">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadGroupSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadGroupImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#Issue1616.group1.impl"/>
+    </componentInstance>
+    <modeInstance name="LO" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="HI">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.1"/>
+    </modeInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#Issue1616.proc1.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#Issue1616.main.impl"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.0/@modeInstance.0 //@componentInstance.0/@componentInstance.0/@modeInstance.0 //@componentInstance.0/@componentInstance.0/@componentInstance.0/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.0/@modeInstance.1 //@componentInstance.0/@componentInstance.0/@modeInstance.1 //@componentInstance.0/@componentInstance.0/@componentInstance.0/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a483/core/org.osate.core.tests/models/issue1616/Issue1616.aadl#Issue1616.main.impl"/>
+</instance:SystemInstance>

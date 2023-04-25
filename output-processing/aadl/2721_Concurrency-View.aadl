@@ -1,0 +1,1507 @@
+--  TASTE - Warning: This is NOT the real Concurrency view  --
+--  This file was automatically generated and should remain read-only
+--  Open it with TASTE-IV
+--  The only intended use of this file is visualization - not processing.
+
+package generated_cv::IV::ConcurrencyView
+public
+with dataview; 
+with exportedComponent::FV;
+with taste;
+
+  --{ interfaceview obj6480 10 10
+  --TASTE-generated concurrency view
+  --For visualization purposes.
+  --}
+
+  system exportedComponent
+  end exportedComponent;
+
+  system implementation exportedComponent.others
+    subcomponents
+	gui : system interfaceview::IV::PASSIVE_gui.others;
+	atm : system interfaceview::IV::PASSIVE_atm.others;
+	chip_taste_api : system interfaceview::IV::PASSIVE_chip_taste_api.others;
+	vt_gui_transaction : system interfaceview::IV::THREAD_vt_gui_transaction.others;
+	vt_gui_display : system interfaceview::IV::THREAD_vt_gui_display.others;
+	vt_gui_eject_card : system interfaceview::IV::THREAD_vt_gui_eject_card.others;
+	vt_gui_out_msg : system interfaceview::IV::THREAD_vt_gui_out_msg.others;
+	vt_gui_gui_polling_gui : system interfaceview::IV::THREAD_vt_gui_gui_polling_gui.others;
+	vt_atm_accept_card : system interfaceview::IV::THREAD_vt_atm_accept_card.others;
+	vt_atm_reject_transaction : system interfaceview::IV::THREAD_vt_atm_reject_transaction.others;
+	vt_atm_out_of_service : system interfaceview::IV::THREAD_vt_atm_out_of_service.others;
+	vt_atm_abort_out : system interfaceview::IV::THREAD_vt_atm_abort_out.others;
+	vt_atm_amount : system interfaceview::IV::THREAD_vt_atm_amount.others;
+	vt_atm_other_amount : system interfaceview::IV::THREAD_vt_atm_other_amount.others;
+	vt_atm_digit : system interfaceview::IV::THREAD_vt_atm_digit.others;
+	vt_atm_ok : system interfaceview::IV::THREAD_vt_atm_ok.others;
+	vt_atm_transaction_succeseeded : system interfaceview::IV::THREAD_vt_atm_transaction_succeseeded.others;
+    connections
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> PASSIVE_gui.accept_card;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> PASSIVE_gui.reject_transaction;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> PASSIVE_gui.out_of_service;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> PASSIVE_gui.abort_out;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> PASSIVE_gui.amount;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> PASSIVE_gui.other_amount;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> PASSIVE_gui.digit;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> PASSIVE_gui.ok;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> PASSIVE_gui.transaction_succeseeded;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> PASSIVE_atm.out_msg;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> PASSIVE_atm.transaction;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> PASSIVE_atm.display;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> PASSIVE_atm.eject_card;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> PASSIVE_atm.check_queue;
+	protected_transaction : subprogram access PASSIVE_gui.transaction -> THREAD_vt_gui_transaction.transaction;
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> THREAD_vt_gui_transaction.accept_card_vt;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> THREAD_vt_gui_transaction.reject_transaction_vt;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> THREAD_vt_gui_transaction.out_of_service_vt;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> THREAD_vt_gui_transaction.abort_out_vt;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> THREAD_vt_gui_transaction.amount_vt;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> THREAD_vt_gui_transaction.other_amount_vt;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> THREAD_vt_gui_transaction.digit_vt;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> THREAD_vt_gui_transaction.ok_vt;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> THREAD_vt_gui_transaction.transaction_succeseeded_vt;
+	protected_display : subprogram access PASSIVE_gui.display -> THREAD_vt_gui_display.display;
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> THREAD_vt_gui_display.accept_card_vt;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> THREAD_vt_gui_display.reject_transaction_vt;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> THREAD_vt_gui_display.out_of_service_vt;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> THREAD_vt_gui_display.abort_out_vt;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> THREAD_vt_gui_display.amount_vt;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> THREAD_vt_gui_display.other_amount_vt;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> THREAD_vt_gui_display.digit_vt;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> THREAD_vt_gui_display.ok_vt;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> THREAD_vt_gui_display.transaction_succeseeded_vt;
+	protected_eject_card : subprogram access PASSIVE_gui.eject_card -> THREAD_vt_gui_eject_card.eject_card;
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> THREAD_vt_gui_eject_card.accept_card_vt;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> THREAD_vt_gui_eject_card.reject_transaction_vt;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> THREAD_vt_gui_eject_card.out_of_service_vt;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> THREAD_vt_gui_eject_card.abort_out_vt;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> THREAD_vt_gui_eject_card.amount_vt;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> THREAD_vt_gui_eject_card.other_amount_vt;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> THREAD_vt_gui_eject_card.digit_vt;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> THREAD_vt_gui_eject_card.ok_vt;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> THREAD_vt_gui_eject_card.transaction_succeseeded_vt;
+	protected_out_msg : subprogram access PASSIVE_gui.out_msg -> THREAD_vt_gui_out_msg.out_msg;
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> THREAD_vt_gui_out_msg.accept_card_vt;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> THREAD_vt_gui_out_msg.reject_transaction_vt;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> THREAD_vt_gui_out_msg.out_of_service_vt;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> THREAD_vt_gui_out_msg.abort_out_vt;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> THREAD_vt_gui_out_msg.amount_vt;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> THREAD_vt_gui_out_msg.other_amount_vt;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> THREAD_vt_gui_out_msg.digit_vt;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> THREAD_vt_gui_out_msg.ok_vt;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> THREAD_vt_gui_out_msg.transaction_succeseeded_vt;
+	protected_gui_polling_gui : subprogram access PASSIVE_gui.gui_polling_gui -> THREAD_vt_gui_gui_polling_gui.gui_polling_gui;
+	sporadic_artificial_accept_card : subprogram access THREAD_vt_atm_accept_card.artificial_accept_card -> THREAD_vt_gui_gui_polling_gui.accept_card_vt;
+	sporadic_artificial_reject_transaction : subprogram access THREAD_vt_atm_reject_transaction.artificial_reject_transaction -> THREAD_vt_gui_gui_polling_gui.reject_transaction_vt;
+	sporadic_artificial_out_of_service : subprogram access THREAD_vt_atm_out_of_service.artificial_out_of_service -> THREAD_vt_gui_gui_polling_gui.out_of_service_vt;
+	sporadic_artificial_abort_out : subprogram access THREAD_vt_atm_abort_out.artificial_abort_out -> THREAD_vt_gui_gui_polling_gui.abort_out_vt;
+	sporadic_artificial_amount : subprogram access THREAD_vt_atm_amount.artificial_amount -> THREAD_vt_gui_gui_polling_gui.amount_vt;
+	sporadic_artificial_other_amount : subprogram access THREAD_vt_atm_other_amount.artificial_other_amount -> THREAD_vt_gui_gui_polling_gui.other_amount_vt;
+	sporadic_artificial_digit : subprogram access THREAD_vt_atm_digit.artificial_digit -> THREAD_vt_gui_gui_polling_gui.digit_vt;
+	sporadic_artificial_ok : subprogram access THREAD_vt_atm_ok.artificial_ok -> THREAD_vt_gui_gui_polling_gui.ok_vt;
+	sporadic_artificial_transaction_succeseeded : subprogram access THREAD_vt_atm_transaction_succeseeded.artificial_transaction_succeseeded -> THREAD_vt_gui_gui_polling_gui.transaction_succeseeded_vt;
+	protected_accept_card : subprogram access PASSIVE_atm.accept_card -> THREAD_vt_atm_accept_card.accept_card;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_accept_card.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_accept_card.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_accept_card.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_accept_card.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_accept_card.check_queue_vt;
+	protected_reject_transaction : subprogram access PASSIVE_atm.reject_transaction -> THREAD_vt_atm_reject_transaction.reject_transaction;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_reject_transaction.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_reject_transaction.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_reject_transaction.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_reject_transaction.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_reject_transaction.check_queue_vt;
+	protected_out_of_service : subprogram access PASSIVE_atm.out_of_service -> THREAD_vt_atm_out_of_service.out_of_service;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_out_of_service.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_out_of_service.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_out_of_service.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_out_of_service.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_out_of_service.check_queue_vt;
+	protected_abort_out : subprogram access PASSIVE_atm.abort_out -> THREAD_vt_atm_abort_out.abort_out;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_abort_out.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_abort_out.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_abort_out.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_abort_out.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_abort_out.check_queue_vt;
+	protected_amount : subprogram access PASSIVE_atm.amount -> THREAD_vt_atm_amount.amount;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_amount.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_amount.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_amount.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_amount.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_amount.check_queue_vt;
+	protected_other_amount : subprogram access PASSIVE_atm.other_amount -> THREAD_vt_atm_other_amount.other_amount;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_other_amount.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_other_amount.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_other_amount.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_other_amount.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_other_amount.check_queue_vt;
+	protected_digit : subprogram access PASSIVE_atm.digit -> THREAD_vt_atm_digit.digit;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_digit.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_digit.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_digit.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_digit.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_digit.check_queue_vt;
+	protected_ok : subprogram access PASSIVE_atm.ok -> THREAD_vt_atm_ok.ok;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_ok.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_ok.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_ok.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_ok.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_ok.check_queue_vt;
+	protected_transaction_succeseeded : subprogram access PASSIVE_atm.transaction_succeseeded -> THREAD_vt_atm_transaction_succeseeded.transaction_succeseeded;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_atm_transaction_succeseeded.out_msg_vt;
+	sporadic_artificial_transaction : subprogram access THREAD_vt_gui_transaction.artificial_transaction -> THREAD_vt_atm_transaction_succeseeded.transaction_vt;
+	sporadic_artificial_display : subprogram access THREAD_vt_gui_display.artificial_display -> THREAD_vt_atm_transaction_succeseeded.display_vt;
+	sporadic_artificial_eject_card : subprogram access THREAD_vt_gui_eject_card.artificial_eject_card -> THREAD_vt_atm_transaction_succeseeded.eject_card_vt;
+	unprotected_atm_has_pending_msg : subprogram access PASSIVE_chip_taste_api.atm_has_pending_msg -> THREAD_vt_atm_transaction_succeseeded.check_queue_vt;
+  end exportedComponent.others;
+
+  system PASSIVE_gui
+    features
+	transaction : provides subprogram access exportedComponent::fv::transaction.others
+	  { taste::Coordinates => "200 215 200 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	display : provides subprogram access exportedComponent::fv::display.others
+	  { taste::Coordinates => "200 260 200 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	eject_card : provides subprogram access exportedComponent::fv::eject_card.others
+	  { taste::Coordinates => "200 305 200 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "200 350 200 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	accept_card : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "450 215 450 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "450 260 450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "450 305 450 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "450 350 450 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "450 395 450 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "450 440 450 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "450 485 450 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "450 530 450 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "450 575 450 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "200 395 200 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 200 450 605";
+	taste::instance_name => "gui";
+  end PASSIVE_gui;
+
+  system implementation PASSIVE_gui.others
+    subcomponents
+	transaction_impl : subprogram exportedComponent::FV::transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_impl : subprogram exportedComponent::FV::display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_impl : subprogram exportedComponent::FV::eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access transaction_impl -> transaction;
+	subprogram access display_impl -> display;
+	subprogram access eject_card_impl -> eject_card;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access accept_card_impl -> accept_card;
+	subprogram access reject_transaction_impl -> reject_transaction;
+	subprogram access out_of_service_impl -> out_of_service;
+	subprogram access abort_out_impl -> abort_out;
+	subprogram access amount_impl -> amount;
+	subprogram access other_amount_impl -> other_amount;
+	subprogram access digit_impl -> digit;
+	subprogram access ok_impl -> ok;
+	subprogram access transaction_succeseeded_impl -> transaction_succeseeded;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+  end PASSIVE_gui.others;
+
+  system PASSIVE_atm
+    features
+	accept_card : provides subprogram access exportedComponent::fv::accept_card.others
+	  { taste::Coordinates => "600 215 600 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	reject_transaction : provides subprogram access exportedComponent::fv::reject_transaction.others
+	  { taste::Coordinates => "600 260 600 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_of_service : provides subprogram access exportedComponent::fv::out_of_service.others
+	  { taste::Coordinates => "600 305 600 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	abort_out : provides subprogram access exportedComponent::fv::abort_out.others
+	  { taste::Coordinates => "600 350 600 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	amount : provides subprogram access exportedComponent::fv::amount.others
+	  { taste::Coordinates => "600 395 600 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	other_amount : provides subprogram access exportedComponent::fv::other_amount.others
+	  { taste::Coordinates => "600 440 600 440";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	digit : provides subprogram access exportedComponent::fv::digit.others
+	  { taste::Coordinates => "600 485 600 485";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	ok : provides subprogram access exportedComponent::fv::ok.others
+	  { taste::Coordinates => "600 530 600 530";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded : provides subprogram access exportedComponent::fv::transaction_succeseeded.others
+	  { taste::Coordinates => "600 575 600 575";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 215 850 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "850 260 850 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "850 305 850 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "850 350 850 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "850 395 850 395";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 200 850 605";
+	taste::instance_name => "atm";
+  end PASSIVE_atm;
+
+  system implementation PASSIVE_atm.others
+    subcomponents
+	accept_card_impl : subprogram exportedComponent::FV::accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_impl : subprogram exportedComponent::FV::reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_impl : subprogram exportedComponent::FV::out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_impl : subprogram exportedComponent::FV::abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_impl : subprogram exportedComponent::FV::amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_impl : subprogram exportedComponent::FV::other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_impl : subprogram exportedComponent::FV::digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_impl : subprogram exportedComponent::FV::ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_impl : subprogram exportedComponent::FV::transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access accept_card_impl -> accept_card;
+	subprogram access reject_transaction_impl -> reject_transaction;
+	subprogram access out_of_service_impl -> out_of_service;
+	subprogram access abort_out_impl -> abort_out;
+	subprogram access amount_impl -> amount;
+	subprogram access other_amount_impl -> other_amount;
+	subprogram access digit_impl -> digit;
+	subprogram access ok_impl -> ok;
+	subprogram access transaction_succeseeded_impl -> transaction_succeseeded;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access transaction_impl -> transaction;
+	subprogram access display_impl -> display;
+	subprogram access eject_card_impl -> eject_card;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_atm.others;
+
+  system PASSIVE_chip_taste_api
+    features
+	atm_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1000 215 1000 215";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 200 1250 245";
+	taste::instance_name => "chip_taste_api";
+  end PASSIVE_chip_taste_api;
+
+  system implementation PASSIVE_chip_taste_api.others
+    subcomponents
+	atm_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access atm_has_pending_msg_impl -> atm_has_pending_msg;
+  end PASSIVE_chip_taste_api.others;
+
+  system THREAD_vt_gui_transaction
+    features
+	artificial_transaction : provides subprogram access exportedComponent::fv::transaction.others
+	  { taste::Coordinates => "1400 215 1400 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction : requires subprogram access exportedComponent::fv::transaction.others
+	  { taste::Coordinates => "1650 215 1650 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	accept_card_vt : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "1650 260 1650 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction_vt : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "1650 305 1650 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service_vt : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "1650 350 1650 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out_vt : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "1650 395 1650 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount_vt : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "1650 440 1650 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount_vt : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "1650 485 1650 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit_vt : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "1650 530 1650 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok_vt : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "1650 575 1650 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded_vt : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "1650 620 1650 620";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 200 1650 650";
+	taste::instance_name => "vt_gui_transaction";
+  end THREAD_vt_gui_transaction;
+
+  system implementation THREAD_vt_gui_transaction.others
+    subcomponents
+	artificial_transaction_impl : subprogram exportedComponent::FV::transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_impl : subprogram exportedComponent::FV::transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_vt_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_vt_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_vt_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_vt_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_vt_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_vt_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_vt_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_vt_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_vt_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_transaction_impl -> artificial_transaction;
+	subprogram access transaction_impl -> transaction;
+	subprogram access accept_card_vt_impl -> accept_card_vt;
+	subprogram access reject_transaction_vt_impl -> reject_transaction_vt;
+	subprogram access out_of_service_vt_impl -> out_of_service_vt;
+	subprogram access abort_out_vt_impl -> abort_out_vt;
+	subprogram access amount_vt_impl -> amount_vt;
+	subprogram access other_amount_vt_impl -> other_amount_vt;
+	subprogram access digit_vt_impl -> digit_vt;
+	subprogram access ok_vt_impl -> ok_vt;
+	subprogram access transaction_succeseeded_vt_impl -> transaction_succeseeded_vt;
+  end THREAD_vt_gui_transaction.others;
+
+  system THREAD_vt_gui_display
+    features
+	artificial_display : provides subprogram access exportedComponent::fv::display.others
+	  { taste::Coordinates => "1800 215 1800 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display : requires subprogram access exportedComponent::fv::display.others
+	  { taste::Coordinates => "2050 215 2050 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	accept_card_vt : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "2050 260 2050 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction_vt : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "2050 305 2050 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service_vt : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "2050 350 2050 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out_vt : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "2050 395 2050 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount_vt : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "2050 440 2050 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount_vt : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "2050 485 2050 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit_vt : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "2050 530 2050 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok_vt : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "2050 575 2050 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded_vt : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "2050 620 2050 620";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 200 2050 650";
+	taste::instance_name => "vt_gui_display";
+  end THREAD_vt_gui_display;
+
+  system implementation THREAD_vt_gui_display.others
+    subcomponents
+	artificial_display_impl : subprogram exportedComponent::FV::display.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_impl : subprogram exportedComponent::FV::display.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_vt_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_vt_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_vt_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_vt_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_vt_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_vt_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_vt_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_vt_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_vt_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_display_impl -> artificial_display;
+	subprogram access display_impl -> display;
+	subprogram access accept_card_vt_impl -> accept_card_vt;
+	subprogram access reject_transaction_vt_impl -> reject_transaction_vt;
+	subprogram access out_of_service_vt_impl -> out_of_service_vt;
+	subprogram access abort_out_vt_impl -> abort_out_vt;
+	subprogram access amount_vt_impl -> amount_vt;
+	subprogram access other_amount_vt_impl -> other_amount_vt;
+	subprogram access digit_vt_impl -> digit_vt;
+	subprogram access ok_vt_impl -> ok_vt;
+	subprogram access transaction_succeseeded_vt_impl -> transaction_succeseeded_vt;
+  end THREAD_vt_gui_display.others;
+
+  system THREAD_vt_gui_eject_card
+    features
+	artificial_eject_card : provides subprogram access exportedComponent::fv::eject_card.others
+	  { taste::Coordinates => "2200 215 2200 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card : requires subprogram access exportedComponent::fv::eject_card.others
+	  { taste::Coordinates => "2450 215 2450 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	accept_card_vt : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "2450 260 2450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction_vt : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "2450 305 2450 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service_vt : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "2450 350 2450 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out_vt : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "2450 395 2450 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount_vt : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "2450 440 2450 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount_vt : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "2450 485 2450 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit_vt : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "2450 530 2450 530";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok_vt : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "2450 575 2450 575";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded_vt : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "2450 620 2450 620";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 200 2450 650";
+	taste::instance_name => "vt_gui_eject_card";
+  end THREAD_vt_gui_eject_card;
+
+  system implementation THREAD_vt_gui_eject_card.others
+    subcomponents
+	artificial_eject_card_impl : subprogram exportedComponent::FV::eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_impl : subprogram exportedComponent::FV::eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_vt_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_vt_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_vt_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_vt_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_vt_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_vt_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_vt_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_vt_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_vt_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_eject_card_impl -> artificial_eject_card;
+	subprogram access eject_card_impl -> eject_card;
+	subprogram access accept_card_vt_impl -> accept_card_vt;
+	subprogram access reject_transaction_vt_impl -> reject_transaction_vt;
+	subprogram access out_of_service_vt_impl -> out_of_service_vt;
+	subprogram access abort_out_vt_impl -> abort_out_vt;
+	subprogram access amount_vt_impl -> amount_vt;
+	subprogram access other_amount_vt_impl -> other_amount_vt;
+	subprogram access digit_vt_impl -> digit_vt;
+	subprogram access ok_vt_impl -> ok_vt;
+	subprogram access transaction_succeseeded_vt_impl -> transaction_succeseeded_vt;
+  end THREAD_vt_gui_eject_card.others;
+
+  system THREAD_vt_gui_out_msg
+    features
+	artificial_out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "200 965 200 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "450 965 450 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	accept_card_vt : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "450 1010 450 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction_vt : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "450 1055 450 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service_vt : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "450 1100 450 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out_vt : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "450 1145 450 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount_vt : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "450 1190 450 1190";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount_vt : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "450 1235 450 1235";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit_vt : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "450 1280 450 1280";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok_vt : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "450 1325 450 1325";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded_vt : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "450 1370 450 1370";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 950 450 1400";
+	taste::instance_name => "vt_gui_out_msg";
+  end THREAD_vt_gui_out_msg;
+
+  system implementation THREAD_vt_gui_out_msg.others
+    subcomponents
+	artificial_out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_vt_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_vt_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_vt_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_vt_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_vt_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_vt_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_vt_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_vt_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_vt_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_out_msg_impl -> artificial_out_msg;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access accept_card_vt_impl -> accept_card_vt;
+	subprogram access reject_transaction_vt_impl -> reject_transaction_vt;
+	subprogram access out_of_service_vt_impl -> out_of_service_vt;
+	subprogram access abort_out_vt_impl -> abort_out_vt;
+	subprogram access amount_vt_impl -> amount_vt;
+	subprogram access other_amount_vt_impl -> other_amount_vt;
+	subprogram access digit_vt_impl -> digit_vt;
+	subprogram access ok_vt_impl -> ok_vt;
+	subprogram access transaction_succeseeded_vt_impl -> transaction_succeseeded_vt;
+  end THREAD_vt_gui_out_msg.others;
+
+  system THREAD_vt_gui_gui_polling_gui
+    features
+	artificial_gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "600 965 600 965";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 40;};
+	gui_polling_gui : requires subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "850 965 850 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+	accept_card_vt : requires subprogram access exportedComponent::fv::artificial_accept_card.others
+	  { taste::Coordinates => "850 1010 850 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction_vt : requires subprogram access exportedComponent::fv::artificial_reject_transaction.others
+	  { taste::Coordinates => "850 1055 850 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service_vt : requires subprogram access exportedComponent::fv::artificial_out_of_service.others
+	  { taste::Coordinates => "850 1100 850 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out_vt : requires subprogram access exportedComponent::fv::artificial_abort_out.others
+	  { taste::Coordinates => "850 1145 850 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount_vt : requires subprogram access exportedComponent::fv::artificial_amount.others
+	  { taste::Coordinates => "850 1190 850 1190";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount_vt : requires subprogram access exportedComponent::fv::artificial_other_amount.others
+	  { taste::Coordinates => "850 1235 850 1235";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit_vt : requires subprogram access exportedComponent::fv::artificial_digit.others
+	  { taste::Coordinates => "850 1280 850 1280";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok_vt : requires subprogram access exportedComponent::fv::artificial_ok.others
+	  { taste::Coordinates => "850 1325 850 1325";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded_vt : requires subprogram access exportedComponent::fv::artificial_transaction_succeseeded.others
+	  { taste::Coordinates => "850 1370 850 1370";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 950 850 1400";
+	taste::instance_name => "vt_gui_gui_polling_gui";
+  end THREAD_vt_gui_gui_polling_gui;
+
+  system implementation THREAD_vt_gui_gui_polling_gui.others
+    subcomponents
+	artificial_gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_vt_impl : subprogram exportedComponent::FV::artificial_accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_vt_impl : subprogram exportedComponent::FV::artificial_reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_vt_impl : subprogram exportedComponent::FV::artificial_out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_vt_impl : subprogram exportedComponent::FV::artificial_abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_vt_impl : subprogram exportedComponent::FV::artificial_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_vt_impl : subprogram exportedComponent::FV::artificial_other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_vt_impl : subprogram exportedComponent::FV::artificial_digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_vt_impl : subprogram exportedComponent::FV::artificial_ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_vt_impl : subprogram exportedComponent::FV::artificial_transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_gui_polling_gui_impl -> artificial_gui_polling_gui;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+	subprogram access accept_card_vt_impl -> accept_card_vt;
+	subprogram access reject_transaction_vt_impl -> reject_transaction_vt;
+	subprogram access out_of_service_vt_impl -> out_of_service_vt;
+	subprogram access abort_out_vt_impl -> abort_out_vt;
+	subprogram access amount_vt_impl -> amount_vt;
+	subprogram access other_amount_vt_impl -> other_amount_vt;
+	subprogram access digit_vt_impl -> digit_vt;
+	subprogram access ok_vt_impl -> ok_vt;
+	subprogram access transaction_succeseeded_vt_impl -> transaction_succeseeded_vt;
+  end THREAD_vt_gui_gui_polling_gui.others;
+
+  system THREAD_vt_atm_accept_card
+    features
+	artificial_accept_card : provides subprogram access exportedComponent::fv::accept_card.others
+	  { taste::Coordinates => "1000 965 1000 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	accept_card : requires subprogram access exportedComponent::fv::accept_card.others
+	  { taste::Coordinates => "1250 965 1250 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1250 1010 1250 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "1250 1055 1250 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "1250 1100 1250 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "1250 1145 1250 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "1250 1190 1250 1190";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 950 1250 1220";
+	taste::instance_name => "vt_atm_accept_card";
+  end THREAD_vt_atm_accept_card;
+
+  system implementation THREAD_vt_atm_accept_card.others
+    subcomponents
+	artificial_accept_card_impl : subprogram exportedComponent::FV::accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	accept_card_impl : subprogram exportedComponent::FV::accept_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_accept_card_impl -> artificial_accept_card;
+	subprogram access accept_card_impl -> accept_card;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_accept_card.others;
+
+  system THREAD_vt_atm_reject_transaction
+    features
+	artificial_reject_transaction : provides subprogram access exportedComponent::fv::reject_transaction.others
+	  { taste::Coordinates => "1400 965 1400 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	reject_transaction : requires subprogram access exportedComponent::fv::reject_transaction.others
+	  { taste::Coordinates => "1650 965 1650 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1650 1010 1650 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "1650 1055 1650 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "1650 1100 1650 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "1650 1145 1650 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "1650 1190 1650 1190";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 950 1650 1220";
+	taste::instance_name => "vt_atm_reject_transaction";
+  end THREAD_vt_atm_reject_transaction;
+
+  system implementation THREAD_vt_atm_reject_transaction.others
+    subcomponents
+	artificial_reject_transaction_impl : subprogram exportedComponent::FV::reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	reject_transaction_impl : subprogram exportedComponent::FV::reject_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_reject_transaction_impl -> artificial_reject_transaction;
+	subprogram access reject_transaction_impl -> reject_transaction;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_reject_transaction.others;
+
+  system THREAD_vt_atm_out_of_service
+    features
+	artificial_out_of_service : provides subprogram access exportedComponent::fv::out_of_service.others
+	  { taste::Coordinates => "1800 965 1800 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_of_service : requires subprogram access exportedComponent::fv::out_of_service.others
+	  { taste::Coordinates => "2050 965 2050 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2050 1010 2050 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "2050 1055 2050 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "2050 1100 2050 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "2050 1145 2050 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "2050 1190 2050 1190";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 950 2050 1220";
+	taste::instance_name => "vt_atm_out_of_service";
+  end THREAD_vt_atm_out_of_service;
+
+  system implementation THREAD_vt_atm_out_of_service.others
+    subcomponents
+	artificial_out_of_service_impl : subprogram exportedComponent::FV::out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_of_service_impl : subprogram exportedComponent::FV::out_of_service.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_out_of_service_impl -> artificial_out_of_service;
+	subprogram access out_of_service_impl -> out_of_service;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_out_of_service.others;
+
+  system THREAD_vt_atm_abort_out
+    features
+	artificial_abort_out : provides subprogram access exportedComponent::fv::abort_out.others
+	  { taste::Coordinates => "2200 965 2200 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	abort_out : requires subprogram access exportedComponent::fv::abort_out.others
+	  { taste::Coordinates => "2450 965 2450 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2450 1010 2450 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "2450 1055 2450 1055";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "2450 1100 2450 1100";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "2450 1145 2450 1145";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "2450 1190 2450 1190";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 950 2450 1220";
+	taste::instance_name => "vt_atm_abort_out";
+  end THREAD_vt_atm_abort_out;
+
+  system implementation THREAD_vt_atm_abort_out.others
+    subcomponents
+	artificial_abort_out_impl : subprogram exportedComponent::FV::abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	abort_out_impl : subprogram exportedComponent::FV::abort_out.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_abort_out_impl -> artificial_abort_out;
+	subprogram access abort_out_impl -> abort_out;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_abort_out.others;
+
+  system THREAD_vt_atm_amount
+    features
+	artificial_amount : provides subprogram access exportedComponent::fv::amount.others
+	  { taste::Coordinates => "200 1715 200 1715";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	amount : requires subprogram access exportedComponent::fv::amount.others
+	  { taste::Coordinates => "450 1715 450 1715";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "450 1760 450 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "450 1805 450 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "450 1850 450 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "450 1895 450 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "450 1940 450 1940";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 1700 450 1970";
+	taste::instance_name => "vt_atm_amount";
+  end THREAD_vt_atm_amount;
+
+  system implementation THREAD_vt_atm_amount.others
+    subcomponents
+	artificial_amount_impl : subprogram exportedComponent::FV::amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	amount_impl : subprogram exportedComponent::FV::amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_amount_impl -> artificial_amount;
+	subprogram access amount_impl -> amount;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_amount.others;
+
+  system THREAD_vt_atm_other_amount
+    features
+	artificial_other_amount : provides subprogram access exportedComponent::fv::other_amount.others
+	  { taste::Coordinates => "600 1715 600 1715";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	other_amount : requires subprogram access exportedComponent::fv::other_amount.others
+	  { taste::Coordinates => "850 1715 850 1715";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 1760 850 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "850 1805 850 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "850 1850 850 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "850 1895 850 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "850 1940 850 1940";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 1700 850 1970";
+	taste::instance_name => "vt_atm_other_amount";
+  end THREAD_vt_atm_other_amount;
+
+  system implementation THREAD_vt_atm_other_amount.others
+    subcomponents
+	artificial_other_amount_impl : subprogram exportedComponent::FV::other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	other_amount_impl : subprogram exportedComponent::FV::other_amount.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_other_amount_impl -> artificial_other_amount;
+	subprogram access other_amount_impl -> other_amount;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_other_amount.others;
+
+  system THREAD_vt_atm_digit
+    features
+	artificial_digit : provides subprogram access exportedComponent::fv::digit.others
+	  { taste::Coordinates => "1000 1715 1000 1715";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	digit : requires subprogram access exportedComponent::fv::digit.others
+	  { taste::Coordinates => "1250 1715 1250 1715";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1250 1760 1250 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "1250 1805 1250 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "1250 1850 1250 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "1250 1895 1250 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "1250 1940 1250 1940";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 1700 1250 1970";
+	taste::instance_name => "vt_atm_digit";
+  end THREAD_vt_atm_digit;
+
+  system implementation THREAD_vt_atm_digit.others
+    subcomponents
+	artificial_digit_impl : subprogram exportedComponent::FV::digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	digit_impl : subprogram exportedComponent::FV::digit.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_digit_impl -> artificial_digit;
+	subprogram access digit_impl -> digit;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_digit.others;
+
+  system THREAD_vt_atm_ok
+    features
+	artificial_ok : provides subprogram access exportedComponent::fv::ok.others
+	  { taste::Coordinates => "1400 1715 1400 1715";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	ok : requires subprogram access exportedComponent::fv::ok.others
+	  { taste::Coordinates => "1650 1715 1650 1715";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1650 1760 1650 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "1650 1805 1650 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "1650 1850 1650 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "1650 1895 1650 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "1650 1940 1650 1940";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 1700 1650 1970";
+	taste::instance_name => "vt_atm_ok";
+  end THREAD_vt_atm_ok;
+
+  system implementation THREAD_vt_atm_ok.others
+    subcomponents
+	artificial_ok_impl : subprogram exportedComponent::FV::ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	ok_impl : subprogram exportedComponent::FV::ok.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_ok_impl -> artificial_ok;
+	subprogram access ok_impl -> ok;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_ok.others;
+
+  system THREAD_vt_atm_transaction_succeseeded
+    features
+	artificial_transaction_succeseeded : provides subprogram access exportedComponent::fv::transaction_succeseeded.others
+	  { taste::Coordinates => "1800 1715 1800 1715";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_succeseeded : requires subprogram access exportedComponent::fv::transaction_succeseeded.others
+	  { taste::Coordinates => "2050 1715 2050 1715";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2050 1760 2050 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	transaction_vt : requires subprogram access exportedComponent::fv::artificial_transaction.others
+	  { taste::Coordinates => "2050 1805 2050 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	display_vt : requires subprogram access exportedComponent::fv::artificial_display.others
+	  { taste::Coordinates => "2050 1850 2050 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	eject_card_vt : requires subprogram access exportedComponent::fv::artificial_eject_card.others
+	  { taste::Coordinates => "2050 1895 2050 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::atm_has_pending_msg.others
+	  { taste::Coordinates => "2050 1940 2050 1940";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 1700 2050 1970";
+	taste::instance_name => "vt_atm_transaction_succeseeded";
+  end THREAD_vt_atm_transaction_succeseeded;
+
+  system implementation THREAD_vt_atm_transaction_succeseeded.others
+    subcomponents
+	artificial_transaction_succeseeded_impl : subprogram exportedComponent::FV::transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_succeseeded_impl : subprogram exportedComponent::FV::transaction_succeseeded.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	transaction_vt_impl : subprogram exportedComponent::FV::artificial_transaction.others
+	  { compute_execution_time => 0ms..0ms;};
+	display_vt_impl : subprogram exportedComponent::FV::artificial_display.others
+	  { compute_execution_time => 0ms..0ms;};
+	eject_card_vt_impl : subprogram exportedComponent::FV::artificial_eject_card.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::atm_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_transaction_succeseeded_impl -> artificial_transaction_succeseeded;
+	subprogram access transaction_succeseeded_impl -> transaction_succeseeded;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access transaction_vt_impl -> transaction_vt;
+	subprogram access display_vt_impl -> display_vt;
+	subprogram access eject_card_vt_impl -> eject_card_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_atm_transaction_succeseeded.others;
+
+properties
+  taste::coordinates => "0 0 2970 2100";
+
+end generated_cv::IV;
+
+package exportedComponent::FV
+public
+with dataview;
+with taste;
+
+  subprogram transaction
+  end transaction;
+
+  subprogram display
+  end display;
+
+  subprogram eject_card
+  end eject_card;
+
+  subprogram out_msg
+  end out_msg;
+
+  subprogram artificial_accept_card
+  end artificial_accept_card;
+
+  subprogram artificial_reject_transaction
+  end artificial_reject_transaction;
+
+  subprogram artificial_out_of_service
+  end artificial_out_of_service;
+
+  subprogram artificial_abort_out
+  end artificial_abort_out;
+
+  subprogram artificial_amount
+  end artificial_amount;
+
+  subprogram artificial_other_amount
+  end artificial_other_amount;
+
+  subprogram artificial_digit
+  end artificial_digit;
+
+  subprogram artificial_ok
+  end artificial_ok;
+
+  subprogram artificial_transaction_succeseeded
+  end artificial_transaction_succeseeded;
+
+  subprogram gui_polling_gui
+  end gui_polling_gui;
+
+  subprogram accept_card
+  end accept_card;
+
+  subprogram reject_transaction
+  end reject_transaction;
+
+  subprogram out_of_service
+  end out_of_service;
+
+  subprogram abort_out
+  end abort_out;
+
+  subprogram amount
+  end amount;
+
+  subprogram other_amount
+  end other_amount;
+
+  subprogram digit
+  end digit;
+
+  subprogram ok
+  end ok;
+
+  subprogram transaction_succeseeded
+  end transaction_succeseeded;
+
+  subprogram artificial_out_msg
+  end artificial_out_msg;
+
+  subprogram artificial_transaction
+  end artificial_transaction;
+
+  subprogram artificial_display
+  end artificial_display;
+
+  subprogram artificial_eject_card
+  end artificial_eject_card;
+
+  subprogram atm_has_pending_msg
+  end atm_has_pending_msg;
+
+  subprogram check_queue
+  end check_queue;
+
+end exportedComponent::FV;

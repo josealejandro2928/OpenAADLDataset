@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="top_no_Instance" category="system">
+  <featureInstance name="effect" category="abstractFeature" direction="out">
+    <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAbstractFeature.0"/>
+  </featureInstance>
+  <componentInstance name="s" category="device">
+    <featureInstance name="src" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#ScrubbedTS.sensor"/>
+  </componentInstance>
+  <componentInstance name="a" category="device">
+    <featureInstance name="effect" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="cmd">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#ScrubbedTS.actuator"/>
+  </componentInstance>
+  <connectionInstance name="s.src -> a.cmd" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.1" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="a.effect -> effect" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#ScrubbedTS.top.no"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/ScrubbedTS.aadl#ScrubbedTS.top.no"/>
+</instance:SystemInstance>

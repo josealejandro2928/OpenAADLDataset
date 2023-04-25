@@ -1,0 +1,171 @@
+package SW_OR
+public
+	with Base_Types;
+	with CASE_Model_Transformations;
+	with CASEAgree;
+	with CASE_Properties;
+	with CASE_Scheduling;
+	with CMASI;
+	renames AGREE_PLTL::all;
+	with CM_Property_Set;
+	with HAMR;
+	with CASEConsts;
+
+	---------------------
+	-- Attestation Gate
+	---------------------
+
+	thread CASE_AttestationGate_thr
+		features
+			OperatingRegion_out: out event data port CMASI::OperatingRegion.i;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 500ms;
+			Compute_Execution_Time => 2ms .. 2ms;
+			Stack_Size => CM_Property_Set::Stack_Size;
+	end CASE_AttestationGate_thr;
+
+	thread implementation CASE_AttestationGate_thr.Impl
+	end CASE_AttestationGate_thr.Impl;
+	
+	process CASE_AttestationGate
+		features
+			OperatingRegion_out: out event data port CMASI::OperatingRegion.i;
+		properties
+			CASE_Scheduling::Domain => CM_Property_Set::CASE_AttestationGate_Domain;
+	end CASE_AttestationGate;
+	
+	process implementation CASE_AttestationGate.Impl
+		subcomponents
+			CASE_AttestationGate: thread CASE_AttestationGate_thr.Impl;
+		connections
+			c5: port CASE_AttestationGate.OperatingRegion_out -> OperatingRegion_out;
+	end CASE_AttestationGate.Impl;
+
+	-------------------------------------
+	-- Operating Region message Filter --
+	-------------------------------------
+
+	thread CASE_Filter_OR_thr
+		features
+			filter_in: in event data port CMASI::OperatingRegion.i;
+			filter_out: out event data port CMASI::OperatingRegion.i;
+		properties
+			CASE_Properties::Component_Type => FILTER;
+			CASE_Properties::Component_Spec => ("Req_Filter_OR");
+			Dispatch_Protocol => Periodic;
+			Period => 500ms;
+			Compute_Execution_Time => 2ms .. 2ms;
+			Stack_Size => CM_Property_Set::Stack_Size;
+		annex agree {**
+			guarantee Req_Filter_OR "Well-formed Operating Region message" : CASEAgree::WELL_FORMED_OPERATING_REGION(filter_out);
+		**};
+	end CASE_Filter_OR_thr;
+
+	thread implementation CASE_Filter_OR_thr.Impl
+	end CASE_Filter_OR_thr.Impl;
+	
+	process CASE_Filter_OR
+		features
+			filter_in: in event data port CMASI::OperatingRegion.i;
+			filter_out: out event data port CMASI::OperatingRegion.i;
+		properties
+			CASE_Scheduling::Domain => CM_Property_Set::CASE_Filter_OR_Domain;
+	end CASE_Filter_OR;
+	
+	process implementation CASE_Filter_OR.Impl
+		subcomponents
+			CASE_Filter_OR: thread CASE_Filter_OR_thr.Impl;
+		connections
+			c1: port filter_in -> CASE_Filter_OR.filter_in;
+			c2: port CASE_Filter_OR.filter_out -> filter_out;
+	end CASE_Filter_OR.Impl;
+
+	----------
+	-- UxAS --
+	----------
+
+	thread UxAS_thr
+        features
+            OperatingRegion : in event data port CMASI::OperatingRegion.i;
+        properties
+            Dispatch_Protocol => Periodic;
+            Period => 500ms;
+            Compute_Execution_Time => 2ms .. 2ms;   
+			Stack_Size => CM_Property_Set::Stack_Size;             
+    end UxAS_thr;
+    
+    thread implementation UxAS_thr.Impl 
+    end UxAS_thr.Impl;
+    
+	process UxAS
+		features
+			OperatingRegion : in event data port CMASI::OperatingRegion.i;
+		properties
+			CASE_Scheduling::Domain => CM_Property_Set::UxAS_Domain;
+--			HAMR::Component_Type => VIRTUAL_MACHINE;
+	end UxAS;
+	
+	process implementation UxAS.Impl
+		subcomponents
+			UxAS: thread UxAS_thr.Impl;
+		connections
+			c3: port OperatingRegion -> UxAS.OperatingRegion;
+	end UxAS.Impl;
+
+	---------------------
+	-- Software system --
+	---------------------
+	
+	----------------------------------------------------------------------
+    processor proc
+    end proc;
+
+    processor implementation proc.Impl
+        properties
+            Frame_Period => 1000ms;
+            Clock_Period => 2ms;
+            CASE_Scheduling::Max_Domain => 15;
+            CASE_Scheduling::Schedule_Source_Text => "kernel/domain_schedule.c";
+    end proc.Impl;
+    ----------------------------------------------------------------------
+
+	system SW
+	end SW;
+
+	system implementation SW.Impl
+		subcomponents
+			proc: processor proc.Impl;
+			UXAS: process UxAS.Impl;
+			AM_Gate: process CASE_AttestationGate.Impl;
+			FLT_OR: process CASE_Filter_OR.Impl;
+			
+		connections
+
+			-----------
+			-- AM_GATE
+			------------
+			c19: port AM_Gate.OperatingRegion_out -> FLT_OR.filter_in;
+
+			------------
+			-- FILTERS
+			------------
+			c24: port FLT_OR.filter_out -> UXAS.OperatingRegion;
+
+		properties
+            Actual_Processor_Binding => (reference (proc)) applies to UXAS;
+            Actual_Processor_Binding => (reference (proc)) applies to AM_GATE;
+			Actual_Processor_Binding => (reference (proc)) applies to FLT_OR;
+
+            HAMR::Default_Bit_Width => 32;
+            HAMR::Default_Max_Sequence_Size => 1;
+            HAMR::Max_String_Size => 256;
+            HAMR::Bit_Codec_Raw_Connections => true;
+
+        annex resolute {**
+            check CASE_Tools
+        **};
+
+	end SW.Impl;
+	
+end SW_OR;

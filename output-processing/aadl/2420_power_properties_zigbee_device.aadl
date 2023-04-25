@@ -1,0 +1,11 @@
+Property set PowerPropertiesZigbee is
+	EnergyDrawUnits: type units (millijoule);
+	BatteryAmpUnits: type units (mAhr);
+	BatteryVoltageUnits: type units (V);
+	EnergyPeriodUnits: type units (second);
+	EnergyDraw: aadlreal units PowerPropertiesZigbee::EnergyDrawUnits applies to (device, system, thread);
+	DrawPeriod: aadlreal units PowerPropertiesZigbee::EnergyPeriodUnits applies to (device, system, thread);
+	BatteryAmp: aadlreal units PowerPropertiesZigbee::BatteryAmpUnits applies to (device, system, thread);
+	BatteryVoltage: aadlreal units PowerPropertiesZigbee::BatteryVoltageUnits applies to (device, system);
+	
+end PowerPropertiesZigbee;

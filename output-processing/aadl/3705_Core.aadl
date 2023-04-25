@@ -1,0 +1,97 @@
+package Core
+public
+	with Core_Sugar;
+	with SB_Service;
+	with EVS_Service;
+	with ES_Service;
+	with TIME_Service;
+	
+	with EVS_Arg_IO;
+	with ES_Arg_IO;
+	with SB_Arg_IO;
+	with TIME_Arg_IO;
+	
+	with SB_Route_Table;
+	with ES_Base_IO;
+	
+	abstract Core
+		features
+			ESAPI: feature group ESAPI;
+			EVSAPI: feature group EVSAPI;
+			SBAPI: feature group SBAPI;
+			TIMEAPI: feature group TIMEAPI;
+			
+			MsgOutput: feature group SB_Route_Table::RouteOutput;
+			
+			AppRecord: feature group ES_Base_IO::AppRecordOutput;
+	end Core;
+	
+	abstract implementation Core.impl
+		subcomponents
+			SB: abstract SB_Service::Service;
+			EVS: abstract EVS_Service::Service;
+			ES: abstract ES_Service::Service;
+			TIME: abstract TIME_Service::Service;
+			Medium: abstract Core_Sugar::Medium;
+		connections
+			RegisterApp: feature group ESAPI.RegisterAppArgs -> ES.RegisterAppArgs;
+			RestartApp: feature group ESAPI.RestartAppArgs -> ES.RestartAppArgs;
+			DeleteApp: feature group ESAPI.DeleteAppArgs -> ES.DeleteAppArgs;
+			
+			CreatePipe: feature group SBAPI.CreatePipeArgs -> SB.CreatePipeArgs;
+			DeletePipe: feature group SBAPI.DeletePipeArgs -> SB.DeletePipeArgs;
+			Subscribe: feature group SBAPI.SubscribeArgs -> SB.SubscribeArgs;
+			Unsubscribe: feature group SBAPI.UnsubscribeArgs -> SB.UnsubscribeArgs;
+			SendMsg: feature group SBAPI.MsgInput -> Medium.MsgInput;
+			
+			Register: feature group EVSAPI.RegisterArgs -> EVS.RegisterArgs;
+			Unregister: feature group EVSAPI.UnregisterArgs -> EVS.UnregisterArgs;
+			SendEvent: feature group EVSAPI.SendEventArgs -> EVS.SendEventArgs;
+			
+			GetTime: feature group TIMEAPI.GetTimeArgs -> TIME.GetTimeArgs;
+			
+			MsgOutputConnection: feature group SB.OutMsgs -> MsgOutput;
+			
+			-----------------------Data output----------------------
+			AppRecordOutput: feature group ES.AppRecord -> AppRecord;
+			
+			--------------Medium Example------------
+			Msg_a_Input: feature group Medium.MsgOutput.a <-> SB.SendMsgArgs.a;
+			
+			--------------Event Example---------------
+			ES_CC1_ERR: feature group EVS.OutEvents.ES_CC1_ERR <-> SB.SendMsgArgs.ES_CC1_ERR;
+			ES_RESTART_APP_ERR: feature group EVS.OutEvents.ES_RESTART_APP_ERR <-> SB.SendMsgArgs.ES_RESTART_APP_ERR;
+			SB_BAD_CMD_CODE: feature group EVS.OutEvents.SB_BAD_CMD_CODE <-> SB.SendMsgArgs.SB_BAD_CMD_CODE;
+			EVS_ERR_MSGID: feature group EVS.OutEvents.EVS_ERR_MSGID <-> SB.SendMsgArgs.EVS_ERR_MSGID;
+			TIME_CC_ERR: feature group EVS.OutEvents.TIME_CC_ERR <-> SB.SendMsgArgs.TIME_CC_ERR;
+	end Core.impl;
+	
+	feature group ESAPI
+		features
+			RegisterAppArgs: feature group ES_Arg_IO::RegisterAppArgs;
+			RestartAppArgs: feature group ES_Arg_IO::RestartAppArgs;
+			DeleteAppArgs: feature group ES_Arg_IO::DeleteAppArgs;
+	end ESAPI;
+	
+	feature group EVSAPI
+		features
+			RegisterArgs: feature group EVS_Arg_IO::RegisterArgs;
+			UnregisterArgs: feature group EVS_Arg_IO::UnregisterArgs;
+			SendEventArgs: feature group EVS_Arg_IO::SendEventArgs;
+	end EVSAPI;
+	
+	feature group SBAPI
+		features
+			CreatePipeArgs: feature group SB_Arg_IO::CreatePipeArgs;
+			DeletePipeArgs: feature group SB_Arg_IO::DeletePipeArgs;
+			SubscribeArgs: feature group SB_Arg_IO::SubscribeArgs;
+			UnsubscribeArgs: feature group SB_Arg_IO::UnsubscribeArgs;
+			MsgInput: feature group Core_Sugar::MsgInput;
+	end SBAPI;
+	
+	feature group TIMEAPI
+		features
+			GetTimeArgs: feature group TIME_Arg_IO::GetTimeArgs;
+	end TIMEAPI;
+	
+end Core;

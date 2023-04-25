@@ -1,0 +1,38 @@
+package SSS
+public
+	with Requirements;--with APS,RCC;
+
+	-- SSS: Shore Sensor System 
+	system APSCommunication
+		features
+			APSCommunication: in out data port;
+			RCCCommunication: in out data port;
+			InternetAccess: in out data port;
+		flows 
+			ReceiveShoreSensorData_APS: flow source  APSCommunication;
+			ReceiveShoreSensorData_RCC: flow source  RCCCommunication;	
+	end APSCommunication;
+
+	system implementation APSCommunication.impl
+		subcomponents
+			this_ShoreSensorModule: system ShoreSensorModule
+				{
+					Requirements::RequiredFuntions => 'Wireless Communication; Secure Communication; IP Routing; Managed Network Device; Interfacing Shore Sensors';
+				};					
+		connections
+			APStoSSSLink: port APSCommunication -> this_ShoreSensorModule.DataPort;
+			SSStoAPSLink: port this_ShoreSensorModule.DataPort -> APSCommunication;
+			RCCtoSSSLink: port RCCCommunication -> this_ShoreSensorModule.DataPort;
+			SSStoRCCLink: port this_ShoreSensorModule.DataPort -> RCCCommunication;
+												
+	end APSCommunication.impl;
+
+	system ShoreSensorModule
+		-- Their might be several ShoreSensorModule devices
+		features
+			ControlPort: in out data port;
+			DataPort: in out data port;
+	end ShoreSensorModule;
+
+	
+end SSS;

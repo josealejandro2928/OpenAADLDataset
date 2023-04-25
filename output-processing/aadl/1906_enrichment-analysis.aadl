@@ -1,0 +1,28 @@
+activity enrichment-analysis {
+	on {
+		dataset input-file : 'text/tsv' [1,1];
+	}
+	with {
+		parameter species-id : STRING [1,1];
+		parameter correction-method : STRING [1,1] = ['gSCS'];
+		parameter column : INTEGER [1,1] = ['1'];
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+	}
+	using executable "geas-gprofiler-enrichment-analysis.R" {
+		commandLineTemplate [ 
+			parameter correction-method
+				| PrependListWith '--correction-method',
+			parameter column
+				| PrependListWith '--column',
+			dataset input-file,
+			dataset output-file,
+			parameter species-id
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

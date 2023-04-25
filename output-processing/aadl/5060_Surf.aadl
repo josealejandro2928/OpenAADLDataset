@@ -1,0 +1,56 @@
+package Surf
+public
+	with Core;
+	with ES_App;
+	with SB_App;
+	with EVS_App;
+	with TIME_App;
+	with HS_App;
+	with Sample_App;
+	with Surf_Medium;
+		
+	process Surf
+
+	end Surf;
+	
+	process implementation Surf.impl
+		subcomponents
+			Core: abstract Core::Core.impl;
+			ES: thread ES_App::ESAPP.impl;
+			SB: thread SB_App::SBAPP.impl;
+			EVS: thread EVS_App::EVSAPP.impl;
+			TIME: thread TIME_App::TIMEApp.impl;
+			HS: thread HS_App::HSApp.impl;
+			Sample: thread Sample_App::SampleApp.impl;
+			
+			Medium: abstract Surf_Medium::Medium;
+		connections
+			---------------------core data provide---------------------------
+			ES_AppRecord: feature group Core.AppRecord -> ES.AppRecord;
+			HS_AppRecord: feature group Core.AppRecord -> HS.AppRecord;
+			
+			----------------------------Control command---------------------
+			HS_Control: port ES.HSControlCommand -> HS.ControlCommand;
+			
+			---------------------------Medium--------------------------------
+			MediumIn: feature group Core.MsgOutput -> Medium.MsgInput;
+			
+			----------------------------Msg----------------------------------
+			ES_Command: port Medium.ES_CmdPipe_ES_Command -> ES.Command;
+			SB_Command: port Medium.SB_CmdPipe_SB_Command -> SB.Command;
+			EVS_Command: port Medium.EVS_CmdPipe_EVS_Command -> EVS.Command;
+			TIME_Command: port Medium.TIME_CmdPipe_TIME_Command -> TIME.Command;
+			HS_Command: port Medium.HS_CmdPipe_HS_Command -> HS.Command;
+			
+			------------------------------Function call----------------------
+			ES_RestartApp_RestartApp: feature group ES.ESAPI.RestartAppArgs.RestartApp <-> Core.ESAPI.RestartAppArgs.ES_RestartApp;
+			HS_MonitorApplications_RestartApp: feature group HS.ESAPI.RestartAppArgs.MonitorApplications_SB <-> Core.ESAPI.RestartAppArgs.HS_MonitorApplications_SB;
+			
+			ES_Default_SendEvent: feature group ES.EVSAPI.SendEventArgs.Default <-> Core.EVSAPI.SendEventArgs.ES_Default;
+			SB_Default_SendEvent: feature group SB.EVSAPI.SendEventArgs.Default <-> Core.EVSAPI.SendEventArgs.SB_Default;
+			EVS_Default_SendEvent: feature group EVS.EVSAPI.SendEventArgs.Default <-> Core.EVSAPI.SendEventArgs.EVS_Default;
+			TIME_Default_SendEvent: feature group TIME.EVSAPI.SendEventArgs.Default <-> Core.EVSAPI.SendEventArgs.TIME_Default;
+			HS_Default_SendEvent:  feature group HS.EVSAPI.SendEventArgs.Default <-> Core.EVSAPI.SendEventArgs.HS_Default;
+			ES_RestartApp_SendEvent: feature group ES.EVSAPI.SendEventArgs.RestartApp <-> Core.EVSAPI.SendEventArgs.ES_RestartApp;
+end Surf.impl;
+end Surf;

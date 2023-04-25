@@ -1,0 +1,132 @@
+package Overall
+public
+	with APS, RCC, ECT, SSS, Ship, TIS,Stakeholder, CloudComponent, Mobile5GNetwork, AidsToNavigation, Requirements;
+
+	system APSCommunicationArchitecture 
+	end APSCommunicationArchitecture;
+	
+		system implementation APSCommunicationArchitecture.impl
+		subcomponents
+			APS: system APS::APSCommunication.impl {
+				-- CyberICPS Paper (Functions)
+				Requirements::RequiredFuntions => 'Voyage Management; Condition Detection and Analysis; Safe Speed; Maneuvering; Docking; Alert Management; (New) Location Advertisement)';
+			};
+			RCC: system RCC::APSCommunication.impl {
+				-- MUNIN Communication Architecture
+				Requirements::RequiredFuntions => 'Remote Monitoring; Remote Operation; Condition Analysis; ASC Update'; -- ASC Autonomous Ship Controller
+			};
+			ECT: system ECT::APSCommunication.impl {
+				-- CyberICPS Paper (Context)
+				Requirements::RequiredFuntions => 'Emergency Intervention; Emergency APS Control';
+			};
+			SSS: system SSS::APSCommunication.impl {
+				-- CyberICPS Paper (Context)
+				Requirements::RequiredFuntions => 'Docking, Charging, Passenger embarking/disembarking';
+			};
+			TIS: system TIS::APSCommunication.impl {
+				-- CyberICPS Paper (Context)
+				Requirements::RequiredFuntions => 'Traffic Management';
+			};
+			Ship: system Ship::APSCommunication.impl {
+				-- CyberICPS Paper (Context)
+				Requirements::RequiredFuntions => 'Collision Avoidance';
+			};
+			Stakeholder: system Stakeholder::APSCommunication.impl {
+				-- CyberICPS Paper (Stakeholders)
+				Requirements::RequiredFuntions => 'Stakeholders Communication';
+			};
+			CloudComponent: system CloudComponent::APSCommunication.impl {
+				-- Realization of ideas in 
+				-- 1. Integrated 5G Satellite-Terrestrial Systems Use Cases for Road Safety and Autonomous Ships
+				-- 2. Vehicular Cloud Networking: Architecture and Design Principles
+				Requirements::RequiredFuntions => 'APS and RCC Authentication and Association; Stakeholders Communication; Online Data Backup';
+			};
+			Mobile5GNetwork: system Mobile5GNetwork::APSCommunication.impl {
+				-- Realization of ideas in 
+				-- 1. Integrated 5G Satellite-Terrestrial Systems Use Cases for Road Safety and Autonomous Ships
+				Requirements::RequiredFuntions => 'QoS';
+			};
+			AidsToNavigation: system AidsToNavigation::AidsToNavigation.impl {
+				-- CyberICPS Paper (Context)
+				Requirements::RequiredFuntions => 'UHF position correction signal transmitter';
+			};
+		connections
+				-- APS
+			APStoRCC_Direct: port APS.RCCCommunication <-> RCC.APSCommunication;
+			APStoRCC_Traffic: port APS.AISCommunication <-> RCC.AISCommunication;
+			APStoMobile5G: port APS.InternetAccess <-> Mobile5GNetwork.APSCommunication;
+					--APStoSSS: port APS.SSSCommunication <-> SSS.APSCommunication;
+			APStoECT: port APS.RadioCommunication <-> ECT.RadioCommunication;
+			APStoShip: port APS.AISCommunication <-> Ship.AISCommunication;
+			APStoTIS: port APS.AISCommunication <-> TIS.AISCommunication;
+					-- RCC
+			RCCtoShip: port RCC.AISCommunication <-> Ship.AISCommunication;
+			RCCtoTIS: port RCC.AISCommunication <-> TIS.AISCommunication;
+			RCCtoMobile5G: port RCC.InternetAccess <-> Mobile5GNetwork.RCCCommunication;
+					--RCCtoSSS: port RCC.SSSCommunication <-> SSS.RCCCommunication;
+					-- Cloud		
+			CloudComponentToStakeholder: port CloudComponent.StakeholderCommunication <-> Stakeholder.InternetAccess;
+			CloudComponentToMobile5G: port CloudComponent.InternetAccess <-> Mobile5GNetwork.CloudCommunication;
+					-- ECT
+			APStoECT_EmergencySignal: port APS.MobileCommunication -> ECT.MobileCommunication;
+			APSCommunicationArchitecture_impl_new_connection: port AidsToNavigation.UHFPositionCorrection -> APS.UHFPositionCorrection;
+			APSCommunicationArchitecture_impl_new_connection2: port SSS.InternetAccess <-> Mobile5GNetwork.SSSCommunication;
+		flows
+				-- Source APS - Destination RCC 		
+			NavigationData_APS_to_RCC: end to end flow APS.NavigationData_APS_to_RCC -> APStoRCC_Direct -> RCC.NavigationData_APS_to_RCC;
+			SafetyData_APS_to_RCC: end to end flow APS.SafetyData_APS_to_RCC -> APStoRCC_Direct -> RCC.SafetyData_APS_to_RCC;
+			MachinaryData_APS_to_RCC: end to end flow APS.MachinaryData_APS_to_RCC -> APStoRCC_Direct -> RCC.MachinaryData_APS_to_RCC;
+			PowerData_APS_to_RCC: end to end flow APS.PowerData_APS_to_RCC -> APStoRCC_Direct -> RCC.PowerData_APS_to_RCC;
+					-- Source APS - Destination Cloud
+			NavigationData_APS_to_Cloud: end to end flow APS.NavigationData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPSCloudAccess -> CloudComponentToMobile5G -> CloudComponent.NavigationData_APS_to_Cloud;
+			SafetyData_APS_to_Cloud: end to end flow APS.SafetyData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPSCloudAccess -> CloudComponentToMobile5G -> CloudComponent.SafetyData_APS_to_Cloud;
+			MachinaryData_APS_to_Cloud: end to end flow APS.MachinaryData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPSCloudAccess -> CloudComponentToMobile5G -> CloudComponent.MachinaryData_APS_to_Cloud;
+			PowerData_APS_to_Cloud: end to end flow APS.PowerData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPSCloudAccess -> CloudComponentToMobile5G -> CloudComponent.PowerData_APS_to_Cloud;
+					-- Source APS - Destination Ship
+			AISCommunication_from_APStoShip: end to end flow APS.AISCommunication_APS_to_Ship -> APStoShip -> Ship.AISCommunication_from_APS;
+					-- Source APS - Destination TIS
+			AISCommunication_from_APStoTIS: end to end flow APS.AISCommunication_APS_to_TIS -> APStoTIS -> TIS.AISCommunication_APS_to_TIS;
+					-- Source APS - Destination RCC
+			AISCommunication_from_APStoRCC: end to end flow APS.AISCommunication_APS_to_RCC -> APStoRCC_Traffic -> RCC.AISCommunication_APS_to_RCC;
+			NavigationData_APS_to_RCC_VPN: end to end flow APS.NavigationData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPStoRCCAccess -> RCCtoMobile5G -> RCC.NavigationData_APS_to_Cloud_to_RCC;
+			SafetyData_APS_to_RCC_VPN: end to end flow APS.SafetyData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPStoRCCAccess -> RCCtoMobile5G -> RCC.SafetyData_APS_to_Cloud_to_RCC;
+			MachinaryData_APS_to_RCC_VPN: end to end flow APS.MachinaryData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPStoRCCAccess -> RCCtoMobile5G -> RCC.MachinaryData_APS_to_Cloud_to_RCC;
+			PowerData_APS_to_RCC_VPN: end to end flow APS.PowerData_APS_to_Cloud -> APStoMobile5G -> Mobile5GNetwork.ForwardAPStoRCCAccess -> RCCtoMobile5G -> RCC.PowerData_APS_to_Cloud_to_RCC;
+					-- Source Ship - Destination RCC 							
+					-- Source APS - Destination ECT
+			EmergencyNavigationData_APS_to_ECT: end to end flow APS.EmergencyNavigationData_APS_to_ECT -> APStoECT -> ECT.EmergencyNavigationData_APS_to_ECT;
+			EmergencySafetyData_APS_to_ECT: end to end flow APS.EmergencySafetyData_APS_to_ECT -> APStoECT -> ECT.EmergencySafetyData_APS_to_ECT;
+			EmergencyMachinaryData_APS_to_ECT: end to end flow APS.EmergencyMachinaryData_APS_to_ECT -> APStoECT -> ECT.EmergencyMachinaryData_APS_to_ECT;
+			EmergencyPowerData_APS_to_ECT: end to end flow APS.EmergencyPowerData_APS_to_ECT -> APStoECT -> ECT.EmergencyPowerData_APS_to_ECT;
+			ReceiveEmergencySignal_from_APS: end to end flow APS.TransmitEmergencySignal_to_ECT -> APStoECT_EmergencySignal -> ECT.ReceiveEmergencySignal_from_APS;
+					-- Source ECT - Destination APS	
+			ReceiveEmergencyCommands_from_ECT: end to end flow ECT.TransmitEmergencyCommands_to_APS -> APStoECT -> APS.ReceiveEmergencyCommands_from_ECT;
+					-- Source SSS - Destination APS	
+					--ReceiveShoreSensorData_APS: 		end to end flow SSS.ReceiveShoreSensorData_APS -> APStoSSS -> APS.ReceiveShoreSensorData_APS;
+					-- Source SSS - Destination RCC	
+					--ReceiveShoreSensorData_RCC: 	end to end flow SSS.ReceiveShoreSensorData_RCC -> RCCtoSSS -> RCC.ReceiveShoreSensorData_RCC;				
+					-- Source Ship - Destination APS 							
+			AISCommunication_Ship_to_APS: end to end flow Ship.AISCommunication_Ship_to_APS -> APStoShip -> APS.AISCommunication_Ship_to_APS;
+					-- Source TIS - Destination APS 							
+			AISCommunication_TIS_to_APS: end to end flow TIS.AISCommunication_TIS_to_APS -> APStoTIS -> APS.AISCommunication_TIS_to_APS;
+					-- Source Cloud - Destination RCC
+			NavigationData_Cloud_to_RCC: end to end flow CloudComponent.NavigationData_Cloud_to_RCC -> CloudComponentToMobile5G -> Mobile5GNetwork.ForwardCloudRCCAccess -> RCCtoMobile5G -> RCC.NavigationData_APS_to_Cloud_to_RCC;
+			SafetyData_Cloud_to_RCC: end to end flow CloudComponent.SafetyData_Cloud_to_RCC -> CloudComponentToMobile5G -> Mobile5GNetwork.ForwardCloudRCCAccess -> RCCtoMobile5G -> RCC.SafetyData_APS_to_Cloud_to_RCC;
+			MachinaryData_Cloud_to_RCC: end to end flow CloudComponent.MachinaryData_Cloud_to_RCC -> CloudComponentToMobile5G -> Mobile5GNetwork.ForwardCloudRCCAccess -> RCCtoMobile5G -> RCC.MachinaryData_APS_to_Cloud_to_RCC;
+			PowerData_Cloud_to_RCC: end to end flow CloudComponent.PowerData_Cloud_to_RCC -> CloudComponentToMobile5G -> Mobile5GNetwork.ForwardCloudRCCAccess -> RCCtoMobile5G -> RCC.PowerData_APS_to_Cloud_to_RCC;
+					-- Source Cloud - Destination Stakeholder
+			TransmitManagementInformation: end to end flow CloudComponent.TransmitManagementInformation -> CloudComponentToStakeholder -> Stakeholder.ReceiveManagementInformation;
+					-- Source RCC - Destination APS
+			AISCommunication_RCC_to_APS: end to end flow RCC.AISCommunication_RCC_to_APS -> APStoRCC_Traffic -> APS.AISCommunication_RCC_to_APS;
+					-- Source RCC - Destination Ship			
+			AISCommunication_RCC_to_Ship: end to end flow RCC.AISCommunication_RCC_to_Ship -> RCCtoShip -> Ship.AISCommunication_RCC_to_Ship;
+					-- Source RCC - Destination TIS			
+			AISCommunication_RCC_to_TIS: end to end flow RCC.AISCommunication_RCC_to_TIS -> RCCtoTIS -> TIS.AISCommunication_RCC_to_TIS;
+					-- Source Ship - Destination RCC 							
+			AISCommunication_Ship_to_RCC: end to end flow Ship.AISCommunication_Ship_to_RCC -> RCCtoShip -> RCC.AISCommunication_Ship_to_RCC;
+					-- Source TIS - Destination RCC 							
+			AISCommunication_TIS_to_RCC: end to end flow TIS.AISCommunication_TIS_to_RCC -> RCCtoTIS -> RCC.AISCommunication_TIS_to_RCC;
+					-- Source Stakeholder - Destination Cloud 
+			RequestAccesstoCloud_from_stackholder: end to end flow Stakeholder.RequestAccesstoCloud -> CloudComponentToStakeholder -> CloudComponent.RequestAccesstoCloud_from_stackholder;
+	end APSCommunicationArchitecture.impl;
+end Overall;

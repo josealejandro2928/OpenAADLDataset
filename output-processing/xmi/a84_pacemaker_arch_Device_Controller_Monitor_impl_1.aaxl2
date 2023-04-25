@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Device_Controller_Monitor_impl_Instance" category="system">
+  <featureInstance name="Configuration" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventPort.0"/>
+  </featureInstance>
+  <featureInstance name="Monitoring" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventPort.1"/>
+  </featureInstance>
+  <componentInstance name="PACEMAKER_SW" category="process">
+    <featureInstance name="Measuring_Sensing" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Configuring_Pacing" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#pacemaker_arch.Pacemaker_SW"/>
+  </componentInstance>
+  <componentInstance name="PACEMAKER_HW_PLATFORM" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#pacemaker_arch.Pacemaker_HW_Platform"/>
+  </componentInstance>
+  <connectionInstance name="Monitoring -> PACEMAKER_SW.Measuring_Sensing" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PACEMAKER_SW.Configuring_Pacing -> Configuration" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.0/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#pacemaker_arch.Device_Controller_Monitor.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a84/Assg03/Plugin_Resources/Pacemaker-EASY/main.aadl#pacemaker_arch.Device_Controller_Monitor.impl"/>
+</instance:SystemInstance>

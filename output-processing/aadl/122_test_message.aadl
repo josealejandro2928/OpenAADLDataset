@@ -1,0 +1,158 @@
+
+thread buffer_consumer
+end buffer_consumer;
+
+thread implementation buffer_consumer.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  10 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end buffer_consumer.Impl;
+
+thread receiver1
+end receiver1;
+
+thread implementation receiver1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  10 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end receiver1.Impl;
+
+thread receiver2
+end receiver2;
+
+thread implementation receiver2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  15 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  15 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end receiver2.Impl;
+
+thread sender1
+end sender1;
+
+thread implementation sender1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  10 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end sender1.Impl;
+
+thread sender2
+end sender2;
+
+thread implementation sender2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  15 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  15 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end sender2.Impl;
+
+process ea_snk
+end ea_snk;
+
+process implementation ea_snk.Impl
+	subcomponents
+		instancied_receiver1 : thread receiver1.Impl;
+		instancied_receiver2 : thread receiver2.Impl;
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb ;
+end ea_snk.Impl;
+
+process ea_src
+end ea_src;
+
+process implementation ea_src.Impl
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb ;
+end ea_src.Impl;
+
+processor src
+end src;
+
+processor implementation src.Impl
+	properties 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end src.Impl;
+
+processor snk
+end snk;
+
+processor implementation snk.Impl
+	properties 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end snk.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_src : processor src.Impl;
+		instancied_snk : processor snk.Impl;
+		instancied_ea_snk : process ea_snk.Impl;
+		instancied_ea_src : process ea_src.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_snk applies to instancied_ea_snk;
+		Actual_Processor_Binding => reference instancied_src applies to instancied_ea_src;
+end Cheddar.Impl;
+
+
+

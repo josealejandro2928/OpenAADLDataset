@@ -1,0 +1,794 @@
+package pacemaker_models_revised
+public
+
+system pacemaker
+end pacemaker;
+
+system implementation pacemaker.impl
+	subcomponents
+		PULSE_GENERATOR: system Pulse_Generator;
+		    ATRIAL_LEAD: device Atrial_Lead;
+		 VENTRICLE_LEAD: device Ventricle_Lead;
+		 DEVICE_CONTROLLER_MONITOR: system Device_Controller_Monitor.impl;
+		  
+	connections
+		c1: port VENTRICLE_LEAD.Ventricel_Sense -> PULSE_GENERATOR.V_sense;
+		c2: port PULSE_GENERATOR.V_pulse -> VENTRICLE_LEAD.Ventricle_Pace;
+		c3: port ATRIAL_LEAD. Atrial_Sense -> PULSE_GENERATOR.A_sense;
+		c4: port PULSE_GENERATOR.A_pulse -> ATRIAL_LEAD.Atrial_Pace;
+		c5: port DEVICE_CONTROLLER_MONITOR. Configuration -> PULSE_GENERATOR.Configuration;
+		c6: port PULSE_GENERATOR.Monitoring -> DEVICE_CONTROLLER_MONITOR.Monitoring;
+	properties
+	 Actual_Processor_Binding => ( reference(DEVICE_CONTROLLER_MONITOR.Pacemaker_HW_Platform) ) applies to DEVICE_CONTROLLER_MONITOR.Pacemaker_SW;
+	
+end pacemaker.impl;
+
+annex EMV2
+{**
+	error types
+	  ServiceError: type;
+	  ItemOmission: type extends ServiceError; 
+	  ServiceOmission: type extends ServiceError;
+	  SequenceOmission: type extends ServiceError;
+	  TransientServiceOmission: type extends SequenceOmission;
+	  LateServiceStart: type extends SequenceOmission;
+	  EarlyServiceTermination: type extends SequenceOmission;
+	  BoundedOmissionInterval: type extends SequenceOmission; 
+	  ItemCommission: type extends ServiceError; 
+	  ServiceCommission: type extends ServiceError;
+	  SequenceCommission: type extends ServiceError;
+	  EarlyServiceStart: type extends SequenceCommission;
+	  LateServiceTermination: type extends SequenceCommission;
+	  ItemTimingError: type; 
+	  EarlyDelivery: type extends ItemTimingError; 
+	  LateDelivery: type extends ItemTimingError; 
+	  SequenceTimingError: type; 
+	  HighRate: type extends SequenceTimingError; 
+	  LowRate: type extends SequenceTimingError;
+	  RateJitter: type extends SequenceTimingError;
+	  ServiceTimingError: type; 
+	  DelayedService: type extends ServiceTimingError; 
+	  EarlyService: type extends ServiceTimingError; 
+	  ItemValueError: type; 
+	  UndetectableValueError: type extends ItemValueError; 
+	  DetectableValueError: type extends ItemValueError; 
+	  OutOfRange: type extends DetectableValueError;
+	  BelowRange: type extends OutOfRange;
+	  AboveRange: type extends OutOfRange;
+	  OutOfBounds: type extends DetectableValueError;
+
+	end types;
+	
+	error behavior FailStop
+	use types pacemaker_modes;
+	events
+		Failure : error event ;
+    states
+		Operational : initial state ;
+		FailStop : state ;
+	transitions
+		FailureTransition : Operational -[ Failure ]-> FailStop ;
+	end behavior;
+
+	error behavior DegradedFailStop
+	events
+		Failure : error event ;
+	states
+		Operational : initial state ;
+		Degraded: state;
+		FailStop : state ;
+	transitions
+		FirstFailure : Operational -[ Failure ]-> Degraded ;
+		SecondFailure : Degraded -[ Failure ]-> FailStop ;
+	end behavior ;
+	
+	error behavior FailAndRecover
+	events
+		Failure: error event ;
+		Recovery: recover event;
+	states
+		Operational: initial state;
+		Failed:  state;
+	transitions
+		FailureTransition : Operational-[Failure]->Failed;
+		RecoveryTransition :Failed-[Recovery]->Operational;
+	end behavior;
+
+	error behavior DegradedRecovery
+	events
+		Failure : error event ;
+		Recovery: recover event;
+	states
+		Operational : initial state ;
+		Degraded: state;
+		FailStop : state ;
+	transitions
+		FirstFailure : Operational -[ Failure ]-> Degraded ;
+		RecoveryTransition: Degraded -[ Recovery ]-> Operational;
+		SecondFailure : Degraded -[ Failure ]-> FailStop ;
+	end behavior ;
+
+	error behavior PermanentTransientFailure
+	events
+		Failure: error event ;
+		Recovery: recover event;
+	states
+		Operational: initial state;
+		FailedTransient:  state;
+		FailedPermanent:  state;
+	transitions
+		failtransition: Operational-[Failure]->(FailedTransient with EMV2::TransientFailureRatio, FailedPermanent with others);
+		RecoveryTransition : FailedTransient-[Recovery]->Operational;
+	end behavior;
+
+	error behavior FailRecoveryFailure
+	events
+		Failure: error event ;
+		Recovery: recover event;
+	states
+		Operational: initial state;
+		Failed:  state;
+		FailStop: state;
+	transitions
+		FailureTransition : Operational-[Failure]->Failed;
+		RecoveryTransition : Failed-[Recovery]->(Operational with EMV2::RecoveryFailureRatio, FailStop with others);
+	end behavior;
+**};
+
+system Pulse_Generator
+	features
+		V_sense: in event port;
+		V_pulse: out event port;
+		A_sense: in event port;
+		A_pulse: out event port;
+		Configuration: in event port;
+		   Monitoring: out event port;
+		
+end Pulse_Generator;
+
+system implementation Pulse_Generator.impl
+	subcomponents
+		ACCELEROMETER: device Acelerometer;
+		      BATTERY: device Battery;
+		      CONTROLLER: device Determine_Rhythm;
+		      ERROR_HANDLER: device Error_Handler;
+		      PACING_UNIT: device Rate_Adaptive_Pacing;
+	connections
+		cx1: port BATTERY.Status -> CONTROLLER.Battery_Level;
+		cx2: port V_sense -> ACCELEROMETER.Sensing_in;
+		cx3: port A_sense -> ACCELEROMETER.Sensing_in;
+		cx4: port ACCELEROMETER.Sensing_out -> CONTROLLER.Rhythm_in;
+		cx5: port CONTROLLER.Rhythm_out -> PACING_UNIT.Pacing_in;
+		cx6: port PACING_UNIT.Pacing_out -> V_pulse;
+		cx7: port PACING_UNIT.Pacing_out -> A_pulse;
+		cx8: port Configuration -> CONTROLLER.Cofig_Rate;
+		cx9: port CONTROLLER.Measuring_Rate -> Monitoring;
+		cx10: port ACCELEROMETER.Sensinghandler_out -> ERROR_HANDLER.Sensingerror_in;
+		cx11: port ERROR_HANDLER.Sensingerror_out -> ACCELEROMETER.Sensinghandler_in;
+		cx12: port CONTROLLER.Error_out -> ERROR_HANDLER.Handler_in;
+		cx13: port ERROR_HANDLER.Handler_out -> CONTROLLER.Error_in;
+		cx14: port PACING_UNIT.Pacinghandler_out -> ERROR_HANDLER.Pacingerror_in; 
+		cx15: port ERROR_HANDLER.Pacingerror_out -> PACING_UNIT.Pacinghandler_in;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailStop;
+error propagations
+V_pulse: out propagation {SequenceValueError, ItemValueError};
+A_pulse: out propagation {SequenceValueError, ItemValueError};
+V_sense: in propagation  {LowRate, HighRate};
+A_sense: in propagation  {LowRate, HighRate};
+Configuration: in propagation  {LowRate, HighRate};
+Monitoring: out propagation {ItemTimingError, SequenceTimingError, ServiceTimingError};
+flows
+ef0 : error source V_pulse{SequenceValueError, ItemValueError};
+ef1 : error source A_pulse{SequenceValueError, ItemValueError};
+ef2 : error source Monitoring{ItemTimingError, SequenceTimingError, ServiceTimingError};
+ef3 : error path V_sense{LowRate, HighRate}->V_pulse{SequenceValueError, ItemValueError};
+ef4 : error path A_sense{LowRate, HighRate}->A_pulse{SequenceValueError, ItemValueError};
+ef5 : error path Configuration{LowRate, HighRate}->Monitoring{ItemTimingError, SequenceTimingError, ServiceTimingError};
+end propagations;
+component error behavior
+events
+BadRead : error event;
+transitions
+t0 : Operational -[V_sense{LowRate, HighRate}]-> FailStop;
+t1 : Operational -[A_sense{LowRate, HighRate}]-> FailStop;
+t2 : Operational -[Configuration{LowRate, HighRate}]-> FailStop;
+t3 : Operational -[BadRead]-> FailStop;
+end component;
+**};
+
+end Pulse_Generator.impl;
+
+device Acelerometer
+	features
+		Sensing_in: in event port;
+		Sensing_out: out event port;
+		Sensinghandler_in: in event port;
+		Sensinghandler_out: out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+Sensing_out: out propagation {SequenceValueError, ItemValueError};
+Sensinghandler_out: out propagation {SequenceValueError, ItemValueError};
+Sensing_in: in propagation  {LowRate, HighRate};
+Sensinghandler_in: in propagation  {SequenceValueError, ServiceValueError, ItemValueError};
+flows
+ef0 : error source Sensing_out{SequenceValueError};
+ef1 : error source Sensinghandler_out{SequenceValueError};
+ef2 : error path Sensing_in{LowRate, HighRate}->Sensing_out{SequenceValueError};
+ef3 : error path Sensinghandler_in{SequenceValueError, ServiceValueError, ItemValueError}->Sensinghandler_out{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[Sensing_in{LowRate, HighRate}]-> Failed;
+t1 : Operational -[Sensinghandler_in{SequenceValueError, ServiceValueError, ItemValueError}]-> Failed;
+t2 : Operational -[Failure]-> Failed;
+t3 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end Acelerometer;
+
+device implementation Acelerometer.impl
+end Acelerometer.impl;
+
+device Battery
+	features
+		Status: out event port;
+end Battery;
+
+device implementation Battery.impl
+end Battery.impl;
+
+device Determine_Rhythm
+	features
+		Rhythm_out: out event port;
+		Rhythm_in: in event port;
+		Battery_Level: in event port;
+		Cofig_Rate : in event port;
+		Measuring_Rate: out event port;
+		Error_in: in event port;
+		Error_out: out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::DegradedFailStop;
+error propagations
+Rhythm_out: out propagation {ItemTimingError, SequenceTimingError, ServiceTimingError};
+Measuring_Rate: out propagation {ItemTimingError, SequenceTimingError, ServiceTimingError};
+Rhythm_in: in propagation  {SequenceValueError, ItemValueError};
+Battery_Level: in propagation  {ServiceTimingError};
+Cofig_Rate: in propagation  {LowRate, HighRate};
+Error_in: in propagation  {SequenceValueError, ServiceValueError, ItemValueError};
+Error_out: out propagation {ItemTimingError, SequenceTimingError, ServiceTimingError};
+flows
+ef0 : error source Rhythm_out{SequenceTimingError};
+ef1 : error source Measuring_Rate{SequenceTimingError};
+ef2 : error source Error_out{SequenceTimingError};
+ef3 : error path Rhythm_in{SequenceValueError, ItemValueError}->Rhythm_out{SequenceTimingError};
+ef4 : error path Cofig_Rate{LowRate, HighRate}->Measuring_Rate{SequenceTimingError};
+ef5 : error path Error_in{SequenceValueError, ServiceValueError, ItemValueError}->Error_out{SequenceTimingError};
+end propagations;
+component error behavior
+events
+Failure : error event;
+transitions
+t0 : Operational -[Rhythm_in{SequenceValueError, ItemValueError}]-> Degraded;
+t1 : Degraded -[Rhythm_in{SequenceValueError, ItemValueError}]-> FailStop;
+t2 : Operational -[Cofig_Rate{LowRate, HighRate}]-> Degraded;
+t3 : Degraded -[Cofig_Rate{LowRate, HighRate}]-> FailStop;
+t4 : Operational -[Error_in{SequenceValueError, ServiceValueError, ItemValueError}]-> Degraded;
+t5 : Degraded -[Error_in{SequenceValueError, ServiceValueError, ItemValueError}]-> FailStop;
+t6 : Operational -[Battery_Level{ServiceTimingError}]-> Degraded;
+t7 : Degraded -[Battery_Level{ServiceTimingError}]-> FailStop;
+t8 : Operational -[Failure]-> Degraded;
+t9 : Degraded -[ Failure ]-> FailStop ;
+end component;
+**};
+
+end Determine_Rhythm;
+
+device implementation Determine_Rhythm.impl
+end Determine_Rhythm.impl;
+
+device Error_Handler
+	features
+		Handler_out: out event port;
+		Handler_in: in event port;
+		Pacingerror_in:  in event port;
+		Pacingerror_out:  out event port;
+		Sensingerror_in:  in event port;
+		Sensingerror_out:  out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailRecoveryFailure;
+error propagations
+Handler_out: out propagation {SequenceValueError, ServiceValueError, ItemValueError};
+Pacingerror_out: out propagation {SequenceValueError, ServiceValueError, ItemValueError};
+Handler_in: in propagation  {ItemTimingError, SequenceTimingError, ServiceTimingError};
+Pacingerror_in: in propagation  {SequenceValueError, ItemValueError};
+Sensingerror_in: in propagation  {SequenceValueError, ItemValueError};
+Sensingerror_out: out propagation {SequenceValueError, ServiceValueError, ItemValueError};
+flows
+ef0 : error source Handler_out{SequenceValueError};
+ef1 : error source Pacingerror_out{SequenceValueError};
+ef2 : error source Sensingerror_out{SequenceValueError};
+ef3 : error path Handler_in{ItemTimingError, SequenceTimingError, ServiceTimingError}->Handler_out{SequenceValueError};
+ef4 : error path Pacingerror_in{SequenceValueError, ItemValueError}->Pacingerror_out{SequenceValueError};
+ef5 : error path Sensingerror_in{SequenceValueError, ItemValueError}->Sensingerror_out{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[Handler_in{ItemTimingError, SequenceTimingError, ServiceTimingError}]-> Failed;
+t1 : Operational -[Pacingerror_in{SequenceValueError, ItemValueError}]-> Failed;
+t2 : Operational -[Sensingerror_in{SequenceValueError, ItemValueError}]-> Failed;
+t3 : Operational -[Failure]-> Failed;
+t4 : Failed-[Recovery]->(Operational with EMV2::RecoveryFailureRatio, FailStop with others);
+
+end component;
+**};
+		
+end Error_Handler;
+
+device implementation Error_Handler.impl
+end Error_Handler.impl;
+
+device Rate_Adaptive_Pacing
+	features
+		Pacing_out: out event port;
+		Pacing_in: in event port;
+		Pacinghandler_in: in event port;
+		Pacinghandler_out: out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+Pacing_out: out propagation {SequenceValueError, ItemValueError};
+Pacinghandler_out: out propagation {SequenceValueError, ItemValueError};
+Pacing_in: in propagation  {ItemTimingError, SequenceTimingError, ServiceTimingError};
+Pacinghandler_in: in propagation  {SequenceValueError, ServiceValueError, ItemValueError};
+flows
+ef0 : error source Pacing_out{SequenceValueError};
+ef1 : error source Pacinghandler_out{SequenceValueError};
+ef2 : error path Pacing_in{ItemTimingError, SequenceTimingError, ServiceTimingError}->Pacing_out{SequenceValueError};
+ef3 : error path Pacinghandler_in{SequenceValueError, ServiceValueError, ItemValueError}->Pacinghandler_out{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[Pacing_in{ItemTimingError, SequenceTimingError, ServiceTimingError}]-> Failed;
+t1 : Operational -[Pacinghandler_in{SequenceValueError, ServiceValueError, ItemValueError}]-> Failed;
+t2 : Operational -[Failure]-> Failed;
+t3 : Failed -[Recovery]-> Operational;
+end component;
+**};
+		
+end Rate_Adaptive_Pacing;
+
+device implementation Rate_Adaptive_Pacing.impl
+end Rate_Adaptive_Pacing.impl;
+
+device Atrial_Lead
+	features
+		Atrial_Sense: out event port;
+		 Atrial_Pace: in event port;
+
+annex EMV2 {**
+use types ErrorLibrary; 
+use behavior ErrorLibrary::FailStop;
+error propagations
+Atrial_Sense: out propagation {LowRate, HighRate, ItemValueError};
+Atrial_Pace: in propagation  {LowRate, HighRate};
+flows
+ef0 : error source Atrial_Sense{ItemValueError};
+ef1 : error path Atrial_Pace{LowRate, HighRate}->Atrial_Sense{ItemValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+transitions
+t0 : Operational -[Atrial_Pace{LowRate, HighRate}]-> FailStop;
+t1 : Operational -[Failure]-> FailStop;
+end component;
+**};
+		
+end Atrial_Lead;
+
+device implementation Atrial_Lead.impl
+end Atrial_Lead.impl;
+
+device Ventricle_Lead
+	features
+		Ventricel_Sense: out event port;
+		Ventricle_Pace: in event port;
+		
+annex EMV2 {**
+use types ErrorLibrary; 
+use behavior ErrorLibrary::FailStop;
+error propagations
+Ventricel_Sense: out propagation {LowRate, HighRate, ItemValueError};
+Ventricle_Pace: in propagation  {LowRate, HighRate};
+flows
+ef0 : error source Ventricel_Sense{ItemValueError};
+ef1 : error path Ventricle_Pace{LowRate, HighRate}->Ventricel_Sense{ItemValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+transitions
+t0 : Operational -[Ventricle_Pace{LowRate, HighRate}]-> FailStop;
+t1 : Operational -[Failure]-> FailStop;
+end component;
+**};	
+		
+end Ventricle_Lead;
+
+device implementation Ventricle_Lead.impl
+end Ventricle_Lead.impl;
+
+system Device_Controller_Monitor
+	features
+		Configuration: out event port;
+		   Monitoring: in event port;
+		   
+annex EMV2 {**
+use types ErrorLibrary; 
+use behavior ErrorLibrary::FailStop;
+error propagations
+Configuration: out propagation {SequenceValueError, ItemValueError};
+Monitoring: in propagation  {ItemTimingError, SequenceTimingError, ServiceTimingError};
+flows
+ef0 : error source Configuration{SequenceValueError, ItemValueError};
+ef1 : error path Monitoring{ItemTimingError, SequenceTimingError, ServiceTimingError}->Configuration{SequenceValueError, ItemValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+transitions
+t0 : Operational -[Monitoring{ItemTimingError, SequenceTimingError, ServiceTimingError}]-> FailStop;
+t1 : Operational -[Failure]-> FailStop;
+end component;
+**};	
+
+end Device_Controller_Monitor;
+
+system implementation Device_Controller_Monitor.impl
+	subcomponents
+		PACEMAKER_SW: process Pacemaker_SW;
+		PACEMAKER_TR: process Pacemaker_TR;
+		PACEMAKER_HW_PLATFORM: processor Pacemaker_HW_Platform;
+		PACEMAKER_HR_PLATFORM: processor Pacemaker_HR_Platform;
+	connections
+		cnn1: port Monitoring -> PACEMAKER_SW.Measuring_Sensing;
+		cnn2: port PACEMAKER_SW.Configuring_Pacing -> Configuration;
+		cnn3: port Pacemaker_TR.TransferSW_out -> PACEMAKER_SW.SW_in;
+		cnn4: port PACEMAKER_SW.SW_out -> Pacemaker_TR.TransferSW_in; 
+end Device_Controller_Monitor.impl;
+
+thread thr_sender
+features
+	V_sense : out event port;
+	A_sense : out event port;
+annex EMV2 {**
+	use types ErrorLibrary;
+	error propagations
+		V_sense : out propagation {SequenceValueError};
+		A_sense : out propagation {SequenceValueError};
+	flows
+		f1 : error source V_sense{SequenceValueError};
+		f2 : error source A_sense{SequenceValueError};
+	end propagations;
+**};
+end thr_sender;
+
+thread implementation thr_sender.impl
+end thr_sender.impl;
+
+thread thr_receiver
+features
+	rhythm_in: in event port;
+end thr_receiver;
+
+thread implementation thr_receiver.impl
+end thr_receiver.impl;
+
+process CONTROLLER_SW
+	features
+		rhythm_in: in event port;
+		rhythm_out: out event port;
+	modes
+	nominal : initial mode;
+	recovery: mode;
+	
+annex nominalbehavior_annex {**
+states
+	off:initial state;
+	on:state;
+	on_not_engaged: state;
+	on_engaged: state;
+	on_engaged_steady: state;
+	on_engaged_slowing: state;
+	on_engaged_accelerating: state;
+transitions
+	off->[]->on;
+	on-[]->off;
+	on-[]->on_not_engaged;
+	on_not_engaged-[]->on_engaged;
+	on_engaged-[]->on_not_engaged;
+	on_not_engaged-[]->on;
+	on_engaged-[]->on_engaged_steady;
+	on_engaged_steady-[]->on_engaged_slowing;
+	on_engaged_steady-[]->on_engaged_accelerating;
+	on_engaged_accelerating-[]->on_engaged_steady;
+	on_engaged_slowing-[]->on_engaged_steady;
+**};
+
+end CONTROLLER_SW;
+
+process implementation CONTROLLER_SW.impl
+subcomponents
+	thr1 : thread thr_receiver.impl in modes (nominal,recovery);
+	thr2 : thread thr_receiver.impl in modes (recovery);
+internal features
+	triggerrecovery: event;
+	triggernormal: event;
+connections
+	c1 : port rhythm_in -> thr1.rhythm_in;
+	c2 : port rhythm_in -> thr2.rhythm_in;
+modes
+	nominal-[triggerrecovery]->recovery;
+	recovery-[triggernormal]->nominal;
+annex EMV2 {**
+	use types ErrorLibrary;
+	use behavior ErrorLibrary::FailStop;
+	error propagations
+		rhythm_in : in propagation{SequenceValueError};
+	flows
+		f1 : error sink rhythm_in{SequenceValueError};
+	end propagations;
+	component error behavior
+	transitions
+		t1 : Operational -[rhythm_in{SequenceValueError}]-> FailStop;
+		t2 : FailStop -[rhythm_in{NoError}]-> Operational;
+	end component;
+**};
+end CONTROLLER_SW.impl;
+
+process implementation CONTROLLER_SW.with_transitions extends CONTROLLER_SW.impl
+annex EMV2 {**
+	component error behavior
+	detections
+		Operational-[rhythm_in{SequenceValueError}]->triggerrecovery!;
+		FailStop-[rhythm_in{NoError}]->triggernormal!;
+	end component;
+**};
+end CONTROLLER_SW.with_transitions;
+
+
+process implementation CONTROLLER_SW.with_mappings extends CONTROLLER_SW.impl
+annex EMV2 {**
+	component error behavior
+	mode mappings
+		Operational in modes (nominal);
+		FailStop	in modes (recovery);
+	end component;
+**};
+end CONTROLLER_SW.with_mappings;
+
+process Pacemaker_TR
+	features
+		Transfer_in: in event port;
+		Transfer_out: out event port;
+		TransferSW_in: in event port;
+		TransferSW_out: out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+Transfer_out: out propagation {SequenceValueError, ItemValueError};
+TransferSW_out: out propagation {SequenceValueError, ItemValueError};
+Transfer_in: in propagation  {ItemValueError};
+TransferSW_in: in propagation  {SequenceValueError, ItemValueError};
+flows
+ef0 : error source TransferSW_out{SequenceValueError};
+ef1 : error source Transfer_out{SequenceValueError};
+ef2 : error path TransferSW_in{SequenceValueError, ItemValueError}->TransferSW_out{SequenceValueError};
+ef3 : error path Transfer_in{ItemValueError}->Transfer_out{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[TransferSW_in{SequenceValueError, ItemValueError}]-> Failed;
+t1 : Operational -[Transfer_in{ItemValueError}]-> Failed;
+t2 : Operational -[Failure]-> Failed;
+t3 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end Pacemaker_TR;
+
+process implementation Pacemaker_TR.impl
+	subcomponents
+		DDD_MODE: thread DDD_Mode;
+		AAI_MODE: thread AAI_Mode;
+	connections
+		ct1: port Transfer_in -> DDD_MODE.Sensing_DDD;
+		ct2: port Transfer_in -> AAI_MODE.Sensing_AAI;
+		ct3: port DDD_MODE.Pacing_DDD -> Transfer_out;
+		ct4: port AAI_MODE.Pacing_AAI -> Transfer_out;
+
+end Pacemaker_TR.impl;
+
+process Pacemaker_SW
+	features
+		Measuring_Sensing: in event port;
+		Configuring_Pacing: out event port;
+		SW_in: in event port;
+		SW_out: out event port;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+SW_out: out propagation {SequenceValueError, ItemValueError};
+Configuring_Pacing: out propagation {SequenceValueError, ItemValueError};
+SW_in: in propagation  {SequenceValueError, ItemValueError};
+Measuring_Sensing: in propagation  {ItemTimingError, SequenceTimingError, ServiceTimingError};
+flows
+ef0 : error source Configuring_Pacing{SequenceValueError};
+ef1 : error source SW_out{SequenceValueError};
+ef2 : error path SW_in{SequenceValueError, ItemValueError}->SW_out{SequenceValueError};
+ef3 : error path Measuring_Sensing{ItemTimingError, SequenceTimingError, ServiceTimingError}->Configuring_Pacing{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[SW_in{SequenceValueError, ItemValueError}]-> Failed;
+t1 : Operational -[Measuring_Sensing{ItemTimingError, SequenceTimingError, ServiceTimingError}]-> Failed;
+t2 : Operational -[Failure]-> Failed;
+t3 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end Pacemaker_SW;
+
+process implementation Pacemaker_SW.impl
+	subcomponents
+		CONTROL_MODE: thread Control_Mode;
+	connections
+		ct1: port SW_in -> CONTROL_MODE. DDD_SW_ERR;
+		ct2: port CONTROL_MODE.AAI_SW_ERR -> SW_out;
+end Pacemaker_SW.impl;
+
+processor Pacemaker_HW_Platform
+end Pacemaker_HW_Platform;
+
+processor implementation Pacemaker_HW_Platform.impl
+end Pacemaker_HW_Platform.impl;
+
+processor Pacemaker_HR_Platform
+end Pacemaker_HR_Platform;
+
+processor implementation Pacemaker_HR_Platform.impl
+end Pacemaker_HR_Platform.impl;
+
+thread DDD_Mode
+	features
+		Sensing_DDD: in event port;
+		Pacing_DDD: out event port;
+		SW_ERR: out event port;
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+SW_ERR: out propagation {SequenceValueError, ItemValueError};
+Pacing_DDD: out propagation {SequenceValueError, ItemValueError};
+Sensing_DDD: in propagation  {ItemValueError};
+flows
+ef0 : error source SW_ERR{SequenceValueError};
+ef1 : error source Pacing_DDD{SequenceValueError};
+ef2 : error path Sensing_DDD{ItemValueError}->Pacing_DDD{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[Sensing_DDD{ItemValueError}]-> Failed;
+t1 : Operational -[Failure]-> Failed;
+t2 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end DDD_Mode;
+
+thread implementation DDD_Mode.impl
+end DDD_Mode.impl;
+	
+thread AAI_Mode
+	features
+		Sensing_AAI: in event port;
+		Pacing_AAI: out event port;
+		SW_ERR: in event port;
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+Pacing_AAI: out propagation {SequenceValueError, ItemValueError};
+SW_ERR: in propagation {ItemValueError};
+Sensing_AAI: in propagation  {ItemValueError};
+flows
+ef0 : error source Pacing_AAI{SequenceValueError};
+ef1 : error path Sensing_AAI{ItemValueError}->Pacing_AAI{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[Sensing_AAI{ItemValueError}]-> Failed;
+t1 : Operational -[Failure]-> Failed;
+t2 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end AAI_Mode;
+
+thread implementation AAI_Mode.impl
+end AAI_Mode.impl;
+
+thread Control_Mode
+	features
+		DDD_SW_ERR: in event port;
+		AAI_SW_ERR: out event port;
+	modes
+		DDD : initial mode;
+		AAI: mode;
+		DDD -[DDD_SW_ERR]-> AAI;
+
+annex EMV2 {**
+use types ErrorLibrary, pacemaker_modes; 
+use behavior ErrorLibrary::FailAndRecover;
+error propagations
+AAI_SW_ERR: out propagation {SequenceValueError, ItemValueError};
+DDD_SW_ERR: in propagation {SequenceValueError, ItemValueError};
+flows
+ef0 : error source AAI_SW_ERR{SequenceValueError};
+ef1 : error path DDD_SW_ERR{SequenceValueError, ItemValueError}->AAI_SW_ERR{SequenceValueError};
+end propagations;
+component error behavior
+events
+	Failure: error event ;
+	Recovery: recover event;
+transitions
+t0 : Operational -[DDD_SW_ERR{SequenceValueError, ItemValueError}]-> Failed;
+t1 : Operational -[Failure]-> Failed;
+t2 : Failed -[Recovery]-> Operational;
+end component;
+**};
+
+end Control_Mode;	
+
+thread implementation Control_Mode.impl
+end Control_Mode.impl;
+	
+end pacemaker_models_revised;

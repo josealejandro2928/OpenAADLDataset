@@ -1,0 +1,299 @@
+package monitor_temperature
+public
+	with isolette, Isolette_Properties, isolette_thermostat, Data_Model;
+	with Base_Types;
+	with EMV2;
+	
+
+	--@description Lower value of alarm range.
+	data Lower_Alarm_Temp extends Base_Types::Integer
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Integer;
+	  		Data_Model::Integer_Range => 96 .. 101;
+	end Lower_Alarm_Temp;
+
+	--@description Upper value of alarm range.
+	data Upper_Alarm_Temp extends Base_Types::Integer
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Integer;
+	  		Data_Model::Integer_Range => 97 .. 102;
+	end Upper_Alarm_Temp;
+	
+	--@description Safe range of Isolette temperature. 
+	feature group Alarm_Range
+		features
+			lower: in data port Lower_Alarm_Temp;
+			upper: in data port Upper_Alarm_Temp;
+	end Alarm_Range;
+
+	--@description Indicates an internal failure.
+	data Monitor_Internal_Failure
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Monitor_Internal_Failure;
+	
+	--@description See descriptions of Modes in process Monitor_Temperature.
+	data Monitor_Mode
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ( "INIT", "NORMAL", "FAILED" );
+	end Monitor_Mode;
+	
+	--@description Indicates an operator interface failure.
+	data Monitor_Interface_Failure
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Monitor_Interface_Failure;
+	
+	--@definition NOT (Monitor_Interface_Failure OR Monitor_Internal_Failure) AND Current_Temperature.status = Valid
+	data Monitor_Status
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Monitor_Status;
+
+	subprogram Manage_Monitor_Interface
+		features
+			lower_alarm_temp_value : in parameter isolette::Lower_Alarm_Temp_Value;
+			lower_alarm_temp_status : in parameter isolette::Lower_Alarm_Temp_Status;
+			upper_alarm_temp_value : in parameter isolette::Upper_Alarm_Temp_Value;
+			upper_alarm_temp_status : in parameter isolette::Upper_Alarm_Temp_Status;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+			monitor_mode : in parameter Monitor_Mode;
+			monitor_status : out parameter isolette::Monitor_Status;
+			alarm_range_lower: out parameter Lower_Alarm_Temp;
+			alarm_range_upper: out parameter Upper_Alarm_Temp;
+			monitor_interface_failure : out parameter Monitor_Interface_Failure;
+		flows
+			alarm_temp_monitor_status : flow path lower_alarm_temp_value -> monitor_status { Latency => 70 ms .. 90 ms; };
+		properties
+			Compute_Execution_Time => 15 ms .. 20 ms;
+	end Manage_Monitor_Interface;
+
+	thread Manage_Monitor_Interface_Thread
+		features
+			alarm_temp_lower : in feature group isolette::Lower_Alarm_Temperature;
+			alarm_temp_upper : in feature group isolette::Upper_Alarm_Temperature;
+	  		current_temperature : in feature group isolette::Current_Temperature;
+	  		monitor_mode : in data port Monitor_Mode;
+	  		monitor_status : out data port isolette::Monitor_Status;
+	  		alarm_range : feature group inverse of Alarm_Range;
+	  		monitor_interface_failure : out data port Monitor_Interface_Failure;
+		flows
+			alarm_temp_monitor_status : flow path alarm_temp_lower.value -> monitor_status;
+		annex agree {**
+			assume "Lower Alarm Temperature must be greater than 93 and less than 98 ¡ãF" : alarm_temp_lower.value>=93 and alarm_temp_lower.value<=98;
+			guarantee "The difference between two Lower Alarm Temperatures must be less or equal to 5 ¡ãF" : alarm_temp_lower.value-alarm_temp_lower.value<=5;
+			assume "Upper Alarm Temperature must be greater than 99 and less than 103 ¡ãF" : alarm_temp_upper.value>=99 and alarm_temp_upper.value<=103;
+			guarantee "The difference between two Upper Alarm Temperatures must be less or equal to 4 ¡ãF" : alarm_temp_lower.value-alarm_temp_lower.value<=4;
+			guarantee "Current Temperature must be greater than 68 and less that 105 ¡ãF" : current_temperature.value>68 or current_temperature.value<=105;
+			--guarantee "The status of monitor interface is not failure" : monitor_interface_failure = true;
+			**};
+	end Manage_Monitor_Interface_Thread;
+	
+	thread implementation Manage_Monitor_Interface_Thread.impl
+		subcomponents
+			manage_monitor_interface_sub : subprogram Manage_Monitor_Interface;
+		calls
+			main_call_sequence: {
+				manage_monitor_interface_call : subprogram manage_monitor_interface_sub;
+			};
+		connections
+	  		lower_alarm_temp_value_conn : parameter alarm_temp_lower.value -> manage_monitor_interface_call.lower_alarm_temp_value;
+	  		lower_alarm_temp_status_conn : parameter alarm_temp_lower.status -> manage_monitor_interface_call.lower_alarm_temp_status;
+	  		upper_alarm_temp_value_conn : parameter alarm_temp_upper.value -> manage_monitor_interface_call.upper_alarm_temp_value;
+	  		upper_alarm_temp_status_conn : parameter alarm_temp_upper.status -> manage_monitor_interface_call.upper_alarm_temp_status;
+	  		current_temp_value_conn : parameter current_temperature.value -> manage_monitor_interface_call.current_temp_value;
+	  		current_temp_status_conn : parameter current_temperature.status -> manage_monitor_interface_call.current_temp_status;
+	  		monitor_mode_conn : parameter monitor_mode -> manage_monitor_interface_call.monitor_mode;
+	  		monitor_status_conn : parameter manage_monitor_interface_call.monitor_status -> monitor_status;
+	  		mon_int_alarm_lower_conn : parameter manage_monitor_interface_call.alarm_range_lower -> alarm_range.lower;
+	  		mon_int_alarm_upper_conn : parameter manage_monitor_interface_call.alarm_range_upper -> alarm_range.upper;
+	  		mon_int_mon_failure_conn : parameter manage_monitor_interface_call.monitor_interface_failure -> monitor_interface_failure;
+		flows
+			alarm_temp_monitor_status : flow path 	alarm_temp_lower.value ->
+													lower_alarm_temp_value_conn -> 
+													manage_monitor_interface_sub.alarm_temp_monitor_status ->
+													monitor_status_conn -> 
+													monitor_status;
+		annex EMV2 {**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+			use types Monitor_Temp_Error_Lib;
+			error propagations
+				 alarm_temp_lower : in propagation {LateData, AlarmTempLower};
+				 alarm_temp_upper : in propagation {LateData, AlarmTempUpper};
+				 current_temperature.value : in propagation {LateData, CurrentTempValueError};
+				 monitor_mode : in propagation {LateData, MonitorInternalFailure};
+				 monitor_status : out propagation {NoData, StatusError};
+				 alarm_range.lower : out propagation {NoData, AlarmTempLower};
+				 alarm_range.upper : out propagation {NoData, AlarmTempUpper};
+				 monitor_interface_failure : out propagation {NoData, MonitorInterfaceFailure};
+			flows 
+				ef0 : error path alarm_temp_lower{AlarmTempLower} -> alarm_range.lower{AlarmTempLower};
+				ef1 : error path alarm_temp_upper{AlarmTempUpper} -> alarm_range.upper{AlarmTempUpper};
+				ef2 : error path current_temperature.value{CurrentTempValueError} -> monitor_status{StatusError};
+				ef3 : error path monitor_mode{LateData} -> monitor_status{StatusError};
+				ef4 : error path monitor_mode{LateData} -> monitor_interface_failure{MonitorInterfaceFailure};
+				--ef5 : error path alarm_temp_lower{AlarmTempLower} -> monitor_status{StatusError};
+				--ef6 : error path alarm_temp_upper{AlarmTempUpper} -> monitor_status{StatusError};
+			end propagations;
+			
+			properties
+				EMV2::Severity => ARP4761::Hazardous applies to ef0, ef1, ef3, ef4;
+				EMV2::Severity => ARP4761::Major applies to ef2;
+				EMV2::hazards =>
+				([
+					crossreference => "N/A";
+					failure => "Late Values";
+					phases => ("all");
+					description => "Late delivery.";
+					comment => "";
+				]) applies to ef0, ef1, ef3, ef4;
+				**};
+	end Manage_Monitor_Interface_Thread.impl;
+	
+	subprogram Manage_Monitor_Mode
+		features
+	  		monitor_interface_failure : in parameter Monitor_Interface_Failure;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+	  		monitor_internal_failure : in parameter Monitor_Internal_Failure;
+	  		monitor_mode : out parameter Monitor_Mode;
+			monitor_status_true: out parameter Monitor_Status;
+			monitor_status_false: out parameter Monitor_Status;
+			init_duration_greater_timeout: out parameter isolette_thermostat::Boolean;
+	end Manage_Monitor_Mode;
+	
+	thread Manage_Monitor_Mode_Thread
+		features
+		  	monitor_interface_failure : in data port Monitor_Interface_Failure;
+		  	current_temperature : in feature group isolette::Current_Temperature;
+		  	monitor_internal_failure : in data port Monitor_Internal_Failure;
+		  	monitor_mode : out data port Monitor_Mode;
+			monitor_status_true: out data port Monitor_Status;
+			monitor_status_false: out data port Monitor_Status;
+			init_duration_greater_timeout: out data port isolette_thermostat::Boolean;
+	end Manage_Monitor_Mode_Thread;
+	
+	thread implementation Manage_Monitor_Mode_Thread.impl
+		subcomponents
+			manage_monitor_mode_sub : subprogram Manage_Monitor_Mode;
+		calls
+			main_call_sequence : {
+				manage_monitor_mode_call : subprogram manage_monitor_mode_sub;
+			};
+		connections
+	  		monitor_interface_fail_conn : parameter monitor_interface_failure -> manage_monitor_mode_call.monitor_interface_failure;
+			current_temp_value_conn : parameter current_temperature.value -> manage_monitor_mode_call.current_temp_value;
+			current_temp_status_conn : parameter current_temperature.status -> manage_monitor_mode_call.current_temp_status;
+			monitor_internal_fail_conn : parameter monitor_internal_failure -> manage_monitor_mode_call.monitor_internal_failure;
+			monitor_mode_conn : parameter manage_monitor_mode_call.monitor_mode -> monitor_mode;
+			regulator_status_true_conn: parameter manage_monitor_mode_call.monitor_status_true -> monitor_status_true;
+			regulator_status_false_conn: parameter manage_monitor_mode_call.monitor_status_false -> monitor_status_false;
+			init_duration_greater_timeout_conn: parameter manage_monitor_mode_call.init_duration_greater_timeout -> init_duration_greater_timeout;
+	end Manage_Monitor_Mode_Thread.impl;
+	
+	subprogram Manage_Alarm
+		features
+			alarm_range_lower: in parameter Lower_Alarm_Temp;
+			alarm_range_upper: in parameter Upper_Alarm_Temp;
+	  		monitor_mode : in parameter Monitor_Mode;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+	  		alarm_control : out parameter isolette::Alarm;
+	end Manage_Alarm;
+	
+	thread Manage_Alarm_Thread
+		features
+			alarm_range : in feature group Alarm_Range;
+			monitor_mode : in data port Monitor_Mode;
+			current_temperature : in feature group isolette::Current_Temperature;
+			alarm_control : out data port isolette::Alarm;
+	end Manage_Alarm_Thread;
+	
+	thread implementation Manage_Alarm_Thread.impl
+		subcomponents
+			manage_alarm_sub : subprogram Manage_Alarm;
+		calls
+			main_call_sequence : {
+				manage_alarm_call : subprogram manage_alarm_sub;
+			};
+		connections
+	  		alarm_control_conn : parameter manage_alarm_call.alarm_control -> alarm_control;
+			alarm_range_lower_conn : parameter alarm_range.lower -> manage_alarm_call.alarm_range_lower;
+			alarm_range_upper_conn : parameter alarm_range.upper -> manage_alarm_call.alarm_range_upper;
+			monitor_mode_conn : parameter monitor_mode -> manage_alarm_call.monitor_mode;
+			current_tempe_value_conn : parameter current_temperature.value -> manage_alarm_call.current_temp_value;
+			current_temp_status_conn : parameter current_temperature.status -> manage_alarm_call.current_temp_status;
+	end Manage_Alarm_Thread.impl;
+	
+	subprogram Detect_Monitor_Failure
+		features
+	 		monitor_internal_failure : out parameter Monitor_Internal_Failure;
+	end Detect_Monitor_Failure;
+
+	thread Detect_Monitor_Failure_Thread
+		features
+	  		monitor_internal_failure : out data port Monitor_Internal_Failure;
+	end Detect_Monitor_Failure_Thread;
+	
+	thread implementation Detect_Monitor_Failure_Thread.impl
+		calls
+			main_call_sequence : {
+				detect_monitor_failure : subprogram Detect_Monitor_Failure;
+			};
+		connections
+	  		monitor_internal_failure_conn : parameter detect_monitor_failure.monitor_internal_failure -> monitor_internal_failure;
+	end Detect_Monitor_Failure_Thread.impl;
+
+	process Monitor_Temperature
+		features
+			alarm_temperature_range : in feature group isolette::Alarm_Temperature_Range; 
+			current_temperature : in feature group isolette::Current_Temperature; 
+			monitor_status : out data port isolette::Monitor_Status; 
+			alarm_control : out data port isolette::Alarm; 
+      	flows
+      		alarm_temp_monitor_status : flow path alarm_temperature_range -> monitor_status;
+    	modes
+    		--@description Initializing following power-up.
+      		INIT : initial mode;
+    		--@description Normal mode of operation.
+      		NORMAL : mode;
+    		--@description Internal failure detected.
+      		FAILED : mode;
+	end Monitor_Temperature;
+
+	process implementation Monitor_Temperature.impl
+		subcomponents
+  			manage_monitor_interface : thread Manage_Monitor_Interface_Thread.impl;
+			manage_monitor_mode : thread Manage_Monitor_Mode_Thread.impl;
+			manage_alarm : thread Manage_Alarm_Thread.impl;
+			detect_monitor_failure : thread Detect_Monitor_Failure_Thread.impl;
+		connections
+  			alarm_temp_manage_mon_int_lower_conn : feature group alarm_temperature_range.lower -> manage_monitor_interface.alarm_temp_lower;
+  			alarm_temp_manage_mon_int_upper_conn : feature group alarm_temperature_range.upper -> manage_monitor_interface.alarm_temp_upper;
+			manage_monitor_current_temp_conn : feature group current_temperature -> manage_monitor_interface.current_temperature;
+			monitor_status_conn : port manage_monitor_interface.monitor_status -> monitor_status;
+			alarm_range_conn : feature group manage_monitor_interface.alarm_range -> manage_alarm.alarm_range;
+			manage_alarm_monitor_mode_conn : port manage_monitor_mode.monitor_mode -> manage_alarm.monitor_mode;
+			alarm_control_conn : port manage_alarm.alarm_control -> alarm_control;
+			manage_alarm_current_temp_conn : feature group current_temperature -> manage_alarm.current_temperature;
+			monitor_interface_fail_conn : port manage_monitor_interface.monitor_interface_failure -> manage_monitor_mode.monitor_interface_failure;
+			manage_monitor_mode_current_temp_conn : feature group current_temperature -> manage_monitor_mode.current_temperature;
+			monitor_internal_failure_conn : port detect_monitor_failure.monitor_internal_failure -> manage_monitor_mode.monitor_internal_failure;
+			manage_monitor_interface_monitor_mode_conn : port manage_monitor_mode.monitor_mode -> manage_monitor_interface.monitor_mode;
+		flows
+      		alarm_temp_monitor_status : flow path 	alarm_temperature_range -> 
+      												alarm_temp_manage_mon_int_lower_conn ->
+      												manage_monitor_interface.alarm_temp_monitor_status -> 
+      												monitor_status_conn ->
+      												monitor_status;
+    	modes
+      		INIT -[ manage_monitor_mode.monitor_status_true ]-> NORMAL;
+      		INIT -[ manage_monitor_mode.init_duration_greater_timeout ]-> FAILED;
+      		NORMAL -[ manage_monitor_mode.monitor_status_false ]-> FAILED;
+		properties
+			Isolette_Properties::Failure_Probability => 0.005 abs;
+	end Monitor_Temperature.impl;
+end monitor_temperature;

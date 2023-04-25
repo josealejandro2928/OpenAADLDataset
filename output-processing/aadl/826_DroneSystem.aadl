@@ -1,0 +1,41 @@
+package DroneSystem
+public
+	with DroneControl;
+	with Hybrid_SynchAADL;
+	with Environment;
+	with Base_Types;
+	
+system DroneSystem
+	features
+		inX : in data port Base_Types::Float;
+		inY : in data port Base_Types::Float;
+		
+		outX : out data port Base_Types::Float;
+		outY : out data port Base_Types::Float;
+	properties
+		Hybrid_SynchAADL::Synchronous => true;
+end DroneSystem;
+
+system implementation DroneSystem.rendezvous
+	subcomponents
+		drone: system DroneControl::DroneControl.rendezvous;
+
+		environment: system Environment::Environment.rendezvous;
+	connections
+		C1: port drone.outX -> outX;
+		C2: port drone.outY -> outY;
+		C3: port inX -> drone.inX;
+		C4: port inY -> drone.inY;			
+		
+		--- internal
+		C5: port drone.velX -> environment.velX;
+		C6: port drone.velY -> environment.velY;	
+		C7: port environment.currX -> drone.currX;
+		C8: port environment.currY -> drone.currY;		
+	properties    	
+    	Timing => Delayed applies to 
+	    	C1, C2, C3, C4;
+    
+end DroneSystem.rendezvous;
+	
+end DroneSystem;

@@ -1,0 +1,102 @@
+package isolette_data_types
+public
+with Power_Properties, Data_Model, Base_Types;
+	
+	data temperature_range
+	  properties
+	  Data_Model::Real_Range => 68.0 .. 105.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end temperature_range;  
+	
+	data current_temperature extends Base_Types::Integer
+	  properties
+	  Data_Model::Data_Representation => Struct;
+	  Data_Model::Element_Names => ("temp","status");
+	end current_temperature; 
+	
+	data on_off
+	  properties
+	  Data_Model::Data_Representation => Enum;
+	  Data_Model::Enumerators => ("Off","On");
+	end on_off;
+	
+	data lower_desired_range extends Base_Types::Integer
+	  properties 
+	  Data_Model::Real_Range => 97.0 .. 99.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end lower_desired_range;  
+	
+	data lower_desired_temperature extends Base_Types::Integer
+	  properties
+		  Data_Model::Data_Representation => Struct;
+		  Data_Model::Element_Names => ("temp","status");
+	end lower_desired_temperature; 
+	
+	data upper_desired_range extends Base_Types::Integer
+	  properties 
+	  Data_Model::Real_Range => 97.0 .. 99.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end lower_desired_range;  
+	
+	data upper_desired_temperature extends Base_Types::Integer
+	  properties
+		  Data_Model::Data_Representation => Struct;
+		  Data_Model::Element_Names => ("temp","status");
+	end upper_desired_temperature; 
+	
+	data lower_alarm_range extends Base_Types::Integer
+	  properties
+	  Data_Model::Real_Range => 93.0 .. 98.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end lower_alarm_range; 
+	
+	data lower_alarm_temperature extends Base_Types::Integer
+	  properties
+		  Data_Model::Data_Representation => Struct;
+		  Data_Model::Element_Names => ("temp","status");
+	end lower_alarm_temperature;
+	
+	ddata upper_alarm_range extends Base_Types::Integer
+	  properties
+	  Data_Model::Real_Range => 93.0 .. 98.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end upper_alarm_range;  
+
+	data upper_alarm_temperature extends Base_Types::Integer
+	  properties
+		  Data_Model::Data_Representation => Struct;
+		  Data_Model::Element_Names => ("temp","status");
+	end lower_desired_temperature; 
+
+	data status
+	  properties
+	  Data_Model::Data_Representation => Enum;
+	  Data_Model::Enumerators => ("Init","On","Failed");
+	  BLESS::Typed => "enumeration (Init, On, Failed)";
+	end status;
+	 
+	data lower_desired_temp extends Base_Types::Integer
+	  properties
+	  Data_Model::Real_Range => 96.0 .. 101.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end lower_desired_temp;  
+ 
+	data upper_desired_temp extends Base_Types::Integer
+	  properties
+	  Data_Model::Real_Range => 96.0 .. 101.0;
+	  Data_Model::Measurement_Unit => "Fahrenheit";
+	end lower_desired_temp;  
+
+	data regulator_mode
+	  properties
+	  Data_Model::Data_Representation => Enum;
+	  Data_Model::Enumerators => ("Init","NORMAL","FAILED");
+	end regulator_mode;
+
+	data monitor_mode
+	  properties
+	  Data_Model::Data_Representation => Enum;
+	  Data_Model::Enumerators => ("INIT","NORMAL","FAILED");
+	end monitor_mode;
+	
+end isolette_data_types

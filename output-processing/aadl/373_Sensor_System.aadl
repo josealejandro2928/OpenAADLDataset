@@ -1,0 +1,62 @@
+package Sensor_System
+public
+with Base_Types; 
+	renames Base_Types::all;
+with Radiation_Ctrl;
+with Temperature_Ctrl;
+with Pressure_Ctrl;
+with constants;
+	
+	system SensorSys
+		features
+			env_radiation: in data port Integer;
+			env_pressure : in data port Integer;
+			env_temperature : in data port Integer;
+			
+			shutdown: out data port Boolean;
+		
+		annex agree{**
+			assume "Radiation within reasonable range (mSv)." :
+				(env_radiation > 0) and (env_radiation < 1000);
+				
+			assume "Pressure within reasonable range (psi)." :
+				(env_pressure > 0) and (env_pressure < 1500);
+				
+			assume "Temperature within reasonable range (C)." :
+				(env_temperature > 0) and (env_temperature < 500);	
+			
+			-- Shut down when and only when we should
+			guarantee "Shut down when and only when we should": 
+				shutdown = 
+					((env_temperature > constants::TEMP_THRESHOLD)  or 
+					(env_pressure > constants::PRESSURE_THRESHOLD) or
+					(env_radiation > constants::RADIATION_THRESHOLD));
+		
+		**};
+			
+	end SensorSys;
+	
+	system implementation SensorSys.impl
+		subcomponents
+			radiation : system Radiation_Ctrl::Radiation_Ctrl.impl;
+			pressure : system Pressure_Ctrl::Pressure_Ctrl.impl;
+			temp : system Temperature_Ctrl::Temperature_Ctrl.impl;
+			
+		connections
+			radiation_to_subsys : port env_radiation -> radiation.env_radiation;
+			radiation_shutdown_cmd : port radiation.shutdown -> shutdown;
+			temp_to_subsys : port env_temperature -> temp.env_temperature;
+			temp_shutdown_cmd : port temp.shutdown -> shutdown;
+			pressure_to_subsys : port env_pressure -> pressure.env_pressure;
+			pressure_shutdown_cmd : port pressure.shutdown -> shutdown;
+		
+		annex agree {**
+			connection radiation_shutdown_cmd: true;
+			connection temp_shutdown_cmd: true;	
+			connection pressure_shutdown_cmd: true;
+			
+			assign shutdown = radiation.shutdown or temp.shutdown or pressure.shutdown;		    						
+		**};	
+	end SensorSys.impl;
+	
+end Sensor_System;

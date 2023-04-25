@@ -1,0 +1,1874 @@
+--  TASTE - Warning: This is NOT the real Concurrency view  --
+--  This file was automatically generated and should remain read-only
+--  Open it with TASTE-IV
+--  The only intended use of this file is visualization - not processing.
+
+package generated_cv::IV::ConcurrencyView
+public
+with dataview; 
+with exportedComponent::FV;
+with taste;
+
+  --{ interfaceview obj6480 10 10
+  --TASTE-generated concurrency view
+  --For visualization purposes.
+  --}
+
+  system exportedComponent
+  end exportedComponent;
+
+  system implementation exportedComponent.others
+    subcomponents
+	gui : system interfaceview::IV::PASSIVE_gui.others;
+	coffee : system interfaceview::IV::PASSIVE_coffee.others;
+	chip_timer_manager : system interfaceview::IV::PASSIVE_chip_timer_manager.others;
+	chip_taste_api : system interfaceview::IV::PASSIVE_chip_taste_api.others;
+	vt_gui_out_msg : system interfaceview::IV::THREAD_vt_gui_out_msg.others;
+	vt_gui_gui_polling_gui : system interfaceview::IV::THREAD_vt_gui_gui_polling_gui.others;
+	vt_coffee_get_init_tmpr : system interfaceview::IV::THREAD_vt_coffee_get_init_tmpr.others;
+	vt_coffee_get_init_water : system interfaceview::IV::THREAD_vt_coffee_get_init_water.others;
+	vt_coffee_for_water : system interfaceview::IV::THREAD_vt_coffee_for_water.others;
+	vt_coffee_for_water_tmpr : system interfaceview::IV::THREAD_vt_coffee_for_water_tmpr.others;
+	vt_coffee_for_coffee : system interfaceview::IV::THREAD_vt_coffee_for_coffee.others;
+	vt_coffee_for_ticking : system interfaceview::IV::THREAD_vt_coffee_for_ticking.others;
+	vt_coffee_tmr : system interfaceview::IV::THREAD_vt_coffee_tmr.others;
+	vt_coffee_tmr1 : system interfaceview::IV::THREAD_vt_coffee_tmr1.others;
+	vt_coffee_tmr2 : system interfaceview::IV::THREAD_vt_coffee_tmr2.others;
+	vt_coffee_tmr3 : system interfaceview::IV::THREAD_vt_coffee_tmr3.others;
+	vt_chip_timer_manager_tick_100ms : system interfaceview::IV::THREAD_vt_chip_timer_manager_tick_100ms.others;
+    connections
+	sporadic_artificial_get_init_tmpr : subprogram access THREAD_vt_coffee_get_init_tmpr.artificial_get_init_tmpr -> PASSIVE_gui.get_init_tmpr;
+	sporadic_artificial_get_init_water : subprogram access THREAD_vt_coffee_get_init_water.artificial_get_init_water -> PASSIVE_gui.get_init_water;
+	sporadic_artificial_for_water : subprogram access THREAD_vt_coffee_for_water.artificial_for_water -> PASSIVE_gui.for_water;
+	sporadic_artificial_for_water_tmpr : subprogram access THREAD_vt_coffee_for_water_tmpr.artificial_for_water_tmpr -> PASSIVE_gui.for_water_tmpr;
+	sporadic_artificial_for_coffee : subprogram access THREAD_vt_coffee_for_coffee.artificial_for_coffee -> PASSIVE_gui.for_coffee;
+	sporadic_artificial_for_ticking : subprogram access THREAD_vt_coffee_for_ticking.artificial_for_ticking -> PASSIVE_gui.for_ticking;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> PASSIVE_coffee.out_msg;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> PASSIVE_coffee.RESET_tmr;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> PASSIVE_coffee.SET_tmr;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> PASSIVE_coffee.RESET_tmr1;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> PASSIVE_coffee.SET_tmr1;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> PASSIVE_coffee.RESET_tmr2;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> PASSIVE_coffee.SET_tmr2;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> PASSIVE_coffee.RESET_tmr3;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> PASSIVE_coffee.SET_tmr3;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> PASSIVE_coffee.check_queue;
+	sporadic_artificial_tmr : subprogram access THREAD_vt_coffee_tmr.artificial_tmr -> PASSIVE_chip_timer_manager.coffee_tmr;
+	sporadic_artificial_tmr1 : subprogram access THREAD_vt_coffee_tmr1.artificial_tmr1 -> PASSIVE_chip_timer_manager.coffee_tmr1;
+	sporadic_artificial_tmr2 : subprogram access THREAD_vt_coffee_tmr2.artificial_tmr2 -> PASSIVE_chip_timer_manager.coffee_tmr2;
+	sporadic_artificial_tmr3 : subprogram access THREAD_vt_coffee_tmr3.artificial_tmr3 -> PASSIVE_chip_timer_manager.coffee_tmr3;
+	unprotected_chip_timer_manager_has_pending_msg : subprogram access PASSIVE_chip_taste_api.chip_timer_manager_has_pending_msg -> PASSIVE_chip_timer_manager.check_queue;
+	protected_out_msg : subprogram access PASSIVE_gui.out_msg -> THREAD_vt_gui_out_msg.out_msg;
+	sporadic_artificial_get_init_tmpr : subprogram access THREAD_vt_coffee_get_init_tmpr.artificial_get_init_tmpr -> THREAD_vt_gui_out_msg.get_init_tmpr_vt;
+	sporadic_artificial_get_init_water : subprogram access THREAD_vt_coffee_get_init_water.artificial_get_init_water -> THREAD_vt_gui_out_msg.get_init_water_vt;
+	sporadic_artificial_for_water : subprogram access THREAD_vt_coffee_for_water.artificial_for_water -> THREAD_vt_gui_out_msg.for_water_vt;
+	sporadic_artificial_for_water_tmpr : subprogram access THREAD_vt_coffee_for_water_tmpr.artificial_for_water_tmpr -> THREAD_vt_gui_out_msg.for_water_tmpr_vt;
+	sporadic_artificial_for_coffee : subprogram access THREAD_vt_coffee_for_coffee.artificial_for_coffee -> THREAD_vt_gui_out_msg.for_coffee_vt;
+	sporadic_artificial_for_ticking : subprogram access THREAD_vt_coffee_for_ticking.artificial_for_ticking -> THREAD_vt_gui_out_msg.for_ticking_vt;
+	protected_gui_polling_gui : subprogram access PASSIVE_gui.gui_polling_gui -> THREAD_vt_gui_gui_polling_gui.gui_polling_gui;
+	sporadic_artificial_get_init_tmpr : subprogram access THREAD_vt_coffee_get_init_tmpr.artificial_get_init_tmpr -> THREAD_vt_gui_gui_polling_gui.get_init_tmpr_vt;
+	sporadic_artificial_get_init_water : subprogram access THREAD_vt_coffee_get_init_water.artificial_get_init_water -> THREAD_vt_gui_gui_polling_gui.get_init_water_vt;
+	sporadic_artificial_for_water : subprogram access THREAD_vt_coffee_for_water.artificial_for_water -> THREAD_vt_gui_gui_polling_gui.for_water_vt;
+	sporadic_artificial_for_water_tmpr : subprogram access THREAD_vt_coffee_for_water_tmpr.artificial_for_water_tmpr -> THREAD_vt_gui_gui_polling_gui.for_water_tmpr_vt;
+	sporadic_artificial_for_coffee : subprogram access THREAD_vt_coffee_for_coffee.artificial_for_coffee -> THREAD_vt_gui_gui_polling_gui.for_coffee_vt;
+	sporadic_artificial_for_ticking : subprogram access THREAD_vt_coffee_for_ticking.artificial_for_ticking -> THREAD_vt_gui_gui_polling_gui.for_ticking_vt;
+	protected_get_init_tmpr : subprogram access PASSIVE_coffee.get_init_tmpr -> THREAD_vt_coffee_get_init_tmpr.get_init_tmpr;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_get_init_tmpr.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_get_init_tmpr.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_get_init_tmpr.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_get_init_tmpr.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_get_init_tmpr.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_get_init_tmpr.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_get_init_tmpr.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_get_init_tmpr.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_get_init_tmpr.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_get_init_tmpr.check_queue_vt;
+	protected_get_init_water : subprogram access PASSIVE_coffee.get_init_water -> THREAD_vt_coffee_get_init_water.get_init_water;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_get_init_water.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_get_init_water.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_get_init_water.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_get_init_water.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_get_init_water.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_get_init_water.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_get_init_water.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_get_init_water.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_get_init_water.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_get_init_water.check_queue_vt;
+	protected_for_water : subprogram access PASSIVE_coffee.for_water -> THREAD_vt_coffee_for_water.for_water;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_for_water.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_for_water.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_for_water.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_for_water.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_for_water.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_for_water.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_for_water.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_for_water.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_for_water.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_for_water.check_queue_vt;
+	protected_for_water_tmpr : subprogram access PASSIVE_coffee.for_water_tmpr -> THREAD_vt_coffee_for_water_tmpr.for_water_tmpr;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_for_water_tmpr.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_for_water_tmpr.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_for_water_tmpr.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_for_water_tmpr.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_for_water_tmpr.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_for_water_tmpr.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_for_water_tmpr.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_for_water_tmpr.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_for_water_tmpr.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_for_water_tmpr.check_queue_vt;
+	protected_for_coffee : subprogram access PASSIVE_coffee.for_coffee -> THREAD_vt_coffee_for_coffee.for_coffee;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_for_coffee.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_for_coffee.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_for_coffee.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_for_coffee.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_for_coffee.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_for_coffee.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_for_coffee.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_for_coffee.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_for_coffee.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_for_coffee.check_queue_vt;
+	protected_for_ticking : subprogram access PASSIVE_coffee.for_ticking -> THREAD_vt_coffee_for_ticking.for_ticking;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_for_ticking.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_for_ticking.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_for_ticking.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_for_ticking.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_for_ticking.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_for_ticking.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_for_ticking.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_for_ticking.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_for_ticking.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_for_ticking.check_queue_vt;
+	protected_tmr : subprogram access PASSIVE_coffee.tmr -> THREAD_vt_coffee_tmr.tmr;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_tmr.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_tmr.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_tmr.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_tmr.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_tmr.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_tmr.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_tmr.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_tmr.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_tmr.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_tmr.check_queue_vt;
+	protected_tmr1 : subprogram access PASSIVE_coffee.tmr1 -> THREAD_vt_coffee_tmr1.tmr1;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_tmr1.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_tmr1.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_tmr1.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_tmr1.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_tmr1.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_tmr1.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_tmr1.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_tmr1.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_tmr1.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_tmr1.check_queue_vt;
+	protected_tmr2 : subprogram access PASSIVE_coffee.tmr2 -> THREAD_vt_coffee_tmr2.tmr2;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_tmr2.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_tmr2.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_tmr2.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_tmr2.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_tmr2.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_tmr2.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_tmr2.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_tmr2.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_tmr2.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_tmr2.check_queue_vt;
+	protected_tmr3 : subprogram access PASSIVE_coffee.tmr3 -> THREAD_vt_coffee_tmr3.tmr3;
+	sporadic_artificial_out_msg : subprogram access THREAD_vt_gui_out_msg.artificial_out_msg -> THREAD_vt_coffee_tmr3.out_msg_vt;
+	protected_coffee_RESET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr -> THREAD_vt_coffee_tmr3.RESET_tmr_vt;
+	protected_coffee_SET_tmr : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr -> THREAD_vt_coffee_tmr3.SET_tmr_vt;
+	protected_coffee_RESET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr1 -> THREAD_vt_coffee_tmr3.RESET_tmr1_vt;
+	protected_coffee_SET_tmr1 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr1 -> THREAD_vt_coffee_tmr3.SET_tmr1_vt;
+	protected_coffee_RESET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr2 -> THREAD_vt_coffee_tmr3.RESET_tmr2_vt;
+	protected_coffee_SET_tmr2 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr2 -> THREAD_vt_coffee_tmr3.SET_tmr2_vt;
+	protected_coffee_RESET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_RESET_tmr3 -> THREAD_vt_coffee_tmr3.RESET_tmr3_vt;
+	protected_coffee_SET_tmr3 : subprogram access PASSIVE_chip_timer_manager.coffee_SET_tmr3 -> THREAD_vt_coffee_tmr3.SET_tmr3_vt;
+	unprotected_coffee_has_pending_msg : subprogram access PASSIVE_chip_taste_api.coffee_has_pending_msg -> THREAD_vt_coffee_tmr3.check_queue_vt;
+	protected_tick_100ms : subprogram access PASSIVE_chip_timer_manager.tick_100ms -> THREAD_vt_chip_timer_manager_tick_100ms.tick_100ms;
+	sporadic_artificial_tmr : subprogram access THREAD_vt_coffee_tmr.artificial_tmr -> THREAD_vt_chip_timer_manager_tick_100ms.coffee_tmr_vt;
+	sporadic_artificial_tmr1 : subprogram access THREAD_vt_coffee_tmr1.artificial_tmr1 -> THREAD_vt_chip_timer_manager_tick_100ms.coffee_tmr1_vt;
+	sporadic_artificial_tmr2 : subprogram access THREAD_vt_coffee_tmr2.artificial_tmr2 -> THREAD_vt_chip_timer_manager_tick_100ms.coffee_tmr2_vt;
+	sporadic_artificial_tmr3 : subprogram access THREAD_vt_coffee_tmr3.artificial_tmr3 -> THREAD_vt_chip_timer_manager_tick_100ms.coffee_tmr3_vt;
+	unprotected_chip_timer_manager_has_pending_msg : subprogram access PASSIVE_chip_taste_api.chip_timer_manager_has_pending_msg -> THREAD_vt_chip_timer_manager_tick_100ms.check_queue_vt;
+  end exportedComponent.others;
+
+  system PASSIVE_gui
+    features
+	out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "200 215 200 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	get_init_tmpr : requires subprogram access exportedComponent::fv::artificial_get_init_tmpr.others
+	  { taste::Coordinates => "450 215 450 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	get_init_water : requires subprogram access exportedComponent::fv::artificial_get_init_water.others
+	  { taste::Coordinates => "450 260 450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water : requires subprogram access exportedComponent::fv::artificial_for_water.others
+	  { taste::Coordinates => "450 305 450 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_tmpr : requires subprogram access exportedComponent::fv::artificial_for_water_tmpr.others
+	  { taste::Coordinates => "450 350 450 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_coffee : requires subprogram access exportedComponent::fv::artificial_for_coffee.others
+	  { taste::Coordinates => "450 395 450 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_ticking : requires subprogram access exportedComponent::fv::artificial_for_ticking.others
+	  { taste::Coordinates => "450 440 450 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "200 260 200 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 200 450 470";
+	taste::instance_name => "gui";
+  end PASSIVE_gui;
+
+  system implementation PASSIVE_gui.others
+    subcomponents
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_tmpr_impl : subprogram exportedComponent::FV::artificial_get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_water_impl : subprogram exportedComponent::FV::artificial_get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_impl : subprogram exportedComponent::FV::artificial_for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_tmpr_impl : subprogram exportedComponent::FV::artificial_for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_coffee_impl : subprogram exportedComponent::FV::artificial_for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_ticking_impl : subprogram exportedComponent::FV::artificial_for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access get_init_tmpr_impl -> get_init_tmpr;
+	subprogram access get_init_water_impl -> get_init_water;
+	subprogram access for_water_impl -> for_water;
+	subprogram access for_water_tmpr_impl -> for_water_tmpr;
+	subprogram access for_coffee_impl -> for_coffee;
+	subprogram access for_ticking_impl -> for_ticking;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+  end PASSIVE_gui.others;
+
+  system PASSIVE_coffee
+    features
+	get_init_tmpr : provides subprogram access exportedComponent::fv::get_init_tmpr.others
+	  { taste::Coordinates => "600 215 600 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	get_init_water : provides subprogram access exportedComponent::fv::get_init_water.others
+	  { taste::Coordinates => "600 260 600 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	for_water : provides subprogram access exportedComponent::fv::for_water.others
+	  { taste::Coordinates => "600 305 600 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	for_water_tmpr : provides subprogram access exportedComponent::fv::for_water_tmpr.others
+	  { taste::Coordinates => "600 350 600 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	for_coffee : provides subprogram access exportedComponent::fv::for_coffee.others
+	  { taste::Coordinates => "600 395 600 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	for_ticking : provides subprogram access exportedComponent::fv::for_ticking.others
+	  { taste::Coordinates => "600 440 600 440";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 215 850 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	tmr : provides subprogram access exportedComponent::fv::coffee_tmr.others
+	  { taste::Coordinates => "600 485 600 485";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "850 260 850 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "850 305 850 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	tmr1 : provides subprogram access exportedComponent::fv::coffee_tmr1.others
+	  { taste::Coordinates => "600 530 600 530";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1 : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "850 350 850 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1 : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "850 395 850 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	tmr2 : provides subprogram access exportedComponent::fv::coffee_tmr2.others
+	  { taste::Coordinates => "600 575 600 575";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2 : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "850 440 850 440";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2 : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "850 485 850 485";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	tmr3 : provides subprogram access exportedComponent::fv::coffee_tmr3.others
+	  { taste::Coordinates => "600 620 600 620";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3 : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "850 530 850 530";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3 : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "850 575 850 575";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "850 620 850 620";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 200 850 650";
+	taste::instance_name => "coffee";
+  end PASSIVE_coffee;
+
+  system implementation PASSIVE_coffee.others
+    subcomponents
+	get_init_tmpr_impl : subprogram exportedComponent::FV::get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_water_impl : subprogram exportedComponent::FV::get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_impl : subprogram exportedComponent::FV::for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_tmpr_impl : subprogram exportedComponent::FV::for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_coffee_impl : subprogram exportedComponent::FV::for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_ticking_impl : subprogram exportedComponent::FV::for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr_impl : subprogram exportedComponent::FV::coffee_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr1_impl : subprogram exportedComponent::FV::coffee_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr2_impl : subprogram exportedComponent::FV::coffee_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr3_impl : subprogram exportedComponent::FV::coffee_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access get_init_tmpr_impl -> get_init_tmpr;
+	subprogram access get_init_water_impl -> get_init_water;
+	subprogram access for_water_impl -> for_water;
+	subprogram access for_water_tmpr_impl -> for_water_tmpr;
+	subprogram access for_coffee_impl -> for_coffee;
+	subprogram access for_ticking_impl -> for_ticking;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access tmr_impl -> tmr;
+	subprogram access RESET_tmr_impl -> RESET_tmr;
+	subprogram access SET_tmr_impl -> SET_tmr;
+	subprogram access tmr1_impl -> tmr1;
+	subprogram access RESET_tmr1_impl -> RESET_tmr1;
+	subprogram access SET_tmr1_impl -> SET_tmr1;
+	subprogram access tmr2_impl -> tmr2;
+	subprogram access RESET_tmr2_impl -> RESET_tmr2;
+	subprogram access SET_tmr2_impl -> SET_tmr2;
+	subprogram access tmr3_impl -> tmr3;
+	subprogram access RESET_tmr3_impl -> RESET_tmr3;
+	subprogram access SET_tmr3_impl -> SET_tmr3;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_coffee.others;
+
+  system PASSIVE_chip_timer_manager
+    features
+	tick_100ms : provides subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "1000 215 1000 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_tmr : requires subprogram access exportedComponent::fv::artificial_tmr.others
+	  { taste::Coordinates => "1250 215 1250 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_RESET_tmr : provides subprogram access exportedComponent::fv::RESET_tmr.others
+	  { taste::Coordinates => "1000 260 1000 260";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_SET_tmr : provides subprogram access exportedComponent::fv::SET_tmr.others
+	  { taste::Coordinates => "1000 305 1000 305";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_tmr1 : requires subprogram access exportedComponent::fv::artificial_tmr1.others
+	  { taste::Coordinates => "1250 260 1250 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_RESET_tmr1 : provides subprogram access exportedComponent::fv::RESET_tmr1.others
+	  { taste::Coordinates => "1000 350 1000 350";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_SET_tmr1 : provides subprogram access exportedComponent::fv::SET_tmr1.others
+	  { taste::Coordinates => "1000 395 1000 395";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_tmr2 : requires subprogram access exportedComponent::fv::artificial_tmr2.others
+	  { taste::Coordinates => "1250 305 1250 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_RESET_tmr2 : provides subprogram access exportedComponent::fv::RESET_tmr2.others
+	  { taste::Coordinates => "1000 440 1000 440";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_SET_tmr2 : provides subprogram access exportedComponent::fv::SET_tmr2.others
+	  { taste::Coordinates => "1000 485 1000 485";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_tmr3 : requires subprogram access exportedComponent::fv::artificial_tmr3.others
+	  { taste::Coordinates => "1250 350 1250 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_RESET_tmr3 : provides subprogram access exportedComponent::fv::RESET_tmr3.others
+	  { taste::Coordinates => "1000 530 1000 530";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_SET_tmr3 : provides subprogram access exportedComponent::fv::SET_tmr3.others
+	  { taste::Coordinates => "1000 575 1000 575";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue : requires subprogram access exportedComponent::fv::chip_timer_manager_has_pending_msg.others
+	  { taste::Coordinates => "1250 395 1250 395";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 200 1250 605";
+	taste::instance_name => "chip_timer_manager";
+  end PASSIVE_chip_timer_manager;
+
+  system implementation PASSIVE_chip_timer_manager.others
+    subcomponents
+	tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr_impl : subprogram exportedComponent::FV::artificial_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_RESET_tmr_impl : subprogram exportedComponent::FV::RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_SET_tmr_impl : subprogram exportedComponent::FV::SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr1_impl : subprogram exportedComponent::FV::artificial_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_RESET_tmr1_impl : subprogram exportedComponent::FV::RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_SET_tmr1_impl : subprogram exportedComponent::FV::SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr2_impl : subprogram exportedComponent::FV::artificial_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_RESET_tmr2_impl : subprogram exportedComponent::FV::RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_SET_tmr2_impl : subprogram exportedComponent::FV::SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr3_impl : subprogram exportedComponent::FV::artificial_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_RESET_tmr3_impl : subprogram exportedComponent::FV::RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_SET_tmr3_impl : subprogram exportedComponent::FV::SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_impl : subprogram exportedComponent::FV::chip_timer_manager_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access tick_100ms_impl -> tick_100ms;
+	subprogram access coffee_tmr_impl -> coffee_tmr;
+	subprogram access coffee_RESET_tmr_impl -> coffee_RESET_tmr;
+	subprogram access coffee_SET_tmr_impl -> coffee_SET_tmr;
+	subprogram access coffee_tmr1_impl -> coffee_tmr1;
+	subprogram access coffee_RESET_tmr1_impl -> coffee_RESET_tmr1;
+	subprogram access coffee_SET_tmr1_impl -> coffee_SET_tmr1;
+	subprogram access coffee_tmr2_impl -> coffee_tmr2;
+	subprogram access coffee_RESET_tmr2_impl -> coffee_RESET_tmr2;
+	subprogram access coffee_SET_tmr2_impl -> coffee_SET_tmr2;
+	subprogram access coffee_tmr3_impl -> coffee_tmr3;
+	subprogram access coffee_RESET_tmr3_impl -> coffee_RESET_tmr3;
+	subprogram access coffee_SET_tmr3_impl -> coffee_SET_tmr3;
+	subprogram access check_queue_impl -> check_queue;
+  end PASSIVE_chip_timer_manager.others;
+
+  system PASSIVE_chip_taste_api
+    features
+	coffee_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1400 215 1400 215";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+	chip_timer_manager_has_pending_msg : provides subprogram access exportedComponent::fv::check_queue.others
+	  { taste::Coordinates => "1400 260 1400 260";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 200 1650 290";
+	taste::instance_name => "chip_taste_api";
+  end PASSIVE_chip_taste_api;
+
+  system implementation PASSIVE_chip_taste_api.others
+    subcomponents
+	coffee_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+	chip_timer_manager_has_pending_msg_impl : subprogram exportedComponent::FV::check_queue.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access coffee_has_pending_msg_impl -> coffee_has_pending_msg;
+	subprogram access chip_timer_manager_has_pending_msg_impl -> chip_timer_manager_has_pending_msg;
+  end PASSIVE_chip_taste_api.others;
+
+  system THREAD_vt_gui_out_msg
+    features
+	artificial_out_msg : provides subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "1800 215 1800 215";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	out_msg : requires subprogram access exportedComponent::fv::out_msg.others
+	  { taste::Coordinates => "2050 215 2050 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	get_init_tmpr_vt : requires subprogram access exportedComponent::fv::artificial_get_init_tmpr.others
+	  { taste::Coordinates => "2050 260 2050 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	get_init_water_vt : requires subprogram access exportedComponent::fv::artificial_get_init_water.others
+	  { taste::Coordinates => "2050 305 2050 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_vt : requires subprogram access exportedComponent::fv::artificial_for_water.others
+	  { taste::Coordinates => "2050 350 2050 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_tmpr_vt : requires subprogram access exportedComponent::fv::artificial_for_water_tmpr.others
+	  { taste::Coordinates => "2050 395 2050 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_coffee_vt : requires subprogram access exportedComponent::fv::artificial_for_coffee.others
+	  { taste::Coordinates => "2050 440 2050 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_ticking_vt : requires subprogram access exportedComponent::fv::artificial_for_ticking.others
+	  { taste::Coordinates => "2050 485 2050 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 200 2050 515";
+	taste::instance_name => "vt_gui_out_msg";
+  end THREAD_vt_gui_out_msg;
+
+  system implementation THREAD_vt_gui_out_msg.others
+    subcomponents
+	artificial_out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_impl : subprogram exportedComponent::FV::out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_tmpr_vt_impl : subprogram exportedComponent::FV::artificial_get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_water_vt_impl : subprogram exportedComponent::FV::artificial_get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_vt_impl : subprogram exportedComponent::FV::artificial_for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_tmpr_vt_impl : subprogram exportedComponent::FV::artificial_for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_coffee_vt_impl : subprogram exportedComponent::FV::artificial_for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_ticking_vt_impl : subprogram exportedComponent::FV::artificial_for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_out_msg_impl -> artificial_out_msg;
+	subprogram access out_msg_impl -> out_msg;
+	subprogram access get_init_tmpr_vt_impl -> get_init_tmpr_vt;
+	subprogram access get_init_water_vt_impl -> get_init_water_vt;
+	subprogram access for_water_vt_impl -> for_water_vt;
+	subprogram access for_water_tmpr_vt_impl -> for_water_tmpr_vt;
+	subprogram access for_coffee_vt_impl -> for_coffee_vt;
+	subprogram access for_ticking_vt_impl -> for_ticking_vt;
+  end THREAD_vt_gui_out_msg.others;
+
+  system THREAD_vt_gui_gui_polling_gui
+    features
+	artificial_gui_polling_gui : provides subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2200 215 2200 215";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 40;};
+	gui_polling_gui : requires subprogram access exportedComponent::fv::gui_polling_gui.others
+	  { taste::Coordinates => "2450 215 2450 215";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 40;};
+	get_init_tmpr_vt : requires subprogram access exportedComponent::fv::artificial_get_init_tmpr.others
+	  { taste::Coordinates => "2450 260 2450 260";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	get_init_water_vt : requires subprogram access exportedComponent::fv::artificial_get_init_water.others
+	  { taste::Coordinates => "2450 305 2450 305";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_vt : requires subprogram access exportedComponent::fv::artificial_for_water.others
+	  { taste::Coordinates => "2450 350 2450 350";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_tmpr_vt : requires subprogram access exportedComponent::fv::artificial_for_water_tmpr.others
+	  { taste::Coordinates => "2450 395 2450 395";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_coffee_vt : requires subprogram access exportedComponent::fv::artificial_for_coffee.others
+	  { taste::Coordinates => "2450 440 2450 440";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_ticking_vt : requires subprogram access exportedComponent::fv::artificial_for_ticking.others
+	  { taste::Coordinates => "2450 485 2450 485";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 200 2450 515";
+	taste::instance_name => "vt_gui_gui_polling_gui";
+  end THREAD_vt_gui_gui_polling_gui;
+
+  system implementation THREAD_vt_gui_gui_polling_gui.others
+    subcomponents
+	artificial_gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	gui_polling_gui_impl : subprogram exportedComponent::FV::gui_polling_gui.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_tmpr_vt_impl : subprogram exportedComponent::FV::artificial_get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_water_vt_impl : subprogram exportedComponent::FV::artificial_get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_vt_impl : subprogram exportedComponent::FV::artificial_for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_tmpr_vt_impl : subprogram exportedComponent::FV::artificial_for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_coffee_vt_impl : subprogram exportedComponent::FV::artificial_for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_ticking_vt_impl : subprogram exportedComponent::FV::artificial_for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_gui_polling_gui_impl -> artificial_gui_polling_gui;
+	subprogram access gui_polling_gui_impl -> gui_polling_gui;
+	subprogram access get_init_tmpr_vt_impl -> get_init_tmpr_vt;
+	subprogram access get_init_water_vt_impl -> get_init_water_vt;
+	subprogram access for_water_vt_impl -> for_water_vt;
+	subprogram access for_water_tmpr_vt_impl -> for_water_tmpr_vt;
+	subprogram access for_coffee_vt_impl -> for_coffee_vt;
+	subprogram access for_ticking_vt_impl -> for_ticking_vt;
+  end THREAD_vt_gui_gui_polling_gui.others;
+
+  system THREAD_vt_coffee_get_init_tmpr
+    features
+	artificial_get_init_tmpr : provides subprogram access exportedComponent::fv::get_init_tmpr.others
+	  { taste::Coordinates => "200 965 200 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	get_init_tmpr : requires subprogram access exportedComponent::fv::get_init_tmpr.others
+	  { taste::Coordinates => "450 965 450 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "450 1010 450 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "450 1055 450 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "450 1100 450 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "450 1145 450 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "450 1190 450 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "450 1235 450 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "450 1280 450 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "450 1325 450 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "450 1370 450 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "450 1415 450 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 950 450 1445";
+	taste::instance_name => "vt_coffee_get_init_tmpr";
+  end THREAD_vt_coffee_get_init_tmpr;
+
+  system implementation THREAD_vt_coffee_get_init_tmpr.others
+    subcomponents
+	artificial_get_init_tmpr_impl : subprogram exportedComponent::FV::get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_tmpr_impl : subprogram exportedComponent::FV::get_init_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_get_init_tmpr_impl -> artificial_get_init_tmpr;
+	subprogram access get_init_tmpr_impl -> get_init_tmpr;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_get_init_tmpr.others;
+
+  system THREAD_vt_coffee_get_init_water
+    features
+	artificial_get_init_water : provides subprogram access exportedComponent::fv::get_init_water.others
+	  { taste::Coordinates => "600 965 600 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	get_init_water : requires subprogram access exportedComponent::fv::get_init_water.others
+	  { taste::Coordinates => "850 965 850 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 1010 850 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "850 1055 850 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "850 1100 850 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "850 1145 850 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "850 1190 850 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "850 1235 850 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "850 1280 850 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "850 1325 850 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "850 1370 850 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "850 1415 850 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 950 850 1445";
+	taste::instance_name => "vt_coffee_get_init_water";
+  end THREAD_vt_coffee_get_init_water;
+
+  system implementation THREAD_vt_coffee_get_init_water.others
+    subcomponents
+	artificial_get_init_water_impl : subprogram exportedComponent::FV::get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	get_init_water_impl : subprogram exportedComponent::FV::get_init_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_get_init_water_impl -> artificial_get_init_water;
+	subprogram access get_init_water_impl -> get_init_water;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_get_init_water.others;
+
+  system THREAD_vt_coffee_for_water
+    features
+	artificial_for_water : provides subprogram access exportedComponent::fv::for_water.others
+	  { taste::Coordinates => "1000 965 1000 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water : requires subprogram access exportedComponent::fv::for_water.others
+	  { taste::Coordinates => "1250 965 1250 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1250 1010 1250 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "1250 1055 1250 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "1250 1100 1250 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "1250 1145 1250 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "1250 1190 1250 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "1250 1235 1250 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "1250 1280 1250 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "1250 1325 1250 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "1250 1370 1250 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "1250 1415 1250 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 950 1250 1445";
+	taste::instance_name => "vt_coffee_for_water";
+  end THREAD_vt_coffee_for_water;
+
+  system implementation THREAD_vt_coffee_for_water.others
+    subcomponents
+	artificial_for_water_impl : subprogram exportedComponent::FV::for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_impl : subprogram exportedComponent::FV::for_water.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_for_water_impl -> artificial_for_water;
+	subprogram access for_water_impl -> for_water;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_for_water.others;
+
+  system THREAD_vt_coffee_for_water_tmpr
+    features
+	artificial_for_water_tmpr : provides subprogram access exportedComponent::fv::for_water_tmpr.others
+	  { taste::Coordinates => "1400 965 1400 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_water_tmpr : requires subprogram access exportedComponent::fv::for_water_tmpr.others
+	  { taste::Coordinates => "1650 965 1650 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1650 1010 1650 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "1650 1055 1650 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "1650 1100 1650 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "1650 1145 1650 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "1650 1190 1650 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "1650 1235 1650 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "1650 1280 1650 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "1650 1325 1650 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "1650 1370 1650 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "1650 1415 1650 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 950 1650 1445";
+	taste::instance_name => "vt_coffee_for_water_tmpr";
+  end THREAD_vt_coffee_for_water_tmpr;
+
+  system implementation THREAD_vt_coffee_for_water_tmpr.others
+    subcomponents
+	artificial_for_water_tmpr_impl : subprogram exportedComponent::FV::for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_water_tmpr_impl : subprogram exportedComponent::FV::for_water_tmpr.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_for_water_tmpr_impl -> artificial_for_water_tmpr;
+	subprogram access for_water_tmpr_impl -> for_water_tmpr;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_for_water_tmpr.others;
+
+  system THREAD_vt_coffee_for_coffee
+    features
+	artificial_for_coffee : provides subprogram access exportedComponent::fv::for_coffee.others
+	  { taste::Coordinates => "1800 965 1800 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_coffee : requires subprogram access exportedComponent::fv::for_coffee.others
+	  { taste::Coordinates => "2050 965 2050 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2050 1010 2050 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "2050 1055 2050 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "2050 1100 2050 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "2050 1145 2050 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "2050 1190 2050 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "2050 1235 2050 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "2050 1280 2050 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "2050 1325 2050 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "2050 1370 2050 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "2050 1415 2050 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 950 2050 1445";
+	taste::instance_name => "vt_coffee_for_coffee";
+  end THREAD_vt_coffee_for_coffee;
+
+  system implementation THREAD_vt_coffee_for_coffee.others
+    subcomponents
+	artificial_for_coffee_impl : subprogram exportedComponent::FV::for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_coffee_impl : subprogram exportedComponent::FV::for_coffee.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_for_coffee_impl -> artificial_for_coffee;
+	subprogram access for_coffee_impl -> for_coffee;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_for_coffee.others;
+
+  system THREAD_vt_coffee_for_ticking
+    features
+	artificial_for_ticking : provides subprogram access exportedComponent::fv::for_ticking.others
+	  { taste::Coordinates => "2200 965 2200 965";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	for_ticking : requires subprogram access exportedComponent::fv::for_ticking.others
+	  { taste::Coordinates => "2450 965 2450 965";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 0;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "2450 1010 2450 1010";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "2450 1055 2450 1055";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "2450 1100 2450 1100";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "2450 1145 2450 1145";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "2450 1190 2450 1190";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "2450 1235 2450 1235";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "2450 1280 2450 1280";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "2450 1325 2450 1325";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "2450 1370 2450 1370";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "2450 1415 2450 1415";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "2200 950 2450 1445";
+	taste::instance_name => "vt_coffee_for_ticking";
+  end THREAD_vt_coffee_for_ticking;
+
+  system implementation THREAD_vt_coffee_for_ticking.others
+    subcomponents
+	artificial_for_ticking_impl : subprogram exportedComponent::FV::for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+	for_ticking_impl : subprogram exportedComponent::FV::for_ticking.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_for_ticking_impl -> artificial_for_ticking;
+	subprogram access for_ticking_impl -> for_ticking;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_for_ticking.others;
+
+  system THREAD_vt_coffee_tmr
+    features
+	artificial_tmr : provides subprogram access exportedComponent::fv::tmr.others
+	  { taste::Coordinates => "200 1760 200 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	tmr : requires subprogram access exportedComponent::fv::tmr.others
+	  { taste::Coordinates => "450 1760 450 1760";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "450 1805 450 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "450 1850 450 1850";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "450 1895 450 1895";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "450 1940 450 1940";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "450 1985 450 1985";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "450 2030 450 2030";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "450 2075 450 2075";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "450 2120 450 2120";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "450 2165 450 2165";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "450 2210 450 2210";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "200 1745 450 2240";
+	taste::instance_name => "vt_coffee_tmr";
+  end THREAD_vt_coffee_tmr;
+
+  system implementation THREAD_vt_coffee_tmr.others
+    subcomponents
+	artificial_tmr_impl : subprogram exportedComponent::FV::tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr_impl : subprogram exportedComponent::FV::tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tmr_impl -> artificial_tmr;
+	subprogram access tmr_impl -> tmr;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_tmr.others;
+
+  system THREAD_vt_coffee_tmr1
+    features
+	artificial_tmr1 : provides subprogram access exportedComponent::fv::tmr1.others
+	  { taste::Coordinates => "600 1760 600 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	tmr1 : requires subprogram access exportedComponent::fv::tmr1.others
+	  { taste::Coordinates => "850 1760 850 1760";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "850 1805 850 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "850 1850 850 1850";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "850 1895 850 1895";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "850 1940 850 1940";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "850 1985 850 1985";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "850 2030 850 2030";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "850 2075 850 2075";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "850 2120 850 2120";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "850 2165 850 2165";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "850 2210 850 2210";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "600 1745 850 2240";
+	taste::instance_name => "vt_coffee_tmr1";
+  end THREAD_vt_coffee_tmr1;
+
+  system implementation THREAD_vt_coffee_tmr1.others
+    subcomponents
+	artificial_tmr1_impl : subprogram exportedComponent::FV::tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr1_impl : subprogram exportedComponent::FV::tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tmr1_impl -> artificial_tmr1;
+	subprogram access tmr1_impl -> tmr1;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_tmr1.others;
+
+  system THREAD_vt_coffee_tmr2
+    features
+	artificial_tmr2 : provides subprogram access exportedComponent::fv::tmr2.others
+	  { taste::Coordinates => "1000 1760 1000 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	tmr2 : requires subprogram access exportedComponent::fv::tmr2.others
+	  { taste::Coordinates => "1250 1760 1250 1760";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1250 1805 1250 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "1250 1850 1250 1850";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "1250 1895 1250 1895";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "1250 1940 1250 1940";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "1250 1985 1250 1985";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "1250 2030 1250 2030";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "1250 2075 1250 2075";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "1250 2120 1250 2120";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "1250 2165 1250 2165";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "1250 2210 1250 2210";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1000 1745 1250 2240";
+	taste::instance_name => "vt_coffee_tmr2";
+  end THREAD_vt_coffee_tmr2;
+
+  system implementation THREAD_vt_coffee_tmr2.others
+    subcomponents
+	artificial_tmr2_impl : subprogram exportedComponent::FV::tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr2_impl : subprogram exportedComponent::FV::tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tmr2_impl -> artificial_tmr2;
+	subprogram access tmr2_impl -> tmr2;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_tmr2.others;
+
+  system THREAD_vt_coffee_tmr3
+    features
+	artificial_tmr3 : provides subprogram access exportedComponent::fv::tmr3.others
+	  { taste::Coordinates => "1400 1760 1400 1760";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	tmr3 : requires subprogram access exportedComponent::fv::tmr3.others
+	  { taste::Coordinates => "1650 1760 1650 1760";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	out_msg_vt : requires subprogram access exportedComponent::fv::artificial_out_msg.others
+	  { taste::Coordinates => "1650 1805 1650 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 0;};
+	RESET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr.others
+	  { taste::Coordinates => "1650 1850 1650 1850";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr.others
+	  { taste::Coordinates => "1650 1895 1650 1895";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr1.others
+	  { taste::Coordinates => "1650 1940 1650 1940";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr1_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr1.others
+	  { taste::Coordinates => "1650 1985 1650 1985";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr2.others
+	  { taste::Coordinates => "1650 2030 1650 2030";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr2_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr2.others
+	  { taste::Coordinates => "1650 2075 1650 2075";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	RESET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_RESET_tmr3.others
+	  { taste::Coordinates => "1650 2120 1650 2120";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	SET_tmr3_vt : requires subprogram access exportedComponent::fv::coffee_SET_tmr3.others
+	  { taste::Coordinates => "1650 2165 1650 2165";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::coffee_has_pending_msg.others
+	  { taste::Coordinates => "1650 2210 1650 2210";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1400 1745 1650 2240";
+	taste::instance_name => "vt_coffee_tmr3";
+  end THREAD_vt_coffee_tmr3;
+
+  system implementation THREAD_vt_coffee_tmr3.others
+    subcomponents
+	artificial_tmr3_impl : subprogram exportedComponent::FV::tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	tmr3_impl : subprogram exportedComponent::FV::tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	out_msg_vt_impl : subprogram exportedComponent::FV::artificial_out_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr1_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr2_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	RESET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_RESET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	SET_tmr3_vt_impl : subprogram exportedComponent::FV::coffee_SET_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::coffee_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tmr3_impl -> artificial_tmr3;
+	subprogram access tmr3_impl -> tmr3;
+	subprogram access out_msg_vt_impl -> out_msg_vt;
+	subprogram access RESET_tmr_vt_impl -> RESET_tmr_vt;
+	subprogram access SET_tmr_vt_impl -> SET_tmr_vt;
+	subprogram access RESET_tmr1_vt_impl -> RESET_tmr1_vt;
+	subprogram access SET_tmr1_vt_impl -> SET_tmr1_vt;
+	subprogram access RESET_tmr2_vt_impl -> RESET_tmr2_vt;
+	subprogram access SET_tmr2_vt_impl -> SET_tmr2_vt;
+	subprogram access RESET_tmr3_vt_impl -> RESET_tmr3_vt;
+	subprogram access SET_tmr3_vt_impl -> SET_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_coffee_tmr3.others;
+
+  system THREAD_vt_chip_timer_manager_tick_100ms
+    features
+	artificial_tick_100ms : provides subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "1800 1760 1800 1760";
+	    taste::RCMoperationKind => cyclic;
+	    taste::RCMperiod => 100;};
+	tick_100ms : requires subprogram access exportedComponent::fv::tick_100ms.others
+	  { taste::Coordinates => "2050 1760 2050 1760";
+	    taste::RCMoperationKind => protected;
+	    taste::RCMperiod => 100;};
+	coffee_tmr_vt : requires subprogram access exportedComponent::fv::artificial_tmr.others
+	  { taste::Coordinates => "2050 1805 2050 1805";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_tmr1_vt : requires subprogram access exportedComponent::fv::artificial_tmr1.others
+	  { taste::Coordinates => "2050 1850 2050 1850";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_tmr2_vt : requires subprogram access exportedComponent::fv::artificial_tmr2.others
+	  { taste::Coordinates => "2050 1895 2050 1895";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	coffee_tmr3_vt : requires subprogram access exportedComponent::fv::artificial_tmr3.others
+	  { taste::Coordinates => "2050 1940 2050 1940";
+	    taste::RCMoperationKind => sporadic;
+	    taste::RCMperiod => 100;};
+	check_queue_vt : requires subprogram access exportedComponent::fv::chip_timer_manager_has_pending_msg.others
+	  { taste::Coordinates => "2050 1985 2050 1985";
+	    taste::RCMoperationKind => unprotected;
+	    taste::RCMperiod => 0;};
+    properties
+	source_language => C;
+	taste::coordinates => "1800 1745 2050 2015";
+	taste::instance_name => "vt_chip_timer_manager_tick_100ms";
+  end THREAD_vt_chip_timer_manager_tick_100ms;
+
+  system implementation THREAD_vt_chip_timer_manager_tick_100ms.others
+    subcomponents
+	artificial_tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	tick_100ms_impl : subprogram exportedComponent::FV::tick_100ms.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr_vt_impl : subprogram exportedComponent::FV::artificial_tmr.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr1_vt_impl : subprogram exportedComponent::FV::artificial_tmr1.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr2_vt_impl : subprogram exportedComponent::FV::artificial_tmr2.others
+	  { compute_execution_time => 0ms..0ms;};
+	coffee_tmr3_vt_impl : subprogram exportedComponent::FV::artificial_tmr3.others
+	  { compute_execution_time => 0ms..0ms;};
+	check_queue_vt_impl : subprogram exportedComponent::FV::chip_timer_manager_has_pending_msg.others
+	  { compute_execution_time => 0ms..0ms;};
+    connections
+	subprogram access artificial_tick_100ms_impl -> artificial_tick_100ms;
+	subprogram access tick_100ms_impl -> tick_100ms;
+	subprogram access coffee_tmr_vt_impl -> coffee_tmr_vt;
+	subprogram access coffee_tmr1_vt_impl -> coffee_tmr1_vt;
+	subprogram access coffee_tmr2_vt_impl -> coffee_tmr2_vt;
+	subprogram access coffee_tmr3_vt_impl -> coffee_tmr3_vt;
+	subprogram access check_queue_vt_impl -> check_queue_vt;
+  end THREAD_vt_chip_timer_manager_tick_100ms.others;
+
+properties
+  taste::coordinates => "0 0 2970 2100";
+
+end generated_cv::IV;
+
+package exportedComponent::FV
+public
+with dataview;
+with taste;
+
+  subprogram out_msg
+  end out_msg;
+
+  subprogram artificial_get_init_tmpr
+  end artificial_get_init_tmpr;
+
+  subprogram artificial_get_init_water
+  end artificial_get_init_water;
+
+  subprogram artificial_for_water
+  end artificial_for_water;
+
+  subprogram artificial_for_water_tmpr
+  end artificial_for_water_tmpr;
+
+  subprogram artificial_for_coffee
+  end artificial_for_coffee;
+
+  subprogram artificial_for_ticking
+  end artificial_for_ticking;
+
+  subprogram gui_polling_gui
+  end gui_polling_gui;
+
+  subprogram get_init_tmpr
+  end get_init_tmpr;
+
+  subprogram get_init_water
+  end get_init_water;
+
+  subprogram for_water
+  end for_water;
+
+  subprogram for_water_tmpr
+  end for_water_tmpr;
+
+  subprogram for_coffee
+  end for_coffee;
+
+  subprogram for_ticking
+  end for_ticking;
+
+  subprogram artificial_out_msg
+  end artificial_out_msg;
+
+  subprogram coffee_tmr
+  end coffee_tmr;
+
+  subprogram coffee_RESET_tmr
+  end coffee_RESET_tmr;
+
+  subprogram coffee_SET_tmr
+  end coffee_SET_tmr;
+
+  subprogram coffee_tmr1
+  end coffee_tmr1;
+
+  subprogram coffee_RESET_tmr1
+  end coffee_RESET_tmr1;
+
+  subprogram coffee_SET_tmr1
+  end coffee_SET_tmr1;
+
+  subprogram coffee_tmr2
+  end coffee_tmr2;
+
+  subprogram coffee_RESET_tmr2
+  end coffee_RESET_tmr2;
+
+  subprogram coffee_SET_tmr2
+  end coffee_SET_tmr2;
+
+  subprogram coffee_tmr3
+  end coffee_tmr3;
+
+  subprogram coffee_RESET_tmr3
+  end coffee_RESET_tmr3;
+
+  subprogram coffee_SET_tmr3
+  end coffee_SET_tmr3;
+
+  subprogram coffee_has_pending_msg
+  end coffee_has_pending_msg;
+
+  subprogram tick_100ms
+  end tick_100ms;
+
+  subprogram artificial_tmr
+  end artificial_tmr;
+
+  subprogram RESET_tmr
+  end RESET_tmr;
+
+  subprogram SET_tmr
+  end SET_tmr;
+
+  subprogram artificial_tmr1
+  end artificial_tmr1;
+
+  subprogram RESET_tmr1
+  end RESET_tmr1;
+
+  subprogram SET_tmr1
+  end SET_tmr1;
+
+  subprogram artificial_tmr2
+  end artificial_tmr2;
+
+  subprogram RESET_tmr2
+  end RESET_tmr2;
+
+  subprogram SET_tmr2
+  end SET_tmr2;
+
+  subprogram artificial_tmr3
+  end artificial_tmr3;
+
+  subprogram RESET_tmr3
+  end RESET_tmr3;
+
+  subprogram SET_tmr3
+  end SET_tmr3;
+
+  subprogram chip_timer_manager_has_pending_msg
+  end chip_timer_manager_has_pending_msg;
+
+  subprogram check_queue
+  end check_queue;
+
+  subprogram tmr
+  end tmr;
+
+  subprogram tmr1
+  end tmr1;
+
+  subprogram tmr2
+  end tmr2;
+
+  subprogram tmr3
+  end tmr3;
+
+end exportedComponent::FV;

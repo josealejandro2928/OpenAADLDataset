@@ -1,0 +1,1121 @@
+---------------------------------------------------
+-- AADL2.2
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear
+PUBLIC
+
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_hello
+FEATURES
+  abcd : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_hello;
+
+SUBPROGRAM IMPLEMENTATION PI_hello.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_hello.others;
+
+SUBPROGRAM RI_world
+FEATURES
+  inp : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+  outp : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => UPER;
+  };
+END RI_world;
+
+SUBPROGRAM IMPLEMENTATION RI_world.others
+END RI_world.others;
+
+SUBPROGRAM RI_ola_bis
+END RI_ola_bis;
+
+SUBPROGRAM IMPLEMENTATION RI_ola_bis.others
+END RI_ola_bis.others;
+
+SUBPROGRAM RI_Some_Sporadic
+END RI_Some_Sporadic;
+
+SUBPROGRAM IMPLEMENTATION RI_Some_Sporadic.others
+END RI_Some_Sporadic.others;
+
+SYSTEM Nested1_Appear
+FEATURES
+  PI_hello : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear::PI_hello.others {
+    Taste::coordinates => "135254 55481";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "hello";
+  };
+  RI_world : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_world.others {
+    Taste::coordinates => "151479 64889";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "world";
+    Taste::labelInheritance => "true";
+  };
+  RI_ola_bis : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "138621 66297";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ola_bis";
+    Taste::labelInheritance => "true";
+  };
+  RI_Some_Sporadic : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear::PI_Some_Sporadic.others {
+    Taste::coordinates => "142503 66297";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "Some_Sporadic";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (Ada);
+  Taste::Active_Interfaces => any;
+END Nested1_Appear;
+
+SYSTEM IMPLEMENTATION Nested1_Appear.others
+END Nested1_Appear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear
+PUBLIC
+
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_world
+FEATURES
+  inp : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+  outp : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_world;
+
+SUBPROGRAM IMPLEMENTATION PI_world.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_world.others;
+
+SUBPROGRAM PI_ultimate
+FEATURES
+  some_in : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  some_out : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ultimate;
+
+SUBPROGRAM IMPLEMENTATION PI_ultimate.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ultimate.others;
+
+SUBPROGRAM RI_my_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_my_final_result;
+
+SUBPROGRAM IMPLEMENTATION RI_my_final_result.others
+END RI_my_final_result.others;
+
+SUBPROGRAM RI_ola
+END RI_ola;
+
+SUBPROGRAM IMPLEMENTATION RI_ola.others
+END RI_ola.others;
+
+SUBPROGRAM RI_RI1
+END RI_RI1;
+
+SUBPROGRAM IMPLEMENTATION RI_RI1.others
+END RI_RI1.others;
+
+SUBPROGRAM RI_coucou
+FEATURES
+  param1 : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  param2 : IN PARAMETER DataView::MyEnum {
+    Taste::encoding => UPER;
+  };
+  result : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => ACN;
+  };
+END RI_coucou;
+
+SUBPROGRAM IMPLEMENTATION RI_coucou.others
+END RI_coucou.others;
+
+SYSTEM Nested2_Appear
+FEATURES
+  PI_world : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_world.others {
+    Taste::coordinates => "158064 75939";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "world";
+  };
+  PI_ultimate : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_ultimate.others {
+    Taste::coordinates => "170292 88689";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ultimate";
+  };
+  RI_my_final_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "154536 81819";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "my_final_result";
+    Taste::labelInheritance => "true";
+  };
+  RI_ola : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "154536 86523";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ola";
+    Taste::labelInheritance => "true";
+  };
+  RI_RI1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::RI_RI1.others {
+    Taste::coordinates => "170292 90234";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "RI1";
+    Taste::labelInheritance => "true";
+  };
+  RI_coucou : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_coucou.others {
+    Taste::coordinates => "158812 91459";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "coucou";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (Ada);
+  Taste::Active_Interfaces => any;
+END Nested2_Appear;
+
+SYSTEM IMPLEMENTATION Nested2_Appear.others
+SUBCOMPONENTS
+  a_param : DATA DataView::MyBool {
+    Taste::FS_Default_Value => "TRUE";
+  };
+  b : DATA DataView::MyReal {
+    Taste::FS_Default_Value => "42.0";
+  };
+  someDirective_NOT_PARAM : DATA DataView::Taste_directive {
+    Taste::FS_Default_Value => "compile-option: ""-I/path/to/toto""";
+  };
+END Nested2_Appear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either
+PUBLIC
+
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_world
+FEATURES
+  inp : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+  outp : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_world;
+
+SUBPROGRAM IMPLEMENTATION PI_world.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_world.others;
+
+SUBPROGRAM PI_ultimate
+FEATURES
+  some_in : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  some_out : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ultimate;
+
+SUBPROGRAM IMPLEMENTATION PI_ultimate.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ultimate.others;
+
+SUBPROGRAM RI_my_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_my_final_result;
+
+SUBPROGRAM IMPLEMENTATION RI_my_final_result.others
+END RI_my_final_result.others;
+
+SUBPROGRAM RI_ola
+END RI_ola;
+
+SUBPROGRAM IMPLEMENTATION RI_ola.others
+END RI_ola.others;
+
+SUBPROGRAM RI_coucou
+FEATURES
+  param1 : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  param2 : IN PARAMETER DataView::MyEnum {
+    Taste::encoding => UPER;
+  };
+  result : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => ACN;
+  };
+END RI_coucou;
+
+SUBPROGRAM IMPLEMENTATION RI_coucou.others
+END RI_coucou.others;
+
+SYSTEM Should_Not_Appear_Either
+FEATURES
+  PI_world : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_world.others {
+    Taste::coordinates => "157243 70060";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "world";
+  };
+  PI_ultimate : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_ultimate.others {
+    Taste::coordinates => "179228 89438";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ultimate";
+  };
+  RI_my_final_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "143131 80644";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "my_final_result";
+    Taste::labelInheritance => "true";
+  };
+  RI_ola : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "143131 90405";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ola";
+    Taste::labelInheritance => "true";
+  };
+  RI_coucou : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_coucou.others {
+    Taste::coordinates => "153207 95692";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "coucou";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Should_Not_Appear_Either;
+
+SYSTEM IMPLEMENTATION Should_Not_Appear_Either.others
+SUBCOMPONENTS
+  Nested2_Appear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::Nested2_Appear.others {
+    Taste::coordinates => "154536 75939 170292 91459";
+  };
+CONNECTIONS
+  Nested2_Appear_PI_world_Should_Not_Appear_Either_PI_world : SUBPROGRAM ACCESS Nested2_Appear.PI_world -> PI_world {
+    Taste::coordinates => "157243 70060 157243 72999 158064 72999 158064 75939";
+  };
+  Nested2_Appear_PI_ultimate_Should_Not_Appear_Either_PI_ultimate : SUBPROGRAM ACCESS Nested2_Appear.PI_ultimate -> PI_ultimate {
+    Taste::coordinates => "179228 89438 174760 89438 174760 88689 170292 88689";
+  };
+  Should_Not_Appear_Either_RI_my_final_result_Nested2_Appear_RI_my_final_result : SUBPROGRAM ACCESS RI_my_final_result -> Nested2_Appear.RI_my_final_result {
+    Taste::coordinates => "154536 81819 148833 81819 148833 80644 143131 80644";
+  };
+  Should_Not_Appear_Either_RI_ola_Nested2_Appear_RI_ola : SUBPROGRAM ACCESS RI_ola -> Nested2_Appear.RI_ola {
+    Taste::coordinates => "154536 86523 148834 86523 148834 90405 143131 90405";
+  };
+  Should_Not_Appear_Either_RI_coucou_Nested2_Appear_RI_coucou : SUBPROGRAM ACCESS RI_coucou -> Nested2_Appear.RI_coucou {
+    Taste::coordinates => "158812 91459 158812 93063 153207 93063 153207 95692";
+  };
+END Should_Not_Appear_Either.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::MotherClass_Appear
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_run
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_run;
+
+SUBPROGRAM IMPLEMENTATION PI_run.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_run.others;
+
+SYSTEM MotherClass_Appear
+FEATURES
+  PI_run : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::MotherClass_Appear::PI_run.others {
+    Taste::coordinates => "167471 52894";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "run";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+  Taste::is_Component_Type => true;
+END MotherClass_Appear;
+
+SYSTEM IMPLEMENTATION MotherClass_Appear.others
+SUBCOMPONENTS
+  my_timer : DATA DataView::Timer {
+    Taste::FS_Default_Value => "1";
+  };
+END MotherClass_Appear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::MotherClass_Appear;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear
+PUBLIC
+
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_Some_Sporadic
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Some_Sporadic;
+
+SUBPROGRAM IMPLEMENTATION PI_Some_Sporadic.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Some_Sporadic.others;
+
+SUBPROGRAM RI_RI2
+END RI_RI2;
+
+SUBPROGRAM IMPLEMENTATION RI_RI2.others
+END RI_RI2.others;
+
+SYSTEM Nested3_Appear
+FEATURES
+  PI_Some_Sporadic : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear::PI_Some_Sporadic.others {
+    Taste::coordinates => "137328 97227";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Some_Sporadic";
+  };
+  RI_RI2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_Spo_in_Zshown.others {
+    Taste::coordinates => "139494 107148";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "RI2";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Nested3_Appear;
+
+SYSTEM IMPLEMENTATION Nested3_Appear.others
+END Nested3_Appear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear::Nested4_Appear
+PUBLIC
+
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_pulse.others;
+
+SUBPROGRAM RI_RI2
+END RI_RI2;
+
+SUBPROGRAM IMPLEMENTATION RI_RI2.others
+END RI_RI2.others;
+
+SYSTEM Nested4_Appear
+FEATURES
+  PI_pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested4_Appear::PI_pulse.others {
+    Taste::coordinates => "163425 101350";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 11 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "pulse";
+  };
+  RI_RI2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_Spo_in_Zshown.others {
+    Taste::coordinates => "159912 107543";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "RI2";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Nested4_Appear;
+
+SYSTEM IMPLEMENTATION Nested4_Appear.others
+END Nested4_Appear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear::Nested4_Appear;
+
+PACKAGE interfaceview::IV::Function1_ShouldNotAppear
+PUBLIC
+
+WITH interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either;
+WITH interfaceview::IV::Function1_ShouldNotAppear::MotherClass_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Nested4_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_hello
+FEATURES
+  abcd : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_hello;
+
+SUBPROGRAM IMPLEMENTATION PI_hello.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_hello.others;
+
+SUBPROGRAM PI_ultimate
+FEATURES
+  some_in : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  some_out : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_ultimate;
+
+SUBPROGRAM IMPLEMENTATION PI_ultimate.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_ultimate.others;
+
+SUBPROGRAM RI_my_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_my_final_result;
+
+SUBPROGRAM IMPLEMENTATION RI_my_final_result.others
+END RI_my_final_result.others;
+
+SUBPROGRAM RI_ola
+END RI_ola;
+
+SUBPROGRAM IMPLEMENTATION RI_ola.others
+END RI_ola.others;
+
+SUBPROGRAM RI_ola_bis
+END RI_ola_bis;
+
+SUBPROGRAM IMPLEMENTATION RI_ola_bis.others
+END RI_ola_bis.others;
+
+SUBPROGRAM RI_coucou
+FEATURES
+  param1 : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  param2 : IN PARAMETER DataView::MyEnum {
+    Taste::encoding => UPER;
+  };
+  result : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => ACN;
+  };
+END RI_coucou;
+
+SUBPROGRAM IMPLEMENTATION RI_coucou.others
+END RI_coucou.others;
+
+SUBPROGRAM RI_RI2
+END RI_RI2;
+
+SUBPROGRAM IMPLEMENTATION RI_RI2.others
+END RI_RI2.others;
+
+SYSTEM Function1_ShouldNotAppear
+FEATURES
+  PI_hello : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear::PI_hello.others {
+    Taste::coordinates => "122555 55363";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "hello";
+  };
+  PI_ultimate : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_ultimate.others {
+    Taste::coordinates => "180286 86044";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "ultimate";
+  };
+  RI_my_final_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "122555 80060";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "my_final_result";
+    Taste::labelInheritance => "true";
+  };
+  RI_ola : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "122555 92557";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ola";
+    Taste::labelInheritance => "true";
+  };
+  RI_ola_bis : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "122555 84540";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ola_bis";
+    Taste::labelInheritance => "true";
+  };
+  RI_coucou : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_coucou.others {
+    Taste::coordinates => "122555 109132";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "coucou";
+    Taste::labelInheritance => "true";
+  };
+  RI_RI2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_Spo_in_Zshown.others {
+    Taste::coordinates => "122555 118293";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "RI2";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Function1_ShouldNotAppear;
+
+SYSTEM IMPLEMENTATION Function1_ShouldNotAppear.others
+SUBCOMPONENTS
+  Nested1_Appear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear::Nested1_Appear.others {
+    Taste::coordinates => "135254 51953 151479 66297";
+    TASTE_IV_Properties::is_Component_Type => FALSE;
+  };
+  Should_Not_Appear_Either : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Should_Not_Appear_Either.others {
+    Taste::coordinates => "143131 70060 179228 95692";
+  };
+  MotherClass_Appear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::MotherClass_Appear::MotherClass_Appear.others {
+    Taste::coordinates => "161591 52894 176053 65710";
+  };
+  Nested3_Appear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Nested3_Appear::Nested3_Appear.others {
+    Taste::coordinates => "134178 97227 144729 107148";
+  };
+  Nested4_Appear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Nested4_Appear::Nested4_Appear.others {
+    Taste::coordinates => "155779 97520 163425 107543";
+  };
+CONNECTIONS
+  Nested1_Appear_PI_hello_Function1_ShouldNotAppear_PI_hello : SUBPROGRAM ACCESS Nested1_Appear.PI_hello -> PI_hello {
+    Taste::coordinates => "122555 55363 128904 55363 128904 55481 135254 55481";
+  };
+  Should_Not_Appear_Either_PI_world_Nested1_Appear_RI_world : SUBPROGRAM ACCESS Should_Not_Appear_Either.PI_world -> Nested1_Appear.RI_world {
+    Taste::coordinates => "151479 64889 157243 64889 157243 70060";
+  };
+  Function1_ShouldNotAppear_RI_ola_bis_Nested1_Appear_RI_ola_bis : SUBPROGRAM ACCESS RI_ola_bis -> Nested1_Appear.RI_ola_bis {
+    Taste::coordinates => "138621 66297 138621 84540 122555 84540";
+  };
+  Nested3_Appear_PI_Some_Sporadic_Nested1_Appear_RI_Some_Sporadic : SUBPROGRAM ACCESS Nested3_Appear.PI_Some_Sporadic -> Nested1_Appear.RI_Some_Sporadic {
+    Taste::coordinates => "142503 66297 142503 81762 137328 81762 137328 97227";
+  };
+  Should_Not_Appear_Either_PI_ultimate_Function1_ShouldNotAppear_PI_ultimate : SUBPROGRAM ACCESS Should_Not_Appear_Either.PI_ultimate -> PI_ultimate {
+    Taste::coordinates => "180286 86044 179757 86044 179757 89438 179228 89438";
+  };
+  Function1_ShouldNotAppear_RI_my_final_result_Should_Not_Appear_Either_RI_my_final_result : SUBPROGRAM ACCESS RI_my_final_result -> Should_Not_Appear_Either.RI_my_final_result {
+    Taste::coordinates => "143131 80644 132843 80644 132843 80060 122555 80060";
+  };
+  Function1_ShouldNotAppear_RI_ola_Should_Not_Appear_Either_RI_ola : SUBPROGRAM ACCESS RI_ola -> Should_Not_Appear_Either.RI_ola {
+    Taste::coordinates => "143131 90405 132843 90405 132843 92557 122555 92557";
+  };
+  Function1_ShouldNotAppear_RI_coucou_Should_Not_Appear_Either_RI_coucou : SUBPROGRAM ACCESS RI_coucou -> Should_Not_Appear_Either.RI_coucou {
+    Taste::coordinates => "153207 95692 153207 109132 122555 109132";
+  };
+  Function1_ShouldNotAppear_RI_RI2_Nested3_Appear_RI_RI2 : SUBPROGRAM ACCESS RI_RI2 -> Nested3_Appear.RI_RI2 {
+    Taste::coordinates => "139494 107148 139494 118293 122555 118293";
+  };
+  Function1_ShouldNotAppear_RI_RI2_Nested4_Appear_RI_RI2 : SUBPROGRAM ACCESS RI_RI2 -> Nested4_Appear.RI_RI2 {
+    Taste::coordinates => "159912 107543 159912 118293 122555 118293";
+  };
+END Function1_ShouldNotAppear.others;
+
+END interfaceview::IV::Function1_ShouldNotAppear;
+
+PACKAGE interfaceview::IV::Level0_Appear
+PUBLIC
+
+WITH interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_final_result;
+
+SUBPROGRAM IMPLEMENTATION PI_final_result.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_final_result.others;
+
+SUBPROGRAM RI_I_say_hello
+FEATURES
+  abcd : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+END RI_I_say_hello;
+
+SUBPROGRAM IMPLEMENTATION RI_I_say_hello.others
+END RI_I_say_hello.others;
+
+SYSTEM Level0_Appear
+FEATURES
+  PI_final_result : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "99353 83249";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "final_result";
+  };
+  RI_I_say_hello : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Nested1_Appear::PI_hello.others {
+    Taste::coordinates => "99353 67961";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "I_say_hello";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END Level0_Appear;
+
+SYSTEM IMPLEMENTATION Level0_Appear.others
+END Level0_Appear.others;
+
+END interfaceview::IV::Level0_Appear;
+
+PACKAGE interfaceview::IV::Y_Hidden::Z_Shown
+PUBLIC
+
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_bonjour
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_bonjour;
+
+SUBPROGRAM IMPLEMENTATION PI_bonjour.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_bonjour.others;
+
+SUBPROGRAM PI_coucou
+FEATURES
+  param1 : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  param2 : IN PARAMETER DataView::MyEnum {
+    Taste::encoding => UPER;
+  };
+  result : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => ACN;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_coucou;
+
+SUBPROGRAM IMPLEMENTATION PI_coucou.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_coucou.others;
+
+SUBPROGRAM PI_Spo_in_Zshown
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Spo_in_Zshown;
+
+SUBPROGRAM IMPLEMENTATION PI_Spo_in_Zshown.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Spo_in_Zshown.others;
+
+SUBPROGRAM RI_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_final_result;
+
+SUBPROGRAM IMPLEMENTATION RI_final_result.others
+END RI_final_result.others;
+
+SUBPROGRAM RI_ultimate
+FEATURES
+  some_in : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  some_out : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_ultimate;
+
+SUBPROGRAM IMPLEMENTATION RI_ultimate.others
+END RI_ultimate.others;
+
+SYSTEM Z_Shown
+FEATURES
+  PI_bonjour : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "102852 107716";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "bonjour";
+  };
+  PI_coucou : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_coucou.others {
+    Taste::coordinates => "102852 112923";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "coucou";
+  };
+  PI_Spo_in_Zshown : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_Spo_in_Zshown.others {
+    Taste::coordinates => "102852 116394";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Spo_in_Zshown";
+  };
+  RI_final_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "98261 103998";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "final_result";
+    Taste::labelInheritance => "true";
+  };
+  RI_ultimate : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_ultimate.others {
+    Taste::coordinates => "102852 110298";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ultimate";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Z_Shown;
+
+SYSTEM IMPLEMENTATION Z_Shown.others
+SUBCOMPONENTS
+  my_timer : DATA DataView::Timer {
+    Taste::FS_Default_Value => "toto";
+  };
+  abc : DATA DataView::MyInteger {
+    Taste::FS_Default_Value => "42";
+  };
+END Z_Shown.others;
+
+END interfaceview::IV::Y_Hidden::Z_Shown;
+
+PACKAGE interfaceview::IV::Y_Hidden
+PUBLIC
+
+WITH interfaceview::IV::Y_Hidden::Z_Shown;
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_bonjour
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_bonjour;
+
+SUBPROGRAM IMPLEMENTATION PI_bonjour.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_bonjour.others;
+
+SUBPROGRAM PI_coucou
+FEATURES
+  param1 : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  param2 : IN PARAMETER DataView::MyEnum {
+    Taste::encoding => UPER;
+  };
+  result : OUT PARAMETER DataView::T_Int32 {
+    Taste::encoding => ACN;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_coucou;
+
+SUBPROGRAM IMPLEMENTATION PI_coucou.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_coucou.others;
+
+SUBPROGRAM PI_Spo_in_Zshown
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_Spo_in_Zshown;
+
+SUBPROGRAM IMPLEMENTATION PI_Spo_in_Zshown.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_Spo_in_Zshown.others;
+
+SUBPROGRAM RI_final_result
+FEATURES
+  hop : IN PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_final_result;
+
+SUBPROGRAM IMPLEMENTATION RI_final_result.others
+END RI_final_result.others;
+
+SUBPROGRAM RI_ultimate
+FEATURES
+  some_in : IN PARAMETER DataView::MyBool {
+    Taste::encoding => NATIVE;
+  };
+  some_out : OUT PARAMETER DataView::MyInteger {
+    Taste::encoding => NATIVE;
+  };
+END RI_ultimate;
+
+SUBPROGRAM IMPLEMENTATION RI_ultimate.others
+END RI_ultimate.others;
+
+SYSTEM Y_Hidden
+FEATURES
+  PI_bonjour : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_bonjour.others {
+    Taste::coordinates => "110024 103224";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "bonjour";
+  };
+  PI_coucou : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_coucou.others {
+    Taste::coordinates => "110024 111990";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "coucou";
+  };
+  PI_Spo_in_Zshown : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Y_Hidden::Z_Shown::PI_Spo_in_Zshown.others {
+    Taste::coordinates => "110024 118783";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "Spo_in_Zshown";
+  };
+  RI_final_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Level0_Appear::PI_final_result.others {
+    Taste::coordinates => "97790 95415";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "final_result";
+    Taste::labelInheritance => "true";
+  };
+  RI_ultimate : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1_ShouldNotAppear::Should_Not_Appear_Either::Nested2_Appear::PI_ultimate.others {
+    Taste::coordinates => "110024 109440";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "ultimate";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Y_Hidden;
+
+SYSTEM IMPLEMENTATION Y_Hidden.others
+SUBCOMPONENTS
+  Z_Shown : SYSTEM interfaceview::IV::Y_Hidden::Z_Shown::Z_Shown.others {
+    Taste::coordinates => "82511 103998 102852 117637";
+  };
+CONNECTIONS
+  Z_Shown_PI_bonjour_Y_Hidden_PI_bonjour : SUBPROGRAM ACCESS Z_Shown.PI_bonjour -> PI_bonjour {
+    Taste::coordinates => "110024 103224 105057 103224 105057 107716 102852 107716";
+  };
+  Z_Shown_PI_coucou_Y_Hidden_PI_coucou : SUBPROGRAM ACCESS Z_Shown.PI_coucou -> PI_coucou {
+    Taste::coordinates => "110024 111990 106438 111990 106438 112923 102852 112923";
+  };
+  Z_Shown_PI_Spo_in_Zshown_Y_Hidden_PI_Spo_in_Zshown : SUBPROGRAM ACCESS Z_Shown.PI_Spo_in_Zshown -> PI_Spo_in_Zshown {
+    Taste::coordinates => "110024 118783 106438 118783 106438 116394 102852 116394";
+  };
+  Y_Hidden_RI_final_result_Z_Shown_RI_final_result : SUBPROGRAM ACCESS RI_final_result -> Z_Shown.RI_final_result {
+    Taste::coordinates => "98261 103998 98261 99706 97790 99706 97790 95415";
+  };
+  Y_Hidden_RI_ultimate_Z_Shown_RI_ultimate : SUBPROGRAM ACCESS RI_ultimate -> Z_Shown.RI_ultimate {
+    Taste::coordinates => "102852 110298 106438 110298 106438 109440 110024 109440";
+  };
+END Y_Hidden.others;
+
+END interfaceview::IV::Y_Hidden;
+
+PACKAGE interfaceview::IV::Instance_of_MotherClass_Appear
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_run
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_run;
+
+SUBPROGRAM IMPLEMENTATION PI_run.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_run.others;
+
+SYSTEM Instance_of_MotherClass_Appear
+FEATURES
+  PI_run : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Instance_of_MotherClass_Appear::PI_run.others {
+    Taste::coordinates => "153225 127241";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "run";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END Instance_of_MotherClass_Appear;
+
+SYSTEM IMPLEMENTATION Instance_of_MotherClass_Appear.others
+SUBCOMPONENTS
+  my_timer : DATA DataView::Timer {
+    Taste::FS_Default_Value => "1";
+  };
+END Instance_of_MotherClass_Appear.others;
+
+END interfaceview::IV::Instance_of_MotherClass_Appear;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::Function1_ShouldNotAppear;
+WITH interfaceview::IV::Level0_Appear;
+WITH interfaceview::IV::Y_Hidden;
+WITH interfaceview::IV::Instance_of_MotherClass_Appear;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  Function1_ShouldNotAppear : SYSTEM interfaceview::IV::Function1_ShouldNotAppear::Function1_ShouldNotAppear.others {
+    Taste::coordinates => "122555 48308 180286 120302";
+  };
+  Level0_Appear : SYSTEM interfaceview::IV::Level0_Appear::Level0_Appear.others {
+    Taste::coordinates => "81834 63257 99353 90064";
+  };
+  Y_Hidden : SYSTEM interfaceview::IV::Y_Hidden::Y_Hidden.others {
+    Taste::coordinates => "82040 95415 110024 120106";
+  };
+  Instance_of_MotherClass_Appear : SYSTEM interfaceview::IV::Instance_of_MotherClass_Appear::Instance_of_MotherClass_Appear.others {
+    Taste::coordinates => "133540 127241 174169 140057";
+    TASTE_IV_Properties::is_Component_Type => FALSE;
+    TASTE_IV_Properties::is_instance_of => "MotherClass_Appear";
+  };
+CONNECTIONS
+  Function1_ShouldNotAppear_PI_hello_Level0_Appear_RI_I_say_hello : SUBPROGRAM ACCESS Function1_ShouldNotAppear.PI_hello -> Level0_Appear.RI_I_say_hello {
+    Taste::coordinates => "99353 67961 111816 67961 111816 55363 122555 55363";
+  };
+  Function1_ShouldNotAppear_PI_ultimate_Y_Hidden_RI_ultimate : SUBPROGRAM ACCESS Function1_ShouldNotAppear.PI_ultimate -> Y_Hidden.RI_ultimate {
+    Taste::coordinates => "110024 109440 192028 109440 192028 86044 180286 86044";
+  };
+  Level0_Appear_PI_final_result_Function1_ShouldNotAppear_RI_my_final_result : SUBPROGRAM ACCESS Level0_Appear.PI_final_result -> Function1_ShouldNotAppear.RI_my_final_result {
+    Taste::coordinates => "122555 80060 111816 80060 111816 83249 99353 83249";
+  };
+  Y_Hidden_PI_bonjour_Function1_ShouldNotAppear_RI_ola : SUBPROGRAM ACCESS Y_Hidden.PI_bonjour -> Function1_ShouldNotAppear.RI_ola {
+    Taste::coordinates => "122555 92557 115667 92557 115667 103224 110024 103224";
+  };
+  Y_Hidden_PI_bonjour_Function1_ShouldNotAppear_RI_ola_bis : SUBPROGRAM ACCESS Y_Hidden.PI_bonjour -> Function1_ShouldNotAppear.RI_ola_bis {
+    Taste::coordinates => "122555 84540 115667 84540 115667 103224 110024 103224";
+  };
+  Y_Hidden_PI_coucou_Function1_ShouldNotAppear_RI_coucou : SUBPROGRAM ACCESS Y_Hidden.PI_coucou -> Function1_ShouldNotAppear.RI_coucou {
+    Taste::coordinates => "122555 109132 117277 109132 117277 111990 110024 111990";
+  };
+  Y_Hidden_PI_Spo_in_Zshown_Function1_ShouldNotAppear_RI_RI2 : SUBPROGRAM ACCESS Y_Hidden.PI_Spo_in_Zshown -> Function1_ShouldNotAppear.RI_RI2 {
+    Taste::coordinates => "122555 118293 118884 118293 118884 118783 110024 118783";
+  };
+  Level0_Appear_PI_final_result_Y_Hidden_RI_final_result : SUBPROGRAM ACCESS Level0_Appear.PI_final_result -> Y_Hidden.RI_final_result {
+    Taste::coordinates => "97790 95415 97790 89358 102151 89358 102151 83249 99353 83249";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.2";
+END interfaceview::IV;
+

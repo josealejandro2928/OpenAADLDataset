@@ -1,0 +1,98 @@
+package isolette_heat_source
+public
+	with isolette, Data_Model, Isolette_Properties;
+	
+	--- data models for heat source ---
+	
+	data Heat_Control
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ( "On", "Off" );
+	end Heat_Control;
+	
+	data Heat
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Float;
+			Data_Model::Real_Range => 68.0 .. 105.0;
+	end Heat;
+	
+	data Current_Temp_Value
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Float;
+			Isolette_Properties::Temperature_Tolerance => 0.05 Fahrenheit;
+			Data_Model::Real_Range => 68.0 .. 105.0;
+	end Current_Temp_Value;
+	
+	data Current_Temp_Status
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ( "Invalid", "Valid" );
+	end Current_Temp_Status;
+	
+	feature group Current_Temperature
+		features
+			value : in data port Current_Temp_Value;
+			status : in data port Current_Temp_Status;
+	end Current_Temperature;
+	
+	system Heat_Source extends isolette::Heat_Source
+	end Heat_Source;
+	
+	system implementation Heat_Source.impl
+		subcomponents
+			heatsource : device roof_heat_source;
+			skinsensor : device roof_heat_source;
+	annex Resolute{**
+		prove HeatControl_On()
+		prove HeatControl_OFF()
+	**};
+	end Heat_Source.impl;
+	
+	annex Resolute{**
+		HeatControl_On()<=
+		**"After Heat shall be set to On"**
+		forall(c:component).true=>HeatRange(c)
+		
+	HeatRange(com:component)<=
+		**"R1: current temperature range sall be fall with in 68.0 to 105.0"**
+		forall(c:component).true
+		
+		HeatControl_Off()<=
+		**"Heat cannot be On and Off at same time"**
+		forall(c:component).false
+		
+	**};
+	
+	
+	--- roof heat source --- 
+	
+	device roof_heat_source
+		features
+			heat_control : in data port Heat_Control;
+			heat : out data port Heat;
+		flows
+			heat_source_sink: flow sink heat_control;
+	end roof_heat_source;
+	
+	device implementation roof_heat_source.impl
+	
+	end roof_heat_source.impl;
+	
+	--- skin temperature sensor ---
+	
+	device skin_temp_sensor
+		features
+			heat : in data port Heat;
+			current_temperature : feature group inverse of Current_Temperature;
+		flows
+			skin_temp_sensor_source : flow source current_temperature;
+		properties
+			Isolette_Properties::Failure_Probability => 0.000000005 abs;
+	end skin_temp_sensor;
+	
+	device implementation skin_temp_sensor.impl
+	end skin_temp_sensor.impl;
+	
+end isolette_heat_source;

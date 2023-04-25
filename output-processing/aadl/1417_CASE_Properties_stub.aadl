@@ -1,0 +1,6 @@
+property set CASE_Properties_stub is
+	    Component_Type: enumeration (FILTER, ATTESTATION, MONITOR, VIRTUAL_MACHINE, COMM_DRIVER, SEL4, SWITCH, SAFETY_CONTROLLER) 
+	                    applies to (system, process, thread, device, abstract, virtual processor);
+        Component_Spec: list of aadlstring applies to (system, process, thread, abstract);
+        Monitor_Latched: aadlboolean applies to (system, process, thread, abstract);
+end CASE_Properties_stub;

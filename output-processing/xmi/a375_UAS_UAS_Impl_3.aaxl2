@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="UAS_Impl_Instance" category="system">
+  <componentInstance name="RFB" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#UAS.RF.Impl"/>
+  </componentInstance>
+  <componentInstance name="GND" category="system">
+    <featureInstance name="RFA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/GS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="send_map" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/GS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="recv_status" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/GS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/GS.aadl#GS.GroundStation.Impl"/>
+  </componentInstance>
+  <componentInstance name="UAV" category="system">
+    <featureInstance name="RFA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <componentInstance name="SBUS" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#UAV.Serial.Impl"/>
+    </componentInstance>
+    <componentInstance name="MCMP" category="system">
+      <featureInstance name="UARTA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="RFA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="recv_map" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="position_status" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="waypoint" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="send_status" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <componentInstance name="BUS_HW" category="bus">
+        <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.MC_Bus.Impl"/>
+      </componentInstance>
+      <componentInstance name="RADIO_HW" category="device">
+        <featureInstance name="recv_map_inn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <featureInstance name="recv_map_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/2"/>
+        </featureInstance>
+        <featureInstance name="send_status_inn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="send_status_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <featureInstance name="MCA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <featureInstance name="RFA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDeviceSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.Radio.Impl"/>
+      </componentInstance>
+      <componentInstance name="UART_HW" category="device">
+        <featureInstance name="waypoint_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <featureInstance name="position_status_inn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <featureInstance name="position_status_out" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="MCA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <featureInstance name="UARTA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDeviceSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.UART.Impl"/>
+      </componentInstance>
+      <componentInstance name="MEM_HW" category="memory">
+        <featureInstance name="MCA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.MC_Mem.Impl"/>
+      </componentInstance>
+      <componentInstance name="PROC_SW" category="process">
+        <componentInstance name="RADIO" category="thread">
+          <featureInstance name="recv_map_out" category="eventDataPort" direction="out">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedThreadSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#SW.RadioDriver.Impl"/>
+        </componentInstance>
+        <componentInstance name="FPLN" category="thread">
+          <featureInstance name="flight_plan" category="eventDataPort" direction="out">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedEventDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/6"/>
+          </featureInstance>
+          <featureInstance name="mission_rcv" category="eventDataPort">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedEventDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/7"/>
+          </featureInstance>
+          <featureInstance name="recv_map" category="eventDataPort">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedEventDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedThreadSubcomponent.1"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#SW.FlightPlanner.Impl"/>
+        </componentInstance>
+        <componentInstance name="WPM" category="thread">
+          <featureInstance name="flight_plan" category="eventDataPort">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/6"/>
+          </featureInstance>
+          <featureInstance name="mission_rcv" category="eventDataPort" direction="out">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/7"/>
+          </featureInstance>
+          <featureInstance name="mission_window" category="eventDataPort" direction="out">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/8"/>
+          </featureInstance>
+          <featureInstance name="tracking_id" category="eventDataPort">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/9"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedThreadSubcomponent.2"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#SW.WaypointManager.Impl"/>
+        </componentInstance>
+        <componentInstance name="UART" category="thread">
+          <featureInstance name="mission_window" category="eventDataPort">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/8"/>
+          </featureInstance>
+          <featureInstance name="tracking_id" category="eventDataPort" direction="out">
+            <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/9"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedThreadSubcomponent.3"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#SW.UARTDriver.Impl"/>
+        </componentInstance>
+        <connectionInstance name="RADIO.recv_map_out -> FPLN.recv_map" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.2" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.1/@componentInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.2">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPortConnection.2"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="FPLN.flight_plan -> WPM.flight_plan" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.1/@componentInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.0">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPortConnection.0"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="WPM.mission_rcv -> FPLN.mission_rcv" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.1">
+          <connectionReference context="//@componentInstance.2/@componentInstance.1/@componentInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.1">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPortConnection.1"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="WPM.mission_window -> UART.mission_window" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.2">
+          <connectionReference context="//@componentInstance.2/@componentInstance.1/@componentInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.0">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPortConnection.3"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="UART.tracking_id -> WPM.tracking_id" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.1">
+          <connectionReference context="//@componentInstance.2/@componentInstance.1/@componentInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPortConnection.4"/>
+          </connectionReference>
+        </connectionInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/SW.aadl#SW.MC_SW.Impl"/>
+      </componentInstance>
+      <componentInstance name="PROC_HW" category="processor">
+        <featureInstance name="MCA" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.MC_Proc.Impl"/>
+      </componentInstance>
+      <connectionInstance name="BUS_HW -> RADIO_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.4" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.4" reverse="true">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.0"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="BUS_HW -> UART_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.3" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.3" reverse="true">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="BUS_HW -> PROC_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.5/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.5/@featureInstance.0" reverse="true">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.2"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="BUS_HW -> MEM_HW.MCA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.3/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.3/@featureInstance.0" reverse="true">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="RADIO_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.4">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.0"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="UART_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.3">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="MEM_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.3/@featureInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="PROC_HW.MCA -> BUS_HW" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.5/@featureInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.0">
+          <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.2"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#MC.MissionComputer.Impl"/>
+    </componentInstance>
+    <componentInstance name="FCTL" category="system">
+      <featureInstance name="UARTA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/instances/UAS_UAS_Impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/FC.aadl#FC.FlightController.Impl"/>
+    </componentInstance>
+    <connectionInstance name="SBUS -> MCMP.UART_HW.UARTA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.4" source="//@componentInstance.2/@componentInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.4" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="SBUS -> FCTL.UARTA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0" source="//@componentInstance.2/@componentInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MCMP.UART_HW.UARTA -> SBUS" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.0" source="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.4">
+      <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FCTL.UARTA -> SBUS" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.0" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#UAV.UAV.Impl"/>
+  </componentInstance>
+  <connectionInstance name="RFB -> GND.RFA" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RFB -> UAV.MCMP.RADIO_HW.RFA" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.5" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2/@componentInstance.1" source="//@componentInstance.2/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@componentInstance.1/@featureInstance.5" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GND.RFA -> RFB" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#UAS.UAS.Impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/uav_alt_domains/UAS.aadl#UAS.UAS.Impl"/>
+</instance:SystemInstance>

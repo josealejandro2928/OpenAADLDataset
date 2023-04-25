@@ -1,0 +1,154 @@
+-- Automatically Generated - For use with AADL2GlueC only - Do NOT modify! --
+
+SUBPROGRAM transaction
+FEATURES
+	amount:IN PARAMETER DataView::Amount {encoding=>NATIVE;};
+END transaction;
+
+SUBPROGRAM IMPLEMENTATION transaction.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END transaction.GUI_PI;
+
+SUBPROGRAM display
+FEATURES
+	msg:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END display;
+
+SUBPROGRAM IMPLEMENTATION display.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END display.GUI_PI;
+
+SUBPROGRAM eject_card
+FEATURES
+	w:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END eject_card;
+
+SUBPROGRAM IMPLEMENTATION eject_card.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END eject_card.GUI_PI;
+
+SUBPROGRAM out_msg
+FEATURES
+	msg:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END out_msg;
+
+SUBPROGRAM IMPLEMENTATION out_msg.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END out_msg.GUI_PI;
+
+SUBPROGRAM accept_card
+FEATURES
+	account:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END accept_card;
+
+SUBPROGRAM IMPLEMENTATION accept_card.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END accept_card.GUI_RI;
+
+SUBPROGRAM reject_transaction
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END reject_transaction;
+
+SUBPROGRAM IMPLEMENTATION reject_transaction.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END reject_transaction.GUI_RI;
+
+SUBPROGRAM out_of_service
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END out_of_service;
+
+SUBPROGRAM IMPLEMENTATION out_of_service.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END out_of_service.GUI_RI;
+
+SUBPROGRAM abort_out
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END abort_out;
+
+SUBPROGRAM IMPLEMENTATION abort_out.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END abort_out.GUI_RI;
+
+SUBPROGRAM amount
+FEATURES
+	amount:OUT PARAMETER DataView::Amount {encoding=>NATIVE;};
+END amount;
+
+SUBPROGRAM IMPLEMENTATION amount.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END amount.GUI_RI;
+
+SUBPROGRAM other_amount
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END other_amount;
+
+SUBPROGRAM IMPLEMENTATION other_amount.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END other_amount.GUI_RI;
+
+SUBPROGRAM digit
+FEATURES
+	num:OUT PARAMETER DataView::Num {encoding=>NATIVE;};
+END digit;
+
+SUBPROGRAM IMPLEMENTATION digit.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END digit.GUI_RI;
+
+SUBPROGRAM ok
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END ok;
+
+SUBPROGRAM IMPLEMENTATION ok.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END ok.GUI_RI;
+
+SUBPROGRAM transaction_succeseeded
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END transaction_succeseeded;
+
+SUBPROGRAM IMPLEMENTATION transaction_succeseeded.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END transaction_succeseeded.GUI_RI;
+
+SUBPROGRAM gui_polling_gui
+END gui_polling_gui;
+
+SUBPROGRAM IMPLEMENTATION gui_polling_gui.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END gui_polling_gui.GUI_PI;
+

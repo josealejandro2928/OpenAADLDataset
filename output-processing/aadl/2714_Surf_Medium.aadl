@@ -1,0 +1,17 @@
+package Surf_Medium
+public
+	with SB_Route_Table;
+	with Core_Types;
+	
+	abstract Medium
+		features
+			MsgInput: feature group SB_Route_Table::RouteInput;
+			
+			ES_CmdPipe_ES_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			SB_CmdPipe_SB_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			EVS_CmdPipe_EVS_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			TIME_CmdPipe_TIME_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+			HS_CmdPipe_HS_Command: out data port Core_Types::struct.CFE_SB_Msg_t;
+--			EVS_EVENT_MSG: out data port Core_Types::struct.CFE_SB_Msg_t;
+	end Medium;
+end Surf_Medium;

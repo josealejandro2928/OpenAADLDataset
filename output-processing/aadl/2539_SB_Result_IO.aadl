@@ -1,0 +1,73 @@
+package SB_Result_IO
+public
+	
+	--------all feature groups can add "in|out data port Base_Types::Integer;"
+	--------and numbers of data port must be the same
+	
+	with Generic;
+	with Base_Types;
+	with SB_Base_IO;
+-----------------------------------Input----------------------------------
+	feature group CreatePipeResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group SB_Base_IO::PipeInput;
+			EvaluteValue: refined to feature group SB_Base_IO::PipeEvaluteValue;
+	end CreatePipeResult;
+
+	feature group DeletePipeResult extends Generic::ShareDataInput
+		features			
+			EvaluteValue: refined to feature group SB_Base_IO::PipeEvaluteValue;
+	end DeletePipeResult;
+
+	feature group SubscribeResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group SB_Base_IO::RouteInput;
+			EvaluteValue: refined to feature group SB_Base_IO::RouteEvaluteValue;
+	end SubscribeResult;
+	
+	feature group UnsubscribeResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group SB_Base_IO::RouteInput;
+			EvaluteValue: refined to feature group SB_Base_IO::RouteEvaluteValue;
+	end UnsubscribeResult;
+	
+	feature group SendMsgResult extends Generic::ShareDataInput
+		features
+			a: in data port Base_Types::Integer;
+	end SendMsgResult;
+	
+-----------------------------------Output----------------------------------
+	feature group CreatePipeOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group SB_Base_IO::PipeOutput;
+			ReturnValue: refined to feature group SB_Base_IO::PipeReturnValue;
+	inverse of CreatePipeResult
+	end CreatePipeOutput;
+	
+	feature group DeletePipeOutput extends Generic::ServiceProcessorOutput
+		features
+			ReturnValue: refined to feature group SB_Base_IO::PipeReturnValue;
+	inverse of DeletePipeResult
+	end DeletePipeOutput;
+	
+	feature group SubscribeOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group SB_Base_IO::RouteOutput;
+			ReturnValue: refined to feature group SB_Base_IO::RouteReturnValue;
+	inverse of SubscribeResult
+	end SubscribeOutput;
+	
+	feature group UnsubscribeOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group SB_Base_IO::RouteOutput;
+			ReturnValue: refined to feature group SB_Base_IO::RouteReturnValue;
+	inverse of UnsubscribeResult
+	end UnsubscribeOutput;
+	
+	feature group SendMsgOutput extends Generic::ServiceProcessorOutput
+		features
+			a: out data port Base_Types::Integer;
+	inverse of SendMsgResult
+	end SendMsgOutput;
+	
+end SB_Result_IO;

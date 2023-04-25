@@ -1,0 +1,319 @@
+---------------------------------------------------
+-- AADL2.2
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::obsw
+PUBLIC
+
+WITH interfaceview::IV::GNC;
+WITH interfaceview::IV::ground;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_pulse
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_pulse;
+
+SUBPROGRAM IMPLEMENTATION PI_pulse.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 100 ms;
+END PI_pulse.others;
+
+SUBPROGRAM PI_run
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_run;
+
+SUBPROGRAM IMPLEMENTATION PI_run.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_run.others;
+
+SUBPROGRAM RI_guidance
+FEATURES
+  a : IN PARAMETER DataView::T_UInt32 {
+    Taste::encoding => NATIVE;
+  };
+  result : OUT PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_guidance;
+
+SUBPROGRAM IMPLEMENTATION RI_guidance.others
+END RI_guidance.others;
+
+SUBPROGRAM RI_result
+FEATURES
+  p : IN PARAMETER DataView::T_UInt32 {
+    Taste::encoding => UPER;
+  };
+END RI_result;
+
+SUBPROGRAM IMPLEMENTATION RI_result.others
+END RI_result.others;
+
+SUBPROGRAM RI_get_pro_data
+FEATURES
+  outp : OUT PARAMETER DataView::T_Boolean {
+    Taste::encoding => UPER;
+  };
+END RI_get_pro_data;
+
+SUBPROGRAM IMPLEMENTATION RI_get_pro_data.others
+END RI_get_pro_data.others;
+
+SUBPROGRAM RI_gnc_async
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END RI_gnc_async;
+
+SUBPROGRAM IMPLEMENTATION RI_gnc_async.others
+END RI_gnc_async.others;
+
+SYSTEM obsw
+FEATURES
+  PI_pulse : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::obsw::PI_pulse.others {
+    Taste::coordinates => "99841 57006";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::Deadline => 12 ms;
+    Taste::InterfaceName => "pulse";
+  };
+  PI_run : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::obsw::PI_run.others {
+    Taste::coordinates => "112280 75589";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "run";
+  };
+  RI_guidance : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_guidance.others {
+    Taste::coordinates => "118422 60156";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "guidance";
+    Taste::labelInheritance => "true";
+  };
+  RI_result : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::ground::PI_result.others {
+    Taste::coordinates => "118422 71181";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "result";
+    Taste::labelInheritance => "true";
+  };
+  RI_get_pro_data : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_get_pro_data.others {
+    Taste::coordinates => "118422 63306";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "get_pro_data";
+    Taste::labelInheritance => "true";
+  };
+  RI_gnc_async : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_gnc_async.others {
+    Taste::coordinates => "118422 66456";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "gnc_async";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END obsw;
+
+SYSTEM IMPLEMENTATION obsw.others
+END obsw.others;
+
+END interfaceview::IV::obsw;
+
+PACKAGE interfaceview::IV::GNC
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_guidance
+FEATURES
+  a : IN PARAMETER DataView::T_UInt32 {
+    Taste::encoding => NATIVE;
+  };
+  result : OUT PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_guidance;
+
+SUBPROGRAM IMPLEMENTATION PI_guidance.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_guidance.others;
+
+SUBPROGRAM PI_get_pro_data
+FEATURES
+  outp : OUT PARAMETER DataView::T_Boolean {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_get_pro_data;
+
+SUBPROGRAM IMPLEMENTATION PI_get_pro_data.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_get_pro_data.others;
+
+SUBPROGRAM PI_gnc_async
+FEATURES
+  a : IN PARAMETER DataView::T_Int32 {
+    Taste::encoding => NATIVE;
+  };
+END PI_gnc_async;
+
+SUBPROGRAM IMPLEMENTATION PI_gnc_async.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_gnc_async.others;
+
+SYSTEM GNC
+FEATURES
+  PI_guidance : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_guidance.others {
+    Taste::coordinates => "142673 60156";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "guidance";
+  };
+  PI_get_pro_data : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_get_pro_data.others {
+    Taste::coordinates => "142673 63306";
+    Taste::RCMoperationKind => protected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "get_pro_data";
+  };
+  PI_gnc_async : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GNC::PI_gnc_async.others {
+    Taste::coordinates => "142673 68031";
+    Taste::RCMoperationKind => sporadic;
+    Taste::InterfaceName => "gnc_async";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END GNC;
+
+SYSTEM IMPLEMENTATION GNC.others
+END GNC.others;
+
+END interfaceview::IV::GNC;
+
+PACKAGE interfaceview::IV::ground
+PUBLIC
+
+WITH interfaceview::IV::obsw;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_result
+FEATURES
+  p : IN PARAMETER DataView::T_UInt32 {
+    Taste::encoding => UPER;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_result;
+
+SUBPROGRAM IMPLEMENTATION PI_result.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_result.others;
+
+SUBPROGRAM RI_run_forrest
+FEATURES
+  a : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => UPER;
+  };
+END RI_run_forrest;
+
+SUBPROGRAM IMPLEMENTATION RI_run_forrest.others
+END RI_run_forrest.others;
+
+SYSTEM ground
+FEATURES
+  PI_result : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::ground::PI_result.others {
+    Taste::coordinates => "132598 89446";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "result";
+  };
+  RI_run_forrest : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::obsw::PI_run.others {
+    Taste::coordinates => "115273 89446";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "run_forrest";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END ground;
+
+SYSTEM IMPLEMENTATION ground.others
+END ground.others;
+
+END interfaceview::IV::ground;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::obsw;
+WITH interfaceview::IV::GNC;
+WITH interfaceview::IV::ground;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  obsw : SYSTEM interfaceview::IV::obsw::obsw.others {
+    Taste::coordinates => "91966 57006 118422 75589";
+  };
+  GNC : SYSTEM interfaceview::IV::GNC::GNC.others {
+    Taste::coordinates => "142673 57006 169917 79368";
+  };
+  ground : SYSTEM interfaceview::IV::ground::ground.others {
+    Taste::coordinates => "112123 89446 143776 112595";
+  };
+CONNECTIONS
+  obsw_PI_run_ground_RI_run_forrest : SUBPROGRAM ACCESS obsw.PI_run -> ground.RI_run_forrest {
+    Taste::coordinates => "115273 89446 115273 82517 112280 82517 112280 75589";
+  };
+  GNC_PI_guidance_obsw_RI_guidance : SUBPROGRAM ACCESS GNC.PI_guidance -> obsw.RI_guidance {
+    Taste::coordinates => "118422 60156 131177 60156 131177 60156 142673 60156";
+  };
+  ground_PI_result_obsw_RI_result : SUBPROGRAM ACCESS ground.PI_result -> obsw.RI_result {
+    Taste::coordinates => "118422 71181 132598 71181 132598 89446";
+  };
+  GNC_PI_get_pro_data_obsw_RI_get_pro_data : SUBPROGRAM ACCESS GNC.PI_get_pro_data -> obsw.RI_get_pro_data {
+    Taste::coordinates => "118422 63306 130547 63306 130547 63306 142673 63306";
+  };
+  GNC_PI_gnc_async_obsw_RI_gnc_async : SUBPROGRAM ACCESS GNC.PI_gnc_async -> obsw.RI_gnc_async {
+    Taste::coordinates => "118422 66456 130547 66456 130547 68031 142673 68031";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.2";
+END interfaceview::IV;
+

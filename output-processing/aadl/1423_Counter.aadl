@@ -1,0 +1,60 @@
+/**
+ * AADL-Macro examples
+ * common module
+ *
+ * $1 : [STR] title
+ * $2 : [STR] exit code
+ * $3 : [STR] loop count (between 1 and 1000)
+ */
+@header{
+package ssac.aadl.macro.examples;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+}@
+
+program Counter {
+	println("start '" + $1 + "' counter : loop(" + $3 + ") exit-code(" + $2 + ")");
+
+	// get values
+	var lbl:String = $1;
+	var ec:Decimal = toDecimal($2);
+	var lc:Decimal = toDecimal($3);
+
+	// check loop count
+	if (lc <= 0 || lc > 1000) {
+		println("ERROR [" + lbl + "] illegal loop count : " + lc);
+		return (-1);
+	}
+
+	// loop
+	@{
+		LocalLog log = new LocalLog();
+		int lim = lc.intValue();
+		for (int i = 0; i < lim; i++) {
+			log.log(lbl, "#"+(i+1));
+			try {
+				Thread.sleep(100L);
+			} catch (InterruptedException ex) { ex=null; }
+		}
+	}@;
+
+	println("end '" + lbl + "' return : " + ec);
+	return ec;
+}
+
+@{
+	static class LocalLog {
+		private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		private final StringBuilder sb = new StringBuilder();
+		public LocalLog() {}
+		public void log(String label, String msg) {
+			sb.setLength(0);
+			sb.append(sdf.format(new Date()));
+			sb.append(" [");
+			sb.append(label);
+			sb.append("] ");
+			sb.append(msg);
+			System.out.println(sb.toString());
+		}
+	}
+}@

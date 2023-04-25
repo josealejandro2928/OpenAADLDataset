@@ -1,0 +1,32 @@
+package Radiation_Ctrl
+public
+with Base_Types;
+	renames Base_Types::all;
+with Sensors;
+with constants;
+
+	system Radiation_Ctrl
+		features
+			env_radiation: in data port Integer;
+			shutdown : out data port Boolean;
+		
+		annex agree{**
+--			assume "Radiation within reasonable range (mSv)." :
+--				(env_radiation > 0) and (env_radiation < 1000);
+--			
+--			guarantee "Shutdown commanded if and only if radiation is high." :
+--				shutdown = (env_radiation > constants::RADIATION_THRESHOLD);
+					
+		**};	
+	end Radiation_Ctrl;
+	
+	system implementation Radiation_Ctrl.impl
+		subcomponents
+			radiation_sensor : system Sensors::Radiation_Sensor;
+			
+		connections
+			radiation_to_sensor : port env_radiation -> radiation_sensor.radiation;
+			shutdown_cmd : port radiation_sensor.high_indicator -> shutdown;
+			
+	end Radiation_Ctrl.impl;	
+end Radiation_Ctrl;

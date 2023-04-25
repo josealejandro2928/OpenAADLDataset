@@ -1,0 +1,62 @@
+package Zeroize_UxAS
+public
+	with CASE_Messages;
+	with CMASI;
+	
+	-- Included Main Services
+	with TaskManagerService_Pkg;
+	with ZeroizeConditionRecognizer_Pkg;
+
+	with UxAS;
+		
+	process Waterways extends UxAS::UxAS
+		features
+			KeepInZone : in data port CMASI::KeepInZone.i;
+			KeepOutZone : in data port CMASI::KeepOutZone.i;
+			OperatingRegion : in data port CMASI::OperatingRegion.i;
+			ZeroizeCondition : in data port CASE_Messages::ZeroizeCondition.i;
+			AirVehicleState : in data port CMASI::AirVehicleState.i;
+			
+	end Waterways;
+	
+	process implementation Waterways.Zeroize
+		subcomponents
+  			TaskManagerService: thread TaskManagerService_Pkg::TaskManagerService;
+  			ZeroizeConditionRecognizerService : thread ZeroizeConditionRecognizer_Pkg::ZeroizeConditionRecognizerService;  			
+  			
+		connections
+			
+			------------------------------------------------------------------------------------------------------------------
+			-- Connections between the ground station (or controller) and the UxAS instances, and connections between UxAS
+			-- services. The connections reflect the message sequence flow defined for this example. The message sequence flow 
+			-- has 4 states: Initialization, Assignment, Implementation, and Execution. The connections are group and labeled 
+			-- based on the state(s) in which the messages occur.
+			------------------------------------------------------------------------------------------------------------------
+			
+			------------------
+			-- Initialization
+			------------------
+			c_init_01 : port KeepInZone -> ZeroizeConditionRecognizerService.KeepInZone;			
+			c_init_02 : port KeepOutZone -> ZeroizeConditionRecognizerService.KeepOutZone;			
+			c_init_03 : port OperatingRegion -> ZeroizeConditionRecognizerService.OperatingRegion;
+			
+			--------------
+			-- Assignment
+			--------------			
+			-- none
+       		
+        	-------------------
+       		-- Implementation
+       		-------------------
+  			c_impl_01 : port ZeroizeCondition -> ZeroizeConditionRecognizerService.ZeroizeCondition;  			
+			c_impl_02 : port AirVehicleState -> ZeroizeConditionRecognizerService.AirVehicleState;
+        	c_impl_03 : port AirVehicleState -> TaskManagerService.AirVehicleState;
+        		
+       		-------------
+       		-- Execution
+       		-------------
+       		c_exec_01 : port ZeroizeConditionRecognizerService.ZeroizeCommand -> TaskManagerService.ZeroizeCommand;
+				
+	end Waterways.Zeroize;
+	
+end Zeroize_UxAS;

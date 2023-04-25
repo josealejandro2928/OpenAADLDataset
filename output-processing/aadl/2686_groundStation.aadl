@@ -1,0 +1,118 @@
+package arch2
+public
+
+	with Base_Types;
+
+	data evidence
+	end evidence;
+
+	--My intention here is to have a tuple of (evidence, nonce, signature).
+	--The signature subcomponent can be 0 to represent no signature.
+	data implementation evidence.int_triple
+		subcomponents
+			evidence : data Base_Types::Integer;
+			nonce : data Base_Types::Integer;
+			signature : data Base_Types::Integer;
+	end evidence.int_triple;
+
+	-- I let this be a string because APDT values can be represented as S-Expressions.
+	data appraisal_request extends Base_Types::String
+	end appraisal_request;
+
+	process sel4AM_and_uboot
+		features
+		In_BootReq : in event data port appraisal_request;
+		Out_Boot : out event data port evidence.int_triple;
+	end sel4AM_and_uboot;
+
+	process metaMeasurer
+		features
+		Out_BootReq : out event data port appraisal_request;
+		In_Boot : in event data port evidence.int_triple;
+		Out_PlatAM : out event data port evidence.int_triple;
+		Out_UserVM : out event data port evidence.int_triple;
+	end metaMeasurer;
+
+	process platformAM
+		features
+		In_seL4 : in event data port evidence.int_triple;
+		In_UserVMReq : in event data port appraisal_request;
+		Out_UserVM : out event data port evidence.int_triple;
+		In_LinuxReq : in event data port appraisal_request;
+		Out_Linux : out event data port evidence.int_triple;
+	end platformAM;
+
+	process userVM
+		features
+		In_MetaMeas : in event data port evidence.int_triple;
+		Out_PlatAMReq : out event data port appraisal_request;
+		In_PlatAM : in event data port evidence.int_triple;
+		Out_Linux : out event data port evidence.int_triple;
+	end userVM;
+
+	process linux
+		features
+		Out_PlatAMReq : out event data port appraisal_request;
+		In_PlatAM : in event data port evidence.int_triple;
+		In_UserVM : in event data port evidence.int_triple;
+		Out_UserAM : out event data port evidence.int_triple;
+		Out_Uxas : out event data port evidence.int_triple;
+	end linux;
+
+	process userAM
+		features
+		In_Linux : in event data port evidence.int_triple;
+		In_UxasReq : in event data port appraisal_request;
+		Out_Uxas : out event data port evidence.int_triple;
+	end userAM;
+
+	process uxasGroundStation
+		features
+		In_Linux : in event data port evidence.int_triple;
+		out_UserAMReq: out event data port appraisal_request;
+		In_UserAM : in event data port evidence.int_triple;
+	end uxasGroundStation;
+
+	system trustedBoot
+	end trustedBoot;
+
+	system implementation trustedBoot.Native
+		subcomponents
+			ubootNode : process sel4AM_and_uboot;
+			sel4Node : process metaMeasurer;
+			platAmNode : process platformAM;
+			userVmNode : process userVM;
+			linuxNode : process linux;
+			userAmNode : process userAM;
+			uxasNode : process uxasGroundStation;
+		connections
+			-- appraisal between u-boot and the meta-measurer
+			pBootReq: port sel4Node.Out_BootReq-> ubootNode.In_BootReq;
+			pBoot: port ubootNode.Out_Boot -> sel4Node.In_Boot;
+
+			--meta-measurer submits evidence
+			pSP: port sel4Node.Out_PlatAM -> platAmNode.In_seL4;
+			pSUv: port sel4Node.Out_UserVM -> userVmNode.In_MetaMeas;
+
+			-- appraisal between platform AM and user VM
+			PPlatReq1 : port userVmNode.Out_PlatAMReq -> platAmNode.In_UserVMReq;
+			pPUv: port platAmNode.Out_UserVM -> userVmNode.In_PlatAM;
+
+			-- appraisal between platform AM and Linux
+			PPlatReq2: port linuxNode.Out_PlatAMReq -> platAmNode.In_LinuxReq;
+			pPL: port platAmNode.Out_Linux -> linuxNode.In_PlatAM;
+
+			-- user VM submits evidence
+			pUvL: port userVmNode.Out_Linux -> linuxNode.In_UserVM;
+
+			-- Linux submits evidence
+			pLUa: port linuxNode.Out_UserAM -> userAmNode.In_Linux;
+			pLUx: port linuxNode.Out_Uxas -> uxasNode.In_Linux;
+
+			-- appraisal between User AM and UxAS
+			PUserAMReq : port uxasNode.Out_UserAMReq -> userAmNode.In_UxasReq;
+			pUaUx: port userAmNode.Out_Uxas -> uxasNode.In_UserAM;
+
+	end trustedBoot.Native;
+	
+end arch2;

@@ -1,0 +1,79 @@
+package isolette_thermostat
+public
+	with isolette, regulate_temperature, monitor_temperature;
+	
+------------------------------------- Integrated Thermostat System ---------------------------------------------------
+	
+	data Boolean
+	end Boolean;
+
+	system Thermostat extends isolette::Thermostat
+	end  Thermostat;
+
+	-- Version before architecture revision to meet implementation constraints
+	system implementation Thermostat.impl
+		subcomponents
+			regulate_temperature : process regulate_temperature::Regulate_Temperature.impl;
+		connections
+			regulator_status_conn : port regulate_temperature.regulator_status -> operator_feedback.regulator_status;
+			desired_temperature_range_conn : feature group operator_settings.desired_temperature_range -> regulate_temperature.desired_temperature_range;
+			display_temperature_conn : port regulate_temperature.display_temperature -> operator_feedback.display_temperature;
+			current_temperature_regulate_conn : feature group current_temperature -> regulate_temperature.current_temperature;
+			heat_control_conn : port regulate_temperature.heat_control -> heat_control;
+	
+	end  Thermostat.impl;
+
+	-- Version after architecture revision to meet implementation constraints
+	system implementation Thermostat.impl_rev
+		subcomponents
+			regulate_temperature : process regulate_temperature::Regulate_Temperature.impl;
+			monitor_temperature : process monitor_temperature::Monitor_Temperature.impl;
+		connections
+			regulator_status_conn : port regulate_temperature.regulator_status -> operator_feedback.regulator_status;
+			desired_temp_regulate_conn : feature group operator_settings.desired_temperature_range -> regulate_temperature.desired_temperature_range;
+			display_temperature_conn : port regulate_temperature.display_temperature -> operator_feedback.display_temperature;
+			current_temperature_regulate_conn : feature group current_temperature -> regulate_temperature.current_temperature;
+			heat_control_conn : port regulate_temperature.heat_control -> heat_control;
+			monitor_status_conn : port monitor_temperature.monitor_status -> operator_feedback.monitor_status;
+			alarm_temp_monitor_temp_conn : feature group operator_settings.alarm_temperature_range -> monitor_temperature.alarm_temperature_range;
+			current_temperature_monitor_conn : feature group current_temperature -> monitor_temperature.current_temperature;
+			alarm_control_conn : port monitor_temperature.alarm_control -> operator_feedback.alarm_control;
+		flows
+			current_temperature_heat_control : flow path 	current_temperature -> 
+															current_temperature_regulate_conn -> 
+															regulate_temperature.current_temperature_heat_control ->
+															heat_control_conn -> 
+															heat_control;
+			desired_temp_regulator_status : flow path 	operator_settings.desired_temperature_range -> 
+														desired_temp_regulate_conn -> 
+														regulate_temperature.desired_temp_regulator_status ->
+														regulator_status_conn -> 
+														operator_feedback.regulator_status;
+			alarm_temp_monitor_status : flow path 	operator_settings.alarm_temperature_range -> 
+													alarm_temp_monitor_temp_conn -> 
+													monitor_temperature.alarm_temp_monitor_status ->
+													monitor_status_conn -> 
+													operator_feedback.monitor_status;
+	annex Resolute{**
+		prove thermostatreq1()
+		prove thermostatreq2()
+		--prove regulator()
+	**};
+	end  Thermostat.impl_rev;
+	annex Resolute{**
+		thermostatreq1()<=
+		**"req1: Thermostat shall set the value for monitor status and regulator status"**
+		forall(c:component).true=>monitorreq(c) 
+		
+	monitorreq(com:component)<=
+		**"req: Monitor temperature function should set value for alarm control, monitor status, and Init"**
+		forall(c:component).true
+		thermostatreq2()<=
+		**"req2:Thermostat shall set the value for monitor status and regulator status"**
+		forall(c:component).true=>regulatorreq(c)
+	regulatorreq(com:component)<=
+		**"Regulator temperatur function should set value for alarm control, monitor status, and Normal"**
+		forall(c:component).false
+	**};
+	
+end isolette_thermostat;

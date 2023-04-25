@@ -1,0 +1,32 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package functions_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD functions_functions
+features
+	INPORT_e : IN EVENT DATA PORT DataView::T_Int32_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_functions_e"; };
+	OUTPORT_out_msg : OUT EVENT DATA PORT DataView::T_Int32_Buffer.impl;
+END functions_functions;
+
+THREAD IMPLEMENTATION functions_functions.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_functions";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END functions_functions.others;
+
+end functions_CV_Thread;

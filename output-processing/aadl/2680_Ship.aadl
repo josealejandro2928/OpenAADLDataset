@@ -1,0 +1,32 @@
+package Ship
+public
+	--with APS,RCC;
+	
+	system APSCommunication
+		features
+			AISCommunication: in out data port;
+		flows
+			AISCommunication_Ship_to_APS: flow source AISCommunication;
+			AISCommunication_from_APS: flow sink AISCommunication;
+			
+			AISCommunication_Ship_to_RCC: flow source AISCommunication;
+			AISCommunication_RCC_to_Ship: flow sink AISCommunication;						
+	end APSCommunication;
+			
+		system implementation APSCommunication.impl
+			subcomponents
+				Ship_TrafficModule: system TrafficModule;				
+			connections
+				ShiptoShipInConn: port AISCommunication -> Ship_TrafficModule.DataPort;
+				ShiptoShipOutConn: port Ship_TrafficModule.DataPort -> AISCommunication;														
+		end APSCommunication.impl;		
+	
+	system TrafficModule
+		-- Traffic Module candidate is AIS
+		features
+			--ControlPort: in out data port;
+			DataPort: in out data port;	-- Through a VHF antenna 				
+	end TrafficModule;
+
+	
+end Ship;

@@ -1,0 +1,33 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_guard_1_get_data_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_guard_1_get_data_vt_guard_1_get_data
+features
+	INPORT_artificial_get_data : IN EVENT DATA PORT DataView::MyReal_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_guard_1_get_data_artificial_get_data"; };
+	OUTPORT_out_msg_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	guard_1_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_guard_1_get_data_vt_guard_1_get_data;
+
+THREAD IMPLEMENTATION vt_guard_1_get_data_vt_guard_1_get_data.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_guard_1";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END vt_guard_1_get_data_vt_guard_1_get_data.others;
+
+end vt_guard_1_get_data_CV_Thread;

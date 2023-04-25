@@ -1,0 +1,96 @@
+package sr_system
+public
+	with Deployment;
+	with Data_Model;
+	
+	--Datatypes
+	data speed_val
+		properties	
+			Data_Model::Data_Representation => Float; 	
+	end speed_val;
+	
+	system srs
+		
+	end srs;
+
+	system implementation srs.impl
+		subcomponents
+			this_process: process this_process.impl;
+			cpu: processor cpu.impl;
+		properties
+			Actual_Processor_Binding => (reference (cpu)) applies to this_process;
+		
+	end srs.impl;
+	bus hardware_conn		
+	end hardware_conn;
+	
+	bus implementation hardware_conn.impl
+		
+	end hardware_conn.impl;
+	subprogram s1
+		properties
+			Source_Language => (C);
+			Source_Name => "apply_break";
+			Source_Text => ("subpgm.c");
+	end s1;
+	subprogram s2
+		properties
+			Source_Language => (C);
+			Source_Name => "acceleration";
+			Source_Text => ("subpgm.c");
+	end s2;
+	thread task
+		
+	end task;
+	thread implementation task.impl1
+		calls
+			MyCalls:{
+				p_Spg: subprogram s1;
+			};
+		properties 
+			Dispatch_Protocol => Periodic;
+			Priority => 1;
+			Period => 1000ms;
+	end task.impl1;
+	thread implementation task.impl2
+		calls
+			MyCalls:{
+				p_Spg: subprogram s2;
+			};
+		properties 
+			Dispatch_Protocol => Periodic;
+			Priority => 1;
+			Period => 1000ms;
+	end task.impl2;
+	
+	processor cpu
+			
+	end cpu;
+	processor implementation cpu.impl
+			properties
+				Deployment::Execution_platform => Native;
+				Scheduling_Protocol => (POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL);
+	end cpu.impl;
+	
+	process this_process
+	
+	end this_process;
+	process implementation this_process.impl
+		subcomponents
+			Task1: thread task.impl1;
+			Task2: thread task.impl2;
+	end this_process.impl;
+	device speed_sense
+		features
+			speed_val: out data port;
+			bus_access: requires bus access hardware_conn;
+	end speed_sense;
+	device implementation speed_sense.impl
+		
+	end speed_sense.impl;
+	device break
+		features
+			speed_val: in event port;
+			bus_access: requires bus access hardware_conn;
+	end break;
+end sr_system;

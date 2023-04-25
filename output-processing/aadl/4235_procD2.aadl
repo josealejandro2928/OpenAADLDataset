@@ -1,0 +1,57 @@
+/**
+ * AADL-Macro example
+ * 'procD2'
+ *
+ * $1 : [STR] exit code
+ * $2 : [IN]  initial log alge
+ * $3 : [OUT] result log alge
+ */
+@header{
+package ssac.aadl.macro.examples;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+}@
+
+@{
+static private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss.SSS");
+}@
+
+program ProcessD2 {
+	var lbl:String = "ProcessD2";
+
+	println("start '" + lbl + "'");
+
+	// exit code
+	var ec:Decimal = toDecimal($1);
+
+	// load log alge
+	var log:ExAlgeSet <<- csvFile($2);
+
+	// added log
+	@{
+		exalge2.Exalge la = getLogAlge(new java.math.BigDecimal(1), lbl);
+		println("["+lbl+"]="+la);
+		log.add(la);
+
+		for (int i = 2; i <= 10; i++) {
+			try {
+				Thread.sleep(500L);	// 500ms interval
+			} catch (InterruptedException ex) {ex=null;}
+			la = getLogAlge(new java.math.BigDecimal(i), lbl);
+			println("["+lbl+"]="+la);
+			log.add(la);
+		}
+	}@;
+
+	// save result
+	log ->> csvFile($3);
+
+	println("'" + lbl + "' finished(" + ec + ").");
+	return ec;
+}
+
+function getLogAlge(val:Decimal, name:String):Exalge {
+	var logtime:String = @{sdf.format(new Date())}@;
+	var retalge:Exalge = val@<name,"#",logtime,"procLog">;
+	return retalge;
+}

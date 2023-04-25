@@ -1,0 +1,33 @@
+-- Automatically Generated - For use with AADL2GlueC only - Do NOT modify! --
+
+SUBPROGRAM out_msg
+FEATURES
+	msg:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END out_msg;
+
+SUBPROGRAM IMPLEMENTATION out_msg.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END out_msg.GUI_PI;
+
+SUBPROGRAM e
+FEATURES
+	x:OUT PARAMETER DataView::MyReal {encoding=>NATIVE;};
+END e;
+
+SUBPROGRAM IMPLEMENTATION e.GUI_RI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_RI;
+END e.GUI_RI;
+
+SUBPROGRAM gui_polling_gui
+END gui_polling_gui;
+
+SUBPROGRAM IMPLEMENTATION gui_polling_gui.GUI_PI
+PROPERTIES
+	FV_Name => "gui";
+	Source_Language => GUI_PI;
+END gui_polling_gui.GUI_PI;
+

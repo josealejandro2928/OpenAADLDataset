@@ -1,0 +1,130 @@
+package BuildingControl
+public
+	with Base_Types, Data_Model, HAMR;
+
+	system BuildingControlDemo
+	end BuildingControlDemo;
+
+	system implementation BuildingControlDemo.i
+		subcomponents
+			tcp: process TempControlProcess.i;
+		properties
+			HAMR::Platform => (JVM);
+	end BuildingControlDemo.i;
+
+	process TempControlProcess
+	end TempControlProcess;
+
+	process implementation TempControlProcess.i
+		subcomponents
+			tempSensor: thread TempSensor.i;
+			tempControl: thread TempControl.i;
+			fan: thread Fan.i;
+			operatorInterface: thread OperatorInterface.i;
+		connections
+			ct: port tempSensor.currentTemp -> tempControl.currentTemp;
+			tc: port tempSensor.tempChanged -> tempControl.tempChanged;
+			fc: port tempControl.fanCmd -> fan.fanCmd;
+			fa: port fan.fanAck -> tempControl.fanAck;
+			c1: port tempSensor.tempChanged -> operatorInterface.tempChanged;
+			c2: port tempSensor.currentTemp -> operatorInterface.currentTemp;
+			c3: port operatorInterface.setPoint -> tempControl.setPoint;
+	end TempControlProcess.i;
+
+	thread TempSensor
+		features
+			currentTemp: out data port Temperature.i;
+			tempChanged: out event port;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end TempSensor;
+
+	thread implementation TempSensor.i
+	end TempSensor.i;
+
+	thread Fan
+		features
+			fanCmd: in event data port FanCmd;
+			fanAck: out event data port FanAck;
+		properties
+			Dispatch_Protocol => Sporadic;
+			Period => 1 sec;
+	end Fan;
+
+	thread implementation Fan.i
+	end Fan.i;
+
+	thread TempControl
+		features
+			currentTemp: in data port Temperature.i;
+			tempChanged: in event port;
+			fanAck: in event data port FanAck;
+			setPoint: in event data port SetPoint.i;
+			fanCmd: out event data port FanCmd;
+		properties
+			Dispatch_Protocol => Sporadic;
+			Period => 1 sec;
+	end TempControl;
+
+	thread implementation TempControl.i
+	end TempControl.i;
+
+	thread OperatorInterface
+		features
+			setPoint: out event data port SetPoint.i;
+			tempChanged: in event port;
+			currentTemp: in data port Temperature.i;
+			alarm: in event data port Alarm;
+			clearAlarm: out event port;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 1 sec;
+	end OperatorInterface;
+
+	thread implementation OperatorInterface.i
+	end OperatorInterface.i;
+
+	data Temperature
+	end Temperature;
+
+	data implementation Temperature.i
+		subcomponents
+			degrees: data Base_Types::Float_32;
+			unit: data TempUnit;
+	end Temperature.i;
+
+	data SetPoint
+	end SetPoint;
+
+	data implementation SetPoint.i
+		subcomponents
+			low: data Temperature.i;
+			high: data Temperature.i;
+	end SetPoint.i;
+
+	data TempUnit
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Fahrenheit", "Celsius", "Kelvin");
+	end TempUnit;
+
+	data FanAck
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("Ok", "Error");
+	end FanAck;
+
+	data FanCmd
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("On", "Off");
+	end FanCmd;
+
+	data Alarm
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ("TempOutOfRange", "NoAlarm");
+	end Alarm;
+
+end BuildingControl;

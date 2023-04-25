@@ -1,0 +1,121 @@
+-- Isolette_Environment.aadl
+--
+-- =====================================================================================================================
+--
+--   I s o l e t t e     E n v i r o n m e n t     P a c k a g e 
+-- 
+--
+--   Modeling of environment for Isolette
+--
+--   Note:  These models contribute nothing to the Isolette implementation.
+--          They are included here to support model-based hazard analysis activities 
+--          as well support Concept of Operations and Use Case modeling 
+--
+-- =====================================================================================================================
+
+
+package Isolette_Environment
+public
+	with Isolette;
+	with Isolette_Data_Model;
+	with Data_Model;
+
+--@description air inside room
+	system Air
+		features
+			--warming of air by heat source		
+			heat_in: in data port Heat;
+			--heat-loss of incubator air to room
+			heat_out: out data port Heat;
+			--air contact with infant			
+			-- TODO: This is currently modeled as an IN/OUT port, which might cause problems
+			--  with the EMv2/hazard analysis
+			infant_interaction: in out data port Air_Interaction;
+			--actual air temperature that the sensor measures			
+			air_temperature: out data port Isolette_Data_Model::PhysicalTemp.impl;
+		flows
+			heat_flow_sink: flow sink heat_in;
+			temp_source: flow source air_temperature;
+	end Air;
+
+--@description nurse controlling room	
+	abstract Nurse
+		features
+			-- ==== INPUTS ====
+			-- models (abstractly) visual information presented to the operator on Isolette operator interface
+			operator_visual_information: in data port Isolette_Environment::Interface_Interaction;
+			-- models (abstraction) audio information presented to the operator on Isolette operator interface
+			operator_alarm: in data port Isolette_Environment::Interface_Interaction;
+
+			-- ==== OUTPUTS ====
+			-- models (abstractly) commands given by the operator to Isolette operator interface
+			operator_commands: out data port Isolette_Environment::Interface_Interaction;
+
+		flows
+			-- nurse is sink for alarms and current temp reading
+			operator_hears_alarm: flow sink operator_alarm;
+			operator_reads_visuals: flow sink operator_visual_information;
+			-- nurse is source for control
+			operator_sends_commands: flow source operator_commands;
+	end Nurse;
+
+--@description infant in room
+	abstract Infant
+		features
+			air_interaction: in out data port Air_Interaction;
+	end Infant;
+
+--@description heat emitted by source to warm air	
+	data Heat
+		properties
+			-- treat it as an enum for now
+			Data_Model::Data_Representation => Enum; 
+			Data_Model::Enumerators => ("Dummy_Head_Enum");
+	end Heat;
+
+--@description data that flows between operator and control panel
+	data Interface_Interaction
+		properties
+			-- treat it as an enum for now
+			Data_Model::Data_Representation => Enum; 
+			Data_Model::Enumerators => ("Dummy_Interface_Interaction_Enum");		
+	end Interface_Interaction;
+
+--@descritption warming of air by heat source, or of infant by air	
+	data Air_Interaction
+	end Air_Interaction;
+
+--@description nursery room that contains room, infant, nurse, and air
+	system Isolette_Environment
+		features
+--models heat-loss of incubator to (presumably) cooler room		
+			heat_loss: out data port Heat;
+	end Isolette_Environment;
+
+--@description implementation of Room that contains incubator, infant, nurse, and air  
+	system implementation Isolette_Environment.Normal_Operation
+		subcomponents
+--incubator that keeps air within prescribed range		
+			anIncubator: system Isolette::isolette.single_sensor;
+--air warmed by heat source, breathed by infant			
+			theAir: system Air;
+--new-born human child often premature			
+			anInfant: abstract Infant;
+--human attendant and operator of incubator			
+			aNurse: abstract Nurse;
+		connections
+
+--air with infant interaction	 
+			a2i: port theAir.infant_interaction <-> anInfant.air_interaction;
+--heating source warming air interaction
+			hs2a: port anIncubator.heat_out -> theAir.heat_in;
+			tmp: port theAir.air_temperature -> anIncubator.air_temperature;
+--heat-loss
+			hl: port theAir.heat_out -> heat_loss;
+--nurse with control-panel interaction
+			n2iovi: port anIncubator.operator_visual_information -> aNurse.operator_visual_information;
+			n2ioa: port anIncubator.operator_alarm -> aNurse.operator_alarm;
+			n2ioc: port aNurse.operator_commands -> anIncubator.operator_commands;
+	end Isolette_Environment.Normal_Operation;
+  	
+end Isolette_Environment;	

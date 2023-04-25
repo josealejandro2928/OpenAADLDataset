@@ -1,0 +1,151 @@
+package dh_devices
+public
+	system sensor_controller
+		features
+			sensor_input: in out data port;
+			sensor_stream: out data port;
+			sensor_new_feature: in data port;
+--			sensor_response: out data port;	
+			sensor_event: out event data port;
+	end sensor_controller;
+
+	system implementation sensor_controller.impl
+		subcomponents
+			poll_process: process sensor_poll_process.impl;
+			publish_process: process sensor_event_process.impl;
+			configure: process sensor_configure_process;
+		connections
+			sensor_controller_impl_new_connection: port sensor_new_feature -> poll_process.pro_in;
+			sensor_controller_impl_new_connection2: port poll_process.pro_out -> sensor_stream;
+			sensor_controller_impl_new_connection3: port sensor_new_feature -> publish_process.pro_in;
+			sensor_controller_impl_new_connection4: port publish_process.pro_out -> sensor_event;
+			sensor_controller_impl_new_connection5: port configure.pro_in -> sensor_input;
+			sensor_controller_impl_new_connection6: port sensor_new_feature -> configure.alarm_dev_in;
+	end sensor_controller.impl;
+
+		-----------------------------------------------------------------------------------------
+		-- Pipes & Filters
+	process sensor_poll_process
+		features
+			pro_in: in data port;
+			pro_out: out data port;
+	end sensor_poll_process;
+
+		-- Pipes & Filters
+	process implementation sensor_poll_process.impl
+		subcomponents
+			poll_thread: thread sensor_poll_thread;
+		connections
+			poll_process_impl_new_connection2: port poll_thread.thr_out -> pro_out;
+			poll_process_impl_new_connection: port pro_in -> poll_thread.thr_in;
+	end sensor_poll_process.impl;
+
+		-- Pipes & Filters
+	thread sensor_poll_thread
+		features
+			thr_in: in data port;
+			thr_out: out data port;
+	end sensor_poll_thread;
+
+		-----------------------------------------------------------------------------------------
+		-- Publish & Subscribe
+	process sensor_event_process
+		features
+			pro_in: in data port;
+			pro_out: out event data port;
+	end sensor_event_process;
+
+		-- Publish & Subscribe
+	process implementation sensor_event_process.impl
+		subcomponents
+			event_thread: thread sensor_event_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> event_thread.thr_in;
+			event_process_impl_new_connection2: port event_thread.thr_out -> pro_out;
+	end sensor_event_process.impl;
+
+		-- Publish & Subscribe
+	thread sensor_event_thread
+		features
+			thr_in: in data port;
+			thr_out: out event data port;
+	end sensor_event_thread;
+
+
+		-- Client-Server
+	process sensor_configure_process
+		features
+			pro_in: in out data port;
+			alarm_dev_in: in data port;
+	end sensor_configure_process;
+
+
+		-----------------------------------------------------------------------------------------
+	system alarm_controller
+		features
+			data_input: in out data port;
+			alarm_new_feature: in data port;
+--			data_output: out data port;	
+			alarm_event: out event data port;
+	end alarm_controller;
+
+	system implementation alarm_controller.impl
+		subcomponents
+			publish_process: process alarm_event_process.impl;
+			configure_process: process alarm_configure_process;
+		connections
+			alarm_controller_impl_new_connection: port alarm_new_feature -> publish_process.pro_in;
+			alarm_controller_impl_new_connection2: port publish_process.pro_out -> alarm_event;
+			alarm_controller_impl_new_connection3: port configure_process.pro_in -> data_input;
+			alarm_controller_impl_new_connection4: port alarm_new_feature -> configure_process.alarm_dev_in;
+	end alarm_controller.impl;
+
+		-- Publish & Subscribe
+	process alarm_event_process
+		features
+			pro_in: in data port;
+			pro_out: out event data port;
+	end alarm_event_process;
+
+		-- Publish & Subscribe
+	process implementation alarm_event_process.impl
+		subcomponents
+			event_thread: thread alarm_event_thread;
+		connections
+			event_process_impl_new_connection: port pro_in -> event_thread.thr_in;
+			event_process_impl_new_connection2: port event_thread.thr_out -> pro_out;
+	end alarm_event_process.impl;
+
+		-- Publish & Subscribe
+	thread alarm_event_thread
+		features
+			thr_in: in data port;
+			thr_out: out event data port;
+	end alarm_event_thread;
+	
+	process alarm_configure_process
+		features
+			pro_in: in out data port;
+			alarm_dev_in: in data port;
+			
+	end alarm_configure_process;
+
+		-----------------------------------------------------------------------------------------
+	system controller_controller
+		features
+			data_input: in out data port;
+			controller_new_feature: in data port;
+--			data_output: out data port;	
+			controller_event: out event data port;
+	end controller_controller;
+
+		-----------------------------------------------------------------------------------------
+	system switch_controller
+		features
+			data_input: in out data port;
+			switch_new_feature: in data port;
+--			data_output: out data port;		
+			switch_event: out event data port;
+	end switch_controller;
+-----------------------------------------------------------------------------------------
+end dh_devices;

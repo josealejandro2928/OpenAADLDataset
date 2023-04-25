@@ -1,0 +1,874 @@
+package Data_Types
+  public
+	 data Integer 
+	 properties
+ 		Source_Data_Size => 8 bits;
+ 	end Integer;
+ 	
+ 	data Boolean
+ 	properties
+ 		Source_Data_Size => 8 bits;
+ 	end Boolean;
+ 	
+ 	data Integer_16
+ 	properties
+ 		Source_Data_Size =>16 bits;
+ 	end Integer_16;
+ 	
+ 	data Float
+ 	properties
+ 		Source_Data_Size => 32 bits;
+ 	end Float;
+ 	
+ 	subprogram Get_Integer
+ 	features
+ 		Result : out parameter Integer;
+ 	end Get_Integer;
+ 	
+ 	subprogram Set_Integer
+ 	features
+ 		Int : in parameter Integer;
+ 	end Set_Integer;
+ 	
+ 	subprogram Get_Integer16
+ 	features
+ 		Result : out parameter Integer_16;
+ 	end Get_Integer16;
+ 	
+ 	subprogram Set_Integer16
+ 	features
+ 		Int : in parameter Integer_16;
+ 	end Set_Integer16;
+ 	
+ 	
+ 	data Lat_Long
+ 	features
+ 		Get_Degs : subprogram Get_Integer;
+ 		Set_Degs : subprogram Set_Integer;
+ 		Get_Mins : subprogram Get_Integer;
+ 		Set_Mins : subprogram Set_Integer;
+ 		Get_Secs : subprogram Get_Integer;
+ 		Set_Secs : subprogram Set_Integer;
+ 	end Lat_Long;
+ 		
+  	data implementation Lat_Long.Generic
+ 	subcomponents
+ 		Degs : data Integer;
+ 		Mins : data Integer;
+ 		Secs : data Integer;
+ 	end Lat_Long.Generic;
+ 	
+ 	
+ 	data Position
+ 	end Position;
+ 	
+ 	
+ 	data implementation Position.simple
+ 	subcomponents 
+ 		Latitude : data Lat_long.generic;
+ 		Longitude : data Lat_long.generic;
+ 	end Position.simple;
+ 	
+ 			
+ 	data implementation Position.GPS extends Position.simple
+ 	subcomponents
+ 		Altitude : data Integer;
+ 		Cap		 : data Integer;
+ 	end Position.GPS;
+ 	
+ 	data Stream_Element
+ 	end Stream_Element;
+ 	
+ 	data implementation Stream_Element.Generic
+ 	properties
+ 		Source_Data_Size => 8bits;
+ 	end Stream_Element.Generic;
+ 	
+ 	data Tab
+ 	end Tab;
+ 	data Tableau extends Tab
+ 	features
+ 		Get_Data0 : subprogram Get_Integer16;
+ 		Set_Data0 : subprogram Set_Integer16;
+ 		Get_Data1 : subprogram Get_Integer16;
+ 		Set_Data1 : subprogram Set_Integer16;
+ 		Get_Data2 : subprogram Get_Integer16;
+ 		Set_Data2 : subprogram Set_Integer16;
+ 		Get_Data3 : subprogram Get_Integer16;
+ 		Set_Data3 : subprogram Set_Integer16;
+ 		Get_Data4 : subprogram Get_Integer16;
+ 		Set_Data4 : subprogram Set_Integer16;
+ 		Get_Data5 : subprogram Get_Integer16;
+ 		Set_Data5 : subprogram Set_Integer16;
+ 		Get_Data6 : subprogram Get_Integer16;
+ 		Set_Data6 : subprogram Set_Integer16;
+		Get_Data7 : subprogram Get_Integer16;
+ 		Set_Data7 : subprogram Set_Integer16;
+ 		Get_Data8 : subprogram Get_Integer16;
+ 		Set_Data8 : subprogram Set_Integer16;
+ 	end Tableau;
+ 		
+ 	data implementation Tableau.Generic
+ 	subcomponents
+ 		data_0 : data Integer_16;
+ 		data_1 : data Integer_16;
+ 		data_2 : data Integer_16;
+ 		data_3 : data Integer_16;
+ 		data_4 : data Integer_16;
+ 		data_5 : data Integer_16;
+ 		data_6 : data Integer_16;
+ 		data_7 : data Integer_16;
+ 		data_8 : data Integer_16;
+ 	end Tableau.Generic;
+ 	
+ 	data TabServos extends Tab
+ 	features
+ 		Get_MotorL : subprogram Get_Integer16;
+ 		Set_MotorL : subprogram Set_Integer16;
+ 		Get_MotorR : subprogram Get_Integer16;
+ 		Set_MotorR : subprogram Set_Integer16;
+ 		Get_AileronL : subprogram Get_Integer16;
+ 		Set_AileronL : subprogram Set_Integer16;
+ 		Get_AileronR : subprogram Get_Integer16;
+ 		Set_AileronR : subprogram Set_Integer16;
+ 		Get_Rudder : subprogram Get_Integer16;
+ 		Set_Rudder : subprogram Set_Integer16;
+ 		Get_Elevator : subprogram Get_Integer16;
+ 		Set_Elevator : subprogram Set_Integer16;
+ 	end TabServos;
+ 		
+ 	data Implementation TabServos.Impl
+ 	subcomponents
+ 		MotorL: data Integer_16;
+ 		MotorR: data Integer_16;
+ 		AileronL: data Integer_16;
+ 		AileronR: data Integer_16;
+ 		Rudder: data Integer_16;
+ 		Elevator: data Integer_16;
+ 	end TabServos.Impl;
+ 	
+ 	data inter_mcu_msg
+ 	features
+ 		Set_Ppm : subprogram Set_Integer;
+ 		Get_Ppm : subprogram Get_Integer;
+ 		Set_Status : subprogram Set_Integer;
+ 		Get_Status : subprogram Get_Integer;
+ 		Set_NbErr : subprogram Set_Integer;
+ 		Get_NbErr : subprogram Get_Integer;
+ 		Set_Vsupply : subprogram Set_Integer;
+ 		Get_Vsupply : subprogram Get_Integer;
+ 	end inter_mcu_msg;
+ 	
+ 	data implementation Inter_mcu_msg.Generic
+ 	subcomponents
+ 		channels : data Tableau.Generic;
+ 		ppm_cpt	: data Integer;
+ 		satus : data Integer;
+ 		nb_err : data Integer;
+ 		vsupply : data Integer;
+ 	end Inter_mcu_msg.generic;
+ end Data_Types;
+ 	 
+ bus Device_Bus
+ end Device_Bus;
+ 
+ bus implementation Device_Bus.MCU0
+ end Device_Bus.MCU0;
+ 
+ bus implementation Device_Bus.MCU1
+ end Device_Bus.MCU1;
+ 
+ device Compteur
+ features
+ 	Cde_Input : in data port Data_Types::TabServos.Impl;
+ 	Data_Elev_Output : out data port Data_Types::Integer_16;
+ 	Data_AilL_Output : out data port Data_Types::Integer_16;
+ 	Data_AilR_Output : out data port Data_Types::Integer_16;
+ 	Data_MotorL_Output : out data port Data_Types::Integer_16;
+ 	Data_MotorR_Output : out data port Data_Types::Integer_16;
+ 	Data_Rudder_Output : out data port Data_Types::Integer_16;
+ 	Dev_Bus : requires bus access Device_Bus.MCU1;
+ end Compteur;
+ 
+ device Servo
+ features
+ 	Data_Input : in data port Data_Types::Integer_16;
+ 	Dev_bus : requires bus access Device_Bus.MCU1;
+ end Servo;
+ 
+ device Recepteur
+ features
+ 	RC_Input : in event data port;
+ 	RC_Output : out event data port;
+ 	RC_Evt_Output : out event port;
+ 	Dev_Bus : requires bus access Device_Bus.MCU1;
+ end Recepteur;
+ 
+ 
+ thread Interruption_Radio
+ features
+ 	RC_Evt_Input : in event data port;
+ 	RC_Data_Output: out data port Data_Types::Tableau.Generic; 	
+ end Interruption_Radio;
+ 
+ thread implementation Interruption_Radio.Impl
+ properties 
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/ppm.c";
+ 	Compute_Entrypoint => "SIGNAL";
+ end Interruption_Radio.Impl;
+ 
+ thread Reception_Decodage
+ features
+ 	RC_Data_Input : in data port Data_Types::Tableau.Generic;
+ 	Data_Decoded_Output : out data port Data_Types::Tableau.Generic;
+ 	Radio_ok_Output : out data port Data_Types::Boolean;
+ 	Radio_Really_Lost_Output : out data port Data_Types::Boolean;
+ 	Mode_Output : out data port Data_Types::Boolean;
+end Reception_Decodage;
+ 
+ thread implementation Reception_Decodage.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/main.c";
+ 	Compute_Entrypoint => "test_ppm_task";
+ end Reception_Decodage.Impl;
+ 
+ thread Check_Autopilot_Values
+ features
+ 	Mode_Input : in data port Data_Types::Boolean;
+ 	Mega128_Ok_Output : out data port Data_Types::Boolean;
+ 	Param_Vol_Input : in data port Data_Types::Inter_mcu_msg.Generic;
+ 	Servo_Cdes_Output: out data port Data_Types::TabServos.Impl;
+ end Check_Autopilot_Values;
+ 
+ thread implementation Check_Autopilot_Values.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/main.c";
+ 	Compute_Entrypoint => "check_mega128_values_task";
+ end Check_Autopilot_Values.Impl;
+ 
+ thread Check_Failsafe 
+ features
+ 	Radio_Ok_Input : in data port Data_Types::Boolean;
+ 	Radio_Really_Lost_Input : in data port Data_Types::Boolean;
+ 	Mode_Input : in data port Data_Types::Boolean;
+ 	Mega128_Ok_Input : in data port Data_Types::Boolean;
+ 	Servo_Cdes_Output: out data port Data_Types::TabServos.Impl;
+ end Check_Failsafe;
+
+ thread implementation Check_Failsafe.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/main.c";
+ 	Compute_Entrypoint => "check_failsafe_task";
+ end Check_Failsafe.Impl;
+ 
+ thread Interruption_Envoi_Servo
+ features
+ 	Signal_Input: in event data port Data_Types::TabServos.Impl;
+ 	Data_Output : out data port Data_Types::TabServos.Impl;
+ end Interruption_Envoi_Servo;
+ 
+ thread implementation Interruption_Envoi_Servo.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  8 ms;
+	Period =>  8 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/servo.c";
+ 	Compute_Entrypoint => "SIGNAL";
+ end Interruption_Envoi_Servo.Impl;
+ 
+ thread Pilotage_Servo_Cdes 
+ features
+ 	Data_Cp_Output : out event data port Data_Types::TabServos.Impl;--Cp :Compteur
+ 	Param_Vol_Input : in data port Data_Types::TabServos.Impl;
+ end Pilotage_Servo_Cdes;
+ 
+ thread implementation Pilotage_Servo_Cdes.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/servo.c";
+ 	Compute_Entrypoint => "servo_transmit";
+ end Pilotage_Servo_Cdes.Impl;
+ 
+ thread Interruption_SPI_MCU1
+ features
+ 	Evt_Rec_SPI_Input : in event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Data_Rec_MCU1_Output: out  data port Data_Types::Inter_mcu_msg.Generic;--fourni a MCU1
+ 	Data_Send_SPI_Output: out  event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Evt_Send_SPI_Input: in event data port Data_Types::Inter_mcu_msg.Generic;
+  	AP_Evt_Output : out event port;
+ end Interruption_SPI_MCU1;
+ 
+ thread implementation Interruption_SPI_MCU1.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/spi.c";
+ 	Compute_Entrypoint => "SIGNAL";
+ end Interruption_SPI_MCU1.Impl;
+ 
+ thread Send_Data_MCU0
+ features
+ 	MCU1_Data_Input : in data port Data_Types::Tableau.Generic;
+ 	MCU1_Send_Output : out event data port Data_Types::Inter_mcu_msg.Generic;
+  	Radio_Ok_Input : in data port Data_Types::Boolean;
+ 	Radio_Really_Lost_Input : in data port Data_Types::Boolean;
+ end Send_Data_MCU0;
+ 
+ thread implementation Send_Data_MCU0.Impl
+ properties 
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "fly_by_wire/main.c";
+ 	Compute_Entrypoint => "send_data_to_autopilot_task";
+ end Send_Data_MCU0.Impl;
+ 
+ 
+ device Pression
+ features 
+ 	P_Output : out data port Data_Types::Float;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0; 
+ end Pression;
+ 
+ device Tension 
+ features
+ 	T_Output : out data port Data_Types::Integer;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end Tension;
+ 
+ device Compas 
+ features
+ 	Compas_Output : out data port Data_Types::Float;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end compas;
+ 
+ 
+ device Vitesse_Air
+ features
+ 	V_Air_Output : out data port Data_Types::Integer;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end Vitesse_Air;
+ 
+ 
+ device Camera_Video
+ features
+ 	Video_Output : out data port; 
+ 	Dev_Bus : requires bus access Device_bus.MCU0;
+ end Camera_Video;
+ 
+ 
+ device Emetteur
+ features
+ 	Video_Input : in data port;
+ 	Trans_Data_Input : in event data port Data_Types::Inter_mcu_msg.Generic; 
+ 	Trans_Data_Output : out data port;
+ 	Video_Output : out data port;
+ 	Modem_Bus : requires bus access Modem;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end Emetteur;
+ 
+ device GPS
+ features
+ 	Error_Output : out event port;
+  	GPS_Output : out event data port Data_Types::Stream_Element.Generic;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end GPS;
+ 
+ device InfraRed
+ features
+ 	Error_Output : out event port;
+ 	IR_Output : out data port Data_Types::Stream_Element.Generic;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ end InfraRed;
+ 
+ bus Modem
+ end Modem;
+ 
+ 
+ thread Stabilisation 
+ features
+ 	Gaz_Desire_Input : in data port Data_Types::Float;
+ 	Angle_Roulis_Input : in data port Data_Types::Float;
+ 	Angle_Tangage_Input : in data port Data_Types::Float;
+ 	IR_Input : in data port Data_Types::Stream_Element.Generic;
+ 	Param_Vol_Output : out data port Data_Types::Tableau.Generic;
+ end Stabilisation;
+ 
+ thread implementation Stabilisation.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "autopilot/main.c";
+ 	Compute_Entrypoint => "stabilisation_task";
+ end Stabilisation.Impl;
+ 
+ thread Interruption_SPI_MCU0
+ features
+ 	Evt_Rec_SPI_Input : in event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Data_Rec_MCU0_Output: out  data port Data_Types::Inter_mcu_msg.Generic;
+ 	Data_Send_SPI_Output: out  event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Evt_Send_SPI_Input: in event data port Data_Types::Inter_mcu_msg.Generic;
+ properties
+	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => ("autopilot/spi.c", "autopilot/linf_fbw.c");
+ end Interruption_SPI_MCU0;
+ 
+ thread implementation Interruption_SPI_MCU0.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => ("autopilot/spi.c","autopilot/link_fbw.c");
+ end Interruption_SPI_MCU0.Impl;
+ 
+ thread Send_Data_MCU1
+ features
+ 	MCU0_Data_Input : in data port Data_Types::Tableau.Generic;
+ 	MCU0_Send_Output : out event data port Data_Types::Inter_mcu_msg.Generic;
+ end Send_Data_MCU1;
+ 
+ 
+ thread implementation Send_Data_MCU1.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  50 ms;
+	Period =>  50 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "autopilot/link_fbw.c";
+ 	Compute_Entrypoint => "link_fbw_send";
+ end Send_Data_MCU1.Impl;
+ 
+ thread Control_By_Radio_Cde
+ features
+ 	RC_Data_Input : in data port Data_Types::Inter_mcu_msg.Generic;
+ 	Angle_Roulis_Output : out data port Data_Types::Float; 
+ 	Angle_Tangage_Output : out data port Data_Types::Float;
+ 	Gaz_Output : out data port Data_Types::Float;
+  	RC_Evt_Output: out event port; 
+ end Control_By_Radio_Cde;
+ 
+ thread implementation Control_By_Radio_Cde.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  25 ms;
+	Period =>  25 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "autopilot/main.c";
+ 	Compute_Entrypoint => "radio_control_task";
+ end Control_By_Radio_Cde.Impl;
+ 
+ thread Send_Data_Ground_Station
+ features
+ 	Data_Output : out data port Data_Types::Inter_mcu_msg.Generic;
+ end Send_Data_Ground_Station;
+ 
+ thread implementation Send_Data_Ground_Station.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  2 ms ..  2 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  100 ms;
+	Period =>  100 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "autopilot/main.c";
+ 	Compute_Entrypoint => "reporting_task";
+ end Send_Data_Ground_Station.Impl;
+ 
+ thread Interruption_Modem
+ features
+ 	Data_Input : in data port Data_Types::Inter_mcu_msg.Generic;
+ 	Data_Output : out event data port Data_Types::Inter_mcu_msg.Generic;
+ end Interruption_Modem;
+ 
+ thread implementation Interruption_Modem.Impl
+ properties
+ 	Dispatch_Protocol => Periodic;
+	Source_Code_Size =>  0 kb;
+	Source_Stack_Size =>  0 kb;
+	Compute_Execution_time =>  1 ms ..  1 ms;
+	Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+	Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+	Cheddar_Properties::Fixed_Priority =>  1;
+	Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms;
+	Deadline  =>  100 ms;
+	Period =>  100 ms;
+	Cheddar_Properties::Dispatch_Jitter =>  0 ms;
+	Source_Text => "autopilot/modem.c";
+ 	Compute_Entrypoint => "SIGNAL";
+ end Interruption_Modem.Impl;
+ 
+ process Nav_Stab_Control_Proc
+ features
+ 	MCU1_Data_Input : in event data port Data_Types::Inter_mcu_msg.Generic;
+  	GPS_Input : in event data port Data_Types::Stream_Element.Generic;
+ 	GPS_Evt_Input : in event port;
+ 	IR_Input : in data port Data_Types::Stream_Element.Generic;
+ 	P_Input : in data port Data_Types::Float;
+  	T_Input : in data port Data_Types :: Integer;
+ 	Compas_Input : in data port Data_Types::Float;
+ 	V_Air_Input : in data port Data_Types:: Integer;
+ 	Trans_MCU0_Output: out event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Trans_Sol_Output : out event data port Data_Types::Inter_mcu_msg.Generic;
+ properties
+ 	Source_Text => "autopilot/mainloop.c";
+ end Nav_Stab_Control_Proc;
+ 
+ process implementation Nav_Stab_Control_Proc.Impl
+ subcomponents
+ 	Stab_Th : thread Stabilisation.Impl;
+ 	Send_MCU1_Th : thread Send_Data_MCU1.Impl;
+ 	Send_Grd_Station_Th : thread Send_Data_Ground_Station.Impl;
+ 	Interrupt_SPI_Th:thread Interruption_SPI_MCU0.Impl;
+ 	Interrupt_Modem_Th: thread Interruption_Modem.Impl;
+  	Ctrl_By_RC_Th: thread Control_By_Radio_Cde.Impl;
+ 	
+ 	AP_Data : data Data_Types::Inter_mcu_msg.Generic;
+ connections 
+ 	event data port MCU1_Data_Input->Interrupt_SPI_Th.Evt_Rec_SPI_Input;
+ 	data port Interrupt_SPI_Th.Data_Rec_MCU0_Output->Ctrl_By_RC_Th.RC_Data_Input;
+ 	
+ 	data port Ctrl_By_RC_Th.Angle_Roulis_Output->Stab_Th.Angle_Roulis_Input;
+	data port Ctrl_By_RC_Th.Angle_Tangage_Output->Stab_Th.Angle_Tangage_Input;
+ 	data port Ctrl_By_RC_Th.Gaz_Output->Stab_Th.Gaz_Desire_Input;
+ 	
+  	data port IR_Input->Stab_Th.IR_Input;
+ 	data port Stab_Th.Param_Vol_Output->Send_MCU1_Th.MCU0_Data_Input;
+ 	
+ 	event data port Send_MCU1_Th.MCU0_Send_Output->Interrupt_SPI_Th.Evt_Send_SPI_Input;
+ 	event data port Interrupt_SPI_Th.Data_Send_SPI_Output->Trans_MCU0_Output;
+ 	data port Send_Grd_Station_Th.Data_Output->Interrupt_Modem_Th.Data_Input;
+ 	event data port Interrupt_Modem_Th.Data_Output->Trans_Sol_Output;
+ properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb;
+end Nav_Stab_Control_Proc.Impl;
+
+process RecepteurCde_PilotageServo
+ features
+ 	Radio_Cdes_Input : in event data port;
+ 	RC_Evt_Input : in event port;
+ 	AP_Cdes_Input : in event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Cdes_Vol_Output : out event data port Data_Types::Inter_mcu_msg.Generic;
+ 	Cde_Serv_Output : out data port Data_Types::TabServos.Impl;
+ properties
+ 	Source_Text => "fly_by_wire/main.c";
+ end RecepteurCde_PilotageServo;
+ 
+ process implementation RecepteurCde_PilotageServo.Impl
+ subcomponents
+	Rec_Dec_Th : thread Reception_Decodage.Impl;
+ 	Send_Th	: thread Send_Data_MCU0.Impl;
+ 	Pilot_Serv_Th : thread Pilotage_Servo_Cdes.Impl;
+ 	Check_Ap_Th : thread Check_Autopilot_Values.Impl;
+ 	Check_Fail_Th: thread Check_Failsafe.Impl;
+ 	Interrupt_Servo_Th:thread Interruption_Envoi_Servo.Impl;
+ 	Interrupt_SPI_Th: thread Interruption_SPI_MCU1.Impl;
+ 	Interrupt_RC_Th: thread Interruption_Radio.Impl;
+ 	
+ 	System_Mode : data Data_Types::Boolean;
+ 	Radio_Ok : data Data_Types::Boolean;
+ 	Radio_Really_Lost : data Data_Types::Boolean;
+ 	Mega128_Ok : data Data_Types::Boolean;
+ connections
+ 	event data port Radio_Cdes_Input-> Interrupt_RC_Th.RC_Evt_Input;
+ 	data port Interrupt_RC_Th.RC_Data_Output->Rec_Dec_Th.RC_Data_Input;
+ 	data port Rec_Dec_Th.Data_Decoded_Output->Send_Th.MCU1_Data_Input;
+ 	event data port Send_Th.MCU1_Send_Output->Interrupt_SPI_Th.Evt_Send_SPI_Input;
+ 	event data port Interrupt_SPI_Th.Data_Send_SPI_Output->Cdes_Vol_Output;
+ 	
+ 	data port Rec_Dec_Th.Radio_Ok_Output->Send_Th.Radio_Ok_Input;
+ 	data port Rec_Dec_Th.Radio_Really_Lost_Output->Send_Th.Radio_Really_Lost_Input;
+ 	data port Rec_Dec_Th.Mode_Output->Check_Ap_Th.Mode_Input;
+ 	data port Rec_Dec_Th.Radio_Ok_Output->Check_Fail_Th.Radio_Ok_Input;
+ 	data port Rec_Dec_Th.Radio_Really_Lost_Output->Check_Fail_Th.Radio_Really_Lost_Input;
+ 	data port Rec_Dec_Th.Mode_Output->Check_Fail_Th.Mode_Input;
+  	data port Check_Ap_Th.Mega128_Ok_Output->Check_Fail_Th.Mega128_Ok_Input;
+ 	
+ 	event data port AP_Cdes_Input->Interrupt_SPI_Th.Evt_Rec_SPI_Input;
+ 	data port Interrupt_SPI_Th.Data_Rec_MCU1_Output->Check_Ap_Th.Param_Vol_Input;
+ 	data port Check_Ap_Th.Servo_Cdes_Output->Pilot_Serv_Th.Param_Vol_Input;
+ 	
+ 	data port Check_Fail_Th.Servo_Cdes_Output->Pilot_Serv_Th.Param_Vol_Input;
+ 	
+ 	event data port Pilot_Serv_Th.Data_Cp_Output->Interrupt_Servo_Th.Signal_Input;
+ 	data port Interrupt_Servo_Th.Data_Output->Cde_Serv_Output;
+ properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb;
+ end RecepteurCde_PilotageServo.Impl;
+ 
+ processor Proc_MCU1
+ features
+ 	Mem_Bus : requires bus access Mem_Bus_MCU1;
+ 	Dev_Bus : requires bus access Device_Bus.MCU1;
+ 	SPI_Con : requires bus access SPI;
+ end Proc_MCU1;
+ 
+ processor implementation Proc_MCU1.Impl
+ properties
+	Scheduling_Protocol => EARLIEST_DEADLINE_FIRST_PROTOCOL;
+ 	Cheddar_Properties::Scheduler_Quantum=>0 ms;
+ 	Cheddar_Properties::Preemptive_Scheduler=>false;
+ end Proc_MCU1.Impl;
+ 
+ memory Ram_MCU1
+ features
+ 	Mem_Bus : requires bus access Mem_Bus_MCU1;
+ end Ram_MCU1;
+ 
+ bus Mem_Bus_MCU1
+ end Mem_Bus_MCU1;
+ 
+  	
+ processor Proc_MCU0
+ features
+ 	Mem_Bus : requires bus access Mem_Bus_MCU0;
+ 	Dev_Bus : requires bus access Device_Bus.MCU0;
+ 	SPI_Con : requires bus access SPI;
+ end Proc_MCU0;
+ 
+ processor implementation Proc_MCU0.Impl
+ 	properties 
+		Scheduling_Protocol => EARLIEST_DEADLINE_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => false;
+ end Proc_MCU0.Impl;
+ 
+ memory Ram_MCU0
+ features 
+ 	Mem_Bus : requires bus access Mem_Bus_MCU0;
+ end Ram_MCU0;
+ 
+ bus Mem_Bus_MCU0
+ end Mem_Bus_MCU0;
+ 	
+ system MCU0
+ features	
+ 	RC_EvtData_Input : in event data port;
+ end MCU0;
+ 
+
+
+
+ system implementation MCU0.Impl
+ subcomponents
+ 	Proc_0 : processor Proc_MCU0.Impl;
+ 	Ram_0    : memory Ram_MCU0;
+ 	Mem_Bus_0: bus Mem_Bus_MCU0;
+ 	P_dv : device Pression;
+ 	T_dv : device Tension;
+ 	Compas_dv : device Compas;
+ 	V_Air_dv : device Vitesse_Air;
+ 	Cam_dv : device Camera_Video;
+ 	Emet_dv : device Emetteur;
+ 	GPS_dv : device GPS;
+ 	IR_dv : device InfraRed;
+ 	Dev_Bus_0 : bus Device_Bus.MCU0;
+ 	Modem_Bus : bus Modem;
+ 	N_S_C_proc : process Nav_Stab_Control_Proc.Impl;
+ 	
+ 	MCU1_P : processor Proc_MCU1.Impl;
+ 	Ram_1 : memory Ram_MCU1;
+ 	Mem_Bus_1 : bus Mem_Bus_MCU1;
+ 	Dev_Bus_1 : bus Device_Bus.MCU1;
+ 	Recpt_dv : device Recepteur;
+ 	Cpt_dv : device Compteur;
+ 	Ser_Rudder_dv : device Servo;
+ 	Ser_Elevator_dv : device Servo;
+ 	Ser_AileronL_dv : device Servo;
+ 	Ser_AileronR_dv : device Servo;
+ 	Ser_MotorL_dv : device Servo;
+ 	Ser_MotorR_dv : device Servo;
+ 	Proc_RcptCde_PilotServ : process RecepteurCde_PilotageServo.Impl;
+ connections
+ 	bus access Mem_Bus_1 -> MCU1_P.Mem_Bus;
+ 	bus access Dev_Bus_1 -> MCU1_P.Dev_Bus;
+ 	bus access Mem_Bus_1 -> Ram_1.Mem_Bus;
+ 	bus access Dev_Bus_1 -> Recpt_dv.Dev_Bus;
+ 	bus access Dev_Bus_1 -> Cpt_dv.Dev_Bus;
+ 	bus access Dev_Bus_1 -> Ser_Rudder_dv.Dev_Bus;
+  	bus access Dev_Bus_1 -> Ser_Elevator_dv.Dev_Bus;
+ 	bus access Dev_Bus_1 -> Ser_AileronL_dv.Dev_Bus;
+   	bus access Dev_Bus_1 -> Ser_AileronR_dv.Dev_Bus;
+ 	bus access Dev_Bus_1 -> Ser_MotorL_dv.Dev_Bus;
+ 	bus access Dev_Bus_1 -> Ser_MotorR_dv.Dev_Bus;
+ 		
+ 	event data port RC_EvtData_Input->Recpt_dv.RC_Input;
+ 	event data port Recpt_dv.RC_Output->Proc_RcptCde_PilotServ.Radio_Cdes_Input;
+ 	event data port Proc_RcptCde_PilotServ.Cdes_Vol_Output->N_S_C_proc.MCU1_Data_Input;
+ 	event port Recpt_dv.RC_Evt_Output-> Proc_RcptCde_PilotServ.RC_Evt_Input;
+ 	data port Proc_RcptCde_PilotServ.Cde_Serv_Output->Cpt_dv.Cde_Input;
+ 	data port Cpt_dv.Data_Rudder_Output->Ser_Rudder_dv.Data_Input;
+ 	data port Cpt_dv.Data_Elev_Output->Ser_Elevator_dv.Data_Input;
+ 	data port Cpt_dv.Data_AilL_Output->Ser_AileronL_dv.Data_Input;
+ 	data port Cpt_dv.Data_AilR_Output->Ser_AileronR_dv.Data_Input;
+ 	data port Cpt_dv.Data_MotorL_Output->Ser_MotorL_dv.Data_Input;
+ 	data port Cpt_dv.Data_MotorR_Output->Ser_MotorR_dv.Data_Input;
+
+ 	bus access Mem_Bus_0->Proc_0.Mem_Bus;
+  	bus access Mem_Bus_0->Ram_0.Mem_Bus;
+ 	
+ 	bus access Dev_Bus_0->Proc_0.Dev_Bus;
+ 	bus access Dev_Bus_0->P_dv.Dev_Bus;
+ 	bus access Dev_Bus_0->T_dv.Dev_Bus;
+ 	bus access Dev_Bus_0->Compas_dv.Dev_Bus;
+ 	bus access Dev_Bus_0->V_Air_dv.Dev_Bus;
+ 	bus access Dev_Bus_0->Cam_dv.Dev_Bus;
+	bus access Dev_Bus_0->Emet_dv.Dev_Bus;
+ 	bus access Modem_Bus->Emet_dv.Modem_Bus;
+ 	bus access Dev_Bus_0->GPS_dv.Dev_Bus;
+ 	bus access Dev_Bus_0->IR_dv.Dev_Bus;
+ 		
+ 	data port P_dv.P_Output->N_S_C_proc.P_Input;
+ 	data port T_dv.T_Output->N_S_C_proc.T_Input;
+ 	data port Compas_dv.Compas_Output->N_S_C_proc.Compas_Input;
+ 	data port V_Air_dv.V_Air_Output->N_S_C_proc.V_Air_Input;
+ 	data port IR_dv.IR_Output->N_S_C_proc.IR_Input;
+ 	event data port GPS_dv.GPS_Output->N_S_C_proc.GPS_Input;
+ 	event port GPS_dv.Error_Output->N_S_C_proc.GPS_Evt_Input;
+ 
+ 	event data port N_S_C_proc.Trans_Sol_Output->Emet_dv.Trans_Data_Input;
+ 	data port Cam_dv.Video_Output->Emet_dv.Video_Input;
+ 	
+ 	event data port N_S_C_proc.Trans_MCU0_Output->Proc_RcptCde_PilotServ.AP_Cdes_Input;
+ 	
+ properties
+ 	Actual_Processor_Binding => reference Proc_0 applies to N_S_C_Proc;
+ 	Actual_Memory_Binding => reference Ram_0 applies to N_S_C_Proc;
+ 	Actual_Processor_Binding =>reference MCU1_P applies to Proc_RcptCde_PilotServ;
+ 	Actual_Memory_Binding =>reference Ram_1 applies to Proc_RcptCde_PilotServ;
+ end MCU0.Impl;
+ 
+ bus SPI
+ end SPI;
+ 
+ 

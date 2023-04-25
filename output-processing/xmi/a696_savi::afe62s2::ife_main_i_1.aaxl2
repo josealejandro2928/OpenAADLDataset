@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_i_Instance" category="system">
+  <featureInstance name="afdx" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <featureInstance name="infoin">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/3"/>
+  </featureInstance>
+  <componentInstance name="eth" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/library.aadl#savi.afe62s2.library.ethernet.i"/>
+  </componentInstance>
+  <componentInstance name="entertainment" category="system">
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="afdx" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="infoin">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <componentInstance name="usbsocket" category="device">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.exposure"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="usb" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.usb_socket"/>
+    </componentInstance>
+    <componentInstance name="playback" category="system">
+      <featureInstance name="afdx" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="eth" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="usb" category="busAccess" direction="out">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="infoin">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <flowSpecification name="info" source="//@componentInstance.1/@componentInstance.1/@featureInstance.3">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.playback.i"/>
+    </componentInstance>
+    <flowSpecification name="finfo" source="//@componentInstance.1/@featureInstance.2">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <connectionInstance name="usbsocket.usb -> playback.usb" complete="true" kind="accessConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.2" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.2" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="playback.usb -> usbsocket.usb" complete="true" kind="accessConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@componentInstance.1/@featureInstance.2">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.entertainment.i"/>
+  </componentInstance>
+  <componentInstance name="nas" category="system">
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="stream" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/instances/ife_main_i_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <componentInstance name="storage" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.nas.i"/>
+  </componentInstance>
+  <flowSpecification name="finfo" source="//@featureInstance.1">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <connectionInstance name="afdx -> entertainment.afdx" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.1" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="infoin -> entertainment.playback.infoin" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.3" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth -> nas.eth" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth -> entertainment.eth" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="entertainment.eth -> eth" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="entertainment.afdx -> afdx" kind="accessConnection" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="nas.eth -> eth" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.main.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a696/edu.cmu.aaspe.examples/SAVI/ife.aadl#savi.afe62s2.ife.main.i"/>
+</instance:SystemInstance>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_i_Instance" category="system">
+  <componentInstance name="ethernet_bus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.ethernet.basic"/>
+  </componentInstance>
+  <componentInstance name="position_netif" category="device">
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#|::0.5.9.1.47.0::18::/6"/>
+  </componentInstance>
+  <componentInstance name="pilot_netif" category="device">
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#|::0.5.9.1.47.1::18::/6"/>
+  </componentInstance>
+  <componentInstance name="position_memory" category="memory">
+    <componentInstance name="calculator" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="negociation" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="netif" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedMemorySubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.ram.position"/>
+  </componentInstance>
+  <componentInstance name="pilot_memory" category="memory">
+    <componentInstance name="af" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="aislc" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="pfc" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="reu" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="errordisplay" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="inceptor" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <componentInstance name="netif" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.memory_segment.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/memories.aadl#memories.ram.pilot"/>
+  </componentInstance>
+  <componentInstance name="position_partition_negociation" category="process">
+    <featureInstance name="position_askin">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="position_askout" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="position_feedbackin">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="position_feedbackout" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="notify_error" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="thr" category="thread">
+      <featureInstance name="positionin">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="positionout" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="positionrealout" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="positionrealin">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="error" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/threads_position.aadl#threads_position.negociation.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/partitions_position.aadl#partitions_position.partition_position_negociation.i"/>
+  </componentInstance>
+  <componentInstance name="position_partition_computation" category="process">
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#|::0.5.9.1.49.1::18::/6"/>
+  </componentInstance>
+  <componentInstance name="pilot_inceptor" category="process">
+    <featureInstance name="volts">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="force" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="position" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.inceptor_simulation.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_af" category="process">
+    <featureInstance name="backdrive" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="error" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.af_partition.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_aislc" category="process">
+    <featureInstance name="positionask">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="voltsask" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="measuredforce">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="measuredposition">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="stickposition" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="error" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.aislc_partition.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_pfc" category="process">
+    <featureInstance name="stickposition">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="surfacepositionask" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="surfacepositionfeedback">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="error" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.pfc_partition.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_reu" category="process">
+    <featureInstance name="pfcerror" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="aislcerror" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="aferror" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="error" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="externalerror" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.reu_errornotification.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_errordisplay" category="process">
+    <featureInstance name="error" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/instances/main_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/pilot_partitions.aadl#pilot_partitions.warning_display.i"/>
+  </componentInstance>
+  <componentInstance name="position_kernel" category="processor">
+    <componentInstance name="partition_negociation" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_position.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_device" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_position.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_netif" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_position.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_position.aadl#runtime_position.kernel.i"/>
+  </componentInstance>
+  <componentInstance name="pilot_kernel" category="processor">
+    <componentInstance name="partition_netif" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_inceptor" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_af" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_aislc" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_pfc" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_reu" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <componentInstance name="partition_errordisplay" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedVirtualProcessorSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime.aadl#runtime.partition.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/runtime_pilot.aadl#runtime_pilot.kernel.i"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#main.main.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a684/examples/case-study-fcc/main.aadl#main.main.i"/>
+</instance:SystemInstance>

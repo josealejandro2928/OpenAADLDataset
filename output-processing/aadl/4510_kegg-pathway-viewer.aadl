@@ -1,0 +1,36 @@
+activity kegg-pathway-viewer {
+    remark ''' Maps user data on relevant pathways graphs.
+    Allows the mapping and rendering of gene expression data into KEGG pathway 
+    graphs. This service is implemented as a wrapper for the pathview R package.
+     Further documentation about the pathview R package can be found at 
+     http://www.bioconductor.org/packages/release/bioc/html/pathview.html.
+     ''';
+	on {
+		dataset input-file : 'text/tsv' [1,1];
+	}
+	with {
+		parameter species-id : STRING [1,1];
+		parameter pathway-id : STRING [1,1];
+		parameter gene-id-type : STRING [1,1];
+		parameter column-with-row-names : STRING [1,1] = ['1'];
+	}
+	produces {
+		dataset output-files : 'text/tsv' [1,-1] {
+		  remark 'A directory were the files will be created.';
+		};
+	}
+	using executable "geas-kegg-pathway-viewer.R" {
+		commandLineTemplate [ 
+		    parameter 'column-with-row-names'
+		        | PrependListWith '--column-with-row-names',
+		    dataset 'input-file',
+		    dataset 'output-files',
+		    parameter 'species-id',
+		    parameter 'gene-id-type'
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

@@ -1,0 +1,53 @@
+package CASE_Requirements
+private
+	annex resolute {**
+		goal Req_WellFormed_AutomationRequest(comp_context : component, property_id : string) <=
+			** "[permit_well_formed_AReq_data] Messages that are not well formed should be filtered out" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.UxAS";
+			context Formalized : "True";
+			agree_prop_checked(comp_context, property_id)
+		
+		goal Req_WellFormed_OperatingRegion(comp_context : component, property_id : string) <=
+			** "[permit_well_formed_OR_data] Messages that are not well formed should be filtered out" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.UxAS";
+			context Formalized : "True";
+			agree_prop_checked(comp_context, property_id)
+		
+		goal Req_WellFormed_LineSearchTask(comp_context : component, property_id : string) <=
+			** "[permit_well_formed_LST_data] Messages that are not well formed should be filtered out" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.UxAS";
+			context Formalized : "True";
+			agree_prop_checked(comp_context, property_id)
+		
+		goal Req_UxAS_Response(comp_context : component) <=
+			** "[monitor_response] Uncontrolled UxAS component shall be monitored for crashes" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.UxAS";
+			context Formalized : "False";
+			false
+		
+		goal Req_UxAS_Geofence(comp_context : component) <=
+			** "[monitor_correctness] Uncontrolled UxAS component shall be monitored for output correctness" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.UxAS";
+			context Formalized : "False";
+			false
+		
+		goal Req_Attestation(comm_driver : component) <=
+			** "[attestation] Only messages from trusted sources shall be accepted" **
+			context Generated_By : "GearCASE";
+			context Generated_On : "Jul 20, 2020";
+			context Req_Component : "MC::MissionComputer.Impl.SW.Radio";
+			context Formalized : "False";
+			false
+
+	**};
+end CASE_Requirements;

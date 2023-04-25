@@ -1,0 +1,30 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_gui_gui_polling_gui_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_gui_gui_polling_gui_vt_gui_gui_polling_gui
+features
+	OUTPORT_inputmsg_vt : OUT EVENT DATA PORT DataView::T_Boolean_Buffer.impl;
+	gui_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_gui_gui_polling_gui_vt_gui_gui_polling_gui;
+
+THREAD IMPLEMENTATION vt_gui_gui_polling_gui_vt_gui_gui_polling_gui.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_gui";
+	Compute_Entrypoint_Source_Text => "po_hi_c_vt_gui_gui_polling_gui_artificial_gui_polling_gui";
+	Dispatch_Protocol => Periodic;
+	Period            => 40 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 1 ms .. 1 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END vt_gui_gui_polling_gui_vt_gui_gui_polling_gui.others;
+
+end vt_gui_gui_polling_gui_CV_Thread;

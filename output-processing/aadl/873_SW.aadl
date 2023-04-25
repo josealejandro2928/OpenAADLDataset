@@ -1,0 +1,104 @@
+package SW
+public
+	with Drivers;
+	with Waterways_UxAS;
+	with CASE_Model_Transformations;
+	with CASEAgree;
+	with CASE_Properties;
+	with CMASI;
+	renames AGREE_PLTL::all;
+
+
+	thread WaypointManager
+		features
+			ReturnHome: in event port;
+			AutomationResponse: in event data port CMASI::AutomationResponse.i;
+			AirVehicleState: in event data port CMASI::AirVehicleState.i;
+			MissionCommand: out event data port CMASI::MissionCommand.i;
+		annex agree {**
+			guarantee Req_WPM_Good_Mission_Command "The Waypoint Manager shall output valid mission commands" : CASEAgree::WELL_FORMED_MISSION_COMMAND(MissionCommand);
+		**};
+	end WaypointManager;
+
+	thread implementation WaypointManager.Impl
+		properties
+			Dispatch_Protocol => Sporadic;
+	end WaypointManager.Impl;
+
+	thread FlyZones
+		-- The KeepInZoneDatabase is a collection of polygons that represent areas on a map that the UAV can traverse.
+		-- The database is populated at build-time and stored in memory.
+		features
+			KeepInZone: out data port CMASI::Polygon.i;
+			KeepOutZone: out data port CMASI::Polygon.i;
+	end FlyZones;
+
+	thread implementation FlyZones.Impl
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 500ms;
+	end FlyZones.Impl;
+
+	process SW
+		features
+			uart_recv: in event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+			uart_send: out event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+			radio_recv: in event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+			radio_send: out event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+
+		annex agree {**
+			assume "The radio receives well-formed messages" : CASEAgree::WellformedCASE_RF_Msg(radio_recv, CASEAgree::GS_ID, CASEAgree::UAV_ID);
+			assume "The uart receives well-formed messages" : CASEAgree::WellformedCASE_UART_Msg(uart_recv);
+			guarantee "The radio_send outputs only well formed CASE_RF_Msg.Impl types" : CASEAgree::WellformedCASE_RF_Msg(radio_send, CASEAgree::UAV_ID, CASEAgree::GS_ID);
+			guarantee "The uart_send outputs only well formed CASE_RF_Msg.Impl types" : CASEAgree::WellformedCASE_UART_Msg(uart_send);
+		**};
+
+	end SW;
+
+	process implementation SW.Impl
+		subcomponents
+			UART: thread Drivers::UARTDriver.Impl;
+			Radio: thread Drivers::RadioDriver.Impl;
+			UxAS: thread Waterways_UxAS::Waterways.i;
+			WaypointManager: thread WaypointManager.Impl;
+			FlyZones: thread FlyZones.Impl;
+		connections
+			------------------
+			-- Primary Inputs
+			------------------
+			c01: port uart_recv -> UART.recv_data;
+			c02: port radio_recv -> Radio.recv_data;
+
+			----------- 	           
+			-- FC_UART
+			-----------
+			c03: port UART.send_data -> uart_send {CASE_Properties::Trust_Level => 100;
+				CASE_Properties::Control_Level => 100;};
+			c04: port UART.AirVehicleState -> WaypointManager.AirVehicleState;
+
+			---------
+			-- RADIO
+			---------
+			c05: port Radio.send_data -> radio_send {CASE_Properties::Trust_Level => 100;
+				CASE_Properties::Control_Level => 100;};
+			c06: port Radio.AutomationRequest -> UxAS.AutomationRequest {CASE_Properties::Trust_Level => 0;
+				CASE_Properties::Control_Level => 0;};
+			c07: port Radio.OperatingRegion -> UxAS.OperatingRegion {CASE_Properties::Trust_Level => 0;
+				CASE_Properties::Control_Level => 0;};
+			c08: port Radio.LineSearchTask -> UxAS.LineSearchTask {CASE_Properties::Trust_Level => 0;
+				CASE_Properties::Control_Level => 0;};
+
+			--------
+			-- UXAS
+			--------
+			c09: port UxAS.AutomationResponse -> WaypointManager.AutomationResponse {CASE_Properties::Trust_Level => 0;
+				CASE_Properties::Control_Level => 100;};
+
+			-------
+			-- WPM
+			-------
+			c10: port WaypointManager.MissionCommand -> UART.MissionCommand;
+
+	end SW.Impl;
+	
+end SW;

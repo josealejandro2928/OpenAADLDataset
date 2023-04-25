@@ -1,0 +1,174 @@
+package DataTypes
+
+	
+public
+	with Data_Model;
+	with Base_Types;
+	
+data DateTime
+	properties
+		Data_Size=>128 bytes;
+end DateTime;
+
+data ImageFormat
+	
+end ImageFormat;
+
+data MapElement
+	
+end MapElement;
+
+data A661Commands
+	properties
+		Data_Size => 1 KByte;
+end A661Commands;
+
+data EngineDataType			
+end EngineDataType;
+
+data implementation EngineDataType.Impl
+	subcomponents
+		Temperature   : data Base_Types::Float;
+    	RPM : data Base_Types::Float;
+end EngineDataType.Impl;
+
+data FuelDataType	
+end FuelDataType;
+
+data SensorData
+end SensorData;
+
+data SystemInputType	
+end SystemInputType;
+
+data PanelInputsType	
+end PanelInputsType;
+
+data FlightStickType	
+end FlightStickType;
+
+data HealthStatusType
+	
+end HealthStatusType;
+
+data SensorsArray
+	properties
+		Data_Model::Data_Representation => Array;
+	    Data_Model::Base_Type => (classifier (Base_Types::Float));
+	    Data_Model::Dimension => (100);
+end SensorsArray;
+
+data implementation MapElement.Impl
+	subcomponents
+		position : data geoposition;
+      	name : data Base_Types::String;
+      	elementType : data Base_Types::String;
+end MapElement.Impl;
+
+data MapElementList
+	properties
+		Data_Model::Data_Representation => Array;
+	    Data_Model::Base_Type => (classifier (MapElement));
+	    Data_Model::Dimension => (200);
+end MapElementList;
+
+data VORData
+	properties
+		Data_Size => 512 bytes;
+end VORData;
+
+data Waypoint
+	
+end Waypoint;
+
+data FlightPlan
+	properties
+		Data_Model::Data_Representation => Array;
+	    Data_Model::Base_Type => (classifier (Waypoint));
+	    Data_Model::Dimension => (200);
+end FlightPlan;
+
+data FPList
+	properties
+		Data_Model::Data_Representation => Array;
+	    Data_Model::Base_Type => (classifier (FlightPlan));
+	    Data_Model::Dimension => (200);
+end FPList;
+
+data ChartsList
+	properties
+		Data_Model::Data_Representation => Array;
+	    Data_Model::Base_Type => (classifier (Base_Types::String));
+	    Data_Model::Dimension => (200);
+end FPList;
+
+
+data implementation Waypoint.Impl
+  subcomponents     
+      position : data geoposition;
+      name : data Base_Types::String;
+  end Flight_Control_Commands.impl;
+	
+data APSettings
+	properties
+	Data_Size => 200 bytes;
+end APSettings;
+
+data geoposition
+	properties
+		Data_Size => 128 bytes;
+end geoposition;
+
+data implementation geoposition.Impl
+	subcomponents
+		latitude : data Base_Types::Float;
+		longitude : data Base_Types::Float;
+		altitude : data Base_Types::Float;		
+end geoposition.Impl;
+
+data request_pilot 
+--	properties
+--	Source_Data_Size => 600 Bytes;
+end request_pilot;
+
+data display
+--	properties
+--	Source_Data_Size => 600 Bytes; 
+end display;
+
+data pression
+--	properties
+--	Source_Data_Size => 600 Bytes; 
+end pression;
+
+data waypoint_identifier 
+	properties
+	Data_Size => 600 Bytes;
+end waypoint_identifier;
+
+data database_query
+	properties
+	Data_Size => 1000 Bytes; 
+end database_query;
+
+data database_answer
+	properties
+	Data_Size => 4000 Bytes; 
+end database_answer;
+
+data waypoint_info
+	properties
+	Data_Size => 1000 Bytes; 
+end waypoint_info;
+
+data speed
+	properties
+	Data_Size => 700 Bytes; 
+end speed;
+
+data time
+	properties
+	Data_Size => 5000 Bytes; 
+end time;
+
+end DataTypes;

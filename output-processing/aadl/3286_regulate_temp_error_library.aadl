@@ -1,0 +1,24 @@
+package Regulate_Temp_Error_Lib
+public
+annex EMV2 {**
+	error types
+		RegulateInterfaceFailure : type extends ErrorLibrary::ServiceOmission;
+		RegulateInternalFailure : type extends ErrorLibrary::ServiceOmission;
+		CurrentTempOutOfRange : type extends ErrorLibrary::OutofRange;
+		DesiredTempRangeLower : type extends ErrorLibrary::OutofRange;
+		DesiredTempRangeUpper : type extends ErrorLibrary::OutofRange;
+		DesiredTempLower : type extends ErrorLibrary::OutofBounds;
+		DesiredTempUpper: type extends ErrorLibrary::OutofBounds;
+		CurrentTempValueError : type extends ErrorLibrary::SubtleValueError;
+		DesiredRangeValueError : type extends ErrorLibrary::SubtleValueError;
+		DesiredTempLowerValueError : type extends ErrorLibrary::SubtleValueError;
+		DesiredTempUpperValueError : type extends ErrorLibrary::SubtleValueError;
+		StatusError : type extends ErrorLibrary::BadValue;
+		NoData : type extends ErrorLibrary::ValueError;
+		LateData : type extends ErrorLibrary::LateDelivery;
+	end types;
+	**};
+	
+	
+	
+end Regulate_Temp_Error_Lib;

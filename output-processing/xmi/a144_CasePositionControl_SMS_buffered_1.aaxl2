@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="SMS_buffered_Instance" category="system">
+  <featureInstance name="Mechanical_Control_Position" category="abstractFeature" direction="out">
+    <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedAbstractFeature.0"/>
+  </featureInstance>
+  <featureInstance name="DMA" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/4"/>
+  </featureInstance>
+  <featureInstance name="Power" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <featureInstance name="Desired_Position">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Input_Rate"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RecordValue">
+          <ownedFieldValue>
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.0"/>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="0.4"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="40.0"/>
+            </ownedValue>
+          </ownedFieldValue>
+          <ownedFieldValue>
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.1"/>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.1/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedFieldValue>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Allowed_Connection_Binding_Class"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.DirectMemoryAccess"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Float"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.5"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="Percent"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral"/>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <componentInstance name="SM_Motor" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral" value="1610">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.2"/>
+          </minimum>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="1730">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.2"/>
+          </maximum>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="SM_Command_Signals" category="featureGroup" direction="in out">
+      <featureInstance name="Step_Completion" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="SM_Cmd" category="featureGroup" direction="in out">
+        <featureInstance name="Increment_Step" category="eventDataPort">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="Decrement_Step" category="eventDataPort">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="Goto_Home" category="eventPort">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventPort.0"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="Mechanical_Control_Position" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="Power" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="flowsink" source="//@componentInstance.0/@featureInstance.0">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" value="1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+            </minimum>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+            </maximum>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedFlowSpecification.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.Stepper_Motor"/>
+  </componentInstance>
+  <componentInstance name="SM_PCS_App" category="process">
+    <featureInstance name="Desired_Position">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:ClassifierValue">
+              <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Float"/>
+            </ownedListElement>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.5"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="Percent"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Commanded_Position" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <componentInstance name="SM_PCS" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.3/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="25">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Deadline"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="4">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="Desired_Position">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Input_Rate"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RecordValue">
+              <ownedFieldValue>
+                <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.0"/>
+                <ownedValue xsi:type="aadl2:RangeValue">
+                  <minimum xsi:type="aadl2:RealLiteral" value="0.4"/>
+                  <maximum xsi:type="aadl2:RealLiteral" value="40.0"/>
+                </ownedValue>
+              </ownedFieldValue>
+              <ownedFieldValue>
+                <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.1"/>
+                <ownedValue xsi:type="aadl2:NamedValue">
+                  <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.3/@ownedField.1/@ownedPropertyType/@ownedLiteral.0"/>
+                </ownedValue>
+              </ownedFieldValue>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Float"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.5"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Percent"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="100"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="Commanded_Position" category="eventDataPort" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Output_Time"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:RecordValue">
+                <ownedFieldValue>
+                  <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.1/@ownedField.1"/>
+                  <ownedValue xsi:type="aadl2:NamedValue">
+                    <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.2/@ownedLiteral.2"/>
+                  </ownedValue>
+                </ownedFieldValue>
+                <ownedFieldValue>
+                  <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedPropertyType.1/@ownedField.0"/>
+                  <ownedValue xsi:type="aadl2:RangeValue">
+                    <minimum xsi:type="aadl2:IntegerLiteral">
+                      <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.1"/>
+                    </minimum>
+                    <maximum xsi:type="aadl2:IntegerLiteral">
+                      <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.1"/>
+                    </maximum>
+                  </ownedValue>
+                </ownedFieldValue>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <componentInstance name="DesiredPositionState" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Integer"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Steps"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="250"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DataImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SM_Position.Steps"/>
+      </componentInstance>
+      <componentInstance name="CommandedPositionState" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:ClassifierValue">
+                <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Integer"/>
+              </ownedListElement>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Steps"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="250"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DataImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SM_Position.Steps"/>
+      </componentInstance>
+      <flowSpecification name="flowpath" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SM_PCS.impl"/>
+    </componentInstance>
+    <componentInstance name="SM_HM" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.3/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.Health_Monitor"/>
+    </componentInstance>
+    <flowSpecification name="flowpath" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SMS_App_Process_SMPC.original"/>
+  </componentInstance>
+  <componentInstance name="SM_ACT" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="SM_Command_Signals" category="featureGroup" direction="in out">
+      <featureInstance name="Step_Completion" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="SM_Cmd" category="featureGroup" direction="in out">
+        <featureInstance name="Increment_Step" category="eventDataPort" direction="out">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="Decrement_Step" category="eventDataPort" direction="out">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:NamedValue">
+                <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/packages/Base_Types.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="Goto_Home" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventPort.0"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="Commanded_Position" category="eventDataPort">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Queue_Size"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Overflow_Handling_Protocol"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#/0/@ownedProperty.3/@ownedPropertyType/@ownedLiteral.2"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="DMA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="Power" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/instances/CasePositionControl_SMS_buffered_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="StepsToDo" category="data">
+      <componentInstance name="StepCount" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Steps"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="15"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.0/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.0"/>
+        <index>0</index>
+      </componentInstance>
+      <componentInstance name="Step_Direction" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.3"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Enumerators"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="Open"/>
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="Close"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.1/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.1"/>
+        <index>0</index>
+      </componentInstance>
+      <componentInstance name="Step_Rate" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Steps"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Integer_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" value="15"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="15"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.2"/>
+        <index>0</index>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DataImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SM_Position_Change.DataRecord"/>
+    </componentInstance>
+    <flowSpecification name="flowpath" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.0">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" value="1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+            </minimum>
+            <maximum xsi:type="aadl2:IntegerLiteral" value="1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+            </maximum>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedFlowSpecification.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SM_ACT.Buffered"/>
+  </componentInstance>
+  <flowSpecification name="flowsink" source="//@featureInstance.3">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <connectionInstance name="DMA -> SM_ACT.DMA" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.2" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Power -> SM_ACT.Power" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.3" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Power -> SM_Motor.Power" kind="accessConnection" destination="//@componentInstance.0/@featureInstance.2" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Desired_Position -> SM_PCS_App.SM_PCS.Desired_Position" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@featureInstance.3">
+    <connectionReference context="/" source="//@featureInstance.3" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_Motor.SM_Command_Signals.Step_Completion -> SM_ACT.SM_Command_Signals.Step_Completion" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_Motor.Mechanical_Control_Position -> Mechanical_Control_Position" destination="//@featureInstance.0" source="//@componentInstance.0/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_Motor.Power -> Power" kind="accessConnection" destination="//@featureInstance.2" source="//@componentInstance.0/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.2" destination="//@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_PCS_App.SM_PCS.Commanded_Position -> SM_ACT.Commanded_Position" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_ACT.SM_Command_Signals.SM_Cmd.Increment_Step -> SM_Motor.SM_Command_Signals.SM_Cmd.Increment_Step" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.0" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.0" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_ACT.SM_Command_Signals.SM_Cmd.Decrement_Step -> SM_Motor.SM_Command_Signals.SM_Cmd.Decrement_Step" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.1" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.1" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_ACT.SM_Command_Signals.SM_Cmd.Goto_Home -> SM_Motor.SM_Command_Signals.SM_Cmd.Goto_Home" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.2" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0/@featureInstance.1/@featureInstance.2" destination="//@componentInstance.0/@featureInstance.0/@featureInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFeatureGroupConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_ACT.DMA -> DMA" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.2/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="SM_ACT.Power -> Power" kind="accessConnection" destination="//@featureInstance.2" source="//@componentInstance.2/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.3" destination="//@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SMS.buffered"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/stepper-motor/packages/CasePositionControl.aadl#CasePositionControl.SMS.buffered"/>
+</instance:SystemInstance>

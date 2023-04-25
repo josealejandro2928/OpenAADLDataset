@@ -1,0 +1,95 @@
+package olympus
+public 
+
+
+---------------
+-- Process-----
+---------------
+
+processor implementation cpu.impl
+properties
+	Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
+end cpu.impl;
+
+
+
+process control_software
+features
+	input : in data port task_types::shared_data;
+end control_software;
+
+thread serial_bus_op
+
+features
+  input : in data port task_types::shared_data;
+  output : requires bus access task_types::serial_bus;
+properties
+  dispatch_Protocol => sporadic;
+  compute_Execution_Time => 60 us;
+  period => 60 us ;
+  Priority => 36;
+end serial_bus_op;
+
+
+process implementation control_software.impl       
+subcomponents
+	a_data		 : data	task_types::shared_data;
+	serial_bus 	     : bus task_types::serial_bus;
+	t_serial_bus_op	 : thread serial_bus_op;
+	t_controller_task : thread group controller::controller_process.impl;
+	telecommand_task : thread group interface::telecomand_process.impl;
+	telemetry_task   : thread group telemetry::telemetry_process.impl;
+	bus_io           : thread group bus_io::receive_from_bus.impl;			   
+
+connections
+	C1 : port a_data -> bus_io.input; 
+	C2 : port bus_io.output -> telecommand_task.input; 
+	C3 : port bus_io.output -> telemetry_task.input;
+	C4 : port bus_io.output -> t_controller_task.input; 
+	C5 : port telecommand_task.output -> t_controller_task.input; 
+	C6 : port telecommand_task.output -> telemetry_task.input;
+	C7 : port t_controller_task.output -> telemetry_task.input;
+	C8 : port t_controller_task.output -> t_serial_bus_op.input; 
+	C9 : port telemetry_task.output -> t_serial_bus_op.input;
+
+	B1 : access t_serial_bus_op.output -> serial_bus.input; 
+	
+
+properties 
+ 	Timing => immediate applies to C1, C2, C3, C4, C5, C6, C7, C8, C9, B1;
+end control_software.impl;
+
+
+---------------
+-- Processor --
+---------------
+
+processor cpu
+properties
+	Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
+end cpu;
+
+---------------
+-- System --
+---------------
+
+SYSTEM control_olymp
+END control_olymp;
+
+SYSTEM IMPLEMENTATION control_olymp.impl
+
+SUBCOMPONENTS
+
+  p1 : Process control_software.impl ;
+  
+  cpu1 : PROCESSOR cpu;
+PROPERTIES
+
+  Actual_Processor_Binding => ( reference(cpu1) ) applies to p1;
+
+
+end control_olymp.impl;
+end olympus;
+
+
+

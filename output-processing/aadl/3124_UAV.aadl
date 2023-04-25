@@ -1,0 +1,180 @@
+package UAV
+public	
+	with EO_IR_Sensor;
+	with Autopilot;
+	with Propulsion;
+	with Mission_Computer;
+	with WiFi_Datalink;
+	with TA6_Demonstration_UxAS;
+	with CASE_Properties;
+	with SW_Protocols;
+	with Buses;
+
+   -------------------------------------------------------------------------------------------------------------------------------
+    -- Mission Computer configured for UAV functions
+    -------------------------------------------------------------------------------------------------------------------------------
+	system UAV_MC extends Mission_Computer::VMC
+		features
+			Engine_IO : feature group;
+			AP_IO : feature group Autopilot::AP_Data_plug;
+			EO_IR_IO : feature group;
+			EO_IR_Video : feature group EO_IR_Sensor::Video_Data_plug;
+			Controller_IO : feature group WiFi_Datalink::MC_Data_plug;	
+	end UAV_MC;
+
+	system implementation UAV_MC.impl extends Mission_Computer::VMC.impl
+		subcomponents
+			SW: process TA6_Demonstration_UxAS::CASE_Sys.Demo;
+			Wire_Protocol : virtual bus SW_Protocols::zeroMQ.i;
+		connections			
+			--external features connections
+			c1: feature group SW.Engine_IO <-> Engine_IO;
+			c2: feature group SW.AP_IO <-> AP_IO;
+			c3: feature group SW.Controller_IO <-> Controller_IO;
+			c4: feature group SW.EO_IR_Data_and_Control <-> EO_IR_IO;
+			c5: feature group EO_IR_Video <-> SW.EO_IR_Video;
+			c6: feature group Configuration_IF <-> SW.Configuration_IO;
+				
+		properties			
+			Actual_Processor_Binding => (reference (Processor_1)) applies to SW;
+			Actual_Memory_Binding => (reference (Processor_1)) applies to SW;
+
+			Actual_Connection_Binding => (reference (Serial_1)) applies to Engine_IO, Serial_1_Conn, c1;
+			Actual_Connection_Binding => (reference (Serial_2)) applies to AP_IO, Serial_2_Conn, c2;
+			Actual_Connection_Binding => (reference (M1553B)) applies to EO_IR_IO, M1553B_Conn, c4;
+			Actual_Connection_Binding => (reference (Ethernet)) applies to Controller_IO, Ethernet_Conn, Wire_Protocol;			
+			Actual_Connection_Binding => (reference(Wire_Protocol)) applies to SW.c_exec_01;
+			Actual_Connection_Binding => (reference(USB_2)) applies to c6;
+		
+	end UAV_MC.impl;
+
+   -------------------------------------------------------------------------------------------------------------------------------
+    -- Basic UAV with a control interface.
+    -------------------------------------------------------------------------------------------------------------------------------
+	system UAV
+		features
+			Control_Interface: feature group WiFi_Datalink::WiFi_Data_socket;
+			Configuration_IF: feature group;			
+			USB_Link: provides bus access Buses::USB.Three;
+			Wireless_Link: requires bus access Buses::WiFi;
+			Sensor_RF: requires bus access Buses::RF;
+	end UAV;
+
+	-------------------------------------------------------------------------------------------------------------------------------
+	-- Define a simplified implementation of a UAV consisting of a mission computer (VMC), engine, autopilot and a wireless radio
+	-- link. The UAV communicates with a ground station (or operator) via the wireless link.
+	-------------------------------------------------------------------------------------------------------------------------------
+	system implementation UAV.TA6_Type1
+		subcomponents
+			VMC: system UAV_MC.impl;
+			Engine: device Propulsion::Engine.impl;
+			Autopilot: device Autopilot::Autopilot.impl;
+			Wireless_Radio: device WiFi_Datalink::WiFi_Radio.impl;
+			MC_Radio_Protocol: virtual bus SW_Protocols::Zyre.i;
+			
+		connections			
+			--internal hardware connections
+			phys1: bus access  VMC.Serial_1_Conn<-> Engine.Serial_Conn;
+			phys2: bus access VMC.Serial_2_Conn <-> Autopilot.Serial_Conn;
+			phys3: bus access VMC.Ethernet_Conn<-> Wireless_Radio.Wired_Link_Conn;
+			
+			--external requires hardware connections
+			phys4: bus access Wireless_Radio.Wireless_Link_Conn <-> Wireless_Link;
+			
+			--internal provides hardware connections
+			phys5: bus access VMC.USB_2_Conn <-> USB_Link;
+
+			--internal features connections
+			c1: feature group Engine.Engine_IO <-> VMC.Engine_IO;
+			c2: feature group VMC.AP_IO <-> Autopilot.AP_IO;
+			c3: feature group VMC.Controller_IO <-> Wireless_Radio.MC_IO;
+			
+			--external feature connections
+			c4: feature group Wireless_Radio.GS_IO <-> Control_Interface;
+			c5: feature group Configuration_IF <-> VMC.Configuration_IF;
+					
+		properties
+			Actual_Connection_Binding => (reference(VMC.Serial_1)) applies to phys1, c1;
+			Actual_Connection_Binding => (reference(VMC.Serial_2)) applies to phys2, c2;
+			Actual_Connection_Binding => (reference(MC_Radio_Protocol)) applies to c3;
+			Actual_Connection_Binding => (reference(VMC.Ethernet)) applies to phys3, MC_Radio_Protocol;
+			Actual_Connection_Binding => (reference(VMC.USB_2)) applies to phys5, c5;
+
+			--physical security boundary of the UAV are identified 
+			CASE_Properties::MACHINE_BOUNDARY => true applies to Wireless_Radio.Wireless_Link_Conn, VMC.USB_2_Conn;
+				
+			--Subsystems protect themselves where differences in trusted source(s) are exposed
+			--in this case wireless radio and VMC features exposed by the physical security boundary
+			--in addition, there are internal trust boundaries such that the VMC is a different level of trusted source
+			--than the wireless radio; as well as the engine and autopilot 
+			CASE_Properties::TRUST_BOUNDARY => true applies to Wireless_Radio.GS_IO, VMC.Configuration_IF, 
+				VMC.Controller_IO, Engine.Engine_IO, Autopilot.AP_IO;			
+	end UAV.TA6_Type1;
+	
+	-------------------------------------------------------------------------------------------------------------------------------
+	-- Define a simplified implementation of a UAV consisting of a mission computer (VMC), engine, autopilot and a wireless radio
+	-- link. The UAV communicates with a ground station (or operator) via the wireless link. This UAV implementation includes a 
+	-- notional EO/IR sensor.
+	-------------------------------------------------------------------------------------------------------------------------------
+	system implementation UAV.TA6_Type2
+		subcomponents
+			VMC: system UAV_MC.impl;
+			Engine: device Propulsion::Engine.impl;
+			Autopilot: device Autopilot::Autopilot.impl;
+			EO_IR_Sensor: device EO_IR_Sensor::EO_IR.impl;
+			Wireless_Radio: device WiFi_Datalink::WiFi_Radio.impl;
+			MC_Radio_Protocol: virtual bus SW_Protocols::Zyre.i;
+					
+		connections
+			--internal hardware connections
+			phys1: bus access VMC.Serial_1_Conn<-> Engine.Serial_Conn;
+			phys2: bus access VMC.Serial_2_Conn <-> Autopilot.Serial_Conn;
+			phys3: bus access VMC.Ethernet_Conn<-> Wireless_Radio.Wired_Link_Conn;
+			phys6: bus access VMC.M1553B_Conn <-> EO_IR_Sensor.Sensor_CnD_Conn;
+			phys7: bus access EO_IR_Sensor.Video_Conn<-> VMC.Video_Conn;
+
+			--external requires hardware connections
+			phys4: bus access Wireless_Radio.Wireless_Link_Conn <-> Wireless_Link;
+			
+			--external provides hardware connections
+			phys5: bus access VMC.USB_2_Conn <-> USB_Link;
+			phys8: bus access EO_IR_Sensor.Sensor_RF <-> Sensor_RF;
+
+			--internal feature connections
+			c1: feature group Engine.Engine_IO <-> VMC.Engine_IO;
+			c2: feature group VMC.AP_IO <-> Autopilot.AP_IO;
+			c3: feature group VMC.Controller_IO <-> Wireless_Radio.MC_IO;			
+			c6: feature group EO_IR_Sensor.Ctrl_and_Data <-> VMC.EO_IR_IO;
+			c7: feature group EO_IR_Sensor.Video_Out <-> VMC.EO_IR_Video;
+			
+			--external feature connections
+			c4: feature group Wireless_Radio.GS_IO <-> Control_Interface;
+			c5: feature group Configuration_IF <-> VMC.Configuration_IF;
+			
+		properties			
+			Actual_Connection_Binding => (reference (VMC.Serial_1)) applies to phys1, c1;
+			Actual_Connection_Binding => (reference(VMC.Serial_2)) applies to phys2, c2;
+			Actual_Connection_Binding => (reference(MC_Radio_Protocol)) applies to c3;
+			Actual_Connection_Binding => (reference(VMC.Ethernet)) applies to phys3, MC_Radio_Protocol;		
+			Actual_Connection_Binding => (reference(VMC.USB_2)) applies to phys5, c5;
+			Actual_Connection_Binding => (reference (VMC.M1553B)) applies to phys6, c6;
+			Actual_Connection_Binding => (reference (EO_IR_Sensor.Video_Bus)) applies to phys7, c7;
+			
+			CASE_Properties::ASSET_NAME => "Sensor Performance" applies to EO_IR_SENSOR;
+			CASE_Properties::PROTECTION_LEVEL=> ROBUST applies to EO_IR_SENSOR;
+			CASE_Properties::PROTECTION_TYPE => TECHNOLOGY applies to EO_IR_SENSOR;
+
+			--physical security boundary of the UAV are identified			
+			CASE_Properties::MACHINE_BOUNDARY => true applies to Wireless_Radio.Wireless_Link_Conn, VMC.USB_2_Conn, 
+				EO_IR_Sensor.Sensor_RF;
+
+			--Subsystems protect themselves where differences in trusted source(s) are exposed
+			--in this case wireless radio, VMC, and EO_IR_Sensor features exposed by the physical security boundary
+			--in addition, there are internal trust boundaries such that the VMC is a different level of trusted source
+			--than the wireless radio; as well as the engine and autopilot 
+			CASE_Properties::TRUST_BOUNDARY => true applies to Wireless_Radio.GS_IO, VMC.Configuration_IF,--EO_IR_Sensor.Sensor_RF feature 
+				VMC.Controller_IO, Engine.Engine_IO, Autopilot.AP_IO, VMC.EO_IR_IO, VMC.EO_IR_Video;
+			
+	end UAV.TA6_Type2;
+	
+end UAV;

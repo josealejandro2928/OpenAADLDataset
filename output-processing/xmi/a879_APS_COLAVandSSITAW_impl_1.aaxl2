@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="COLAVandSSITAW_impl_Instance" category="system">
+  <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+    <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/Requirements.aadl#Requirements.RequiredFuntions"/>
+    <ownedValue>
+      <ownedValue xsi:type="aadl2:StringLiteral" value="'Receive Navigation/Power/Safety/Machinery/ShoreSensors/Other Data; Transmit Navigation/Power/Safety/Machinery/ShoreSensors/Other Data to RCC; Transmit Control Commands; Receive Control Commands from RCC'"/>
+    </ownedValue>
+    <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedPropertyAssociation.0"/>
+  </ownedPropertyAssociation>
+  <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+    <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/Requirements.aadl#Requirements.RequiredSecurity"/>
+    <ownedValue>
+      <ownedValue xsi:type="aadl2:StringLiteral" value="'User Access Management; Anti-virus Protection; Firewall'"/>
+    </ownedValue>
+    <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedPropertyAssociation.1"/>
+  </ownedPropertyAssociation>
+  <featureInstance name="eth1" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="eth2" direction="in out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedDataPort.1"/>
+  </featureInstance>
+  <componentInstance name="ASC_Process" category="process">
+    <featureInstance name="Dataport" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.68/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="EmergencyDataPort" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.68/@ownedDataPort.1"/>
+    </featureInstance>
+    <componentInstance name="ASC_IDS" category="thread">
+      <featureInstance name="DataPort" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.70/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_IDS"/>
+    </componentInstance>
+    <componentInstance name="ASC_Discover" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.71/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_Discover"/>
+    </componentInstance>
+    <componentInstance name="ASC_CDA" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.72/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="BackupDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.72/@ownedDataPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_CDA"/>
+    </componentInstance>
+    <componentInstance name="ASC_CP" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.73/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="BackupDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.73/@ownedDataPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_CP"/>
+    </componentInstance>
+    <componentInstance name="ASC_CAM" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.74/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_CAM"/>
+    </componentInstance>
+    <componentInstance name="ASC_MV" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.75/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="BackupDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.75/@ownedDataPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_MV"/>
+    </componentInstance>
+    <componentInstance name="ASC_SS" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.76/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_SS"/>
+    </componentInstance>
+    <componentInstance name="ASC_VM" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.77/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.7"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_VM"/>
+    </componentInstance>
+    <componentInstance name="ASC_DK" category="thread">
+      <featureInstance name="MainDataPort" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.78/@ownedDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.69/@ownedThreadSubcomponent.8"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_DK"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.ASC_Process.with_threads"/>
+  </componentInstance>
+  <componentInstance name="NICTeaming" category="process">
+    <featureInstance name="Veth1" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.67/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="Veth2" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.67/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="Teamedeth" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.67/@ownedDataPort.2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.NICTeaming"/>
+  </componentInstance>
+  <modeInstance name="AutonomousExecution" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="AutonomousControl">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedMode.1"/>
+  </modeInstance>
+  <modeInstance name="RemoteControl">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedMode.2"/>
+  </modeInstance>
+  <modeInstance name="FailToSafe">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedMode.3"/>
+  </modeInstance>
+  <flowSpecification name="RemoteControlCommandsFlow_Main" source="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="RemoteControlCommandsFlow_Backup" source="//@featureInstance.1">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <flowSpecification name="APSNavigationFlow_Main_Primary" destination="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedFlowSpecification.2"/>
+  </flowSpecification>
+  <flowSpecification name="APSNavigationFlow_Main_Secondary" destination="//@featureInstance.1">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.64/@ownedFlowSpecification.3"/>
+  </flowSpecification>
+  <connectionInstance name="eth1 -> NICTeaming.Veth2" kind="portConnection" destination="//@componentInstance.1/@featureInstance.1" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth2 -> NICTeaming.Veth1" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="ASC_Process.Dataport -> NICTeaming.Teamedeth" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.2" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="NICTeaming.Veth1 -> eth2" kind="portConnection" destination="//@featureInstance.1" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="NICTeaming.Veth2 -> eth1" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="NICTeaming.Teamedeth -> ASC_Process.Dataport" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#/0/@ownedPublicSection/@ownedClassifier.65/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.COLAVandSSITAW.impl"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.1"/>
+  <systemOperationMode name="som_3" currentMode="//@modeInstance.2"/>
+  <systemOperationMode name="som_4" currentMode="//@modeInstance.3"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a879/APS.aadl#APS.COLAVandSSITAW.impl"/>
+</instance:SystemInstance>

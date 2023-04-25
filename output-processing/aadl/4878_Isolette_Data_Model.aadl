@@ -1,0 +1,127 @@
+--Building_Variables.aadl
+
+package Isolette_Data_Model
+  public
+  with Data_Model;
+  with Base_Types;
+  
+data PhysicalTemp 
+end PhysicalTemp;
+
+data implementation PhysicalTemp.impl
+	subcomponents
+		value: data Base_Types::Float_32;
+end PhysicalTemp.impl;
+
+data TempWstatus 
+end TempWstatus;
+
+data implementation TempWstatus.impl
+	subcomponents
+		value: data Base_Types::Float_32;
+		status: data ValueStatus;
+end TempWstatus.impl;
+
+data TempSensorReading 
+end TempSensorReading;
+
+data Temp 
+end Temp;
+
+data implementation Temp.impl
+	subcomponents
+		value: data Base_Types::Float_32;
+end Temp.impl;
+
+data On_Off
+properties
+  Data_Model::Data_Representation => Enum;
+  Data_Model::Enumerators => ("Onn", "Off");  
+end On_Off;
+
+data Valid_Flag
+end Valid_Flag;
+
+data Failure_Flag
+end Failure_Flag;
+
+data implementation Failure_Flag.impl
+	subcomponents
+		value: data Base_Types::Boolean;
+end Failure_Flag.impl;
+
+data ValueStatus
+  properties
+  Data_Model::Data_Representation => Enum;
+  Data_Model::Enumerators => ("Valid", "Invalid");
+end ValueStatus;
+
+--Regulator and Monitor Status
+data Status
+  properties
+  Data_Model::Data_Representation => Enum;
+  Data_Model::Enumerators => ("Init_Status","On_Status","Failed_Status");
+end Status;
+
+--Regulator Mode
+data Regulator_Mode
+  properties
+  Data_Model::Data_Representation => Enum;
+  Data_Model::Enumerators => ("Init_Regulator_Mode", "Normal_Regulator_Mode", "Failed_Regulator_Mode");
+end Regulator_Mode;
+
+--Monitor Mode
+data Monitor_Mode
+  properties
+  Data_Model::Data_Representation => Enum;
+  Data_Model::Enumerators => ("Init_Monitor_Mode" ,"Normal_Monitor_Mode", "Failed_Monitor_Mode");
+end Monitor_Mode;
+
+
+--Table A-3 Thermostat Monitored Variables for Temperature  Sensor
+
+-- current temperature : TempWstatus
+
+--Table A-4 Thermostat Controlled Variables for Heat Source
+
+-- heat control : On_Off
+
+--Table A-5
+
+-- lower desired temperature : TempWstatus
+-- upper desired temperature : TempWstatus
+-- lower alarm temperature : TempWstatus
+-- upper alarm temperature : TempWstatus
+
+--range of Monitored Temperature  
+-- data Measured_Temperature_Range
+-- properties
+-- Data_Model::Base_Type => (classifier(BLESS_Types::Fixed_Point));  
+--  Data_Model::Real_Range => 68.0 .. 105.0;
+--  Data_Model::Measurement_Unit => "Fahrenheit";
+--  BLESS::Typed => "real 68.0 .. 105.0 units Fahrenheit";
+--  end Measured_Temperature_Range;  
+
+--Valid/Invalid enumerated type
+
+
+--Current Temperature "t" is temp, "status" is valid/invalid flag 
+-- data Current_Temperature 
+--  properties
+--  Data_Model::Data_Representation => Struct;
+--  Data_Model::Element_Names => ("t","status");
+--  Data_Model::Base_Type => (classifier (Measured_Temperature_Range), 
+--  	classifier (Valid_Flag));
+--  BLESS::Typed => "record (t:measured_temperature_range; status:valid_flag;)";
+-- end Current_Temperature; 
+
+
+--Table A-4. Thermostat Controlled Variables for Heat Source
+
+--heat control and alarm value
+
+
+--Table A-5
+
+  
+end Isolette_Data_Model;  

@@ -1,0 +1,76 @@
+package Drones2
+public
+	with DroneSystem;
+	with Hybrid_SynchAADL;
+	with Data_Model;
+
+	system Drones2
+		properties
+			Hybrid_SynchAADL::Synchronous => true;
+	end Drones2;
+	
+	system implementation Drones2.rendezvous
+		subcomponents
+			drone1: system DroneSystem::DroneSystem.rendezvous;
+			drone2: system DroneSystem::DroneSystem.rendezvous;
+		connections
+			d12x: port drone1.outX -> drone2.inX;
+			d12y: port drone1.outY -> drone2.inY;
+			d21x: port drone2.outX -> drone1.inX;
+			d21y: port drone2.outY -> drone1.inY;
+		properties
+			Period => 10ms;
+			
+			--- drone1 position
+    		Data_Model::Initial_Value => ("3.8") applies to
+    			drone1.drone.outX,
+    			drone1.outX,
+    			drone1.environment.x;
+    		Data_Model::Initial_Value => ("2.4") applies to
+ 	   			drone1.drone.outY,
+    			drone1.outY,
+    			drone1.environment.y;
+   		
+    		--- drone2 position
+    		Data_Model::Initial_Value => ("4.0") applies to
+    			drone2.drone.outX,
+    			drone2.outX,
+    			drone2.environment.x;
+    		Data_Model::Initial_Value => ("0.9") applies to
+    			drone2.drone.outY,
+    			drone2.outY,
+    			drone2.environment.y;
+   		
+    		--- drone1 speed
+    		Data_Model::Initial_Value => ("0.59") applies to
+    			drone1.environment.dotx;
+    		Data_Model::Initial_Value => ("2.3") applies to
+    			drone1.environment.doty;
+    			
+    		--- drone2 speed
+    		Data_Model::Initial_Value => ("3.5") applies to
+    			drone2.environment.dotx;
+    		Data_Model::Initial_Value => ("8.2") applies to
+    			drone2.environment.doty;
+ 
+     		--- Rendezvous position
+    		Data_Model::Initial_Value => ("15.0") applies to
+    			drone1.drone.droneProc.droneThread.refX,
+    			drone2.drone.droneProc.droneThread.refX;
+    		Data_Model::Initial_Value => ("15.0") applies to
+    			drone1.drone.droneProc.droneThread.refY,
+    			drone2.drone.droneProc.droneThread.refY;
+    			
+			Timing => Delayed applies to 
+				d12x, d12y, d21x, d21y;
+				
+			Hybrid_SynchAADL::Max_Clock_Deviation => 1ns;
+			
+			Hybrid_SynchAADL::Sampling_Time => 10ns .. 20ns applies to 
+				drone1.drone, drone2.drone;
+				
+			Hybrid_SynchAADL::Response_Time => 40ns .. 50ns applies to 
+				drone1.drone, drone2.drone;
+	end Drones2.rendezvous;
+
+end Drones2;

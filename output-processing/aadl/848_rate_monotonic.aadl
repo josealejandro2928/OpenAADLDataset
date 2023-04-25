@@ -1,0 +1,51 @@
+
+system rma
+end rma;
+
+system implementation rma.Impl
+	subcomponents
+		cpu0  : processor rma_cpu.Impl;
+		proc0 : process a_process.Impl;
+	properties
+		Actual_Processor_Binding => reference cpu0 applies to proc0;
+end rma.Impl;
+
+processor rma_cpu
+end rma_cpu;
+
+
+processor implementation rma_cpu.Impl
+	properties 
+		Scheduling_Protocol => RATE_MONOTONIC_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+end rma_cpu.Impl;
+
+
+
+process a_process
+end a_process;
+
+process implementation a_process.Impl
+	subcomponents
+		instancied_T1 : thread T1.Impl;
+end a_process.Impl;
+
+
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  3 ms ..  7 ms;
+		Deadline  =>  29 ms;
+		Period =>  29 ms;
+end T1.Impl;
+
+thread T2
+end T2;
+
+
+

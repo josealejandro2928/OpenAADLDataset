@@ -1,0 +1,126 @@
+property set AddedCommunicationProperties is
+
+	-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	--											Communication Properties 
+	-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	 	--[=== Aspect Oriented Communication Properties ===]
+			-- Functions supported by the autonomous ship according to DNVGL-CG-0264 and described in the CyberICPS Paper.
+			For_Voyage_Managment: aadlboolean applies to (connection);
+			For_Condition_Detection: aadlboolean applies to (connection);
+			For_Condition_Analysis: aadlboolean applies to (connection);
+			For_Contingency_Planning: aadlboolean applies to (connection);
+			For_Safe_Speed: aadlboolean applies to (connection);
+			For_Maneuvering: aadlboolean applies to (connection);
+			For_Docking: aadlboolean applies to (connection);
+			For_Alert_Management: aadlboolean applies to (connection);		 	
+
+		--[=== Non-Functional Communication Properties ===]
+			-- The connection can be eitherData_Rate_Units physical (wired) or logical over radio (wireless)
+			Data_Transmission_Medium: enumeration (wireless, wired) applies to (connection);		
+			--  Estimated cost of a component to estimate an overall cost of the model implementation
+			Component_Cost: AddedCommunicationProperties::Cost_Range applies to (connection, device, system);	
+			
+			-- Supported currencies are the Norwegian Krones and US dollar
+			Cost_Range:  type range of AddedCommunicationProperties::Cost;
+			Cost: type aadlreal units AddedCommunicationProperties::Currencies;
+			Currencies: type units (NOK, USD => NOK * 9.12);			
+		
+		--[=== Communication Properties ===]		
+			-- Link Bandwidth in Bytes per second
+			Bandwidth_Units: type units (bitsps, Kbps => bitsps * 1000, Mbps => Kbps * 1000, Gbps => Mbps * 1000);
+			Bandwidth: type aadlreal units AddedCommunicationProperties::Bandwidth_Units;
+			Link_Bandwidth: AddedCommunicationProperties::Bandwidth applies to (connection);	
+			
+			-- Link expected download speed
+			DownloadLink: aadlinteger units Data_Rate_Units applies to (connection);
+			
+			-- Link expected upload speed
+			UploadLink: aadlinteger units Data_Rate_Units applies to (connection);	
+			
+			-- Group of Network options
+			isIP: aadlboolean applies to (connection);
+			IPv6_Support: aadlboolean applies to (connection);
+			isDT: aadlboolean applies to (connection); -- is this connection delay tolerant;			
+
+			-- The list of observed communication technologies in maritime (LTE-Maritime by SW Jo, WS Shim, 2019)
+			-- GEO_Satellite:
+			-- LEO_Satelline:
+			-- VHF:	
+			-- MF:
+			-- HF:
+			-- WiMAX:
+			-- WLAN:	
+			-- MBR: Maritime Broadband Radio (By Kongsberg) 
+			Link_Technology: enumeration (WiMAX, LTE, Mobile_5G, Mobile_4G, WiFi, Ethernet, VHF, GEO_Satellite, LEO_Satelline, MF, HF, WLAN, MBR) applies to (connection, port);
+			
+			-- The list of observed communication protocols in maritime (Communication LR.docx "Ahmed Amro" + the web)
+			-- IEEE_802_15_4: ZigBee
+			-- IEEE_802_16: WiMAX
+			-- IEEE_802_16d: mesh technology
+			-- IMC: Inter-Module Communication (IMC) protocol is a message-oriented protocol designed and implemented in the Underwater Systems and Technology Laboratory (LSTS)  (https://lsts.fe.up.pt/toolchain/imc)
+			-- OPC: Open Platform Communications
+			Communication_Protocol:  enumeration (IEEE_802_11ax, IEEE_802_11p, IEEE_802_11g, IEEE_802_11n, IEEE_802_11af, IEEE_802_15_4, IEEE_802_16, IEEE_802_16d, IMC, ModBus, OPC) applies to (connection);
+			
+			-- influenced by MUNIN D4.3
+			IP_Protocol:  enumeration (TCP, UDP, UDP_unicast, UDP_multicast, UDP_broadcast) applies to (connection, device);
+					
+		--[=== Reliability Properties ===]
+			-- NoHA: No High Availability
+			HighAvailability_Mode: enumeration (NoHA, Active_Active, Active_Standby)  applies to (connection);		
+			
+			-- If it can be possible to create a latency profile per technology (Mobile_5G => 1 .. 4 ms)
+			Delay_Range: type range of Time;-- applies to (connection);
+			Link_Delay_Range: AddedCommunicationProperties::Delay_Range  applies to (connection);
+			Delay: type aadlinteger units Time_Units; 	
+			Link_Delay: AddedCommunicationProperties::Delay  applies to (connection);
+			
+			-- influenced by MUNIN D4.3
+			--High (1) to low (4) representing the possibility that the data link or a message is lost unexpectedly. 
+			--Level 1 corresponds to Inmarsat GMDSS integrity level while level 4 represents a very high probability that the link may be lost.
+			Reliability: type aadlinteger;
+			Link_Reliability: AddedCommunicationProperties::Reliability  applies to (connection);  
+				
+		--[=== Wireless Communication Properties ===]
+			-- Per antenna at connection direction. Note that a single device can have several antennas and a single connection can be established between two antenna types. 
+			Antenna_type: enumeration (Omnidirectional, Directional) applies to (connection, device);
+			
+			-- The propagation types based on the book "Wireless Communication and Networks" by Stallings.
+			-- This property can be used to measure sensitivity to passing objects. 
+			Signal_Propagation_Type: enumeration (LoS, Ground_Wave, Sky_Wave) applies to (connection, device);	
+			
+			-- Link operational spectrum 
+			Link_Frequency_Range: AddedCommunicationProperties::Frequency_Range applies to (connection);
+			Link_Frequency: AddedCommunicationProperties::Frequency applies to (connection);					
+		
+			-- The range of radio transmission
+			Link_Range: AddedCommunicationProperties::Distance_Range applies to (connection); 		
+
+			Distance_Range: type range of AddedCommunicationProperties::Distance;
+			Distance: type aadlinteger units AddedCommunicationProperties::Distance_Units;
+			Distance_Units: type units (cm, m => cm * 100, km => m * 1000);
+			
+			Frequency_Range: type range of AddedCommunicationProperties::Frequency;
+			Frequency: type aadlinteger units AddedCommunicationProperties::Frequency_Units;
+			Frequency_Units: type units (Hz, kHz => Hz * 1000, MHz => kHz * 1000, GHz => MHz * 1000);
+			
+	-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	--											Security Properties 
+	-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		-- influenced by MUNIN D4.3 
+		-- High (1) to low (4) security representing the inverse of the possibility that data is spied upon or manipulated 
+		-- during transit. Level 4 represents open unencrypted transmissions while level 1 represents a tamperproof system 
+		-- which in the context of MUNIN should mean that messages cannot be decrypted within a time frame of about one hour. 
+		-- Note also that both encryption (hiding data) and digital signatures (verifying sender) or similar systems are required.
+	 	Security_Level: type aadlinteger; 
+	 	Link_Security_Level: AddedCommunicationProperties::Security_Level applies to (connection, flow);
+	 	
+	 	-- influenced by MUNIN D4.3 
+	 	Confidentiality_Level: enumeration (Low, Medium, High) applies to (connection, flow);
+	 	Integrity_Level: enumeration (Low, Medium, High) applies to (connection, flow);
+	 	Availability_Level: enumeration (Low, Medium, High) applies to (connection, flow);
+	 	
+	 	Jamming_Sensitivity: enumeration (Low, Medium, High) applies to (connection);	
+			
+end AddedCommunicationProperties;

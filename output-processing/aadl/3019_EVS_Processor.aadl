@@ -1,0 +1,32 @@
+package EVS_Processor
+public
+	with Generic;
+	with EVS_Arg_IO;
+	with EVS_Result_IO;
+	with EVS_Base_IO;
+	with EVS_Route_Table;
+	
+	--------all abstract can add external data corresponding to its require
+	
+	abstract Register extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group EVS_Arg_IO::RegisterArgs;
+			Results: refined to feature group EVS_Result_IO::RegisterOutput;
+			LocalDatas: refined to feature group EVS_Base_IO::FilterInput;
+	end Register;
+	
+	abstract Unregister extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group EVS_Arg_IO::UnregisterArgs;
+			Results: refined to feature group EVS_Result_IO::UnregisterOutput;
+			LocalDatas: refined to feature group EVS_Base_IO::FilterInput;
+	end Unregister;
+	
+	abstract SendEvent extends Generic::FunctionProcessor
+		features
+			Args: refined to feature group EVS_Arg_IO::SendEventArgs;
+			Results: refined to feature group EVS_Result_IO::SendEventOutput;
+			LocalDatas: refined to feature group EVS_Base_IO::FilterInput;
+			OutEvents: feature group EVS_Route_Table::RouteOutput;
+	end SendEvent;
+end EVS_Processor;

@@ -1,0 +1,105 @@
+package SB_Interface
+public
+	with Base_Types;
+	with Core_Types;
+	with Generic;
+	
+--------------------------------------------------------------------------
+------------------------------CreatePipe----------------------------------
+--------------------------------------------------------------------------
+	feature group P_CreatePipe extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+			PipeId: in data port Base_Types::Unsigned_8;
+			Depth: in data port Base_Types::Unsigned_16;
+			PipeName: in data port Base_Types::String;
+	end P_CreatePipe;
+
+	feature group R_CreatePipe extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+			PipeId: out data port Base_Types::Unsigned_8;
+			Depth: out data port Base_Types::Unsigned_16;
+			PipeName: out data port Base_Types::String;
+	inverse of P_CreatePipe
+	end R_CreatePipe;
+
+--------------------------------------------------------------------------
+------------------------------DeletePipe----------------------------------
+--------------------------------------------------------------------------
+	feature group P_DeletePipe extends Generic::Provide_Generic_Function_API
+		features
+			PipeId: in data port Base_Types::Unsigned_8;
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_DeletePipe;
+
+	feature group R_DeletePipe extends Generic::Require_Generic_Function_API
+		features
+			PipeId: out data port Base_Types::Unsigned_8;
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_DeletePipe
+	end R_DeletePipe;
+
+--------------------------------------------------------------------------
+------------------------------Subscribe-----------------------------------
+--------------------------------------------------------------------------
+	feature group P_Subscribe extends Generic::Provide_Generic_Function_API
+		features
+			MsgId: in data port Base_Types::Unsigned_16;
+			PipeId: in data port Base_Types::Unsigned_8;
+	end P_Subscribe;
+
+	feature group R_Subscribe extends Generic::Require_Generic_Function_API
+		features
+			MsgId: out data port Base_Types::Unsigned_16;
+			PipeId: out data port Base_Types::Unsigned_8;
+	inverse of P_Subscribe
+	end R_Subscribe;
+
+--------------------------------------------------------------------------
+------------------------------Unsubscribe---------------------------------
+--------------------------------------------------------------------------
+	feature group P_Unsubscribe extends Generic::Provide_Generic_Function_API
+		features
+			MsgId: in data port Base_Types::Unsigned_16;
+			PipeId: in data port Base_Types::Unsigned_8;
+	end P_Unsubscribe;
+
+	feature group R_Unsubscribe extends Generic::Require_Generic_Function_API
+		features
+			MsgId: out data port Base_Types::Unsigned_16;
+			PipeId: out data port Base_Types::Unsigned_8;
+	inverse of P_Unsubscribe
+	end R_Unsubscribe;
+
+--------------------------------------------------------------------------
+--------------------------------SendMsg-----------------------------------
+--------------------------------------------------------------------------
+	feature group P_SendMsg extends Generic::Provide_Generic_Function_API
+		features
+			Msg: in data port Core_Types::struct.CFE_SB_Msg_t;
+	end P_SendMsg;
+
+	feature group R_SendMsg extends Generic::Require_Generic_Function_API
+		features
+			Msg: out data port Core_Types::struct.CFE_SB_Msg_t;
+	inverse of P_SendMsg
+	end R_SendMsg;
+--------------------------------------------------------------------------
+--------------------------------RcvMsg-----------------------------------
+--------------------------------------------------------------------------
+	feature group P_RcvMsg extends Generic::Provide_Generic_Function_API
+		features
+			PipeId: in data port Base_Types::Unsigned_8;
+			TimeOut: in data port Base_Types::Integer_32;
+			Msg: out data port Core_Types::struct.CFE_SB_Msg_t;
+	end P_RcvMsg;
+
+	feature group R_RcvMsg extends Generic::Require_Generic_Function_API
+		features
+			PipeId: out data port Base_Types::Unsigned_8;
+			TimeOut: out data port Base_Types::Integer_32;
+			Msg: in data port Core_Types::struct.CFE_SB_Msg_t;
+	inverse of P_RcvMsg
+	end R_RcvMsg;
+end SB_Interface;

@@ -1,0 +1,34 @@
+property set CASE_Properties is
+
+	-- CASE MODEL TRANSFORMATION TYPE
+	COMP_TYPE: enumeration (FILTER, MONITOR, ROUTER, ISOLATOR) applies to (system, process, thread, device, abstract);
+	-- IMPLEMENTATION LANGUAGE OF THIS COMPONENT (eg CakeML)
+	COMP_IMPL: aadlstring applies to (thread);
+	-- ID OF THE AGREE CONTRACT THAT SPECIFIES THIS COMPONENT
+	COMP_SPEC: aadlstring applies to (thread);
+	
+	-- REMOTE ATTESTATION
+	CACHE_TIMEOUT: aadlinteger applies to (system, process, thread, device, abstract);
+	
+	-- BOUNDARY
+	TRUST_BOUNDARY: aadlboolean applies to (system, process, thread, device, abstract, bus, feature, connection);
+	MACHINE_BOUNDARY: aadlboolean  applies to (system, device, abstract, bus, feature);
+	
+	-- CIA
+	CONFIDENTIALITY: enumeration (HIGH, MEDIUM, LOW) applies to (system, process, thread, device);
+	INTEGRITY: enumeration (HIGH, MEDIUM, LOW) applies to (system, process, thread, device);
+	AVAILABILITY: enumeration (HIGH, MEDIUM, LOW) applies to  (system, process, thread, device);
+
+	--IDENTIFICATION OF ASSET BEING PROTECTED
+	ASSET_NAME: aadlstring applies to (system, device, process);
+	
+	--LEVEL OF PROTECTION DESIRED
+	PROTECTION_LEVEL : enumeration (MINIMAL, NOMINAL, ROBUST) applies to (system, device, feature, bus);
+		
+	--TYPE OF PROTECTION TO EMPLOY ON THE ASSET 
+	PROTECTION_TYPE: enumeration (INFOSEC, PHYS_ACCESS, TECHNOLOGY) applies to (system, device, feature, bus);
+	
+	-- COMMUNICATION MODALITY
+	COMM_MODALITY: enumeration (RF, WIFI, WIRED_ETHERNET, SERIAL, BT) applies to (bus);	
+end CASE_Properties;
+

@@ -1,0 +1,74 @@
+
+thread T1
+end T1;
+
+thread implementation T1.i
+	properties
+		Compute_Execution_time =>  1 ms ..  3 ms;
+		Cheddar_Properties::Fixed_Priority =>  1;
+                Dispatch_Protocol => user_defined;
+		Cheddar_Properties::Source_Text => "sporadic_activation";
+		Deadline  =>  100 ms;
+		Period =>  5 ms;
+end T1.i;
+
+thread T2
+end T2;
+
+thread implementation T2.i
+	properties
+                Dispatch_Protocol => user_defined;
+		Cheddar_Properties::Source_Text => "sporadic_activation";
+		Compute_Execution_time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Fixed_Priority =>  2;
+		Deadline  =>  100 ms;
+		Period =>  5 ms;
+end T2.i;
+
+thread T3
+end T3;
+
+thread implementation T3.i
+	properties
+                Dispatch_Protocol => periodic;
+		Compute_Execution_time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Fixed_Priority =>  3;
+		Deadline  =>  100 ms;
+		Period =>  5 ms;
+end T3.i;
+
+process proc
+end proc;
+
+process implementation proc.i
+	subcomponents
+		T1 : thread T1.i;
+		T2 : thread T2.i;
+		T3 : thread T3.i;
+end proc.i;
+
+processor mixed
+end mixed;
+
+processor implementation mixed.i
+	properties 
+		Scheduling_Protocol => pipeline_user_defined_protocol;
+		Cheddar_Properties::Preemptive_Scheduler => true;
+		Cheddar_Properties::Source_text => "mixed_ts_priority.sc";
+end mixed.i;
+
+
+system s0
+end s0;
+
+system implementation s0.i
+	subcomponents
+		cpu : processor mixed.i;
+		p1  : process proc.i;
+	properties
+		Actual_Processor_Binding => reference cpu applies to p1;
+		Cheddar_Properties::Source_Text => "sporadic_jitter.sc,number_of_sporadic_activations.sc";
+end s0.i;
+
+
+

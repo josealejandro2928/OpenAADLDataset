@@ -1,0 +1,170 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package process_package
+public
+	with Deployment;
+	with DataView;
+	with interfaceview::IV;
+	with deploymentview::DV;
+	with ocarina_processors_x86;
+	with vt_gui_transaction_CV_Thread;
+	with vt_gui_display_CV_Thread;
+	with vt_gui_eject_card_CV_Thread;
+	with vt_gui_out_msg_CV_Thread;
+	with vt_gui_gui_polling_gui_CV_Thread;
+	with vt_atm_accept_card_CV_Thread;
+	with vt_atm_reject_transaction_CV_Thread;
+	with vt_atm_out_of_service_CV_Thread;
+	with vt_atm_abort_out_CV_Thread;
+	with vt_atm_amount_CV_Thread;
+	with vt_atm_other_amount_CV_Thread;
+	with vt_atm_digit_CV_Thread;
+	with vt_atm_ok_CV_Thread;
+	with vt_atm_transaction_succeseeded_CV_Thread;
+
+DATA TASTE_Protected
+PROPERTIES
+	Concurrency_Control_Protocol => Protected_Access;
+END TASTE_Protected;
+
+DATA IMPLEMENTATION TASTE_Protected.Object
+PROPERTIES
+	Concurrency_Control_Protocol => Protected_Access;
+END TASTE_Protected.Object;
+
+
+process chip extends deploymentview::DV::node1::chip
+end chip;
+
+process implementation chip.final
+subcomponents
+	gui_protected : data TASTE_Protected.Object;
+	atm_protected : data TASTE_Protected.Object;
+	vt_gui_transaction : thread vt_gui_transaction_CV_Thread::vt_gui_transaction_vt_gui_transaction.others;
+	vt_gui_display : thread vt_gui_display_CV_Thread::vt_gui_display_vt_gui_display.others;
+	vt_gui_eject_card : thread vt_gui_eject_card_CV_Thread::vt_gui_eject_card_vt_gui_eject_card.others;
+	vt_gui_out_msg : thread vt_gui_out_msg_CV_Thread::vt_gui_out_msg_vt_gui_out_msg.others;
+	vt_gui_gui_polling_gui : thread vt_gui_gui_polling_gui_CV_Thread::vt_gui_gui_polling_gui_vt_gui_gui_polling_gui.others;
+	vt_atm_accept_card : thread vt_atm_accept_card_CV_Thread::vt_atm_accept_card_vt_atm_accept_card.others;
+	vt_atm_reject_transaction : thread vt_atm_reject_transaction_CV_Thread::vt_atm_reject_transaction_vt_atm_reject_transaction.others;
+	vt_atm_out_of_service : thread vt_atm_out_of_service_CV_Thread::vt_atm_out_of_service_vt_atm_out_of_service.others;
+	vt_atm_abort_out : thread vt_atm_abort_out_CV_Thread::vt_atm_abort_out_vt_atm_abort_out.others;
+	vt_atm_amount : thread vt_atm_amount_CV_Thread::vt_atm_amount_vt_atm_amount.others;
+	vt_atm_other_amount : thread vt_atm_other_amount_CV_Thread::vt_atm_other_amount_vt_atm_other_amount.others;
+	vt_atm_digit : thread vt_atm_digit_CV_Thread::vt_atm_digit_vt_atm_digit.others;
+	vt_atm_ok : thread vt_atm_ok_CV_Thread::vt_atm_ok_vt_atm_ok.others;
+	vt_atm_transaction_succeseeded : thread vt_atm_transaction_succeseeded_CV_Thread::vt_atm_transaction_succeseeded_vt_atm_transaction_succeseeded.others;
+connections
+	PORT vt_gui_transaction.OUTPORT_accept_card_vt -> vt_atm_accept_card.INPORT_artificial_accept_card;
+	PORT vt_gui_transaction.OUTPORT_reject_transaction_vt -> vt_atm_reject_transaction.INPORT_artificial_reject_transaction;
+	PORT vt_gui_transaction.OUTPORT_out_of_service_vt -> vt_atm_out_of_service.INPORT_artificial_out_of_service;
+	PORT vt_gui_transaction.OUTPORT_abort_out_vt -> vt_atm_abort_out.INPORT_artificial_abort_out;
+	PORT vt_gui_transaction.OUTPORT_amount_vt -> vt_atm_amount.INPORT_artificial_amount;
+	PORT vt_gui_transaction.OUTPORT_other_amount_vt -> vt_atm_other_amount.INPORT_artificial_other_amount;
+	PORT vt_gui_transaction.OUTPORT_digit_vt -> vt_atm_digit.INPORT_artificial_digit;
+	PORT vt_gui_transaction.OUTPORT_ok_vt -> vt_atm_ok.INPORT_artificial_ok;
+	PORT vt_gui_transaction.OUTPORT_transaction_succeseeded_vt -> vt_atm_transaction_succeseeded.INPORT_artificial_transaction_succeseeded;
+	PORT vt_gui_display.OUTPORT_accept_card_vt -> vt_atm_accept_card.INPORT_artificial_accept_card;
+	PORT vt_gui_display.OUTPORT_reject_transaction_vt -> vt_atm_reject_transaction.INPORT_artificial_reject_transaction;
+	PORT vt_gui_display.OUTPORT_out_of_service_vt -> vt_atm_out_of_service.INPORT_artificial_out_of_service;
+	PORT vt_gui_display.OUTPORT_abort_out_vt -> vt_atm_abort_out.INPORT_artificial_abort_out;
+	PORT vt_gui_display.OUTPORT_amount_vt -> vt_atm_amount.INPORT_artificial_amount;
+	PORT vt_gui_display.OUTPORT_other_amount_vt -> vt_atm_other_amount.INPORT_artificial_other_amount;
+	PORT vt_gui_display.OUTPORT_digit_vt -> vt_atm_digit.INPORT_artificial_digit;
+	PORT vt_gui_display.OUTPORT_ok_vt -> vt_atm_ok.INPORT_artificial_ok;
+	PORT vt_gui_display.OUTPORT_transaction_succeseeded_vt -> vt_atm_transaction_succeseeded.INPORT_artificial_transaction_succeseeded;
+	PORT vt_gui_eject_card.OUTPORT_accept_card_vt -> vt_atm_accept_card.INPORT_artificial_accept_card;
+	PORT vt_gui_eject_card.OUTPORT_reject_transaction_vt -> vt_atm_reject_transaction.INPORT_artificial_reject_transaction;
+	PORT vt_gui_eject_card.OUTPORT_out_of_service_vt -> vt_atm_out_of_service.INPORT_artificial_out_of_service;
+	PORT vt_gui_eject_card.OUTPORT_abort_out_vt -> vt_atm_abort_out.INPORT_artificial_abort_out;
+	PORT vt_gui_eject_card.OUTPORT_amount_vt -> vt_atm_amount.INPORT_artificial_amount;
+	PORT vt_gui_eject_card.OUTPORT_other_amount_vt -> vt_atm_other_amount.INPORT_artificial_other_amount;
+	PORT vt_gui_eject_card.OUTPORT_digit_vt -> vt_atm_digit.INPORT_artificial_digit;
+	PORT vt_gui_eject_card.OUTPORT_ok_vt -> vt_atm_ok.INPORT_artificial_ok;
+	PORT vt_gui_eject_card.OUTPORT_transaction_succeseeded_vt -> vt_atm_transaction_succeseeded.INPORT_artificial_transaction_succeseeded;
+	PORT vt_gui_out_msg.OUTPORT_accept_card_vt -> vt_atm_accept_card.INPORT_artificial_accept_card;
+	PORT vt_gui_out_msg.OUTPORT_reject_transaction_vt -> vt_atm_reject_transaction.INPORT_artificial_reject_transaction;
+	PORT vt_gui_out_msg.OUTPORT_out_of_service_vt -> vt_atm_out_of_service.INPORT_artificial_out_of_service;
+	PORT vt_gui_out_msg.OUTPORT_abort_out_vt -> vt_atm_abort_out.INPORT_artificial_abort_out;
+	PORT vt_gui_out_msg.OUTPORT_amount_vt -> vt_atm_amount.INPORT_artificial_amount;
+	PORT vt_gui_out_msg.OUTPORT_other_amount_vt -> vt_atm_other_amount.INPORT_artificial_other_amount;
+	PORT vt_gui_out_msg.OUTPORT_digit_vt -> vt_atm_digit.INPORT_artificial_digit;
+	PORT vt_gui_out_msg.OUTPORT_ok_vt -> vt_atm_ok.INPORT_artificial_ok;
+	PORT vt_gui_out_msg.OUTPORT_transaction_succeseeded_vt -> vt_atm_transaction_succeseeded.INPORT_artificial_transaction_succeseeded;
+	PORT vt_gui_gui_polling_gui.OUTPORT_accept_card_vt -> vt_atm_accept_card.INPORT_artificial_accept_card;
+	PORT vt_gui_gui_polling_gui.OUTPORT_reject_transaction_vt -> vt_atm_reject_transaction.INPORT_artificial_reject_transaction;
+	PORT vt_gui_gui_polling_gui.OUTPORT_out_of_service_vt -> vt_atm_out_of_service.INPORT_artificial_out_of_service;
+	PORT vt_gui_gui_polling_gui.OUTPORT_abort_out_vt -> vt_atm_abort_out.INPORT_artificial_abort_out;
+	PORT vt_gui_gui_polling_gui.OUTPORT_amount_vt -> vt_atm_amount.INPORT_artificial_amount;
+	PORT vt_gui_gui_polling_gui.OUTPORT_other_amount_vt -> vt_atm_other_amount.INPORT_artificial_other_amount;
+	PORT vt_gui_gui_polling_gui.OUTPORT_digit_vt -> vt_atm_digit.INPORT_artificial_digit;
+	PORT vt_gui_gui_polling_gui.OUTPORT_ok_vt -> vt_atm_ok.INPORT_artificial_ok;
+	PORT vt_gui_gui_polling_gui.OUTPORT_transaction_succeseeded_vt -> vt_atm_transaction_succeseeded.INPORT_artificial_transaction_succeseeded;
+	PORT vt_atm_accept_card.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_accept_card.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_accept_card.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_accept_card.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_reject_transaction.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_reject_transaction.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_reject_transaction.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_reject_transaction.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_out_of_service.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_out_of_service.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_out_of_service.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_out_of_service.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_abort_out.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_abort_out.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_abort_out.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_abort_out.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_amount.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_amount.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_amount.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_amount.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_other_amount.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_other_amount.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_other_amount.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_other_amount.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_digit.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_digit.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_digit.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_digit.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_ok.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_ok.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_ok.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_ok.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	PORT vt_atm_transaction_succeseeded.OUTPORT_out_msg_vt -> vt_gui_out_msg.INPORT_artificial_out_msg;
+	PORT vt_atm_transaction_succeseeded.OUTPORT_transaction_vt -> vt_gui_transaction.INPORT_artificial_transaction;
+	PORT vt_atm_transaction_succeseeded.OUTPORT_display_vt -> vt_gui_display.INPORT_artificial_display;
+	PORT vt_atm_transaction_succeseeded.OUTPORT_eject_card_vt -> vt_gui_eject_card.INPORT_artificial_eject_card;
+	vt_gui_transaction_gui: data access gui_protected -> vt_gui_transaction.gui_protected;
+	vt_gui_display_gui: data access gui_protected -> vt_gui_display.gui_protected;
+	vt_gui_eject_card_gui: data access gui_protected -> vt_gui_eject_card.gui_protected;
+	vt_gui_out_msg_gui: data access gui_protected -> vt_gui_out_msg.gui_protected;
+	vt_gui_gui_polling_gui_gui: data access gui_protected -> vt_gui_gui_polling_gui.gui_protected;
+	vt_atm_accept_card_atm: data access atm_protected -> vt_atm_accept_card.atm_protected;
+	vt_atm_reject_transaction_atm: data access atm_protected -> vt_atm_reject_transaction.atm_protected;
+	vt_atm_out_of_service_atm: data access atm_protected -> vt_atm_out_of_service.atm_protected;
+	vt_atm_abort_out_atm: data access atm_protected -> vt_atm_abort_out.atm_protected;
+	vt_atm_amount_atm: data access atm_protected -> vt_atm_amount.atm_protected;
+	vt_atm_other_amount_atm: data access atm_protected -> vt_atm_other_amount.atm_protected;
+	vt_atm_digit_atm: data access atm_protected -> vt_atm_digit.atm_protected;
+	vt_atm_ok_atm: data access atm_protected -> vt_atm_ok.atm_protected;
+	vt_atm_transaction_succeseeded_atm: data access atm_protected -> vt_atm_transaction_succeseeded.atm_protected;
+end chip.final;
+
+system deploymentview
+end deploymentview;
+
+system implementation deploymentview.final
+subcomponents
+  chip: process chip.final;
+  node1_x86_linux_cv : processor ocarina_processors_x86::x86.linux;
+properties
+  Actual_Processor_Binding => (reference (node1_x86_linux_cv)) applies to chip;
+end deploymentview.final;
+end process_package;
+
+-- deploymentview.final

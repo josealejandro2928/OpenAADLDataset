@@ -1,0 +1,35 @@
+-- Automatically Generated - For use with AADL2GlueC only - Do NOT modify! --
+
+SUBPROGRAM inmsg
+FEATURES
+	whatever:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END inmsg;
+
+SUBPROGRAM IMPLEMENTATION inmsg.Ada
+PROPERTIES
+	FV_Name => "initsys";
+	Source_Language => Ada;
+END inmsg.Ada;
+
+SUBPROGRAM outmsg
+FEATURES
+	msg:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END outmsg;
+
+SUBPROGRAM IMPLEMENTATION outmsg.Ada
+PROPERTIES
+	FV_Name => "initsys";
+	Source_Language => Ada;
+END outmsg.Ada;
+
+SUBPROGRAM check_queue
+FEATURES
+	res:IN PARAMETER DataView::T_Boolean {encoding=>NATIVE;};
+END check_queue;
+
+SUBPROGRAM IMPLEMENTATION check_queue.Ada
+PROPERTIES
+	FV_Name => "initsys";
+	Source_Language => Ada;
+END check_queue.Ada;
+

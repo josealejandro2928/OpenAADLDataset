@@ -1,0 +1,303 @@
+package lgs
+public
+	with PhysicalResources;
+
+	system digital_part
+		features
+			CloseEv: out data port PhysicalResources::ElectricalPower;
+			OpenEv: out data port PhysicalResources::ElectricalPower;
+			RetractEv: out data port PhysicalResources::ElectricalPower;
+			ExtendEv: out data port PhysicalResources::ElectricalPower;
+			h: in event port;
+			gv: out event port;
+
+	end digital_part;
+
+	system implementation digital_part.impl
+	end digital_part.impl;
+
+	thread group GestionRoues
+		features
+			h: in event port;
+			gv: out event port;
+	end GestionRoues;
+
+	thread group implementation GestionRoues.impl
+
+	end GestionRoues.impl;
+
+	process DigitalPartProcess
+		features
+			h: in event port;
+			gv: out event port;
+	end DigitalPartProcess;
+
+	process implementation DigitalPartProcess.impl
+	end DigitalPartProcess.impl;
+
+	system CommutateurAnalogique
+		features
+			general_ev_in: in data port;
+			general_ev_out: out data port;
+			handle: in event port;
+	end CommutateurAnalogique;
+
+	system implementation CommutateurAnalogique.impl
+		subcomponents
+			procCA: process CommutateurAnalogiqueProcess.impl;
+		connections
+			CommutateurAnalogique_impl_new_connection: port handle -> procCA.handle;
+			CommutateurAnalogique_impl_new_connection2: port general_ev_in -> procCA.general_ev_in;
+			CommutateurAnalogique_impl_new_connection3: port procCA.general_ev_out -> general_ev_out;
+	end CommutateurAnalogique.impl;
+
+	thread group GestionCommutateurAnalogique
+		features
+			general_ev_in: in data port;
+			general_ev_out: out data port;
+			handle: in event port;
+	end GestionCommutateurAnalogique;
+
+	thread group implementation GestionCommutateurAnalogique.impl
+		subcomponents
+			ThreadOpenToIntermediate1: thread ThreadOpenToIntermediate1.impl;
+			Intermediate1ToClosed: thread ThreadIntermediate1ToClosed.impl;
+			ClosedToIntermediate2: thread ThreadClosedToIntermediate2.impl;
+			Intermediate2ToOpen: thread ThreadIntermediate2ToOpen.impl;
+			Intermediate2ToIntermediate1: thread ThreadIntermediate2ToIntermediate1.impl;
+			ClosedTOClosed: thread Closed.impl;
+	end GestionCommutateurAnalogique.impl;
+
+	process CommutateurAnalogiqueProcess
+		features
+			general_ev_in: in data port;
+			general_ev_out: out data port;
+			handle: in event port;
+	end CommutateurAnalogiqueProcess;
+
+	process implementation CommutateurAnalogiqueProcess.impl
+		subcomponents
+			threads: thread group GestionCommutateurAnalogique.impl;
+		connections
+			CommutateurAnalogiqueProcess_impl_new_connection: port threads.general_ev_out -> general_ev_out;
+			CommutateurAnalogiqueProcess_impl_new_connection2: port general_ev_in -> threads.general_ev_in;
+			CommutateurAnalogiqueProcess_impl_new_connection3: port handle -> threads.handle;
+	end CommutateurAnalogiqueProcess.impl;
+
+	thread ThreadOpenToIntermediate1
+	end ThreadOpenToIntermediate1;
+
+	thread implementation ThreadOpenToIntermediate1.impl
+	end ThreadOpenToIntermediate1.impl;
+
+	thread ThreadIntermediate1ToClosed
+		features
+			handle: in event port;
+	end ThreadIntermediate1ToClosed;
+
+	thread implementation ThreadIntermediate1ToClosed.impl
+	end ThreadIntermediate1ToClosed.impl;
+
+	thread ThreadClosedToIntermediate2
+	end ThreadClosedToIntermediate2;
+
+	thread implementation ThreadClosedToIntermediate2.impl
+	end ThreadClosedToIntermediate2.impl;
+
+	thread ThreadIntermediate2ToOpen
+	end ThreadIntermediate2ToOpen;
+
+	thread implementation ThreadIntermediate2ToOpen.impl
+	end ThreadIntermediate2ToOpen.impl;
+
+	thread ThreadIntermediate2ToIntermediate1
+		features
+			handle: in event port;
+	end ThreadIntermediate2ToIntermediate1;
+
+	thread implementation ThreadIntermediate2ToIntermediate1.impl
+	end ThreadIntermediate2ToIntermediate1.impl;
+
+	thread Closed
+		features
+			handle: in event port;
+	end Closed;
+
+	thread implementation Closed.impl
+	end Closed.impl;
+
+	system lgsSystem
+	end lgsSystem;
+
+	system implementation lgsSystem.impl
+	subcomponents
+
+		DigitalPart: system digital_part.impl;
+		ElectrovalvesSystem: system ElectrovalvesSystem.impl;
+		GeneralHydrolicFlowBus: bus PhysicalResources::HydraulicFlow;
+
+	connections
+
+		lgsSystem_impl_new_connection26: bus access ElectrovalvesSystem.GenralHydrolicFloww -> GeneralHydrolicFlowBus;
+		lgsSystem_impl_new_connection27: feature DigitalPart.ExtendEv -> ElectrovalvesSystem.ExtendEv;
+		lgsSystem_impl_new_connection28: feature DigitalPart.RetractEv -> ElectrovalvesSystem.RetractEv;
+		lgsSystem_impl_new_connection29: feature DigitalPart.CloseEv -> ElectrovalvesSystem.CloeEV;
+		lgsSystem_impl_new_connection30: feature DigitalPart.OpenEv -> ElectrovalvesSystem.OpenEv;
+end lgsSystem.impl;
+
+	system Close_EV_System
+		features
+			CloseDoorsEvSystem_Hout: requires bus access PhysicalResources::HydraulicFlow;
+			CloseDoorsEvSystem_Hin: requires bus access PhysicalResources::HydraulicFlow;
+
+			CloeEV: in data port PhysicalResources::ElectricalPower;
+	end Close_EV_System;
+
+	system Open_EV_System
+		features
+			Open_EV_System_Hout: requires bus access PhysicalResources::HydraulicFlow;
+			Open_EV_System_Hin: requires bus access PhysicalResources::HydraulicFlow;
+
+			OpenEv: in data port PhysicalResources::ElectricalPower;
+	end Open_EV_System;
+
+	system Retract_EV_System
+		features
+			Retract_EV_System_Hout: requires bus access PhysicalResources::HydraulicFlow;
+			Retract_EV_System_Hin: requires bus access PhysicalResources::HydraulicFlow;
+
+			RetractEv: in data port PhysicalResources::ElectricalPower;
+	end Retract_EV_System;
+
+	system Extend_EV_System
+		features
+			Extend_EV_System_Hout: requires bus access PhysicalResources::HydraulicFlow;
+			Extend_EV_System_Hin: requires bus access PhysicalResources::HydraulicFlow;
+
+			ExtendEv: in data port PhysicalResources::ElectricalPower;
+	end Extend_EV_System;
+
+	system implementation Close_EV_System.impl
+	end Close_EV_System.impl;
+
+	system implementation Open_EV_System.impl
+	end Open_EV_System.impl;
+
+	system implementation Retract_EV_System.impl
+	end Retract_EV_System.impl;
+
+	system implementation Extend_EV_System.impl
+	end Extend_EV_System.impl;
+
+	process CloseDoorEvProcess
+	end CloseDoorEvProcess;
+
+	process implementation CloseDoorEvProcess.impl
+	end CloseDoorEvProcess.impl;
+
+	device FrontDoorCylinder
+		features
+			FrontDoorCylinderReatractionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			FrontDoorCylinder_ExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end FrontDoorCylinder;
+
+	device implementation FrontDoorCylinder.impl
+	end FrontDoorCylinder.impl;
+
+	device RightDoorCylinder
+		features
+			RightDoorCylinderRetractationCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			RightDoorCylinderExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end RightDoorCylinder;
+
+	device implementation RightDoorCylinder.impl
+	end RightDoorCylinder.impl;
+
+	device LeftDoorCylinder
+		features
+			LeftDoorCylinderRetractationCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			LeftDoorCylinderExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end LeftDoorCylinder;
+
+	device implementation LeftDoorCylinder.impl
+	end LeftDoorCylinder.impl;
+
+	device FrontGearCylinder
+		features
+			FrontGearCylinderRetractationCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			FrontGearCylinderExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end FrontGearCylinder;
+
+	device implementation FrontGearCylinder.impl
+	end FrontGearCylinder.impl;
+
+	device RightGearCylinder
+		features
+			RightGearCylinderRetractationCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			RightGearCylinderExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end RightGearCylinder;
+
+	device implementation RightGearCylinder.impl
+	end RightGearCylinder.impl;
+
+	device LeftGearCylinder
+		features
+			LeftGearCylinderRetractationCircuit: requires bus access PhysicalResources::HydraulicFlow;
+			LeftGearCylinderExtensionCircuit: requires bus access PhysicalResources::HydraulicFlow;
+	end LeftGearCylinder;
+
+	device implementation LeftGearCylinder.impl
+	end LeftGearCylinder.impl;
+
+	system ElectrovalvesSystem
+	features
+		GenralHydrolicFloww: requires bus access PhysicalResources::HydraulicFlow;
+		CloeEV: in data port PhysicalResources::ElectricalPower;
+		OpenEv: in data port PhysicalResources::ElectricalPower;
+		ExtendEv: in data port PhysicalResources::ElectricalPower;
+		RetractEv: in data port PhysicalResources::ElectricalPower;
+end ElectrovalvesSystem;
+
+	system implementation ElectrovalvesSystem.impl
+	subcomponents
+		lgsSystem_OpenDoorEvSystemImpl: system Open_EV_System.impl;
+		lgsSystem_CloseDoorEvSystemImpl: system Close_EV_System.impl;
+		lgsSystem_ExtendEvSystemImpl: system Extend_EV_System.impl;
+		lgsSystem_RetractEvSystemImpl: system Retract_EV_System.impl;
+		FrontGearCylinder: device FrontGearCylinder.impl;
+		RightGearCylinder: device LeftGearCylinder.impl;
+		LeftDoorCylinder: device LeftDoorCylinder.impl;
+		LeftGearCylinder: device RightGearCylinder.impl;
+		RightDoorCylinder: device RightDoorCylinder.impl;
+		FrontDoorCylinder: device FrontDoorCylinder.impl;
+		ExtensionCircuit_OpenDoorEV_HydrolicBus: bus PhysicalResources::HydraulicFlow;
+		RetractationCircuit_RetractEv_HydrolicBus: bus PhysicalResources::HydraulicFlow;
+		RetractationCircuitHydrolicBus: bus PhysicalResources::HydraulicFlow;
+		RetractationCircuit_ExtendEv_HydrolicBus: bus PhysicalResources::HydraulicFlow;
+	connections
+		ElectrovalvesSystem_impl_new_connection: bus access FrontDoorCylinder.FrontDoorCylinderReatractionCircuit -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection2: bus access RightDoorCylinder.RightDoorCylinderRetractationCircuit -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection3: bus access LeftDoorCylinder.LeftDoorCylinderRetractationCircuit -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection4: bus access FrontGearCylinder.FrontGearCylinderRetractationCircuit -> RetractationCircuit_ExtendEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection5: bus access RightGearCylinder.LeftGearCylinderRetractationCircuit -> RetractationCircuit_ExtendEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection6: bus access LeftGearCylinder.RightGearCylinderRetractationCircuit -> RetractationCircuit_ExtendEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection7: bus access LeftGearCylinder.RightGearCylinderExtensionCircuit -> RetractationCircuit_RetractEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection8: bus access RightGearCylinder.LeftGearCylinderExtensionCircuit -> RetractationCircuit_RetractEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection9: bus access FrontGearCylinder.FrontGearCylinderExtensionCircuit -> RetractationCircuit_RetractEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection10: bus access LeftDoorCylinder.LeftDoorCylinderExtensionCircuit -> ExtensionCircuit_OpenDoorEV_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection11: bus access RightDoorCylinder.RightDoorCylinderExtensionCircuit -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection12: bus access FrontDoorCylinder.FrontDoorCylinder_ExtensionCircuit -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection13: bus access lgsSystem_CloseDoorEvSystemImpl.CloseDoorsEvSystem_Hout -> RetractationCircuitHydrolicBus;
+		ElectrovalvesSystem_impl_new_connection14: bus access lgsSystem_OpenDoorEvSystemImpl.Open_EV_System_Hout -> ExtensionCircuit_OpenDoorEV_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection15: bus access lgsSystem_ExtendEvSystemImpl.Extend_EV_System_Hout -> RetractationCircuit_ExtendEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection16: bus access lgsSystem_RetractEvSystemImpl.Retract_EV_System_Hout -> RetractationCircuit_RetractEv_HydrolicBus;
+		ElectrovalvesSystem_impl_new_connection17: feature OpenEv -> lgsSystem_OpenDoorEvSystemImpl.OpenEv;
+		ElectrovalvesSystem_impl_new_connection18: feature ExtendEv -> lgsSystem_ExtendEvSystemImpl.ExtendEv;
+		ElectrovalvesSystem_impl_new_connection19: feature CloeEV -> lgsSystem_CloseDoorEvSystemImpl.CloeEV;
+		ElectrovalvesSystem_impl_new_connection20: bus access GenralHydrolicFloww -> lgsSystem_CloseDoorEvSystemImpl.CloseDoorsEvSystem_Hin;
+		ElectrovalvesSystem_impl_new_connection21: bus access GenralHydrolicFloww -> lgsSystem_OpenDoorEvSystemImpl.Open_EV_System_Hin;
+		ElectrovalvesSystem_impl_new_connection22: bus access GenralHydrolicFloww -> lgsSystem_ExtendEvSystemImpl.Extend_EV_System_Hin;
+		ElectrovalvesSystem_impl_new_connection23: bus access GenralHydrolicFloww -> lgsSystem_RetractEvSystemImpl.Retract_EV_System_Hin;
+		ElectrovalvesSystem_impl_new_connection24: feature RetractEv -> lgsSystem_RetractEvSystemImpl.RetractEv;
+end ElectrovalvesSystem.impl;
+end lgs;

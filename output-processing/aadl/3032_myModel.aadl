@@ -1,0 +1,76 @@
+package myModel
+public
+	with Deployment;
+	system simpleSystem
+		
+	end simpleSystem;
+	system implementation simpleSystem.impl
+		subcomponents
+			this_process: process this_process.impl;
+			cpu: processor cpu.impl;
+		properties 
+			Actual_Processor_Binding => (reference (cpu)) applies to this_process;
+	end simpleSystem.impl;
+	subprogram s1
+		properties
+			source_language => (C);
+			source_name     => "A";
+			source_text     => ("subpgm.c");
+	end s1;
+	
+	subprogram s2
+		properties
+			source_language => (C);
+			source_name     => "B";
+			source_text     => ("subpgm.c");
+	end s2;
+
+	thread task
+		
+	end task;
+	
+	thread implementation task.impl1
+		calls
+	    Mycalls: {
+	    P_Spg : subprogram s1;
+	    };
+	  properties
+	    Dispatch_Protocol                  => Periodic;
+	    Priority                           => 1;
+	    Period                             => 1000 ms;
+	    --Compute_Execution_time             => 0 ms .. 3 ms;
+	    --Deadline                           => 1000 ms;
+	end task.impl1;
+	thread implementation task.impl2
+		calls
+	    Mycalls: {
+	    P_Spg : subprogram s2;
+	    };
+	  properties
+	    Dispatch_Protocol                  => Periodic;
+	    Priority                           => 1;
+	    Period                             => 1000 ms;
+	    --Compute_Execution_time             => 0 ms .. 5 ms;
+	    --Deadline                           => 1000 ms;
+	end task.impl2;
+	processor cpu
+  	end cpu;
+
+  	processor implementation cpu.impl
+  		properties
+  			Deployment::Execution_Platform => LINUX64;
+    		Scheduling_Protocol => (POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL);
+  	end cpu.impl;
+  	
+  	process this_process
+  	end this_process;
+
+	process implementation this_process.impl
+	  subcomponents
+	    Task1 : thread task.impl1;
+	    Task2 : thread task.impl2;
+	end this_process.impl;
+	
+	
+	
+	end myModel;

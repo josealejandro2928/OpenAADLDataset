@@ -1,0 +1,50 @@
+package HardwareParts
+public
+	with SEI;
+
+	processor PowerPC
+		features
+			CanBA: requires bus access PCIEBus;
+			PCIBA: requires bus access MemoryBus;
+	end PowerPC;
+
+	processor implementation PowerPC.single
+		properties
+			SEI::NetWeight => 0.7kg;
+			SEI::MIPSCapacity => 1000.0 MIPS;
+	end PowerPC.single;
+
+	processor implementation PowerPC.octacore
+		properties
+			SEI::NetWeight => 0.8kg;
+			SEI::MIPSCapacity => 304.510 GIPS;
+	end PowerPC.octacore;
+
+	memory RAM
+		features
+			PCIBA: requires bus access MemoryBus;
+		properties
+			SEI::NetWeight => 0.8kg;
+			Memory_Size => 4GByte;
+	end RAM;
+
+--	memory ROM
+--		features
+--			PCIBA: requires bus access PCI;
+--		properties
+--			SEI::NetWeight => 0.4kg;
+--	end ROM;
+
+	bus PCIEBus
+		properties
+--			SEI::BandWidthCapacity => 10.0 KBytesps;
+			SEI::BandWidthCapacity => 39.74 GBytesps;
+			SEI::NetWeight => 1.3kg;
+	end PCIEBus;
+
+	bus MemoryBus
+		properties
+			SEI::BandWidthCapacity => 985.0 MBytesps;
+			SEI::NetWeight => 0.5kg;
+	end MemoryBus;
+end HardwareParts;

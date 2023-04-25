@@ -1,0 +1,150 @@
+package syst
+public
+	
+	system SecuritySystem
+	end SecuritySystem;
+	
+	system implementation SecuritySystem.with_devices
+		subcomponents 
+			the_montion_sensor: device MotionSensor;
+			the_magnetic_alarm_sensor: device MagneticAlarmSensor;
+			the_camera: device Camera;
+			the_alarm_unit: device AlarmUnit;
+			the_controller: process Controller.with_threads;
+			the_bus: bus HWConnection.impl;
+			the_processor: processor MainProcessor.impl;
+		connections
+			magnetic_conn: port the_magnetic_alarm_sensor.alarm_set_off -> the_controller.magnetic_in;
+			motion_conn: port the_montion_sensor.montion_detected -> the_controller.motion_in;
+			camera_conn_out: port the_controller.camera_out -> the_camera.camera_on_off;
+			alarm_conn: port the_controller.alarm_out -> the_alarm_unit.alarm_on_off;
+			camera_conn_in : port the_camera.video_stream -> the_controller.video_from_camera; 
+			
+			bus_motion: bus access the_bus -> the_montion_sensor.bus_access;
+			bus_magnetic: bus access the_bus -> the_magnetic_alarm_sensor.bus_access;
+			bus_camera: bus access the_bus -> the_camera.bus_access;
+			bus_alarm: bus access the_bus -> the_alarm_unit.bus_access;
+			bus_processor: bus access the_bus -> the_processor.bus_access;
+	end SecuritySystem.with_devices;
+	
+	process Controller
+		features 
+			video_from_camera: in data port;
+			motion_in: in event port;
+			magnetic_in: in event port;
+			camera_out: out event port;
+			alarm_out: out event port;
+	end Controller;
+	
+	process implementation Controller.with_threads
+		subcomponents
+			the_thread_motion: thread ReadMotion.impl;
+			the_thread_magnetic: thread ReadMagnetic.impl;
+			the_thread_control: thread ControlRules.impl;
+			the_thread_video: thread ProcessVideo.impl;
+		connections
+			motion_thread_conn: port motion_in -> the_thread_motion.motion_in;
+			magnetic_thread_conn: port magnetic_in -> the_thread_magnetic.magnetic_in;
+			motion_control_conn: port the_thread_motion.motion_out -> the_thread_control.motion_in;
+			magnetic_control_conn: port the_thread_magnetic.magnetic_out ->  the_thread_control.magnetic_in;
+			camera_control_conn: port the_thread_control.camera_out -> camera_out;
+		        alarm_control_conn: port the_thread_control.alarm_out -> alarm_out;
+			video_conn: port video_from_camera -> the_thread_video.video_in;
+			
+	end Controller.with_threads;
+	
+	thread ReadMotion
+		features 
+			motion_in: in event port;
+			motion_out: out event port;
+	end ReadMotion;
+	
+	thread implementation ReadMotion.impl
+	end ReadMotion.impl;
+	
+	thread ReadMagnetic
+		features
+			magnetic_in: in event port;
+			magnetic_out: out event port;
+	end ReadMagnetic;
+	
+	thread implementation ReadMagnetic.impl
+	end ReadMagnetic.impl;
+	
+	
+	thread ControlRules
+		features 
+			motion_in: in event port;
+			magnetic_in: in event port;
+			camera_out: out event port;
+			alarm_out: out event port;
+	end ControlRules;
+	
+	thread implementation ControlRules.impl
+	end ControlRules.impl;
+	
+	thread ProcessVideo
+		features 
+			video_in: in data port;
+	end ProcessVideo;
+	
+	thread implementation ProcessVideo.impl
+	end ProcessVideo.impl;
+	
+	processor MainProcessor
+		features 
+			bus_access : requires bus access;
+	end MainProcessor;
+	
+	processor implementation MainProcessor.impl
+		subcomponents
+			the_ram: memory Ram;
+	end MainProcessor.impl;
+	
+	memory Ram
+	end Ram;
+	
+	bus HWConnection
+	end HWConnection;
+	
+	bus implementation HWConnection.impl
+	end HWConnection.impl;
+	
+	device MotionSensor
+		features 
+			montion_detected: out event port;
+			bus_access: requires bus access;
+	end MotionSensor;
+	
+	device implementation MotionSensor.impl
+	end MotionSensor.impl;
+	
+	
+	device MagneticAlarmSensor
+		features 
+			alarm_set_off: out event port;
+			bus_access: requires bus access;
+	end MagneticAlarmSensor;
+	
+	device implementation MagneticAlarmSensor.impl
+	end MagneticAlarmSensor.impl;
+	
+	device Camera
+		features
+			camera_on_off: in event port;
+			video_stream: out data port;
+			bus_access: requires bus access;
+	end Camera;
+	
+	device implementation Camera.impl
+	end Camera.impl;
+	
+	device AlarmUnit	
+		features
+			alarm_on_off: in event port;
+			bus_access: requires bus access;
+	end AlarmUnit;
+	
+	device implementation AlarmUnit.impl
+	end AlarmUnit.impl;
+end syst;

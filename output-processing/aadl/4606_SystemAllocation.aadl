@@ -1,0 +1,45 @@
+package SystemAllocation
+public
+	with CaseStudyPlatform;
+	with ReconfigStudy::ProcessSystem;
+	with ReconfigStudy::Threads;
+	
+	
+	system allocation
+		
+	end allocation;
+	
+	system implementation allocation.sys
+		subcomponents
+			Vz_Control_1: process ReconfigStudy::ProcessSystem::VaControl.Proc;
+			Vz_Control_2: process ReconfigStudy::ProcessSystem::VaControl.Proc;
+			Vz_Filter_T: process ReconfigStudy::ProcessSystem::pVz_Filter_T.Proc;
+			Guidance: process ReconfigStudy::ProcessSystem::pGuidance.Proc;			
+			RouteCtrl: process ReconfigStudy::ProcessSystem::pRouteCtrl.Proc;
+			ProcessingUnitA: processor CaseStudyPlatform::ProcessingUnit.m1;
+			ProcessingUnitB: processor CaseStudyPlatform::ProcessingUnit.m1;
+			ProcessingUnitC: processor CaseStudyPlatform::ProcessingUnit.m1;
+			RDC1: processor CaseStudyPlatform::RemoteDataConcentratorUnit.m2;
+			RDC2: processor CaseStudyPlatform::RemoteDataConcentratorUnit.m2;
+			RDC3: processor CaseStudyPlatform::RemoteDataConcentratorUnit.m2;
+			RDC4: processor CaseStudyPlatform::RemoteDataConcentratorUnit.m2;
+			RDC5: processor CaseStudyPlatform::RemoteDataConcentratorUnit.m2;
+			afdx_bus_1: bus CaseStudyPlatform::physical_afdx_link;
+		connections
+			B1: bus access afdx_bus_1 <-> ProcessingUnitA.afdx;
+			B2: bus access afdx_bus_1 <-> ProcessingUnitB.afdx;
+			B3: bus access afdx_bus_1 <-> ProcessingUnitC.afdx;
+			B4: bus access RDC1.afdx <-> afdx_bus_1;
+			B5: bus access RDC2.afdx <-> afdx_bus_1;
+			B6: bus access RDC3.afdx <-> afdx_bus_1;
+			B7: bus access RDC4.afdx <-> afdx_bus_1;
+			B8: bus access RDC5.afdx <-> afdx_bus_1;
+		properties
+			Actual_Processor_Binding => (reference (ProcessingUnitA.partition_2)) applies to Guidance;
+			Actual_Processor_Binding => (reference (ProcessingUnitB)) applies to RouteCtrl;
+			Actual_Processor_Binding => (reference (ProcessingUnitA.partition_3)) applies to Vz_Control_1;
+			Actual_Processor_Binding => (reference (ProcessingUnitC)) applies to Vz_Control_2;
+			Actual_Processor_Binding => (reference (RDC1)) applies to Vz_Filter_T;
+	end allocation.sys;
+	
+end SystemAllocation;

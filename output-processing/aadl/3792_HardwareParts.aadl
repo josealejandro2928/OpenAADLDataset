@@ -1,0 +1,106 @@
+package HardwareParts
+public
+	with SEI;
+
+	processor PowerPC
+		features
+			CanBA: requires bus access CANBus;
+			PCIBA: requires bus access PCIBus;
+		properties
+			SEI::NetWeight => 0.5 kg;
+	end PowerPC;
+
+	memory RAM
+		features
+			PCIba: requires bus access PCIBus;	
+		properties
+			SEI::NetWeight => 0.8 kg;
+	end RAM;
+	
+	memory ROM
+		features
+			PCIba: requires bus access PCIBus;
+		properties
+			SEI::NetWeight => 0.4 kg;
+	end ROM;
+	
+	bus CANBus
+		properties
+			SEI::NetWeight => 0.3 kg;
+			SEI::BandWidthCapacity => 10.0 KBytesps;
+	end CANBus;
+	
+	bus PCIBus
+		properties
+			SEI::WeightLimit => 0.5 kg;
+	end PCIBus;
+	
+	processor implementation PowerPC.single
+		properties
+			SEI::WeightLimit => 0.7 kg;
+			SEI::MIPSCapacity => 1000.0 MIPS;
+	end PowerPC.single;
+	
+	processor implementation PowerPC.dual
+		properties
+			SEI::WeightLimit => 0.8 kg;
+			SEI::MIPSCapacity => 2000.0 MIPS;			
+	end PowerPC.dual;
+	
+	process myProcess
+		properties
+			SEI::MIPSBudget => 1200.0 MIPS;
+	end myProcess;
+	
+	
+--	bus USB
+--	end USB;
+--	
+--	processor p
+--		features
+--			usb_bus: provides bus access USB;
+--	end p;
+--	
+--	processor implementation p.impl
+--		subcomponents
+--			usb: bus USB;
+--		properties
+--			Scheduling_Protocol => (POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL);
+--	end p.impl;
+--
+--	bus net_bus
+--	
+--	end net_bus;
+--	
+--	bus eth_bus
+--		features
+--			net_bus: requires bus access net_bus;
+--		properties
+--			SEI::BandWidthCapacity => 12.5 MBytesps;
+--	end eth_bus;
+--	
+--	bus VMEBus
+--		
+--	end VMEBus;
+--	
+--	memory ram_ex
+--		properties
+--			Memory_Size => 4096 Bytes;
+--	end ram_ex;
+--	
+--	memory rom_ex
+--		properties
+--			Memory_Size => 4096 Bytes;
+--	end rom_ex;
+--	
+--	memory sys_mem
+--		features
+--			vme_bus: requires bus access VMEBUS;
+--	end sys_mem;
+--	
+--	memory implementation sys_mem.impl
+--		subcomponents
+--			ram: memory ram_ex;
+--			rom: memory rom_ex;
+--	end sys_mem.impl;
+end HardwareParts;

@@ -1,0 +1,100 @@
+package RemoteServer
+public
+	
+system RemoteServer
+	features
+		in_rs_mcr:      in event port;
+		out_rs_mcr:     out event port;
+		in_rs_clients:  in event port;
+		out_rs_clients: out event port;
+end RemoteServer;
+	
+system implementation RemoteServer.impl
+	subcomponents
+		CLIENT_CONTROLLER: process Client_Controller;
+		ROUTER_CONTROLLER: process Router_Controller;
+	connections
+		c1: port in_rs_mcr -> ROUTER_CONTROLLER.rc_data_receiver;
+		c2: port ROUTER_CONTROLLER.rc_data_sender -> out_rs_mcr;
+		c3: port in_rs_clients -> CLIENT_CONTROLLER.cc_data_receiver;
+		c4: port CLIENT_CONTROLLER.cc_data_sender -> out_rs_clients;
+end RemoteServer.impl;
+
+process Client_Controller
+	features
+		cc_data_receiver: in event port;
+		cc_data_sender :  out event port;
+end Client_Controller;
+	
+
+process implementation Client_Controller.impl
+	subcomponents
+		CC_RECEIVER : thread Cc_Receiver;
+		CC_SEND     : thread Cc_Sender;
+	connections
+		c1: port cc_data_receiver -> CC_RECEIVER.thread_data_receiver;
+		c2: port CC_SEND.thread_data_sender -> cc_data_sender;
+		c3: port CC_RECEIVER.thread_data_sender -> CC_SEND.thread_data_receiver;
+end Client_Controller.impl;	
+
+thread Cc_Receiver
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Cc_Receiver;
+
+thread implementation Cc_Receiver.impl
+annex EMV2 {**
+	use types ErrorLibrary, MainControlRouter;
+	use behavior MainControlRouter::FailDisconnect;
+	
+	error propagations
+		thread_data_receiver: in propagation {AuthorizationError};
+	flows
+		es1: error sink thread_data_receiver{AuthorizationError};
+	end propagations;
+	
+	component error behavior
+		transitions
+	    	trs1: Running -[thread_data_receiver{AuthorizationError}]-> Disconnect;
+	    	trs2: Disconnect -[thread_data_receiver{NoError}]-> Running;
+	end component;
+**};	
+end Cc_Receiver.impl;
+
+thread Cc_Sender
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Cc_Sender;
+	
+process Router_Controller
+	features
+		rc_data_receiver: in event port;
+		rc_data_sender :  out event port;
+end Router_Controller;
+		
+process implementation Router_Controller.impl
+	subcomponents
+		RC_RECEIVER : thread Rc_Receiver;
+		RC_SEND     : thread Rc_Sender;
+	connections
+		c1: port rc_data_receiver -> RC_RECEIVER.thread_data_receiver;
+		c2: port RC_SEND.thread_data_sender -> rc_data_sender;
+		c3: port RC_RECEIVER.thread_data_sender -> RC_SEND.thread_data_receiver;
+end Router_Controller.impl;	
+
+thread Rc_Receiver
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Rc_Receiver;
+	
+thread Rc_Sender
+	features
+		thread_data_receiver:  in event port;
+		thread_data_sender:    out event port;
+end Rc_Sender;
+			
+		
+end RemoteServer;

@@ -1,0 +1,37 @@
+package SB_Arg_IO
+public
+	with SB_Interface;
+	
+	--------all feature groups can add "feature group [type];" corresponding to its data type
+	feature group CreatePipeArgs
+		features
+			a: feature group SB_Interface::P_CreatePipe;
+	end CreatePipeArgs;
+	
+	feature group DeletePipeArgs
+    	features
+			a: feature group SB_Interface::P_DeletePipe;
+    end DeletePipeArgs;
+    
+    feature group SubscribeArgs
+    	features
+			a: feature group SB_Interface::P_Subscribe;
+    end SubscribeArgs;
+    
+    feature group UnsubscribeArgs
+    	features
+			a: feature group SB_Interface::P_Unsubscribe;
+    end UnsubscribeArgs;
+    
+    feature group SendMsgArgs
+    	features
+    		-----Msg-----
+    		a: feature group SB_Interface::P_SendMsg;
+    		-----Event-----
+			ES_RESTART_APP_ERR: feature group SB_Interface::P_SendMsg;
+			ES_CC1_ERR: feature group SB_Interface::P_SendMsg;
+			SB_BAD_CMD_CODE: feature group SB_Interface::P_SendMsg;
+			EVS_ERR_MSGID: feature group SB_Interface::P_SendMsg;
+			TIME_CC_ERR: feature group SB_Interface::P_SendMsg;
+    end SendMsgArgs;
+end SB_Arg_IO;

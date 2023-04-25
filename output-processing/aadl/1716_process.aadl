@@ -1,0 +1,43 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package process_package
+public
+	with Deployment;
+	with DataView;
+	with interfaceview::IV;
+	with deploymentview::DV;
+	with ocarina_processors_x86;
+	with timersys_CV_Thread;
+	with vt_gui_outputmsg_CV_Thread;
+	with vt_gui_gui_polling_gui_CV_Thread;
+
+process chip extends deploymentview::DV::node1::chip
+end chip;
+
+process implementation chip.final
+subcomponents
+	timersys : thread timersys_CV_Thread::timersys_timersys.others;
+	vt_gui_outputmsg : thread vt_gui_outputmsg_CV_Thread::vt_gui_outputmsg_vt_gui_outputmsg.others;
+	vt_gui_gui_polling_gui : thread vt_gui_gui_polling_gui_CV_Thread::vt_gui_gui_polling_gui_vt_gui_gui_polling_gui.others;
+connections
+	PORT timersys.OUTPORT_outputmsg -> vt_gui_outputmsg.INPORT_artificial_outputmsg;
+	PORT vt_gui_outputmsg.OUTPORT_inputmsg_vt -> timersys.INPORT_inputmsg;
+	PORT vt_gui_gui_polling_gui.OUTPORT_inputmsg_vt -> timersys.INPORT_inputmsg;
+end chip.final;
+
+system deploymentview
+end deploymentview;
+
+system implementation deploymentview.final
+subcomponents
+  chip: process chip.final;
+  node1_x86_linux_cv : processor ocarina_processors_x86::x86.linux;
+properties
+  Actual_Processor_Binding => (reference (node1_x86_linux_cv)) applies to chip;
+end deploymentview.final;
+end process_package;
+
+-- deploymentview.final

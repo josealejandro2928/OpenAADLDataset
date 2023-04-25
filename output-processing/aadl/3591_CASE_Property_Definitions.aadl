@@ -1,0 +1,28 @@
+package CASE_Property_Definitions
+public
+	with CASE_Scheduling;
+
+	abstract Domain_Processor
+		properties
+			
+			Frame_Period => 1000ms;
+			
+			Clock_Period => 2ms;
+			
+			CASE_Scheduling::Max_Domain => 10; -- not currently used by HAMR
+			
+	end Domain_Processor;
+
+	abstract Periodic_Thread
+		properties
+			Dispatch_Protocol => Periodic;
+
+			Period => Isolette_Properties::ThreadPeriod;
+
+			Stack_Size => Isolette_Properties::StackSize;
+
+			Timing_Properties::Compute_Execution_Time => Isolette_Properties::Default_Compute_Execution_Time;
+
+	end Periodic_Thread;
+
+end CASE_Property_Definitions;

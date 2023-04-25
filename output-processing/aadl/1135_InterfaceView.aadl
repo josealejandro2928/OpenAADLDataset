@@ -1,0 +1,191 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::gui
+PUBLIC
+
+WITH interfaceview::IV::guard_1;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION PI_out_msg.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_out_msg.others;
+
+SUBPROGRAM RI_get_data
+FEATURES
+  x : IN PARAMETER DataView::MyReal {
+    Taste::encoding => NATIVE;
+  };
+END RI_get_data;
+
+SUBPROGRAM IMPLEMENTATION RI_get_data.others
+END RI_get_data.others;
+
+SUBPROGRAM RI_check
+FEATURES
+  whatever : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_check;
+
+SUBPROGRAM IMPLEMENTATION RI_check.others
+END RI_check.others;
+
+SYSTEM gui
+FEATURES
+  PI_out_msg : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "101347 61888";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "out_msg";
+  };
+  RI_get_data : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::guard_1::PI_get_data.others {
+    Taste::coordinates => "101347 71382";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "get_data";
+    Taste::labelInheritance => "true";
+  };
+  RI_check : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::guard_1::PI_check.others {
+    Taste::coordinates => "101347 77439";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "check";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (GUI);
+  Taste::Active_Interfaces => any;
+END gui;
+
+SYSTEM IMPLEMENTATION gui.others
+END gui.others;
+
+END interfaceview::IV::gui;
+
+PACKAGE interfaceview::IV::guard_1
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_get_data
+FEATURES
+  x : IN PARAMETER DataView::MyReal {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_get_data;
+
+SUBPROGRAM IMPLEMENTATION PI_get_data.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_get_data.others;
+
+SUBPROGRAM RI_out_msg
+FEATURES
+  msg : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END RI_out_msg;
+
+SUBPROGRAM IMPLEMENTATION RI_out_msg.others
+END RI_out_msg.others;
+
+SUBPROGRAM PI_check
+FEATURES
+  whatever : IN PARAMETER DataView::MyString {
+    Taste::encoding => NATIVE;
+  };
+END PI_check;
+
+SUBPROGRAM IMPLEMENTATION PI_check.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_check.others;
+
+SYSTEM guard_1
+FEATURES
+  PI_get_data : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::guard_1::PI_get_data.others {
+    Taste::coordinates => "119848 71385";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "get_data";
+  };
+  RI_out_msg : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gui::PI_out_msg.others {
+    Taste::coordinates => "119848 61889";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "out_msg";
+    Taste::labelInheritance => "true";
+  };
+  PI_check : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::guard_1::PI_check.others {
+    Taste::coordinates => "119848 77443";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 1000 ms;
+    Taste::InterfaceName => "check";
+  };
+PROPERTIES
+  Source_Language => (SDL);
+  Taste::Active_Interfaces => any;
+END guard_1;
+
+SYSTEM IMPLEMENTATION guard_1.others
+END guard_1.others;
+
+END interfaceview::IV::guard_1;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::gui;
+WITH interfaceview::IV::guard_1;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  gui : SYSTEM interfaceview::IV::gui::gui.others {
+    Taste::coordinates => "78261 57304 101347 80062";
+  };
+  guard_1 : SYSTEM interfaceview::IV::guard_1::guard_1.others {
+    Taste::coordinates => "119848 57141 144243 80062";
+  };
+CONNECTIONS
+  gui_PI_out_msg_guard_1_RI_out_msg : SUBPROGRAM ACCESS gui.PI_out_msg -> guard_1.RI_out_msg {
+    Taste::coordinates => "119848 61889 110597 61889 110597 61888 101347 61888";
+  };
+  guard_1_PI_get_data_gui_RI_get_data : SUBPROGRAM ACCESS guard_1.PI_get_data -> gui.RI_get_data {
+    Taste::coordinates => "101347 71382 110597 71382 110597 71385 119848 71385";
+  };
+  guard_1_PI_check_gui_RI_check : SUBPROGRAM ACCESS guard_1.PI_check -> gui.RI_check {
+    Taste::coordinates => "101347 77439 110597 77439 110597 77443 119848 77443";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("DataView.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

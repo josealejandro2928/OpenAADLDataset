@@ -1,0 +1,33 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_guard_1_check_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_guard_1_check_vt_guard_1_check
+features
+	INPORT_artificial_check : IN EVENT DATA PORT DataView::MyString_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_guard_1_check_artificial_check"; };
+	OUTPORT_out_msg_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	guard_1_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_guard_1_check_vt_guard_1_check;
+
+THREAD IMPLEMENTATION vt_guard_1_check_vt_guard_1_check.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_guard_1";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1000 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 9;
+END vt_guard_1_check_vt_guard_1_check.others;
+
+end vt_guard_1_check_CV_Thread;

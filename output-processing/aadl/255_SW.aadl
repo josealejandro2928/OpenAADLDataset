@@ -1,0 +1,61 @@
+package SW
+public
+	with Drivers;
+	with Waterways_UxAS;
+    with CASE_Model_Transformations;
+    
+    with CASEAgree;
+    with CASEConsts;
+    
+	process SW
+        features
+	       uart_recv: in event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+           uart_send: out event data port CASE_Model_Transformations::CASE_UART_Msg.Impl;
+           radio_recv: in event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+           radio_send: out event data port CASE_Model_Transformations::CASE_RF_Msg.Impl;
+                 
+        annex agree {**
+            guarantee Req001_SW "The radio_send outputs only well formed CASE_RF_Msg.Impl types" : 
+                CASEAgree::WellformedCASE_RF_Msg(radio_send, CASEConsts::UAV_ID, CASEConsts::GS_ID);
+            guarantee Req002_SW "The uart_send outputs only well formed CASE_RF_Msg.Impl types" : 
+                CASEAgree::WellformedCASE_UART_Msg(uart_send);
+        **};
+            
+	end SW;
+			
+	process implementation SW.Impl
+	   subcomponents
+           FC_UART: thread Drivers::UARTDriver.Impl;
+           RADIO: thread Drivers::RadioDriver.Impl;
+           UXAS: thread group Waterways_UxAS::Waterways.i;
+		connections
+		   ------------------
+	       -- Primary Inputs
+	       ------------------
+		   c01: port uart_recv -> FC_UART.recv_data;
+		   c02: port radio_recv -> RADIO.recv_data;
+		    	           
+		   ----------- 	           
+           -- FC_UART
+           -----------
+           c03: port FC_UART.send_data -> uart_send;
+           c05: port FC_UART.AirVehicleState -> UXAS.AirVehicleState;
+           c06: port FC_UART.AirVehicleState -> RADIO.AirVehicleState;
+           
+           ---------
+           -- RADIO
+           ---------
+           c07: port RADIO.send_data -> radio_send;
+           c08: port RADIO.AutomationRequest -> UXAS.AutomationRequest; 
+           c_r_09: port RADIO.OperatingRegion -> UXAS.OperatingRegion;
+           c_r_10: port RADIO.LineSearchTask -> UXAS.LineSearchTask;	
+            
+           --------
+           -- UXAS
+           --------
+           c09: port UXAS.MissionCommand -> FC_UART.MissionCommand;
+           c12: port UXAS.AutomationResponse -> RADIO.AutomationResponse;
+               
+	end SW.Impl;
+	
+end SW;

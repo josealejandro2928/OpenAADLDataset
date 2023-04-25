@@ -1,0 +1,34 @@
+package command
+public
+	system command
+		features
+			command_input: in out data port;
+--			command_output: out data port;
+			client_port: in out data port;
+	end command;
+
+	system implementation command.impl
+		subcomponents
+			voice: device voice;
+			touch: device touch;
+		connections
+			command_impl_new_connection: port touch.touch_input -> command_input;
+			command_impl_new_connection2: port voice.voice_input -> command_input;
+			client_connection: port voice.client_port -> client_port;
+			client_connection2: port touch.client_port -> client_port;			
+	end command.impl;
+
+	device voice
+		features
+			voice_input: in out data port;
+--			voice_output: out data port;
+			client_port: in out data port;
+	end voice;
+
+	device touch
+		features
+			touch_input: in out data port;
+--			touch_output: out data port;		
+			client_port: in out data port;
+	end touch;
+end command;

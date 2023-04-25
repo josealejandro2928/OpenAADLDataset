@@ -1,0 +1,36 @@
+package isolette_integration_1
+public
+	with isolette, isolette_thermostat, isolette_heat_source, isolette_temperature_sensor, isolette_operator_interface;
+	
+	system Isolette_Refined extends isolette::Isolette
+	end Isolette_Refined;
+
+	system implementation Isolette_Refined.Normal_Operation extends isolette::Isolette.Normal_Operation
+		subcomponents
+			thermostat : refined to system isolette_thermostat::Thermostat.impl_rev;
+			heat_source : refined to system isolette_heat_source::Heat_Source.impl;
+			temperature_sensor : refined to system isolette_temperature_sensor::Temperature_Sensor.impl;
+			operator_interface : refined to system isolette_operator_interface::Operator_Interface.impl;
+		flows
+			temp_sensor_to_heat_source_flow : end to end flow 	temperature_sensor.temp_sensor_source -> 
+																temp_sensor_thermostat_conn ->
+																thermostat.current_temperature_heat_control ->
+																thermostat_heat_control_conn ->
+																heat_source.heat_source_sink;
+			op_interface_to_reg_status : end to end flow 	operator_interface.desired_temp_range_source -> 
+															op_settings_thermostat_conn ->
+															thermostat.desired_temp_regulator_status ->
+															thermostat_operator_feedback_conn ->
+															operator_interface.operator_interface_sink;
+			op_interface_to_mon_status : end to end flow 	operator_interface.alarm_temp_range_source -> 
+															op_settings_thermostat_conn ->
+															thermostat.alarm_temp_monitor_status ->
+															thermostat_operator_feedback_conn ->
+															operator_interface.operator_interface_sink;
+		properties
+			Actual_Latency => 750 ms .. 800 ms applies to temp_sensor_to_heat_source_flow;
+			Actual_Latency => 750 ms .. 800 ms applies to op_interface_to_reg_status;
+			Actual_Latency => 750 ms .. 800 ms applies to op_interface_to_mon_status;
+	end Isolette_Refined.Normal_Operation;
+
+end isolette_integration_1;

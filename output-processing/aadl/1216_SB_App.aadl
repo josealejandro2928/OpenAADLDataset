@@ -1,0 +1,33 @@
+package SB_App
+public
+	with Component;
+	with SB_Sugar;
+	
+	thread SBAPP extends Component::Component
+		features
+			EVSAPI: refined to feature group SB_Sugar::EVSAPIOutput;
+			ESAPI: refined to feature group SB_Sugar::ESAPIOutput;
+	end SBAPP;
+	
+	thread implementation SBAPP.impl extends Component::Component.default
+		subcomponents
+			Medium: refined to abstract SB_Sugar::Medium;
+			Checker: refined to abstract SB_Sugar::Checker;
+			-------------Command processor
+
+			-------------Base task
+
+		connections			
+			----------------Route connection
+			
+			----------------Medium API Out
+			MediumESAPI: feature group Medium.ESAPI -> ESAPI;
+			
+			----------------Task data needed
+			
+			----------------Checker result in
+			
+			----------------Medium processor api call collecttion connection			
+
+	end SBAPP.impl;
+end SB_App;

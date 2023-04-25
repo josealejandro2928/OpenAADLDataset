@@ -1,0 +1,27 @@
+package TIME_Base_IO
+public
+	with Core_Types;
+
+------------------------------SysTime---------------------------------
+	feature group SysTimeOutput
+		features
+			Time: out data port Core_Types::struct.CFE_TIME_SysTime_t;
+	end SysTimeOutput;
+	
+	feature group SysTimeInput
+		features
+			Time: in data port Core_Types::struct.CFE_TIME_SysTime_t;
+	inverse of SysTimeOutput
+	end SysTimeInput;
+------------------------------Reference---------------------------------
+	feature group ReferenceOutput
+		features
+			Ref: out data port Core_Types::struct.CFE_TIME_Reference_t;
+	end ReferenceOutput;
+	
+	feature group ReferenceInput
+		features
+			Ref: in data port Core_Types::struct.CFE_TIME_Reference_t;
+	inverse of ReferenceOutput
+	end ReferenceInput;
+end TIME_Base_IO;

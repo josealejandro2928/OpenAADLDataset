@@ -1,0 +1,111 @@
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  2;
+		Deadline  =>  10 ms ;
+		Period =>  10 ms ;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Deadline  =>  5 ms ;
+		Period =>  5 ms ;
+end T2.Impl;
+
+thread T3
+end T3;
+
+thread implementation T3.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  20 ms ..  20 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+end T3.Impl;
+
+thread T4
+end T4;
+
+thread implementation T4.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+end T4.Impl;
+
+process partition1
+end partition1;
+
+process implementation partition1.Impl
+	subcomponents
+		T3 : thread T3.Impl;
+		T4 : thread T4.Impl;
+	properties
+		Cheddar_Properties::Scheduling_Protocol => AUTOMATA_USER_DEFINED_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+		Cheddar_Properties::Source_Text => "arinc_partition1.sc";
+		Cheddar_Properties::Automaton_Name => "partition1_scheduler";
+end partition1.Impl;
+
+process partition2
+end partition2;
+
+process implementation partition2.Impl
+	subcomponents
+		T1 : thread T1.Impl;
+		T2 : thread T2.Impl;
+	properties
+		Cheddar_Properties::Scheduling_Protocol => AUTOMATA_USER_DEFINED_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+		Cheddar_Properties::Source_Text => "arinc_partition2.sc";
+		Cheddar_Properties::Automaton_Name => "partition2_scheduler";
+end partition2.Impl;
+
+processor arinc
+end arinc;
+
+processor implementation arinc.Impl
+	properties 
+		Scheduling_Protocol => AUTOMATA_USER_DEFINED_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+		Cheddar_Properties::Source_Text => "arinc_processor.sc";
+		Cheddar_Properties::Automaton_Name => "processor_scheduler";
+end arinc.Impl;
+
+
+system auto_arinc
+end auto_arinc;
+
+system implementation auto_arinc.Impl
+	subcomponents
+		arinc : processor arinc.Impl;
+		partition1 : process partition1.Impl;
+		partition2 : process partition2.Impl;
+	properties
+		Actual_Processor_Binding => reference arinc applies to partition1;
+		Actual_Processor_Binding => reference arinc applies to partition2;
+end auto_arinc.Impl;
+
+
+

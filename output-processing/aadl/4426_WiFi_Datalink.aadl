@@ -1,0 +1,42 @@
+package WiFi_Datalink
+public
+	with Buses;
+	
+	--------------------------------------------------------------------------
+	-- Define a WiFi radio that has an internal link (USB 2.0) and an external
+	-- link (Link).
+	--------------------------------------------------------------------------
+	device WiFi_Radio
+		features
+			GS_IO : feature group Wifi_Data_socket;
+			MC_IO : feature group MC_Data_socket;
+			Wired_Link_Conn: requires bus access Buses::Ethernet;
+			Wireless_Link_Conn: requires bus access Buses::WiFi;
+	end WiFi_Radio;
+	
+	device implementation WiFi_Radio.impl
+	end WiFi_Radio.impl;
+	
+	---------------------------------------------------------------------------
+	-- Data communicated via the WiFi link to the UAV (presumably to/from a
+	-- ground station and/or operator.
+	---------------------------------------------------------------------------
+	feature group WiFi_Data_socket		
+	end WiFi_Data_socket;
+	
+	feature group WiFi_Data_plug
+		inverse of WiFi_Data_socket
+	end WiFi_Data_plug;
+		
+	-----------------------------------------------------------------------------------------------------
+	-- Data communicated to/from the WiFi radio and the application software,
+	-- which is presumably hosted on a mission computer.
+	-----------------------------------------------------------------------------------------------------
+	feature group MC_Data_socket
+	end MC_Data_socket;
+	
+	feature group MC_Data_plug
+		inverse of MC_Data_socket
+	end MC_Data_plug;
+	
+end WiFi_Datalink;

@@ -1,0 +1,101 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package process_package
+public
+	with Deployment;
+	with DataView;
+	with interfaceview::IV;
+	with deploymentview::DV;
+	with ocarina_processors_x86;
+	with deploymentview::dv::node2;
+	with deploymentview::dv::node1;
+	with ocarina_buses;
+	with vt_consumer_data4m_CV_Thread;
+	with vt_consumer_dat2m_CV_Thread;
+	with vt_consumer_data512k_CV_Thread;
+	with vt_consumer_data16k_CV_Thread;
+	with producer_CV_Thread;
+
+process consumer_partition extends deploymentview::DV::node2::consumer_partition
+features
+	INPORT_vt_consumer_data4m_data4M : IN EVENT DATA PORT DataView::MyData4M_Buffer.impl;
+	INPORT_vt_consumer_dat2m_dat2M : IN EVENT DATA PORT DataView::MyData2M_Buffer.impl;
+	INPORT_vt_consumer_data512k_data512k : IN EVENT DATA PORT DataView::MyData512k_Buffer.impl;
+	INPORT_vt_consumer_data16k_data16k : IN EVENT DATA PORT DataView::MyData16k_Buffer.impl;
+end consumer_partition;
+
+process implementation consumer_partition.final
+subcomponents
+	vt_consumer_data4m : thread vt_consumer_data4m_CV_Thread::vt_consumer_data4m_vt_consumer_data4m.others;
+	vt_consumer_dat2m : thread vt_consumer_dat2m_CV_Thread::vt_consumer_dat2m_vt_consumer_dat2m.others;
+	vt_consumer_data512k : thread vt_consumer_data512k_CV_Thread::vt_consumer_data512k_vt_consumer_data512k.others;
+	vt_consumer_data16k : thread vt_consumer_data16k_CV_Thread::vt_consumer_data16k_vt_consumer_data16k.others;
+connections
+	PORT INPORT_vt_consumer_data4m_data4M -> vt_consumer_data4m.INPORT_artificial_data4M;
+	PORT INPORT_vt_consumer_dat2m_dat2M -> vt_consumer_dat2m.INPORT_artificial_dat2M;
+	PORT INPORT_vt_consumer_data512k_data512k -> vt_consumer_data512k.INPORT_artificial_data512k;
+	PORT INPORT_vt_consumer_data16k_data16k -> vt_consumer_data16k.INPORT_artificial_data16k;
+end consumer_partition.final;
+
+
+process producer_partition extends deploymentview::DV::node1::producer_partition
+features
+	OUTPORT_producer_data4M : OUT EVENT DATA PORT DataView::MyData4M_Buffer.impl;
+	OUTPORT_producer_dat2M : OUT EVENT DATA PORT DataView::MyData2M_Buffer.impl;
+	OUTPORT_producer_data512k : OUT EVENT DATA PORT DataView::MyData512k_Buffer.impl;
+	OUTPORT_producer_data16k : OUT EVENT DATA PORT DataView::MyData16k_Buffer.impl;
+end producer_partition;
+
+process implementation producer_partition.final
+subcomponents
+	producer : thread producer_CV_Thread::producer_producer.others;
+connections
+	PORT producer.OUTPORT_data4M -> OUTPORT_producer_data4M;
+	PORT producer.OUTPORT_dat2M -> OUTPORT_producer_dat2M;
+	PORT producer.OUTPORT_data512k -> OUTPORT_producer_data512k;
+	PORT producer.OUTPORT_data16k -> OUTPORT_producer_data16k;
+end producer_partition.final;
+
+system deploymentview
+end deploymentview;
+
+system implementation deploymentview.final
+subcomponents
+  ip_i_cv : bus ocarina_buses::ip.i;
+  node2_generic_sockets_ip_pohic_cv : device deploymentview::dv::node2::generic_sockets_ip_pohic.others
+	{
+		Source_Text => ("../DriversConfig/consumer_partition/DeviceConfig-node2-generic-sockets-ip-pohic.ads");
+		Type_Source_Name => "DeviceConfig_node2_generic_sockets_ip_pohic.pohidrv_node2_generic_sockets_ip_pohic_cv";
+	};
+  node1_generic_sockets_ip_pohic_cv : device deploymentview::dv::node1::generic_sockets_ip_pohic.others
+	{
+		Source_Text => ("../DriversConfig/producer_partition/DeviceConfig-node1-generic-sockets-ip-pohic.ads");
+		Type_Source_Name => "DeviceConfig_node1_generic_sockets_ip_pohic.pohidrv_node1_generic_sockets_ip_pohic_cv";
+	};
+  consumer_partition: process consumer_partition.final;
+  producer_partition: process producer_partition.final;
+  node2_x86_linux32_cv : processor ocarina_processors_x86::x86.linux32;
+  node1_x86_linux32_cv : processor ocarina_processors_x86::x86.linux32;
+connections
+  consumer_partition_data4M_producer_conn_cv : port producer_partition.OUTPORT_producer_data4M -> consumer_partition.INPORT_vt_consumer_data4m_data4M;
+  consumer_partition_dat2M_producer_conn_cv : port producer_partition.OUTPORT_producer_dat2M -> consumer_partition.INPORT_vt_consumer_dat2m_dat2M;
+  consumer_partition_data512k_producer_conn_cv : port producer_partition.OUTPORT_producer_data512k -> consumer_partition.INPORT_vt_consumer_data512k_data512k;
+  consumer_partition_data16k_producer_conn_cv : port producer_partition.OUTPORT_producer_data16k -> consumer_partition.INPORT_vt_consumer_data16k_data16k;
+  bus access ip_i_cv -> node2_generic_sockets_ip_pohic_cv.link;
+  bus access ip_i_cv -> node1_generic_sockets_ip_pohic_cv.link;
+properties
+  Actual_Processor_Binding => (reference (node2_x86_linux32_cv)) applies to consumer_partition;
+  Actual_Processor_Binding => (reference (node1_x86_linux32_cv)) applies to producer_partition;
+  Actual_Processor_Binding => (reference (node2_x86_linux32_cv)) applies to node2_generic_sockets_ip_pohic_cv;
+  Actual_Processor_Binding => (reference (node1_x86_linux32_cv)) applies to node1_generic_sockets_ip_pohic_cv;
+  Actual_Connection_Binding => (reference (ip_i_cv)) applies to consumer_partition_data4M_producer_conn_cv;
+  Actual_Connection_Binding => (reference (ip_i_cv)) applies to consumer_partition_dat2M_producer_conn_cv;
+  Actual_Connection_Binding => (reference (ip_i_cv)) applies to consumer_partition_data512k_producer_conn_cv;
+  Actual_Connection_Binding => (reference (ip_i_cv)) applies to consumer_partition_data16k_producer_conn_cv;
+end deploymentview.final;
+end process_package;
+
+-- deploymentview.final

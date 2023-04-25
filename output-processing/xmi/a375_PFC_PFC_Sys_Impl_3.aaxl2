@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="PFC_Sys_Impl_Instance" category="system">
+  <componentInstance name="proc" category="process">
+    <componentInstance name="producer" category="thread">
+      <featureInstance name="to_filter" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/instances/PFC_PFC_Sys_Impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.Producer"/>
+    </componentInstance>
+    <componentInstance name="filter" category="thread">
+      <featureInstance name="from_producer" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/instances/PFC_PFC_Sys_Impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="to_consumer" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/instances/PFC_PFC_Sys_Impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.Filter"/>
+    </componentInstance>
+    <componentInstance name="consumer" category="thread">
+      <featureInstance name="from_filter" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/instances/PFC_PFC_Sys_Impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.Consumer"/>
+    </componentInstance>
+    <connectionInstance name="producer.to_filter -> filter.from_producer" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="filter.to_consumer -> consumer.from_filter" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.PFC_Proc.Impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.PFC_Sys.Impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a375/models/CodeGenTest_Base/producer_filter_consumer_sporadic/PFC.aadl#PFC.PFC_Sys.Impl"/>
+</instance:SystemInstance>

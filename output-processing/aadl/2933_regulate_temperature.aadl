@@ -1,0 +1,288 @@
+package regulate_temperature
+public
+	with isolette, Isolette_Properties, isolette_thermostat, Data_Model;
+
+-------------------------------------- Regulate Temperature Function ---------------------------------------
+
+	--@description Lower value of desired range.
+	data Lower_Desired_Temp
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Integer;
+	  		Data_Model::Integer_Range => 96 .. 101;
+	end Lower_Desired_Temp;
+
+	--@description Upper value of desired range.
+	data Upper_Desired_Temp
+		properties
+			Data_Model::Measurement_Unit => "Fahrenheit";
+			Data_Model::Data_Representation => Integer;
+	  		Data_Model::Integer_Range => 97 .. 102;
+	end Upper_Desired_Temp;
+	
+	--@description Desired range of Isolette temperature. 
+	feature group Desired_Range
+		features
+			lower : in data port Lower_Desired_Temp;
+			upper : in data port Upper_Desired_Temp;
+	end Desired_Range;
+
+	--@description See descriptions of Modes in process Regulate_Temperature.
+	data Regulator_Mode
+		properties
+			Data_Model::Data_Representation => Enum;
+			Data_Model::Enumerators => ( "INIT", "NORMAL", "FAILED" );
+	end Regulator_Mode;
+
+	--@description Indicates an operator interface failure.
+	data Regulator_Interface_Failure
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Regulator_Interface_Failure;
+
+	--@description Indicates an internal failure.
+	data Regulator_Internal_Failure
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Regulator_Internal_Failure;
+	
+	--@definition NOT (Regulator_Interface_Failure OR Regulator_Internal_Failure) AND Current_Temperature.status = Valid
+	data Regulator_Status
+		properties
+			Data_Model::Data_Representation => Boolean;
+	end Regulator_Status;
+
+	subprogram Manage_Heat_Source
+		features
+			desired_temp_lower : in parameter Lower_Desired_Temp;
+			desired_temp_upper : in parameter Upper_Desired_Temp;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+			regulator_mode : in parameter Regulator_Mode; 
+			heat_control : out parameter isolette::Heat_Control; 
+		flows
+			current_temp_heat_control : flow path current_temp_value -> heat_control { Latency => 70 ms .. 90 ms; };
+		properties
+			Source_Text => ("manage_heat_source.smv");
+			Compute_Execution_Time =>50 ms .. 60 ms;
+	end Manage_Heat_Source;
+	
+	thread Manage_Heat_Source_Thread
+		features
+			desired_range : in feature group Desired_Range; 
+			current_temperature : in feature group isolette::Current_Temperature; 
+			regulator_mode : in data port Regulator_Mode; 
+			heat_control : out data port isolette::Heat_Control; 
+		flows
+			current_temp_heat_control: flow path current_temperature.value -> heat_control;
+	end Manage_Heat_Source_Thread;
+	
+	thread implementation Manage_Heat_Source_Thread.impl
+		subcomponents
+			manage_heat_source_sub : subprogram Manage_Heat_Source;
+		calls
+			main_call_sequence : {
+				manage_heat_source_call: subprogram manage_heat_source_sub;
+			};
+		connections
+			current_temp_value_conn : parameter current_temperature.value -> manage_heat_source_call.current_temp_value { Latency => 70 ms .. 90 ms; }; 
+			current_temp_status_conn : parameter current_temperature.status -> manage_heat_source_call.current_temp_status { Latency => 70 ms .. 90 ms; }; 
+			desired_temp_lower_conn : parameter desired_range.lower -> manage_heat_source_call.desired_temp_lower { Latency => 70 ms .. 90 ms; }; 
+			desired_temp_upper_conn : parameter desired_range.upper -> manage_heat_source_call.desired_temp_upper { Latency => 70 ms .. 90 ms; }; 
+			regulator_mode_conn : parameter regulator_mode -> manage_heat_source_call.regulator_mode; 
+			heat_control_conn : parameter manage_heat_source_call.heat_control -> heat_control { Latency => 70 ms .. 90 ms; };
+		flows
+			current_temp_heat_control : flow path 	current_temperature.value ->
+													current_temp_value_conn -> 
+													manage_heat_source_sub.current_temp_heat_control ->
+													heat_control_conn -> 
+													heat_control;
+	end Manage_Heat_Source_Thread.impl;
+	
+	subprogram Manage_Regulator_Interface
+		features
+			desired_temp_lower_value : in parameter isolette::Lower_Desired_Temp_Value;
+			desired_temp_lower_status : in parameter isolette::Lower_Desired_Temp_Status;
+			desired_temp_upper_value : in parameter isolette::Upper_Desired_Temp_Value;
+			desired_temp_upper_status : in parameter isolette::Upper_Desired_Temp_Status;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+			regulator_mode : in parameter Regulator_Mode; 
+			regulator_status : out parameter isolette::Regulator_Status; 
+			display_temperature : out parameter isolette::Display_Temperature; 
+			desired_range_lower : out parameter Lower_Desired_Temp;
+			desired_range_upper : out parameter Upper_Desired_Temp;
+			regulator_interface_failure : out parameter Regulator_Interface_Failure;
+		flows
+			desired_temp_regulator_status : flow path desired_temp_lower_value -> regulator_status { Latency => 70 ms .. 90 ms; };
+		properties
+			Source_Text => ("manage_regulator_interface.smv");
+			Compute_Execution_Time => 15 ms .. 20 ms;
+			Isolette_Properties::Temperature_Tolerance => 0.7 Fahrenheit;
+	end Manage_Regulator_Interface;
+
+	thread Manage_Regulator_Interface_Thread
+		features
+			desired_temp_lower : in feature group isolette::Lower_Desired_Temperature;
+			desired_temp_upper : in feature group isolette::Upper_Desired_Temperature;
+			current_temperature : in feature group isolette::Current_Temperature; 
+			regulator_mode : in data port Regulator_Mode; 
+			regulator_status : out data port isolette::Regulator_Status; 
+			display_temperature : out data port isolette::Display_Temperature; 
+			desired_range : feature group inverse of Desired_Range;
+			regulator_interface_failure : out data port Regulator_Interface_Failure;
+		flows
+			desired_temp_regulator_status : flow path desired_temp_lower -> regulator_status;
+	end Manage_Regulator_Interface_Thread;
+
+	thread implementation Manage_Regulator_Interface_Thread.impl
+		subcomponents
+			manage_reg_interface_sub : subprogram Manage_Regulator_Interface;
+		calls
+			main_call_sequence : {
+				manage_reg_interface_call : subprogram manage_reg_interface_sub;
+			};
+		connections
+			desired_temp_lower_value_conn : parameter desired_temp_lower.value -> manage_reg_interface_call.desired_temp_lower_value;
+			desired_temp_lower_status_conn : parameter desired_temp_lower.status -> manage_reg_interface_call.desired_temp_lower_status;
+			desired_temp_upper_value_conn : parameter desired_temp_upper.value -> manage_reg_interface_call.desired_temp_upper_value;
+			desired_temp_upper_status_conn : parameter desired_temp_upper.status -> manage_reg_interface_call.desired_temp_upper_status;
+			current_temperature_value_conn : parameter current_temperature.value -> manage_reg_interface_call.current_temp_value;
+			current_temperature_status_conn : parameter current_temperature.status -> manage_reg_interface_call.current_temp_status;
+			regulator_mode_conn : parameter regulator_mode -> manage_reg_interface_call.regulator_mode;
+			regulator_status_conn : parameter manage_reg_interface_call.regulator_status -> regulator_status;
+			display_temperature_conn : parameter manage_reg_interface_call.display_temperature -> display_temperature;
+			desired_range_lower_out_conn : parameter manage_reg_interface_call.desired_range_lower -> desired_range.lower;
+			desired_range_upper_out_conn : parameter manage_reg_interface_call.desired_range_upper -> desired_range.upper;
+			regulator_interface_failure_conn : parameter manage_reg_interface_call.regulator_interface_failure -> regulator_interface_failure;
+		flows
+			desired_temp_regulator_status : flow path 	desired_temp_lower ->
+														desired_temp_lower_value_conn -> 
+														manage_reg_interface_sub.desired_temp_regulator_status ->
+														regulator_status_conn -> 
+														regulator_status;
+	end Manage_Regulator_Interface_Thread.impl;
+	
+	subprogram Manage_Regulator_Mode
+		features
+			regulator_interface_failure : in parameter Regulator_Interface_Failure;
+			regulator_internal_failure : in parameter Regulator_Internal_Failure;
+			--current_temperature : in feature group isolette::Current_Temperature;
+			current_temp_value : in parameter isolette::Current_Temp_Value;
+			current_temp_status : in parameter isolette::Current_Temp_Status;
+			regulator_mode : out parameter Regulator_Mode; 
+			regulator_status_true : out parameter Regulator_Status;
+			regulator_status_false : out parameter Regulator_Status;
+			init_duration_greater_timeout : out parameter isolette_thermostat::Boolean;
+	end Manage_Regulator_Mode;
+
+	thread Manage_Regulator_Mode_Thread
+		features
+			regulator_interface_failure : in data port Regulator_Interface_Failure;
+			regulator_internal_failure : in data port Regulator_Internal_Failure;
+			current_temperature : in feature group isolette::Current_Temperature; 
+			regulator_mode : out data port Regulator_Mode; 
+			regulator_status_true : out data port Regulator_Status;
+			regulator_status_false : out data port Regulator_Status;
+			init_duration_greater_timeout : out data port isolette_thermostat::Boolean;
+	end Manage_Regulator_Mode_Thread;
+	
+	thread implementation Manage_Regulator_Mode_Thread.impl
+		subcomponents
+			manage_reg_mode_sub : subprogram Manage_Regulator_Mode;
+		calls
+			main_call_sequence : {
+				manage_reg_mode_call : subprogram manage_reg_mode_sub;
+			};
+		connections
+			regulator_interface_failure_conn : parameter regulator_interface_failure -> manage_reg_mode_call.regulator_interface_failure;
+			regulator_internal_failure_conn : parameter regulator_internal_failure -> manage_reg_mode_call.regulator_internal_failure;
+			current_temp_value_conn : parameter current_temperature.value -> manage_reg_mode_call.current_temp_value;
+			current_temp_status_conn : parameter current_temperature.status -> manage_reg_mode_call.current_temp_status;
+			regulator_mode_conn : parameter manage_reg_mode_call.regulator_mode -> regulator_mode;
+			regulator_status_true_conn : parameter manage_reg_mode_call.regulator_status_true -> regulator_status_true;
+			regulator_status_false_conn : parameter manage_reg_mode_call.regulator_status_false -> regulator_status_false;
+			init_duration_greater_timeout_conn : parameter manage_reg_mode_call.init_duration_greater_timeout -> init_duration_greater_timeout;
+	end Manage_Regulator_Mode_Thread.impl;
+
+	subprogram Detect_Regulator_Failure
+		features
+			regulator_internal_failure : out parameter Regulator_Internal_Failure;
+	end Detect_Regulator_Failure;
+
+	thread Detect_Regulator_Failure_Thread
+		features
+			regulator_internal_failure : out data port Regulator_Internal_Failure;
+	end Detect_Regulator_Failure_Thread;
+
+	thread implementation Detect_Regulator_Failure_Thread.impl
+		calls
+			main_call_sequence: {
+				detect_reg_failure : subprogram Detect_Regulator_Failure;
+			};
+		connections
+			regulator_internal_failure_conn : parameter detect_reg_failure.regulator_internal_failure -> regulator_internal_failure;
+	end Detect_Regulator_Failure_Thread.impl;
+
+	process Regulate_Temperature
+		features
+			desired_temperature_range : in feature group isolette::Desired_Temperature_Range; 
+			current_temperature : in feature group isolette::Current_Temperature; 
+			regulator_status : out data port isolette::Regulator_Status; 
+			display_temperature : out data port isolette::Display_Temperature; 
+			heat_control : out data port isolette::Heat_Control;
+      	flows
+      		current_temperature_heat_control: flow path current_temperature -> heat_control;
+      		desired_temp_regulator_status: flow path desired_temperature_range.lower -> regulator_status;
+    	modes
+    		--@description Initializing following power-up.
+      		INIT : initial mode;
+    		--@description Normal mode of operation.
+      		NORMAL : mode;
+    		--@description Internal failure detected.
+      		FAILED : mode;
+	end Regulate_Temperature;
+
+	process implementation Regulate_Temperature.impl
+		subcomponents
+			manage_heat_source : thread Manage_Heat_Source_Thread.impl;
+			manage_regulator_interface : thread Manage_Regulator_Interface_Thread.impl;
+			manage_regulator_mode : thread Manage_Regulator_Mode_Thread.impl;
+			detect_regulator_failure : thread Detect_Regulator_Failure_Thread.impl;
+		connections
+			desired_temp_manag_reg_int_lower_conn : feature group desired_temperature_range.lower -> manage_regulator_interface.desired_temp_lower;
+			desired_temp_manag_reg_int_upper_conn : feature group desired_temperature_range.upper -> manage_regulator_interface.desired_temp_upper;
+			desired_temp_manag_heat_source_conn : feature group manage_regulator_interface.desired_range -> manage_heat_source.desired_range;
+			current_temp_manag_reg_int_conn : feature group current_temperature -> manage_regulator_interface.current_temperature;
+			current_temp_manag_heat_source_conn : feature group current_temperature -> manage_heat_source.current_temperature;
+			current_temp_manag_reg_mod_conn : feature group current_temperature -> manage_regulator_mode.current_temperature;
+			regulator_status_conn : port manage_regulator_interface.regulator_status -> regulator_status;
+			display_temp_conn : port manage_regulator_interface.display_temperature -> display_temperature;
+			heat_control_conn : port manage_heat_source.heat_control -> heat_control;
+			
+			-- Internal connections
+			reg_mode_to_interface_conn : port manage_regulator_mode.regulator_mode -> manage_regulator_interface.regulator_mode;
+			reg_mode_to_mng_heat_source_conn : port manage_regulator_mode.regulator_mode -> manage_heat_source.regulator_mode;
+			reg_int_fail_conn : port manage_regulator_interface.regulator_interface_failure -> manage_regulator_mode.regulator_interface_failure;
+			int_des_temp_range_conn : feature group manage_regulator_interface.desired_range -> manage_heat_source.desired_range;
+			detect_reg_int_fail_mngt_reg_mode : port detect_regulator_failure.regulator_internal_failure -> manage_regulator_mode.regulator_internal_failure;
+      	flows
+      		current_temperature_heat_control : flow path 	current_temperature -> 
+      														current_temp_manag_heat_source_conn ->
+	      													manage_heat_source.current_temp_heat_control -> 
+	      													heat_control_conn ->
+	      													heat_control;
+      		desired_temp_regulator_status : flow path 	desired_temperature_range.lower -> 
+      													desired_temp_manag_reg_int_lower_conn ->
+      													manage_regulator_interface.desired_temp_regulator_status -> 
+      													regulator_status_conn ->
+      													regulator_status;
+    	modes
+      		INIT -[ manage_regulator_mode.regulator_status_true ]-> NORMAL;
+      		INIT -[ manage_regulator_mode.init_duration_greater_timeout ]-> FAILED;
+      		NORMAL -[ manage_regulator_mode.regulator_status_false ]-> FAILED;
+		properties
+			Isolette_Properties::Failure_Probability => 0.005 abs;
+	end Regulate_Temperature.impl;
+
+end regulate_temperature;

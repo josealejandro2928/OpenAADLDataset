@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="GPS_parts_TwoSensor_Instance" category="system">
+  <featureInstance name="satelliteSignal" category="abstractFeature">
+    <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+  </featureInstance>
+  <featureInstance name="location" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+  </featureInstance>
+  <componentInstance name="network" category="bus">
+    <featureInstance name="power" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#HardwareParts.Network"/>
+  </componentInstance>
+  <componentInstance name="SatelliteSignalReceiver1" category="device">
+    <featureInstance name="satelliteSignal" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="powersource" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.1"/>
+    </featureInstance>
+    <featureInstance name="sensedData" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="networkaccess" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/instances/GPSSystem_GPS_parts_TwoSensor_Instance.aaxl2#/"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#GPSParts.sensor"/>
+  </componentInstance>
+  <componentInstance name="SatelliteSignalReceiver2" category="device">
+    <featureInstance name="satelliteSignal" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="powersource" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.1"/>
+    </featureInstance>
+    <featureInstance name="sensedData" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="networkaccess" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/instances/GPSSystem_GPS_parts_TwoSensor_Instance.aaxl2#/"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/GPSParts.aadl#GPSParts.sensor"/>
+  </componentInstance>
+  <componentInstance name="powersupply1" category="device">
+    <featureInstance name="power" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#HardwareParts.PowerSupply"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <featureInstance name="powersource" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="networkaccess" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/instances/GPSSystem_GPS_parts_TwoSensor_Instance.aaxl2#/"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/HardwareParts.aadl#HardwareParts.CPU"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#GPSSystem.GPS.parts_TwoSensor"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a144/examples/org.osate.examples/examples/safety-tutorial/packages/GPSSystem.aadl#GPSSystem.GPS.parts_TwoSensor"/>
+</instance:SystemInstance>

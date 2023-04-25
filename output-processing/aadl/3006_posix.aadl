@@ -1,0 +1,132 @@
+
+system posix
+end posix;
+
+system implementation posix.Impl
+	subcomponents
+		cpu0 : processor posix_scheduler.Impl;
+		proc0 : process a_process.Impl;
+	properties
+		Actual_Processor_Binding => reference cpu0 applies to proc0;
+end posix.Impl;
+
+
+
+process a_process
+end a_process;
+
+
+
+process implementation a_process.Impl
+	subcomponents
+		instancied_T1 : thread T1.Impl;
+		instancied_T2 : thread T2.Impl;
+		instancied_fifo1 : thread fifo1.Impl;
+		instancied_fifo2 : thread fifo2.Impl;
+		instancied_other1 : thread other1.Impl;
+		instancied_rr1 : thread rr1.Impl;
+		instancied_rr2 : thread rr2.Impl;
+end a_process.Impl;
+
+processor posix_scheduler
+end posix_scheduler;
+
+processor implementation posix_scheduler.Impl
+	properties 
+		Scheduling_Protocol => Posix_1003_Highest_Priority_First_Protocol;
+		Cheddar_Properties::Scheduler_Quantum =>  2 ms;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end posix_scheduler.Impl;
+
+
+
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  30;
+		Period =>  8 ms;
+          	Deadline => 8 ms;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  2 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  31;
+		Period =>  7 ms;
+          	Deadline => 7 ms;
+end T2.Impl;
+
+thread fifo1
+end fifo1;
+
+thread implementation fifo1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  1 ms ..  4 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  5 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  20;
+          	Deadline => 100 ms;
+end fifo1.Impl;
+
+thread fifo2
+end fifo2;
+
+thread implementation fifo2.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time => 1 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  4 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  5;
+            	Deadline => 100 ms;
+end fifo2.Impl;
+
+thread other1
+end other1;
+
+thread implementation other1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_time =>  5 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_OTHERS;
+		Cheddar_Properties::Fixed_Priority =>  0;
+end other1.Impl;
+
+thread rr1
+end rr1;
+
+thread implementation rr1.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  3 ms ..  5 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  3 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_RR;
+		Cheddar_Properties::Fixed_Priority =>  7;
+          	Deadline => 100 ms;
+end rr1.Impl;
+
+thread rr2
+end rr2;
+
+thread implementation rr2.Impl
+	properties
+		Dispatch_Protocol => Background;
+		Compute_Execution_Time =>  3 ms ..  6 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  4 ms;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_RR;
+  		Cheddar_Properties::Fixed_Priority =>  7;
+          	Deadline => 100 ms;
+end rr2.Impl;

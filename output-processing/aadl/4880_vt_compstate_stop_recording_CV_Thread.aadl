@@ -1,0 +1,33 @@
+--  This file was generated automatically: DO NOT MODIFY IT !
+
+--  This file contains a part of the system CONCURRENCY VIEW.
+--  It is an input file for OCARINA.
+
+package vt_compstate_stop_recording_CV_Thread
+public
+	with Deployment;
+	with process_package;
+	with Dataview;
+
+THREAD vt_compstate_stop_recording_vt_compstate_stop_recording
+features
+	INPORT_artificial_stop_recording : IN EVENT DATA PORT DataView::MyString_Buffer.impl
+		{ Compute_Execution_Time => 0 ms .. 0 ms;
+		  Queue_Size => 1;
+		  Compute_Entrypoint_Source_Text => "po_hi_c_vt_compstate_stop_recording_artificial_stop_recording"; };
+	OUTPORT_out_msg_vt : OUT EVENT DATA PORT DataView::MyString_Buffer.impl;
+	compstate_protected : requires data access process_package::TASTE_Protected.Object;
+END vt_compstate_stop_recording_vt_compstate_stop_recording;
+
+THREAD IMPLEMENTATION vt_compstate_stop_recording_vt_compstate_stop_recording.others
+PROPERTIES
+	Initialize_Entrypoint_Source_Text => "init_compstate";
+	Dispatch_Protocol => Sporadic;
+	Period            => 1 ms;
+	Dispatch_Offset   => 0 ms;
+	Compute_Execution_Time => 0 ms .. 10 ms;
+	Stack_Size => 50 KByte;
+	Priority => 1;
+END vt_compstate_stop_recording_vt_compstate_stop_recording.others;
+
+end vt_compstate_stop_recording_CV_Thread;

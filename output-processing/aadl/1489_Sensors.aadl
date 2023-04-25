@@ -1,0 +1,45 @@
+package Sensors
+public
+with Base_Types; 
+renames Base_Types::all;
+with constants;
+renames constants::all;
+	
+	system Temp_Sensor
+		features
+			temperature: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+		annex agree{**
+			
+			assume "Temp within reasonable bounds (C)":
+				temperature > 0 and temperature < 500;
+			
+			guarantee "If temp is over threshold, then we shut down.":
+				temperature > constants::TEMP_THRESHOLD -> high_indicator;
+		
+		**};
+		
+	end Temp_Sensor;
+	
+	
+	
+	
+	
+	
+	system Radiation_Sensor
+		features
+			radiation: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+	end Radiation_Sensor;
+	
+	
+	
+	system Pressure_Sensor
+		features
+			pressure: in data port Integer;
+			high_indicator: out data port Boolean;
+		
+	end Pressure_Sensor;
+end Sensors;

@@ -1,0 +1,88 @@
+package ES_Result_IO
+public
+	--------all feature groups can add "in|out data port Base_Types::Integer;"
+	--------and numbers of data port must be the same
+	
+	with Generic;
+	with ES_Base_IO;
+	
+	feature group Input
+		features
+			TaskRecord: feature group ES_Base_IO::TaskRecordInput;
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+	end Input;
+	
+	feature group Output
+		features
+			TaskRecord: feature group ES_Base_IO::TaskRecordOutput;
+			AppRecord: feature group ES_Base_IO::AppRecordOutput;
+	inverse of Input
+	end Output;
+	
+	feature group ReturnValue
+		features
+			TaskRecord: feature group ES_Base_IO::TaskRecordReturnValue;
+			AppRecord: feature group ES_Base_IO::AppRecordReturnValue;
+	end ReturnValue;
+
+	feature group EvaluteValue
+		features
+			TaskRecord: feature group ES_Base_IO::TaskRecordEvaluteValue;
+			AppRecord: feature group ES_Base_IO::TaskRecordEvaluteValue;
+	inverse of ReturnValue
+	end EvaluteValue;
+	
+-----------------------------------Input----------------------------------
+	feature group RegisterAppResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group Input;
+			EvaluteValue: refined to feature group EvaluteValue;
+	end RegisterAppResult;
+	
+	feature group RestartAppResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group Input;
+			EvaluteValue: refined to feature group EvaluteValue;
+	end RestartAppResult;
+	
+	feature group DeleteAppResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group Input;
+			EvaluteValue: refined to feature group EvaluteValue;
+	end DeleteAppResult;
+	
+	feature group RunLoopResult extends Generic::ShareDataInput
+		features
+			Input: refined to feature group Input;
+			EvaluteValue: refined to feature group EvaluteValue;
+	end RunLoopResult;
+	
+-----------------------------------Output----------------------------------
+	feature group RegisterAppOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group Output;
+			ReturnValue: refined to feature group ReturnValue;
+	inverse of RegisterAppResult
+	end RegisterAppOutput;
+	
+	feature group RestartAppOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group Output;
+			ReturnValue: refined to feature group ReturnValue;
+	inverse of RestartAppResult
+	end RestartAppOutput;
+	
+	feature group DeleteAppOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group Output;
+			ReturnValue: refined to feature group ReturnValue;
+	inverse of DeleteAppResult
+	end DeleteAppOutput;
+	
+	feature group RunLoopOutput extends Generic::ServiceProcessorOutput
+		features
+			Output: refined to feature group Output;
+			ReturnValue: refined to feature group ReturnValue;
+	inverse of RunLoopResult
+	end RunLoopOutput;
+end ES_Result_IO;

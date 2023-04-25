@@ -1,0 +1,33 @@
+package TIS
+-- 	TIS: Traffic Information Services
+public
+	--with APS,RCC;
+
+	system APSCommunication
+		features 
+			AISCommunication: in out data port;
+		flows
+			AISCommunication_TIS_to_APS: flow source AISCommunication;
+			AISCommunication_APS_to_TIS: flow sink AISCommunication;
+			
+			AISCommunication_TIS_to_RCC: flow source AISCommunication;
+			AISCommunication_RCC_to_TIS: flow sink AISCommunication;				
+	end APSCommunication;
+	
+		system implementation APSCommunication.impl
+			subcomponents
+				TIS_TrafficModule: system TrafficModule;													
+			connections
+				APStoTISConn: port AISCommunication -> TIS_TrafficModule.DataPort;
+				TIStoAPSConn: port TIS_TrafficModule.DataPort -> AISCommunication;																
+		end APSCommunication.impl;			
+	
+	system TrafficModule
+		-- Traffic Module candidate is AIS
+		features
+			--ControlPort: in out data port;
+			DataPort: in out data port;	-- Through a VHF antenna 					
+	end TrafficModule;
+	
+	
+end TIS;

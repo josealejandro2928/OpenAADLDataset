@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="DeviceControllerMonitor_others_Instance" category="system">
+  <componentInstance name="Lead" category="device">
+    <featureInstance name="VentricleSense" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="VentriclePulse" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="Normal_Beat" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.VentricleLead"/>
+  </componentInstance>
+  <componentInstance name="PacemakerSW" category="process">
+    <featureInstance name="s" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="p" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="n" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.2"/>
+    </featureInstance>
+    <componentInstance name="VRPTimeout" category="thread">
+      <featureInstance name="input" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="output" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.DualOrTimer"/>
+    </componentInstance>
+    <componentInstance name="LRLTimeout" category="thread">
+      <featureInstance name="input" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="output" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.DualOrTimer"/>
+    </componentInstance>
+    <componentInstance name="VVIMode" category="thread">
+      <featureInstance name="s" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="lrl_timeout" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="vrp_timeout" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="p" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="n" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="p_or_n1" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.5"/>
+      </featureInstance>
+      <featureInstance name="p_or_n2" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventPort.6"/>
+      </featureInstance>
+      <componentInstance name="vrp" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Initial_Value"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="aadl2:StringLiteral" value="1"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.int"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.VVIMode.others"/>
+    </componentInstance>
+    <connectionInstance name="VRPTimeout.output -> VVIMode.vrp_timeout" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.2" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="LRLTimeout.output -> VVIMode.lrl_timeout" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="VVIMode.p_or_n1 -> VRPTimeout.input" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@componentInstance.2/@featureInstance.5">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.5" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="VVIMode.p_or_n2 -> LRLTimeout.input" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1/@componentInstance.2/@featureInstance.6">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.6" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.PacemakerSW.others"/>
+  </componentInstance>
+  <componentInstance name="HWPlatform" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.HWPlatform"/>
+  </componentInstance>
+  <connectionInstance name="Lead.VentricleSense -> PacemakerSW.VVIMode.s" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PacemakerSW.VVIMode.p -> Lead.VentriclePulse" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PacemakerSW.VVIMode.n -> Lead.Normal_Beat" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.2" source="//@componentInstance.1/@componentInstance.2/@featureInstance.4">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.DeviceControllerMonitor.others"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a272/AADLib/examples/pacemaker/pacemaker.aadl#Pacemaker_Pkg.DeviceControllerMonitor.others"/>
+</instance:SystemInstance>

@@ -1,0 +1,17 @@
+property set Authentication_Specifications is
+
+	with Security_Type_Specifications, Encryption_Specifications;
+
+	HMAC512: constant Security_Type_Specifications::Data_Authentication_Type => [
+		authentication_algorithm => HMAC_SHA1;
+		hash_algorithm => SHA3;
+		hash_length => 512 bits;
+	];
+
+	-- new
+	ChaCha20Poly1305: constant Security_Type_Specifications::Data_Authentication_Type => [
+		authentication_algorithm => ChaCha20_Poly1305;
+		cipher_algorithm => Encryption_Specifications::ChaCha20;
+		hash_length => 128 bits;
+	];
+end Authentication_Specifications;

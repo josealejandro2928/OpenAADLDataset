@@ -1,0 +1,60 @@
+package Single_Board_Computer
+public
+	with Buses;
+	with I2C;
+	with Memories;
+	with ARM_Processors;
+
+
+	-----------------------------------------------------------------------------------------
+	-- Define a representation of the ODROID single board computer. The implementation
+	-- of the ODROID is the XU4 variant.
+	-----------------------------------------------------------------------------------------
+	system ODROID
+		features
+			Ethernet: requires bus access Buses::Ethernet.impl;
+			USB3_0: requires bus access Buses::USB.Three;
+			USB3_1: requires bus access Buses::USB.Three;
+			USB2_0: requires bus access Buses::USB.Two;
+			Serial_1: requires bus access Buses::Serial;
+			Serial_2: requires bus access Buses::Serial;
+			PMIC: requires bus access I2C::I2C.impl;
+			eMMC: requires bus access Memories::Memory_Bus;
+	end ODROID;
+
+	--------------------------------------------------------------------------------
+	-- Define a simplified, consisting of a single CPU, variant of an ODROID board.
+	--------------------------------------------------------------------------------
+	system implementation ODROID.Simple
+		subcomponents
+			ARM_CPU: processor ARM_Processors::ARM.Generic;
+			RAM_Bus: bus Memories::Memory_Bus;
+			RAM: memory Memories::RAM {Memory_size => 2 GByte;};
+			Flash: memory Memories::Flash_Memory.eMMC {Memory_size => 64 GByte;};
+		connections
+			ba1 : bus access RAM_Bus <-> RAM.RAM_Data_Bus;
+			ba2 : bus access ARM_CPU.RAM_Bus <-> RAM_Bus;
+			ba3 : bus access eMMC <-> Flash.Flash_Data_Bus;
+	end ODROID.Simple;
+	
+	--------------------------------------------------------------------------------
+	-- Define a representation of the ODROID XU4 board.
+	--------------------------------------------------------------------------------
+	system implementation ODROID.XU4
+		subcomponents
+			RAM: memory Memories::RAM {Memory_size => 2 GByte;};
+			Flash: memory Memories::Flash_Memory.eMMC {Memory_size => 64 GByte;};
+			NVM: memory Memories::Non_Volatile_Memory {Memory_size => 32 MByte;};
+			A15: processor ARM_Processors::ARM.A15;
+			A7: processor ARM_Processors::ARM.A7;
+			A15_RAM_Bus: bus Memories::Memory_Bus;
+			A7_RAM_Bus: bus Memories::Memory_Bus;
+		connections
+			ba1: bus access A15_RAM_Bus <-> RAM.RAM_Data_Bus;
+			ba2: bus access A15.RAM_Bus <-> A15_RAM_Bus;
+			ba3: bus access A7_RAM_Bus <-> RAM.RAM_Data_Bus;
+			ba4: bus access A7.RAM_Bus <-> A7_RAM_Bus;
+			ba5: bus access eMMC <-> Flash.Flash_Data_Bus;
+	end ODROID.XU4;
+	
+end Single_Board_Computer;

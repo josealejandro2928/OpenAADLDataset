@@ -1,0 +1,57 @@
+package EVS_Interface
+public
+	with Base_Types;
+	with Core_Types;
+	with Generic;	
+--------------------------------------------------------------------------
+-------------------------------Register-----------------------------------
+--------------------------------------------------------------------------
+	feature group P_Register extends Generic::Provide_Generic_Function_API
+		features
+			Filters: in data port Core_Types::struct.EVS_BinFilter_t;
+			FilterScheme: in data port Base_Types::Unsigned_16;
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_Register;
+
+	feature group R_Register extends Generic::Require_Generic_Function_API
+		features
+			Filters: out data port Core_Types::struct.EVS_BinFilter_t;
+			FilterScheme: out data port Base_Types::Unsigned_16;
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_Register
+	end R_Register;
+
+--------------------------------------------------------------------------
+-------------------------------Unregister---------------------------------
+--------------------------------------------------------------------------
+	feature group P_Unregister extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_Unregister;
+
+	feature group R_Unregister extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_Unregister
+	end R_Unregister;
+
+--------------------------------------------------------------------------
+-------------------------------SendEvent----------------------------------
+--------------------------------------------------------------------------
+	feature group P_SendEvent extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+			EvtId: in data port Base_Types::Unsigned_16;
+			EvtType: in data port Base_Types::Unsigned_16;
+--			Msg: out data port Data_SB::struct.CFE_SB_Msg_t;
+	end P_SendEvent;
+
+	feature group R_SendEvent extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+			EvtId: out data port Base_Types::Unsigned_16;
+			EvtType: out data port Base_Types::Unsigned_16;
+--			Msg: out data port Data_SB::struct.CFE_SB_Msg_t;
+	inverse of P_SendEvent
+	end R_SendEvent;
+end EVS_Interface;

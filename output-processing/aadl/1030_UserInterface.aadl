@@ -1,0 +1,19 @@
+package UserInterface
+public
+	with SEI;
+
+	device UserInput
+		features
+			ui_cc: out data port;
+		properties
+			SEI::NetWeight => 0.7kg;
+	end UserInput;
+
+	device UserDisplay
+		features
+			ud_cc: in data port;
+		properties
+			SEI::NetWeight => 1.0kg;
+	end UserDisplay;
+	
+end UserInterface;

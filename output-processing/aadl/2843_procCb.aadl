@@ -1,0 +1,39 @@
+/**
+ * AADL-Macro example
+ * 'procCb'
+ *
+ * $1 : [IN]  initial log alge
+ * $2 : [OUT] result log alge
+ */
+@header{
+package ssac.aadl.macro.examples;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+}@
+
+@{
+static private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss.SSS");
+}@
+
+program ProcessCb {
+	var lbl:String = "ProcessCb";
+
+	println("start '" + lbl + "'");
+
+	// load log alge
+	var log:ExAlgeSet <<- csvFile($1);
+
+	// added log
+	@{log.add(getLogAlge(lbl))}@;
+
+	// save result
+	log ->> csvFile($2);
+
+	println("'" + lbl + "' finished.");
+}
+
+function getLogAlge(name:String):Exalge {
+	var logtime:String = @{sdf.format(new Date())}@;
+	var retalge:Exalge = 1@<name,"#",logtime,"procLog">;
+	return retalge;
+}

@@ -1,0 +1,69 @@
+package Mobile5GNetwork
+public
+	with Requirements;--with APS,RCC,CloudComponent;
+		
+		System APSCommunication
+			features
+				APSCommunication: in out data port;
+				RCCCommunication: in out data port;
+				CloudCommunication: in out data port;
+				SSSCommunication: in out data port;
+			flows
+				ForwardAPSCloudAccess: flow path APSCommunication ->  CloudCommunication;
+				ForwardCloudAPSAccess: flow path CloudCommunication ->  APSCommunication;
+				ForwardRCCCloudAccess: flow path RCCCommunication ->  CloudCommunication; 											
+				ForwardCloudRCCAccess: flow path CloudCommunication ->  RCCCommunication;
+				ForwardAPStoRCCAccess: flow path APSCommunication -> RCCCommunication;
+				ForwardSSStoCloud:		flow path SSSCommunication -> CloudCommunication;
+				ForwardCloudtoSSS:		flow path CloudCommunication -> SSSCommunication;
+		end APSCommunication;
+		
+			system implementation APSCommunication.impl
+				subcomponents			
+					this_Connection_5G: system Connection_5G
+						{
+							Requirements::RequiredFuntions => 'QoS; Connect the APS to the Cloud;';
+						};						
+					this_Connection_5G_RCC: system Connection_5G_RCC
+						{
+							Requirements::RequiredFuntions => 'QoS; Connect the RCC to the Cloud;';
+						};						
+				connections
+					APStoMobile5GLink: port APSCommunication -> this_Connection_5G.ClientConnection;
+					Mobile5GtoCloudLink_APS: port this_Connection_5G.ServerConnection ->  CloudCommunication;
+					CloudtoMobile5GLink_APS: port CloudCommunication -> this_Connection_5G.ServerConnection;
+					Mobile5GToAPS: port this_Connection_5G.ClientConnection -> APSCommunication;
+					RCCtoMobile5GLink: port RCCCommunication -> this_Connection_5G_RCC.ClientConnection;
+					Mobile5GtoCloudLink_RCC: port this_Connection_5G_RCC.ServerConnection ->  CloudCommunication;
+					CloudtoMobile5GLink_RCC: port CloudCommunication -> this_Connection_5G_RCC.ServerConnection;
+					Mobile5GToRCC: port this_Connection_5G_RCC.ClientConnection -> RCCCommunication;																		
+			end APSCommunication.impl;
+			
+	system Connection_5G
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path 	ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Connection_5G;
+	
+	system Connection_5G_RCC
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path 	ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Connection_5G_RCC;	
+	
+	system Emergency_Connection_5G
+		features
+			ClientConnection: in out data port;
+			ServerConnection: in out data port;
+		flows
+			forward_request: flow path 	ClientConnection -> ServerConnection;
+			forward_respnd: flow path ServerConnection -> ClientConnection;
+	end Emergency_Connection_5G;				
+		
+end Mobile5GNetwork;

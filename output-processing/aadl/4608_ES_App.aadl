@@ -1,0 +1,51 @@
+package ES_App
+public
+	with Component;
+	with ES_Sugar;
+	with ES_Command;
+	with ES_Base_Task;
+	with ES_Base_IO;
+	with Base_Types;
+	
+	thread ESAPP extends Component::Component
+		features
+			EVSAPI: refined to feature group ES_Sugar::EVSAPIOutput;
+			ESAPI: refined to feature group ES_Sugar::ESAPIOutput;
+			
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+			
+			HSControlCommand: out data port Base_Types::Integer;
+	end ESAPP;
+	
+	thread implementation ESAPP.impl extends Component::Component.default
+		subcomponents
+			Medium: refined to abstract ES_Sugar::Medium;
+			Checker: refined to abstract ES_Sugar::Checker;
+			CommandRouter: refined to abstract ES_Command::CommandRouter;
+			-------------Command processor
+			RestartApp: abstract ES_Command::RestartAppProcessor;
+			-------------Base task
+			ScanAppTable: abstract ES_Base_Task::ScanAppTable;
+		connections
+			CheckerResult: port Checker.Result -> ScanAppTable.Execution;
+			
+			----------------Route connection
+			RestartAppCommand: port CommandRouter.RestartApp -> RestartApp.Command;
+			
+			----------------Medium API Out
+			MediumESAPI: feature group Medium.ESAPI -> ESAPI;
+			
+			----------------Task data needed
+			ScanAppTable_AppRecord: feature group AppRecord -> ScanAppTable.AppRecord;
+			
+			----------------Checker result in
+			RestartAppResult: port RestartApp.Result -> Checker.RestartAppResult;
+			
+			----------------Medium processor api call collecttion connection			
+			RestartApp_SendEvent: feature group RestartApp.SendEvent <-> Medium.EVSAPIIn.SendEventCollection.RestartApp;
+			RestartApp_RestartApp: feature group RestartApp.RestartApp <-> Medium.ESAPIIn.RestartAppCollection.RestartApp;
+			
+			-------------------Control Command----------------
+			HSControlCommandConnection: port ScanAppTable.HSControlCommand -> HSControlCommand;
+	end ESAPP.impl;
+end ES_App;

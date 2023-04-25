@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="PG_imp_Instance" category="system">
+  <featureInstance name="toDCM" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+  </featureInstance>
+  <featureInstance name="A_lead" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+  </featureInstance>
+  <featureInstance name="V_lead" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.2"/>
+  </featureInstance>
+  <componentInstance name="accelerometer" category="device">
+    <featureInstance name="xl" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.accelerometer.imp"/>
+  </componentInstance>
+  <componentInstance name="hall" category="device">
+    <featureInstance name="magnet" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.HallEffect.imp"/>
+  </componentInstance>
+  <componentInstance name="DDD" category="process">
+    <featureInstance name="tna">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/48"/>
+    </featureInstance>
+    <featureInstance name="tnv">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/49"/>
+    </featureInstance>
+    <featureInstance name="settings" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="xl">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="magnet">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/50"/>
+    </featureInstance>
+    <featureInstance name="mark_A" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+    </featureInstance>
+    <featureInstance name="mark_V" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+    </featureInstance>
+    <featureInstance name="mark_X" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+    </featureInstance>
+    <featureInstance name="a" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="v" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="ap" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="vp" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+    </featureInstance>
+    <componentInstance name="ddd" category="thread">
+      <featureInstance name="tna">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="tnv">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="last_v_was_vs" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="min_cci">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="max_cci">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="atr_max_cci">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="dav">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="fb">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="lrl">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="url">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="savo">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="act">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="vrp">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.13"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="arp">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.14"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="pvarp">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.15"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="ex_pvarp">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.16"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="hy">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.17"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="min_av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.18"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="pv">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.19"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="sv">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.20"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="pa">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.21"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="sa">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.22"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="inhibit">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.23"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="track">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.24"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="cci" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="a" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="v" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="ap" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="vp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="as" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="at" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.5"/>
+      </featureInstance>
+      <featureInstance name="vs" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.6"/>
+      </featureInstance>
+      <featureInstance name="pvc" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.7"/>
+      </featureInstance>
+      <featureInstance name="ras" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.8"/>
+      </featureInstance>
+      <featureInstance name="rvs" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Pacer.aadl#sw.DDD.imp"/>
+    </componentInstance>
+    <componentInstance name="rc" category="thread" inMode="//@componentInstance.2/@modeInstance.0">
+      <featureInstance name="min_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="max_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="atr_max_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="dav" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="xl">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="mag">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="last_v_was_vs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/14"/>
+      </featureInstance>
+      <featureInstance name="rr">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/15"/>
+      </featureInstance>
+      <featureInstance name="rf">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="rt">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="at">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="ct">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="lrl">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="url">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.13"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="msr">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.14"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.15"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="min_av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.16"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="drs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.17"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="urs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.18"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="fb_time">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.19"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <featureInstance name="hy">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.20"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="cci" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <modeInstance name="normal" derived="true" parent="//@componentInstance.2/@modeInstance.0">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="atr_mode" derived="true">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#rc.RateController.normal"/>
+    </componentInstance>
+    <componentInstance name="atr_rc" category="thread" inMode="//@componentInstance.2/@modeInstance.1">
+      <featureInstance name="min_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="max_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="atr_max_cci" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="dav" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="xl">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="mag">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/19"/>
+      </featureInstance>
+      <featureInstance name="last_v_was_vs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/20"/>
+      </featureInstance>
+      <featureInstance name="rr">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/21"/>
+      </featureInstance>
+      <featureInstance name="rf">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="rt">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="at">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="ct">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="lrl">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="url">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.13"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="msr">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.14"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.15"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="min_av">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.16"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="drs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.17"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="urs">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.18"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="fb_time">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.19"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/22"/>
+      </featureInstance>
+      <featureInstance name="hy">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.20"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="cci" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <modeInstance name="normal" derived="true">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="atr_mode" derived="true" parent="//@componentInstance.2/@modeInstance.1">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/RateControl.aadl#rc.RateController.atr"/>
+    </componentInstance>
+    <componentInstance name="mkr" category="thread">
+      <featureInstance name="tna">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/23"/>
+      </featureInstance>
+      <featureInstance name="tnv">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/24"/>
+      </featureInstance>
+      <featureInstance name="cci">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="mark_A" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="mark_V" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+      </featureInstance>
+      <featureInstance name="mark_X" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+      </featureInstance>
+      <featureInstance name="ap" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="vp" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="as" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="at" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="vs" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+      </featureInstance>
+      <featureInstance name="pvc" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.5"/>
+      </featureInstance>
+      <featureInstance name="ras" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.6"/>
+      </featureInstance>
+      <featureInstance name="rvs" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.7"/>
+      </featureInstance>
+      <featureInstance name="atr_dct" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.8"/>
+      </featureInstance>
+      <featureInstance name="atr_fb" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.9"/>
+      </featureInstance>
+      <featureInstance name="atr_end" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.10"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Mark.aadl#mark.Markers.imp"/>
+    </componentInstance>
+    <componentInstance name="stg" category="thread">
+      <featureInstance name="settings" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="lrl" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="url" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="av" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="savo" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="act" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="vrp" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="arp" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="pvarp" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="pv" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/25"/>
+      </featureInstance>
+      <featureInstance name="sv" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/26"/>
+      </featureInstance>
+      <featureInstance name="pa" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/27"/>
+      </featureInstance>
+      <featureInstance name="sa" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/28"/>
+      </featureInstance>
+      <featureInstance name="inhibit" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.13"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/29"/>
+      </featureInstance>
+      <featureInstance name="track" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.14"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/30"/>
+      </featureInstance>
+      <featureInstance name="hy" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.15"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="rr" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.16"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/31"/>
+      </featureInstance>
+      <featureInstance name="rf" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.17"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="msr" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.18"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="min_av" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.19"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="ex_pvarp" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.20"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="rt" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.21"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="at" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.22"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="ct" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.23"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="atr_enable" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.24"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/32"/>
+      </featureInstance>
+      <featureInstance name="atr_duration" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.25"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/33"/>
+      </featureInstance>
+      <featureInstance name="fb_time" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.26"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/34"/>
+      </featureInstance>
+      <featureInstance name="drs" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.27"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="urs" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.28"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/Rx.aadl#Rx.Settings.imp"/>
+    </componentInstance>
+    <componentInstance name="atr" category="thread group">
+      <featureInstance name="atr_enable">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/46"/>
+      </featureInstance>
+      <featureInstance name="dur">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/33"/>
+      </featureInstance>
+      <featureInstance name="fb" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/47"/>
+      </featureInstance>
+      <featureInstance name="as" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="at" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="atr_detect" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+      </featureInstance>
+      <featureInstance name="atr_fallback" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+      </featureInstance>
+      <featureInstance name="atr_end" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.4"/>
+      </featureInstance>
+      <componentInstance name="dc" category="thread">
+        <featureInstance name="enable">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/35"/>
+        </featureInstance>
+        <featureInstance name="asCount" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/36"/>
+        </featureInstance>
+        <featureInstance name="enable_time" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/37"/>
+        </featureInstance>
+        <featureInstance name="as" category="eventPort">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#ATR.AsCounter.imp"/>
+      </componentInstance>
+      <componentInstance name="ac" category="thread">
+        <featureInstance name="enable">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/38"/>
+        </featureInstance>
+        <featureInstance name="atCount" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/39"/>
+        </featureInstance>
+        <featureInstance name="et" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/40"/>
+        </featureInstance>
+        <featureInstance name="at" category="eventPort">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventPort.0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#ATR.AtCounter.imp"/>
+      </componentInstance>
+      <componentInstance name="atr" category="thread">
+        <featureInstance name="atr_enable">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/41"/>
+        </featureInstance>
+        <featureInstance name="dur">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/33"/>
+        </featureInstance>
+        <featureInstance name="fb" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/42"/>
+        </featureInstance>
+        <featureInstance name="asCount">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/43"/>
+        </featureInstance>
+        <featureInstance name="denable" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/44"/>
+        </featureInstance>
+        <featureInstance name="atCount">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/45"/>
+        </featureInstance>
+        <featureInstance name="atr_detect" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+        </featureInstance>
+        <featureInstance name="atr_fallback" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.1"/>
+        </featureInstance>
+        <featureInstance name="atr_end" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.2"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#ATR.ATRcontrol"/>
+      </componentInstance>
+      <connectionInstance name="dc.asCount -> atr.asCount" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.3" source="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.1">
+        <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.3">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="ac.atCount -> atr.atCount" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.1">
+        <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.5">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="atr.denable -> dc.enable" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.0" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.4">
+        <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="atr.denable -> ac.enable" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.4">
+        <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:ThreadGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadGroupSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadGroupImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#ATR.AtrialTachyResponse.imp"/>
+    </componentInstance>
+    <modeInstance name="normal" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="atr_mode">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMode.1"/>
+    </modeInstance>
+    <modeTransitionInstance name="normal_atr_atr_fallback_atr_mode" destination="//@componentInstance.2/@modeInstance.1" trigger="//@componentInstance.2/@componentInstance.5/@featureInstance.6" source="//@componentInstance.2/@modeInstance.0">
+      <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.0"/>
+    </modeTransitionInstance>
+    <modeTransitionInstance name="atr_mode_atr_atr_end_normal" destination="//@componentInstance.2/@modeInstance.0" trigger="//@componentInstance.2/@componentInstance.5/@featureInstance.7" source="//@componentInstance.2/@modeInstance.1">
+      <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.1"/>
+    </modeTransitionInstance>
+    <connectionInstance name="ddd.last_v_was_vs -> rc.last_v_was_vs" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.6" source="//@componentInstance.2/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.50"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.last_v_was_vs -> atr_rc.last_v_was_vs" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.6" source="//@componentInstance.2/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.52"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.cci -> rc.cci" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.21" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.21">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.49"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.cci -> atr_rc.cci" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.21" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.21">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.51"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.cci -> mkr.cci" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.67"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.cci -> atr_rc.cci" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.21" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.25" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.21">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.84"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.ap -> mkr.ap" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.6" source="//@componentInstance.2/@componentInstance.0/@featureInstance.28">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.28" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.59"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.vp -> mkr.vp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.7" source="//@componentInstance.2/@componentInstance.0/@featureInstance.29">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.29" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.60"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.as -> mkr.as" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.8" source="//@componentInstance.2/@componentInstance.0/@featureInstance.30">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.30" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.61"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.as -> atr.dc.as" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0/@featureInstance.30">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.30" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.74"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.at -> mkr.at" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.9" source="//@componentInstance.2/@componentInstance.0/@featureInstance.31">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.31" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.63"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.at -> atr.ac.at" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0/@featureInstance.31">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.31" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.75"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.vs -> mkr.vs" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.10" source="//@componentInstance.2/@componentInstance.0/@featureInstance.32">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.32" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.10">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.62"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.pvc -> mkr.pvc" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.11" source="//@componentInstance.2/@componentInstance.0/@featureInstance.33">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.33" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.11">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.64"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.ras -> mkr.ras" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.12" source="//@componentInstance.2/@componentInstance.0/@featureInstance.34">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.34" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.12">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.65"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="ddd.rvs -> mkr.rvs" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.13" source="//@componentInstance.2/@componentInstance.0/@featureInstance.35">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.35" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.13">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.66"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="rc.min_cci -> ddd.min_cci" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.3" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.53"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="rc.max_cci -> ddd.max_cci" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.4" source="//@componentInstance.2/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.54"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="rc.dav -> ddd.dav" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.6" source="//@componentInstance.2/@componentInstance.1/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.55"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr_rc.min_cci -> ddd.min_cci" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.3" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.56"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr_rc.max_cci -> ddd.max_cci" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.4" source="//@componentInstance.2/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.85"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr_rc.atr_max_cci -> ddd.atr_max_cci" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.5" source="//@componentInstance.2/@componentInstance.2/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.57"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr_rc.dav -> ddd.dav" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.6" source="//@componentInstance.2/@componentInstance.2/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.58"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.lrl -> ddd.lrl" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.8" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.lrl -> rc.lrl" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.12" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.12">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.25"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.lrl -> atr_rc.lrl" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.12" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.12">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.37"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.url -> ddd.url" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.9" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.url -> rc.url" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.13" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.13">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.26"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.url -> atr_rc.url" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.13" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.13">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.38"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.av -> ddd.av" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.10" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.10">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.av -> rc.av" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.15" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.15">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.27"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.av -> atr_rc.av" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.15" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.15">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.39"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.savo -> ddd.savo" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.11" source="//@componentInstance.2/@componentInstance.4/@featureInstance.4">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.11">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.act -> ddd.act" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.12" source="//@componentInstance.2/@componentInstance.4/@featureInstance.5">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.12">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.vrp -> ddd.vrp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.13" source="//@componentInstance.2/@componentInstance.4/@featureInstance.6">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.13">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.arp -> ddd.arp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.14" source="//@componentInstance.2/@componentInstance.4/@featureInstance.7">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.7" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.14">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.pvarp -> ddd.pvarp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.15" source="//@componentInstance.2/@componentInstance.4/@featureInstance.8">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.8" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.15">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.pv -> ddd.pv" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.19" source="//@componentInstance.2/@componentInstance.4/@featureInstance.9">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.9" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.19">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.sv -> ddd.sv" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.20" source="//@componentInstance.2/@componentInstance.4/@featureInstance.10">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.10" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.20">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.18"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.pa -> ddd.pa" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.21" source="//@componentInstance.2/@componentInstance.4/@featureInstance.11">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.11" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.21">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.19"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.sa -> ddd.sa" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.22" source="//@componentInstance.2/@componentInstance.4/@featureInstance.12">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.12" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.22">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.20"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.inhibit -> ddd.inhibit" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.23" source="//@componentInstance.2/@componentInstance.4/@featureInstance.13">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.13" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.23">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.21"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.track -> ddd.track" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.24" source="//@componentInstance.2/@componentInstance.4/@featureInstance.14">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.14" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.24">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.22"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.hy -> rc.hy" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.20" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.20">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.24"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.hy -> atr_rc.hy" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.20" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.20">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.36"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.hy -> ddd.hy" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.17" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.15" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.17">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.88"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rr -> rc.rr" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.7" source="//@componentInstance.2/@componentInstance.4/@featureInstance.16">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.16" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.28"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rr -> atr_rc.rr" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.7" source="//@componentInstance.2/@componentInstance.4/@featureInstance.16">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.16" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.40"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rf -> rc.rf" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.8" source="//@componentInstance.2/@componentInstance.4/@featureInstance.17">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.17" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.29"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rf -> atr_rc.rf" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.8" source="//@componentInstance.2/@componentInstance.4/@featureInstance.17">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.17" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.41"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.msr -> rc.msr" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.14" source="//@componentInstance.2/@componentInstance.4/@featureInstance.18">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.18" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.14">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.30"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.msr -> atr_rc.msr" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.14" source="//@componentInstance.2/@componentInstance.4/@featureInstance.18">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.18" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.14">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.42"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.min_av -> rc.min_av" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.16" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.16">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.34"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.min_av -> atr_rc.min_av" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.16" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.16">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.46"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.min_av -> ddd.min_av" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.18" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.19" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.18">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.87"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.ex_pvarp -> ddd.ex_pvarp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.16" source="//@componentInstance.2/@componentInstance.4/@featureInstance.20">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.20" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.16">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.23"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rt -> rc.rt" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.9" source="//@componentInstance.2/@componentInstance.4/@featureInstance.21">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.21" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.31"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.rt -> atr_rc.rt" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.9" source="//@componentInstance.2/@componentInstance.4/@featureInstance.21">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.21" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.43"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.at -> rc.at" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.10" source="//@componentInstance.2/@componentInstance.4/@featureInstance.22">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.22" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.10">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.32"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.at -> atr_rc.at" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.10" source="//@componentInstance.2/@componentInstance.4/@featureInstance.22">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.22" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.10">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.44"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.ct -> rc.ct" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.11" source="//@componentInstance.2/@componentInstance.4/@featureInstance.23">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.23" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.11">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.33"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.ct -> atr_rc.ct" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.11" source="//@componentInstance.2/@componentInstance.4/@featureInstance.23">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.23" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.11">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.45"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.atr_enable -> atr.atr.atr_enable" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.0" source="//@componentInstance.2/@componentInstance.4/@featureInstance.24">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.24" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.47"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.atr_duration -> atr.atr.dur" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.1" source="//@componentInstance.2/@componentInstance.4/@featureInstance.25">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.25" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.48"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.fb_time -> atr_rc.fb_time" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.19" source="//@componentInstance.2/@componentInstance.4/@featureInstance.26">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.26" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.19">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.35"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.drs -> rc.drs" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.17" source="//@componentInstance.2/@componentInstance.4/@featureInstance.27">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.27" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.17">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.79"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.drs -> atr_rc.drs" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.17" source="//@componentInstance.2/@componentInstance.4/@featureInstance.27">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.27" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.17">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.81"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.urs -> rc.urs" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.18" source="//@componentInstance.2/@componentInstance.4/@featureInstance.28">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.28" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.18">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.80"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stg.urs -> atr_rc.urs" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.18" source="//@componentInstance.2/@componentInstance.4/@featureInstance.28">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.28" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.18">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.86"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr.atr.fb -> ddd.fb" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.7" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.5/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.73"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr.atr.atr_detect -> mkr.atr_dct" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.14" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.6">
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.5/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.14">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.76"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr.atr.atr_fallback -> mkr.atr_fb" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.15" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.7">
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.7" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.5/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.15">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.77"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="atr.atr.atr_end -> mkr.atr_end" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.16" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.8">
+      <connectionReference context="//@componentInstance.2/@componentInstance.5" source="//@componentInstance.2/@componentInstance.5/@componentInstance.2/@featureInstance.8" destination="//@componentInstance.2/@componentInstance.5/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/ATR.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.5/@featureInstance.7" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.16">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.78"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#PGprocess.pg_process.imp"/>
+  </componentInstance>
+  <componentInstance name="front_end" category="system">
+    <featureInstance name="A_lead" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+    </featureInstance>
+    <featureInstance name="V_lead" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+    </featureInstance>
+    <featureInstance name="tna" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/51"/>
+    </featureInstance>
+    <featureInstance name="tnv" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/instances/PACEMAKER_PG_imp_Instance.aaxl2#/52"/>
+    </featureInstance>
+    <featureInstance name="a" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="v" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="ap" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="vp" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.front_end.imp"/>
+  </componentInstance>
+  <componentInstance name="telemetry" category="system">
+    <featureInstance name="toDCM" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+    </featureInstance>
+    <featureInstance name="mark_A">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="mark_V">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="mark_X">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="episodes" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+    </featureInstance>
+    <featureInstance name="settings" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.4"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.Telemetry.imp"/>
+  </componentInstance>
+  <componentInstance name="history" category="system">
+    <featureInstance name="mark_A">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="mark_V">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="mark_X">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="episodes" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.History.imp"/>
+  </componentInstance>
+  <connectionInstance name="toDCM -> telemetry.toDCM" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="A_lead -> front_end.A_lead" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="V_lead -> front_end.V_lead" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.1" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="accelerometer.xl -> DDD.rc.xl" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.4" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="accelerometer.xl -> DDD.atr_rc.xl" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.4" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.82"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="hall.magnet -> DDD.rc.mag" inSystemOperationMode="//@systemOperationMode.0" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.5" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="hall.magnet -> DDD.atr_rc.mag" inSystemOperationMode="//@systemOperationMode.1" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.5" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.83"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.ddd.ap -> front_end.ap" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.6" source="//@componentInstance.2/@componentInstance.0/@featureInstance.28">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.28" destination="//@componentInstance.2/@featureInstance.10">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.10" destination="//@componentInstance.3/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.ddd.vp -> front_end.vp" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.7" source="//@componentInstance.2/@componentInstance.0/@featureInstance.29">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.29" destination="//@componentInstance.2/@featureInstance.11">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.11" destination="//@componentInstance.3/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_A -> telemetry.mark_A" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.1" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.70"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.5" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_A -> history.mark_A" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.70"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.5" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_V -> telemetry.mark_V" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.71"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.6" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_V -> history.mark_V" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.1" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.71"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.6" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_X -> telemetry.mark_X" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.3" source="//@componentInstance.2/@componentInstance.3/@featureInstance.5">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.72"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.7" destination="//@componentInstance.4/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.mkr.mark_X -> history.mark_X" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.5">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.72"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.7" destination="//@componentInstance.5/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="DDD.stg.settings -> telemetry.settings" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.5" source="//@componentInstance.2/@componentInstance.4/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.5" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.A_lead -> A_lead" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.3/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.V_lead -> V_lead" kind="accessConnection" destination="//@featureInstance.2" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.tna -> DDD.ddd.tna" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.tna -> DDD.mkr.tna" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.0" source="//@componentInstance.3/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.68"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.tnv -> DDD.ddd.tnv" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.1" source="//@componentInstance.3/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.tnv -> DDD.mkr.tnv" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.1" source="//@componentInstance.3/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.69"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.a -> DDD.ddd.a" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.26" source="//@componentInstance.3/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.8" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.26">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="front_end.v -> DDD.ddd.v" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.27" source="//@componentInstance.3/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.9">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.9" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.27">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="telemetry.toDCM -> toDCM" kind="accessConnection" destination="//@featureInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="telemetry.episodes -> history.episodes" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.3" source="//@componentInstance.4/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.4" destination="//@componentInstance.5/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="telemetry.settings -> DDD.stg.settings" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.4/@featureInstance.0" source="//@componentInstance.4/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PGprocess.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="history.episodes -> telemetry.episodes" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.4" source="//@componentInstance.5/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.3" destination="//@componentInstance.4/@featureInstance.4" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.PG.imp"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.2/@modeInstance.0 //@componentInstance.2/@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.2/@modeInstance.1 //@componentInstance.2/@componentInstance.2/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a346/DDDRwE/packages/PACEMAKER.aadl#PACEMAKER.PG.imp"/>
+</instance:SystemInstance>

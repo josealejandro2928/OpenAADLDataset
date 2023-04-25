@@ -1,0 +1,61 @@
+package ES_Service
+public
+	with ES_Arg_IO;
+	with ES_Processor;
+	with ES_Result_IO;
+	with ES_Base_IO;
+	
+	abstract Service
+		features
+			RegisterAppArgs: feature group ES_Arg_IO::RegisterAppArgs;
+			RestartAppArgs: feature group ES_Arg_IO::RestartAppArgs;
+			DeleteAppArgs: feature group ES_Arg_IO::DeleteAppArgs;
+			RunLoopArgs: feature group ES_Arg_IO::RunLoopArgs;
+			
+			AppRecord: feature group ES_Base_IO::AppRecordOutput;
+	end Service;
+
+	abstract implementation Service.impl
+		subcomponents
+			RegisterApp: abstract ES_Processor::RegisterApp;
+			RestartApp: abstract ES_Processor::RestartApp;
+			DeleteApp: abstract ES_Processor::DeleteApp;
+			RunLoop: abstract ES_Processor::RunLoop;
+			
+			ShareData: abstract ShareData;
+		connections
+			-----------------------Data output----------------------
+			AppRecordOutput: feature group ShareData.OldAppRecordData -> AppRecord;
+			
+			RegisterAppArg: feature group RegisterAppArgs <-> RegisterApp.Args;
+			RegisterAppLocalData1: feature group ShareData.OldTaskRecordData -> RegisterApp.LocalDatas.TaskRecord;
+			RegisterAppLocalData2: feature group ShareData.OldAppRecordData -> RegisterApp.LocalDatas.AppRecord;
+			RegisterAppResult: feature group RegisterApp.Results -> ShareData.RegisterAppResult;
+			
+			RestartAppArg: feature group RestartAppArgs <-> RestartApp.Args;
+			RestartAppLocalData1: feature group ShareData.OldTaskRecordData -> RestartApp.LocalDatas.TaskRecord;
+			RestartAppLocalData2: feature group ShareData.OldAppRecordData -> RestartApp.LocalDatas.AppRecord;
+			RestartAppResult: feature group RestartApp.Results -> ShareData.RestartAppResult;
+			
+			DeleteAppArg: feature group DeleteAppArgs <-> DeleteApp.Args;
+			DeleteAppLocalData1: feature group ShareData.OldTaskRecordData -> DeleteApp.LocalDatas.TaskRecord;
+			DeleteAppLocalData2: feature group ShareData.OldAppRecordData -> DeleteApp.LocalDatas.AppRecord;
+			DeleteAppResult: feature group DeleteApp.Results -> ShareData.DeleteAppResult;
+			
+			RunLoopArg: feature group RunLoopArgs <-> RunLoop.Args;
+			RunLoopLocalData1: feature group ShareData.OldTaskRecordData -> RunLoop.LocalDatas.TaskRecord;
+			RunLoopLocalData2: feature group ShareData.OldAppRecordData -> RunLoop.LocalDatas.AppRecord;
+			RunLoopResult: feature group RunLoop.Results -> ShareData.RunLoopResult;
+	end Service.impl;
+
+	----------------ShareData can add processor result
+	abstract ShareData
+		features
+			OldTaskRecordData: feature group ES_Base_IO::TaskRecordOutput;
+			OldAppRecordData: feature group ES_Base_IO::AppRecordOutput;
+			RegisterAppResult: feature group ES_Result_IO::RegisterAppResult;
+			RestartAppResult: feature group ES_Result_IO::RestartAppResult;
+			DeleteAppResult: feature group ES_Result_IO::DeleteAppResult;
+			RunLoopResult: feature group ES_Result_IO::RunLoopResult;
+	end ShareData;
+end ES_Service;

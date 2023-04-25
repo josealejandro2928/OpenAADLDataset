@@ -1,0 +1,30 @@
+package Sample_App
+public
+	with Component;
+	with ES_Base_IO;
+	with Sample_Base_Task;
+	with Sample_Sugar;
+	
+	thread SampleAPP extends Component::AppComponent
+		features
+			EVSAPI: refined to feature group Sample_Sugar::EVSAPIOutput;
+			ESAPI: refined to feature group Sample_Sugar::ESAPIOutput;
+			
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+	end SampleAPP;
+	
+	thread implementation SampleAPP.impl extends Component::AppComponent.default
+		subcomponents
+			Medium: refined to abstract Sample_Sugar::Medium;
+			Checker: refined to abstract Sample_Sugar::Checker;
+--			MonitorApplications: abstract Sample_Base_Task::MonitorApplications;
+--		connections
+--			CheckerResult: port Checker.Result -> MonitorApplications.Execution;
+			
+			----------------Task data needed
+--			MonitorApplications_AppRecord: feature group AppRecord -> MonitorApplications.AppRecord;
+			
+			----------------Medium processor api call collecttion connection			
+--			MonitorApplications_RestartApp: feature group MonitorApplications.RestartApp.SB <-> Medium.ESAPIIn.RestartAppCollection.MonitorApplications_SB;
+	end SampleAPP.impl;
+end Sample_App;

@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------
+-- This package defines notional UAV "controllers" that form part of a UAS. A controller could be
+-- a ground station, manned platform, etc.
+---------------------------------------------------------------------------------------------------
+package UAV_Controller
+
+public
+	with Buses;
+	with WiFi_Datalink;
+	with Tactical_Common_Data_Link;
+	with Memories;
+
+	---------------------------------------------------------------------------------------------
+	-- UAV ground station that, as defined, communicates with the UAV via a WiFi link. The
+	-- ground station supports a secure link in addition to the unsecured WiFi link.
+	---------------------------------------------------------------------------------------------
+	system Gnd_Station
+		features
+			UAV_Operator_IF : feature group WiFi_Datalink::WiFI_Data_plug;
+			Configuration_Data: feature group;
+			SD_Card_Conn: requires bus access Buses::USB.Three;
+			Wireless_Conn: requires bus access Buses::WiFi;
+	end Gnd_Station;
+		
+	system implementation Gnd_Station.impl
+		subcomponents
+			Wireless_Radio:  device WiFi_Datalink::WiFi_Radio;
+			Datalink_with_UAV: device Tactical_Common_Data_Link::TCDL;
+			Internal_network :  bus Buses::Ethernet;
+			GS_Computers: system Ground_Computers;
+
+			--Removeable memory is used to to install the bootable filesystem image into the ODROID platform
+			SD_Card: memory Memories::Flash_Memory.eMMC {Memory_size => 64 GByte;};
+			
+	end Gnd_Station.impl;
+
+
+	system Ground_Computers		
+	end Ground_Computers;
+    --------------------------------------------------------------------------------------------
+	-- A manned aircraft platform responsible for interfacing with and controlling UAV(s) that
+	-- form a UAS. The features and subcomponents of the Manned_Platform are left undefined 
+	-- with the intent that these would be completed or extended as needed.
+	--------------------------------------------------------------------------------------------
+	system Manned_Platform
+		features
+			UAV_Operator_IF : feature group;
+	end Manned_Platform;
+	
+	system implementation Manned_Platform.i
+		subcomponents
+			Datalink_with_UAV: device Tactical_Common_Data_Link::TCDL;
+			Aircraft_Systems: system;
+	end Manned_Platform.i;
+	
+end UAV_Controller;

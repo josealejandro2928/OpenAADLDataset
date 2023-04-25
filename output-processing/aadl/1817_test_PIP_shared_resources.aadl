@@ -1,0 +1,183 @@
+
+data black
+end black;
+
+data implementation black.Impl
+	properties 
+		Cheddar_Properties::Data_Concurrency_State =>  1;
+		Concurrency_Control_Protocol => PRIORITY_INHERITANCE_PROTOCOL;
+end black.Impl;
+
+data shaded
+end shaded;
+
+data implementation shaded.Impl
+	properties 
+		Cheddar_Properties::Data_Concurrency_State =>  1;
+		Concurrency_Control_Protocol => PRIORITY_INHERITANCE_PROTOCOL;
+end shaded.Impl;
+
+thread J1
+	features
+		shaded_features : requires data access shaded.Impl;
+end J1;
+
+thread implementation J1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  7 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  5;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  50 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  50 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end J1.Impl;
+
+thread J2
+	features
+		black_features : requires data access black.Impl;
+end J2;
+
+thread implementation J2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  3 ms ..  3 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  5 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  4;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  50 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  50 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end J2.Impl;
+
+thread J3
+end J3;
+
+thread implementation J3.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  2 ms ..  2 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  4 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  3;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  50 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  50 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end J3.Impl;
+
+thread J4
+	features
+		black_features : requires data access black.Impl;
+		shaded_features : requires data access shaded.Impl;
+end J4;
+
+thread implementation J4.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  6 ms ..  6 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  2 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  2;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  50 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  50 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end J4.Impl;
+
+thread J5
+	features
+		black_features : requires data access black.Impl;
+end J5;
+
+thread implementation J5.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Source_Code_Size =>  0 kb ;
+		Source_Stack_Size =>  0 kb ;
+		Compute_Execution_Time =>  6 ms ..  6 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Cheddar_Properties::POSIX_Scheduling_Policy => SCHED_FIFO;
+		Cheddar_Properties::Fixed_Priority =>  1;
+		Cheddar_Properties::Bound_On_Data_Blocking_Time =>  0 ms ;
+		Deadline  =>  50 ms ;
+		Cheddar_Properties::Criticality  =>  0;
+		Period =>  50 ms ;
+		Cheddar_Properties::Dispatch_Jitter =>  0 ms ;
+end J5.Impl;
+
+process ea1
+end ea1;
+
+process implementation ea1.Impl
+	subcomponents
+		instancied_J1 : thread J1.Impl;
+		instancied_J2 : thread J2.Impl;
+		instancied_J3 : thread J3.Impl;
+		instancied_J4 : thread J4.Impl;
+		instancied_J5 : thread J5.Impl;
+		instancied_black : data black.Impl;
+		instancied_shaded : data shaded.Impl;
+	connections
+		data access instancied_shaded -> instancied_J1.shaded_features;
+		data access instancied_black -> instancied_J2.black_features;
+		data access instancied_black -> instancied_J4.black_features;
+		data access instancied_shaded -> instancied_J4.shaded_features;
+		data access instancied_black -> instancied_J5.black_features;
+	properties
+		Cheddar_Properties::Source_Global_Text_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Data_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Heap_Size =>  0 kb ;
+		Cheddar_Properties::Source_Global_Stack_Size =>  0 kb ;
+		Cheddar_Properties::Critical_Section => (
+			"instancied_black",
+			"instancied_J2","2","2",
+			"instancied_black",
+			"instancied_J4","4","5",
+			"instancied_black",
+			"instancied_J5","2","5",
+			"instancied_shaded",
+			"instancied_J1","2","2",
+			"instancied_shaded",
+			"instancied_J4","2","5"			);
+end ea1.Impl;
+
+processor cpu0
+end cpu0;
+
+processor implementation cpu0.Impl
+	properties 
+		Scheduling_Protocol => POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => True;
+end cpu0.Impl;
+
+
+system Cheddar
+end Cheddar;
+
+system implementation Cheddar.Impl
+	subcomponents
+		instancied_cpu0 : processor cpu0.Impl;
+		instancied_ea1 : process ea1.Impl;
+	properties
+		Actual_Processor_Binding => reference instancied_cpu0 applies to instancied_ea1;
+end Cheddar.Impl;
+
+
+

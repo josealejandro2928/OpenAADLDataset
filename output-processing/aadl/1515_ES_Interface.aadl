@@ -1,0 +1,68 @@
+package ES_Interface
+public
+	with Base_Types;
+	with Generic;
+	
+--------------------------------------------------------------------------
+------------------------------RegisterApp---------------------------------
+--TaskId	|	Result
+--[0-31]	-> 0
+--other		-> (int32)0xc4000017
+--------------------------------------------------------------------------
+	feature group P_RegisterApp extends Generic::Provide_Generic_Function_API
+		features
+			TaskId: in data port Base_Types::Unsigned_32;
+	end P_RegisterApp;
+
+	feature group R_RegisterApp extends Generic::Require_Generic_Function_API
+		features
+			TaskId: out data port Base_Types::Unsigned_32;
+	inverse of P_RegisterApp
+	end R_RegisterApp;
+--------------------------------------------------------------------------
+------------------------------RestartApp----------------------------------
+--AppId			AppType		AppState	|	Result
+--[0-31]	&	[^1]	&	[^1]		->	0
+--other			other		other		->	(int32)0xc4000001
+--------------------------------------------------------------------------
+	feature group P_RestartApp extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_RestartApp;
+
+	feature group R_RestartApp extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_RestartApp
+	end R_RestartApp;
+--------------------------------------------------------------------------
+------------------------------DeleteApp-----------------------------------
+--AppId			AppType		AppState	|	Result
+--[0-31]	&	[^1]	&	[^1]		->	0
+--other			other		other		->	(int32)0xc4000001
+--------------------------------------------------------------------------
+	feature group P_DeleteApp extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_DeleteApp;
+
+	feature group R_DeleteApp extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_DeleteApp
+	end R_DeleteApp;
+	
+--------------------------------------------------------------------------
+------------------------------RunLoop-----------------------------------
+--------------------------------------------------------------------------
+	feature group P_RunLoop extends Generic::Provide_Generic_Function_API
+		features
+			AppId: in data port Base_Types::Unsigned_32;
+	end P_RunLoop;
+
+	feature group R_RunLoop extends Generic::Require_Generic_Function_API
+		features
+			AppId: out data port Base_Types::Unsigned_32;
+	inverse of P_RunLoop
+	end R_RunLoop;
+end ES_Interface;

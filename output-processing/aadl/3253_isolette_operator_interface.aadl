@@ -1,0 +1,37 @@
+package isolette_operator_interface
+public
+	with isolette, Data_Types;
+
+	system Operator_Interface
+		features
+			operator_interaction : feature group inverse of Interface_Interaction;
+			operator_feedback : feature group inverse of Operator_Feedback;
+			operator_settings : feature group inverse of Operator_Settings;
+		flows								
+			desired_temp_range_source : flow source operator_settings.desired_temperature_range; 
+			alarm_temp_range_source : flow source operator_settings.alarm_temperature_range; 
+			operator_interface_sink : flow sink operator_feedback;
+	end Operator_Interface;
+	
+	system implementation Operator_Interface.impl
+		subcomponents 
+			this_interaction_receiver : process Interaction_Receiver;
+			this_desired_temperature_setting : process Desired_Temperature_Setting;
+			this_alarm_temperature_setting : process Alarm_Temperature_Setting;
+			this_thermostat_controller : process Thermostat_Controller;
+		connections 
+			interaction_setting_conn : feature group operator_interaction <-> this_interaction_receiver.operator_interaction;
+			--alarm_temp_range_lower_conn : feature group this_interaction_receiver.alarm_temp_range -> this_alarm_temperature_setting.alarm_temp_lower;
+			--alarm_temp_range_upper_conn : feature group this_interaction_receiver.alarm_temp_range -> this_alarm_temperature_setting.alarm_temp_upper;
+			--desired_temp_range_lower_conn : feature group this_interaction_receiver.desired_temp_range -> this_desired_temperature_setting.desired_temp_lower;
+			--desired_temp_range_upper_conn : feature group this_interaction_receiver.desired_temp_range -> this_desired_temperature_setting.desired_temp_upper;
+			regulator_status_conn : port this_interaction_receiver.regulator_status -> this_thermostat_controller.regulator_status;
+			monitor_status_conn : port this_interaction_receiver.monitor_status -> this_thermostat_controller.monitor_status;
+			display_temp_conn : port this_interaction_receiver.display_temp -> this_thermostat_controller.display_temp;
+			alarm_conn : port this_interaction_receiver.alarm -> this_thermostat_controller.alarm;
+			desired_temp_setting_conn : feature group this_desired_temperature_setting.operator_settings -> operator_settings;
+			alarm_temp_setting_conn : feature group this_alarm_temperature_setting.operator_settings -> operator_settings;
+			operator_settings_conn : feature group this_thermostat_controller.operator_feedback <-> operator_feedback;
+	end Operator_Interface.impl;
+	
+end isolette_operator_interface;

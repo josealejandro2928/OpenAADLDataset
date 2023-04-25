@@ -1,0 +1,26 @@
+package AidsToNavigation
+public
+	system AidsToNavigation
+		features
+			UHFPositionCorrection: out data port;
+			GNSSSignal: out data port;
+	end AidsToNavigation;
+	
+	system implementation AidsToNavigation.impl
+		subcomponents
+			RTKBaseStation: system RTKBaseStation;
+			GNSSTransmitter: system GNSSTransmitter;
+		connections
+			RTK_Position_Correction_impl_new_connection: port RTKBaseStation.CorrectionData -> UHFPositionCorrection;
+	end AidsToNavigation.impl;
+	
+	system RTKBaseStation
+		features
+			CorrectionData: out data port;
+	end RTKBaseStation;
+	
+	system GNSSTransmitter
+		features
+			GNSSData: out data port;
+	end GNSSTransmitter;
+end AidsToNavigation;

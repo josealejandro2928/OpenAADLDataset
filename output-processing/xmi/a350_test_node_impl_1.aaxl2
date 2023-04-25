@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="node_impl_Instance" category="system">
+  <componentInstance name="rtbus" category="bus">
+    <componentInstance name="layer_topsecret" category="virtual bus">
+      <subcomponent xsi:type="aadl2:VirtualBusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedVirtualBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualBusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.security_layer.secret"/>
+    </componentInstance>
+    <componentInstance name="layer_secret" category="virtual bus">
+      <subcomponent xsi:type="aadl2:VirtualBusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedVirtualBusSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualBusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.security_layer.topsecret"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.separation_bus.i"/>
+  </componentInstance>
+  <componentInstance name="mem" category="memory">
+    <componentInstance name="part1" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.partitionmemory"/>
+    </componentInstance>
+    <componentInstance name="part2" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.partitionmemory"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.mainmemory.impl"/>
+  </componentInstance>
+  <componentInstance name="part1" category="process">
+    <componentInstance name="thr1" category="thread">
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.mythread.impl1"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.myprocess.impl1"/>
+  </componentInstance>
+  <componentInstance name="part2" category="process">
+    <componentInstance name="thr2" category="thread">
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.mythread.impl2"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.myprocess.impl2"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <componentInstance name="part1" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.partition.impl"/>
+    </componentInstance>
+    <componentInstance name="part2" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.partition.impl"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.ppc.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.node.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a350/examples/arinc653-threads/model.aadl#test.node.impl"/>
+</instance:SystemInstance>

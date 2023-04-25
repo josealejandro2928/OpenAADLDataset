@@ -1,0 +1,17 @@
+-- Copyright 2018 Carnegie Mellon University. See Notice.txt
+-- Distribution Statement A: Approved for Public Release; Distribution is Unlimited.
+package Resolute_Isolette
+public
+	annex Resolute {**
+
+	is_TempWstatus(cp:port)<=
+	** "Data type of " cp " must be Isolette_Data_Model::TempWstatus" **
+	type(cp) = Isolette_Data_Model::TempWstatus
+	
+ 	is_Fahrenheit(cp: port)<=
+	** "Measurement unit of " cp " must be Fahrenheit" **
+ 		if has_property(cp, Data_Model::Measurement_Unit) then property (cp, Data_Model::Measurement_Unit) = "Fahrenheit"
+ 		else false
+		
+	**};
+end Resolute_Isolette;

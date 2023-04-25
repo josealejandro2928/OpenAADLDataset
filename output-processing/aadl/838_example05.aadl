@@ -1,0 +1,475 @@
+-- Copyright (c) 2015 Carnegie Mellon University. All Rights Reserved.
+--
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions
+-- are met:
+--
+-- 1. Redistributions of source code must retain the above copyright
+-- notice, this list of conditions and the following acknowledgments
+-- and disclaimers.
+--
+-- 2. Redistributions in binary form must reproduce the above
+-- copyright notice, this list of conditions and the following
+-- disclaimer in the documentation and/or other materials provided
+-- with the distribution.
+--
+-- 3. The names "Carnegie Mellon University," "SEI" and/or "Software
+-- Engineering Institute" shall not be used to endorse or promote
+-- products derived from this software without prior written
+-- permission. For written permission, please contact
+-- permission@sei.cmu.edu.
+--
+-- 4. Products derived from this software may not be called "SEI" nor
+-- may "SEI" appear in their names without prior written permission of
+-- permission@sei.cmu.edu.
+--
+-- 5. Redistributions of any form whatsoever must retain the following
+-- acknowledgment:
+--
+-- This material is based upon work funded and supported by the
+-- Department of Defense under Contract No. FA8721-05-C-0003 with
+-- Carnegie Mellon University for the operation of the Software
+-- Engineering Institute, a federally funded research and development
+-- center.
+--
+-- Any opinions, findings and conclusions or recommendations expressed
+-- in this material are those of the author(s) and do not necessarily
+-- reflect the views of the United States Department of Defense.
+--
+-- NO WARRANTY. THIS CARNEGIE MELLON UNIVERSITY AND SOFTWARE
+-- ENGINEERING INSTITUTE MATERIAL IS FURNISHED ON AN "AS-IS"
+-- BASIS. CARNEGIE MELLON UNIVERSITY MAKES NO WARRANTIES OF ANY KIND,
+-- EITHER EXPRESSED OR IMPLIED, AS TO ANY MATTER INCLUDING, BUT NOT
+-- LIMITED TO, WARRANTY OF FITNESS FOR PURPOSE OR MERCHANTABILITY,
+-- EXCLUSIVITY, OR RESULTS OBTAINED FROM USE OF THE MATERIAL. CARNEGIE
+-- MELLON UNIVERSITY DOES NOT MAKE ANY WARRANTY OF ANY KIND WITH
+-- RESPECT TO FREEDOM FROM PATENT, TRADEMARK, OR COPYRIGHT
+-- INFRINGEMENT.
+--
+-- This material has been approved for public release and unlimited
+-- distribution.
+--
+-- DM-0002494
+
+package example05
+public
+  with Zero_Slack_Scheduling, DART;
+
+-----------------------------------------------------------------------
+-- begin datatype stuff
+-----------------------------------------------------------------------
+
+-- a (X,Y) pair denoting a cell coordinate
+data coordinate
+end coordinate;
+
+-- index to access an element in a multi-dimensional array
+data element_index
+end element_index;
+
+-- a lock
+data lock_type
+end lock_type;
+
+-- declaration of array of locks
+data locks_array_type	
+end locks_array_type;
+
+-- implementation of array of locks
+data implementation locks_array_type.i
+subcomponents
+  locks: data lock_type[5];
+end locks_array_type.i;	
+
+-- declaration of lock update
+data lock_update_type
+end lock_update_type;
+
+-- implementation of lock update
+data implementation lock_update_type.i
+subcomponents
+  lock: data lock_type;
+  index: data element_index;		
+end lock_update_type.i;
+
+-- initialized node
+data initialized_node_type
+end initialized_node_type;	
+
+-- declaration of initialized node update type
+data initialized_node_update_type
+end initialized_node_update_type;
+
+-- implementation of initialized node update type
+data implementation initialized_node_update_type.i
+subcomponents
+  initialized_node: data initialized_node_type;
+  index: data element_index;
+end initialized_node_update_type.i;
+
+subprogram set_lock_routine_type
+end set_lock_routine_type;	
+
+subprogram set_leader_destination_routine_type
+end set_leader_destination_routine_type;
+
+subprogram set_initialized_routine_type
+end set_initialized_routine_type;
+
+subprogram getlocks_routine_type
+end getlocks_routine_type;
+
+subprogram get_leader_destination_routine_type
+end get_leader_destination_routine_type;
+
+subprogram set_waypoint_routine_type
+end set_waypoint_routine_type;
+
+subprogram get_waypoint_routine_type
+end get_waypoint_routine_type;
+
+-----------------------------------------------------------------------
+-- end datatype stuff
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+-- distributed data store. models the MADARA context (a collection of
+-- shared variables) through which threads (application threads and
+-- the receiver thread) communicate with one another.
+-----------------------------------------------------------------------
+
+-- declaration of distributed data store
+data distributed_data_store
+features
+  -- accessors for the different shared variables
+  setlock: provides subprogram access set_lock_routine_type; 
+  getlocks: provides subprogram access getlocks_routine_type;	
+  setleaderdestination: provides subprogram access set_leader_destination_routine_type;
+  getleaderdestination: provides subprogram access get_leader_destination_routine_type;
+  setwaypoint: provides subprogram access set_waypoint_routine_type;
+  getwaypoint: provides subprogram access get_waypoint_routine_type;
+  setinitialized: provides subprogram access set_initialized_routine_type;	
+end distributed_data_store;
+
+-- implementation of distributed data store
+data implementation distributed_data_store.i
+subcomponents
+  setlockprogram: subprogram set_lock_routine_type;
+  setleaderdestinationprogram: subprogram set_leader_destination_routine_type;
+  setinitializedprogram: subprogram set_initialized_routine_type;
+  locks: data locks_array_type.i;
+  destination: data coordinate[1];
+  initalized_nodes: data initialized_node_type[5];
+end distributed_data_store.i;
+
+-- a generic DART processor. just a placeholder for the CPU.
+processor dart_processor
+end dart_processor;
+
+subprogram subprogram_madara_receiver
+properties
+  Source_Name => "RECEIVER";
+end subprogram_madara_receiver;
+
+-- the MADARA receiver thread declaration. this thread receives stuff
+-- from other nodes via the network, and updates the local
+-- context. for each such data type, it therefore has an input port to
+-- receive the data and an accessor method to update the context.
+thread madara_receiver_thread
+features
+  leader_destination_update: in data port coordinate;
+  setleaderdestination: requires subprogram access set_leader_destination_routine_type;
+  lock_update_in: in data port lock_update_type.i;
+  setlock : requires subprogram access set_lock_routine_type;
+  init_update: in data port initialized_node_update_type.i;
+  setinitialized: requires subprogram access set_initialized_routine_type;  
+end madara_receiver_thread;
+
+thread implementation madara_receiver_thread.i
+calls
+  main: {
+  m: subprogram subprogram_madara_receiver;
+  };
+properties
+  Compute_Entrypoint_Call_Sequence => reference (main);
+end madara_receiver_thread.i;
+
+-- the base software specification running on each DART node.
+process dart_sw
+features
+  leader_destination_update: in data port coordinate;
+  lock_update_in: in data port lock_update_type.i;
+  init_update: in data port initialized_node_update_type.i;
+end dart_sw;
+		
+-- the base software implementation running on each DART node. it
+-- contains only the MADARA context and the receiver thread. it will
+-- be specialized by each concrete DART node by adding
+-- application-specific threads and data.
+process implementation dart_sw.i
+subcomponents
+  madara_thread: thread madara_receiver_thread.i;
+  distributed_store: data distributed_data_store.i;
+connections
+  c1: port leader_destination_update -> madara_thread.leader_destination_update;	
+  c2: subprogram access madara_thread.setleaderdestination -> distributed_store.setleaderdestination;
+  c3: port lock_update_in -> madara_thread.lock_update_in;	
+  c4: subprogram access madara_thread.setlock -> distributed_store.setlock;
+  c5: port init_update -> madara_thread.init_update;	
+  c6: subprogram access madara_thread.setinitialized -> distributed_store.setinitialized;		
+end dart_sw.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- a node's collision avoidance thread
+subprogram subprogram_collision_avoidance
+properties
+  Source_Name => "COLLISION_AVOIDANCE";
+end subprogram_collision_avoidance;
+
+-- the collision avoidance thread specification
+thread collision_avoidance
+features 
+  getlocks: requires subprogram access getlocks_routine_type;
+  setlock: requires subprogram access set_lock_routine_type;
+  publish_lock: out data port lock_update_type.i; -- CHECK if event or only data
+  get_waypoint: requires subprogram access get_waypoint_routine_type;
+end collision_avoidance;
+
+-- the collision avoidance thread implementation
+thread implementation collision_avoidance.i
+calls
+  main:{
+  m: subprogram subprogram_collision_avoidance;
+  };
+properties
+  Compute_Entrypoint_Source_Text => "example-05.dmpl";
+  -- the job function called periodically by the thread
+  Compute_Entrypoint_Call_Sequence => reference (main) ;
+end collision_avoidance.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- a node's next-waypoint thread
+subprogram subprogram_waypoint
+properties
+  Source_Name => "WAYPOINT";
+end subprogram_waypoint;
+
+-- the waypoint thread specification. decides on the next destination
+-- node for the leader relative to the next waypoint of the leader.
+thread waypoint_thread
+features
+  get_leader_destination : requires subprogram access get_leader_destination_routine_type;
+  set_waypoint: requires subprogram access set_waypoint_routine_type;
+end waypoint_thread;
+
+-- a waypoint thread implementation
+thread implementation waypoint_thread.i
+calls
+  main:{ 
+  m: subprogram subprogram_waypoint;
+  };
+properties
+  Compute_Entrypoint_Source_Text => "example-05.dmpl";
+  -- the job function called periodically by the thread
+  Compute_Entrypoint_Call_Sequence => reference (main) ; 
+end waypoint_thread.i;
+
+-- the specification of process running on a protector node
+process protector_sw extends dart_sw
+features
+  publish_lock : out data port lock_update_type.i;
+properties
+  DART::Role => "Protector";
+end protector_sw;
+
+-- the implementation of process running on a protector node. it adds
+-- two new threads (over the receiver thread already in the base dart
+-- software) : collision avoidance and waypoint.
+process implementation protector_sw.i extends dart_sw.i
+subcomponents
+  avoidance: thread collision_avoidance.i;
+  waypoint: thread waypoint_thread.i;
+connections
+  c10: subprogram access avoidance.getlocks -> distributed_store.getlocks;	
+  c11: subprogram access avoidance.setlock -> distributed_store.setlock;
+  c12: port avoidance.publish_lock -> publish_lock;
+  c13: subprogram access avoidance.get_waypoint -> distributed_store.getwaypoint;
+  c14: subprogram access waypoint.get_leader_destination -> distributed_store.getleaderdestination;
+  c15: subprogram access waypoint.set_waypoint -> distributed_store.setwaypoint;
+properties
+  -- MADARA receiver thread timing parameters. This are 'sample'
+  -- parameters. We need to get the real ones.
+  Period => 50 ms applies to madara_thread;
+  Zero_Slack_Scheduling::Criticality => 1 applies to madara_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to madara_thread;
+  -- waypoint thread timing parameters
+  Period => 100 ms applies to waypoint;
+  Zero_Slack_Scheduling::Criticality => 3 applies to waypoint;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to waypoint;
+  -- collision avoidance thread timing parameters
+  Period => 200 ms applies to avoidance;
+  Zero_Slack_Scheduling::Criticality => 4 applies to avoidance;
+  Compute_Execution_Time => 15000 us .. 30000 us applies to avoidance;
+end protector_sw.i;
+
+-- a protector node specification
+system protector_node
+features
+  publish_lock: out data port lock_update_type.i;
+  leader_destination: in data port coordinate;
+  input_lock: in data port lock_update_type.i;
+end protector_node;
+
+-- a protector node implementation. consists of a CPU and a protector process.
+system implementation protector_node.i
+subcomponents
+  hw: processor dart_processor;
+  sw: process protector_sw.i;
+connections
+  c1: port sw.publish_lock -> publish_lock;
+  c2: port leader_destination -> sw.leader_destination_update;
+  c3: port input_lock -> sw.lock_update_in;
+properties
+  Actual_Processor_Binding => (reference (hw)) applies to sw;
+end protector_node.i;	
+
+-- the leader navigation thread specification. decides the next
+-- waypoint for the leader.
+thread leader_navigation
+features
+  setleaderdestination: requires subprogram access set_leader_destination_routine_type;
+  leader_destination: out data port coordinate;
+end leader_navigation;
+
+-- a leader navigation thread implementation
+thread implementation leader_navigation.i
+calls
+  main:{
+  m: subprogram subprogram_waypoint;
+  };
+properties
+  Compute_Entrypoint_Source_Text => "example-05.dmpl";
+  -- the job function called periodically by the thread
+  Compute_Entrypoint_Call_Sequence => reference (main);
+end leader_navigation.i;
+
+-- a subprogram encapsulating the job function called periodically by
+-- the leader's adaptation manager thread
+subprogram subprogram_adaptation_manager
+properties
+  Source_Name => "ADAPTATION_MANAGER";
+end subprogram_adaptation_manager;
+
+-- the adaptation manager thread specification. decides on the next formation.
+thread adaptation_manager
+end adaptation_manager;
+
+-- the adaptation manager thread implementation.
+thread implementation adaptation_manager.i
+calls
+  main:{
+  m: subprogram subprogram_adaptation_manager;
+  };
+properties
+  Compute_Entrypoint_Source_Text => "example-05.dmpl";
+  -- the job function called periodically by the thread
+  Compute_Entrypoint_Call_Sequence => reference (main);
+end adaptation_manager.i;
+
+-- the specification of process running on a leader node
+process leader_sw extends dart_sw
+features
+  leader_destination: out data port coordinate;
+  publish_lock: out data port lock_update_type.i;
+properties
+  DART::Role => "Leader";
+end leader_sw;
+
+-- the implementation of process running on a leader node. it adds
+-- two new threads (over the receiver thread already in the base dart
+-- software) : collision avoidance and navigation.
+process implementation leader_sw.i extends dart_sw.i
+subcomponents
+  avoidance: thread collision_avoidance.i;
+  navigation: thread leader_navigation.i;
+  adapt_mgr : thread adaptation_manager.i;
+connections
+  c21: subprogram access avoidance.getlocks -> distributed_store.getlocks;	
+  c22: subprogram access avoidance.setlock -> distributed_store.setlock;
+  c23: port avoidance.publish_lock -> publish_lock;		
+  c24: subprogram access avoidance.get_waypoint -> distributed_store.getwaypoint;
+  c25: subprogram access navigation.setleaderdestination -> distributed_store.setleaderdestination;
+  c26: port navigation.leader_destination -> leader_destination;
+properties
+  -- MADARA receiver thread timing parameters. This are 'sample'
+  -- parameters. We need to get the real ones.
+  Period => 50 ms applies to madara_thread;
+  Zero_Slack_Scheduling::Criticality => 1 applies to madara_thread;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to madara_thread;
+  -- adaptation manager thread timing parameters
+  Period => 1000 ms applies to adapt_mgr;
+  Zero_Slack_Scheduling::Criticality => 2 applies to adapt_mgr;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to adapt_mgr;
+  -- navigation thread timing parameters
+  Period => 100 ms applies to navigation;
+  Zero_Slack_Scheduling::Criticality => 3 applies to navigation;
+  Compute_Execution_Time => 10000 us .. 20000 us applies to navigation;
+  -- collision avoidance thread timing parameters
+  Period => 200 ms applies to avoidance;
+  Zero_Slack_Scheduling::Criticality => 4 applies to avoidance;
+  Compute_Execution_Time => 15000 us .. 30000 us applies to avoidance;
+end leader_sw.i;
+	
+-- a leader node specification
+system leader_node
+features
+  leader_destination : out data port coordinate;
+  publish_lock : out data port lock_update_type.i;
+  input_lock : in data port lock_update_type.i;
+end leader_node;
+
+-- a protector node implementation. consists of a CPU and a leader process.
+system implementation leader_node.i
+subcomponents
+  hw: processor dart_processor;
+  sw: process leader_sw.i;
+connections
+  c1: port sw.publish_lock -> publish_lock;
+  c2: port sw.leader_destination -> leader_destination;
+  c3: port input_lock -> sw.lock_update_in;
+properties
+  Actual_Processor_Binding => (reference (hw)) applies to sw;	
+end leader_node.i;	
+
+-----------------------------------------------------------------------
+-- the whole system. consists of one leader and 4 protectors.
+-----------------------------------------------------------------------
+
+-- system specification
+system protector_swarm
+end protector_swarm;
+
+-- system implementation
+system implementation protector_swarm.i
+subcomponents
+  leader: system leader_node.i;
+  protectors: system protector_node.i[4];
+connections
+  c1: port leader.leader_destination->protectors.leader_destination {Connection_Pattern =>((One_to_All));};
+  c2: port leader.publish_lock -> protectors.input_lock {Connection_Pattern => ((One_to_All));};
+  c3: port protectors.publish_lock->leader.input_lock{Connection_Pattern => ((All_to_One));};
+  c4: port protectors.publish_lock->protectors.input_lock {Connection_Pattern => ((All_to_All));};
+properties
+  DART::Node_Id => 0 applies to leader.sw;
+  DART::Node_Id => 1 applies to protectors[0].sw;
+  DART::Node_Id => 2 applies to protectors[1].sw;
+  DART::Node_Id => 3 applies to protectors[2].sw;
+  DART::Node_Id => 4 applies to protectors[3].sw;
+  DART::DMPL_TIMING_PARAMETERS_TEXT => "/tmp/dmpl_nodes.dmpl";
+end protector_swarm.i;	
+
+end example05;
+
+-----------------------------------------------------------------------
+-- end of file
+-----------------------------------------------------------------------

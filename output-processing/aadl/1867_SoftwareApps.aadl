@@ -1,0 +1,47 @@
+package SoftwareApps
+public
+	with SoftwareProcesses;
+
+	with SEI;
+
+	with HardwareParts;
+
+	system CruiseControl
+		features
+			cc_ui: in data port;
+			cc_ud: out data port;
+			cc_wrs: in data port;
+			cc_bp: in data port;
+			cc_ca: out data port;
+		flows
+			flowPath_wrs_ca: flow path cc_wrs -> cc_ca {
+						Latency => 20ms .. 20ms;
+					};
+			flowPath_bp_ca: flow path cc_bp -> cc_ca {
+						Latency => 16ms .. 16ms;
+					};
+		properties
+			Reference_Processor => classifier (HardwareParts::PowerPC.single);
+	end CruiseControl;
+
+	system implementation CruiseControl.impl
+		subcomponents
+			computeThrottleSettingProcess: process SoftwareProcesses::computeThrottleSettingProcess.impl;
+			scanCCInputProcess: process SoftwareProcesses::scanCCInputProcess.impl;
+			computeVelocityProcess: process SoftwareProcesses::computeVelocityProcess.impl;
+			speedControlLoopProcess: process SoftwareProcesses::speedControlLoopProcess.impl;
+		connections
+			CruiseControl_impl_new_connection: port cc_bp -> scanCCInputProcess.cc_bp;
+			CruiseControl_impl_new_connection2: port cc_wrs -> scanCCInputProcess.cc_wrs;
+			CruiseControl_impl_new_connection3: port cc_wrs -> computeVelocityProcess.cc_wrs;
+			CruiseControl_impl_new_connection4: port scanCCInputProcess.cc_run -> speedControlLoopProcess.cc_run_cc;
+			CruiseControl_impl_new_connection5: port computeVelocityProcess.cc_inst_velocity -> speedControlLoopProcess.cc_inst_velocity;
+			CruiseControl_impl_new_connection6: port speedControlLoopProcess.cc_desired_speed -> computeThrottleSettingProcess.cc_desired_speed;
+			CruiseControl_impl_new_connection7: port computeThrottleSettingProcess.cc_throttle_setting -> cc_ca;
+		flows
+			flowPath_bp_ca: flow path cc_bp -> CruiseControl_impl_new_connection -> scanCCInputProcess.scanCCInputProcess_new_flow_spec2 -> CruiseControl_impl_new_connection4 -> speedControlLoopProcess.speedControlLoopProcess_new_flow_spec2 -> CruiseControl_impl_new_connection6 -> computeThrottleSettingProcess.computeThrottleSettingProcess_new_flow_spec -> CruiseControl_impl_new_connection7 -> cc_ca;
+			flowPath_wrs_ca: flow path cc_wrs -> CruiseControl_impl_new_connection3 -> computeVelocityProcess.computeVelocityProcess_new_flow_spec -> CruiseControl_impl_new_connection5 -> speedControlLoopProcess.speedControlLoopProcess_new_flow_spec -> CruiseControl_impl_new_connection6 -> computeThrottleSettingProcess.computeThrottleSettingProcess_new_flow_spec -> CruiseControl_impl_new_connection7 -> cc_ca;
+		properties
+			SEI::MIPSBudget => 1200.0 MIPS;
+	end CruiseControl.impl;
+end SoftwareApps;

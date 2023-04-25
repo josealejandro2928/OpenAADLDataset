@@ -1,0 +1,144 @@
+package Component
+public
+	with Core_Types;
+	with Base_Types;
+	with EVS_Interface;
+	with ES_Interface;
+	with Generic;
+--------------------CommandRouter can be extended with out data port Core_Types::struct.CFE_SB_Msg_t;--------------
+	abstract CommandRouter
+		features
+			Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+			Default: out data port Core_Types::struct.CFE_SB_Msg_t;
+	end CommandRouter;
+
+--------------------CommandProcessor can be extended with necessary api and data features;--------------
+	abstract DefaultCommandProcessor extends Generic::CommandProcessor
+		features
+			Command: refined to in data port Core_Types::struct.CFE_SB_Msg_t;
+			Result: refined to out data port Base_Types::Integer;
+			SendEvent: feature group EVS_Interface::R_SendEvent;
+	end DefaultCommandProcessor;
+	
+---------------------grammar sugar-------------------------
+	-------------------------------Output-------------------------------
+	feature group SendEventArgs
+		features
+			Default: feature group EVS_Interface::R_SendEvent;
+	end SendEventArgs;
+	
+	feature group RunLoopArgs
+		features
+			Default: feature group ES_Interface::R_RunLoop;
+	end RunLoopArgs;
+	-------------------------------Input-------------------------------
+	feature group SendEventCollection
+		features
+			Default: feature group EVS_Interface::P_SendEvent;
+	inverse of SendEventArgs
+	end SendEventCollection;
+	
+	feature group RunLoopCollection
+		features
+			Default: feature group ES_Interface::P_RunLoop;
+	inverse of RunLoopArgs
+	end RunLoopCollection;
+	-------------------------------Medium-------------------------------
+	feature group EVSAPIOutput
+		features
+			SendEventArgs: feature group SendEventArgs;
+	end EVSAPIOutput;
+	
+	feature group EVSAPIInput
+		features
+			SendEventCollection: feature group SendEventCollection;
+	inverse of EVSAPIOutput
+	end EVSAPIInput;
+	
+	feature group ESAPIOutput
+		features
+			RunLoopArgs: feature group RunLoopArgs;
+	end ESAPIOutput;
+	
+	feature group ESAPIInput
+		features
+			RunLoopCollection: feature group RunLoopCollection;
+	inverse of ESAPIOutput
+	end ESAPIInput;
+
+	abstract Medium
+		features
+			ESAPI: feature group;
+			SBAPI: feature group;
+			EVSAPI: feature group EVSAPIOutput;
+			TIMEAPI: feature group;
+			
+			ESAPIIn: feature group;
+			SBAPIIn: feature group;
+			EVSAPIIn: feature group EVSAPIInput;
+			TIMEAPIIn: feature group;
+	end Medium;
+	
+	abstract Checker
+		features
+			DefaultResult: in data port Base_Types::Integer;
+			Result: out data port Base_Types::Integer;
+	end Checker;
+--------------------------Task-----------------------------
+	abstract Task extends Generic::FunctionProcessor
+		features
+			Execution: in data port Base_Types::Integer;
+			Continue: out data port Base_Types::Integer;
+	end Task;
+-------------------------Core Component-------------------------
+	thread Component
+		features
+			ESAPI: feature group;
+			SBAPI: feature group;
+			EVSAPI: feature group;
+			TIMEAPI: feature group;
+			Command: in data port Core_Types::struct.CFE_SB_Msg_t;
+	end Component;
+
+	thread implementation Component.default
+		subcomponents
+			Medium: abstract Medium;
+			Checker: abstract Checker;
+			CommandRouter: abstract CommandRouter;
+			Default: abstract DefaultCommandProcessor;
+		connections
+			CommandInput: port Command -> CommandRouter.Command;
+			DefaultCommand: port CommandRouter.Default -> Default.Command;
+			MediumEVSAPI: feature group Medium.EVSAPI -> EVSAPI;
+			DefaultResult: port Default.Result -> Checker.DefaultResult;
+			Default_SendEvent: feature group Default.SendEvent <-> Medium.EVSAPIIn.SendEventCollection.Default;
+	end Component.default;
+
+-------------------------App Component-------------------------
+	abstract AppCommandRouter extends CommandRouter
+		features
+			RunLoop: feature group ES_Interface::R_RunLoop;
+			ControlCommand: in data port Base_Types::Integer;
+	end AppCommandRouter;
+	
+	abstract AppMedium extends Medium
+		features
+			ESAPI: refined to feature group ESAPIOutput;			
+			ESAPIIn: refined to feature group ESAPIInput;
+	end AppMedium;
+
+	thread AppComponent extends Component
+		features
+			ControlCommand: in data port Base_Types::Integer;
+	end AppComponent;
+	
+	thread implementation AppComponent.default extends Component.default
+		subcomponents
+			Medium: refined to abstract AppMedium;
+			CommandRouter: refined to abstract AppCommandRouter;
+		connections
+			ControlCommandIn: port ControlCommand -> CommandRouter.ControlCommand;
+			MediumESAPI: feature group Medium.ESAPI -> ESAPI;
+			RunLoop: feature group CommandRouter.RunLoop <-> Medium.ESAPIIn.RunLoopCollection.Default;
+	end AppComponent.default;
+end Component;

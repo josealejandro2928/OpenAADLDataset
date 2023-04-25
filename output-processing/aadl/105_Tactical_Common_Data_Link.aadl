@@ -1,0 +1,25 @@
+package Tactical_Common_Data_Link
+public
+	with Buses;
+	
+	---------------------------------------------------------------------------
+	-- An example of a TCDL radio that could be used as an encrypted datalink.
+	---------------------------------------------------------------------------
+	device TCDL
+		features
+			TCDL_Data: feature group TCDL_Data_socket;
+			Video_In: provides bus access Buses::Video;
+			Link: provides bus access Buses::Secure_Link;
+	end TCDL;
+
+	------------------------------------------
+	-- Data communicated over the TCDL radio.
+	------------------------------------------
+	feature group TCDL_Data_socket
+	end TCDL_Data_socket;
+
+	feature group TCDL_Data_plug
+		inverse of TCDL_Data_socket
+	end TCDL_Data_plug;
+	
+end Tactical_Common_Data_Link;

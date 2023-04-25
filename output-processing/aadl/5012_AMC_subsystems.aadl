@@ -1,0 +1,22 @@
+package AMC_subsystems
+public
+	system Output_AGVs
+	features
+		Mission_Data : out data port;
+		Mission_Control : out event port;
+	end Output_AGVs;
+
+	system Input_AGVs
+	features
+		Mission_data : in data port;
+		Vehicle_state : in data port;
+		Navigation_info : in data port;
+	end Input_AGVs;
+
+	system implementation Input_AGVs.impl
+	end Input_AGVs.impl;
+
+	system implementation Output_AGVs.impl
+	end Output_AGVs.impl;
+
+end AMC_subsystems;

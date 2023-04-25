@@ -1,0 +1,300 @@
+PACKAGE uav
+
+PUBLIC
+  WITH Deployment;
+  WITH Data_Model;
+
+	-------------------
+	-- SHARED MEMORY --
+	-------------------
+	--DATA data_Internal_Type
+	--PROPERTIES
+	--	Data_Model::Data_Representation => Integer;
+	--END data_Internal_Type;
+
+	-- GPS
+	DATA data_gps
+	FEATURES
+    		Write_data_gps : provides subprogram access Write_spg_gps;
+    		Read_data_gps  : provides subprogram access Read_spg_gps;
+ 	PROPERTIES
+	    Priority => 250;
+	    Concurrency_Control_Protocol => Priority_Ceiling;
+  	END data_gps;
+
+	DATA IMPLEMENTATION data_gps.Impl
+	SUBCOMPONENTS
+	    --Field1    : data data_Internal_Type;
+	    spgWrite_gps : subprogram Write_spg_gps;
+	    spgRead_gps  : subprogram Read_spg_gps;
+	CONNECTIONS
+	    C1 : subprogram access SpgWrite_gps -> Write_data_gps;
+	    C2 : subprogram access SpgRead_gps -> Read_data_gps;
+	PROPERTIES
+	    Data_Model::Data_Representation => Struct;
+  	END data_gps.Impl;
+
+	SUBPROGRAM Write_spg_gps
+	FEATURES
+		this : requires data access data_gps.Impl;
+	properties
+		source_language => C;
+		source_name     => "write_gps";
+		source_text     => ("controllerApplication.c");
+	END Write_spg_gps;
+
+	SUBPROGRAM Read_spg_gps
+	FEATURES
+		this : requires data access data_gps.Impl;
+	properties
+		source_language => C;
+		source_name     => "read_gps";
+		source_text     => ("controllerApplication.c");
+	END Read_spg_gps;
+
+	-- IMU/INS
+	DATA data_ins
+	FEATURES
+		Write_data_ins : provides subprogram access Write_spg_ins;
+		Read_data_ins  : provides subprogram access Read_spg_ins;
+ 	PROPERTIES
+		Priority => 250;
+		Concurrency_Control_Protocol => Priority_Ceiling;
+  	END data_ins;
+
+	DATA IMPLEMENTATION data_ins.Impl
+ 	SUBCOMPONENTS
+	    	--Field2    : data data_Internal_Type;
+	    	spgWrite_ins : subprogram Write_spg_ins;
+	    	spgRead_ins  : subprogram Read_spg_ins;
+	CONNECTIONS
+	    	C1 : subprogram access SpgWrite_ins -> Write_data_ins;
+	   	C2 : subprogram access SpgRead_ins -> Read_data_ins;
+	PROPERTIES
+	    	Data_Model::Data_Representation => Struct;
+  	END data_ins.Impl;
+	
+	SUBPROGRAM Write_spg_ins
+	FEATURES
+		this : requires data access data_ins.Impl;
+	PROPERTIES
+		source_language => C;
+		source_name     => "write_ins";
+		source_text     => ("controllerApplication.c");
+	END Write_spg_ins;
+
+	SUBPROGRAM Read_spg_ins
+	FEATURES
+		this : requires data access data_ins.Impl;
+	PROPERTIES
+		source_language => C;
+		source_name     => "read_ins";
+		source_text     => ("controllerApplication.c");
+	END Read_spg_ins;
+
+	--------------------
+	---- SUBPROGRAM ----
+	--------------------
+	SUBPROGRAM dataProc_sequence
+	FEATURES
+		seq_cnt_gps : requires data access data_gps.Impl;
+		seq_cnt_ins : requires data access data_ins.Impl;
+	END dataProc_sequence;
+
+	SUBPROGRAM IMPLEMENTATION dataProc_sequence.Impl
+	CALLS
+		MYCALLS: {
+			Call_Write_gps : subprogram data_gps.Write_data_gps;
+			Call_Write_ins : subprogram data_ins.write_data_ins;
+			Call_dataProc : subprogram dataProc_spg;
+		};
+	CONNECTIONS
+		C1 : data access seq_cnt_gps -> Call_Write_gps.this;
+		C2 : data access seq_cnt_ins -> Call_Write_ins.this;
+	END dataProc_sequence.Impl;
+
+	SUBPROGRAM controller_sequence
+	FEATURES
+		seq_cnt_gps : requires data access data_gps.Impl;
+		seq_cnt_ins : requires data access data_ins.Impl;
+	END controller_sequence;
+
+	SUBPROGRAM IMPLEMENTATION controller_sequence.Impl
+	CALLS
+		MYCALLS: {
+			Call_Read_gps : subprogram data_gps.Read_data_gps;
+			Call_Read_ins : subprogram data_ins.Read_data_ins;
+			Call_controller : subprogram controller_spg;
+		};
+	CONNECTIONS
+		C1 : data access seq_cnt_gps -> Call_Read_gps.this;
+		C2 : data access seq_cnt_ins -> Call_Read_ins.this;
+	END controller_sequence.Impl;
+	
+
+	-----------------
+	---- THREADS ----
+	-----------------
+	-- Data Processor
+	THREAD dataProc
+  	FEATURES
+		in_gps : IN DATA PORT data_gps;
+    	out_gps : OUT DATA PORT data_gps;
+		
+		in_ins : IN DATA PORT data_ins;
+		out_ins : OUT DATA PORT data_ins;
+
+		in_control : IN DATA PORT data_servo;
+		out_servo : OUT DATA PORT data_servo;
+  	PROPERTIES
+    		Dispatch_Protocol => Periodic;
+    		Period => 20 ms;
+    		Deadline => 20 ms;
+    		Compute_Execution_Time => 0 ms .. 10 ms;
+    		Priority => 9 ;
+  	END dataProc;
+	THREAD IMPLEMENTATION dataProc.Impl
+	CALLS
+		c : {
+			s : subprogram dataProc_sequence.Impl;
+		};
+	CONNECTIONS
+		C1 : data access out_gps -> s.seq_cnt_gps;
+		C2 : data access out_ins -> s.seq_cnt_ins;
+  	END dataProc.Impl;
+
+	-- TB Controller
+	THREAD controller
+  	FEATURES
+		in_gps : IN DATA PORT data_gps;
+		in_ins : IN DATA PORT data_ins;
+		out_gps : OUT DATA PORT data_gps;
+		out_ins : OUT DATA PORT data_ins;
+		out_servo : OUT DATA PORT data_servo;
+  	PROPERTIES
+		Dispatch_Protocol => Periodic;
+		Period => 20 ms;
+		Deadline => 20 ms;
+		Compute_Execution_Time => 0 ms .. 5 ms;
+		Priority => 8;
+		Dispatch_Offset => 10;
+  	END controller;
+	THREAD IMPLEMENTATION controller.Impl
+	CALLS
+		c : {
+			s : subprogram controller_sequence.Impl;
+		};
+	CONNECTIONS
+		C1 : data access in_gps -> s.seq_cnt_gps;
+		C2 : data access in_ins -> s.seq_cnt_ins;
+  	END controller.Impl;
+
+	-----------------
+	-- Subprograms --
+	-----------------
+	SUBPROGRAM controller_spg
+	PROPERTIES
+		source_language => C;
+		source_name     => "controller_spg";
+		source_text     => ("controllerApplication.c");
+	END controller_spg;
+
+	SUBPROGRAM dataProc_spg
+	PROPERTIES
+		source_language => C;
+		source_name     => "dataProc_spg";
+		source_text     => ("controllerApplication.c");
+	END dataProc_spg;
+
+
+	
+	-----------------
+	---- PROCESS ----
+	-----------------
+	-- PROCESS processDataComputer
+	PROCESS processDataComputer
+	FEATURES
+		input1 : IN DATA PORT data_gps;
+		input2 : IN DATA PORT data_ins;
+		input3 : IN DATA PORT data_servo;
+
+		output1 : OUT DATA PORT data_gps;
+		output2 : OUT DATA PORT data_ins;
+		output3 : OUT DATA PORT data_servo;
+  	END processDataComputer;
+
+
+	PROCESS IMPLEMENTATION processDataComputer.Impl
+	SUBCOMPONENTS
+		-- Composants à déclarer
+		dataProcessor : THREAD dataProc.Impl;
+	CONNECTIONS
+		in_GPS_DP : PORT input1 -> dataProcessor.in_gps;
+		in_INS_DP : PORT input2 -> dataProcessor.in_ins;
+		in_CT_DP  : PORT input3 -> dataProcessor.in_control;
+
+		out_DP_GPS : PORT dataProcessor.out_gps -> output1;
+		out_DP_INS : PORT dataProcessor.out_ins -> output2;
+		out_DP_servo : PORT dataProcessor.out_servo -> output3;
+		
+	PROPERTIES
+		Timing => immediate applies to in_GPS_DP,in_INS_DP,in_CT_DP,out_DP_GPS,out_DP_INS,out_DP_servo;
+	END processDataComputer.Impl;
+
+	
+
+	-- PROCESS processControlComputer
+	PROCESS processControlComputer
+	FEATURES
+		input1 : IN DATA PORT data_gps;
+		input2 : IN DATA PORT data_ins;
+
+		output1 : OUT DATA PORT data_gps;
+		output2 : OUT DATA PORT data_ins;
+		output3 : OUT DATA PORT data_servo;
+  	END ProcessControlComputer;
+
+
+	PROCESS IMPLEMENTATION processControlComputer.Impl
+	SUBCOMPONENTS
+		-- Composants à déclarer
+		controller : THREAD controller.Impl;
+	CONNECTIONS
+		in_GPS_CT : PORT input1 -> controller.in_gps;
+		in_INS_CT : PORT input2 -> controller.in_ins;
+		
+		out_CT_GPS : PORT controller.out_gps -> output1;
+		out_CT_INS : PORT controller.out_ins -> output2;
+		out_CT_servo : PORT controller.out_servo -> output3;
+		
+	PROPERTIES
+		Timing => immediate applies to in_GPS_CT,in_INS_CT,out_CT_GPS,out_CT_INS,out_CT_servo;
+	END processControlComputer.Impl;
+
+	PROCESSOR cpu
+	PROPERTIES
+		Deployment::Execution_Platform => native;
+	END cpu;
+
+	PROCESSOR IMPLEMENTATION cpu.Impl
+	PROPERTIES
+		Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
+	END cpu.Impl;
+
+  	SYSTEM drone
+  	END drone;
+
+  	SYSTEM IMPLEMENTATION drone.Impl
+  	SUBCOMPONENTS
+    		processDataComputer : process processDataComputer.Impl;
+		processControlComputer : process processControlComputer.Impl;
+    		cpu1 : processor cpu.Impl;
+		cpu2 : processor cpu.Impl;
+  	PROPERTIES
+    	Actual_Processor_Binding => (reference (cpu1)) applies to processDataComputer;
+		Actual_Processor_Binding => (reference (cpu2)) applies to processControlComputer;
+	END drone.Impl;
+END uav;
+
+
+

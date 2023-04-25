@@ -1,0 +1,28 @@
+package Autopilot
+public
+	with Buses;
+
+	------------------------------------------------------------------------------
+	-- An autopilot that communicates with application software over
+	-- a serial bus. 
+	------------------------------------------------------------------------------
+	device Autopilot
+		features
+			AP_IO : feature group AP_Data_socket;
+			Serial_Conn:  requires bus access Buses::Serial;
+	end Autopilot;
+
+	device implementation Autopilot.impl
+	end Autopilot.impl;
+		
+	feature group AP_Data_socket		
+	end AP_Data_socket;
+	
+	feature group AP_Data_plug
+		inverse of Autopilot::AP_Data_socket	
+	end AP_Data_plug;
+	
+	
+
+	
+end Autopilot;

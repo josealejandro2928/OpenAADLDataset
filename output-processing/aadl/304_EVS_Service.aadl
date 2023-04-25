@@ -1,0 +1,48 @@
+package EVS_Service
+public
+	with EVS_Processor;
+	with EVS_Arg_IO;
+	with EVS_Result_IO;
+	with EVS_Base_IO;
+	with EVS_Route_Table;
+
+	abstract Service
+		features
+			RegisterArgs: feature group EVS_Arg_IO::RegisterArgs;
+			UnregisterArgs: feature group EVS_Arg_IO::UnregisterArgs;
+			SendEventArgs: feature group EVS_Arg_IO::SendEventArgs;
+			
+			OutEvents: feature group EVS_Route_Table::RouteOutput;
+	end Service;
+
+	abstract implementation Service.impl
+		subcomponents
+			Register: abstract EVS_Processor::Register;
+			Unregister: abstract EVS_Processor::Unregister;
+			SendEvent: abstract EVS_Processor::SendEvent;
+
+			ShareData: abstract ShareData;
+		connections
+			RegisterArg: feature group RegisterArgs <-> Register.Args;
+			RegisterLocalData: feature group ShareData.OldFilterData -> Register.LocalDatas;
+			RegisterResult: feature group Register.Results -> ShareData.RegisterResult;
+			
+			UnregisterArg: feature group UnregisterArgs <-> Unregister.Args;
+			UnregisterLocalData: feature group ShareData.OldFilterData -> Unregister.LocalDatas;
+			UnregisterResult: feature group Unregister.Results -> ShareData.UnregisterResult;
+			
+			SendEventArg: feature group SendEventArgs <-> SendEvent.Args;
+			SendEventLocalData: feature group ShareData.OldFilterData -> SendEvent.LocalDatas;
+			SendEventResult: feature group SendEvent.Results -> ShareData.SendEventResult;
+			SendEventOutEvent: feature group SendEvent.OutEvents -> OutEvents;
+	end Service.impl;
+
+----------------ShareData can add processor result
+	abstract ShareData
+		features
+			OldFilterData: feature group EVS_Base_IO::FilterOutput;
+			RegisterResult: feature group EVS_Result_IO::RegisterResult;
+			UnregisterResult: feature group EVS_Result_IO::UnregisterResult;
+			SendEventResult: feature group EVS_Result_IO::SendEventResult;
+	end ShareData;
+end EVS_Service;

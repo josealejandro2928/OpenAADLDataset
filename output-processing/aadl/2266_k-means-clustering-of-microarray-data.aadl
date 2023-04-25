@@ -1,0 +1,56 @@
+activity k-means-clustering-of-microarray-data {
+	on {
+		dataset input-file : 'text/tsv' [1,1];
+	}
+	with {
+		parameter distance-measure-id : INTEGER [1,1] = ['0'] {
+			remark '''
+				Specifies the distance measure for microarray and gene clustering
+                0: No clustering
+                1: Uncentered correlation
+                2: Pearson correlation
+                3: Uncentered correlation, absolute value
+                4: Pearson correlation, absolute value
+                5: Spearman's rank correlation
+                6: Kendall's tau
+                7: Euclidean distance
+                8: City-block distance
+                (default: 0)
+			''';
+		};
+		parameter hierarchical-clustering-method-id : STRING [1,1] = ['m'] {
+			remark '''Specifies which hierarchical clustering method to use
+                m: Pairwise complete-linkage
+                s: Pairwise single-linkage
+                c: Pairwise centroid-linkage
+                a: Pairwise average-linkage
+                (default: m)
+			''';
+		};
+		parameter number-of-clusters : INTEGER [1,1];
+		parameter number-of-runs : INTEGER [1,1] = ['1'];
+	}
+	produces {
+		dataset output-files : 'text/tsv' [1,-1];
+	}
+	using executable "cluster3" {
+		commandLineTemplate [
+			dataset input-file
+				| PrependListWith '-f',
+			dataset output-files
+				| PrependListWith '-u',
+			parameter distance-measure-id
+				| PrependListWith '-g',
+			parameter distance-measure-id
+				| PrependListWith '-e',
+			parameter number-of-clusters
+				| PrependListWith '-k',
+			parameter number-of-runs
+				| PrependListWith '-r'
+		]
+		returns {
+			0 if SUCCEEDED;
+			1 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

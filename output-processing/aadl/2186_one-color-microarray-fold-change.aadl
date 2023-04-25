@@ -1,0 +1,27 @@
+activity one-color-microarray-fold-change {
+	on {
+		dataset condition1-input-file : 'text/tsv' [1,1];
+		dataset condition2-input-file : 'text/tsv' [1,1];
+	}
+	with {
+		parameter cutoff : REAL [1,1] {
+		  remark 'Cutoff (log2-based) for filtering the fold change.';
+		};
+	}
+	produces {
+		dataset output-file : 'text/tsv' [1,1];
+	}
+	using executable 'geas-one-color-microarray-fold-change.R' {
+		commandLineTemplate [ 
+			parameter cutoff
+				| PrependListWith '--cutoff',
+			dataset condition1-input-file,
+			dataset condition2-input-file,
+			dataset output-file
+		]
+		returns {
+			0 if SUCCEEDED;
+			2 if FAILED 'Bad invocation parameters.';
+		}
+	}
+}

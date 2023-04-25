@@ -1,0 +1,13 @@
+package ES_Base_Task
+public
+	with Component;
+	with ES_Base_IO;
+	with Base_Types;
+	
+	abstract ScanAppTable extends Component::Task
+		features
+			AppRecord: feature group ES_Base_IO::AppRecordInput;
+			
+			HSControlCommand: out data port Base_Types::Integer;
+	end ScanAppTable;
+end ES_Base_Task;

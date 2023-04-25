@@ -1,0 +1,595 @@
+package ReconfigStudy::ProcessSystem
+	
+public
+	with ReconfigStudy::threads;
+	with Base_Types;
+	with DataTypes;
+	
+	process VaControl		
+		  features
+		    Va_f   : in  data port Base_Types::Float;
+		    Vz_f   : in  data port Base_Types::Float;
+		    Q_f    : in  data port Base_Types::Float;
+		    Va_c   : in  data port Base_Types::Float;
+		    Output : out data port Base_Types::Float;
+	end VaControl;
+	
+	process implementation VaControl.Proc
+		subcomponents
+			VaControlTh : thread ReconfigStudy::threads::Va_Control_T;
+		connections
+			pVa_f : port Va_f -> VaControlTh.Va_f;
+			pVz_f   : port Vz_f    -> VaControlTh.Vz_f;    
+			pQ_f    : port Q_f     -> VaControlTh.Q_f ;   
+			pVa_c   : port Va_c    -> VaControlTh.Va_c ;  
+			pOutput : port VaControlTh.Output  -> Output ;
+	end VaControl.Proc;
+	
+	
+	
+   ------------------
+  -- Vz_control_T --
+  ------------------
+
+  process pVz_control_T
+  features
+    Vz_f   : in  data port Base_Types::Float;
+    Vz_c   : in  data port Base_Types::Float;
+    Q_f    : in  data port Base_Types::Float;
+    Az_f   : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  
+  end pVz_control_T;
+
+  process implementation pVz_control_T.Proc
+   subcomponents
+      pVz_control_TTh : thread ReconfigStudy::threads::Vz_control_T;
+   connections
+		pVz_f : port Vz_f -> pVz_control_TTh.Vz_f;
+		pVz_c : port Vz_c -> pVz_control_TTh.Vz_c;
+		pQ_f : port Q_f -> pVz_control_TTh.Q_f;
+		pAz_f : port Az_f -> pVz_control_TTh.Az_f;
+		pOutput : port pVz_control_TTh.Output -> Output;
+  end pVz_control_T.Proc;
+
+    ---------------------
+  -- Altitude_Hold_T --
+  ---------------------
+
+  process pAltitude_Hold_T
+  features
+    H_f    : in  data port Base_Types::Float;
+    H_c    : in  data port Base_Types::Float;
+    Output : out data port Base_Types::Float;
+
+  end pAltitude_Hold_T;
+
+  process implementation pAltitude_Hold_T.Proc
+   subcomponents
+      pAltitude_Hold_TTh : thread ReconfigStudy::threads::Altitude_Hold_T;
+   connections
+    pH_f : port H_f -> pAltitude_Hold_TTh.H_f;
+	pH_c : port H_c -> pAltitude_Hold_TTh.H_c;
+	pOutput : port pAltitude_Hold_TTh.Output -> Output;
+
+  end pAltitude_Hold_T.Proc;
+
+
+
+  
+  -----------------
+  -- Va_Filter_T --
+  -----------------
+  
+  process pVa_Filter_T
+  features
+  Va     : in  data port Base_Types::Float;
+  Output : out data port Base_Types::Float;
+  
+  end pVa_Filter_T;
+  
+  process implementation pVa_Filter_T.Proc
+  subcomponents
+ 	 Va_Filter_TTh : thread ReconfigStudy::threads::Va_Filter_T;
+  connections
+    pVa : port Va -> Va_Filter_TTh.Va;
+	pOutput : port Va_Filter_TTh.Output -> Output;
+  
+  end pVa_Filter_T.Proc;
+  
+  
+  
+  ----------------
+  -- H_Filter_T --
+  ----------------
+  
+  process pH_Filter_T
+  features
+  H      : in  data port Base_Types::Float;
+  Output : out data port Base_Types::Float;
+  
+  
+  end pH_Filter_T;
+  
+  process implementation pH_Filter_T.Proc
+  subcomponents
+ 	 H_Filter_TTh : thread ReconfigStudy::threads::H_Filter_T;
+  connections
+ 	pH : port H -> H_Filter_TTh.H;
+	pOutput : port H_Filter_TTh.Output -> Output;
+  
+  end pH_Filter_T.Proc;
+  
+  
+  
+  -----------------
+  -- Az_Filter_T --
+  -----------------
+  
+  process pAz_Filter_T
+  features
+  Az     : in  data port Base_Types::Float;
+  Output : out data port Base_Types::Float;
+  
+  
+  end pAz_Filter_T;
+  
+  process implementation pAz_Filter_T.Proc
+  subcomponents
+ 	 Az_Filter_TTh : thread ReconfigStudy::threads::Az_Filter_T;
+  connections
+ 	pAz : port Az -> Az_Filter_TTh.Az;
+	pOutput : port Az_Filter_TTh.Output -> Output; 
+  
+  end pAz_Filter_T.Proc;
+  
+  
+  
+  -----------------
+  -- Vz_Filter_T --
+  -----------------
+  
+  process pVz_Filter_T
+  features
+  Vz     : in  data port Base_Types::Float;
+  Output : out data port Base_Types::Float;
+  
+  
+  end pVz_Filter_T;
+  
+  process implementation pVz_Filter_T.Proc
+  subcomponents
+ 	 Vz_Filter_TTh : thread ReconfigStudy::threads::Vz_Filter_T;
+  connections
+ 	 pVz : port Vz -> Vz_Filter_TTh.Vz;
+	pOutput : port Vz_Filter_TTh.Output -> Output;
+  
+  end pVz_Filter_T.Proc;
+  
+  
+  
+  ----------------
+  -- Q_Filter_T --
+  ----------------
+  
+  process pQ_Filter_T
+  features
+  Q     : in  data port Base_Types::Float;
+  Output : out data port Base_Types::Float;
+  
+  
+  end pQ_Filter_T;
+  
+  process implementation pQ_Filter_T.Proc
+  subcomponents
+ 	 Q_Filter_TTh : thread ReconfigStudy::threads::Q_Filter_T;
+  connections
+ 	 pQ : port Q -> Q_Filter_TTh.Q;
+	pOutput : port Q_Filter_TTh.Output -> Output;
+  
+  end pQ_Filter_T.Proc;
+
+  
+  --------------------------------------------------------------------------------
+  ------------------
+  -- FlightControlMgr --
+  ------------------
+
+  process pFlightControlMgr
+  features
+    Vz1   : in  data port Base_Types::Float;    
+    Vz2   : in  data port Base_Types::Float;
+    Va1   : in  data port Base_Types::Float;    
+    Va2   : in  data port Base_Types::Float;
+    VaAdjustment : in  data port Base_Types::Float; 
+    Vz_out : out data port Base_Types::Float;
+    Va_out : out data port Base_Types::Float;
+
+  
+  end pFlightControlMgr;
+
+  process implementation pFlightControlMgr.Proc
+   subcomponents
+      FlightControlMgrTh : thread ReconfigStudy::threads::FlightControlMgr;
+   connections
+	pVz1 : port Vz1 -> FlightControlMgrTh.Vz1;    
+	pVz2 : port Vz2 -> FlightControlMgrTh.Vz2;
+	pVa1 : port Va1 -> FlightControlMgrTh.Va1;    
+	pVa2 : port Va2 -> FlightControlMgrTh.Va2;
+	pVaAdjustment : port VaAdjustment -> FlightControlMgrTh.VaAdjustment; 
+	pVz_out : port FlightControlMgrTh.Vz_out -> Vz_out;
+	pVa_out : port FlightControlMgrTh.Va_out -> Va_out;
+
+  end pFlightControlMgr.Proc;
+  
+  ------------------
+  -- FuelConsumptionMgr --
+  ------------------
+
+  process pFuelConsumptionMgr
+  features
+    Va   : in  data port Base_Types::Float;
+    FuelData : in data port DataTypes::FuelDataType;
+    FuelAdjustment : out data port Base_Types::Float;
+
+  
+  end pFuelConsumptionMgr;
+
+  process implementation pFuelConsumptionMgr.Proc
+   subcomponents
+      FuelConsumptionMgrTh : thread ReconfigStudy::threads::FuelConsumptionMgr;
+   connections
+    pVa : port Va -> FuelConsumptionMgrTh.Va;
+	pFuelData : port FuelData -> FuelConsumptionMgrTh.FuelData;	
+	pFuelAdjustment : port FuelConsumptionMgrTh.FuelAdjustment -> FuelAdjustment;
+
+  end pFuelConsumptionMgr.Proc;
+  
+  ------------------
+  -- AutoPilot --
+  ------------------
+
+  process pAutoPilot
+  features
+    settingsIn   : in  data port DataTypes::APSettings;    
+    AltitudeHold : out data port Base_Types::Float;
+    VelocityHold : out data port Base_Types::Float;    
+
+  
+  end pAutoPilot;
+
+  process implementation pAutoPilot.Proc
+   subcomponents
+      AutoPilotTh : thread ReconfigStudy::threads::AutoPilot;
+   connections
+	psettingsIn : port settingsIn -> AutoPilotTh.settingsIn;    
+	pAltitudeHold : port AutoPilotTh.AltitudeHold -> AltitudeHold;
+	pVelocityHold : port AutoPilotTh.VelocityHold -> VelocityHold; 
+
+  end pAutoPilot.Proc;
+  
+  ------------------
+  -- AutoPilotMonitor --
+  ------------------
+
+  process pAutoPilotMonitor
+  features
+    settingsIn   : in data port DataTypes::APSettings;    
+    AltitudeHold : in data port Base_Types::Float;
+    VelocityHold : in data port Base_Types::Float;
+    APEngaged : out data port Base_Types::Boolean;
+
+  
+  end pAutoPilotMonitor;
+
+  process implementation pAutoPilotMonitor.Proc
+   subcomponents
+      AutoPilotMonitorTh : thread ReconfigStudy::threads::AutoPilotMonitor;
+   connections
+	psettingsIn : port settingsIn -> AutoPilotMonitorTh.settingsIn;    
+	pAltitudeHold : port AltitudeHold -> AutoPilotMonitorTh.AltitudeHold ;
+	pVelocityHold : port VelocityHold -> AutoPilotMonitorTh.VelocityHold;
+	pAPEngaged : port AutoPilotMonitorTh.APEngaged -> APEngaged;
+
+  end pAutoPilotMonitor.Proc;
+
+  ------------------
+  -- Guidance --
+  ------------------
+
+  process pGuidance
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    DestinationPosition : in  data port DataTypes::geoposition;
+    VOR : in data port DataTypes::VORData;    
+    ETA : out data port DataTypes::DateTime;
+    Localizer : out data port Base_Types::Float;
+
+  
+  end pGuidance;
+
+  process implementation pGuidance.Proc
+   subcomponents
+      GuidanceTh : thread ReconfigStudy::threads::Guidance;
+   connections
+	pACPosition : port ACPosition -> GuidanceTh.ACPosition;
+	pDestinationPosition : port DestinationPosition -> GuidanceTh.DestinationPosition;
+	pVOR : port VOR -> GuidanceTh.VOR;    
+	pETA : port GuidanceTh.ETA -> ETA;
+	pLocalizer : port GuidanceTh.Localizer -> Localizer;
+
+
+  end pGuidance.Proc;
+  
+  ------------------
+  -- RouteCtrl --
+  ------------------
+
+  process pRouteCtrl
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    FlightPlanSelection   : in  event data port Base_Types::Integer ;
+    FlightPlanList : out event data port DataTypes::FPList;    
+    DestinationPosition : out  data port DataTypes::geoposition;
+
+  
+  end pRouteCtrl;
+
+  process implementation pRouteCtrl.Proc
+   subcomponents
+      RouteCtrlTh : thread ReconfigStudy::threads::RouteCtrl;
+   connections
+	pACPosition : port ACPosition -> RouteCtrlTh.ACPosition;
+	pFlightPlanSelection : port FlightPlanSelection -> RouteCtrlTh.FlightPlanSelection;
+	pFlightPlanList : port RouteCtrlTh.FlightPlanList -> FlightPlanList;    
+	pDestinationPosition : port RouteCtrlTh.DestinationPosition -> DestinationPosition;
+
+  end pRouteCtrl.Proc;
+
+
+  ------------------
+  -- RouteCtrlPanelHandler --
+  ------------------
+
+  process pRouteCtrlPanelHandler
+  features
+    PanelRouteCtrl   : in  data port DataTypes::PanelInputsType;
+    FlightPlanList : in event data port DataTypes::FPList;
+    FlightPlanSelection   : out  event data port Base_Types::Integer ;     
+  end pRouteCtrlPanelHandler;
+
+  process implementation pRouteCtrlPanelHandler.Proc
+   subcomponents
+      RouteCtrlPanelHandlerTh : thread ReconfigStudy::threads::RouteCtrlPanelHandler;
+   connections
+	pPanelRouteCtrl : port PanelRouteCtrl -> RouteCtrlPanelHandlerTh.PanelRouteCtrl;
+	pFlightPlanList : port FlightPlanList -> RouteCtrlPanelHandlerTh.FlightPlanList;
+	pFlightPlanSelection : port RouteCtrlPanelHandlerTh.FlightPlanSelection -> FlightPlanSelection;
+	 
+	
+  end pRouteCtrlPanelHandler.Proc;
+
+  ------------------
+  -- Charts --
+  ------------------
+
+  process pCharts
+  	features
+  	ChartSelection   : in  event data port Base_Types::Integer;
+    ChartsList : out event data port DataTypes::ChartsList;
+    selectedChart : out event data port DataTypes::ImageFormat;
+  
+  end pCharts;
+
+  process implementation pCharts.Proc
+   subcomponents
+      ChartsTh : thread ReconfigStudy::threads::Charts;
+   connections
+	pChartSelection : port ChartSelection -> ChartsTh.ChartSelection;
+	pChartsList : port ChartsTh.ChartsList -> ChartsList;
+	pselectedChart : port ChartsTh.selectedChart -> selectedChart;
+
+  end pCharts.Proc;
+  
+  ------------------
+  -- MapServer --
+  ------------------
+
+  process pMapServer
+  features
+    ACPosition   : in  data port DataTypes::geoposition;
+    MapElementList : in event data port DataTypes::MapElementList;    
+    Arinc661Commands : out data port DataTypes::A661Commands;
+
+  
+  end pMapServer;
+
+  process implementation pMapServer.Proc
+   subcomponents
+      MapServerTh : thread ReconfigStudy::threads::MapServer;
+   connections
+	pACPosition : port ACPosition -> MapServerTh.ACPosition;
+	pMapElementList : port MapElementList -> MapServerTh.MapElementList;    
+	pArinc661Commands : port MapServerTh.Arinc661Commands -> Arinc661Commands;
+
+  end pMapServer.Proc;
+
+  ------------------
+  -- DisplayMgr --
+  ------------------
+
+  process pDisplayMgr
+  features
+    MapArinc661Commands   : in  data port DataTypes::A661Commands;
+    chart : in event data port DataTypes::ImageFormat;
+    ETA : in data port DataTypes::DateTime;
+    Localizer : in data port Base_Types::Float;
+    EngineData : in data port DataTypes::EngineDataType;
+    FuelData : in data port DataTypes::FuelDataType;
+    SystemInput : in event data port DataTypes::SystemInputType;
+    Display1Commands : out data port DataTypes::A661Commands;
+    Display2Commands : out data port DataTypes::A661Commands;
+    Display3Commands : out data port DataTypes::A661Commands;
+    Display4Commands : out data port DataTypes::A661Commands;
+
+  
+  end pDisplayMgr;
+
+  process implementation pDisplayMgr.Proc
+  	subcomponents
+  		displayMgrTh : thread ReconfigStudy::threads::DisplayMgr;
+	connections
+		pMapArinc661Commands: port MapArinc661Commands -> DisplayMgrTh.MapArinc661Commands;
+		pchart: port chart -> DisplayMgrTh.chart;
+		pETA: port ETA -> DisplayMgrTh.ETA;
+		pLocalizer: port Localizer -> DisplayMgrTh.Localizer;
+		pEngineData: port EngineData -> DisplayMgrTh.EngineData;
+		pFuelData: port FuelData -> DisplayMgrTh.FuelData;
+		pSystemInput: port SystemInput -> DisplayMgrTh.SystemInput;
+		pDisplay1Commands: port DisplayMgrTh.Display1Commands -> Display1Commands;
+		pDisplay2Commands: port DisplayMgrTh.Display2Commands -> Display2Commands;
+		pDisplay3Commands: port DisplayMgrTh.Display3Commands -> Display3Commands;
+		pDisplay4Commands: port DisplayMgrTh.Display4Commands -> Display4Commands;
+	end pDisplayMgr.Proc;
+  
+  ------------------
+  -- SystemInputHandler --
+  ------------------
+
+  process pSystemInputHandler
+  features
+    Panel1   : in  data port DataTypes::PanelInputsType;
+    Panel2   : in  data port DataTypes::PanelInputsType;
+    Panel3   : in  data port DataTypes::PanelInputsType;
+    Panel4   : in  data port DataTypes::PanelInputsType;
+    Panel5   : in  data port DataTypes::PanelInputsType;    
+    SystemInputs : out data port  DataTypes::SystemInputType;
+
+  
+  end pSystemInputHandler;
+
+  process implementation pSystemInputHandler.Proc
+   subcomponents
+      SystemInputHandlerTh : thread ReconfigStudy::threads::SystemInputHandler;
+   connections
+	pPanel1 : port Panel1 -> SystemInputHandlerTh.Panel1;
+	pPanel2 : port Panel2 -> SystemInputHandlerTh.Panel2;
+	pPanel3 : port Panel3 -> SystemInputHandlerTh.Panel3;
+	pPanel4 : port Panel4 -> SystemInputHandlerTh.Panel4;
+	pPanel5 : port Panel5 -> SystemInputHandlerTh.Panel5;    
+	pSystemInputs : port SystemInputHandlerTh.SystemInputs -> SystemInputs;
+
+  end pSystemInputHandler.Proc;
+
+  ------------------
+  -- FlightStickHandler --
+  ------------------
+
+  process pFlightStickHandler
+  features
+    AnalogPitch   : in  data port Base_Types::Float;    
+    AnalogRoll   : in  data port Base_Types::Float;
+    AnalogYaw   : in  data port Base_Types::Float;
+    FlightStickData : out data port DataTypes::FlightStickType;
+
+  
+  end pFlightStickHandler;
+
+  process implementation pFlightStickHandler.Proc
+   subcomponents
+      FlightStickHandlerTh : thread ReconfigStudy::threads::FlightStickHandler;
+   connections
+	pAnalogPitch : port AnalogPitch -> FlightStickHandlerTh.AnalogPitch;    
+	pAnalogRoll : port AnalogRoll -> FlightStickHandlerTh.AnalogRoll;
+	pAnalogYaw : port AnalogYaw -> FlightStickHandlerTh.AnalogYaw;
+	pFlightStickData : port FlightStickHandlerTh.FlightStickData -> FlightStickData;
+
+  end pFlightStickHandler.Proc;
+  
+  ------------------
+	-- FuelMonitor --
+	------------------
+	process pFuelQuantity
+		features
+			FuelLevelSensors: in data port DataTypes::SensorsArray;
+			FuelData : out data port DataTypes::FuelDataType;
+	end pFuelQuantity;
+
+  process implementation pFuelQuantity.Proc
+   subcomponents
+      FuelQuantityTh : thread ReconfigStudy::threads::FuelQuantity;
+   connections
+	pFuelLevelSensors : port FuelLevelSensors -> FuelQuantityTh.FuelLevelSensors;
+	pFuelData : port FuelQuantityTh.FuelData -> FuelData;
+
+  end pFuelQuantity.Proc;
+
+  ------------------
+  -- EngineMonitor --
+  ------------------
+
+  process pEngineMonitor
+  	features
+  	AnalogSensors : in data port DataTypes::SensorsArray;	
+  	EngineData : out data port DataTypes::EngineDataType;    
+
+  
+  end pEngineMonitor;
+
+  process implementation pEngineMonitor.Proc
+   subcomponents
+      EngineMonitorTh : thread ReconfigStudy::threads::EngineMonitor;
+   connections
+	pAnalogSensors : port AnalogSensors -> EngineMonitorTh.AnalogSensors;	
+	pEngineData  : port EngineMonitorTh.EngineData -> EngineData ;	
+
+  end pEngineMonitor.Proc;
+  
+  ------------------
+  -- DisplayXServer --
+  ------------------
+
+  process pDisplayXServer
+  features
+    A661In  : in  data port DataTypes::A661Commands;    
+    ButtonsOut : out data port DataTypes::PanelInputsType;
+    HealthStatus : out data port DataTypes::HealthStatusType;
+
+  
+  end pDisplayXServer;
+
+  process implementation pDisplayXServer.Proc
+   subcomponents
+      DisplayXServerTh : thread ReconfigStudy::threads::DisplayXServer;
+   connections
+	pA661In : port A661In -> DisplayXServerTh.A661In;    
+	pButtonsOut : port DisplayXServerTh.ButtonsOut -> ButtonsOut;
+	pHealthStatus : port DisplayXServerTh.HealthStatus -> HealthStatus;
+
+  end pDisplayXServer.Proc;  
+  
+
+  ------------------
+  -- ActuatorXControl --
+  ------------------
+
+  process pActuatorXControl
+  features
+    dataIn   : in  data port Base_Types::Float;    
+    HealthStatus : out data port DataTypes::HealthStatusType;
+  end pActuatorXControl;
+  
+  process implementation pActuatorXControl.Proc
+   subcomponents
+	ActuatorXControlTh : thread ReconfigStudy::threads::ActuatorXControl;
+   connections
+	pdataIn : port dataIn -> ActuatorXControlTh.dataIn;    
+	pHealthStatus : port ActuatorXControlTh.HealthStatus -> HealthStatus;
+  end pActuatorXControl.Proc;
+	
+  
+
+  
+	
+end ReconfigStudy::ProcessSystem;

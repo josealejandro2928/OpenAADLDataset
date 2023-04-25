@@ -1,0 +1,25 @@
+
+property set AADL_Project is
+	Default_Active_Thread_Handling_Protocol : constant Supported_Active_Thread_Handling_Protocols => abort;
+	Max_Aadlinteger : constant aadlinteger => 2#1#e32;
+	Max_Memory_Size : constant aadlinteger Size_Units => 2#1#e32 B;
+	Max_Queue_Size : constant aadlinteger => 512;
+	Max_Base_Address : constant aadlinteger => 512;
+	Max_Urgency : constant aadlinteger => 12;
+	Max_Time : constant aadlinteger Time_Units => 1000 Hr;
+	Max_Thread_Limit : constant aadlinteger => 32;
+	Max_Word_Count : constant aadlinteger => 64000;
+	Max_Word_Space : constant aadlinteger => 64;
+	Supported_Active_Thread_Handling_Protocols : type enumeration (abort, complete_one_flush_queue, complete_one_transfer_queue, complete_one_preserve_queue, complete_all);
+	Supported_Connection_Protocols : type enumeration (UDP, TCP);
+	Supported_Dispatch_Protocols : type enumeration (Periodic, Background, Poisson_Process, Sporadic, User_Defined);
+	Supported_Concurrency_Control_Protocols : type enumeration (No_Protocol, Priority_Ceiling_Protocol, Immediate_Priority_Ceiling_Protocol, Priority_Inheritance_Protocol);
+	Supported_Hardware_Source_Languages : type enumeration (VHDL);
+	Supported_Scheduling_Protocols : type enumeration (COMPILED_USER_DEFINED_PROTOCOL, AUTOMATA_USER_DEFINED_PROTOCOL, PIPELINE_USER_DEFINED_PROTOCOL, USER_DEFINED_PROTOCOL, EARLIEST_DEADLINE_FIRST_PROTOCOL, LEAST_LAXITY_FIRST_PROTOCOL, RATE_MONOTONIC_PROTOCOL, DEADLINE_MONOTONIC_PROTOCOL, ROUND_ROBIN_PROTOCOL, TIME_SHARING_BASED_ON_WAIT_TIME_PROTOCOL, POSIX_1003_HIGHEST_PRIORITY_FIRST_PROTOCOL, D_OVER_PROTOCOL, MAXIMUM_URGENCY_FIRST_BASED_ON_LAXITY_PROTOCOL, MAXIMUM_URGENCY_FIRST_BASED_ON_DEADLINE_PROTOCOL, TIME_SHARING_BASED_ON_CPU_USAGE_PROTOCOL, NO_SCHEDULING_PROTOCOL, HIERARCHICAL_CYCLIC_PROTOCOL, HIERARCHICAL_ROUND_ROBIN_PROTOCOL, HIERARCHICAL_FIXED_PRIORITY_PROTOCOL);
+	Supported_Queue_Processing_Protocols : type enumeration (FIFO);
+	Supported_Source_Languages : type enumeration (Ada95, C);
+	Time_Units : type units (ps, Ns => ps * 1000, Us => Ns * 1000, Ms => Us * 1000, Sec => Ms * 1000, Min => Sec * 60, Hr => Min * 60);
+	Size_Units : type units (Bits, B => Bits * 8, KB => B * 1000, MB => KB * 1000, GB => MB * 1000);
+end AADL_Project;
+
+

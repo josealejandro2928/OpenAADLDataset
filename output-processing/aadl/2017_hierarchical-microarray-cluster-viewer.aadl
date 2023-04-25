@@ -1,0 +1,22 @@
+activity hierarchical-microarray-cluster-viewer {
+	on {
+		dataset clustered-data-table : "text/plain" [1,1];
+		dataset array-tree : "text/plain" [1,1];
+		dataset gene-tree : "text/plain" [1,1];
+	}
+	with {
+	}
+	produces {
+		
+	}
+	using executable "cluster3" {
+		commandLineTemplate [
+			
+		]
+		returns {
+			0 if SUCCESS;
+			1 if FAILURE 'Bad invocation parameters.'
+			
+		}
+	}
+}

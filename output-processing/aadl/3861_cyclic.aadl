@@ -1,0 +1,59 @@
+
+thread T1
+end T1;
+
+thread implementation T1.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Deadline  =>  10 ms ;
+		Period =>  10 ms ;
+end T1.Impl;
+
+thread T2
+end T2;
+
+thread implementation T2.Impl
+	properties
+		Dispatch_Protocol => Periodic;
+		Compute_Execution_Time =>  1 ms ..  1 ms;
+		Cheddar_Properties::Dispatch_Absolute_Time =>  0 ms ;
+		Deadline  =>  20 ms ;
+		Period =>  20 ms ;
+end T2.Impl;
+
+process an_address_space
+end an_address_space;
+
+process implementation an_address_space.Impl
+	subcomponents
+		T1 : thread T1.Impl;
+		T2 : thread T2.Impl;
+end an_address_space.Impl;
+
+processor a_cpu
+end a_cpu;
+
+processor implementation a_cpu.Impl
+	properties 
+		Scheduling_Protocol => PIPELINE_USER_DEFINED_PROTOCOL;
+		Cheddar_Properties::Scheduler_Quantum =>  0 ms ;
+		Cheddar_Properties::Preemptive_Scheduler => False;
+		Cheddar_Properties::Source_Text => "aadl_cyclic_executive.sc";
+end a_cpu.Impl;
+
+
+system cyclic
+end cyclic;
+
+system implementation cyclic.Impl
+	subcomponents
+		cpu : processor a_cpu.Impl;
+		ea  : process an_address_space.Impl;
+	properties
+		Actual_Processor_Binding => reference cpu applies to ea;
+end cyclic.Impl;
+
+
+

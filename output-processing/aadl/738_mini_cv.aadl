@@ -1,0 +1,46 @@
+-- Automatically Generated - For use with AADL2GlueC only - Do NOT modify! --
+
+SUBPROGRAM artificial_push
+FEATURES
+	w:IN PARAMETER DataView::MyString {encoding=>NATIVE;};
+END artificial_push;
+
+SUBPROGRAM IMPLEMENTATION artificial_push.C
+PROPERTIES
+	FV_Name => "vt_actions_push";
+	Source_Language => C;
+END artificial_push.C;
+
+SUBPROGRAM push
+FEATURES
+	w:OUT PARAMETER DataView::MyString {encoding=>NATIVE;};
+END push;
+
+SUBPROGRAM IMPLEMENTATION push.C
+PROPERTIES
+	FV_Name => "vt_actions_push";
+	Source_Language => C;
+END push.C;
+
+SUBPROGRAM out_msg_vt
+FEATURES
+	msg:OUT PARAMETER DataView::T_Int32 {encoding=>NATIVE;};
+END out_msg_vt;
+
+SUBPROGRAM IMPLEMENTATION out_msg_vt.C
+PROPERTIES
+	FV_Name => "vt_actions_push";
+	Source_Language => C;
+END out_msg_vt.C;
+
+SUBPROGRAM check_queue_vt
+FEATURES
+	res:IN PARAMETER DataView::T_Boolean {encoding=>NATIVE;};
+END check_queue_vt;
+
+SUBPROGRAM IMPLEMENTATION check_queue_vt.C
+PROPERTIES
+	FV_Name => "vt_actions_push";
+	Source_Language => C;
+END check_queue_vt.C;
+

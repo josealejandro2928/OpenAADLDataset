@@ -1,0 +1,100 @@
+package backup_recovery
+public
+	system backup_recovery
+		features
+			backup_input: in out data port;
+--			br_output: out data port;
+			client_port: in out data port;
+	end backup_recovery;
+
+	system implementation backup_recovery.impl
+		subcomponents
+			backup: process backup.impl;
+			restore: process restore.impl;
+		connections
+			backup_recovery_impl_new_connection: port backup_input -> backup.br_input;
+			backup_recovery_impl_new_connection5: port restore.client_port -> client_port;
+			backup_recovery_impl_new_connection6: port backup.client_port -> client_port;
+			backup_recovery_impl_new_connection3: port backup_input -> restore.br_input;
+	end backup_recovery.impl;
+
+	process backup
+		features
+			br_input: in out data port;
+			client_port: in out data port;
+	end backup;
+
+	process implementation backup.impl
+		subcomponents
+			backup_read: thread readFromDataToCompress;
+			backup_compress: thread compress;
+			backup_write: thread writeCompressedData;
+		connections
+			backup_impl_new_connection: port br_input -> backup_read.data_layer_data;
+			backup_impl_new_connection3: port backup_read.b_read_out -> backup_compress.compress_in;
+			backup_impl_new_connection4: port backup_compress.compress_out -> backup_write.b_write_in;
+			backup_impl_new_connection2: port client_port -> backup_read.client_port;
+			backup_impl_new_connection6: port backup_write.b_write_out -> br_input;
+			backup_impl_new_connection5: port backup_write.client_port -> client_port;
+	end backup.impl;
+
+	thread readFromDataToCompress
+		features
+			b_read_out: out data port;
+			data_layer_data: in data port;
+			client_port: in out data port;
+	end readFromDataToCompress;
+
+	thread compress
+		features
+			compress_in: in data port;
+			compress_out: out data port;
+	end compress;
+
+	thread writeCompressedData
+		features
+			b_write_in: in data port;
+			b_write_out: out data port;
+			client_port: in out data port;
+	end writeCompressedData;
+
+	process restore
+		features
+			br_input: in out data port;
+			client_port: in out data port;
+	end restore;
+
+	process implementation restore.impl
+		subcomponents
+			recovery_read: thread readFromDataToDecompress;
+			recovery_decompress: thread decompress;
+			recovery_write: thread writeDecompressedData;
+		connections
+			restore_impl_new_connection2: port br_input -> recovery_read.settings;
+			restore_impl_new_connection3: port recovery_read.r_read_out -> recovery_decompress.decompress_in;
+			restore_impl_new_connection4: port recovery_decompress.decompress_out -> recovery_write.r_write_in;
+			restore_impl_new_connection: port recovery_read.client_port -> client_port;
+			restore_impl_new_connection6: port recovery_write.r_write_out -> br_input;
+			restore_impl_new_connection5: port recovery_write.client_port -> client_port;
+	end restore.impl;
+
+	thread readFromDataToDecompress
+		features
+			settings: in data port;
+			r_read_out: out data port;
+			client_port: in out data port;
+	end readFromDataToDecompress;
+
+	thread decompress
+		features
+			decompress_in: in data port;
+			decompress_out: out data port;
+	end decompress;
+
+	thread writeDecompressedData
+		features
+			r_write_in: in data port;
+			r_write_out: out data port;
+			client_port: in out data port;
+	end writeDecompressedData;
+end backup_recovery;

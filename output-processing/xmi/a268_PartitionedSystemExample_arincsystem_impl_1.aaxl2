@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="arincsystem_impl_Instance" category="system">
+  <componentInstance name="mem" category="memory">
+    <componentInstance name="part1mem" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition1_memory"/>
+    </componentInstance>
+    <componentInstance name="part2mem" category="memory">
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition2_memory"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.main_memory.impl"/>
+  </componentInstance>
+  <componentInstance name="partition1_pr" category="process">
+    <featureInstance name="samplingout" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="queueingin" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <componentInstance name="temperature" category="thread">
+      <featureInstance name="tempout" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="order" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.sensor_temperature_thread.impl"/>
+    </componentInstance>
+    <componentInstance name="order" category="thread">
+      <featureInstance name="commandin" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="order" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.sensor_receiveinput_thread"/>
+    </componentInstance>
+    <connectionInstance name="order.order -> temperature.order" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition1_process.impl"/>
+  </componentInstance>
+  <componentInstance name="partition2_pr" category="process">
+    <featureInstance name="samplingin">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="queueingout" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <componentInstance name="sem" category="data">
+      <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.protected_data"/>
+    </componentInstance>
+    <componentInstance name="blackboard" category="data">
+      <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedDataSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.integer"/>
+    </componentInstance>
+    <componentInstance name="receiver" category="thread">
+      <featureInstance name="temp">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="newavg" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="tempavg" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="need_semaphore" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.commandboard_receiveinput_thread"/>
+    </componentInstance>
+    <componentInstance name="printer" category="thread">
+      <featureInstance name="ordersensor" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="newavg" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="tempavg" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="need_semaphore" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/instances/partitionedsystemexample_arincsystem_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.commandboard_printinfos_thread"/>
+    </componentInstance>
+    <connectionInstance name="sem -> receiver.need_semaphore" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.3">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="sem -> printer.need_semaphore" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.3">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="blackboard -> printer.tempavg" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.2" source="//@componentInstance.2/@componentInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="blackboard -> receiver.tempavg" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.2" source="//@componentInstance.2/@componentInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="receiver.newavg -> printer.newavg" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.1" source="//@componentInstance.2/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition2_process.impl"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#Processor_Properties.Processor_Family"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/aadl/processors/processors-ppc.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#Processor_Properties.Endianess"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/aadl/processors/processors-ppc.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/property_set/processor_properties.aadl#Processor_Properties.Word_Length"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="32">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/aadl/processors/processors-ppc.aadl#|::0.5.9.0.4.2.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/src/aadl/processors/processors-ppc.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <componentInstance name="part1" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition1_rt.impl"/>
+    </componentInstance>
+    <componentInstance name="part2" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.partition2_rt.impl"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.powerpc.impl"/>
+  </componentInstance>
+  <connectionInstance name="partition1_pr.temperature.tempout -> partition2_pr.receiver.temp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="partition2_pr.printer.ordersensor -> partition1_pr.order.commandin" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.3/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.arincsystem.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/others/repositories-aadl/a268/examples/arinc653_annex/example_1/partitionedsystemexample.aadl#PartitionedSystemExample.arincsystem.impl"/>
+</instance:SystemInstance>

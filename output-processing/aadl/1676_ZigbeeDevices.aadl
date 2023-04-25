@@ -1,0 +1,54 @@
+package ZigbeeDevices
+public
+with EMV2,
+     ErrorLibrary;
+
+annex EMV2
+{**
+	error types
+	  NoValue: type;
+	  ThreadFault: type;
+	  InternalError : type;
+	end types;
+	error behavior FailStop
+	  use types ErrorLibrary;
+	  events BadValueEvent: error event;
+	  states 
+	    Running: initial state; 
+	    Failed : state;
+	  transitions
+	    Running -[BadValueEvent]-> Failed;
+	end behavior;
+**};
+
+
+device ZigbeeDevices
+	features
+		Sensing:  in event port;
+		out_zd_mcr: out event port;
+end ZigbeeDevices;
+	
+device implementation ZigbeeDevices.impl
+annex EMV2 {**
+	use types ErrorLibrary;
+	use behavior ErrorLibrary::FailStop;
+	
+	error propagations
+		Sensing: in propagation {OutOfRange};
+	flows
+		es1: error sink Sensing{OutOfRange};
+	end propagations;
+	
+	component error behavior
+		transitions
+	    	trs1: Operational -[Sensing{OutOfRange}]-> FailStop;
+	    	trs2: FailStop -[Sensing{NoError}]-> Operational;
+	end component;
+**};		
+	
+end ZigbeeDevices.impl;
+	
+
+	
+	
+end ZigbeeDevices;
