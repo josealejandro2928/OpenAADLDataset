@@ -17,15 +17,14 @@ async function queryRepositories(queryParams = {}) {
 async function main() {
     console.log("LOADING...");
     const query1 = { q: "aadl in:name,description,readme,topics" };
-    const query2 = { q: "osate in:name,description,readme,topics" };
 
     try {
         const setUris = new Set();
-        let res = await Promise.all([queryRepositories(query1), queryRepositories(query2)])
+        let res = await Promise.all([queryRepositories(query1)])
         for (const data of res) {
             data.items.map((item) => setUris.add(item.html_url))
         }
-        const data = [...setUris].join("\n");
+        const data = [...setUris].map((item)=>`"${item}",`).join("\n");
         fs.writeFileSync(path.join(__dirname, "result.txt"), data);
     } catch (e) {
         console.error("ERROR: ", e);
