@@ -1,0 +1,90 @@
+--  Deployment aspects of the MPC PP model
+
+--  $Id: mpc_native.aadl 6713 2009-06-20 20:58:28Z lanarre $
+
+package MPC::Native
+public
+  with Deployment, Software;
+  with Buses::Ethernet;
+  with Native_Sockets;
+
+  ---------------
+  -- Processor --
+  ---------------
+
+  processor Simple_CPU
+  features
+    ETH_1 : requires bus access Buses::Ethernet::Ethernet;
+
+  properties
+    Deployment::Execution_Platform => Native;
+  end Simple_CPU;
+
+  processor Complex_CPU
+  features
+    ETH_2 : requires bus access Buses::Ethernet::Ethernet;
+    ETH_3 : requires bus access Buses::Ethernet::Ethernet;
+
+  properties
+    Deployment::Execution_Platform => Native;
+  end Complex_CPU;
+
+  processor implementation Simple_CPU.P4
+  end Simple_CPU.P4;
+
+  processor implementation Complex_CPU.P4
+  end Complex_CPU.P4;
+
+  -----------------
+  -- Root System --
+  -----------------
+
+  system MPC
+  end MPC;
+
+  system implementation MPC.Native
+  subcomponents
+    SC_1 : process Software::Sender_Process.Impl;
+    SC_2 : process Software::Receiver_Process.Impl;
+    SC_3 : process Software::Receiver_Process.Impl;
+
+    --  The CPUs
+
+    CPU_SC_1 : processor Complex_CPU.P4;
+    Eth1   : device Native_Sockets::Native_Sockets.POHI_Ada
+    { Deployment::Location    => "ip 127.0.0.1 1233"; };
+
+    CPU_SC_2 : processor Simple_CPU.P4;
+    Eth2  : device Native_Sockets::Native_Sockets.POHI_Ada
+    { Deployment::Location    => "ip 127.0.0.1 1234"; };
+
+    CPU_SC_3 : processor Simple_CPU.P4;
+    Eth3  : device Native_Sockets::Native_Sockets.POHI_Ada
+    { Deployment::Location    => "ip 127.0.0.1 1235"; };
+
+    --  The Ethernet buses
+
+    ETH : bus Buses::Ethernet::Ethernet.impl;
+  connections
+    bus access ETH -> Eth1.Eth;
+    bus access ETH -> Eth2.Eth;
+    bus access ETH -> Eth3.Eth;
+
+    port SC_1.Data_Source -> SC_2.Data_Sink
+    {Actual_Connection_Binding => (reference (ETH));};
+    port SC_1.Data_Source -> SC_3.Data_Sink
+    {Actual_Connection_Binding => (reference (ETH));};
+
+  properties
+    Actual_Processor_Binding => (reference (CPU_SC_1)) applies to SC_1;
+    Actual_Processor_Binding => (reference (CPU_SC_2)) applies to SC_2;
+    Actual_Processor_Binding => (reference (CPU_SC_3)) applies to SC_3;
+
+    Actual_Processor_Binding => (reference (CPU_SC_1)) applies to Eth1;
+    Actual_Processor_Binding => (reference (CPU_SC_2)) applies to Eth2;
+    Actual_Processor_Binding => (reference (CPU_SC_3)) applies to Eth3;
+
+
+  end MPC.Native;
+
+end MPC::Native;

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="toplanes_tripleprotocol_Instance" category="system">
+  <componentInstance name="bu" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusSubcomponent.0"/>
+    <index>1</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.b"/>
+  </componentInstance>
+  <componentInstance name="bu" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusSubcomponent.0"/>
+    <index>2</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.b"/>
+  </componentInstance>
+  <componentInstance name="bu" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusSubcomponent.0"/>
+    <index>3</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.b"/>
+  </componentInstance>
+  <componentInstance name="lane" category="process">
+    <featureInstance name="step1out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="step2in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="step2out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="step3in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.3"/>
+    </featureInstance>
+    <componentInstance name="step1" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.stept1"/>
+    </componentInstance>
+    <componentInstance name="step2" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptmiddle"/>
+    </componentInstance>
+    <componentInstance name="step3" category="thread">
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptfinal"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>1</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.lane.i"/>
+  </componentInstance>
+  <componentInstance name="lane" category="process">
+    <featureInstance name="step1out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="step2in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="step2out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="step3in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.3"/>
+    </featureInstance>
+    <componentInstance name="step1" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.stept1"/>
+    </componentInstance>
+    <componentInstance name="step2" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptmiddle"/>
+    </componentInstance>
+    <componentInstance name="step3" category="thread">
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptfinal"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>2</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.lane.i"/>
+  </componentInstance>
+  <componentInstance name="lane" category="process">
+    <featureInstance name="step1out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="step2in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.1"/>
+    </featureInstance>
+    <featureInstance name="step2out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.2"/>
+    </featureInstance>
+    <featureInstance name="step3in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.3"/>
+    </featureInstance>
+    <componentInstance name="step1" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.stept1"/>
+    </componentInstance>
+    <componentInstance name="step2" category="thread">
+      <featureInstance name="outp" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptmiddle"/>
+    </componentInstance>
+    <componentInstance name="step3" category="thread">
+      <featureInstance name="inp" category="eventPort" index="1">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="2">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="inp" category="eventPort" index="3">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.steptfinal"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessSubcomponent.0"/>
+    <index>3</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.lane.i"/>
+  </componentInstance>
+  <componentInstance name="pc" category="processor">
+    <featureInstance name="ba" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="tripleba" category="busAccess">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/myprops.aadl#myprops.replicationfactor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="3"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>1</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.proc"/>
+  </componentInstance>
+  <componentInstance name="pc" category="processor">
+    <featureInstance name="ba" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="tripleba" category="busAccess">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/myprops.aadl#myprops.replicationfactor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="3"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>2</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.proc"/>
+  </componentInstance>
+  <componentInstance name="pc" category="processor">
+    <featureInstance name="ba" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="tripleba" category="busAccess">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/myprops.aadl#myprops.replicationfactor"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="3"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/instances/featurearray_toplanes_tripleprotocol_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedProcessorSubcomponent.0"/>
+    <index>3</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.proc"/>
+  </componentInstance>
+  <componentInstance name="tripleprotocol" category="virtual bus">
+    <subcomponent xsi:type="aadl2:VirtualBusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedVirtualBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:VirtualBusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.tripleprotocol"/>
+  </componentInstance>
+  <connectionInstance name="lane[1].step1.outp -> lane[1].step2.inp[1]" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1" source="//@componentInstance.3/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="lane[1].step2.outp -> lane[1].step3.inp[1]" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.3" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bu[1] --> pc[1].ba" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bu[2] --> pc[2].ba" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.0" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.7/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bu[3] --> pc[3].ba" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.0" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.8/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pc[1].ba --> bu[1]" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pc[2].ba --> bu[2]" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.7/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.0" destination="//@componentInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pc[3].ba --> bu[3]" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.8/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.0" destination="//@componentInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.toplanes.tripleprotocol"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/feature-array/featurearray.aadl#featurearray.toplanes.tripleprotocol"/>
+</instance:SystemInstance>

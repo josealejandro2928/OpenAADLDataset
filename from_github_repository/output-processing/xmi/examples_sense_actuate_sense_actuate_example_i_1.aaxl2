@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="sense_actuate_example_i_Instance" category="system">
+  <componentInstance name="eth0" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.ethernet"/>
+  </componentInstance>
+  <componentInstance name="eth1" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.ethernet"/>
+  </componentInstance>
+  <componentInstance name="sensor" category="device">
+    <featureInstance name="sensing_val" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="f0" destination="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.sensor.i"/>
+  </componentInstance>
+  <componentInstance name="actuate" category="device">
+    <featureInstance name="command_val">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="f0" source="//@componentInstance.3/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.actuator.i"/>
+  </componentInstance>
+  <componentInstance name="ram" category="memory">
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.ram"/>
+  </componentInstance>
+  <componentInstance name="processing" category="process">
+    <featureInstance name="sensing_value">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="command_value" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <flowSpecification name="f0" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.processing_data.i"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="processor">
+    <featureInstance name="eth0" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="eth1" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/instances/sense_actuate_sense_actuate_example_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.mycpu"/>
+  </componentInstance>
+  <endToEndFlow name="f0" flowElement="//@componentInstance.2/@flowSpecification.0 //@connectionInstance.4 //@componentInstance.5/@flowSpecification.0 //@connectionInstance.7 //@componentInstance.3/@flowSpecification.0">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <connectionInstance name="eth0 -> sensor.eth" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth0 -> cpu.eth0" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth1 -> actuate.eth" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eth1 -> cpu.eth1" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.6/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensor.sensing_val -> processing.sensing_value" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensor.eth -> eth0" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="actuate.eth -> eth1" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.command_value -> actuate.command_val" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.5/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="cpu.eth0 -> eth0" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="cpu.eth1 -> eth1" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.6/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.sense_actuate_example.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/patterns/sense_actuate.aadl#sense_actuate.sense_actuate_example.i"/>
+</instance:SystemInstance>

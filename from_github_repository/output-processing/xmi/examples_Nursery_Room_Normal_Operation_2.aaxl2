@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Room_Normal_Operation_Instance" category="system">
+  <featureInstance name="heat_loss" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/4"/>
+  </featureInstance>
+  <componentInstance name="anInfant">
+    <featureInstance name="air_interaction" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAbstractSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#Nursery.Infant"/>
+  </componentInstance>
+  <componentInstance name="aNurse">
+    <featureInstance name="control_monitor_alarm" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="flow_sink" source="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="flow_source" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAbstractSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#Nursery.Nurse"/>
+  </componentInstance>
+  <componentInstance name="anIncubator" category="system">
+    <featureInstance name="heat_out" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="control_monitor_alarm" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="air_temperature">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <componentInstance name="temperature_sensor" category="device">
+      <featureInstance name="air">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="current_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <flowSpecification name="air_temp_flow" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#Devices.temperature_sensor.impl"/>
+    </componentInstance>
+    <componentInstance name="heat_source" category="device">
+      <featureInstance name="heat_control">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="heat_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <flowSpecification name="temp_to_heat_flow" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#Devices.heat_source.impl"/>
+    </componentInstance>
+    <componentInstance name="thermostat" category="system">
+      <featureInstance name="current_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="heat_control" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="lower_desired_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="upper_desired_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="lower_alarm_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="upper_alarm_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="regulator_status" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="monitor_status" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="display_temperature" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="alarm" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <componentInstance name="detect_regulator_fail" category="device">
+        <featureInstance name="internal_failure" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#Devices.detect_regulator_failure.impl"/>
+      </componentInstance>
+      <componentInstance name="detect_monitor_fail" category="device">
+        <featureInstance name="internal_failure" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDeviceSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Devices.aadl#Devices.detect_monitor_failure.impl"/>
+      </componentInstance>
+      <componentInstance name="regulate_temperature" category="process">
+        <featureInstance name="lower_desired_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="upper_desired_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="regulator_status" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="displayed_temp" direction="out">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:RangeValue">
+                <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+                <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+          </ownedPropertyAssociation>
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+            </ownedValue>
+            <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+          </ownedPropertyAssociation>
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="current_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+        </featureInstance>
+        <featureInstance name="heat_control" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <componentInstance name="manage_regulator_interface" category="thread">
+          <featureInstance name="regulator_status" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+          </featureInstance>
+          <featureInstance name="lower_desired_temp">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/7"/>
+          </featureInstance>
+          <featureInstance name="upper_desired_temp">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/8"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <featureInstance name="displayed_temp" direction="out">
+            <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+              <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+              <ownedValue>
+                <ownedValue xsi:type="aadl2:RangeValue">
+                  <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+                  <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+                </ownedValue>
+              </ownedValue>
+              <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+            </ownedPropertyAssociation>
+            <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+              <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+              <ownedValue>
+                <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+              </ownedValue>
+              <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+            </ownedPropertyAssociation>
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.4"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/9"/>
+          </featureInstance>
+          <featureInstance name="regulator_mode">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.5"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/10"/>
+          </featureInstance>
+          <featureInstance name="interface_failure" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.6"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#Regulate.manage_regulator_interface_mri.impl"/>
+        </componentInstance>
+        <componentInstance name="manage_heat_source" category="thread">
+          <featureInstance name="heat_control" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <featureInstance name="lower_desired_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/7"/>
+          </featureInstance>
+          <featureInstance name="upper_desired_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/8"/>
+          </featureInstance>
+          <featureInstance name="regulator_mode">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.4"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/10"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#Regulate.manage_heat_source_mhs.impl"/>
+        </componentInstance>
+        <componentInstance name="manage_regulator_mode" category="thread">
+          <featureInstance name="regulator_mode" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/10"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <featureInstance name="interface_failure">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <featureInstance name="internal_failure">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#Regulate.manage_regulator_mode_mrm.impl"/>
+        </componentInstance>
+        <connectionInstance name="manage_regulator_interface.interface_failure -> manage_regulator_mode.interface_failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.6">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.2">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="manage_regulator_mode.regulator_mode -> manage_heat_source.regulator_mode" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.4" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.4">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="manage_regulator_mode.regulator_mode -> manage_regulator_interface.regulator_mode" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.5" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.5">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+          </connectionReference>
+        </connectionInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#Regulate.regulate_temperature.impl"/>
+      </componentInstance>
+      <componentInstance name="monitor_temperature" category="process">
+        <featureInstance name="current_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+        </featureInstance>
+        <featureInstance name="lower_alarm_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/12"/>
+        </featureInstance>
+        <featureInstance name="upper_alarm_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/13"/>
+        </featureInstance>
+        <featureInstance name="alarm" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="monitor_status" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="regulator_failure">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="monitor_failure">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.6"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <componentInstance name="manage_alarm" category="thread">
+          <featureInstance name="alarm_control" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+          </featureInstance>
+          <featureInstance name="monitor_mode">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/11"/>
+          </featureInstance>
+          <featureInstance name="lower_alarm_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/12"/>
+          </featureInstance>
+          <featureInstance name="upper_alarm_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/13"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.4"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#Monitor.manage_alarm.impl"/>
+        </componentInstance>
+        <componentInstance name="manage_monitor_interface" category="thread">
+          <featureInstance name="alarm_range" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/14"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <featureInstance name="monitor_mode">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/11"/>
+          </featureInstance>
+          <featureInstance name="upper_alarm_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/13"/>
+          </featureInstance>
+          <featureInstance name="lower_alarm_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.4"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/12"/>
+          </featureInstance>
+          <featureInstance name="monitor_status" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.5"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+          </featureInstance>
+          <featureInstance name="interface_failure" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.6"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#Monitor.manage_monitor_interface.impl"/>
+        </componentInstance>
+        <componentInstance name="manage_monitor_mode" category="thread">
+          <featureInstance name="monitor_mode" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/11"/>
+          </featureInstance>
+          <featureInstance name="interface_failure">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <featureInstance name="internal_failure">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/5"/>
+          </featureInstance>
+          <featureInstance name="current_temperature">
+            <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+            <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+          </featureInstance>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#Monitor.manage_monitor_mode.impl"/>
+        </componentInstance>
+        <connectionInstance name="manage_monitor_interface.interface_failure -> manage_monitor_mode.interface_failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.1" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.6">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.1">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="manage_monitor_mode.monitor_mode -> manage_monitor_interface.monitor_mode" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.2">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+          </connectionReference>
+        </connectionInstance>
+        <connectionInstance name="manage_monitor_mode.monitor_mode -> manage_alarm.monitor_mode" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.1" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.0">
+          <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.1">
+            <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+          </connectionReference>
+        </connectionInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#Monitor.monitor_temperature.impl"/>
+      </componentInstance>
+      <flowSpecification name="temp_to_heat_flow" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <connectionInstance name="detect_regulator_fail.internal_failure -> monitor_temperature.manage_monitor_mode.internal_failure" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+        <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.5">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.11"/>
+        </connectionReference>
+        <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.2">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#KSU_Isolette.thermostat_single_sensor.impl"/>
+    </componentInstance>
+    <componentInstance name="operator_interface" category="system">
+      <featureInstance name="control_monitor_alarm" direction="in out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="lower_desired_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="upper_desired_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="lower_alarm_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <featureInstance name="upper_alarm_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/13"/>
+      </featureInstance>
+      <featureInstance name="regulator_status">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="monitor_status">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="display_temperature">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="alarm">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#KSU_Isolette.operator_interface.impl"/>
+    </componentInstance>
+    <flowSpecification name="air_temp_to_heat_out" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="air_temp_to_alarm" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.monitor_temperature.manage_monitor_interface.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.1" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.monitor_temperature.manage_alarm.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.4" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.monitor_temperature.manage_monitor_mode.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.2/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.regulate_temperature.manage_regulator_interface.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.3" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.regulate_temperature.manage_heat_source.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.1" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="temperature_sensor.current_temperature -> thermostat.regulate_temperature.manage_regulator_mode.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.regulate_temperature.manage_regulator_interface.regulator_status -> operator_interface.regulator_status" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.5" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.6" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.regulate_temperature.manage_regulator_interface.displayed_temp -> operator_interface.display_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.7" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.8" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.regulate_temperature.manage_heat_source.heat_control -> heat_source.heat_control" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.monitor_temperature.manage_alarm.alarm_control -> operator_interface.alarm" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.8" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.10"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.9" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.monitor_temperature.manage_monitor_interface.monitor_status -> operator_interface.monitor_status" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.6" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.5">
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.9"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.7" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_desired_temperature -> thermostat.regulate_temperature.manage_regulator_interface.lower_desired_temp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.1" source="//@componentInstance.2/@componentInstance.3/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_desired_temperature -> thermostat.regulate_temperature.manage_heat_source.lower_desired_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.1">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_desired_temperature -> thermostat.regulate_temperature.manage_regulator_interface.upper_desired_temp" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_desired_temperature -> thermostat.regulate_temperature.manage_heat_source.upper_desired_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.3" source="//@componentInstance.2/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.2/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Regulate.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_alarm_temperature -> thermostat.monitor_temperature.manage_monitor_interface.lower_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.4" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.6"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_alarm_temperature -> thermostat.monitor_temperature.manage_alarm.lower_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.6"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_alarm_temperature -> thermostat.monitor_temperature.manage_monitor_interface.upper_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.3" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_alarm_temperature -> thermostat.monitor_temperature.manage_alarm.upper_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.3" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4">
+      <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.4" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.5" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.2/@componentInstance.2/@componentInstance.3" source="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.3/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Monitor.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#KSU_Isolette.isolette.single_sensor"/>
+  </componentInstance>
+  <componentInstance name="theAir" category="system">
+    <featureInstance name="heat_in">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="heat_out" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="infant_interaction" direction="in out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="air_temperature" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/instances/Nursery_Room_Normal_Operation_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <flowSpecification name="heat_flow_sink" source="//@componentInstance.3/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="temp_source" destination="//@componentInstance.3/@featureInstance.3">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#Nursery.Air"/>
+  </componentInstance>
+  <connectionInstance name="anInfant.air_interaction -> theAir.infant_interaction" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.2" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="aNurse.control_monitor_alarm -> anIncubator.operator_interface.control_monitor_alarm" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="anIncubator.heat_source.heat_out -> theAir.heat_in" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@featureInstance.1">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="anIncubator.operator_interface.control_monitor_alarm -> aNurse.control_monitor_alarm" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.3/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="theAir.heat_out -> heat_loss" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="theAir.infant_interaction -> anInfant.air_interaction" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="theAir.air_temperature -> anIncubator.temperature_sensor.air" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#Nursery.Room.Normal_Operation"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-emv2/issue41/Nursery.aadl#Nursery.Room.Normal_Operation"/>
+</instance:SystemInstance>

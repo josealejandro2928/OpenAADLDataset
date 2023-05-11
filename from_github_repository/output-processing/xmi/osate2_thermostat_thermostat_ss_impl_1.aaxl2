@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="thermostat_ss_impl_Instance" category="system">
+  <featureInstance name="current_temperature">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Element_Names"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:StringLiteral" value="t"/>
+          <ownedListElement xsi:type="aadl2:StringLiteral" value="status"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/isoletteDataModel.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/isoletteDataModel.aadl#isoletteDataModel.measured_temperature_range"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:ClassifierValue">
+            <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/isoletteDataModel.aadl#isoletteDataModel.valid_flag"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/isoletteDataModel.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/instances/thermostat_thermostat_ss_impl_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <featureInstance name="operator_settings">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/instances/thermostat_thermostat_ss_impl_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <featureInstance name="heat_control" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/instances/thermostat_thermostat_ss_impl_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="operator_feedback" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.3"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/instances/thermostat_thermostat_ss_impl_Instance.aaxl2#/3"/>
+  </featureInstance>
+  <flowSpecification name="current_temperature_flow" source="//@featureInstance.0" destination="//@featureInstance.2">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#thermostat.thermostat_ss.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/examples/org.osate.examples/examples/ACVIP_ALISA/SCSProject/thermostat.aadl#thermostat.thermostat_ss.impl"/>
+</instance:SystemInstance>

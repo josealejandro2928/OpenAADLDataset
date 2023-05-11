@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="SensorProcessing_impl_Instance" category="system">
+  <componentInstance name="datasetProcessing" category="process">
+    <componentInstance name="dsrc" category="thread">
+      <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <flowSpecification name="fromSource" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.dataSource"/>
+    </componentInstance>
+    <componentInstance name="dsnk" category="thread">
+      <featureInstance name="samplesIn" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <flowSpecification name="toSink" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.dataSink"/>
+    </componentInstance>
+    <componentInstance name="tg" category="thread group">
+      <featureInstance name="SamplesIn" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <componentInstance name="taskA" category="thread">
+        <featureInstance name="samplesIn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <flowSpecification name="flowThruThreadA" source="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.threadA"/>
+      </componentInstance>
+      <componentInstance name="taskB" category="thread">
+        <featureInstance name="samplesIn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <flowSpecification name="flowThruThreadB" source="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.threadB"/>
+      </componentInstance>
+      <componentInstance name="taskC" category="thread">
+        <featureInstance name="samplesIn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <flowSpecification name="flowThruThreadC" source="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.threadC"/>
+      </componentInstance>
+      <componentInstance name="taskD" category="thread">
+        <featureInstance name="samplesIn" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <featureInstance name="samplesOut" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/instances/sampleWork_SensorProcessing_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <flowSpecification name="flowThruThreadD" source="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.3"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.threadD"/>
+      </componentInstance>
+      <flowSpecification name="flowThruThreadGroupA" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <connectionInstance name="taskA.samplesOut -> taskB.samplesIn" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.1">
+        <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="taskB.samplesOut -> taskC.samplesIn" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.0" source="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.1">
+        <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.2"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="taskC.samplesOut -> taskD.samplesIn" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.0" source="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.1">
+        <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:ThreadGroupSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadGroupSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadGroupImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.threadGroupA.signal"/>
+    </componentInstance>
+    <endToEndFlow name="processingflow" flowElement="//@componentInstance.0/@componentInstance.0/@flowSpecification.0 //@componentInstance.0/@connectionInstance.0 //@componentInstance.0/@componentInstance.2/@componentInstance.0/@flowSpecification.0 //@componentInstance.0/@componentInstance.2/@connectionInstance.0 //@componentInstance.0/@componentInstance.2/@componentInstance.1/@flowSpecification.0 //@componentInstance.0/@componentInstance.2/@connectionInstance.1 //@componentInstance.0/@componentInstance.2/@componentInstance.2/@flowSpecification.0 //@componentInstance.0/@componentInstance.2/@connectionInstance.2 //@componentInstance.0/@componentInstance.2/@componentInstance.3/@flowSpecification.0 //@componentInstance.0/@connectionInstance.1 //@componentInstance.0/@componentInstance.1/@flowSpecification.0">
+      <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEndToEndFlow.0"/>
+    </endToEndFlow>
+    <connectionInstance name="dsrc.samplesOut -> tg.taskA.samplesIn" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="tg.taskD.samplesOut -> dsnk.samplesIn" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.processing.completeset"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.SensorProcessing.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/flowlatencyexamples/sampleWork.aadl#sampleWork.SensorProcessing.impl"/>
+</instance:SystemInstance>

@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="ulb_impl_Instance" category="system">
+  <featureInstance name="datalink" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/14"/>
+  </featureInstance>
+  <featureInstance name="comlink_in" category="eventDataPort">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+  </featureInstance>
+  <featureInstance name="comlink_out" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+  </featureInstance>
+  <componentInstance name="fcc232" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.RS232.fcc"/>
+  </componentInstance>
+  <componentInstance name="vehiclebus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.MIL1553.vehiclebus"/>
+  </componentInstance>
+  <componentInstance name="sensorbus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.ARINC429.fccsensors"/>
+  </componentInstance>
+  <componentInstance name="onboardvideo" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.RS170.Video"/>
+  </componentInstance>
+  <componentInstance name="offboardvideo" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.RS170.Video"/>
+  </componentInstance>
+  <componentInstance name="ipnet" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.ethernet.frontend"/>
+  </componentInstance>
+  <componentInstance name="vmebus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.VME.vme64"/>
+  </componentInstance>
+  <componentInstance name="storage" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.usb.datarecorder"/>
+  </componentInstance>
+  <componentInstance name="converter" category="bus">
+    <featureInstance name="ethernetside" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="serialside" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.8"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.ethernet2serial.esr904"/>
+  </componentInstance>
+  <componentInstance name="camerabus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.9"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.RS422.wescam"/>
+  </componentInstance>
+  <componentInstance name="altimeter" category="device">
+    <featureInstance name="altitude" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="busout" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Altimeter.radar"/>
+  </componentInstance>
+  <componentInstance name="adc" category="device">
+    <featureInstance name="airdata" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="busout" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Air_Data_Computer.Harco"/>
+  </componentInstance>
+  <componentInstance name="egi" category="device">
+    <featureInstance name="position" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.30/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="busout" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.M1553_Position_Sensor.LN251_egi"/>
+  </componentInstance>
+  <componentInstance name="secondaryGPS" category="device">
+    <featureInstance name="position" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.30/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="position2" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="busout" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="busout2" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Position_Sensor_DualBus.Novatel_gps"/>
+  </componentInstance>
+  <componentInstance name="camera" category="device">
+    <featureInstance name="video" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="cmd" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/9"/>
+    </featureInstance>
+    <featureInstance name="busin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="videobus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <featureInstance name="position">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="video2" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="video2bus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.WesCam.MX15"/>
+  </componentInstance>
+  <componentInstance name="vid" category="device">
+    <featureInstance name="displaydata" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="busin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.33/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.A429_Display.enginedisplay"/>
+  </componentInstance>
+  <componentInstance name="diu" category="device">
+    <featureInstance name="displaydata" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="pilotinput" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <featureInstance name="busin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Control_Display.Display_Interface_Unit"/>
+  </componentInstance>
+  <componentInstance name="avalex" category="device">
+    <featureInstance name="displaydata" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="busin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Camera_Display.Avalex"/>
+  </componentInstance>
+  <componentInstance name="tcdl_radio" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.Always_Sends_Message"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="commands" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="video" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="rf_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="rf_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="stanag" category="eventDataPort" direction="in out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedEventDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="downlink" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/14"/>
+    </featureInstance>
+    <featureInstance name="onboard" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="streamin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/10"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.8"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.TCDL_Radio.miniTCDL"/>
+  </componentInstance>
+  <componentInstance name="thumb" category="device">
+    <featureInstance name="inport" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="busin" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/15"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.9"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.flashdrive.external"/>
+  </componentInstance>
+  <componentInstance name="fcc_sw" category="process">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="SeL4"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="egi_port">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="secondaryGPS_port">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="altimeter_port">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="adc_port">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="pilotinput" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/11"/>
+    </featureInstance>
+    <featureInstance name="vid_port" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="diu_port" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="vsm_port_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <featureInstance name="vsm_port_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <featureInstance name="logout" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.5"/>
+    </featureInstance>
+    <componentInstance name="main" category="thread">
+      <featureInstance name="pos1_in">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="pos2_in">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="altimeter_in">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="adc_in">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="vid_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="diu_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.1"/>
+      </featureInstance>
+      <featureInstance name="vsm_port_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="vsm_port_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="log_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.4"/>
+      </featureInstance>
+      <featureInstance name="pilotinput" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.fcc_thread"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.fcc_software.baseline"/>
+  </componentInstance>
+  <componentInstance name="vsm_sw" category="process">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="SeL4"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="egi_port">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="radio_commands" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/12"/>
+    </featureInstance>
+    <featureInstance name="stanag_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="stanag_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="fcc_port_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <featureInstance name="fcc_port_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+    </featureInstance>
+    <componentInstance name="fcc_thread" category="thread">
+      <featureInstance name="egi_port">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="fcc_port_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="fcc_port_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="stanag_fcc_port_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="stanag_fcc_port_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.vsm_fcc"/>
+    </componentInstance>
+    <componentInstance name="radio_thread" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.Encryption_Algorthim"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="AES-128-GCM"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="radio_commands" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/12"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.vsm_radio"/>
+    </componentInstance>
+    <componentInstance name="stanag_thread" category="thread">
+      <featureInstance name="stanag_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="stanag_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="stanag_fcc_port_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <featureInstance name="stanag_fcc_port_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/16"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.vsm_stanag"/>
+    </componentInstance>
+    <connectionInstance name="fcc_thread.stanag_fcc_port_out -> stanag_thread.stanag_fcc_port_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.2/@featureInstance.2" source="//@componentInstance.21/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="stanag_thread.stanag_fcc_port_out -> fcc_thread.stanag_fcc_port_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.3" source="//@componentInstance.21/@componentInstance.2/@featureInstance.3">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.vsm_software.baseline"/>
+  </componentInstance>
+  <componentInstance name="auth_sw" category="process">
+    <featureInstance name="stanag_offboard" category="eventDataPort" direction="in out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/13"/>
+    </featureInstance>
+    <featureInstance name="stanag_onboard_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="stanag_onboard_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.authenticated_communications"/>
+  </componentInstance>
+  <componentInstance name="wescam_vsm_sw" category="process">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="SeL4"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="stanag_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="stanag_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="camera_commands" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/18"/>
+    </featureInstance>
+    <componentInstance name="camera_thread" category="thread">
+      <featureInstance name="camera_commands_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <featureInstance name="camera_commands_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.vsm_camera"/>
+    </componentInstance>
+    <componentInstance name="stanag_thread" category="thread">
+      <featureInstance name="stanag_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="stanag_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+      </featureInstance>
+      <featureInstance name="camera_state_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/18"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.camera_vsm_stanag"/>
+    </componentInstance>
+    <connectionInstance name="stanag_thread.camera_state_out -> camera_thread.camera_commands_in" complete="true" kind="portConnection" destination="//@componentInstance.23/@componentInstance.0/@featureInstance.0" source="//@componentInstance.23/@componentInstance.1/@featureInstance.2">
+      <connectionReference context="//@componentInstance.23" source="//@componentInstance.23/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.23/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.camera_vsm_software.baseline"/>
+  </componentInstance>
+  <componentInstance name="vsm_logger" category="process">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/smaccm.aadl#SMACCM.OS"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="Linux"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="login" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="logout" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+    </featureInstance>
+    <componentInstance name="log_thread" category="thread">
+      <featureInstance name="login" category="eventDataPort" direction="in out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="logout" category="eventDataPort" direction="in out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/packages/threads.aadl#ULB_Threads.vsm_logger"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.datalogger.baseline"/>
+  </componentInstance>
+  <componentInstance name="loi_sw" category="process">
+    <featureInstance name="outside_stanag_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="outside_stanag_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="wescam_vsm_stanag_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="wescam_vsm_stanag_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="vsm_stanag_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <featureInstance name="vsm_stanag_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.5"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/17"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#ULB_Software.loi_manager"/>
+  </componentInstance>
+  <componentInstance name="fcc" category="processor">
+    <featureInstance name="vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/19"/>
+    </featureInstance>
+    <featureInstance name="sensordata" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="display" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="vehicle" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.PPC.DY4_2828"/>
+  </componentInstance>
+  <componentInstance name="vms" category="processor">
+    <featureInstance name="vme" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/19"/>
+    </featureInstance>
+    <featureInstance name="c2" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="logging" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/instances/ulb_ulb_impl_Instance.aaxl2#/15"/>
+    </featureInstance>
+    <componentInstance name="datalogger_partition" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.linux_partition.log_partition"/>
+    </componentInstance>
+    <componentInstance name="wescam_partition" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.seL4_sensor_partition.aircraft_wescam_partition"/>
+    </componentInstance>
+    <componentInstance name="flight_vsm_partition" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.seL4_vme_partition.aircraft_vsm_partition"/>
+    </componentInstance>
+    <componentInstance name="authenticated_comms_partition" category="virtual processor">
+      <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedVirtualProcessorSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.comms_partition.authenticatedcomms_partition"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/hardware.aadl#ULB_Hardware.Pentium_Core_i7.AiTech_C162"/>
+  </componentInstance>
+  <connectionInstance name="comlink_in -> tcdl_radio.rf_in" kind="portConnection" destination="//@componentInstance.18/@featureInstance.2" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.18/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.24"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc232 -> diu.busin" complete="true" kind="accessConnection" destination="//@componentInstance.16/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.16/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc232 -> secondaryGPS.busout" complete="true" kind="accessConnection" destination="//@componentInstance.13/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.13/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc232 -> fcc.display" complete="true" kind="accessConnection" destination="//@componentInstance.26/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.26/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vehiclebus -> fcc.vehicle" complete="true" kind="accessConnection" destination="//@componentInstance.26/@featureInstance.3" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.26/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vehiclebus -> egi.busout" complete="true" kind="accessConnection" destination="//@componentInstance.12/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.12/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensorbus -> altimeter.busout" complete="true" kind="accessConnection" destination="//@componentInstance.10/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.10/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensorbus -> adc.busout" complete="true" kind="accessConnection" destination="//@componentInstance.11/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.11/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensorbus -> vid.busin" complete="true" kind="accessConnection" destination="//@componentInstance.15/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.15/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensorbus -> fcc.sensordata" complete="true" kind="accessConnection" destination="//@componentInstance.26/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.26/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="onboardvideo -> camera.video2bus" complete="true" kind="accessConnection" destination="//@componentInstance.14/@featureInstance.6" source="//@componentInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3" destination="//@componentInstance.14/@featureInstance.6" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.21"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="onboardvideo -> avalex.busin" complete="true" kind="accessConnection" destination="//@componentInstance.17/@featureInstance.1" source="//@componentInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3" destination="//@componentInstance.17/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.22"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="offboardvideo -> camera.videobus" complete="true" kind="accessConnection" destination="//@componentInstance.14/@featureInstance.3" source="//@componentInstance.4">
+    <connectionReference context="/" source="//@componentInstance.4" destination="//@componentInstance.14/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.19"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="offboardvideo -> tcdl_radio.streamin" complete="true" kind="accessConnection" destination="//@componentInstance.18/@featureInstance.7" source="//@componentInstance.4">
+    <connectionReference context="/" source="//@componentInstance.4" destination="//@componentInstance.18/@featureInstance.7" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.20"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="ipnet -> vms.c2" complete="true" kind="accessConnection" destination="//@componentInstance.27/@featureInstance.1" source="//@componentInstance.5">
+    <connectionReference context="/" source="//@componentInstance.5" destination="//@componentInstance.27/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="ipnet -> converter.ethernetside" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.0" source="//@componentInstance.5">
+    <connectionReference context="/" source="//@componentInstance.5" destination="//@componentInstance.8/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.14"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="ipnet -> tcdl_radio.onboard" complete="true" kind="accessConnection" destination="//@componentInstance.18/@featureInstance.6" source="//@componentInstance.5">
+    <connectionReference context="/" source="//@componentInstance.5" destination="//@componentInstance.18/@featureInstance.6" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.15"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vmebus -> fcc.vme" complete="true" kind="accessConnection" destination="//@componentInstance.26/@featureInstance.0" source="//@componentInstance.6">
+    <connectionReference context="/" source="//@componentInstance.6" destination="//@componentInstance.26/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vmebus -> vms.vme" complete="true" kind="accessConnection" destination="//@componentInstance.27/@featureInstance.0" source="//@componentInstance.6">
+    <connectionReference context="/" source="//@componentInstance.6" destination="//@componentInstance.27/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="storage -> vms.logging" complete="true" kind="accessConnection" destination="//@componentInstance.27/@featureInstance.2" source="//@componentInstance.7">
+    <connectionReference context="/" source="//@componentInstance.7" destination="//@componentInstance.27/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="storage -> thumb.busin" complete="true" kind="accessConnection" destination="//@componentInstance.19/@featureInstance.1" source="//@componentInstance.7">
+    <connectionReference context="/" source="//@componentInstance.7" destination="//@componentInstance.19/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="converter.ethernetside -> ipnet" complete="true" kind="accessConnection" destination="//@componentInstance.5" source="//@componentInstance.8/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.0" destination="//@componentInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.14"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="converter.serialside -> camerabus" complete="true" kind="accessConnection" destination="//@componentInstance.9" source="//@componentInstance.8/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.1" destination="//@componentInstance.9">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.16"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camerabus -> converter.serialside" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.1" source="//@componentInstance.9">
+    <connectionReference context="/" source="//@componentInstance.9" destination="//@componentInstance.8/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.16"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camerabus -> camera.busin" complete="true" kind="accessConnection" destination="//@componentInstance.14/@featureInstance.2" source="//@componentInstance.9">
+    <connectionReference context="/" source="//@componentInstance.9" destination="//@componentInstance.14/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.17"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camerabus -> secondaryGPS.busout2" complete="true" kind="accessConnection" destination="//@componentInstance.13/@featureInstance.3" source="//@componentInstance.9">
+    <connectionReference context="/" source="//@componentInstance.9" destination="//@componentInstance.13/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.18"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="altimeter.altitude -> fcc_sw.main.altimeter_in" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.2" source="//@componentInstance.10/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.10/@featureInstance.0" destination="//@componentInstance.20/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.16"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.2" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="altimeter.busout -> sensorbus" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.10/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.10/@featureInstance.1" destination="//@componentInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="adc.airdata -> fcc_sw.main.adc_in" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.3" source="//@componentInstance.11/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.0" destination="//@componentInstance.20/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.17"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.3" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="adc.busout -> sensorbus" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.11/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.1" destination="//@componentInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="egi.position -> vsm_sw.fcc_thread.egi_port" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.0" source="//@componentInstance.12/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.12/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="egi.position -> fcc_sw.main.pos1_in" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.0" source="//@componentInstance.12/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.12/@featureInstance.0" destination="//@componentInstance.20/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.14"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.0" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="egi.busout -> vehiclebus" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.12/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.12/@featureInstance.1" destination="//@componentInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="secondaryGPS.position -> fcc_sw.main.pos2_in" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.1" source="//@componentInstance.13/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.0" destination="//@componentInstance.20/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.15"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.1" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="secondaryGPS.position2 -> camera.position" complete="true" kind="portConnection" destination="//@componentInstance.14/@featureInstance.4" source="//@componentInstance.13/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.1" destination="//@componentInstance.14/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.23"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="secondaryGPS.busout -> fcc232" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.13/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.2" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="secondaryGPS.busout2 -> camerabus" complete="true" kind="accessConnection" destination="//@componentInstance.9" source="//@componentInstance.13/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.13/@featureInstance.3" destination="//@componentInstance.9">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.18"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.video -> tcdl_radio.video" complete="true" kind="portConnection" destination="//@componentInstance.18/@featureInstance.1" source="//@componentInstance.14/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.0" destination="//@componentInstance.18/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.21"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.busin -> camerabus" complete="true" kind="accessConnection" destination="//@componentInstance.9" source="//@componentInstance.14/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.2" destination="//@componentInstance.9">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.17"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.videobus -> offboardvideo" complete="true" kind="accessConnection" destination="//@componentInstance.4" source="//@componentInstance.14/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.3" destination="//@componentInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.19"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.video2 -> avalex.displaydata" complete="true" kind="portConnection" destination="//@componentInstance.17/@featureInstance.0" source="//@componentInstance.14/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.5" destination="//@componentInstance.17/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.22"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="camera.video2bus -> onboardvideo" complete="true" kind="accessConnection" destination="//@componentInstance.3" source="//@componentInstance.14/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.14/@featureInstance.6" destination="//@componentInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.21"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vid.busin -> sensorbus" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.15/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.15/@featureInstance.1" destination="//@componentInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="diu.pilotinput -> fcc_sw.main.pilotinput" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.9" source="//@componentInstance.16/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.16/@featureInstance.1" destination="//@componentInstance.20/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.20"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.4" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.9">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="diu.busin -> fcc232" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.16/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.16/@featureInstance.2" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="avalex.busin -> onboardvideo" complete="true" kind="accessConnection" destination="//@componentInstance.3" source="//@componentInstance.17/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.17/@featureInstance.1" destination="//@componentInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.22"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="tcdl_radio.rf_out -> comlink_out" kind="portConnection" destination="//@featureInstance.2" source="//@componentInstance.18/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.18/@featureInstance.3" destination="//@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.25"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="tcdl_radio.stanag -> auth_sw.stanag_offboard" complete="true" kind="portConnection" destination="//@componentInstance.22/@featureInstance.0" source="//@componentInstance.18/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.18/@featureInstance.4" destination="//@componentInstance.22/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="tcdl_radio.onboard -> ipnet" complete="true" kind="accessConnection" destination="//@componentInstance.5" source="//@componentInstance.18/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.18/@featureInstance.6" destination="//@componentInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.15"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="tcdl_radio.streamin -> offboardvideo" complete="true" kind="accessConnection" destination="//@componentInstance.4" source="//@componentInstance.18/@featureInstance.7">
+    <connectionReference context="/" source="//@componentInstance.18/@featureInstance.7" destination="//@componentInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.20"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="thumb.busin -> storage" complete="true" kind="accessConnection" destination="//@componentInstance.7" source="//@componentInstance.19/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.19/@featureInstance.1" destination="//@componentInstance.7" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc_sw.main.vid_out -> vid.displaydata" complete="true" kind="portConnection" destination="//@componentInstance.15/@featureInstance.0" source="//@componentInstance.20/@componentInstance.0/@featureInstance.4">
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.20/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.20/@featureInstance.5" destination="//@componentInstance.15/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.18"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc_sw.main.diu_out -> diu.displaydata" complete="true" kind="portConnection" destination="//@componentInstance.16/@featureInstance.0" source="//@componentInstance.20/@componentInstance.0/@featureInstance.5">
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.20/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.20/@featureInstance.6" destination="//@componentInstance.16/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.19"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc_sw.main.vsm_port_out -> vsm_sw.fcc_thread.fcc_port_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.1" source="//@componentInstance.20/@componentInstance.0/@featureInstance.7">
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@componentInstance.0/@featureInstance.7" destination="//@componentInstance.20/@featureInstance.8">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.7"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.20/@featureInstance.8" destination="//@componentInstance.21/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.10"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc_sw.main.log_out -> vsm_logger.log_thread.login" complete="true" kind="portConnection" destination="//@componentInstance.24/@componentInstance.0/@featureInstance.0" source="//@componentInstance.20/@componentInstance.0/@featureInstance.8">
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@componentInstance.0/@featureInstance.8" destination="//@componentInstance.20/@featureInstance.9">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.20/@featureInstance.9" destination="//@componentInstance.24/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.11"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.24" source="//@componentInstance.24/@featureInstance.0" destination="//@componentInstance.24/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vsm_sw.fcc_thread.fcc_port_out -> fcc_sw.main.vsm_port_in" complete="true" kind="portConnection" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.6" source="//@componentInstance.21/@componentInstance.0/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.20/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.9"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.20" source="//@componentInstance.20/@featureInstance.7" destination="//@componentInstance.20/@componentInstance.0/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vsm_sw.radio_thread.radio_commands -> tcdl_radio.commands" complete="true" kind="portConnection" destination="//@componentInstance.18/@featureInstance.0" source="//@componentInstance.21/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.21/@featureInstance.1" destination="//@componentInstance.18/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vsm_sw.stanag_thread.stanag_out -> loi_sw.vsm_stanag_in" complete="true" kind="portConnection" destination="//@componentInstance.25/@featureInstance.4" source="//@componentInstance.21/@componentInstance.2/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.21/@featureInstance.3" destination="//@componentInstance.25/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="auth_sw.stanag_offboard -> tcdl_radio.stanag" complete="true" kind="portConnection" destination="//@componentInstance.18/@featureInstance.4" source="//@componentInstance.22/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.22/@featureInstance.0" destination="//@componentInstance.18/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="auth_sw.stanag_onboard_out -> loi_sw.outside_stanag_in" complete="true" kind="portConnection" destination="//@componentInstance.25/@featureInstance.0" source="//@componentInstance.22/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.22/@featureInstance.2" destination="//@componentInstance.25/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="wescam_vsm_sw.camera_thread.camera_commands_out -> camera.cmd" complete="true" kind="portConnection" destination="//@componentInstance.14/@featureInstance.1" source="//@componentInstance.23/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.23" source="//@componentInstance.23/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.23/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.23/@featureInstance.2" destination="//@componentInstance.14/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="wescam_vsm_sw.stanag_thread.stanag_out -> loi_sw.wescam_vsm_stanag_in" complete="true" kind="portConnection" destination="//@componentInstance.25/@featureInstance.2" source="//@componentInstance.23/@componentInstance.1/@featureInstance.1">
+    <connectionReference context="//@componentInstance.23" source="//@componentInstance.23/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.23/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.23/@featureInstance.1" destination="//@componentInstance.25/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vsm_logger.log_thread.logout -> thumb.inport" complete="true" kind="portConnection" destination="//@componentInstance.19/@featureInstance.0" source="//@componentInstance.24/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.24" source="//@componentInstance.24/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.24/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.24/@featureInstance.1" destination="//@componentInstance.19/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="loi_sw.outside_stanag_out -> auth_sw.stanag_onboard_in" complete="true" kind="portConnection" destination="//@componentInstance.22/@featureInstance.1" source="//@componentInstance.25/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.25/@featureInstance.1" destination="//@componentInstance.22/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="loi_sw.wescam_vsm_stanag_out -> wescam_vsm_sw.stanag_thread.stanag_in" complete="true" kind="portConnection" destination="//@componentInstance.23/@componentInstance.1/@featureInstance.0" source="//@componentInstance.25/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.25/@featureInstance.3" destination="//@componentInstance.23/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.23" source="//@componentInstance.23/@featureInstance.0" destination="//@componentInstance.23/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="loi_sw.vsm_stanag_out -> vsm_sw.stanag_thread.stanag_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.2/@featureInstance.0" source="//@componentInstance.25/@featureInstance.5">
+    <connectionReference context="/" source="//@componentInstance.25/@featureInstance.5" destination="//@componentInstance.21/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/software.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc.vme -> vmebus" complete="true" kind="accessConnection" destination="//@componentInstance.6" source="//@componentInstance.26/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.26/@featureInstance.0" destination="//@componentInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc.sensordata -> sensorbus" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.26/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.26/@featureInstance.1" destination="//@componentInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc.display -> fcc232" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.26/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.26/@featureInstance.2" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="fcc.vehicle -> vehiclebus" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.26/@featureInstance.3">
+    <connectionReference context="/" source="//@componentInstance.26/@featureInstance.3" destination="//@componentInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vms.vme -> vmebus" complete="true" kind="accessConnection" destination="//@componentInstance.6" source="//@componentInstance.27/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.27/@featureInstance.0" destination="//@componentInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vms.c2 -> ipnet" complete="true" kind="accessConnection" destination="//@componentInstance.5" source="//@componentInstance.27/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.27/@featureInstance.1" destination="//@componentInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.13"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="vms.logging -> storage" complete="true" kind="accessConnection" destination="//@componentInstance.7" source="//@componentInstance.27/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.27/@featureInstance.2" destination="//@componentInstance.7">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#ULB_aircraft.ulb.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/agree-ulb/ulb.aadl#ULB_aircraft.ulb.impl"/>
+</instance:SystemInstance>

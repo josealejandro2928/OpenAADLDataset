@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="S_i_Instance" category="system">
+  <componentInstance name="p" category="process">
+    <featureInstance name="rsa" category="subprogramAccess">
+      <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedSubprogramAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/instances/Issue1936_S_i_Instance.aaxl2#/"/>
+    </featureInstance>
+    <componentInstance name="t1" category="thread">
+      <featureInstance name="rsa" category="subprogramAccess">
+        <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSubprogramAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/instances/Issue1936_S_i_Instance.aaxl2#/"/>
+      </featureInstance>
+      <flowSpecification name="fsrc" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.T1.i"/>
+    </componentInstance>
+    <componentInstance name="t2" category="thread">
+      <featureInstance name="rsa" category="subprogramAccess">
+        <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSubprogramAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/instances/Issue1936_S_i_Instance.aaxl2#/"/>
+      </featureInstance>
+      <flowSpecification name="fsnk" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.T2.i"/>
+    </componentInstance>
+    <endToEndFlow name="eep" flowElement="//@componentInstance.0/@componentInstance.0/@flowSpecification.0 //@connectionInstance.0 //@componentInstance.1 //@connectionInstance.1 //@componentInstance.0/@componentInstance.1/@flowSpecification.0">
+      <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEndToEndFlow.0"/>
+    </endToEndFlow>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.P.i"/>
+  </componentInstance>
+  <componentInstance name="sp" category="subprogram">
+    <subcomponent xsi:type="aadl2:SubprogramSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSubprogramSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SubprogramType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.SP"/>
+  </componentInstance>
+  <connectionInstance name="p.t1.rsa -> sp" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sp -> p.t2.rsa" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.S.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/issue1936/Issue1936.aadl#Issue1936.S.i"/>
+</instance:SystemInstance>

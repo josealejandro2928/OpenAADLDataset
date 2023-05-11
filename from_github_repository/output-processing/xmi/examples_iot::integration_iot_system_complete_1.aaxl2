@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="iot_system_complete_Instance" category="system">
+  <componentInstance name="internet_landline" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/common/platform.aadl#iot.common.platform.internet"/>
+  </componentInstance>
+  <componentInstance name="internet_mobile_slow" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/common/platform.aadl#iot.common.platform.internet"/>
+  </componentInstance>
+  <componentInstance name="internet_mobile_fast" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/common/platform.aadl#iot.common.platform.internet"/>
+  </componentInstance>
+  <componentInstance name="home" category="system">
+    <featureInstance name="external_net" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="user_request" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="user_reply" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="internal_net" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/common/platform.aadl#iot.common.platform.ethernet"/>
+    </componentInstance>
+    <componentInstance name="server" category="system">
+      <featureInstance name="eth" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="user_request" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="user_reply" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="internal_request" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="internal_reply" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <componentInstance name="soft" category="process">
+        <featureInstance name="user_request" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="user_reply" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <featureInstance name="internal_request" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/2"/>
+        </featureInstance>
+        <featureInstance name="internal_reply" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <flowSpecification name="request_flow" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.2">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <flowSpecification name="reply_flow" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/software.aadl#iot.home.server.software.server"/>
+      </componentInstance>
+      <componentInstance name="cpu" category="processor">
+        <featureInstance name="eth" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/platform.aadl#iot.home.server.platform.linux"/>
+      </componentInstance>
+      <flowSpecification name="server_flow_request" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.3">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="server_flow_reply" source="//@componentInstance.3/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.2">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#iot.home.server.integration.server.i"/>
+    </componentInstance>
+    <componentInstance name="arduino" category="system">
+      <featureInstance name="eth" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="internal_request" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="internal_reply" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <componentInstance name="actuator_alarm" category="device">
+        <featureInstance name="activate">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <flowSpecification name="flow_activate" source="//@componentInstance.3/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.alarm"/>
+      </componentInstance>
+      <componentInstance name="actuator_door" category="device">
+        <featureInstance name="activate">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <flowSpecification name="flow_activate" source="//@componentInstance.3/@componentInstance.2/@componentInstance.1/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.door_actuator"/>
+      </componentInstance>
+      <componentInstance name="sensor_door" category="device">
+        <featureInstance name="isopen" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <flowSpecification name="flow_isopen" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.door_sensor"/>
+      </componentInstance>
+      <componentInstance name="actuator_led" category="device">
+        <featureInstance name="activate">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <flowSpecification name="flow_led" source="//@componentInstance.3/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.3"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.led"/>
+      </componentInstance>
+      <componentInstance name="sensor_proximity" category="device">
+        <featureInstance name="distance" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <flowSpecification name="flow_distance" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.4/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.4"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.proximity_sensor"/>
+      </componentInstance>
+      <componentInstance name="sensor_temperature" category="device">
+        <featureInstance name="temperature" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <flowSpecification name="flow_distance" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.5/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.5"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/devices.aadl#iot.sap_node.devices.temperature_sensor"/>
+      </componentInstance>
+      <componentInstance name="soft" category="process">
+        <featureInstance name="activate_led" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="activate_door" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="sensor_door">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="sensor_temperature">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="sensor_proximity">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="alert" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="internal_request" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/2"/>
+        </featureInstance>
+        <featureInstance name="internal_reply" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <flowSpecification name="door_activation" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.6" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.1">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <flowSpecification name="led_activation" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.6" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.0">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.1"/>
+        </flowSpecification>
+        <flowSpecification name="door_detection" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.2"/>
+        </flowSpecification>
+        <flowSpecification name="temp_detection" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.3" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.3"/>
+        </flowSpecification>
+        <flowSpecification name="proximity_detection" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.4" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.4"/>
+        </flowSpecification>
+        <flowSpecification name="intreply" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7">
+          <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.5"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/software.aadl#iot.sap_node.software.pr_control_loop"/>
+      </componentInstance>
+      <componentInstance name="board" category="processor">
+        <featureInstance name="eth" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/platform.aadl#iot.sap_node.platform.arduino"/>
+      </componentInstance>
+      <flowSpecification name="flow_request" source="//@componentInstance.3/@componentInstance.2/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="flow_reply" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.2">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <connectionInstance name="sensor_door.isopen -> soft.sensor_door" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.2/@featureInstance.0">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.2">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="sensor_proximity.distance -> soft.sensor_proximity" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.4" source="//@componentInstance.3/@componentInstance.2/@componentInstance.4/@featureInstance.0">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.4">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="sensor_temperature.temperature -> soft.sensor_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.3" source="//@componentInstance.3/@componentInstance.2/@componentInstance.5/@featureInstance.0">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.3">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="soft.activate_led -> actuator_led.activate" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.3/@featureInstance.0" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.0">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.3/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="soft.activate_door -> actuator_door.activate" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.1">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.1/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="soft.alert -> actuator_alarm.activate" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.5">
+        <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.5" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#iot.sap_node.integration.sap_node.i"/>
+    </componentInstance>
+    <componentInstance name="router" category="system">
+      <featureInstance name="internal_eth" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="external_int" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedSystemSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#iot.home.integration.router"/>
+    </componentInstance>
+    <flowSpecification name="flow_request" source="//@componentInstance.3/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="flow_reply" destination="//@componentInstance.3/@featureInstance.2">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="internal_net -> arduino.board.eth" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.7/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="internal_net -> server.cpu.eth" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.1/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="internal_net -> router.internal_eth" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="server.soft.internal_request -> arduino.soft.internal_request" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.6" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="server.cpu.eth -> internal_net" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.1/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="arduino.soft.internal_reply -> server.soft.internal_reply" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.3" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7">
+      <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@featureInstance.7" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="arduino.board.eth -> internal_net" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.2/@componentInstance.7/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.2/@componentInstance.7/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/sap-node/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="router.internal_eth -> internal_net" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#iot.home.integration.home.i"/>
+  </componentInstance>
+  <componentInstance name="smartphone_slow" category="system">
+    <featureInstance name="user_request" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="user_reply" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <flowSpecification name="requestsource" destination="//@componentInstance.4/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="replysink" source="//@componentInstance.4/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#iot.external.platform.smartphone"/>
+  </componentInstance>
+  <componentInstance name="smartphone_fast" category="system">
+    <featureInstance name="user_request" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="user_reply" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <flowSpecification name="requestsource" destination="//@componentInstance.5/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="replysink" source="//@componentInstance.5/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#iot.external.platform.smartphone"/>
+  </componentInstance>
+  <componentInstance name="laptop" category="system">
+    <featureInstance name="user_request" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="user_reply" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/instances/integration_iot_system_complete_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <flowSpecification name="requestsource" destination="//@componentInstance.6/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="replysink" source="//@componentInstance.6/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/external/platform.aadl#iot.external.platform.laptop"/>
+  </componentInstance>
+  <endToEndFlow name="laptop_reply_flow" flowElement="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@flowSpecification.5 //@componentInstance.3/@connectionInstance.5 //@componentInstance.3/@componentInstance.1/@componentInstance.0/@flowSpecification.1 //@connectionInstance.6 //@componentInstance.6/@flowSpecification.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEndToEndFlow.3"/>
+  </endToEndFlow>
+  <endToEndFlow name="smart_slow_reply_flow" flowElement="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@flowSpecification.5 //@componentInstance.3/@connectionInstance.5 //@componentInstance.3/@componentInstance.1/@componentInstance.0/@flowSpecification.1 //@connectionInstance.7 //@componentInstance.4/@flowSpecification.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEndToEndFlow.4"/>
+  </endToEndFlow>
+  <endToEndFlow name="smart_fast_reply_flow" flowElement="//@componentInstance.3/@componentInstance.2/@componentInstance.6/@flowSpecification.5 //@componentInstance.3/@connectionInstance.5 //@componentInstance.3/@componentInstance.1/@componentInstance.0/@flowSpecification.1 //@connectionInstance.8 //@componentInstance.5/@flowSpecification.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEndToEndFlow.5"/>
+  </endToEndFlow>
+  <connectionInstance name="internet_landline -> laptop.eth" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.2" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet_landline -> home.router.external_int" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet_mobile_slow -> smartphone_slow.eth" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.2" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet_mobile_slow -> home.router.external_int" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet_mobile_fast -> smartphone_fast.eth" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.2" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.5/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet_mobile_fast -> home.router.external_int" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.server.soft.user_reply -> laptop.user_reply" complete="true" kind="portConnection" destination="//@componentInstance.6/@featureInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.6/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.server.soft.user_reply -> smartphone_slow.user_reply" complete="true" kind="portConnection" destination="//@componentInstance.4/@featureInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.server.soft.user_reply -> smartphone_fast.user_reply" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.5/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.router.external_int -> internet_landline" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.router.external_int -> internet_mobile_slow" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="home.router.external_int -> internet_mobile_fast" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="smartphone_slow.user_request -> home.server.soft.user_request" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="smartphone_slow.eth -> internet_mobile_slow" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.4/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="smartphone_fast.user_request -> home.server.soft.user_request" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.5/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="smartphone_fast.eth -> internet_mobile_fast" complete="true" kind="accessConnection" destination="//@componentInstance.2" source="//@componentInstance.5/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.2" destination="//@componentInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="laptop.user_request -> home.server.soft.user_request" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/home/server/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="laptop.eth -> internet_landline" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.6/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.2" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#iot.integration.iot_system.complete"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/iot-example/integration.aadl#iot.integration.iot_system.complete"/>
+</instance:SystemInstance>

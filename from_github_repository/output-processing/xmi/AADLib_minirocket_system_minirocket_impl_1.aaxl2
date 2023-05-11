@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="minirocket_impl_Instance" category="system">
+  <componentInstance name="I2C_bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="400000">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-i2c.aadl#|::0.5.9.2.4.0.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-i2c.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-i2c.aadl#Buses.I2C.I2C.impl"/>
+  </componentInstance>
+  <componentInstance name="USB1_bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="1500">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-usb.aadl#|::0.5.9.0.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-usb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-usb.aadl#Buses.USB.USB.impl"/>
+  </componentInstance>
+  <componentInstance name="UART1_bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="9600">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="19200">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.1::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="38400">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.2::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="57600">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.3::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="115200">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.4::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#Buses.UART.UART.impl"/>
+  </componentInstance>
+  <componentInstance name="UART2_bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="9600">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="19200">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.1::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="38400">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.2::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="57600">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.3::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="115200">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#|::0.5.9.1.4.0.7.0.6.2.4::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-uart.aadl#Buses.UART.UART.impl"/>
+  </componentInstance>
+  <componentInstance name="TWI_ARM9" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.6.4.9.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.6.4.10.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#Processors.ARM.TWI_Peripheral.impl"/>
+  </componentInstance>
+  <componentInstance name="UART1_ARM9" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.5">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.7">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.14.4.9.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.14.4.10.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#Processors.ARM.USART1_Peripheral.impl"/>
+  </componentInstance>
+  <componentInstance name="UART2_ARM9" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.5">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.16.4.9.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.16.4.10.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#Processors.ARM.USART2_Peripheral.impl"/>
+  </componentInstance>
+  <componentInstance name="USB1_ARM9" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.18.4.9.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#|::0.5.9.18.4.10.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#Processors.ARM.USB1_Peripheral.impl"/>
+  </componentInstance>
+  <componentInstance name="PRESSURE" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.11"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="5.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="100.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="5.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#|::0.5.9.1.4.5.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#|::0.5.9.1.4.6.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="proc_evt" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-pressure_hca0811.aadl#devices.pressure_hca0811.PRESSURE.impl"/>
+  </componentInstance>
+  <componentInstance name="INERTIAL" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.11"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="50.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="100.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.3">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="6">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#|::0.5.9.1.4.5.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#|::0.5.9.1.4.6.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="proc_evt" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-inertial_chr6d.aadl#devices.inertial_chr6d.INERTIAL.impl"/>
+  </componentInstance>
+  <componentInstance name="GPS" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.15"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="39.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.065">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="100.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.3">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="3500">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#|::0.5.9.1.4.5.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#|::0.5.9.1.4.6.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Level_Shifter_VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.11"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Level_Shifter_VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.5">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.12"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Level_Shifter_VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.7">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.13"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Level_Shifter_VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.14"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="proc_evt" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-gps_lea4h.aadl#devices.gps_lea4h.GPS.impl"/>
+  </componentInstance>
+  <componentInstance name="CAMERA" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="2.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.7"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VIL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.8"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOH_min"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="3.2">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.9"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.VOL_max"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="0.4">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.10"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Device_Type"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.0/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.11"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="50.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="100.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="5.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Acquisition_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#|::0.5.9.1.4.5.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Peak_Time"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#|::0.5.9.1.4.6.7.0.6::2::/2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.6"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="proc_evt" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="Serial_Wire" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Supply" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.7"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/devices/devices-camera_usb.aadl#devices.camera_usb.CAMERA.impl"/>
+  </componentInstance>
+  <componentInstance name="proc_2" category="process">
+    <featureInstance name="TC_frame" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <featureInstance name="TM_frame">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <componentInstance name="TM_manager" category="thread">
+      <featureInstance name="PRESSURE_meas">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="TM_frame" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.TM_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="TC_manager" category="thread">
+      <featureInstance name="TC_frame">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.20/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.TC_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="PRESSURE_manager" category="thread">
+      <featureInstance name="PRESSURE_meas" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.PRESSURE_manager.impl"/>
+    </componentInstance>
+    <componentInstance name="CL_manager" category="thread">
+      <featureInstance name="State_estimation">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="TC_frame" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.CL_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="SE_manager" category="thread">
+      <featureInstance name="State_estimation" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="TM_frame">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="GPS_meas">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="INERTIAL_meas">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="Decision">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.SE_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="D_manager" category="thread">
+      <featureInstance name="Decision" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="CAMERA_meas">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.D_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="GPS_manager" category="thread">
+      <featureInstance name="GPS_meas" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.32/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.GPS_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="INERTIAL_manager" category="thread">
+      <featureInstance name="INERTIAL_meas" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.7"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.INERTIAL_Manager.impl"/>
+    </componentInstance>
+    <componentInstance name="CAMERA_manager" category="thread">
+      <featureInstance name="CAMERA_meas" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.30/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedThreadSubcomponent.8"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.CAMERA_manager.impl"/>
+    </componentInstance>
+    <connectionInstance name="PRESSURE_manager.PRESSURE_meas -> TM_manager.PRESSURE_meas" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.0/@featureInstance.0" source="//@componentInstance.12/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="SE_manager.State_estimation -> CL_manager.State_estimation" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.3/@featureInstance.0" source="//@componentInstance.12/@componentInstance.4/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="D_manager.Decision -> SE_manager.Decision" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.4" source="//@componentInstance.12/@componentInstance.5/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="GPS_manager.GPS_meas -> SE_manager.GPS_meas" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.2" source="//@componentInstance.12/@componentInstance.6/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.6/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="INERTIAL_manager.INERTIAL_meas -> SE_manager.INERTIAL_meas" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.3" source="//@componentInstance.12/@componentInstance.7/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.7/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.4/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="CAMERA_manager.CAMERA_meas -> D_manager.CAMERA_meas" complete="true" kind="portConnection" destination="//@componentInstance.12/@componentInstance.5/@featureInstance.1" source="//@componentInstance.12/@componentInstance.8/@featureInstance.0">
+      <connectionReference context="//@componentInstance.12" source="//@componentInstance.12/@componentInstance.8/@featureInstance.0" destination="//@componentInstance.12/@componentInstance.5/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_sw.aadl#minirocket_sw.proc_2.impl"/>
+  </componentInstance>
+  <componentInstance name="CPU_ARM9" category="processor">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Run_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="130.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Idle_Current"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="17.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.1"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#Electricity_Properties.Core_Voltage"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.8">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/electricity_properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/data_sheet.aadl#Data_Sheet.UUID"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:StringLiteral" value="http://www.atmel.com:80/dyn/products/product_card.asp?part_id=4337"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="Supply" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/instances/minirocket_system_minirocket_impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/processors/processors-arm.aadl#Processors.ARM.AT91SAM9G20.impl"/>
+  </componentInstance>
+  <connectionInstance name="I2C_bus -> TWI_ARM9.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="I2C_bus -> PRESSURE.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.8/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="USB1_bus -> USB1_ARM9.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.0" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.7/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="USB1_bus -> CAMERA.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.11/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.11/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="UART1_bus -> UART1_ARM9.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="UART1_bus -> GPS.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.10/@featureInstance.1" source="//@componentInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2" destination="//@componentInstance.10/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="UART2_bus -> UART2_ARM9.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3" destination="//@componentInstance.6/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="UART2_bus -> INERTIAL.Serial_Wire" complete="true" kind="accessConnection" destination="//@componentInstance.9/@featureInstance.1" source="//@componentInstance.3">
+    <connectionReference context="/" source="//@componentInstance.3" destination="//@componentInstance.9/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#minirocket_system.minirocket.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/uxv/minirocket/minirocket_system.aadl#minirocket_system.minirocket.impl"/>
+</instance:SystemInstance>

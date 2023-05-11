@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="IsoletteEnvironment_tier2_Instance" category="system">
+  <componentInstance name="nurse">
+    <featureInstance name="operate" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="Removechild" category="abstractFeature" direction="in out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.1"/>
+    </featureInstance>
+    <featureInstance name="placechild" category="abstractFeature" direction="in out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.2"/>
+    </featureInstance>
+    <featureInstance name="hearAlarmRemoveChild" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.3"/>
+    </featureInstance>
+    <flowSpecification name="opInput" destination="//@componentInstance.0/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="takeChildOut" source="//@componentInstance.0/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <flowSpecification name="alarmTakeChildOut" source="//@componentInstance.0/@featureInstance.3">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.2"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAbstractSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.Nurse"/>
+  </componentInstance>
+  <componentInstance name="outsideair">
+    <featureInstance name="airTemperature" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="heating" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.1"/>
+    </featureInstance>
+    <featureInstance name="externalEffect" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.2"/>
+    </featureInstance>
+    <flowSpecification name="measurableTemp" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAbstractSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.Air"/>
+  </componentInstance>
+  <componentInstance name="baby">
+    <featureInstance name="isoletteAir" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAbstractSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.Infant"/>
+  </componentInstance>
+  <componentInstance name="isolette" category="system">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Change_Rate"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+          <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.3/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="operatorInterface" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <featureInstance name="alarm" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAbstractFeature.1"/>
+    </featureInstance>
+    <featureInstance name="insideAirTemp" category="abstractFeature" direction="out">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAbstractFeature.2"/>
+    </featureInstance>
+    <componentInstance name="inside_air">
+      <featureInstance name="airTemperature" category="abstractFeature" direction="out">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.0"/>
+      </featureInstance>
+      <featureInstance name="heating" category="abstractFeature">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.1"/>
+      </featureInstance>
+      <featureInstance name="externalEffect" category="abstractFeature">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.2"/>
+      </featureInstance>
+      <flowSpecification name="measurableTemp" destination="//@componentInstance.3/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:AbstractSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAbstractSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.Air"/>
+    </componentInstance>
+    <componentInstance name="temperature_sensor" category="device">
+      <featureInstance name="air_temperature" category="abstractFeature">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedAbstractFeature.0"/>
+      </featureInstance>
+      <featureInstance name="measured_temperature" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="real 68.0 .. 105.0 units Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.5"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="measured_temperature_status" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <flowSpecification name="measureTemp" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.temperature_sensor_ts"/>
+    </componentInstance>
+    <componentInstance name="heat_source" category="device">
+      <featureInstance name="heat" category="abstractFeature" direction="out">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedAbstractFeature.0"/>
+      </featureInstance>
+      <featureInstance name="heat_control">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;HEAT_CONTROL(x)>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDataPort.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.35/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDeviceSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.heat_source_hs"/>
+    </componentInstance>
+    <componentInstance name="thermostat" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="current_temperature">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="real 68.0 .. 105.0 units Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.5"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="current_temperature_status">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="heat_control" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;HEAT_CONTROL(x)>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="lower_desired_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="upper_desired_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="lower_alarm_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="upper_alarm_temperature">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="regulator_status" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;REGULATOR_STATUS(x)>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.7/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="monitor_status" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=MONITOR_STATUS()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="display_temperature" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="real 68.0 .. 105.0 units Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;DT: :=current_tempreature.t^0>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.9/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="alarm_action" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=ALARM()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.10/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <flowSpecification name="displayCurrentTemp" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.9">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="tempAlarm" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.10">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.thermostat_th"/>
+    </componentInstance>
+    <componentInstance name="operator_interface" category="system">
+      <featureInstance name="displayed_temperature" category="abstractFeature" direction="out">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="real 68.0 .. 105.0 units Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedAbstractFeature.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="alarm_sound" category="abstractFeature" direction="out">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedAbstractFeature.1"/>
+      </featureInstance>
+      <featureInstance name="lower_desired_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="upper_desired_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="lower_alarm_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="upper_alarm_temperature" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="regulator_status">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;REGULATOR_STATUS(x)>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.4/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="monitor_status">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=MONITOR_STATUS()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="display_temperature">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Real_Range"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:RealLiteral" value="68.0"/>
+              <maximum xsi:type="aadl2:RealLiteral" value="105.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Measurement_Unit"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#Isolette_Properties.Temperature_Accuracy"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+              <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/Isolette_Properties.aadl#/0/@ownedPropertyType.4/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Typed"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="real 68.0 .. 105.0 units Fahrenheit"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/iso_variables.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.5"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="alarm_action">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/bugtrack-core/issue294/propertysets/BLESS.aadl#BLESS.Assertion"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:StringLiteral" value="&lt;&lt;:=ALARM()>>"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.7/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/instances/isolette_IsoletteEnvironment_tier2_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <flowSpecification name="soundalarm" source="//@componentInstance.3/@componentInstance.4/@featureInstance.9" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.37/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.operator_interface_oi.impl"/>
+    </componentInstance>
+    <flowSpecification name="processCmd" source="//@componentInstance.3/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="tempAlarm" destination="//@componentInstance.3/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="temperature_sensor.measured_temperature -> thermostat.current_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="heat_source.heat -> inside_air.heating" complete="true" destination="//@componentInstance.3/@componentInstance.0/@featureInstance.1" source="//@componentInstance.3/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.heat_control -> heat_source.heat_control" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.1" source="//@componentInstance.3/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.regulator_status -> operator_interface.regulator_status" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.6" source="//@componentInstance.3/@componentInstance.3/@featureInstance.7">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.7" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.monitor_status -> operator_interface.monitor_status" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.7" source="//@componentInstance.3/@componentInstance.3/@featureInstance.8">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.8" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.7">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.display_temperature -> operator_interface.display_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.8" source="//@componentInstance.3/@componentInstance.3/@featureInstance.9">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.9" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.8">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.8"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="thermostat.alarm_action -> operator_interface.alarm_action" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.9" source="//@componentInstance.3/@componentInstance.3/@featureInstance.10">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.10" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_desired_temperature -> thermostat.lower_desired_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.2">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_desired_temperature -> thermostat.upper_desired_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.4" source="//@componentInstance.3/@componentInstance.4/@featureInstance.3">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.lower_alarm_temperature -> thermostat.lower_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.5" source="//@componentInstance.3/@componentInstance.4/@featureInstance.4">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.4" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="operator_interface.upper_alarm_temperature -> thermostat.upper_alarm_temperature" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.6" source="//@componentInstance.3/@componentInstance.4/@featureInstance.5">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.5" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.isolette.tier1"/>
+  </componentInstance>
+  <endToEndFlow name="alarmResponse" flowElement="//@componentInstance.3/@componentInstance.1/@flowSpecification.0 //@componentInstance.3/@connectionInstance.0 //@componentInstance.3/@componentInstance.3/@flowSpecification.1 //@componentInstance.3/@connectionInstance.6 //@componentInstance.3/@componentInstance.4/@flowSpecification.0 //@connectionInstance.1 //@componentInstance.0/@flowSpecification.2">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <connectionInstance name="nurse.operate -> isolette.operatorInterface" complete="true" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="isolette.operator_interface.alarm_sound -> nurse.hearAlarmRemoveChild" complete="true" destination="//@componentInstance.0/@featureInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.0/@featureInstance.3">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFeatureConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.IsoletteEnvironment.tier2"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/isolette/project/isolette/isolette.aadl#Isolette.IsoletteEnvironment.tier2"/>
+</instance:SystemInstance>

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="PX4FMU_Impl_Instance" category="system">
+  <featureInstance name="sensors" category="featureGroup" direction="in out">
+    <featureInstance name="magnetometer_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="barometric_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="motion_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/8"/>
+    </featureInstance>
+    <featureInstance name="battery_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="gps_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="reset" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventPort.0"/>
+    </featureInstance>
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.0"/>
+  </featureInstance>
+  <featureInstance name="expansion_slot" category="featureGroup" direction="in out">
+    <featureInstance name="usart1" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="usart2" category="busAccess" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Flight/packages/SMACCM.aadl#SMACCM.Unimplemented"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="ppm" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="alarm" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFeatureGroup.1"/>
+  </featureInstance>
+  <featureInstance name="i2c2_bus" category="busAccess" direction="out">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <componentInstance name="I2C2" category="bus">
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.I2C"/>
+  </componentInstance>
+  <componentInstance name="RESET" category="device">
+    <featureInstance name="reset" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.Reset"/>
+  </componentInstance>
+  <componentInstance name="USB" category="device">
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.USB"/>
+  </componentInstance>
+  <componentInstance name="MON" category="device">
+    <featureInstance name="battery_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.Battery_Monitor"/>
+  </componentInstance>
+  <componentInstance name="GPS" category="device">
+    <featureInstance name="gps_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.GPS"/>
+  </componentInstance>
+  <componentInstance name="GYRO" category="device">
+    <featureInstance name="motion_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.MPU_6000"/>
+  </componentInstance>
+  <componentInstance name="BARO" category="device">
+    <featureInstance name="barometric_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.5"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.MS5611"/>
+  </componentInstance>
+  <componentInstance name="MAG" category="device">
+    <featureInstance name="magnetometer_data" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/7"/>
+    </featureInstance>
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.6"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.HMC5883L"/>
+  </componentInstance>
+  <componentInstance name="EEPROM" category="memory">
+    <featureInstance name="bus_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/6"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.EEPROM"/>
+  </componentInstance>
+  <componentInstance name="MC" category="system">
+    <featureInstance name="otg_fs" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="adc123" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="usart6" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="i2c2" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="spi1" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="usart1" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.5"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="usart2" category="busAccess" direction="out">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Flight/packages/SMACCM.aadl#SMACCM.Unimplemented"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.6"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="ppm" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.7"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="alarm" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.8"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <componentInstance name="MATRIX" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#CORTEX.AHB_Bus_Matrix"/>
+    </componentInstance>
+    <componentInstance name="SRAM" category="memory">
+      <featureInstance name="bus_access" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#CORTEX.SRAM"/>
+    </componentInstance>
+    <componentInstance name="FLASH" category="memory">
+      <featureInstance name="bus_access" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedMemorySubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#CORTEX.Flash"/>
+    </componentInstance>
+    <componentInstance name="CPU" category="processor">
+      <featureInstance name="bus_access" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/instances/PX4FMU_PX4FMU_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#CORTEX.ARM_Cortex_M4"/>
+    </componentInstance>
+    <connectionInstance name="MATRIX -> CPU.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.3/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@componentInstance.3/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MATRIX -> SRAM.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.1/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@componentInstance.1/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MATRIX -> FLASH.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.2/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@componentInstance.2/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="SRAM.bus_access -> MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.9/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.9/@componentInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FLASH.bus_access -> MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.9/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.9/@componentInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="CPU.bus_access -> MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.9/@componentInstance.3/@featureInstance.0">
+      <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.9/@componentInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#CORTEX.STM32F415.Impl"/>
+  </componentInstance>
+  <connectionInstance name="expansion_slot.usart1 -> MC.MATRIX" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@featureInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.1/@featureInstance.0" destination="//@componentInstance.9/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.5" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="expansion_slot.usart2 -> MC.MATRIX" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@featureInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1/@featureInstance.1" destination="//@componentInstance.9/@featureInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.6" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="expansion_slot.ppm -> MC.MATRIX" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@featureInstance.1/@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.1/@featureInstance.2" destination="//@componentInstance.9/@featureInstance.7">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.7" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="expansion_slot.alarm -> MC.MATRIX" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@featureInstance.1/@featureInstance.3">
+    <connectionReference context="/" source="//@featureInstance.1/@featureInstance.3" destination="//@componentInstance.9/@featureInstance.8">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.8" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="i2c2_bus -> MC.MATRIX" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.9/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.3" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="I2C2 -> EEPROM.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.8/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="I2C2 -> MAG.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.7/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="I2C2 -> BARO.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.1" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="I2C2.bus_access -> MC.MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.9/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.3" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="RESET.reset -> sensors.reset" kind="portConnection" destination="//@featureInstance.0/@featureInstance.5" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="USB.bus_access -> MC.MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.9/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.0" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MON.battery_data -> sensors.battery_data" kind="portConnection" destination="//@featureInstance.0/@featureInstance.3" source="//@componentInstance.3/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MON.bus_access -> MC.MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.9/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.1" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GPS.gps_data -> sensors.gps_data" kind="portConnection" destination="//@featureInstance.0/@featureInstance.4" source="//@componentInstance.4/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GPS.bus_access -> MC.MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.4/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.1" destination="//@componentInstance.9/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.2" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GYRO.motion_data -> sensors.motion_data" kind="portConnection" destination="//@featureInstance.0/@featureInstance.2" source="//@componentInstance.5/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="GYRO.bus_access -> MC.MATRIX" complete="true" kind="accessConnection" destination="//@componentInstance.9/@componentInstance.0" source="//@componentInstance.5/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.9/@featureInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@featureInstance.4" destination="//@componentInstance.9/@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BARO.barometric_data -> sensors.barometric_data" kind="portConnection" destination="//@featureInstance.0/@featureInstance.1" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="BARO.bus_access -> I2C2" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.6/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.1" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MAG.magnetometer_data -> sensors.magnetometer_data" kind="portConnection" destination="//@featureInstance.0/@featureInstance.0" source="//@componentInstance.7/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.0" destination="//@featureInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MAG.bus_access -> I2C2" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.7/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.1" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="EEPROM.bus_access -> I2C2" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.8/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.0" destination="//@componentInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> USB.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> MON.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.1" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> GPS.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.1" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> i2c2_bus" kind="accessConnection" destination="//@featureInstance.2" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.3" destination="//@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> I2C2.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.3" destination="//@componentInstance.0/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> GYRO.bus_access" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.1" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.4" destination="//@componentInstance.5/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> expansion_slot.usart1" kind="accessConnection" destination="//@featureInstance.1/@featureInstance.0" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.5" destination="//@featureInstance.1/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> expansion_slot.usart2" kind="accessConnection" destination="//@featureInstance.1/@featureInstance.1" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.6" destination="//@featureInstance.1/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> expansion_slot.ppm" kind="accessConnection" destination="//@featureInstance.1/@featureInstance.2" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.7">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.7" destination="//@featureInstance.1/@featureInstance.2" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MC.MATRIX -> expansion_slot.alarm" kind="accessConnection" destination="//@featureInstance.1/@featureInstance.3" source="//@componentInstance.9/@componentInstance.0">
+    <connectionReference context="//@componentInstance.9" source="//@componentInstance.9/@componentInstance.0" destination="//@componentInstance.9/@featureInstance.8">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/Smaccmcopter/CORTEX.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.8" destination="//@featureInstance.1/@featureInstance.3" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.PX4FMU.Impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/smaccm/models/SmaccmPhase2/packages/PX4FMU.aadl#PX4FMU.PX4FMU.Impl"/>
+</instance:SystemInstance>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="S_I_Instance" category="system">
+  <componentInstance name="Proc" category="process">
+    <componentInstance name="TT1" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv2/programming_properties.aadl#Programming_Properties.Compute_Entrypoint"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="a"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv2/timing_properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv1/aadl_project.aadl#/0/@ownedPropertyType.9/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#TestComputeEntryPoint.T.I"/>
+    </componentInstance>
+    <componentInstance name="TT2" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv2/programming_properties.aadl#Programming_Properties.Compute_Entrypoint"/>
+        <ownedValue inMode="//@systemOperationMode.0">
+          <ownedValue xsi:type="aadl2:StringLiteral" value="b"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv2/timing_properties.aadl#Timing_Properties.Period"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/resources/AADLv1/aadl_project.aadl#/0/@ownedPropertyType.9/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <modeInstance name="A" initial="true">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="B">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#TestComputeEntryPoint.T.I2"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#TestComputeEntryPoint.P.I"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#TestComputeEntryPoint.S.I"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.0/@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.0/@componentInstance.1/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/ocarina/tests/SAE-test-examples-09152005/TestComputeEntryPoint.aadl#TestComputeEntryPoint.S.I"/>
+</instance:SystemInstance>

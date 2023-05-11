@@ -1,0 +1,21 @@
+package pedals
+public
+with common;
+
+	system pedals
+	features
+		signal1 : out data port common::command.pedal;
+		signal2 : out data port common::command.pedal;
+		
+		annex AGREE {**
+			-- Assuming the pedal range is positive	
+			guarantee "Range for pedal1" : 
+			    signal1.val >= 0.0;
+			guarantee "Range for pedal2" : 
+			    signal2.val >= 0.0;
+			    
+		**}	;
+	
+	end pedals;
+
+end pedals;

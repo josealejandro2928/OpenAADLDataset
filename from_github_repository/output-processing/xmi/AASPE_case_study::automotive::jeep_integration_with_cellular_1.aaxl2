@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="integration_with_cellular_Instance" category="system">
+  <componentInstance name="cellular" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.exposure"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#aaspe.case_study.aumotive.library.cellular"/>
+  </componentInstance>
+  <componentInstance name="internet" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#aaspe.case_study.aumotive.library.internet"/>
+  </componentInstance>
+  <componentInstance name="router_cel" category="device">
+    <featureInstance name="socket" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="internet" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.router"/>
+  </componentInstance>
+  <componentInstance name="car" category="system">
+    <featureInstance name="wifi_access" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="cellular_access" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <componentInstance name="can_ihs" category="bus">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusSubcomponent.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#aaspe.case_study.aumotive.library.can"/>
+    </componentInstance>
+    <componentInstance name="can_c" category="bus">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusSubcomponent.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#aaspe.case_study.aumotive.library.can"/>
+    </componentInstance>
+    <componentInstance name="wifi" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/library.aadl#aaspe.case_study.aumotive.library.wifi"/>
+    </componentInstance>
+    <componentInstance name="hvac" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="amplifier" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="bcm" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.3/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="hsm" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="abs" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.5/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="acc" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.6/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.6"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="eps" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.7/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.7"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="epb" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.8/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.8"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.function"/>
+    </componentInstance>
+    <componentInstance name="radio" category="system">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.sei.aaspe/resources/security_properties.aadl#security_properties.security_levels"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="40"/>
+            <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedSystemSubcomponent.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="can_ihs_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="can_c_socket" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="wifi_access" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="cellular_access" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/instances/jeepISOLA_integration_with_cellular_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.radio_cellular"/>
+    </componentInstance>
+    <connectionInstance name="can_ihs -> radio.can_ihs_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_ihs -> hvac.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_ihs -> amplifier.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_ihs -> bcm.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.5/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_ihs -> hsm.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.6/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_c -> radio.can_c_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.1" source="//@componentInstance.3/@componentInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_c -> abs.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.7/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1" destination="//@componentInstance.3/@componentInstance.7/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_c -> acc.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.8/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1" destination="//@componentInstance.3/@componentInstance.8/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_c -> eps.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.9/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1" destination="//@componentInstance.3/@componentInstance.9/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.8"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="can_c -> epb.can_socket" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.10/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1" destination="//@componentInstance.3/@componentInstance.10/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="wifi -> radio.wifi_access" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.2" source="//@componentInstance.3/@componentInstance.2">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.2" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="hvac.can_socket -> can_ihs" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="amplifier.can_socket -> can_ihs" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.4/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="bcm.can_socket -> can_ihs" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.5/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="hsm.can_socket -> can_ihs" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.6/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.6/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="abs.can_socket -> can_c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.7/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.7/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="acc.can_socket -> can_c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.8/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.8/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="eps.can_socket -> can_c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.9/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.9/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.8"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="epb.can_socket -> can_c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.10/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.10/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="radio.can_ihs_socket -> can_ihs" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.0" source="//@componentInstance.3/@componentInstance.11/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.11/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="radio.can_c_socket -> can_c" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1" source="//@componentInstance.3/@componentInstance.11/@featureInstance.1">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.11/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.1" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="radio.wifi_access -> wifi" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.2" source="//@componentInstance.3/@componentInstance.11/@featureInstance.2">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.11/@featureInstance.2" destination="//@componentInstance.3/@componentInstance.2" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedAccessConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.car_cellular.cherokee"/>
+  </componentInstance>
+  <connectionInstance name="cellular -> car.radio.cellular_access" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.3" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.3/@componentInstance.11/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="cellular -> router_cel.socket" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="internet -> router_cel.internet" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="router_cel.socket -> cellular" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.2/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="router_cel.internet -> internet" complete="true" kind="accessConnection" destination="//@componentInstance.1" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="car.radio.cellular_access -> cellular" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.3/@componentInstance.11/@featureInstance.3">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.11/@featureInstance.3" destination="//@componentInstance.3/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.integration.with_cellular"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/car/jeepISOLA.aadl#case_study.automotive.jeep.integration.with_cellular"/>
+</instance:SystemInstance>

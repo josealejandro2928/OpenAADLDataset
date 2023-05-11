@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="FlightGuidance_allocatedparts_Instance" category="system">
+  <featureInstance name="ElectricalSupply" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AircraftSubsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="HydraulicPower" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AircraftSubsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/10"/>
+  </featureInstance>
+  <featureInstance name="Signals" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AircraftSubsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/11"/>
+  </featureInstance>
+  <componentInstance name="Platform" category="system">
+    <featureInstance name="BusAccess1" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="powerdemand" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <componentInstance name="Switch" category="bus">
+      <featureInstance name="Power" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+    </componentInstance>
+    <componentInstance name="MissionProcessor1" category="processor">
+      <featureInstance name="HS" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Power" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <componentInstance name="MemBank1" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.RAM"/>
+      </componentInstance>
+      <componentInstance name="Membank2" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.ROM"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </componentInstance>
+    <componentInstance name="MissionProcessor2" category="processor">
+      <featureInstance name="HS" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Power" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <componentInstance name="MemBank1" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.RAM"/>
+      </componentInstance>
+      <componentInstance name="Membank2" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.ROM"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </componentInstance>
+    <componentInstance name="MissionProcessor3" category="processor">
+      <featureInstance name="HS" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Power" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <componentInstance name="MemBank1" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.RAM"/>
+      </componentInstance>
+      <componentInstance name="Membank2" category="memory">
+        <featureInstance name="Power" category="busAccess">
+          <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMemorySubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.ROM"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessorSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/FlightGuidanceIMA.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwarePlatform.aadl#HardwarePlatform.ComputingPlatform.ThreeProcessorParts"/>
+  </componentInstance>
+  <componentInstance name="ApplicationSystem" category="system">
+    <featureInstance name="EtherAccess" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="PowerPlug" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+    </featureInstance>
+    <componentInstance name="PilotDisplay" category="device">
+      <featureInstance name="DisplayToDM" category="featureGroup" direction="in out">
+        <featureInstance name="request" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <featureInstance name="Switch" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Power" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <flowSpecification name="Menu_Entry_Selected" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="Show_Page" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/HardwareParts.aadl#HardwareParts.MFD"/>
+    </componentInstance>
+    <componentInstance name="WAM" category="process">
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#AppSubSystems.WarningAnnunciationManager"/>
+    </componentInstance>
+    <componentInstance name="DM" category="process">
+      <featureInstance name="DMToDisplay" category="featureGroup" direction="in out">
+        <featureInstance name="request">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <featureInstance name="DMToPCM" category="featureGroup" direction="in out">
+        <featureInstance name="request" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureGroup.1"/>
+      </featureInstance>
+      <flowSpecification name="cmd_request" source="//@componentInstance.1/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="show_page" source="//@componentInstance.1/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#AppSubSystems.DisplayManager"/>
+    </componentInstance>
+    <componentInstance name="PCM" category="process">
+      <featureInstance name="PCMToDM" category="featureGroup" direction="in out">
+        <featureInstance name="request">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <featureInstance name="PCMToFM" category="featureGroup" direction="in out">
+        <featureInstance name="request" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFeatureGroup.1"/>
+      </featureInstance>
+      <flowSpecification name="cmd_request" source="//@componentInstance.1/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.3/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="show_page" source="//@componentInstance.1/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.3/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#AppSubSystems.PageContentManager"/>
+    </componentInstance>
+    <componentInstance name="FM" category="process">
+      <featureInstance name="FMToPCM" category="featureGroup" direction="in out">
+        <featureInstance name="request">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <featureInstance name="FMToFD" category="featureGroup" direction="in out">
+        <featureInstance name="request" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureGroup.1"/>
+      </featureInstance>
+      <featureInstance name="FMIn" category="featureGroup" direction="in out">
+        <featureInstance name="fuelFlow">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="navSignal">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureGroup.2"/>
+      </featureInstance>
+      <featureInstance name="FMOut" category="featureGroup" direction="in out">
+        <featureInstance name="guidanceOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="fpDataOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="navDataOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureGroup.3"/>
+      </featureInstance>
+      <flowSpecification name="cmd_request" source="//@componentInstance.1/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="show_page" source="//@componentInstance.1/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/Flightmanager.aadl#Flightmanager.FlightManager"/>
+    </componentInstance>
+    <componentInstance name="FD" category="process">
+      <featureInstance name="FDToFM" category="featureGroup" direction="in out">
+        <featureInstance name="request">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="page" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppTypes.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/instances/FlightGuidanceIMA_FlightGuidance_allocatedparts_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <flowSpecification name="process_page_request" source="//@componentInstance.1/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.5/@featureInstance.0">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSubSystems.aadl#AppSubSystems.FlightDirector"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/FlightGuidanceIMA.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/AppSystems.aadl#AppSystems.EmbeddedApp.SubSystemParts"/>
+  </componentInstance>
+  <connectionInstance name="Platform.powerdemand -> ElectricalSupply" kind="accessConnection" destination="//@featureInstance.0" source="//@componentInstance.0/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.1" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/FlightGuidanceIMA.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/FlightGuidanceIMA.aadl#FlightGuidanceIMA.FlightGuidance.allocatedparts"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/aircraft-example/FlightGuidanceIMA.aadl#FlightGuidanceIMA.FlightGuidance.allocatedparts"/>
+</instance:SystemInstance>

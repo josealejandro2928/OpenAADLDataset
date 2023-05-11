@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Case_Study_LEON_Instance" category="system">
+  <componentInstance name="B" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#HW_Leon.Ethernet_Bus"/>
+  </componentInstance>
+  <componentInstance name="WoM" category="process">
+    <featureInstance name="External_Interrupt_Depository" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="Regular_Producer" category="thread">
+      <featureInstance name="Additional_Workload" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="Handle_External_Interrupt" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#RavenscarExample.Regular_Producer"/>
+    </componentInstance>
+    <componentInstance name="On_Call_Producer" category="thread">
+      <featureInstance name="Additional_Workload_Depository" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#RavenscarExample.On_Call_Producer"/>
+    </componentInstance>
+    <componentInstance name="External_Event_Server" category="thread">
+      <featureInstance name="External_Interrupt" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="External_Interrupt_Depository" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#RavenscarExample.External_Event_Server"/>
+    </componentInstance>
+    <componentInstance name="Activation_Log_Reader" category="thread">
+      <featureInstance name="External_Interrupt_Depository">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Signal" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#RavenscarExample.Activation_Log_Reader"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/ravenscar_example.aadl#RavenscarExample.Workload_Manager.Impl"/>
+  </componentInstance>
+  <componentInstance name="InS" category="process">
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#|::0.5.9.3.49.1::18::/6"/>
+  </componentInstance>
+  <componentInstance name="CPU_1" category="processor">
+    <featureInstance name="ETH" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#HW_Leon.The_Processor"/>
+  </componentInstance>
+  <componentInstance name="CPU_2" category="processor">
+    <featureInstance name="ETH" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/instances/hw_leon_Case_Study_LEON_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#HW_Leon.The_Processor"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#HW_Leon.Case_Study.LEON"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/ravenscar_example/hw_leon.aadl#HW_Leon.Case_Study.LEON"/>
+</instance:SystemInstance>

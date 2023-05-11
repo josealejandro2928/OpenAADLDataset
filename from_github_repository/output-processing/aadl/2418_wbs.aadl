@@ -1,0 +1,160 @@
+package wbs
+
+public
+
+with bscu;
+with communication;
+with valves;
+with wheel;
+with pump;
+with power;
+with pedals;
+
+-- developed by Danielle Stewart and Mike Whalen
+-- Based on the WBS outlined in AIR6110 and created by the 
+-- Software Engineering Institute (SEI) at Carnegie Mellon University (CMU). 
+-- Their version was used to illustrate the EMV2 error annex which has 
+-- been removed in this version.
+-- Our goal was to illustrate the use of the Safety Annex with AGREE contracts. 
+-- 
+-- To run the system, select wbs.federated implementation
+-- and run "Single Layer" analysis.
+-- This is the implementation that we have focused on throughout development. 
+ 
+--
+--  Dummy component for the wheel brake system.
+--
+system wbs
+	annex agree {**
+		guarantee "True" : true;
+	**};
+	
+
+end wbs;
+
+
+system implementation wbs.federated
+	subcomponents
+	-- Pedal subsystem
+	pedals			: system pedals::pedals;
+	-- Power subsystem
+	power      		: system power::power.generic;
+    --  The two pumps at the top of the diagram
+	blue_pump  		: system pump::pump;
+	green_pump 		: system pump::pump;
+	--  The accumulator pump
+	accumulator		: system pump::pump;
+	bscu 			: system bscu::bscu.federated;
+	
+	-- Annunciation device
+	annunciation 	: device communication::annunciation.i;
+	selector   : system valves::selector_detailed;
+	shutoff    : system valves::boolean_shutoff;
+	green_skid : system valves::cmd_shutoff; 
+	blue_skid  : system valves::cmd_shutoff; 
+	wheel      : system wheel::wheel_two_inputs;
+	accumulator_valve : system valves::accumulator_valve;
+	
+	 
+connections 
+	pedal1     : port pedals.signal1 -> bscu.pedal1;
+	pedal2     : port pedals.signal2 -> bscu.pedal2;
+    --  We connect the blue pump directly to the selector valve.
+    --  For the green pump, we connect it to the shutoff valve that
+    --  is later connected to the selector valve after.
+	blue_to_selector    : port blue_pump.pressure_output -> selector.blue_input; 
+	green_to_shutoff    : port green_pump.pressure_output -> shutoff.input;
+	shutoff_to_selector : port shutoff.shutoff_output -> selector.green_input;
+	bscu_to_shutoff     : port bscu.Select_Alternate -> shutoff.boolean_input;
+	bscu_to_selector    : port bscu.Select_Alternate -> selector.select_alternate;
+	 
+	
+	-- Added bscu to accumulator_valve (new)
+	bscu_to_accumulator_valve : port bscu.Select_Alternate -> accumulator_valve.select_alternate;
+	-- Add accumulator_valve.blue_skid _output to blue_skid input (new)
+	accum_valve_to_blue_skid : port accumulator_valve.blue_skid_output -> blue_skid.input;
+	 
+	--  Connect the command from the BSCU to the skid valves
+	bscu_to_gskid       : port bscu.cmd_nor -> green_skid.cmd_input;
+	bscu_to_bskid       : port bscu.cmd_alt -> blue_skid.cmd_input;
+	
+	--  Connect the output pressure from the selector
+	--  to the anti-skid components (changed to only send to green_skid, not blue_skid)
+	selector_to_gskid   : port selector.green_output -> green_skid.input;
+	
+	-- Connect output pressure from selector 
+	-- to the accumulator valve component (new)
+	selector_to_accumulator_valve   : port selector.blue_output -> accumulator_valve.blue_input;
+	
+	-- Connect accumulator pump to accumulator valve
+    accum_pump_to_accum_valve : port accumulator.pressure_output -> accumulator_valve.accumulator_input;
+	
+	--  Connect the anti-skid system to the wheel. In this version,
+	--  we see the wheel as having two paths for getting the pressure.
+	--  We see that as a physical model, not a logical one.
+	bskid_to_wheel      : port blue_skid.output -> wheel.blue_input;
+	gskid_to_wheel      : port green_skid.output -> wheel.green_input;
+	 
+	-- Connect the output from wheel to the bscu here
+	wheel_to_bscu		: port wheel.output_realized_pressure -> bscu.wheel_pressure 
+	   {Communication_Properties::Timing => delayed; };
+	
+	
+	power1	   : bus access power.line1 <-> bscu.pwr1;
+	power2     : bus access power.line2 <-> bscu.pwr2;
+	
+	
+	annex agree {**
+		 
+		eq test : common::command.pedal = pedals.signal1;	
+		fun pedal_pressed(pedal: common::command.pedal): bool = pedal.val > 0.0;
+		 
+		eq pedals_pressed : bool = 
+			pedal_pressed(pedals.signal1) and pedal_pressed(pedals.signal2); 
+		 
+		eq no_skid : bool = not bscu.cmd_nor.activate_antiskid and
+						    not bscu.cmd_alt.activate_antiskid;
+		
+		eq brake_pressure : bool = wheel.green_input.val > 0.0 or wheel.blue_input.val > 0.0;
+	 	   
+		-- Top level contract
+		lemma "Pedal pressed and no skid implies brake pressure applied" : 
+			true -> (pre(pedals_pressed) and pedals_pressed and no_skid => brake_pressure);
+
+ 		-- BSCU contracts
+ 		eq pedals_pressed_bscu: bool = (bscu.pedal1.val > 0.0) and (bscu.pedal2.val > 0.0);
+		eq skid_active: bool = (bscu.cmd_nor.activate_antiskid) or (bscu.cmd_alt.activate_antiskid);
+		eq commanded_pressure: bool = (bscu.cmd_nor.val > 0.0) or (bscu.cmd_alt.val > 0.0);
+ 		lemma "If pedals pressed, no skid, and wheel pressure is nonexistant, then
+		           wheel pressure is positive." :
+		  (bscu.Select_Alternate = 
+		      common_methods.historically(false -> not (pre(pedals_pressed_bscu and not(skid_active)) 
+		      	    => bscu.wheel_pressure.val > 0.0)));
+		
+		lemma "Pedals pressed and no skid implies pressure commanded" : 
+			(bscu.pedals_pressed and (not bscu.skid_active))  =>
+				bscu.commanded_pressure; 
+				 
+		lemma "Alternate pressure and normal pressure don't occur simultaneously." : 
+		          not(bscu.cmd_alt.val > 0.0 and bscu.cmd_nor.val > 0.0); 
+ 		
+ 		-- For pedals
+		lemma "Range for pedal1" : 
+		    pedals.signal1.val >= 0.0;
+		lemma "Range for pedal2" : 
+		    pedals.signal2.val >= 0.0;
+ 		
+	**};
+
+   annex safety{**
+   		
+	  analyze : max 1 fault
+	  --propagate_from: {valve_failed@shutoff} to {pressure_fail_blue@selector};
+	  
+   **};
+	
+end wbs.federated;
+ 
+
+
+end wbs;

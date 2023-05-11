@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Flight_System_PIO_Instance" category="system">
+  <componentInstance name="myvme" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.VME.i"/>
+  </componentInstance>
+  <componentInstance name="Pilot_Display" category="device">
+    <featureInstance name="Menu_Cmd_Pushed" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="Page_To_Show">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="vmeBus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <flowSpecification name="Menu_Entry_Selected" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="Show_Page" source="//@componentInstance.1/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.Display.MFD"/>
+  </componentInstance>
+  <componentInstance name="Pilot_DM" category="process">
+    <featureInstance name="Menu_selection_from_Display">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Image_To_Display" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Request_To_PCM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_from_PCM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <flowSpecification name="cmd_request" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.2">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="show_page" source="//@componentInstance.2/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.Display_Manager.impl"/>
+  </componentInstance>
+  <componentInstance name="PCM" category="process">
+    <featureInstance name="New_Page_Request_From_DM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_To_DM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Request_To_FM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_from_FM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <flowSpecification name="cmd_request" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.3/@featureInstance.2">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="show_page" source="//@componentInstance.3/@featureInstance.3" destination="//@componentInstance.3/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.Page_Content_Manager.impl"/>
+  </componentInstance>
+  <componentInstance name="FM" category="process">
+    <featureInstance name="FMIn" category="featureGroup" direction="in out">
+      <featureInstance name="fuelFlow">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="navSignal">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedFeatureGroup.0"/>
+    </featureInstance>
+    <featureInstance name="FMOut" category="featureGroup" direction="in out">
+      <featureInstance name="guidanceOut" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="fpDataOut" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="navDataOut" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedFeatureGroup.1"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Request_From_PCM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_To_PCM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Request_To_FD" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_from_FD">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <componentInstance name="NSP" category="thread">
+      <featureInstance name="navSignalDataFromSensor">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="navSensorDataToIN" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.NavigationSensorProcessing"/>
+    </componentInstance>
+    <componentInstance name="INav" category="thread">
+      <featureInstance name="navSensorDataFromNSP">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="navDataToGPAPC" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.IntegratedNavigation"/>
+    </componentInstance>
+    <componentInstance name="GP" category="thread">
+      <featureInstance name="navDataFromIN">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="fpDataFromFPP">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="guidanceToFPP" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.GuidanceProcessing"/>
+    </componentInstance>
+    <componentInstance name="FPP" category="thread">
+      <featureInstance name="guidanceFromGP">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="perfDataFromAPC">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <featureInstance name="fpDataToGPAPC" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.FlightPlanProcessing"/>
+    </componentInstance>
+    <componentInstance name="APC" category="thread">
+      <featureInstance name="fpDataFromFPP">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="navDataFromIN">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="fuelFlow">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="perfDataToFPP" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/10"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.AircraftPerformanceCalculation"/>
+    </componentInstance>
+    <componentInstance name="pageFeed" category="thread">
+      <featureInstance name="New_Page_Request_From_PCM">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_To_PCM" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Request_To_FD" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_from_FD">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <flowSpecification name="passThroughRequest" source="//@componentInstance.4/@componentInstance.5/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.2">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="passThroughPage" source="//@componentInstance.4/@componentInstance.5/@featureInstance.3" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedThreadSubcomponent.5"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.HandlePageRequest"/>
+    </componentInstance>
+    <componentInstance name="PerIO" category="thread">
+      <featureInstance name="fromOutside" category="featureGroup" direction="in out">
+        <featureInstance name="fuelFlow">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/11"/>
+        </featureInstance>
+        <featureInstance name="navSignal">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <featureInstance name="toOutside" category="featureGroup" direction="in out">
+        <featureInstance name="guidanceOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="fpDataOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="navDataOut" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_datatypes.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFeatureGroup.1"/>
+      </featureInstance>
+      <featureInstance name="fuelFlow" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/11"/>
+      </featureInstance>
+      <featureInstance name="navSignal" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="guidanceOut">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/9"/>
+      </featureInstance>
+      <featureInstance name="fpDataOut">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/8"/>
+      </featureInstance>
+      <featureInstance name="navDataOut">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.4"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/7"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Request_From_PCM">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.5"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Request_To_PageFeed" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.6"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Request_From_PageFeed">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.7"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Request_To_FD" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.8"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_from_FD">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.9"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_To_PageFeed" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.10"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_From_PageFeed">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.11"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="New_Page_Content_To_PCM" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.12"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <flowSpecification name="passInRequest" source="//@componentInstance.4/@componentInstance.6/@featureInstance.7" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.8">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="passOutRequest" source="//@componentInstance.4/@componentInstance.6/@featureInstance.9" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.10">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <flowSpecification name="passInContent" source="//@componentInstance.4/@componentInstance.6/@featureInstance.11" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.12">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.2"/>
+      </flowSpecification>
+      <flowSpecification name="passOutContent" source="//@componentInstance.4/@componentInstance.6/@featureInstance.13" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.14">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedFlowSpecification.3"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.PeriodicIO"/>
+    </componentInstance>
+    <flowSpecification name="cmd_request" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.4">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="show_page" source="//@componentInstance.4/@featureInstance.5" destination="//@componentInstance.4/@featureInstance.3">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="NSP.navSensorDataToIN -> INav.navSensorDataFromNSP" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="INav.navDataToGPAPC -> GP.navDataFromIN" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.2/@featureInstance.0" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="INav.navDataToGPAPC -> APC.navDataFromIN" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.1" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="INav.navDataToGPAPC -> PerIO.navDataOut" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.6" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.6">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="GP.guidanceToFPP -> FPP.guidanceFromGP" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.3/@featureInstance.0" source="//@componentInstance.4/@componentInstance.2/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="GP.guidanceToFPP -> PerIO.guidanceOut" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.4" source="//@componentInstance.4/@componentInstance.2/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FPP.fpDataToGPAPC -> GP.fpDataFromFPP" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.2/@featureInstance.1" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FPP.fpDataToGPAPC -> APC.fpDataFromFPP" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.0" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FPP.fpDataToGPAPC -> PerIO.fpDataOut" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.5" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="APC.perfDataToFPP -> FPP.perfDataFromAPC" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.3/@featureInstance.1" source="//@componentInstance.4/@componentInstance.4/@featureInstance.3">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.4/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="pageFeed.New_Page_Content_To_PCM -> PerIO.New_Page_Content_From_PageFeed" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.13" source="//@componentInstance.4/@componentInstance.5/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.5/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.13">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.12"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="pageFeed.New_Page_Request_To_FD -> PerIO.New_Page_Request_From_PageFeed" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.9" source="//@componentInstance.4/@componentInstance.5/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.5/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.9">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PerIO.fuelFlow -> APC.fuelFlow" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.2" source="//@componentInstance.4/@componentInstance.6/@featureInstance.2">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.4/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PerIO.navSignal -> NSP.navSignalDataFromSensor" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0" source="//@componentInstance.4/@componentInstance.6/@featureInstance.3">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.3" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PerIO.New_Page_Request_To_PageFeed -> pageFeed.New_Page_Request_From_PCM" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.0" source="//@componentInstance.4/@componentInstance.6/@featureInstance.8">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.8" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PerIO.New_Page_Content_To_PageFeed -> pageFeed.New_Page_Content_from_FD" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.3" source="//@componentInstance.4/@componentInstance.6/@featureInstance.12">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.12" destination="//@componentInstance.4/@componentInstance.5/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#avionics_flightmanager.Flight_Manager.PIO"/>
+  </componentInstance>
+  <componentInstance name="FD" category="process">
+    <featureInstance name="New_Page_Request_From_FM">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="New_Page_Content_To_FM" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <flowSpecification name="process_page_request" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.Flight_Director.impl"/>
+  </componentInstance>
+  <componentInstance name="displayprocessor" category="processor">
+    <featureInstance name="vmeBus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.PowerPC.Mhz350"/>
+  </componentInstance>
+  <componentInstance name="missionprocessor" category="processor">
+    <featureInstance name="vmeBus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/instances/Avionics_System_PeriodicIO_Flight_System_PIO_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_subsystems.aadl#avionics_subsystems.PowerPC.Mhz350"/>
+  </componentInstance>
+  <endToEndFlow name="get_new_page" flowElement="//@componentInstance.1/@flowSpecification.0 //@connectionInstance.2 //@componentInstance.2/@flowSpecification.0 //@connectionInstance.4 //@componentInstance.3/@flowSpecification.0 //@connectionInstance.6 //@componentInstance.4/@componentInstance.6/@flowSpecification.0 //@componentInstance.4/@connectionInstance.14 //@componentInstance.4/@componentInstance.5/@flowSpecification.0 //@componentInstance.4/@connectionInstance.11 //@componentInstance.4/@componentInstance.6/@flowSpecification.1 //@connectionInstance.7 //@componentInstance.5/@flowSpecification.0 //@connectionInstance.9 //@componentInstance.4/@componentInstance.6/@flowSpecification.2 //@componentInstance.4/@connectionInstance.15 //@componentInstance.4/@componentInstance.5/@flowSpecification.1 //@componentInstance.4/@connectionInstance.10 //@componentInstance.4/@componentInstance.6/@flowSpecification.3 //@connectionInstance.8 //@componentInstance.3/@flowSpecification.1 //@connectionInstance.5 //@componentInstance.2/@flowSpecification.1 //@connectionInstance.3 //@componentInstance.1/@flowSpecification.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <connectionInstance name="myvme -> missionprocessor.vmeBus" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.7/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="myvme -> displayprocessor.vmeBus" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.6/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Pilot_Display.Menu_Cmd_Pushed -> Pilot_DM.Menu_selection_from_Display" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Pilot_DM.New_Page_Image_To_Display -> Pilot_Display.Page_To_Show" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.1" source="//@componentInstance.2/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.7"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="Pilot_DM.New_Page_Request_To_PCM -> PCM.New_Page_Request_From_DM" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.2/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PCM.New_Page_Content_To_DM -> Pilot_DM.New_Page_Content_from_PCM" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.3" source="//@componentInstance.3/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="PCM.New_Page_Request_To_FM -> FM.PerIO.New_Page_Request_From_PCM" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.7" source="//@componentInstance.3/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.7">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FM.PerIO.New_Page_Request_To_FD -> FD.New_Page_Request_From_FM" complete="true" kind="portConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.4/@componentInstance.6/@featureInstance.10">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.10" destination="//@componentInstance.4/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.4" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FM.PerIO.New_Page_Content_To_PCM -> PCM.New_Page_Content_from_FM" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.3" source="//@componentInstance.4/@componentInstance.6/@featureInstance.14">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.6/@featureInstance.14" destination="//@componentInstance.4/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.11"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.3" destination="//@componentInstance.3/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FD.New_Page_Content_To_FM -> FM.PerIO.New_Page_Content_from_FD" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.11" source="//@componentInstance.5/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.1" destination="//@componentInstance.4/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.5" destination="//@componentInstance.4/@componentInstance.6/@featureInstance.11">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/avionics_flightmanager.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.9"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#Avionics_System_PeriodicIO.Flight_System.PIO"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/avionics-display/Avionics_System_PeriodicIO.aadl#Avionics_System_PeriodicIO.Flight_System.PIO"/>
+</instance:SystemInstance>

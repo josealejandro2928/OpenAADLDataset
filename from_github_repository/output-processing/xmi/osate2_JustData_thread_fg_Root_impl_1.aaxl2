@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Root_impl_Instance" category="system">
+  <componentInstance name="MyP" category="process">
+    <componentInstance name="MyT1" category="thread">
+      <featureInstance name="fg" category="featureGroup" direction="in out">
+        <featureInstance name="shared_data" category="dataAccess" direction="out">
+          <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/instances/JustData_thread_fg_Root_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <componentInstance name="myData" category="data">
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.D"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.T1.impl"/>
+    </componentInstance>
+    <componentInstance name="MyT2" category="thread">
+      <featureInstance name="fg2" category="featureGroup" direction="in out">
+        <featureInstance name="ext_data" category="dataAccess">
+          <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataAccess.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/instances/JustData_thread_fg_Root_impl_Instance.aaxl2#/"/>
+        </featureInstance>
+        <feature xsi:type="aadl2:FeatureGroup" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedFeatureGroup.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.T2.impl"/>
+    </componentInstance>
+    <connectionInstance name="MyT1.myData -> MyT2.fg2.ext_data" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAccessConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureGroupConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MyT2.fg2.ext_data -> MyT1.myData" complete="true" kind="accessConnection" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0/@featureInstance.0" reverse="true">
+        <connection xsi:type="aadl2:FeatureGroupConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedFeatureGroupConnection.0"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0" reverse="true">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.p1.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.Root.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue2032/JustData_thread_fg.aadl#JustData_thread_fg.Root.impl"/>
+</instance:SystemInstance>

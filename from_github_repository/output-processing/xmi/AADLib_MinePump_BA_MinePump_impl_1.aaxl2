@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="MinePump_impl_Instance" category="system">
+  <componentInstance name="Software" category="process">
+    <componentInstance name="WaterLevelMonitoring_Thread" category="thread">
+      <featureInstance name="WaterAlarm" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.WaterLevelMonitoring"/>
+    </componentInstance>
+    <componentInstance name="MethaneMonitoring_Thread" category="thread">
+      <featureInstance name="MethaneLevel" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.MethaneMonitoring"/>
+    </componentInstance>
+    <componentInstance name="PumpCtrl_Thread" category="thread">
+      <featureInstance name="WaterAlarm" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="MethaneLevel" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="WaterLevel" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.PumpCtrl"/>
+    </componentInstance>
+    <componentInstance name="WaterAlarm_Thread" category="thread">
+      <featureInstance name="WaterAlarm" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/instances/minepump_ba_MinePump_impl_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedThreadSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.WaterAlarm"/>
+    </componentInstance>
+    <connectionInstance name="WaterLevelMonitoring_Thread.WaterAlarm -> PumpCtrl_Thread.WaterLevel" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.2" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="MethaneMonitoring_Thread.MethaneLevel -> PumpCtrl_Thread.MethaneLevel" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.1" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="PumpCtrl_Thread.WaterAlarm -> WaterAlarm_Thread.WaterAlarm" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.MinePump_Software.impl"/>
+  </componentInstance>
+  <componentInstance name="Hardware" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.CPU"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.MinePump.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/minepump_ba/minepump_ba.aadl#MinePump_BA.MinePump.impl"/>
+</instance:SystemInstance>

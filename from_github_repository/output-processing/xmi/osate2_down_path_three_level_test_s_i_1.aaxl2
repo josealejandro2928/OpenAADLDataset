@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="s_i_Instance" category="system">
+  <featureInstance name="system_in_f" category="abstractFeature">
+    <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedAbstractFeature.0"/>
+  </featureInstance>
+  <componentInstance name="ps" category="process">
+    <featureInstance name="process_in_f" category="abstractFeature">
+      <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedAbstractFeature.0"/>
+    </featureInstance>
+    <componentInstance name="t" category="thread">
+      <featureInstance name="thread_in_f" category="abstractFeature">
+        <feature xsi:type="aadl2:AbstractFeature" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedAbstractFeature.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#down_path_three_level_test.t"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#down_path_three_level_test.ps.i"/>
+  </componentInstance>
+  <connectionInstance name="system_in_f -> ps.t.thread_in_f" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFeatureConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:FeatureConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFeatureConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#down_path_three_level_test.s.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/ConnectionPaths/down_path_three_level_test.aadl#down_path_three_level_test.s.i"/>
+</instance:SystemInstance>

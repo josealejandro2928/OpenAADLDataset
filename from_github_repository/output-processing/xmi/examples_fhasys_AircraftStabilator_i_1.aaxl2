@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="AircraftStabilator_i_Instance" category="system">
+  <componentInstance name="PilotCollectiveCommandGrip" category="device">
+    <featureInstance name="DesiredPosition" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <flowSpecification name="f1" destination="//@componentInstance.0/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.CollectiveCommandGrip"/>
+  </componentInstance>
+  <componentInstance name="StabilatorPositionSensor" category="device">
+    <featureInstance name="PositionReading" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <flowSpecification name="f1" destination="//@componentInstance.1/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.PositionSensor"/>
+  </componentInstance>
+  <componentInstance name="StabAct1" category="device">
+    <featureInstance name="ActCmd">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="fs" source="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.StabilatorActuator"/>
+  </componentInstance>
+  <componentInstance name="StabAct2" category="device">
+    <featureInstance name="ActCmd">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <flowSpecification name="fs" source="//@componentInstance.3/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedDeviceSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.StabilatorActuator"/>
+  </componentInstance>
+  <componentInstance name="StabilatorController" category="process">
+    <featureInstance name="Position">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="Setpoint">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="TrueAirSpeed">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="ActCmd" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="CLTask" category="thread">
+      <featureInstance name="Position">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="Setpoint">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="TrueAirSpeed">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="ActCmd" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <flowSpecification name="cmdflow" source="//@componentInstance.4/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.3">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.ControlLaw"/>
+    </componentInstance>
+    <componentInstance name="Monitor" category="thread">
+      <featureInstance name="position">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="estpos" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+      </featureInstance>
+      <flowSpecification name="cmdflow" source="//@componentInstance.4/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.ControlMonitor"/>
+    </componentInstance>
+    <modeInstance name="Automatic" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="Manual">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedMode.1"/>
+    </modeInstance>
+    <flowSpecification name="fs" source="//@componentInstance.4/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="fp" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.3">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="Monitor.estpos -> CLTask.Position" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.StabilatorControl.i"/>
+  </componentInstance>
+  <componentInstance name="FMCProcessor" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.PowerPC"/>
+  </componentInstance>
+  <componentInstance name="EGI" category="system">
+    <featureInstance name="trueairspeed" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/instances/AircraftStabilator_AircraftStabilator_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <flowSpecification name="f1" destination="//@componentInstance.6/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.EGI"/>
+  </componentInstance>
+  <endToEndFlow name="critical1" flowElement="//@componentInstance.1/@flowSpecification.0 //@connectionInstance.1 //@componentInstance.4/@componentInstance.1/@flowSpecification.0 //@componentInstance.4/@connectionInstance.0 //@componentInstance.4/@componentInstance.0/@flowSpecification.0 //@connectionInstance.2 //@componentInstance.2/@flowSpecification.0" inSystemOperationMode="//@systemOperationMode.0 //@systemOperationMode.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <endToEndFlow name="critical2" flowElement="//@componentInstance.1/@flowSpecification.0 //@connectionInstance.1 //@componentInstance.4/@componentInstance.1/@flowSpecification.0 //@componentInstance.4/@connectionInstance.0 //@componentInstance.4/@componentInstance.0/@flowSpecification.0 //@connectionInstance.3 //@componentInstance.3/@flowSpecification.0" inSystemOperationMode="//@systemOperationMode.0 //@systemOperationMode.1">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEndToEndFlow.1"/>
+  </endToEndFlow>
+  <connectionInstance name="PilotCollectiveCommandGrip.DesiredPosition -> StabilatorController.CLTask.Setpoint" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.1" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="StabilatorPositionSensor.PositionReading -> StabilatorController.Monitor.position" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="StabilatorController.CLTask.ActCmd -> StabAct1.ActCmd" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.4/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.3" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="StabilatorController.CLTask.ActCmd -> StabAct2.ActCmd" complete="true" kind="portConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3">
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.4/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.3" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="EGI.trueairspeed -> StabilatorController.CLTask.TrueAirSpeed" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.AircraftStabilator.i"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.4/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.4/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/PSSAFlightControlEGI/AircraftStabilator.aadl#fhasys.AircraftStabilator.i"/>
+</instance:SystemInstance>

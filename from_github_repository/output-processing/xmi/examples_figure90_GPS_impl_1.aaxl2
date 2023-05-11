@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="GPS_impl_Instance" category="system">
+  <featureInstance name="LocationPosition" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="RequestOff" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+  </featureInstance>
+  <featureInstance name="RequestLoP" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+  </featureInstance>
+  <featureInstance name="RequestHiP" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+  </featureInstance>
+  <featureInstance name="Reset" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.3"/>
+  </featureInstance>
+  <componentInstance name="sensor1" category="device" inMode="//@modeInstance.1 //@modeInstance.2">
+    <featureInstance name="sensedData" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="reset">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#figure90.sensor"/>
+  </componentInstance>
+  <componentInstance name="sensor2" category="device" inMode="//@modeInstance.2">
+    <featureInstance name="sensedData" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="reset">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#figure90.sensor"/>
+  </componentInstance>
+  <componentInstance name="processing" category="device" inMode="//@modeInstance.1 //@modeInstance.2">
+    <featureInstance name="sensor1input">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="sensor2input">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="locationPosition" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="reset">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#figure90.GPSprocessing"/>
+  </componentInstance>
+  <modeInstance name="Off" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="LoP">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+  </modeInstance>
+  <modeInstance name="HiP">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.2"/>
+  </modeInstance>
+  <modeTransitionInstance name="LoP_RequestOff_Off" destination="//@modeInstance.0" trigger="//@featureInstance.1" source="//@modeInstance.1">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.0"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="HiP_RequestOff_Off" destination="//@modeInstance.0" trigger="//@featureInstance.1" source="//@modeInstance.2">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.1"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="Off_RequestLoP_LoP" destination="//@modeInstance.1" trigger="//@featureInstance.2" source="//@modeInstance.0">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.2"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="Off_RequestHiP_HiP" destination="//@modeInstance.2" trigger="//@featureInstance.3" source="//@modeInstance.0">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.3"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="LoP_RequestHiP_HiP" destination="//@modeInstance.2" trigger="//@featureInstance.3" source="//@modeInstance.1">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.4"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="HiP_RequestLoP_LoP" destination="//@modeInstance.1" trigger="//@featureInstance.2" source="//@modeInstance.2">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.5"/>
+  </modeTransitionInstance>
+  <connectionInstance name="sensor1.sensedData -> processing.sensor1input" inSystemOperationMode="//@systemOperationMode.1 //@systemOperationMode.2" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensor2.sensedData -> processing.sensor2input" inSystemOperationMode="//@systemOperationMode.2" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.locationPosition -> LocationPosition" inSystemOperationMode="//@systemOperationMode.1 //@systemOperationMode.2" kind="portConnection" destination="//@featureInstance.0" source="//@componentInstance.2/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#figure90.GPS.impl"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.1"/>
+  <systemOperationMode name="som_3" currentMode="//@modeInstance.2"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/EMV2TR_Test_Files/figure90_93.aadl#figure90.GPS.impl"/>
+</instance:SystemInstance>

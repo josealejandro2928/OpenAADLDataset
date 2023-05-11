@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_impl_Instance" category="system">
+  <componentInstance name="proc" category="process">
+    <componentInstance name="t1" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue inMode="//@systemOperationMode.0">
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="1000">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <ownedValue inMode="//@systemOperationMode.1">
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="200">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <modeInstance name="m1" initial="true" derived="true" parent="//@componentInstance.0/@modeInstance.0">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="m2" derived="true" parent="//@componentInstance.0/@modeInstance.1">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#ImplicitMapping.t"/>
+    </componentInstance>
+    <componentInstance name="t2" category="thread">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period"/>
+        <ownedValue inMode="//@systemOperationMode.0">
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="10000">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <ownedValue inMode="//@systemOperationMode.1">
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="2000">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <modeInstance name="m1" initial="true" derived="true" parent="//@componentInstance.0/@modeInstance.0">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="m2" derived="true" parent="//@componentInstance.0/@modeInstance.1">
+        <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedMode.1"/>
+      </modeInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#ImplicitMapping.t"/>
+    </componentInstance>
+    <modeInstance name="m1" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="m2">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedMode.1"/>
+    </modeInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#ImplicitMapping.proc.impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#ImplicitMapping.main.impl"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.0/@modeInstance.0 //@componentInstance.0/@componentInstance.0/@modeInstance.0 //@componentInstance.0/@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@componentInstance.0/@modeInstance.1 //@componentInstance.0/@componentInstance.0/@modeInstance.1 //@componentInstance.0/@componentInstance.1/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/core/org.osate.core.tests/models/Issue1092/ImplicitMapping.aadl#ImplicitMapping.main.impl"/>
+</instance:SystemInstance>

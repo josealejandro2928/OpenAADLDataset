@@ -1,0 +1,30 @@
+package SupplyReceiver
+public
+with Base_Types;
+
+	system SupplyReceiver
+		features
+			-- Position 1 indicates normal supply.
+			-- Position 2 indicates alternate supply.
+			supply_in : in data port Base_Types::Integer;
+			
+			supply_in_emergency : in data port Base_Types::Integer;
+			
+			supply_out : out data port Base_Types::Integer;
+			
+		annex agree {**
+			
+			-- Initially receiving supply.
+			guarantee "Initially receiving supply." :
+				(supply_in > 0) -> true;
+			
+			-- If supply in is positive, this is supply out. 
+			-- Else our supply out is the emergency line.
+			guarantee "Use main supply unless it is zero. Then use emergency." :
+				if (supply_in > 0)
+					then (supply_in = supply_out)
+				else (supply_in_emergency = supply_out);
+			
+		**};
+	end SupplyReceiver;
+end SupplyReceiver;

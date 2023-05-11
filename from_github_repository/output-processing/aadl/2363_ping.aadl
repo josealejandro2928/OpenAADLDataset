@@ -1,0 +1,87 @@
+--  This model completes the PING example by adding deployment
+--  information.
+--
+--  In this deployment, two nodes are defined, one task per node.
+
+
+package Pack::Ping
+public
+  with Deployment, Software;
+  with Buses::Ethernet;
+  with Native_Sockets;
+
+  ---------------
+  -- Processor --
+  ---------------
+
+  processor the_processor
+  properties
+    Deployment::Execution_Platform => Native;
+    Priority_Range => 0 .. 255;
+  end the_processor;
+
+  ---------------
+  -- Processes --
+  ---------------
+
+  process A
+  features
+    Out_Port : out event data port Software::Array_Type.I;
+  end A;
+
+  process implementation A.Impl
+  subcomponents
+    Pinger        : thread Software::P.Impl;
+  connections
+    port Pinger.Data_Source -> Out_Port;
+  end A.Impl;
+
+  process B
+  features
+    In_Port  : in event data port Software::Array_Type.I;
+  end B;
+
+  process implementation B.Impl
+  subcomponents
+    Ping_Me        : thread Software::Q.Impl;
+  connections
+    port In_Port -> Ping_Me.Data_Sink;
+  end B.Impl;
+
+  ------------
+  -- System --
+  ------------
+
+  system PING
+  end PING;
+
+  system implementation PING.Native
+  subcomponents
+    -- HW Platform
+    the_bus: bus Buses::Ethernet::Ethernet.impl;
+
+    CPU_A  : processor the_processor;
+    Node_A : process A.Impl;
+    Eth1   : device Native_Sockets::Native_Sockets.POHI_Ada
+    { Deployment::Location    => "ip 127.0.0.1 1233"; };
+
+    CPU_B  : processor the_processor;
+    Node_B : process B.Impl {Deployment::port_number => 12002;};
+    Eth2   : device Native_Sockets::Native_Sockets.POHI_Ada
+    { Deployment::Location    => "ip 127.0.0.1 1233"; };
+
+  connections
+    bus access the_bus -> Eth1.Eth;
+    bus access the_bus -> Eth2.Eth;
+    port Node_A.Out_Port -> Node_B.In_Port
+    {Actual_Connection_Binding => (reference (the_bus));};
+
+  properties
+    actual_processor_binding => (reference (CPU_A)) applies to Node_A;
+    actual_processor_binding => (reference (CPU_A)) applies to Eth1;
+
+    actual_processor_binding => (reference (CPU_B)) applies to Node_B;
+    actual_processor_binding => (reference (CPU_B)) applies to Eth2;
+  end PING.Native;
+
+end PACK::Ping;

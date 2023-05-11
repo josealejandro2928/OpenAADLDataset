@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="arinc653system_impl_Instance" category="system">
+  <componentInstance name="rtbus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.anybus.i"/>
+  </componentInstance>
+  <componentInstance name="module1" category="system">
+    <featureInstance name="thebus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="sensorout" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="netif" category="device">
+      <featureInstance name="thebus" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.network_interface.i"/>
+    </componentInstance>
+    <componentInstance name="mainmemory" category="memory">
+      <componentInstance name="mem1" category="memory">
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.memchunk"/>
+      </componentInstance>
+      <componentInstance name="mem2" category="memory">
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedMemorySubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.memchunk"/>
+      </componentInstance>
+      <componentInstance name="mem3" category="memory">
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedMemorySubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.memchunk"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.mainmemory.module1"/>
+    </componentInstance>
+    <componentInstance name="process_part1" category="process">
+      <featureInstance name="sensorout" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module1_process_part1"/>
+    </componentInstance>
+    <componentInstance name="process_part2" category="process">
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module1_process_part2"/>
+    </componentInstance>
+    <componentInstance name="cpu" category="processor">
+      <componentInstance name="part1" category="virtual processor">
+        <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedVirtualProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:VirtualProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.partition_runtime"/>
+      </componentInstance>
+      <componentInstance name="part2" category="virtual processor">
+        <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedVirtualProcessorSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:VirtualProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.partition_runtime"/>
+      </componentInstance>
+      <componentInstance name="part3" category="virtual processor">
+        <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedVirtualProcessorSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:VirtualProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.partition_runtime"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.arinckernel.module1"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module1_system.impl"/>
+  </componentInstance>
+  <componentInstance name="module2" category="system">
+    <featureInstance name="thebus" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="sensorin" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.28/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="netif" category="device">
+      <featureInstance name="thebus" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.network_interface.i"/>
+    </componentInstance>
+    <componentInstance name="mainmemory" category="memory">
+      <componentInstance name="mem1" category="memory">
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedMemorySubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.memchunk"/>
+      </componentInstance>
+      <componentInstance name="mem2" category="memory">
+        <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedMemorySubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:MemoryType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.memchunk"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.mainmemory.module2"/>
+    </componentInstance>
+    <componentInstance name="process_part1" category="process">
+      <featureInstance name="sensorin" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <componentInstance name="thread_part1" category="thread">
+        <featureInstance name="sensorin" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/instances/arincexample2_arinc653system_impl_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module2_thread_part1"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module2_process_part1.impl"/>
+    </componentInstance>
+    <componentInstance name="cpu" category="processor">
+      <componentInstance name="part1" category="virtual processor">
+        <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedVirtualProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:VirtualProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.partition_runtime"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.arinckernel.module2"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.module2_system.impl"/>
+  </componentInstance>
+  <connectionInstance name="rtbus -> module1.netif.thebus" complete="true" kind="accessConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="rtbus -> module2.netif.thebus" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="module1.process_part1.sensorout -> module2.process_part1.thread_part1.sensorin" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@componentInstance.2/@featureInstance.0">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.31/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.29/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2/@componentInstance.2" source="//@componentInstance.2/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#/0/@ownedPublicSection/@ownedClassifier.26/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.arinc653system.impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/arinc653-basic/arincexample2.aadl#arincexample2.arinc653system.impl"/>
+</instance:SystemInstance>

@@ -1,0 +1,18 @@
+package Scenario
+public
+  with Ocarina_Config;
+  with Ocarina_Library;
+
+  system monitor extends Ocarina_Library::Default_PolyORB_HI_C_Config
+  properties
+    Ocarina_Config::Referencial_Files    =>
+    ("node_a", "node_a_native.ref");
+    Ocarina_Config::AADL_Files           +=>
+    ("ping-local.aadl", "software.aadl");
+  Ocarina_Config::Root_System_Name => "PING.rtems";
+  end monitor;
+
+  system implementation monitor.Impl
+  end  monitor.Impl;
+
+end scenario;

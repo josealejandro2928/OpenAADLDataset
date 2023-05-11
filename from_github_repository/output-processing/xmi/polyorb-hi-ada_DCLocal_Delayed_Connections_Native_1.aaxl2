@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="Delayed_Connections_Native_Instance" category="system">
+  <componentInstance name="Node_A" category="process">
+    <componentInstance name="Sender" category="thread">
+      <featureInstance name="Data_Source" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/instances/dc-local_Delayed_Connections_Native_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="N_Cycle" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/instances/dc-local_Delayed_Connections_Native_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#Software.S.Impl"/>
+    </componentInstance>
+    <componentInstance name="Receiver" category="thread">
+      <featureInstance name="Data_Sink">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/instances/dc-local_Delayed_Connections_Native_Instance.aaxl2#/"/>
+      </featureInstance>
+      <featureInstance name="N_Cycle">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/instances/dc-local_Delayed_Connections_Native_Instance.aaxl2#/"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/software.aadl#Software.R.Impl"/>
+    </componentInstance>
+    <connectionInstance name="Sender.Data_Source -> Receiver.Data_Sink" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="Sender.N_Cycle -> Receiver.N_Cycle" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.1" source="//@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#DCLocal.A.Impl"/>
+  </componentInstance>
+  <componentInstance name="CPU" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#DCLocal.the_processor.Impl"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#DCLocal.Delayed_Connections.Native"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/delayed_connections/dc-local.aadl#DCLocal.Delayed_Connections.Native"/>
+</instance:SystemInstance>

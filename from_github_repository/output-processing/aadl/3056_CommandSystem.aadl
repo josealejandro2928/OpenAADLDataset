@@ -1,0 +1,105 @@
+package CommandSystem
+public
+with WheelPairCommandSystem;
+with Base_Types;
+
+	system CommandSystem
+		features
+			-- Inputs
+			power : in data port Base_Types::Boolean;
+			ground_speed : in data port Base_Types::Integer;
+			elec_pedal_pos_L : in data port Base_Types::Boolean;
+			elec_pedal_pos_R : in data port Base_Types::Boolean;
+			wheel_rolling_1 : in data port Base_Types::Boolean;
+			wheel_rolling_2 : in data port Base_Types::Boolean;
+			wheel_rolling_3 : in data port Base_Types::Boolean;
+			wheel_rolling_4 : in data port Base_Types::Boolean;
+			
+			-- Outputs
+			brake_as_cmd_1 : out data port Base_Types::Boolean;
+			brake_as_cmd_2 : out data port Base_Types::Boolean;
+			brake_as_cmd_3 : out data port Base_Types::Boolean;
+			brake_as_cmd_4 : out data port Base_Types::Boolean;
+			as_cmd_pair_1_3 : out data port Base_Types::Boolean;
+			as_cmd_pair_2_4 : out data port Base_Types::Boolean;
+		
+		annex agree {**
+			assume "(CommandSystem) Ground speed always greater than zero." : 
+					(ground_speed >= 0) and (ground_speed <= 10);
+			
+			-- command_creation_alternate_1_norm_guarantee := (TRUE ->  
+			-- 		G (((power & ground_speed > 0) & (!wheel_rolling_1 | !wheel_rolling_5)) <-> as_cmd_pair_1_5));
+			guarantee "(CommandSystem) Pair 1,3: Create alternate commands based on power, grond speed and wheel rolling status" :
+				true -> as_cmd_pair_1_3 <=> (power and ground_speed > 0 and (not wheel_rolling_1 or not wheel_rolling_3));
+				
+			guarantee "(CommandSystem) Pair 2,4: Create alternate commands based on power, grond speed and wheel rolling status" :
+				true -> as_cmd_pair_2_4 <=> (power and ground_speed > 0 and (not wheel_rolling_2 or not wheel_rolling_4));
+				
+				
+			guarantee "(CommandSystem) Wheel 1: brake command to wheel one based on power, pedal, speed, and wheel rolling status." :
+						true -> ((power and elec_pedal_pos_L and ((ground_speed > 0 and wheel_rolling_1) or ground_speed = 0))	
+									<=> brake_as_cmd_1);
+			
+			
+			guarantee "(CommandSystem) Wheel 2: brake command to wheel one based on power, pedal, speed, and wheel rolling status." :
+						true -> ((power and elec_pedal_pos_R and ((ground_speed > 0 and wheel_rolling_2) or ground_speed = 0))	
+									<=> brake_as_cmd_2);
+			
+			guarantee "(CommandSystem) Wheel 3: brake command to wheel one based on power, pedal, speed, and wheel rolling status." :
+						true -> ((power and elec_pedal_pos_L and ((ground_speed > 0 and wheel_rolling_3) or ground_speed = 0))	
+									<=> brake_as_cmd_3);
+			
+			guarantee "(CommandSystem) Wheel 4: brake command to wheel one based on power, pedal, speed, and wheel rolling status." :
+						true -> ((power and elec_pedal_pos_R and ((ground_speed > 0 and wheel_rolling_4) or ground_speed = 0))	
+									<=> brake_as_cmd_4);
+			
+		**};
+		
+	end CommandSystem;
+	
+	system implementation CommandSystem.inst
+		subcomponents
+			w1_w3_cmd_sys : system WheelPairCommandSystem::WheelPairCommandSystem.inst;
+			w2_w4_cmd_sys : system WheelPairCommandSystem::WheelPairCommandSystem.inst;
+		
+		connections
+			-- connect the wheel pair command system to the outputs leaving 
+			-- this command system
+			brake_as_1 : port w1_w3_cmd_sys.brake_as_cmd_1 -> brake_as_cmd_1;
+			brake_as_3 : port w1_w3_cmd_sys.brake_as_cmd_2 -> brake_as_cmd_3;
+			as_pair_1_3 : port 	w1_w3_cmd_sys.as_cmd_out -> as_cmd_pair_1_3;
+			brake_as_2 : port w2_w4_cmd_sys.brake_as_cmd_1 -> brake_as_cmd_2;
+			brake_as_4 : port w2_w4_cmd_sys.brake_as_cmd_2 -> brake_as_cmd_4;
+			as_pair_2_4 : port 	w2_w4_cmd_sys.as_cmd_out -> as_cmd_pair_2_4;
+			
+			-- Send power to the wheel pair systems
+			power_1_3 : port power -> w1_w3_cmd_sys.power;
+			power_2_4 : port power -> w2_w4_cmd_sys.power;
+			
+			-- Groundspeed
+			ground_speed_1_3 : port ground_speed -> w1_w3_cmd_sys.ground_speed;
+			ground_speed_2_4 : port ground_speed -> w2_w4_cmd_sys.ground_speed;
+			
+			-- Pedal
+			-- L goes to 1_5 and 2_6
+			-- R goes to 3_7 and 4_8
+			elec_pedal_pos_L_1_3 : port elec_pedal_pos_L -> w1_w3_cmd_sys.elec_pedal_pos;
+			elec_pedal_pos_R_2_4 : port elec_pedal_pos_R -> w2_w4_cmd_sys.elec_pedal_pos;
+			
+			wheel_1_roll : port wheel_rolling_1 -> w1_w3_cmd_sys.wheel_rolling_1;
+			wheel_3_roll : port wheel_rolling_3 -> w1_w3_cmd_sys.wheel_rolling_2;
+			
+			wheel_2_roll : port wheel_rolling_2 -> w2_w4_cmd_sys.wheel_rolling_1;
+			wheel_4_roll : port wheel_rolling_4 -> w2_w4_cmd_sys.wheel_rolling_2;
+	
+	annex safety{**
+	
+		analyze : max 1 fault
+		-- MWW: END HACK!
+		-- ---------------------------------------------------------------------------	
+		**}	;		
+	end CommandSystem.inst;
+	
+	
+
+end CommandSystem;

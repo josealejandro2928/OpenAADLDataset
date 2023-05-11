@@ -1,0 +1,33 @@
+package pump
+
+
+public
+
+with common;
+with faults;
+
+system pump
+features
+	pressure_output : out data port common::pressure.i;
+
+	annex AGREE {**
+		guarantee "Pump output is positive." : 
+			pressure_output.val > 0.0 ;
+	**}	;
+
+	annex safety {**
+		fault pump_nondeterministic_out_fault "In pump: pressure_output failed to non-deterministic value.": faults.fail_to {
+			eq alt_value :real;
+			inputs: val_in <- pressure_output.val,
+					alt_val <- alt_value; 
+			outputs: pressure_output.val <- val_out ;   
+			probability: 1.0E-4 ;
+			duration: permanent;
+		}		
+	**};
+	
+
+end pump;
+
+
+end pump;

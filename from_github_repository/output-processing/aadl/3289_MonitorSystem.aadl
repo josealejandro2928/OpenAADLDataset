@@ -1,0 +1,36 @@
+package MonitorSystem
+public
+with Base_Types;
+
+	system MonitorSystem
+		features
+			-- Position 1 indicates normal supply.
+			-- Position 2 indicates alternate supply.
+			selector_valve_position : in data port Base_Types::Integer;
+			
+			cmd_emergency : out data port Base_Types::Boolean;
+			-- System modes: 
+			-- mode = 1 -> normal
+			-- mode = 2 -> alternate
+			-- mode = 3 -> emergency
+			sys_mode : out data port Base_Types::Integer;
+		
+		annex agree {**
+			
+			-- Sys mode is always {1,2,3}
+			guarantee "System mode is 1,2 or 3." :
+				(sys_mode > 0) and (sys_mode < 4);
+			
+			-- System Modes:
+			----------------
+			guarantee "Define system mode based on status of selector." :
+				(selector_valve_position = sys_mode);
+				
+				
+			guarantee "Send emergency command when selector position indicates no supply (3)." :
+				(selector_valve_position = 3) => cmd_emergency;	
+			
+			
+		**};	
+	end MonitorSystem;
+end MonitorSystem;

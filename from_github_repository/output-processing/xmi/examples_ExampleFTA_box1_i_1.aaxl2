@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="box1_i_Instance" category="system">
+  <featureInstance name="input1" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+  </featureInstance>
+  <featureInstance name="input2" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.1"/>
+  </featureInstance>
+  <featureInstance name="output3" category="eventPort" direction="out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.2"/>
+  </featureInstance>
+  <featureInstance name="output1" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="output2" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+  </featureInstance>
+  <modeInstance name="OFF" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="Operational">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+  </modeInstance>
+  <modeTransitionInstance name="OFF_input1_Operational" destination="//@modeInstance.1" trigger="//@featureInstance.0" source="//@modeInstance.0">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.0"/>
+  </modeTransitionInstance>
+  <modeTransitionInstance name="Operational_input1_OFF" destination="//@modeInstance.0" trigger="//@featureInstance.0" source="//@modeInstance.1">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.1"/>
+  </modeTransitionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#ExampleFTA.box1.i"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/error-model/Basic/mappings/example.aadl#ExampleFTA.box1.i"/>
+</instance:SystemInstance>

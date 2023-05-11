@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="PC_Simple_Native_Instance" category="system">
+  <componentInstance name="the_bus" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/property_set/bus_properties.aadl#Bus_Properties.Available_Bandwidth"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:ListValue">
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="10">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#|::0.5.9.0.4.0.7.0.6.2.0::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="100">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#|::0.5.9.0.4.0.7.0.6.2.1::2::/2"/>
+          </ownedListElement>
+          <ownedListElement xsi:type="aadl2:IntegerLiteral" value="1">
+            <unit href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#|::0.5.9.0.4.0.7.0.6.2.2::2::/2"/>
+          </ownedListElement>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#Buses.Ethernet.Ethernet.impl"/>
+  </componentInstance>
+  <componentInstance name="Device_A" category="device">
+    <featureInstance name="Eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/drivers/sockets/native_sockets.aadl#Native_Sockets.Native_Sockets.POHI_C"/>
+  </componentInstance>
+  <componentInstance name="Device_B" category="device">
+    <featureInstance name="Eth" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/buses/buses-ethernet.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/src/aadl/drivers/sockets/native_sockets.aadl#Native_Sockets.Native_Sockets.POHI_C"/>
+  </componentInstance>
+  <componentInstance name="pr_A" category="process">
+    <featureInstance name="Alpha1" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Alpha2" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Alpha3" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="Computation" category="thread">
+      <featureInstance name="Data_Out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.Computation_Th"/>
+    </componentInstance>
+    <componentInstance name="Producer" category="thread">
+      <featureInstance name="Data_In">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="Data_Source1" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="Data_Source2" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="Pr_Index" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.Producer_Th"/>
+    </componentInstance>
+    <connectionInstance name="Computation.Data_Out -> Producer.Data_In" complete="true" kind="portConnection" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.A.Impl"/>
+  </componentInstance>
+  <componentInstance name="pr_B" category="process">
+    <featureInstance name="Beta1">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Beta2">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="Beta3">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <componentInstance name="Consumer" category="thread">
+      <featureInstance name="Data_Sink1" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="Data_Sink2" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="Cr_Index" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/instances/producer_consumer_ba_v3_PC_Simple_Native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.Consumer_Th"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.B.Impl"/>
+  </componentInstance>
+  <componentInstance name="CPU_A" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.the_processor"/>
+  </componentInstance>
+  <componentInstance name="CPU_B" category="processor">
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.the_processor"/>
+  </componentInstance>
+  <connectionInstance name="the_bus -> Device_A.Eth" complete="true" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="the_bus -> Device_B.Eth" complete="true" kind="accessConnection" destination="//@componentInstance.2/@featureInstance.0" source="//@componentInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pr_A.Producer.Data_Source1 -> pr_B.Consumer.Data_Sink1" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.3/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pr_A.Producer.Data_Source2 -> pr_B.Consumer.Data_Sink2" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.1" source="//@componentInstance.3/@componentInstance.1/@featureInstance.2">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.1" destination="//@componentInstance.4/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.1" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pr_A.Producer.Pr_Index -> pr_B.Consumer.Cr_Index" complete="true" kind="portConnection" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2" source="//@componentInstance.3/@componentInstance.1/@featureInstance.3">
+    <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.3/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.2" destination="//@componentInstance.4/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedPortConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.4" source="//@componentInstance.4/@featureInstance.2" destination="//@componentInstance.4/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.PC_Simple.Native"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AADLib/examples/producer_consumer_ba_many_transitions/producer_consumer_ba_v3.aadl#Test.BA.Backend_BA_V3.PC_Simple.Native"/>
+</instance:SystemInstance>

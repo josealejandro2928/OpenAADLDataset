@@ -1,0 +1,94 @@
+package Selector
+public
+with Base_Types;
+	
+	system Selector
+		features
+			normal_supply : in data port Base_Types::Integer;
+			alt_supply : in data port Base_Types::Integer;
+			
+			-- Information for monitor : which supply is selector using.
+			-- Position 1 indicates normal supply.
+			-- Position 2 indicates alternate supply.
+			-- Position 3 indicates emergency signal.
+			valve_position : out data port Base_Types::Integer;
+			
+			-- Supply out to receiver
+			supply_out : out data port Base_Types::Integer;
+			
+		annex agree {**
+				
+			-- Behavior for valve position:
+			-- Normal supply: Case 1: Normal is supplied and previously in normal mode.
+			--						  normal_supply > 0 and (prev(valve_position) = 1)
+			--				  Keep valve position at 1
+			--
+			-- Alternate supply : Case 1: Previously normal, normal supplies nothing, alternate has supply.
+			--					  Case 2: Previously alternate, alternate still has supply.
+			--				      Set valve_position to 2
+			--
+			-- Emergency signal : Case 1 : Previously normal, both normal and alternate supply zero.
+			--					  Case 2 : Previously alternate, alternate supplies zero.
+			--					  Case 3 : Previously emergency.
+			--	           		  Set valve_position to 3
+				
+			
+			
+			-- Normal supply: Case 1: Normal is supplied and previously in normal mode.
+			guarantee "Normal mode valve position." :
+				((normal_supply > 0) and prev(valve_position, 1) = 1) => (valve_position = 1);
+				
+				
+			-- Alternate supply : Case 1: Previously normal, normal supplies nothing, alternate has supply.
+			--					  Case 2: Previously alternate, alternate still has supply.
+			guarantee "Alternate mode valve position." :
+				-- Case 1 :
+			 	(((normal_supply <= 0) and (alt_supply > 0) and prev(valve_position,1) = 1) 
+			 	-- Case 2 :
+			 	or ((alt_supply > 0) and prev(valve_position,1) = 2))
+			 			-- Change valve position
+			 			=> (valve_position = 2);
+			 		
+			
+			-- Emergency signal : Case 1 : Previously normal, both normal and alternate supply zero.
+			--					  Case 2 : Previously alternate, alternate supplies zero.
+			--					  Case 3 : Previously emergency.
+			guarantee "Case 1: Emergency mode valve position." :
+				-- Case 1 : 
+				(((prev(valve_position,1) = 1) and (alt_supply <= 0) and (normal_supply <= 0)) 
+				-- Case 2 : 
+				or (prev(valve_position,1) = 2 and (alt_supply <= 0))
+				-- Case 3 :
+				or (prev(valve_position,1) = 3))
+						=> (valve_position = 3);
+					
+			
+			-- Set output based on valve position.
+			guarantee "If valve position is normal, supply out equals normal in.
+					   Else if valve position is alt, supply out equals alternate in.
+					   Else supply out is zero." :
+			 	if (valve_position = 1) 
+			 		then (normal_supply = supply_out)
+			 	else if (valve_position = 2) 
+			 		then (alt_supply = supply_out)
+			 	else (supply_out = 0);	
+				
+			-- Problems with nonterminating lemmas. Removing notion of switching back to previous state for now.	
+			
+--			guarantee "Define alt valve position (2)." :
+--				-- Case 1
+--				((normal_supply <= 0) and (alt_supply > 0) and not(prev(valve_position, 1) = 3))
+--						-- Case 2
+--				  		or ((alt_supply > 0) and prev(valve_position, 1) = 2)
+--				=> (valve_position = 2);
+--				
+--			guarantee "Define emergency valve position (3)."  :
+--				((alt_supply <= 0) and (prev(valve_position, 1) = 2)) => (valve_position = 3);
+				
+				
+			
+		**};	
+			
+	end Selector;
+	
+end Selector;

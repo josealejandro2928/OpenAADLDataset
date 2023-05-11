@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="s_i_Instance" category="system">
+  <featureInstance name="ep1" category="eventPort" direction="in out">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+  </featureInstance>
+  <modeInstance name="m1" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="m2">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+  </modeInstance>
+  <modeTransitionInstance name="m1_ep1_m2" destination="//@modeInstance.1" trigger="//@featureInstance.0" source="//@modeInstance.0">
+    <modeTransition href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedModeTransition.0"/>
+  </modeTransitionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#repair_events_in_component_error_behavior.s.i"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.tests/models/instantiation/Events/repair_events_in_component_error_behavior.aadl#repair_events_in_component_error_behavior.s.i"/>
+</instance:SystemInstance>

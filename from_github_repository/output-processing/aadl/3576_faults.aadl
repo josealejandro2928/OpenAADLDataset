@@ -1,0 +1,23 @@
+package faults
+public
+annex agree {**	
+	
+	node fail_to(val_in: real, alt_val: real, trigger: bool) returns (val_out: real); 
+	let
+	   val_out = if (trigger) then alt_val else val_in;
+	tel;
+	 
+    node inverted_fail(val_in: bool, trigger: bool) returns (val_out:bool);
+	let
+	  val_out = if trigger then not(val_in) else val_in;
+	tel;
+
+	node stuck_real(val_in: real, alt_val:real, trigger: bool) returns (val_out: real);
+	let
+	  val_out = if (trigger) then (alt_val) else (val_in);
+	tel;
+	
+**};	
+	
+end faults;
+	

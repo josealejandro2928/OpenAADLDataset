@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="wbs_ima_Instance" category="system">
+  <componentInstance name="annunciation" category="device">
+    <featureInstance name="information" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/communication.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/communication.aadl#impl.communication.annunciation.i"/>
+  </componentInstance>
+  <componentInstance name="pedals" category="system">
+    <featureInstance name="signal1" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pedals.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="signal2" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pedals.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pedals.aadl#impl.pedals.pedals.generic"/>
+  </componentInstance>
+  <componentInstance name="power" category="system">
+    <featureInstance name="line1" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="line2" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <componentInstance name="battery1" category="device">
+      <featureInstance name="socket" category="busAccess" direction="out">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#impl.power.battery.generic"/>
+    </componentInstance>
+    <componentInstance name="battery2" category="device">
+      <featureInstance name="socket" category="busAccess" direction="out">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#impl.power.battery.generic"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#impl.power.power.generic"/>
+  </componentInstance>
+  <componentInstance name="blue_pump" category="system">
+    <featureInstance name="pressure_output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#impl.pump.pump.i"/>
+  </componentInstance>
+  <componentInstance name="green_pump" category="system">
+    <featureInstance name="pressure_output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#impl.pump.pump.i"/>
+  </componentInstance>
+  <componentInstance name="accumulator" category="system">
+    <featureInstance name="pressure_output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/pump.aadl#impl.pump.pump.i"/>
+  </componentInstance>
+  <componentInstance name="selector" category="system">
+    <featureInstance name="accumulator_input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="green_input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="blue_input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="select_alternate">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="cmd_nor">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="cmd_alt">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="green_output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="blue_output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#impl.valves.selector_detailed"/>
+  </componentInstance>
+  <componentInstance name="shutoff" category="system">
+    <featureInstance name="input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="boolean_input">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#impl.valves.boolean_shutoff"/>
+  </componentInstance>
+  <componentInstance name="green_skid" category="system">
+    <featureInstance name="input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="cmd_input">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#impl.valves.cmd_shutoff"/>
+  </componentInstance>
+  <componentInstance name="blue_skid" category="system">
+    <featureInstance name="input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="output" category="busAccess" direction="out">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="cmd_input">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.3"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/valves.aadl#impl.valves.cmd_shutoff"/>
+  </componentInstance>
+  <componentInstance name="wheel" category="system">
+    <featureInstance name="input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wheel.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="green_input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wheel.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="blue_input" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wheel.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedSystemSubcomponent.4"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wheel.aadl#impl.wheel.wheel_two_inputs.i"/>
+  </componentInstance>
+  <componentInstance name="bscu" category="system">
+    <featureInstance name="pwr1" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="pwr2" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="pedal1">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="pedal2">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="Select_Alternate" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="cmd_nor" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.3"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <featureInstance name="cmd_alt" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.4"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <componentInstance name="sub1" category="system">
+      <featureInstance name="pwr" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="pedal">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="cmd_skid" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="cmd_brk" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="valid" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <componentInstance name="mon" category="process">
+        <featureInstance name="brake">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="skid">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="valid" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.monitor.i"/>
+      </componentInstance>
+      <componentInstance name="cmd" category="process">
+        <featureInstance name="brake" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="skid" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="pedalvalue">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.command.i"/>
+      </componentInstance>
+      <connectionInstance name="cmd.brake -> mon.brake" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.0">
+        <connectionReference context="//@componentInstance.11/@componentInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="cmd.skid -> mon.skid" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.1" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.1">
+        <connectionReference context="//@componentInstance.11/@componentInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.bscu_subsystem.generic"/>
+    </componentInstance>
+    <componentInstance name="sub2" category="system">
+      <featureInstance name="pwr" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <featureInstance name="pedal">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="cmd_skid" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+      </featureInstance>
+      <featureInstance name="cmd_brk" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+      </featureInstance>
+      <featureInstance name="valid" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <componentInstance name="mon" category="process">
+        <featureInstance name="brake">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="skid">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="valid" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.monitor.i"/>
+      </componentInstance>
+      <componentInstance name="cmd" category="process">
+        <featureInstance name="brake" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="skid" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="pedalvalue">
+          <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/1"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedProcessSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.command.i"/>
+      </componentInstance>
+      <connectionInstance name="cmd.brake -> mon.brake" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.0">
+        <connectionReference context="//@componentInstance.11/@componentInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="cmd.skid -> mon.skid" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.1">
+        <connectionReference context="//@componentInstance.11/@componentInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.bscu_subsystem.generic"/>
+    </componentInstance>
+    <componentInstance name="select" category="system">
+      <featureInstance name="input1">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="input2">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <featureInstance name="result" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/instances/wbs_wbs_ima_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedSystemSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.select_alternate"/>
+    </componentInstance>
+    <componentInstance name="platform" category="system">
+      <componentInstance name="cpu" category="processor">
+        <componentInstance name="partition1" category="virtual processor">
+          <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedVirtualProcessorSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.partition.generic"/>
+        </componentInstance>
+        <componentInstance name="partition2" category="virtual processor">
+          <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedVirtualProcessorSubcomponent.1"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.partition.generic"/>
+        </componentInstance>
+        <componentInstance name="partition3" category="virtual processor">
+          <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedVirtualProcessorSubcomponent.2"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.partition.generic"/>
+        </componentInstance>
+        <componentInstance name="partition4" category="virtual processor">
+          <subcomponent xsi:type="aadl2:VirtualProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedVirtualProcessorSubcomponent.3"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:VirtualProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.partition.generic"/>
+        </componentInstance>
+        <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedProcessorSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.cpu.ima"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/simple/platform.aadl#platform.platform.ima"/>
+    </componentInstance>
+    <connectionInstance name="sub1.mon.valid -> select.input1" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.2/@featureInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.11/@componentInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.11/@componentInstance.0/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.11/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="sub2.mon.valid -> select.input2" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.2/@featureInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.2">
+      <connectionReference context="//@componentInstance.11/@componentInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.11/@componentInstance.1/@featureInstance.4">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.5"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.11/@componentInstance.2/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#impl.bscu.bscu.ima"/>
+  </componentInstance>
+  <connectionInstance name="pedals.signal1 -> bscu.sub1.cmd.pedalvalue" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.2" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.11/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@featureInstance.2" destination="//@componentInstance.11/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11/@componentInstance.0" source="//@componentInstance.11/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="pedals.signal2 -> bscu.sub2.cmd.pedalvalue" complete="true" kind="portConnection" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.2" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@featureInstance.3" destination="//@componentInstance.11/@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11/@componentInstance.1" source="//@componentInstance.11/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="power.battery1.socket -> bscu.sub1.pwr" complete="true" kind="accessConnection" destination="//@componentInstance.11/@componentInstance.0/@featureInstance.0" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.11/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@featureInstance.0" destination="//@componentInstance.11/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="power.battery2.socket -> bscu.sub2.pwr" complete="true" kind="accessConnection" destination="//@componentInstance.11/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.11/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="blue_pump.pressure_output -> selector.blue_input" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.2" source="//@componentInstance.3/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.3/@featureInstance.0" destination="//@componentInstance.6/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="green_pump.pressure_output -> shutoff.input" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.0" source="//@componentInstance.4/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.4/@featureInstance.0" destination="//@componentInstance.7/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="accumulator.pressure_output -> selector.accumulator_input" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.0" source="//@componentInstance.5/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.5/@featureInstance.0" destination="//@componentInstance.6/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="selector.accumulator_input -> accumulator.pressure_output" complete="true" kind="accessConnection" destination="//@componentInstance.5/@featureInstance.0" source="//@componentInstance.6/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.0" destination="//@componentInstance.5/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="selector.green_input -> shutoff.output" complete="true" kind="accessConnection" destination="//@componentInstance.7/@featureInstance.1" source="//@componentInstance.6/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.1" destination="//@componentInstance.7/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="selector.blue_input -> blue_pump.pressure_output" complete="true" kind="accessConnection" destination="//@componentInstance.3/@featureInstance.0" source="//@componentInstance.6/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.2" destination="//@componentInstance.3/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="selector.green_output -> green_skid.input" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.0" source="//@componentInstance.6/@featureInstance.6">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.6" destination="//@componentInstance.8/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="selector.blue_output -> blue_skid.input" complete="true" kind="accessConnection" destination="//@componentInstance.9/@featureInstance.0" source="//@componentInstance.6/@featureInstance.7">
+    <connectionReference context="/" source="//@componentInstance.6/@featureInstance.7" destination="//@componentInstance.9/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="shutoff.input -> green_pump.pressure_output" complete="true" kind="accessConnection" destination="//@componentInstance.4/@featureInstance.0" source="//@componentInstance.7/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.0" destination="//@componentInstance.4/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="shutoff.output -> selector.green_input" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.1" source="//@componentInstance.7/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.7/@featureInstance.1" destination="//@componentInstance.6/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="green_skid.input -> selector.green_output" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.6" source="//@componentInstance.8/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.0" destination="//@componentInstance.6/@featureInstance.6" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="green_skid.output -> wheel.green_input" complete="true" kind="accessConnection" destination="//@componentInstance.10/@featureInstance.1" source="//@componentInstance.8/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.8/@featureInstance.1" destination="//@componentInstance.10/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="blue_skid.input -> selector.blue_output" complete="true" kind="accessConnection" destination="//@componentInstance.6/@featureInstance.7" source="//@componentInstance.9/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.0" destination="//@componentInstance.6/@featureInstance.7" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="blue_skid.output -> wheel.blue_input" complete="true" kind="accessConnection" destination="//@componentInstance.10/@featureInstance.2" source="//@componentInstance.9/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.9/@featureInstance.1" destination="//@componentInstance.10/@featureInstance.2">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="wheel.green_input -> green_skid.output" complete="true" kind="accessConnection" destination="//@componentInstance.8/@featureInstance.1" source="//@componentInstance.10/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.10/@featureInstance.1" destination="//@componentInstance.8/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.6"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="wheel.blue_input -> blue_skid.output" complete="true" kind="accessConnection" destination="//@componentInstance.9/@featureInstance.1" source="//@componentInstance.10/@featureInstance.2">
+    <connectionReference context="/" source="//@componentInstance.10/@featureInstance.2" destination="//@componentInstance.9/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.sub1.pwr -> power.battery1.socket" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.11/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.11/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.0" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.sub1.cmd.skid -> green_skid.cmd_input" complete="true" kind="portConnection" destination="//@componentInstance.8/@featureInstance.2" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.1">
+    <connectionReference context="//@componentInstance.11/@componentInstance.0" source="//@componentInstance.11/@componentInstance.0/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.0/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.5" destination="//@componentInstance.8/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.sub2.pwr -> power.battery2.socket" complete="true" kind="accessConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.11/@componentInstance.1/@featureInstance.0">
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.11/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedAccessConnection.1"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.1" destination="//@componentInstance.2/@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@featureInstance.1" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/power.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.sub2.cmd.skid -> blue_skid.cmd_input" complete="true" kind="portConnection" destination="//@componentInstance.9/@featureInstance.2" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.1">
+    <connectionReference context="//@componentInstance.11/@componentInstance.1" source="//@componentInstance.11/@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.11/@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.6"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.6" destination="//@componentInstance.9/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.select.result -> shutoff.boolean_input" complete="true" kind="portConnection" destination="//@componentInstance.7/@featureInstance.2" source="//@componentInstance.11/@componentInstance.2/@featureInstance.2">
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.4" destination="//@componentInstance.7/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="bscu.select.result -> selector.select_alternate" complete="true" kind="portConnection" destination="//@componentInstance.6/@featureInstance.3" source="//@componentInstance.11/@componentInstance.2/@featureInstance.2">
+    <connectionReference context="//@componentInstance.11" source="//@componentInstance.11/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.11/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/bscu.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.11/@featureInstance.4" destination="//@componentInstance.6/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#impl.wbs.wbs.ima"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/ARP4761/advanced/implementation/wbs.aadl#impl.wbs.wbs.ima"/>
+</instance:SystemInstance>

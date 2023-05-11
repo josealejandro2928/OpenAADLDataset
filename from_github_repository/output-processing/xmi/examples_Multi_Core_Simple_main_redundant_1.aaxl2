@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_redundant_Instance" category="system">
+  <componentInstance name="partitions" category="process">
+    <featureInstance name="pin" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="pout" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.1"/>
+    </featureInstance>
+    <componentInstance name="thr" category="thread">
+      <featureInstance name="pin" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="pout" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.task.i"/>
+    </componentInstance>
+    <modeInstance name="normal" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="redundant">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedMode.1"/>
+    </modeInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedProcessSubcomponent.0"/>
+    <index>1</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.partition.i"/>
+  </componentInstance>
+  <componentInstance name="partitions" category="process">
+    <featureInstance name="pin" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.0"/>
+    </featureInstance>
+    <featureInstance name="pout" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.1"/>
+    </featureInstance>
+    <componentInstance name="thr" category="thread">
+      <featureInstance name="pin" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="pout" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.task.i"/>
+    </componentInstance>
+    <modeInstance name="normal" initial="true">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedMode.0"/>
+    </modeInstance>
+    <modeInstance name="redundant">
+      <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedMode.1"/>
+    </modeInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedProcessSubcomponent.0"/>
+    <index>2</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.partition.i"/>
+  </componentInstance>
+  <componentInstance name="cpu" category="system">
+    <componentInstance name="cores" category="processor">
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.0"/>
+      <index>1</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.core.i"/>
+    </componentInstance>
+    <componentInstance name="cores" category="processor">
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.0"/>
+      <index>2</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.core.i"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.multi_core.dual"/>
+  </componentInstance>
+  <modeInstance name="normal" initial="true">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedMode.0"/>
+  </modeInstance>
+  <modeInstance name="redundant">
+    <mode href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedMode.1"/>
+  </modeInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.main.redundant"/>
+  <systemOperationMode name="som_1" currentMode="//@modeInstance.0 //@componentInstance.0/@modeInstance.0 //@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_2" currentMode="//@modeInstance.0 //@componentInstance.0/@modeInstance.0 //@componentInstance.1/@modeInstance.1"/>
+  <systemOperationMode name="som_3" currentMode="//@modeInstance.0 //@componentInstance.0/@modeInstance.1 //@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_4" currentMode="//@modeInstance.0 //@componentInstance.0/@modeInstance.1 //@componentInstance.1/@modeInstance.1"/>
+  <systemOperationMode name="som_5" currentMode="//@modeInstance.1 //@componentInstance.0/@modeInstance.0 //@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_6" currentMode="//@modeInstance.1 //@componentInstance.0/@modeInstance.0 //@componentInstance.1/@modeInstance.1"/>
+  <systemOperationMode name="som_7" currentMode="//@modeInstance.1 //@componentInstance.0/@modeInstance.1 //@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_8" currentMode="//@modeInstance.1 //@componentInstance.0/@modeInstance.1 //@componentInstance.1/@modeInstance.1"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/examples/core-examples/multi-core/simple.aadl#Multi_Core_Simple.main.redundant"/>
+</instance:SystemInstance>

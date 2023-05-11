@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="UAV_Impl_Instance" category="system">
+  <featureInstance name="RFA" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="radio_recv" category="eventDataPort">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+  </featureInstance>
+  <featureInstance name="radio_send" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+  </featureInstance>
+  <featureInstance name="sw_uxas_out" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+  </featureInstance>
+  <featureInstance name="fc_uart_send" category="eventDataPort" direction="out">
+    <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+  </featureInstance>
+  <componentInstance name="FCTL_SBUS" category="bus">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/CASE/CASE_Properties.aadl#CASE_Properties.Comm_Modality"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/CASE/CASE_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAS/UAS_Buses.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Comm_Modality"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.52/@ownedPropertyType/@ownedLiteral.3"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAS/UAS_Buses.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAS/UAS_Buses.aadl#UAS_Buses.Serial_Bus.Impl"/>
+  </componentInstance>
+  <componentInstance name="MCMP" category="system">
+    <featureInstance name="FC_UART" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="RFA" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="radio_recv" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="radio_send" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="fc_uart_recv" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.2"/>
+    </featureInstance>
+    <featureInstance name="fc_uart_send" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.3"/>
+    </featureInstance>
+    <featureInstance name="sw_uxas_out" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.10/@ownedEventDataPort.4"/>
+    </featureInstance>
+    <componentInstance name="BUS_HW" category="bus">
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.MC_Bus.Impl"/>
+    </componentInstance>
+    <componentInstance name="RADIO_HW_MC" category="device">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.4"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="recv_data_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="recv_data_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="send_data_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="send_data_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="MCA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="RFA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <flowSpecification name="f1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="f2" source="//@componentInstance.1/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.3">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.Radio.Impl"/>
+    </componentInstance>
+    <componentInstance name="FC_UART_HW" category="device">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1/@ownedPropertyAssociation.4"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="recv_data_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="recv_data_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="send_data_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="send_data_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="MCA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <featureInstance name="UART" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/4"/>
+      </featureInstance>
+      <flowSpecification name="f1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.1">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="f2" source="//@componentInstance.1/@componentInstance.2/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.3">
+        <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDeviceSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.UART.Impl"/>
+    </componentInstance>
+    <componentInstance name="MEM_HW" category="memory">
+      <featureInstance name="MCA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.MC_Mem.Impl"/>
+    </componentInstance>
+    <componentInstance name="SW" category="process">
+      <featureInstance name="uart_recv" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="uart_send" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="radio_recv" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.2"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="radio_send" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.3"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="uxas_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.4"/>
+      </featureInstance>
+      <componentInstance name="UART" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0/@ownedPropertyAssociation.4"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="recv_data" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="MissionCommand" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="send_data" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/3"/>
+        </featureInstance>
+        <featureInstance name="AirVehicleState" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#Drivers.UARTDriver.Impl"/>
+      </componentInstance>
+      <componentInstance name="Radio" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1/@ownedPropertyAssociation.4"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/CASE/CASE_Properties.aadl#CASE_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/CASE/CASE_Properties.aadl#/0/@ownedProperty.0/@ownedPropertyType/@ownedLiteral.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Component_Type"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.47/@ownedPropertyType/@ownedLiteral.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="recv_data" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="send_data" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/0"/>
+        </featureInstance>
+        <featureInstance name="alert" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/7"/>
+        </featureInstance>
+        <featureInstance name="AutomationRequest" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.4"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.5"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.1"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/Drivers.aadl#Drivers.RadioDriver.Impl"/>
+      </componentInstance>
+      <componentInstance name="UxAS" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.1"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2/@ownedPropertyAssociation.4"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="AutomationRequest" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UxAS/Waterways_UxAS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/8"/>
+        </featureInstance>
+        <featureInstance name="OperatingRegion" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UxAS/Waterways_UxAS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/9"/>
+        </featureInstance>
+        <featureInstance name="LineSearchTask" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UxAS/Waterways_UxAS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/10"/>
+        </featureInstance>
+        <featureInstance name="AutomationResponse" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UxAS/Waterways_UxAS.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.3"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/11"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.2"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UxAS/Waterways_UxAS.aadl#Waterways_UxAS.Waterways.i"/>
+      </componentInstance>
+      <componentInstance name="WaypointManager" category="thread">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3/@ownedPropertyAssociation.3"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3/@ownedPropertyAssociation.4"/>
+        </ownedPropertyAssociation>
+        <featureInstance name="AutomationResponse" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/11"/>
+        </featureInstance>
+        <featureInstance name="AirVehicleState" category="eventDataPort">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.1"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/6"/>
+        </featureInstance>
+        <featureInstance name="MissionCommand" category="eventDataPort" direction="out">
+          <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.2"/>
+          <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/5"/>
+        </featureInstance>
+        <featureInstance name="ReturnHome" category="eventPort">
+          <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+        </featureInstance>
+        <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedThreadSubcomponent.3"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#SW.WaypointManager.Impl"/>
+      </componentInstance>
+      <connectionInstance name="UART.AirVehicleState -> WaypointManager.AirVehicleState" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.1" source="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.3">
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="Radio.AutomationRequest -> UxAS.AutomationRequest" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.0" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.3">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.5/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.5/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.5"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="Radio.OperatingRegion -> UxAS.OperatingRegion" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.4">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.6/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.6/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.6"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="Radio.LineSearchTask -> UxAS.LineSearchTask" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.2" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.5">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.7/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.7/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.2">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.7"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="UxAS.AutomationResponse -> WaypointManager.AutomationResponse" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.0" source="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.8/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.8/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.0">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.8"/>
+        </connectionReference>
+      </connectionInstance>
+      <connectionInstance name="WaypointManager.MissionCommand -> UART.MissionCommand" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.1" source="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.2">
+        <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.3/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.1">
+          <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.9"/>
+        </connectionReference>
+      </connectionInstance>
+      <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedProcessSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#SW.SW.Impl"/>
+    </componentInstance>
+    <componentInstance name="PROC_HW" category="processor">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/CASE/CASE_Properties.aadl#CASE_Properties.OS"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:StringLiteral" value="Linux"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="MCA" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.MC_Proc.Impl"/>
+    </componentInstance>
+    <connectionInstance name="RADIO_HW_MC.recv_data_out -> SW.Radio.recv_data" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="FC_UART_HW.recv_data_out -> SW.UART.recv_data" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@componentInstance.2/@featureInstance.1">
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="SW.UART.send_data -> FC_UART_HW.send_data_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.2" source="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.2">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.4/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.7"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="SW.Radio.send_data -> RADIO_HW_MC.send_data_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.2" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.1">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Trust_Level"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.Control_Level"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" value="100"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.4/@featureInstance.3" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#MC.MissionComputer.Impl"/>
+  </componentInstance>
+  <componentInstance name="FCTL" category="system">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.6"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.1"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.2"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.3"/>
+    </ownedPropertyAssociation>
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.2"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1/@ownedPropertyAssociation.4"/>
+    </ownedPropertyAssociation>
+    <featureInstance name="UART" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/instances/UAV_UAV_Impl_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <featureInstance name="uart_recv" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="uart_send" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+    </featureInstance>
+    <componentInstance name="GPS" category="device">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.canReceiveSWUpdate"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.componentType"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.2/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.hasSensitiveInfo"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.2"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.insideTrustedBoundary"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:BooleanLiteral" value="true"/>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.3"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#CASE_Consolidated_Properties.pedigree"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/AttackDefenseCollectorDemo/CASE_Consolidated_Properties.aadl#/0/@ownedProperty.5/@ownedPropertyType/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0/@ownedPropertyAssociation.4"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="position" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDeviceSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#FC.GPS_Receiver.Impl"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#FC.FlightController.Impl"/>
+  </componentInstance>
+  <connectionInstance name="radio_recv -> MCMP.RADIO_HW_MC.recv_data_in" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MCMP.RADIO_HW_MC.send_data_out -> radio_send" kind="portConnection" destination="//@featureInstance.2" source="//@componentInstance.1/@componentInstance.1/@featureInstance.3">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.1/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.3" destination="//@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MCMP.FC_UART_HW.send_data_out -> FCTL.uart_recv" complete="true" kind="portConnection" destination="//@componentInstance.2/@featureInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.1/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.5" destination="//@componentInstance.2/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MCMP.FC_UART_HW.send_data_out -> fc_uart_send" kind="portConnection" destination="//@featureInstance.4" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3">
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.1/@featureInstance.5">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.5"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.5" destination="//@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="MCMP.SW.UxAS.AutomationResponse -> sw_uxas_out" kind="portConnection" destination="//@featureInstance.3" source="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3">
+    <connectionReference context="//@componentInstance.1/@componentInstance.4" source="//@componentInstance.1/@componentInstance.4/@componentInstance.2/@featureInstance.3" destination="//@componentInstance.1/@componentInstance.4/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/SW.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.10"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.4/@featureInstance.4" destination="//@componentInstance.1/@featureInstance.6">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.8"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.6" destination="//@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="FCTL.GPS.position -> MCMP.FC_UART_HW.recv_data_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.0" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+    <connectionReference context="//@componentInstance.2" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.2/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/FC.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.2/@featureInstance.2" destination="//@componentInstance.1/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.4" destination="//@componentInstance.1/@componentInstance.2/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/MC.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#UAV.UAV.Impl"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/VERDICT/models/UAV_Demo2AM/UAV/UAV.aadl#UAV.UAV.Impl"/>
+</instance:SystemInstance>

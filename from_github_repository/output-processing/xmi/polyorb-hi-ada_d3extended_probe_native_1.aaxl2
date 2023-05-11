@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="probe_native_Instance" category="system">
+  <componentInstance name="the_bus" category="bus">
+    <subcomponent xsi:type="aadl2:BusSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedBusSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#|::0.5.9.27.45.0::18::/8"/>
+  </componentInstance>
+  <componentInstance name="Eth1" category="device">
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#|::0.5.9.27.47.0::18::/6"/>
+  </componentInstance>
+  <componentInstance name="Eth2" category="device">
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedDeviceSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:AbstractType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#|::0.5.9.27.47.1::18::/6"/>
+  </componentInstance>
+  <componentInstance name="GNC_TMTC_POS" category="process">
+    <featureInstance name="Out_Port" category="eventDataPort" direction="out">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.21/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <componentInstance name="POS_Data" category="data">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Data_Representation"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.8"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="Update" category="subprogramAccess" direction="out">
+        <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSubprogramAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/0"/>
+      </featureInstance>
+      <featureInstance name="Read" category="subprogramAccess" direction="out">
+        <feature xsi:type="aadl2:SubprogramAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSubprogramAccess.1"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/2"/>
+      </featureInstance>
+      <componentInstance name="Field" category="data">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#Data_Model.Data_Representation"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:NamedValue">
+              <namedValue xsi:type="aadl2:EnumerationLiteral" href="/mnt/DATA/00-GSSI/00-WORK/DISCOVERY-ARCH-MODELS/aadl/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:DataType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.POS_Internal_Type"/>
+      </componentInstance>
+      <subcomponent xsi:type="aadl2:DataSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedDataSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DataImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.POS.Impl"/>
+    </componentInstance>
+    <componentInstance name="GNC_Th" category="thread">
+      <featureInstance name="Data_Source" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <featureInstance name="GNC_POS" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.GNC_Thread.Impl"/>
+    </componentInstance>
+    <componentInstance name="TMTC_Th" category="thread">
+      <featureInstance name="TMTC_POS" category="dataAccess">
+        <feature xsi:type="aadl2:DataAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedDataAccess.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/1"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedThreadSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.TMTC_Thread.Impl"/>
+    </componentInstance>
+    <connectionInstance name="POS_Data -> GNC_Th.GNC_POS" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="POS_Data -> TMTC_Th.TMTC_POS" complete="true" kind="accessConnection" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0" source="//@componentInstance.3/@componentInstance.0">
+      <connectionReference context="//@componentInstance.3" source="//@componentInstance.3/@componentInstance.0" destination="//@componentInstance.3/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.22/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.Probe_Proc.Impl"/>
+  </componentInstance>
+  <componentInstance name="GC" category="process">
+    <featureInstance name="In_Port" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedEventDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <componentInstance name="Ground_Th" category="thread">
+      <featureInstance name="Data_Sink" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedEventDataPort.0"/>
+        <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/3"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.24/@ownedThreadSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ThreadImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.Ground_Thread.Impl"/>
+    </componentInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.Ground_Proc.Impl"/>
+  </componentInstance>
+  <componentInstance name="P1" category="processor">
+    <featureInstance name="ETH" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/4"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessorSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.the_processor"/>
+  </componentInstance>
+  <componentInstance name="P2" category="processor">
+    <featureInstance name="ETH" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/instances/probe_probe_native_Instance.aaxl2#/5"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#/0/@ownedPublicSection/@ownedClassifier.27/@ownedProcessorSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessorType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.the_processor"/>
+  </componentInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.probe.native"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/polyorb-hi-ada/examples/aadlv2/d3.1.3-1_extended/probe.aadl#d3extended.probe.native"/>
+</instance:SystemInstance>

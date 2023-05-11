@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="TDD1_i_Instance" category="system">
+  <featureInstance name="ETH1" category="eventPort">
+    <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedEventPort.0"/>
+  </featureInstance>
+  <componentInstance name="user" category="device">
+    <featureInstance name="p_out" category="eventPort" direction="out">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEventPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#modeling_file.user"/>
+  </componentInstance>
+  <componentInstance name="ugbt" category="process">
+    <featureInstance name="p_in" category="eventPort">
+      <feature xsi:type="aadl2:EventPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedEventPort.0"/>
+    </featureInstance>
+    <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedProcessSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:ProcessType" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#modeling_file.UGBT"/>
+  </componentInstance>
+  <flowSpecification name="f1" source="//@featureInstance.0">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <connectionInstance name="ETH1 -> ugbt.p_in" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="user.p_out -> ugbt.p_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#/0/@ownedPublicSection/@ownedClassifier.8/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#modeling_file.TDD1.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/osate2/emv2/org.osate.aadl2.errormodel.faulttree.tests/models/FTATests/modeling_file.aadl#modeling_file.TDD1.i"/>
+</instance:SystemInstance>

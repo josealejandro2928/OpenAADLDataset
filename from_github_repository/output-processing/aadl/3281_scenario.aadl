@@ -1,0 +1,18 @@
+package scenario
+public
+  with Ocarina_Config;
+  with Ocarina_Library;
+
+  system topsystem extends Ocarina_Library::Default_PolyORB_HI_C_Config
+  properties
+    Ocarina_Config::AADL_Files           =>
+      ("latency.aadl");
+
+    Ocarina_Config::Root_System_Name
+          => "topsystem.distributedallperiodicdelayed";
+  end topsystem;
+
+  system implementation topsystem.distributedallperiodicdelayed
+  end topsystem.distributedallperiodicdelayed;
+
+end scenario;

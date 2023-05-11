@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="main_i_Instance" category="system">
+  <featureInstance name="afdx" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/1"/>
+  </featureInstance>
+  <featureInstance name="radio" category="busAccess">
+    <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/2"/>
+  </featureInstance>
+  <featureInstance name="eicas">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/3"/>
+  </featureInstance>
+  <featureInstance name="adsbin">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.1"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <featureInstance name="adsbout" direction="out">
+    <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.2"/>
+    <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+  </featureInstance>
+  <componentInstance name="display" category="device">
+    <featureInstance name="adsbin_external">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="adsbin_internal">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <flowSpecification name="fadsbint" source="//@componentInstance.0/@featureInstance.1">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="fadsbext" source="//@componentInstance.0/@featureInstance.0">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDeviceSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:DeviceImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#savi.afe62s2.adsb.display.i"/>
+  </componentInstance>
+  <componentInstance name="processing" category="system">
+    <featureInstance name="afdx" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/1"/>
+    </featureInstance>
+    <featureInstance name="radio" category="busAccess">
+      <feature xsi:type="aadl2:BusAccess" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/2"/>
+    </featureInstance>
+    <featureInstance name="eicas">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/3"/>
+    </featureInstance>
+    <featureInstance name="adsbin">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.1"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <featureInstance name="adsbout" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.2"/>
+      <type href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/instances/adsb_main_i_Instance.aaxl2#/0"/>
+    </featureInstance>
+    <flowSpecification name="feicas0" source="//@componentInstance.1/@featureInstance.2" destination="//@componentInstance.1/@featureInstance.4">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="fadsbout_flow" destination="//@componentInstance.1/@featureInstance.4">
+      <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#savi.afe62s2.adsb.processing.i"/>
+  </componentInstance>
+  <flowSpecification name="feicas0" source="//@featureInstance.2" destination="//@featureInstance.4">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0"/>
+  </flowSpecification>
+  <flowSpecification name="adsbin_flow" source="//@featureInstance.3">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.1"/>
+  </flowSpecification>
+  <flowSpecification name="adsbout_flow" destination="//@featureInstance.4">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.2"/>
+  </flowSpecification>
+  <flowSpecification name="feicas1" source="//@featureInstance.3" destination="//@featureInstance.4">
+    <flowSpecification href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.3"/>
+  </flowSpecification>
+  <endToEndFlow name="internal_adsb" flowElement="//@componentInstance.1/@flowSpecification.1 //@connectionInstance.8 //@componentInstance.0/@flowSpecification.0">
+    <endToEndFlow href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedEndToEndFlow.0"/>
+  </endToEndFlow>
+  <connectionInstance name="afdx -> processing.afdx" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.0" source="//@featureInstance.0">
+    <connectionReference context="/" source="//@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="radio -> processing.radio" kind="accessConnection" destination="//@componentInstance.1/@featureInstance.1" source="//@featureInstance.1">
+    <connectionReference context="/" source="//@featureInstance.1" destination="//@componentInstance.1/@featureInstance.1">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="eicas -> processing.eicas" kind="portConnection" destination="//@componentInstance.1/@featureInstance.2" source="//@featureInstance.2">
+    <connectionReference context="/" source="//@featureInstance.2" destination="//@componentInstance.1/@featureInstance.2">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.4"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="adsbin -> processing.adsbin" kind="portConnection" destination="//@componentInstance.1/@featureInstance.3" source="//@featureInstance.3">
+    <connectionReference context="/" source="//@featureInstance.3" destination="//@componentInstance.1/@featureInstance.3">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="adsbin -> display.adsbin_external" kind="portConnection" destination="//@componentInstance.0/@featureInstance.0" source="//@featureInstance.3">
+    <connectionReference context="/" source="//@featureInstance.3" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.afdx -> afdx" kind="accessConnection" destination="//@featureInstance.0" source="//@componentInstance.1/@featureInstance.0">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.0" destination="//@featureInstance.0" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedAccessConnection.0"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.radio -> radio" kind="accessConnection" destination="//@featureInstance.1" source="//@componentInstance.1/@featureInstance.1">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.1" destination="//@featureInstance.1" reverse="true">
+      <connection xsi:type="aadl2:AccessConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedAccessConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.adsbout -> adsbout" kind="portConnection" destination="//@featureInstance.4" source="//@componentInstance.1/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.4" destination="//@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.2"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="processing.adsbout -> display.adsbin_internal" complete="true" kind="portConnection" destination="//@componentInstance.0/@featureInstance.1" source="//@componentInstance.1/@featureInstance.4">
+    <connectionReference context="/" source="//@componentInstance.1/@featureInstance.4" destination="//@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedPortConnection.3"/>
+    </connectionReference>
+  </connectionInstance>
+  <classifier xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#savi.afe62s2.adsb.main.i"/>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="/mnt/DATA/00-GSSI/00-WORK/EXAMPLE_ROOT_DIRECTORY_MODELS/jalejandroc2928@gmail.com/github/AASPE/edu.cmu.aaspe.examples/SAVI/adsb.aadl#savi.afe62s2.adsb.main.i"/>
+</instance:SystemInstance>
